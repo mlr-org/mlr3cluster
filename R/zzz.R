@@ -9,7 +9,7 @@
 register_mlr3 = function() {
   x = utils::getFromNamespace("mlr_reflections", ns = "mlr3")
 
-  if (length(x$task_types["clust", on = "type", which = TRUE, nomatch = 0L]) == 0L) {
+  if (length(x$task_types[.("clust"), on = "type", which = TRUE, nomatch = NULL]) == 0L) {
     x$task_types = setkeyv(rbind(x$task_types, rowwise_table(
           ~type,   ~package,      ~task,       ~learner,       ~prediction,       ~measure,
           "clust", "mlr3cluster", "TaskClust", "LearnerClust", "PredictionClust", "MeasureClust"
