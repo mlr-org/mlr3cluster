@@ -23,6 +23,6 @@
 #' @family cluster measures
 #'
 #' @seealso
-#' [Dictionary][mlr3misc::Dictionary] of [Measures][mlr3::Measure]: [mrl3::mlr_measures]
+#' [Dictionary][mlr3misc::Dictionary] of [Measures][mlr3::Measure]: [mlr3::mlr_measures]
 #'
 #' `as.data.table(mlr_measures)` for a complete table of all (also dynamically created) [mlr3::Measure] implementations.

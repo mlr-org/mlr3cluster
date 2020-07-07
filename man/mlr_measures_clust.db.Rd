@@ -3,9 +3,11 @@
 \name{mlr_measures_clust.db}
 \alias{mlr_measures_clust.db}
 \title{Davies-Bouldin Cluster Separation Measure}
-\format{\code{\link[R6:R6Class]{R6::R6Class()}} inheriting from \link{MeasureClust}.}
+\format{
+\code{\link[R6:R6Class]{R6::R6Class()}} inheriting from \link{MeasureClust}.
+}
 \description{
-The score function calls \code{\link[clustCrit:intCriteria]{clustCrit::intCriteria()}} from package \CRANpkg{clustCrit}.
+The score function calls \code{\link[clusterCrit:intCriteria]{clusterCrit::intCriteria()}} from package \CRANpkg{clustCrit}.
 Argument \code{crit} is set to "Davies_Bouldin".
 }
 \section{Construction}{
@@ -25,7 +27,7 @@ msr("clust.db")
 }
 
 \seealso{
-\link[mlr3misc:Dictionary]{Dictionary} of \link[mlr3:Measure]{Measures}: \link[mrl3:mlr_measures]{mrl3::mlr_measures}
+\link[mlr3misc:Dictionary]{Dictionary} of \link[mlr3:Measure]{Measures}: \link[mlr3:mlr_measures]{mlr3::mlr_measures}
 
 \code{as.data.table(mlr_measures)} for a complete table of all (also dynamically created) \link[mlr3:Measure]{mlr3::Measure} implementations.
 

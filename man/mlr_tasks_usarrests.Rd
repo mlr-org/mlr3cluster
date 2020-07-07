@@ -3,7 +3,9 @@
 \name{mlr_tasks_usarrests}
 \alias{mlr_tasks_usarrests}
 \title{US Arrests Cluster Task}
-\format{\link[R6:R6Class]{R6::R6Class} inheriting from \link{TaskClust}.}
+\format{
+\link[R6:R6Class]{R6::R6Class} inheriting from \link{TaskClust}.
+}
 \description{
 A cluster task for the \link[datasets:USArrests]{datasets::USArrests} data set.
 }

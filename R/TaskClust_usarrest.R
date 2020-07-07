@@ -16,7 +16,6 @@ NULL
 load_task_usarrests = function(id = "usarrests") {
   b = as_data_backend(load_dataset("USArrests", "datasets"))
   task = TaskClust$new(id, b)
-  b$hash = task$man = "mlr3::mlr_tasks_usarrests"
+  b$hash = task$man = "mlr3cluster::mlr_tasks_usarrests"
   task
 }
-

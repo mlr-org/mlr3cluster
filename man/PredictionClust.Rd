@@ -3,30 +3,92 @@
 \name{PredictionClust}
 \alias{PredictionClust}
 \title{Prediction Object for Cluster Analysis}
-\format{\link[R6:R6Class]{R6::R6Class} object inheriting from \link[mlr3:Prediction]{mlr3::Prediction}.}
 \description{
-This object stores the predictions returned by a learner of class \link{LearnerClust}.
-
-The \code{task_type} is set to \code{"clust"}.
+This object wraps the predictions returned by a learner of class \link{LearnerClust}, i.e.
+the predicted partition and cluster probability.
 }
-\section{Construction}{
-\preformatted{PredictionClust$new(task = NULL, row_ids = task$row_ids, partition = NULL, prob = NULL)
-}
-\itemize{
-\item \code{task} :: \link{TaskClust}\cr
-Task, used to extract defaults for \code{row_ids}.
-\item \code{row_ids} :: (\code{integer()} | \code{character()})\cr
-Row ids of the task. Per default, these are extracted from the \code{task}.
-\item \code{partition} :: \code{integer()}\cr
-Vector of partition ids as integer values.
-}
-}
-
-\section{Fields}{
-
-See \link[mlr3:Prediction]{mlr3::Prediction}.
-
-The field \code{task_type} is set to \code{"clust"}.
-}
-
 \concept{Prediction}
+\section{Super class}{
+\code{\link[mlr3:Prediction]{mlr3::Prediction}} -> \code{PredictionClust}
+}
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{partition}}{(\code{integer()})\cr
+Access the stored partition.}
+
+\item{\code{prob}}{(\code{matrix()})\cr
+Access to the stored probabilities.}
+
+\item{\code{missing}}{(\code{integer()})\cr
+Returns \code{row_ids} for which the predictions are missing or incomplete.}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{PredictionClust$new()}}
+\item \href{#method-clone}{\code{PredictionClust$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="format">}\href{../../mlr3/html/Prediction.html#method-format}{\code{mlr3::Prediction$format()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="help">}\href{../../mlr3/html/Prediction.html#method-help}{\code{mlr3::Prediction$help()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="print">}\href{../../mlr3/html/Prediction.html#method-print}{\code{mlr3::Prediction$print()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="score">}\href{../../mlr3/html/Prediction.html#method-score}{\code{mlr3::Prediction$score()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Creates a new instance of this \link[R6:R6Class]{R6} class.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PredictionClust$new(
+  task = NULL,
+  row_ids = task$row_ids,
+  partition = NULL,
+  prob = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{task}}{(\link{TaskClust})\cr
+Task, used to extract defaults for \code{row_ids}.}
+
+\item{\code{row_ids}}{(\code{integer()})\cr
+Row ids of the predicted observations, i.e. the row ids of the test set.}
+
+\item{\code{partition}}{(\code{integer()})\cr
+Vector of cluster partitions.}
+
+\item{\code{prob}}{(\code{matrix()})\cr
+TBD.}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{PredictionClust$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

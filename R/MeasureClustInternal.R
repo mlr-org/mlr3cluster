@@ -14,13 +14,15 @@ MeasureClustInternal = R6Class("MeasureClustInternal",
         predict_type = info$predict_type,
         packages = "clusterCrit",
         properties = "requires_task",
-        man = paste0("mlr3::mlr_measures_clust.", name)
+        man = paste0("mlr3cluster::mlr_measures_clust.", name)
       )
       self$crit = info$crit
 
-    },
+    }
+  ),
 
-    score_internal = function(prediction, task, ...) {
+  private = list(
+    .score = function(prediction, task, ...) {
       X = as.matrix(task$data(rows = prediction$row_ids))
       clusterCrit::intCriteria(X, prediction$partition, self$crit)[[1L]]
     }

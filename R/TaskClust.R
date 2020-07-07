@@ -1,36 +1,20 @@
 #' @title Cluster Task
 #'
-#' @usage NULL
-#' @format [R6::R6Class] object inheriting from [Task]/.
-#'
 #' @description
 #' This task specializes [mlr3::Task] for cluster problems.
 #' As an unsupervised task, this task has no target column.
-#' Predefined tasks are stored in [mlr3::mlr_tasks].
-#'
 #' The `task_type` is set to `"clust"`.
 #'
-#' @section Construction:
-#' ```
-#' TaskSurv$new(id, backend)
-#' ```
+#' Predefined tasks are stored in the [dictionary][mlr3misc::Dictionary] [mlr_tasks].
 #'
-#' * `id` :: `character(1)`\cr
-#'   Name of the task.
-#'
-#' * `backend` :: [DataBackend]
-#'
-#'
-#' @section Fields:
-#' See [mlr3::Task].
-#'
-#' @section Methods:
-#' See [mlr3::Task].
-#'
+#' @template param_id
+#' @template param_backend
 #' @family Task
 #' @export
-TaskClust = R6Class("TaskClust", inherit = mlr3::Task,
+TaskClust = R6Class("TaskClust", inherit = Task,
   public = list(
+    #' @description
+    #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function(id, backend) {
       super$initialize(id = id, task_type = "clust", backend = backend)
     }

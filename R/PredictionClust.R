@@ -1,36 +1,27 @@
 #' @title Prediction Object for Cluster Analysis
 #'
-#' @usage NULL
-#' @format [R6::R6Class] object inheriting from [mlr3::Prediction].
-#'
 #' @description
-#' This object stores the predictions returned by a learner of class [LearnerClust].
-#'
-#' The `task_type` is set to `"clust"`.
-#'
-#' @section Construction:
-#' ```
-#' PredictionClust$new(task = NULL, row_ids = task$row_ids, partition = NULL, prob = NULL)
-#' ```
-#'
-#' * `task` :: [TaskClust]\cr
-#'   Task, used to extract defaults for `row_ids`.
-#'
-#' * `row_ids` :: (`integer()` | `character()`)\cr
-#'   Row ids of the task. Per default, these are extracted from the `task`.
-#'
-#' * `partition` :: `integer()`\cr
-#'   Vector of partition ids as integer values.
-#'
-#' @section Fields:
-#' See [mlr3::Prediction].
-#'
-#' The field `task_type` is set to `"clust"`.
+#' This object wraps the predictions returned by a learner of class [LearnerClust], i.e.
+#' the predicted partition and cluster probability.
 #'
 #' @family Prediction
 #' @export
 PredictionClust = R6Class("PredictionClust", inherit = Prediction,
   public = list(
+    #' @description
+    #' Creates a new instance of this [R6][R6::R6Class] class.
+    #'
+    #' @param task ([TaskClust])\cr
+    #'   Task, used to extract defaults for `row_ids`.
+    #'
+    #' @param row_ids (`integer()`)\cr
+    #'   Row ids of the predicted observations, i.e. the row ids of the test set.
+    #'
+    #' @param partition (`integer()`)\cr
+    #'   Vector of cluster partitions.
+    #'
+    #' @param prob (`matrix()`)\cr
+    #'   TBD.
     initialize = function(task = NULL, row_ids = task$row_ids, partition = NULL, prob = NULL) {
       assert_row_ids(row_ids)
       n = length(row_ids)
@@ -49,14 +40,20 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
   ),
 
   active = list(
+    #' @field partition (`integer()`)\cr
+    #' Access the stored partition.
     partition = function() {
       self$data$tab$partition %??% rep(NA_real_, length(self$data$row_ids))
     },
 
+    #' @field prob (`matrix()`)\cr
+    #' Access to the stored probabilities.
     prob = function() {
       self$data$tab$prob
     },
 
+    #' @field missing (`integer()`)\cr
+    #' Returns `row_ids` for which the predictions are missing or incomplete.
     missing = function() {
       miss = logical(nrow(self$data$tab))
 
