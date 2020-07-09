@@ -19,7 +19,10 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
         id = "clust.kmeans",
         param_set = ParamSet$new(
           params = list(
-            ParamInt$new(id = "centers", lower = 1L, tags = c("required", "train"))
+            ParamInt$new(id = "centers", lower = 1L, tags = c("required", "train")),
+            ParamInt$new(id = "iter.max", lower = 1L, default = 10L, tags = c("train")),
+            ParamFct$new(id = "algorithm", levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"),
+                         default = "Hartigan-Wong", tags = c("train"))
           )
         ),
         predict_types = "partition",
