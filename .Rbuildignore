@@ -7,3 +7,10 @@
 ^\.travis\.yml$
 ^\.lintr$
 ^\.vscode$
+^\.pre-commit-config\.yaml$
+^\.ccache$
+^\.github$
+^tic\.R$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

@@ -18,9 +18,9 @@ Imports:
     backports,
     checkmate,
     data.table,
-    paradox,
     mlr3 (>= 0.1.6),
     mlr3misc,
+    paradox,
     R6
 Suggests:
     clue,
