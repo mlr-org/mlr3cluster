@@ -4,3 +4,6 @@
 ^man-roxygen$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.travis\.yml$
+^\.lintr$
+^\.vscode$
