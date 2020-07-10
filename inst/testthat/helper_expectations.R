@@ -237,19 +237,6 @@ expect_task = function(task) {
   checkmate::expect_data_table(data, nrows  = 0L)
 }
 
-expect_task_supervised = function(task) {
-  checkmate::expect_r6(task, "TaskSupervised", cloneable = TRUE)
-  checkmate::expect_subset(task$target_names, task$col_info$id, empty.ok = FALSE)
-
-  f = task$formula()
-  checkmate::expect_class(f, "formula")
-  # tf = terms(f)
-  # checkmate::expect_set_equal(labels(tf), task$feature_names) # rhs
-  # checkmate::expect_set_equal(setdiff(all.vars(tf), labels(tf)), task$target_names) # lhs
-  checkmate::expect_subset(task$feature_names, colnames(task$head()))
-  expect_hash(task$hash, 1L)
-}
-
 # need to come with a set of tests
 expect_task_clust = function(task) {
   checkmate::expect_r6(task, "TaskClust")
