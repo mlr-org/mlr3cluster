@@ -20,7 +20,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
         param_set = ParamSet$new(
           params = list(
             ParamUty$new(id = "centers", tags = c("required", "train"), custom_check = function(x) {
-              if(is.data.frame(x) || is.integer(x)) {
+              if(test_data_frame(x) || test_int(x)) {
                 return(TRUE)
               } else {
                 return("centers must be either integer or data.frame!")
