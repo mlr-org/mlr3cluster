@@ -23,7 +23,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
               if(is.data.frame(x) || is.integer(x)) {
                 return(TRUE)
               } else {
-                return(FALSE)
+                return("centers must be either integer or data.frame!")
               }
             }),
             ParamInt$new(id = "iter.max", lower = 1L, default = 10L, tags = c("train")),
