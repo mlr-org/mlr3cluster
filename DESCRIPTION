@@ -19,17 +19,20 @@ BugReports: https://github.com/mlr-org/mlr3cluster/issues
 Depends:
     R (>= 3.1.0)
 Imports:
-    backports,
+    backports,  
     checkmate,
     data.table,
     mlr3 (>= 0.1.6),
     mlr3misc,
     paradox,
     R6,
-    clusterCrit
+    clusterCrit,
+    future.apply (>= 1.5.0)
 Suggests:
     clue,
-    testthat
+    testthat,
+    future,
+    future.callr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.1.1
