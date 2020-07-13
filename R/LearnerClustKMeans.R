@@ -19,7 +19,16 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
         id = "clust.kmeans",
         param_set = ParamSet$new(
           params = list(
-            ParamInt$new(id = "centers", lower = 1L, tags = c("required", "train"))
+            ParamUty$new(id = "centers", tags = c("required", "train"), custom_check = function(x) {
+              if(test_data_frame(x) || test_int(x)) {
+                return(TRUE)
+              } else {
+                return("centers must be either integer or data.frame!")
+              }
+            }),
+            ParamInt$new(id = "iter.max", lower = 1L, default = 10L, tags = c("train")),
+            ParamFct$new(id = "algorithm", levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"),
+                         default = "Hartigan-Wong", tags = c("train"))
           )
         ),
         predict_types = "partition",
