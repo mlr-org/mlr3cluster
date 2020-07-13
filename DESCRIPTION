@@ -26,13 +26,10 @@ Imports:
     mlr3misc,
     paradox,
     R6,
-    clusterCrit,
-    future.apply (>= 1.5.0)
+    clusterCrit
 Suggests:
     clue,
-    testthat,
-    future,
-    future.callr
+    testthat
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.1.1

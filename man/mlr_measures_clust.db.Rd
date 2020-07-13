@@ -8,7 +8,7 @@
 }
 \description{
 The score function calls \code{\link[clusterCrit:intCriteria]{clusterCrit::intCriteria()}} from package \CRANpkg{clustCrit}.
-Argument \code{crit} is set to "".
+Argument \code{crit} is set to "Davies_Bouldin".
 }
 \section{Construction}{
 
@@ -20,7 +20,20 @@ msr("clust.db")
 \section{Meta Information}{
 
 \itemize{
-\item Range:
+\item Range: \eqn{[0, \infty)}{[0, Inf)}
+\item Minimize: \code{TRUE}
+\item Required predict type: \code{partition}
 }
 }
 
+\seealso{
+\link[mlr3misc:Dictionary]{Dictionary} of \link[mlr3:Measure]{Measures}: \link[mlr3:mlr_measures]{mlr3::mlr_measures}
+
+\code{as.data.table(mlr_measures)} for a complete table of all (also dynamically created) \link[mlr3:Measure]{mlr3::Measure} implementations.
+
+Other cluster measures: 
+\code{\link{mlr_measures_clust.ch}},
+\code{\link{mlr_measures_clust.dunn}},
+\code{\link{mlr_measures_clust.silhouette}}
+}
+\concept{cluster measures}
