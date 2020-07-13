@@ -26,7 +26,8 @@ Imports:
     mlr3misc,
     paradox,
     R6,
-    clusterCrit
+    clusterCrit,
+    future.apply (>= 1.5.0)
 Suggests:
     clue,
     testthat
