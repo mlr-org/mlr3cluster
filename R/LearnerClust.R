@@ -32,8 +32,11 @@ LearnerClust = R6Class("LearnerClust", inherit = Learner,
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
-    initialize = function(id, param_set = ParamSet$new(), predict_types = "partition", feature_types = character(), properties = character(), packages = character()) {
-      super$initialize(id = id, task_type = "clust", param_set = param_set, predict_types = predict_types,
+    initialize = function(id, param_set = ParamSet$new(), predict_types = "partition",
+                          feature_types = character(), properties = character(),
+                          packages = character()) {
+      super$initialize(id = id, task_type = "clust", param_set = param_set,
+                       predict_types = predict_types,
         feature_types = feature_types, properties = properties, packages = packages)
     }
   )
