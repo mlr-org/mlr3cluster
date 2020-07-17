@@ -34,7 +34,11 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless", inherit = LearnerCl
    .train = function(task) {
      pv = self$param_set$get_values(tags = "train")
      x = task$data()
-     assert(nrow(x) > pv$num.clusters)
+     if(pv$num.clusters >= nrow(x)) {
+        stop("number of cluster centres must lie between 1 and nrow(data)",
+             call.=FALSE)
+     }
+
      times = c(rep.int(nrow(x) / pv$num.clusters, pv$num.clusters- 1),
                nrow(x) - (pv$num.clusters - 1) * floor(nrow(x) / pv$num.clusters))
 
