@@ -22,7 +22,7 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless", inherit = LearnerCl
        id = "clust.featureless",
        param_set = ParamSet$new(
          params = list(
-           ParamInt$new(id = "num.clusters", lower = 1L, default = 1L, tags = c("train"))
+           ParamInt$new(id = "num.clusters", lower = 1L, tags = c("required", "train"))
          )
        ),
        predict_types = "partition",
