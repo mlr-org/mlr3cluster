@@ -35,6 +35,7 @@ Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.1.1
 Collate:
     'LearnerClust.R'
+    'LearnerClustFeatureless.R'
     'LearnerClustKMeans.R'
     'MeasureClust.R'
     'measures.R'
