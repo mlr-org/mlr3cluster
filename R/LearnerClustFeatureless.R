@@ -11,7 +11,6 @@
 #' @templateVar id clust.featureless
 #' @template section_dictionary_learner
 #'
-#' @template seealso_learner
 #' @export
 LearnerClustFeatureless = R6Class("LearnerClustFeatureless", inherit = LearnerClust,
   public = list(
