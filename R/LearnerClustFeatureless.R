@@ -33,22 +33,35 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless", inherit = LearnerCl
   private = list(
    .train = function(task) {
      pv = self$param_set$get_values(tags = "train")
-     x = task$data()
-     if (pv$num.clusters >= nrow(x)) {
+     n = task$nrow
+     if (pv$num.clusters > n) {
         stop("number of clusters must lie between 1 and nrow(data)",
              call. = FALSE)
+     } else if(pv$num.clusters == n) {
+       clustering = seq_along(1:n)
+     } else {
+       times = c(rep.int(n / pv$num.clusters, pv$num.clusters - 1),
+                 n - (pv$num.clusters - 1) * floor(n / pv$num.clusters))
+
+       clustering = rep.int(seq_along(1:pv$num.clusters),
+                            times = times)
      }
 
-     times = c(rep.int(nrow(x) / pv$num.clusters, pv$num.clusters - 1),
-               nrow(x) - (pv$num.clusters - 1) * floor(nrow(x) / pv$num.clusters))
-
-     clustering = rep.int(seq_along(1:pv$num.clusters),
-        times = times)
      list(clustering = clustering)
    },
 
    .predict = function(task) {
-     partition = self$model$clustering
+     n = task$nrow
+     pv = self$param_set$get_values(tags = "train")
+     if (n <= pv$num.clusters) {
+        partition = seq_along(1:n)
+     } else {
+        times = c(rep.int(n / pv$num.clusters, pv$num.clusters - 1),
+                  n - (pv$num.clusters - 1) * floor(n / pv$num.clusters))
+
+        partition = rep.int(seq_along(1:pv$num.clusters),
+                             times = times)
+     }
      PredictionClust$new(task = task, partition = partition)
    }
   )
