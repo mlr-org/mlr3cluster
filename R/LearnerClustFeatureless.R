@@ -17,13 +17,15 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless", inherit = LearnerCl
    #' @description
    #' Creates a new instance of this [R6][R6::R6Class] class.
    initialize = function() {
+     ps = ParamSet$new(
+       params = list(
+         ParamInt$new(id = "num.clusters", lower = 1L, default = 1L, tags = c("required", "train"))
+     ))
+     ps$values = list(num.clusters = 1L)
+
      super$initialize(
        id = "clust.featureless",
-       param_set = ParamSet$new(
-         params = list(
-           ParamInt$new(id = "num.clusters", lower = 1L, tags = c("required", "train"))
-         )
-       ),
+       param_set = ps,
        predict_types = "partition",
        feature_types = c("logical", "integer", "numeric")
      )
