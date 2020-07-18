@@ -17,7 +17,7 @@ test_that("0 feature task", {
   expect_task_clust(task)
   expect_data_table(task$data(), ncols = 1L)
 
-  lrn = LearnerClustFeatureless$new()
+  lrn = lrn("clust.featureless")
   lrn$param_set$values = list(num.clusters = 3L)
   p = lrn$train(task)$predict(task)
   expect_prediction(p)
