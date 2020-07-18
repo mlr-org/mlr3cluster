@@ -6,3 +6,12 @@ test_that("Construction", {
   expect_prediction(p)
   expect_prediction_clust(p)
 })
+
+test_that("Internally constructed Prediction", {
+  task = tsk("usarrests")
+  lrn = LearnerClustFeatureless$new()
+  lrn$param_set$values = list(num.clusters = 1L)
+  p = lrn$train(task)$predict(task)
+  expect_prediction(p)
+  expect_prediction_clust(p)
+})

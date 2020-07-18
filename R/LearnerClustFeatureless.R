@@ -37,7 +37,7 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless", inherit = LearnerCl
      if (pv$num.clusters > n) {
         stop("number of clusters must lie between 1 and nrow(data)",
              call. = FALSE)
-     } else if(pv$num.clusters == n) {
+     } else if (pv$num.clusters == n) {
        clustering = seq_along(1:n)
      } else {
        times = c(rep.int(n / pv$num.clusters, pv$num.clusters - 1),
