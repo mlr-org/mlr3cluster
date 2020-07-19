@@ -16,7 +16,8 @@ register_mlr3 = function() {
     )), "type")
     x$task_col_roles$clust        = x$task_col_roles$regr
     x$task_properties$clust       = x$task_properties$regr
-    x$learner_properties$clust    = x$learner_properties$regr
+    x$learner_properties$clust    = c("missings", "partitional", "hierarchical", "exclusive",
+                                      "overlapping", "fuzzy", "complete", "partial")
     x$measure_properties$clust    = x$measure_properties$regr
     x$learner_predict_types$clust = list(partition = "partition", prob = c("partition", "prob"))
     x$default_measures$clust      = "clust.dunn"

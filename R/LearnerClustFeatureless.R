@@ -25,9 +25,10 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless", inherit = LearnerCl
 
      super$initialize(
        id = "clust.featureless",
-       param_set = ps,
+       feature_types = c("logical", "integer", "numeric"),
        predict_types = "partition",
-       feature_types = c("logical", "integer", "numeric")
+       param_set = ps,
+       properties = c("partitional", "exclusive", "complete", "missings")
      )
    }
   ),
@@ -48,8 +49,7 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless", inherit = LearnerCl
        clustering = rep.int(seq_along(1:pv$num.clusters),
                             times = times)
      }
-
-     list(clustering = clustering)
+     set_class(list(clustering = clustering, features = task$feature_names), "clust.featureless_model")
    },
 
    .predict = function(task) {
