@@ -29,6 +29,7 @@ Imports:
     paradox,
     R6
 Suggests:
+    mlbench,
     testthat
 Remotes:
     mlr-org/mlr3
