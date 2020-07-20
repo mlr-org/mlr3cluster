@@ -4,12 +4,14 @@
 #' @import mlr3
 #' @import checkmate
 #' @importFrom R6 R6Class
+#' @importFrom clue cl_predict
+#' @importFrom clusterCrit intCriteria
 "_PACKAGE"
 
 register_mlr3 = function() {
   x = utils::getFromNamespace("mlr_reflections", ns = "mlr3")
 
-  if (length(x$task_types[.("clust"), on = "type", which = TRUE, nomatch = NULL]) == 0L) {
+  if (length(x$task_types[list("clust"), on = "type", which = TRUE, nomatch = NULL]) == 0L) {
     x$task_types = setkeyv(rbind(x$task_types, rowwise_table(
           ~type,   ~package,      ~task,       ~learner,       ~prediction,       ~measure,
           "clust", "mlr3cluster", "TaskClust", "LearnerClust", "PredictionClust", "MeasureClust"
@@ -27,8 +29,9 @@ register_mlr3 = function() {
   x$add("usarrests", load_task_usarrests)
 
   x = utils::getFromNamespace("mlr_learners", ns = "mlr3")
-  x$add("clust.kmeans", LearnerClustKMeans)
   x$add("clust.featureless", LearnerClustFeatureless)
+  x$add("clust.kmeans", LearnerClustKMeans)
+  x$add("clust.pam", LearnerClustPAM)
 
   x = utils::getFromNamespace("mlr_measures", ns = "mlr3")
   x$add("clust.db", MeasureClustInternal, name = "db")

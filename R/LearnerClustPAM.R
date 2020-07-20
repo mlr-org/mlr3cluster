@@ -5,6 +5,8 @@
 #'
 #' @description
 #' A [LearnerClust] for PAM clustering implemented in [cluster::pam()].
+#' The default number of clusters has been initialized to 2.
+#' Predictions are generated using [clue::cl_predict()].
 #'
 #' @templateVar id clust.pam
 #' @template section_dictionary_learner
@@ -15,14 +17,17 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
+      ps = ParamSet$new(
+        params = list(
+          ParamInt$new("k", lower = 1L, default = 2L, tags = c("required", "train")),
+          ParamFct$new("metric", levels = c("euclidian", "manhattan"), tags = "train")
+        )
+      )
+      ps$values = list(k = 2L)
+
       super$initialize(
         id = "clust.pam",
-        param_set = ParamSet$new(
-          params = list(
-            ParamInt$new("k", lower = 1L, tags = c("required", "train")),
-            ParamFct$new("metric", levels = c("euclidian", "manhattan"), tags = "train")
-          )
-        ),
+        param_set = ps,
         predict_types = "partition",
         feature_types = c("logical", "integer", "numeric"),
         packages = "cluster"
@@ -37,7 +42,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
     },
 
     .predict = function(task) {
-      partition = unclass(clue::cl_predict(self$model, newdata = task$data(), type = "class_ids"))
+      partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))
       PredictionClust$new(task = task, partition = partition)
     }
   )

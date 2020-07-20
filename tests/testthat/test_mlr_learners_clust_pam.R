@@ -1,9 +1,9 @@
-context("classif.glmnet")
+context("clust.pam")
 
 skip_if_not_installed("clue")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.kmeans")
+  learner = mlr3::lrn("clust.pam")
   expect_learner(learner)
 
   result = run_autotest(learner)

@@ -6,6 +6,8 @@
 \title{Partitioning Around Medoids Cluster Learner}
 \description{
 A \link{LearnerClust} for PAM clustering implemented in \code{\link[cluster:pam]{cluster::pam()}}.
+The default number of clusters has been initialized to 2.
+Predictions are generated using \code{\link[clue:cl_predict]{clue::cl_predict()}}.
 }
 \section{Dictionary}{
 

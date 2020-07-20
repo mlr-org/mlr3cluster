@@ -26,7 +26,7 @@ MeasureClustInternal = R6Class("MeasureClustInternal",
       X = as.matrix(task$data(rows = prediction$row_ids))
       if (!is.double(X)) # clusterCrit does not convert lgls/ints
         storage.mode(X) = "double"
-      clusterCrit::intCriteria(X, prediction$partition, self$crit)[[1L]]
+      intCriteria(X, prediction$partition, self$crit)[[1L]]
     }
   )
 )

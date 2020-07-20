@@ -5,6 +5,8 @@
 #'
 #' @description
 #' A [LearnerClust] for k-means clustering implemented in [stats::kmeans()].
+#' The default number of clusters has been initialized to 2.
+#' Predictions are generated using [clue::cl_predict()].
 #'
 #' @templateVar id clust.kmeans
 #' @template section_dictionary_learner
@@ -51,7 +53,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
     },
 
     .predict = function(task) {
-      partition = unclass(clue::cl_predict(self$model, newdata = task$data(), type = "class_ids"))
+      partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))
       PredictionClust$new(task = task, partition = partition)
     }
   )

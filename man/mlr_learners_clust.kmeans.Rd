@@ -6,6 +6,8 @@
 \title{KMeans Cluster Learner}
 \description{
 A \link{LearnerClust} for k-means clustering implemented in \code{\link[stats:kmeans]{stats::kmeans()}}.
+The default number of clusters has been initialized to 2.
+Predictions are generated using \code{\link[clue:cl_predict]{clue::cl_predict()}}.
 }
 \section{Dictionary}{
 
