@@ -17,7 +17,8 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamUty$new(id = "centers", tags = c("required", "train"), custom_check = function(x) {
+          ParamUty$new(id = "centers", tags = c("required", "train"), default = 2L,
+            custom_check = function(x) {
             if (test_data_frame(x) || test_int(x)) {
               return(TRUE)
             } else {
@@ -30,13 +31,14 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
                        default = "Hartigan-Wong", tags = c("train"))
         )
       )
+      ps$values = list(centers = 2L)
 
       super$initialize(
         id = "clust.kmeans",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
         param_set = ps,
-        properties = c("partitional", "exclusive", "complete", "missings"),
+        properties = c("partitional", "exclusive", "complete"),
         packages = c("stats", "clue")
       )
     }

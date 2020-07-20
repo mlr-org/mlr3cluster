@@ -15,7 +15,7 @@
 #'
 #' @section Meta Information:
 #' <% item = measures[[id]] %>
-#' * Range: <%= format_range(item) %>
+#' * Range: <%= rd_format_range(item$lower, item$upper) %>
 #' * Minimize: `<%= item$minimize %>`
 #' * Required predict type: `<%= item$predict_type %>`
 #'

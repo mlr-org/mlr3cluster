@@ -23,13 +23,15 @@ Imports:
     checkmate,
     clusterCrit,
     data.table,
-    mlr3 (>= 0.1.6),
-    mlr3misc,
+    mlr3 (>= 0.4.0-9000),
+    mlr3misc (>= 0.4.0),
     paradox,
     R6
 Suggests:
     clue,
     testthat
+Remotes:
+    mlr-org/mlr3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.1.1
@@ -43,5 +45,4 @@ Collate:
     'PredictionClust.R'
     'TaskClust.R'
     'TaskClust_usarrest.R'
-    'helper.R'
     'zzz.R'
