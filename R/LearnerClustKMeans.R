@@ -21,8 +21,10 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
         params = list(
           ParamUty$new(id = "centers", tags = c("required", "train"), default = 2L,
             custom_check = function(x) {
-            if (test_data_frame(x) || test_int(x)) {
+            if (test_data_frame(x)) {
               return(TRUE)
+            } else if (test_int(x)) {
+              assert_true(x >= 1L)
             } else {
               return("centers must be either integer or data.frame!")
             }
@@ -30,10 +32,11 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
           ParamInt$new(id = "iter.max", lower = 1L, default = 10L, tags = c("train")),
           ParamFct$new(id = "algorithm",
                        levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"),
-                       default = "Hartigan-Wong", tags = c("train"))
+                       default = "Hartigan-Wong", tags = c("train")),
+          ParamInt$new(id = "nstart", lower = 1L, default = 1L, tags = c("train"))
         )
       )
-      ps$values = list(centers = 2L)
+      ps$values = list(centers = 2L, algorithm = "Hartigan-Wong", iter.max = 10L)
 
       super$initialize(
         id = "clust.kmeans",
@@ -48,6 +51,12 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
 
   private = list(
     .train = function(task) {
+      if("nstart" %in% names(self$param_set$values)) {
+        if(!test_int(self$param_set$values$centers)) {
+          warning("warning: `nstart` parameter is only relevant when `centers` is integer")
+        }
+      }
+
       pv = self$param_set$get_values(tags = "train")
       invoke(stats::kmeans, x = task$data(), .args = pv)
     },
