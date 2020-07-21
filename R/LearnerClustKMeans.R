@@ -51,8 +51,8 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
 
   private = list(
     .train = function(task) {
-      if("nstart" %in% names(self$param_set$values)) {
-        if(!test_int(self$param_set$values$centers)) {
+      if ("nstart" %in% names(self$param_set$values)) {
+        if (!test_int(self$param_set$values$centers)) {
           warning("warning: `nstart` parameter is only relevant when `centers` is integer")
         }
       }
