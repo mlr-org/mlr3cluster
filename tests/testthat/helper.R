@@ -35,3 +35,14 @@ expect_prediction_clust = function(p) {
 expect_task_clust = function(task) {
   checkmate::expect_r6(task, "TaskClust")
 }
+
+expect_prediction_complete = function(p, predict_type) {
+  expect_true(length(p$row_ids) == length(p[[predict_type]]))
+  expect_false(checkmate::anyMissing(p[[predict_type]]))
+}
+
+expect_prediction_exclusive = function(p, predict_type) {
+  expect_true(length(p$row_ids) == length(p[[predict_type]]))
+  expect_atomic(p[[predict_type]])
+  expect_integer(p[[predict_type]])
+}

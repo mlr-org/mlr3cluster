@@ -20,7 +20,15 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
       ps = ParamSet$new(
         params = list(
           ParamInt$new("k", lower = 1L, default = 2L, tags = c("required", "train")),
-          ParamFct$new("metric", levels = c("euclidian", "manhattan"), tags = "train")
+          ParamFct$new("metric", levels = c("euclidian", "manhattan"), tags = "train"),
+          ParamUty$new("medoids", default = NULL, tags = "train",
+            custom_check = function(x) {
+              if (test_null(x) || test_vector(x)) {
+                return(TRUE)
+              } else {
+                return(FALSE)
+              }
+            })
         )
       )
       ps$values = list(k = 2L)
