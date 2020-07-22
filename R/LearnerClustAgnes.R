@@ -4,7 +4,7 @@
 #' @include LearnerClust.R
 #'
 #' @description
-#' A [LearnerClust] for agnes clustering implemented in [cluster::agnes()].
+#' A [LearnerClust] for agglomerative hierarchical clustering implemented in [cluster::agnes()].
 #' Predictions are generated using [stats::cutree()].
 #'
 #' @templateVar id clust.agnes
