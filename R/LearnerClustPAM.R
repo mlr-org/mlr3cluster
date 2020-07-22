@@ -27,15 +27,8 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
                return(TRUE)
              } else if (test_null(x)) {
                return(TRUE)
-             } else if (test_data_frame(x) || test_data_table(x)) {
-               r = lapply(x, function(x) test_int(x))
-               if (test_true(sum(unlist(unname(r))) == length(x))) {
-                 return(TRUE)
-               } else {
-                 stop("`medoids` values need to be integer row numbers!")
-               }
              } else {
-               stop("`medoids` needs to be either `NULL` or list with integer row numbers!")
+               stop("`medoids` needs to be either `NULL` or vector with row indices!")
              }
             }
           ),
@@ -65,7 +58,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
           stop("number of `medoids`' needs to match `k`!")
         } else {
           r = unname(lapply(self$param_set$values$medoids, function(i) {
-            test_true(i <= nrow(x)) && test_true(i >= 1)
+            test_true(i <= task$nrow) && test_true(i >= 1)
           }))
           if (test_true(sum(unlist(r)) != self$param_set$values$k)) {
             msg = sprintf("`medoids` need to contain valid indices from 1")
