@@ -21,7 +21,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
         params = list(
           ParamUty$new(id = "centers", tags = c("required", "train"), default = 2L,
             custom_check = function(x) {
-            if (test_data_frame(x)) {
+            if (test_data_frame(x) || test_data_table(x)) {
               return(TRUE)
             } else if (test_int(x)) {
               assert_true(x >= 1L)
@@ -55,6 +55,13 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
       if ("nstart" %in% names(self$param_set$values)) {
         if (!test_int(self$param_set$values$centers)) {
           warning("warning: `nstart` parameter is only relevant when `centers` is integer")
+        }
+      }
+
+      if (test_data_frame(self$param_set$values$centers) ||
+          test_data_table(self$param_set$values$centers)) {
+        if (length(self$param_set$values$centers) != task$ncol) {
+          stop("`centers` must have same number of columns as data!")
         }
       }
 
