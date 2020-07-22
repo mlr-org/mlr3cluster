@@ -5,7 +5,7 @@
 #'
 #' @description
 #' A [LearnerClust] for agnes clustering implemented in [cluster::agnes()].
-#' Predictions are generated using [clue::cl_predict()].
+#' Predictions are generated using [stats::cutree()].
 #'
 #' @templateVar id clust.agnes
 #' @template section_dictionary_learner

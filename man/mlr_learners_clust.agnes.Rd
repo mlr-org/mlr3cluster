@@ -6,7 +6,7 @@
 \title{Agglomerative Hierarchical Clustering Learner}
 \description{
 A \link{LearnerClust} for agnes clustering implemented in \code{\link[cluster:agnes]{cluster::agnes()}}.
-Predictions are generated using \code{\link[clue:cl_predict]{clue::cl_predict()}}.
+Predictions are generated using \code{\link[stats:cutree]{stats::cutree()}}.
 }
 \section{Dictionary}{
 
