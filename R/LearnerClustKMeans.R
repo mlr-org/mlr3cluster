@@ -33,10 +33,11 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans", inherit = LearnerClust,
           ParamFct$new(id = "algorithm",
                        levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"),
                        default = "Hartigan-Wong", tags = c("train")),
-          ParamInt$new(id = "nstart", lower = 1L, default = 1L, tags = c("train"))
+          ParamInt$new(id = "nstart", lower = 1L, default = 1L, tags = c("train")),
+          ParamInt$new(id = "trace", lower = 0L, default = 0L, tags = c("train"))
         )
       )
-      ps$values = list(centers = 2L, algorithm = "Hartigan-Wong", iter.max = 10L)
+      ps$values = list(centers = 2L, algorithm = "Hartigan-Wong", iter.max = 10L, trace = 0L)
 
       super$initialize(
         id = "clust.kmeans",
