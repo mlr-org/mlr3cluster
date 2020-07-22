@@ -1,9 +1,9 @@
-context("clust.pam")
+context("clust.agnes")
 
 skip_if_not_installed("clue")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.pam")
+  learner = mlr3::lrn("clust.agnes")
   expect_learner(learner)
 
   result = run_autotest(learner)
@@ -13,7 +13,7 @@ test_that("autotest", {
 
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
-  learner = mlr_learners$get("clust.pam")
+  learner = mlr_learners$get("clust.agnes")
   expect_learner(learner, task)
 
   p = learner$train(task)$predict(task)

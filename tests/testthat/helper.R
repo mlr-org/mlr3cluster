@@ -46,3 +46,4 @@ expect_prediction_exclusive = function(p, predict_type) {
   expect_atomic(p[[predict_type]])
   expect_integer(p[[predict_type]])
 }
+
