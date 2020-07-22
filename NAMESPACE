@@ -3,6 +3,7 @@
 S3method(as.data.table,PredictionClust)
 S3method(c,PredictionClust)
 export(LearnerClust)
+export(LearnerClustAgnes)
 export(LearnerClustFeatureless)
 export(LearnerClustKMeans)
 export(LearnerClustPAM)

@@ -43,9 +43,10 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
 
       super$initialize(
         id = "clust.pam",
-        param_set = ps,
-        predict_types = "partition",
         feature_types = c("logical", "integer", "numeric"),
+        predict_types = "partition",
+        param_set = ps,
+        properties = c("partitional", "exclusive", "complete"),
         packages = "cluster"
       )
     }
