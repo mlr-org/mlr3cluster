@@ -24,10 +24,11 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes", inherit = LearnerClust,
           ParamFct$new("method", default = "average",
             levels = c("average", "single", "complete", "ward",
                        "weighted", "flexible", "gaverage"), tags = "train"),
-          ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train")
+          ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train"),
+          ParamInt$new("k", lower = 1L, default = 1L, tags = "predict")
         )
       )
-      ps$values = list(metric = "euclidian", stand = FALSE, trace.lev = 0L)
+      ps$values = list(metric = "euclidian", stand = FALSE, trace.lev = 0L, k = 1L)
 
       super$initialize(
         id = "clust.agnes",
@@ -47,7 +48,8 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes", inherit = LearnerClust,
     },
 
     .predict = function(task) {
-      PredictionClust$new(task = task, order = self$model$order)
+      partition = stats::cutree(self$model, self$param_set$values$k)
+      PredictionClust$new(task = task, partition = partition)
     }
   )
 )
