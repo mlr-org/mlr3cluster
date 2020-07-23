@@ -1,17 +1,17 @@
-#' @title Agglomerative Hierarchical Clustering Learner
+#' @title Divisive Hierarchical Clustering Learner
 #'
-#' @name mlr_learners_clust.agnes
+#' @name mlr_learners_clust.diana
 #' @include LearnerClust.R
 #'
 #' @description
-#' A [LearnerClust] for agglomerative hierarchical clustering implemented in [cluster::agnes()].
+#' A [LearnerClust] for divisive hierarchical clustering implemented in [cluster::diana()].
 #' Predictions are generated using [stats::cutree()].
 #'
-#' @templateVar id clust.agnes
+#' @templateVar id clust.diana
 #' @template section_dictionary_learner
 #'
 #' @export
-LearnerClustAgnes = R6Class("LearnerClustAgnes", inherit = LearnerClust,
+LearnerClustDiana = R6Class("LearnerClustDiana", inherit = LearnerClust,
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
@@ -21,33 +21,16 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes", inherit = LearnerClust,
           ParamFct$new("metric", default = "euclidian",
                        levels = c("euclidian", "manhattan"), tags = "train"),
           ParamLgl$new("stand", default = FALSE, tags = "train"),
-          ParamFct$new("method", default = "average",
-            levels = c("average", "single", "complete", "ward",
-                       "weighted", "flexible", "gaverage"), tags = "train"),
           ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train"),
-          ParamInt$new("k", lower = 1L, default = 1L, tags = "predict"),
-          ParamUty$new("par.method", tags = "train",
-            custom_check = function(x) {
-              if (test_numeric(x) || test_list(x)) {
-                if (length(x) == 1L || length(x) == 3L || length(x) == 4L) {
-                  return(TRUE)
-                } else {
-                  stop("`par.method` needs be of length 1, 3, or 4")
-                }
-              } else {
-                stop("`par.method` needs to be a numeric vector")
-              }
-            })
+          ParamInt$new("k", lower = 1L, default = 1L, tags = "predict")
         )
       )
-      # param deps
-      ps$add_dep("par.method", "method", CondAnyOf$new(c("flexible", "gaverage")))
 
       # set defaults
       ps$values = list(metric = "euclidian", stand = FALSE, trace.lev = 0L, k = 1L)
 
       super$initialize(
-        id = "clust.agnes",
+        id = "clust.diana",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
         param_set = ps,
@@ -60,7 +43,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes", inherit = LearnerClust,
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      invoke(cluster::agnes, x = task$data(), diss = FALSE, .args = pv)
+      invoke(cluster::diana, x = task$data(), diss = FALSE, .args = pv)
     },
 
     .predict = function(task) {
