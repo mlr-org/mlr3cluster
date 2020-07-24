@@ -18,8 +18,8 @@ LearnerClustDiana = R6Class("LearnerClustDiana", inherit = LearnerClust,
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamFct$new("metric", default = "euclidian",
-                       levels = c("euclidian", "manhattan"), tags = "train"),
+          ParamFct$new("metric", default = "euclidean",
+                       levels = c("euclidean", "manhattan"), tags = "train"),
           ParamLgl$new("stand", default = FALSE, tags = "train"),
           ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train"),
           ParamInt$new("k", lower = 1L, default = 1L, tags = "predict")
@@ -27,7 +27,7 @@ LearnerClustDiana = R6Class("LearnerClustDiana", inherit = LearnerClust,
       )
 
       # set defaults
-      ps$values = list(metric = "euclidian", stand = FALSE, trace.lev = 0L, k = 1L)
+      ps$values = list(metric = "euclidean", stand = FALSE, trace.lev = 0L, k = 1L)
 
       super$initialize(
         id = "clust.diana",

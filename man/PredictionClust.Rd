@@ -69,7 +69,7 @@ Row ids of the predicted observations, i.e. the row ids of the test set.}
 Vector of cluster partitions.}
 
 \item{\code{prob}}{(\code{matrix()})\cr
-TBD.}
+Matrix of cluster membership probabilities.}
 }
 \if{html}{\out{</div>}}
 }

@@ -21,7 +21,7 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
     #'   Vector of cluster partitions.
     #'
     #' @param prob (`matrix()`)\cr
-    #'   TBD.
+    #'   Matrix of cluster membership probabilities.
     initialize = function(task = NULL, row_ids = task$row_ids, partition = NULL, prob = NULL) {
       assert_row_ids(row_ids)
       n = length(row_ids)
@@ -34,6 +34,13 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
 
       if (!is.null(partition)) {
         self$data$tab$partition = assert_integer(partition, len = n, any.missing = FALSE)
+      }
+
+      if (!is.null(prob)) {
+        prob = assert_matrix(prob, any.missing = FALSE)
+        for (i in seq_along(1:ncol(prob))) {
+          self$data$tab[, sprintf("cluster_%s", i)] = prob[, i]
+        }
       }
 
     }

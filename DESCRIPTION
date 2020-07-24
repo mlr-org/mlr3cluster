@@ -40,6 +40,7 @@ Collate:
     'LearnerClust.R'
     'LearnerClustAgnes.R'
     'LearnerClustDiana.R'
+    'LearnerClustFanny.R'
     'LearnerClustFeatureless.R'
     'LearnerClustKMeans.R'
     'LearnerClustPAM.R'
