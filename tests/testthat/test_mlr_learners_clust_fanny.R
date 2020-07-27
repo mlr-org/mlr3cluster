@@ -14,7 +14,6 @@ test_that("autotest", {
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
   learner = mlr_learners$get("clust.fanny")
-  learner$predict_type = "prob"
   expect_learner(learner, task)
 
   p = learner$train(task)$predict(task)
@@ -25,5 +24,8 @@ test_that("Learner properties are respected", {
   }
   if ("exclusive" %in% learner$properties) {
     expect_prediction_exclusive(p, learner$predict_type)
+  }
+  if ("fuzzy" %in% learner$properties) {
+    expect_prediction_fuzzy(p)
   }
 })

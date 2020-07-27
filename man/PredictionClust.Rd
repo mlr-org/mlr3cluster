@@ -73,7 +73,7 @@ Numeric matrix of cluster membership probabilities with one column for each clus
 and one row for each observation.
 Columns must be named with cluster labels, row names are automatically removed.
 If \code{prob} is provided, but \code{partition} is not, the cluster memberships are calculated from
-the probabilities using \code{\link[=max.col]{max.col()}} with \code{ties.method} set to \code{"random"}.}
+the probabilities using \code{\link[=max.col]{max.col()}} with \code{ties.method} set to \code{"first"}.}
 }
 \if{html}{\out{</div>}}
 }

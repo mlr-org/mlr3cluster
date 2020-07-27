@@ -25,7 +25,7 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
     #'   and one row for each observation.
     #'   Columns must be named with cluster labels, row names are automatically removed.
     #'   If `prob` is provided, but `partition` is not, the cluster memberships are calculated from
-    #'   the probabilities using [max.col()] with `ties.method` set to `"random"`.
+    #'   the probabilities using [max.col()] with `ties.method` set to `"first"`.
     initialize = function(task = NULL, row_ids = task$row_ids, partition = NULL, prob = NULL) {
       assert_row_ids(row_ids)
       n = length(row_ids)
@@ -46,7 +46,7 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
 
         if (is.null(partition)) {
           # calculate partition from prob
-          partition = max.col(prob, ties.method = "random")
+          partition = max.col(prob, ties.method = "first")
         }
       }
 
