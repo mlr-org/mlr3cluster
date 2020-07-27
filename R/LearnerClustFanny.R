@@ -49,9 +49,12 @@ LearnerClustFanny = R6Class("LearnerClustFanny", inherit = LearnerClust,
    },
 
    .predict = function(task) {
-     prob = self$model$membership
-     partition = self$model$clustering
-     PredictionClust$new(task = task, partition = partition, prob = prob)
+      partition = self$model$clustering
+
+      prob = self$model$membership
+      colnames(prob) = seq_along(1:ncol(prob))
+
+      PredictionClust$new(task = task, partition = partition, prob = prob)
    }
   )
 )

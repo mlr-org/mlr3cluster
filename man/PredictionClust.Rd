@@ -69,7 +69,11 @@ Row ids of the predicted observations, i.e. the row ids of the test set.}
 Vector of cluster partitions.}
 
 \item{\code{prob}}{(\code{matrix()})\cr
-Matrix of cluster membership probabilities.}
+Numeric matrix of cluster membership probabilities with one column for each cluster
+and one row for each observation.
+Columns must be named with cluster labels, row names are automatically removed.
+If \code{prob} is provided, but \code{partition} is not, the cluster memberships are calculated from
+the probabilities using \code{\link[=max.col]{max.col()}} with \code{ties.method} set to \code{"random"}.}
 }
 \if{html}{\out{</div>}}
 }

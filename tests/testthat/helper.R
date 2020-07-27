@@ -37,13 +37,19 @@ expect_task_clust = function(task) {
 }
 
 expect_prediction_complete = function(p, predict_type) {
-  expect_true(length(p$row_ids) == length(p[[predict_type]]))
   expect_false(checkmate::anyMissing(p[[predict_type]]))
 }
 
 expect_prediction_exclusive = function(p, predict_type) {
-  expect_true(length(p$row_ids) == length(p[[predict_type]]))
   expect_atomic(p[[predict_type]])
   expect_integer(p[[predict_type]])
 }
 
+expect_prediction_fuzzy = function(p, predict_type) {
+  # check that probabilities are positive
+
+  # check that probabilities sum up to 1
+  # hard clustering is done correctly according to probabilities
+  expect_atomic(p[[predict_type]])
+  expect_integer(p[[predict_type]])
+}

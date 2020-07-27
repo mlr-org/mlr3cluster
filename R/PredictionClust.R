@@ -21,28 +21,42 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
     #'   Vector of cluster partitions.
     #'
     #' @param prob (`matrix()`)\cr
-    #'   Matrix of cluster membership probabilities.
+    #'   Numeric matrix of cluster membership probabilities with one column for each cluster
+    #'   and one row for each observation.
+    #'   Columns must be named with cluster labels, row names are automatically removed.
+    #'   If `prob` is provided, but `partition` is not, the cluster memberships are calculated from
+    #'   the probabilities using [max.col()] with `ties.method` set to `"random"`.
     initialize = function(task = NULL, row_ids = task$row_ids, partition = NULL, prob = NULL) {
       assert_row_ids(row_ids)
       n = length(row_ids)
 
       self$task_type = "clust"
 
-      # Check returned predict types have correct names and add to data.table
-      self$predict_types = c("partition", "prob")[c(!is.null(partition), !is.null(prob))]
-      self$data$tab = data.table(row_id = row_ids)
-
       if (!is.null(partition)) {
-        self$data$tab$partition = assert_integer(partition, len = n, any.missing = FALSE)
+        partition = assert_integer(partition, len = n, any.missing = FALSE)
       }
 
       if (!is.null(prob)) {
-        prob = assert_matrix(prob, any.missing = FALSE)
-        for (i in seq_along(1:ncol(prob))) {
-          self$data$tab[, sprintf("cluster_%s", i)] = prob[, i]
+        # need to check number of columns for matrix
+        assert_matrix(prob, nrows = n)
+        assert_numeric(prob, lower = 0, upper = 1)
+        if (!is.null(rownames(prob))) {
+          rownames(prob) = NULL
+        }
+
+        if (is.null(partition)) {
+          # calculate partition from prob
+          partition = max.col(prob, ties.method = "random")
         }
       }
 
+      # Check returned predict types have correct names and add to data.table
+      self$predict_types = c("partition", "prob")[c(!is.null(partition), !is.null(prob))]
+      self$data$tab = data.table(
+        row_id = row_ids,
+        partition = partition
+      )
+      self$data$prob = prob
     }
   ),
 
@@ -56,7 +70,7 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
     #' @field prob (`matrix()`)\cr
     #' Access to the stored probabilities.
     prob = function() {
-      self$data$tab$prob
+      self$data$prob
     },
 
     #' @field missing (`integer()`)\cr
@@ -80,7 +94,14 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
 
 #' @export
 as.data.table.PredictionClust = function(x, ...) {
-  copy(x$data$tab)
+  tab = copy(x$data$tab)
+  if ("prob" %in% x$predict_types) {
+    prob = as.data.table(x$data$prob)
+    setnames(prob, names(prob), paste0("prob.", names(prob)))
+    tab = rcbind(tab, prob)
+  }
+
+  tab
 }
 
 #' @export
