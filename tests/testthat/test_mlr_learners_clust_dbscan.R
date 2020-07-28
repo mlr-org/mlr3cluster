@@ -1,6 +1,6 @@
 context("clust.dbscan")
 
-skip_if_not_installed("clue")
+skip_if_not_installed("dbscan")
 
 test_that("autotest", {
   learner = mlr3::lrn("clust.dbscan")
