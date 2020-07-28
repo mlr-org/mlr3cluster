@@ -19,18 +19,26 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN", inherit = LearnerClust,
         params = list(
           ParamDbl$new(id = "eps", lower = 0L, tags = c("required", "train")),
           ParamInt$new(id = "minPts", lower = 0L, default = 5L, tags = "train"),
-          ParamLgl$new(id = "borderPoints", default = TRUE),
+          ParamLgl$new(id = "borderPoints", default = TRUE, tags = "train"),
           ParamUty$new(id = "weights", custom_check = function(x) {
             if (test_numeric(x)) {
               return(TRUE)
             } else {
               stop("`weights` need to be a numeric vector!")
             }
-          }),
+          }, tags = "train"),
           ParamFct$new(id = "search", levels = c("kdtree", "linear", "dist"),
-                       default = "kdtree")
+                       default = "kdtree", tags = "train"),
+          ParamInt$new(id = "bucketSize", lower = 1L, default = 10L, tags = "train"),
+          ParamFct$new(id = "splitRule",
+                       levels = c("STD", "MIDPT", "FAIR", "SL_MIDPT", "SL_FAIR", "SUGGEST"),
+                       default = "SUGGEST", tags = "train"),
+          ParamDbl$new(id = "approx", default = 0L, tags = "train")
         )
       )
+      # add deps
+      ps$add_dep("bucketSize", "search", CondEqual$new("kdtree"))
+      ps$add_dep("splitRule", "search", CondEqual$new("kdtree"))
 
       super$initialize(
         id = "clust.dbscan",
