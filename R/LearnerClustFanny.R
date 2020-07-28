@@ -18,14 +18,14 @@ LearnerClustFanny = R6Class("LearnerClustFanny", inherit = LearnerClust,
    initialize = function() {
      ps = ParamSet$new(
        params = list(
-         ParamInt$new("k", lower = 1L, default = 1L, tags = "train"),
-         ParamDbl$new("memb.exp", lower = 1L, default = 2L, tags = "train"),
-         ParamFct$new("metric", default = "euclidean",
+         ParamInt$new(id = "k", lower = 1L, default = 1L, tags = "train"),
+         ParamDbl$new(id = "memb.exp", lower = 1L, default = 2L, tags = "train"),
+         ParamFct$new(id = "metric", default = "euclidean",
                       levels = c("euclidean", "manhattan", "SqEuclidean"), tags = "train"),
-         ParamLgl$new("stand", default = FALSE, tags = "train"),
-         ParamInt$new("maxit", lower = 0L, default = 500L, tags = "train"),
-         ParamDbl$new("tol", lower = 0L, default = 1e-15, tags = "train"),
-         ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train")
+         ParamLgl$new(id = "stand", default = FALSE, tags = "train"),
+         ParamInt$new(id = "maxit", lower = 0L, default = 500L, tags = "train"),
+         ParamDbl$new(id = "tol", lower = 0L, default = 1e-15, tags = "train"),
+         ParamInt$new(id = "trace.lev", lower = 0L, default = 0L, tags = "train")
        )
      )
      ps$values = list(k = 2L, memb.exp = 2L, metric = "euclidean", stand = FALSE,

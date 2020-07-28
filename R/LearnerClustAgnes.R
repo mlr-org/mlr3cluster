@@ -18,15 +18,15 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes", inherit = LearnerClust,
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamFct$new("metric", default = "euclidean",
+          ParamFct$new(id = "metric", default = "euclidean",
                        levels = c("euclidean", "manhattan"), tags = "train"),
-          ParamLgl$new("stand", default = FALSE, tags = "train"),
-          ParamFct$new("method", default = "average",
+          ParamLgl$new(id = "stand", default = FALSE, tags = "train"),
+          ParamFct$new(id = "method", default = "average",
             levels = c("average", "single", "complete", "ward",
                        "weighted", "flexible", "gaverage"), tags = "train"),
-          ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train"),
-          ParamInt$new("k", lower = 1L, default = 1L, tags = "predict"),
-          ParamUty$new("par.method", tags = "train",
+          ParamInt$new(id = "trace.lev", lower = 0L, default = 0L, tags = "train"),
+          ParamInt$new(id = "k", lower = 1L, default = 1L, tags = "predict"),
+          ParamUty$new(id = "par.method", tags = "train",
             custom_check = function(x) {
               if (test_numeric(x) || test_list(x)) {
                 if (length(x) == 1L || length(x) == 3L || length(x) == 4L) {

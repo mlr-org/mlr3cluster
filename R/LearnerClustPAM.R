@@ -19,9 +19,9 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamInt$new("k", lower = 1L, default = 2L, tags = c("required", "train")),
-          ParamFct$new("metric", levels = c("euclidian", "manhattan"), tags = "train"),
-          ParamUty$new("medoids", default = NULL, tags = "train",
+          ParamInt$new(id = "k", lower = 1L, default = 2L, tags = c("required", "train")),
+          ParamFct$new(id = "metric", levels = c("euclidian", "manhattan"), tags = "train"),
+          ParamUty$new(id = "medoids", default = NULL, tags = "train",
             custom_check = function(x) {
              if (test_integerish(x)) {
                return(TRUE)
@@ -32,10 +32,10 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
              }
             }
           ),
-          ParamLgl$new("stand", default = FALSE, tags = "train"),
-          ParamLgl$new("do.swap", default = TRUE, tags = "train"),
-          ParamInt$new("pamonce", lower = 0L, upper = 5L, default = 0, tags = "train"),
-          ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train")
+          ParamLgl$new(id = "stand", default = FALSE, tags = "train"),
+          ParamLgl$new(id = "do.swap", default = TRUE, tags = "train"),
+          ParamInt$new(id = "pamonce", lower = 0L, upper = 5L, default = 0, tags = "train"),
+          ParamInt$new(id = "trace.lev", lower = 0L, default = 0L, tags = "train")
         )
       )
       ps$values = list(k = 2L, stand = FALSE, do.swap = TRUE, pamonce = 0L, medoids = NULL,
