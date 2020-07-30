@@ -6,7 +6,8 @@
 #'
 #' @family Prediction
 #' @export
-PredictionClust = R6Class("PredictionClust", inherit = Prediction,
+PredictionClust = R6Class("PredictionClust",
+  inherit = Prediction,
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
@@ -23,6 +24,7 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
     #' @param prob (`matrix()`)\cr
     #'   TBD.
     initialize = function(task = NULL, row_ids = task$row_ids, partition = NULL, prob = NULL) {
+
       assert_row_ids(row_ids)
       n = length(row_ids)
 
@@ -38,7 +40,6 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
 
     }
   ),
-
   active = list(
     #' @field partition (`integer()`)\cr
     #' Access the stored partition.
@@ -72,12 +73,13 @@ PredictionClust = R6Class("PredictionClust", inherit = Prediction,
 
 
 #' @export
-as.data.table.PredictionClust = function(x, ...) {
+as.data.table.PredictionClust = function(x, ...) { # nolint
   copy(x$data$tab)
 }
 
 #' @export
 c.PredictionClust = function(..., keep_duplicates = TRUE) {
+
   dots = list(...)
   assert_list(dots, "PredictionClust")
   assert_flag(keep_duplicates)
@@ -86,8 +88,9 @@ c.PredictionClust = function(..., keep_duplicates = TRUE) {
   }
 
   predict_types = map(dots, "predict_types")
-  if (!every(predict_types[-1L], setequal, y = predict_types[[1L]]))
+  if (!every(predict_types[-1L], setequal, y = predict_types[[1L]])) {
     stopf("Cannot rbind predictions: Different predict_types in objects.")
+  }
 
   tab = map_dtr(dots, function(p) subset(p$data$tab), .fill = FALSE)
   prob = do.call(rbind, map(dots, "prob"))

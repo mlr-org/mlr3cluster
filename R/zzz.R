@@ -9,20 +9,23 @@
 "_PACKAGE"
 
 register_mlr3 = function() {
+
   x = utils::getFromNamespace("mlr_reflections", ns = "mlr3")
 
   if (length(x$task_types[list("clust"), on = "type", which = TRUE, nomatch = NULL]) == 0L) {
     x$task_types = setkeyv(rbind(x$task_types, rowwise_table(
-          ~type,   ~package,      ~task,       ~learner,       ~prediction,       ~measure,
-          "clust", "mlr3cluster", "TaskClust", "LearnerClust", "PredictionClust", "MeasureClust"
+      ~type, ~package, ~task, ~learner, ~prediction, ~measure,
+      "clust", "mlr3cluster", "TaskClust", "LearnerClust", "PredictionClust", "MeasureClust"
     )), "type")
-    x$task_col_roles$clust        = x$task_col_roles$regr
-    x$task_properties$clust       = x$task_properties$regr
-    x$learner_properties$clust    = c("missings", "partitional", "hierarchical", "exclusive",
-                                      "overlapping", "fuzzy", "complete", "partial")
-    x$measure_properties$clust    = x$measure_properties$regr
+    x$task_col_roles$clust = x$task_col_roles$regr
+    x$task_properties$clust = x$task_properties$regr
+    x$learner_properties$clust = c(
+      "missings", "partitional", "hierarchical", "exclusive",
+      "overlapping", "fuzzy", "complete", "partial"
+    )
+    x$measure_properties$clust = x$measure_properties$regr
     x$learner_predict_types$clust = list(partition = "partition", prob = c("partition", "prob"))
-    x$default_measures$clust      = "clust.dunn"
+    x$default_measures$clust = "clust.dunn"
   }
 
   x = utils::getFromNamespace("mlr_tasks", ns = "mlr3")
@@ -41,7 +44,7 @@ register_mlr3 = function() {
   x$add("clust.silhouette", MeasureClustInternal, name = "silhouette")
 }
 
-.onLoad = function(libname, pkgname) {
+.onLoad = function(libname, pkgname) { # nolint
   # nocov start
   backports::import(pkgname)
 

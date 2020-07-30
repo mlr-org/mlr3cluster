@@ -12,7 +12,8 @@
 #' @template section_dictionary_learner
 #'
 #' @export
-LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
+LearnerClustPAM = R6Class("LearnerClustPAM",
+  inherit = LearnerClust,
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
@@ -21,15 +22,16 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
         params = list(
           ParamInt$new("k", lower = 1L, default = 2L, tags = c("required", "train")),
           ParamFct$new("metric", levels = c("euclidian", "manhattan"), tags = "train"),
-          ParamUty$new("medoids", default = NULL, tags = "train",
+          ParamUty$new("medoids",
+            default = NULL, tags = "train",
             custom_check = function(x) {
-             if (test_integerish(x)) {
-               return(TRUE)
-             } else if (test_null(x)) {
-               return(TRUE)
-             } else {
-               stop("`medoids` needs to be either `NULL` or vector with row indices!")
-             }
+              if (test_integerish(x)) {
+                return(TRUE)
+              } else if (test_null(x)) {
+                return(TRUE)
+              } else {
+                stop("`medoids` needs to be either `NULL` or vector with row indices!")
+              }
             }
           ),
           ParamLgl$new("stand", default = FALSE, tags = "train"),
@@ -38,8 +40,10 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
           ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train")
         )
       )
-      ps$values = list(k = 2L, stand = FALSE, do.swap = TRUE, pamonce = 0L, medoids = NULL,
-                       trace.lev = 0L)
+      ps$values = list(
+        k = 2L, stand = FALSE, do.swap = TRUE, pamonce = 0L, medoids = NULL,
+        trace.lev = 0L
+      )
 
       super$initialize(
         id = "clust.pam",
@@ -51,7 +55,6 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       if (!is.null(self$param_set$values$medoids)) {
@@ -72,7 +75,6 @@ LearnerClustPAM = R6Class("LearnerClustPAM", inherit = LearnerClust,
       pv = self$param_set$get_values(tags = "train")
       invoke(cluster::pam, x = task$data(), diss = FALSE, .args = pv)
     },
-
     .predict = function(task) {
       partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))
       PredictionClust$new(task = task, partition = partition)

@@ -11,19 +11,26 @@
 #' @template section_dictionary_learner
 #'
 #' @export
-LearnerClustAgnes = R6Class("LearnerClustAgnes", inherit = LearnerClust,
+LearnerClustAgnes = R6Class("LearnerClustAgnes",
+  inherit = LearnerClust,
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamFct$new("metric", default = "euclidian",
-                       levels = c("euclidian", "manhattan"), tags = "train"),
+          ParamFct$new("metric",
+            default = "euclidian",
+            levels = c("euclidian", "manhattan"), tags = "train"
+          ),
           ParamLgl$new("stand", default = FALSE, tags = "train"),
-          ParamFct$new("method", default = "average",
-            levels = c("average", "single", "complete", "ward",
-                       "weighted", "flexible", "gaverage"), tags = "train"),
+          ParamFct$new("method",
+            default = "average",
+            levels = c(
+              "average", "single", "complete", "ward",
+              "weighted", "flexible", "gaverage"
+            ), tags = "train"
+          ),
           ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train"),
           ParamInt$new("k", lower = 1L, default = 1L, tags = "predict")
         )
@@ -40,13 +47,11 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes", inherit = LearnerClust,
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       invoke(cluster::agnes, x = task$data(), diss = FALSE, .args = pv)
     },
-
     .predict = function(task) {
       partition = stats::cutree(self$model, self$param_set$values$k)
       PredictionClust$new(task = task, partition = partition)
