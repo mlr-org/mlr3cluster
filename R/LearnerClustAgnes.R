@@ -33,17 +33,18 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
           ),
           ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train"),
           ParamInt$new("k", lower = 1L, default = 1L, tags = "predict"),
-          ParamUty$new(id = "par.method", tags = "train",
+          ParamUty$new(
+            id = "par.method", tags = "train",
             custom_check = function(x) {
-             if (test_numeric(x) || test_list(x)) {
-               if (length(x) == 1L || length(x) == 3L || length(x) == 4L) {
-                 return(TRUE)
-               } else {
-                 stop("`par.method` needs be of length 1, 3, or 4")
-               }
-             } else {
-               stop("`par.method` needs to be a numeric vector")
-             }
+              if (test_numeric(x) || test_list(x)) {
+                if (length(x) == 1L || length(x) == 3L || length(x) == 4L) {
+                  return(TRUE)
+                } else {
+                  stop("`par.method` needs be of length 1, 3, or 4")
+                }
+              } else {
+                stop("`par.method` needs to be a numeric vector")
+              }
             })
         )
       )

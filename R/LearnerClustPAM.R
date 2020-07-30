@@ -22,7 +22,8 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
         params = list(
           ParamInt$new(id = "k", lower = 1L, default = 2L, tags = c("required", "train")),
           ParamFct$new(id = "metric", levels = c("euclidian", "manhattan"), tags = "train"),
-          ParamUty$new(id = "medoids",
+          ParamUty$new(
+            id = "medoids",
             default = NULL, tags = "train",
             custom_check = function(x) {
               if (test_integerish(x)) {

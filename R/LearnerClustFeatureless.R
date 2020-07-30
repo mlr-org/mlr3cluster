@@ -20,7 +20,8 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamInt$new(id = "num.clusters", lower = 1L, default = 1L, tags = c("required", "train"))
+          ParamInt$new(id = "num.clusters", lower = 1L,
+                       default = 1L, tags = c("required", "train"))
         )
       )
       ps$values = list(num.clusters = 1L)

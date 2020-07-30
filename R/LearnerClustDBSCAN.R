@@ -10,7 +10,8 @@
 #' @template section_dictionary_learner
 #'
 #' @export
-LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN", inherit = LearnerClust,
+LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
+  inherit = LearnerClust,
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
@@ -27,12 +28,14 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN", inherit = LearnerClust,
               stop("`weights` need to be a numeric vector!")
             }
           }, tags = "train"),
-          ParamFct$new(id = "search", levels = c("kdtree", "linear", "dist"),
-                       default = "kdtree", tags = "train"),
+          ParamFct$new(
+            id = "search", levels = c("kdtree", "linear", "dist"),
+            default = "kdtree", tags = "train"),
           ParamInt$new(id = "bucketSize", lower = 1L, default = 10L, tags = "train"),
-          ParamFct$new(id = "splitRule",
-                       levels = c("STD", "MIDPT", "FAIR", "SL_MIDPT", "SL_FAIR", "SUGGEST"),
-                       default = "SUGGEST", tags = "train"),
+          ParamFct$new(
+            id = "splitRule",
+            levels = c("STD", "MIDPT", "FAIR", "SL_MIDPT", "SL_FAIR", "SUGGEST"),
+            default = "SUGGEST", tags = "train"),
           ParamDbl$new(id = "approx", default = 0L, tags = "train")
         )
       )
