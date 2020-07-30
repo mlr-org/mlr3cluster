@@ -23,17 +23,20 @@
 #' @seealso
 #' Example cluster measures: [`clust.dunn`][mlr_measures_clust.dunn]
 #' @export
-MeasureClust = R6Class("MeasureClust", inherit = Measure, cloneable = FALSE,
+MeasureClust = R6Class("MeasureClust",
+  inherit = Measure, cloneable = FALSE,
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function(id, range, minimize = NA, aggregator = NULL, properties = character(),
-                          predict_type = "partition", task_properties = character(),
-                          packages = character(), man = NA_character_) {
-      super$initialize(id, task_type = "clust", range = range, minimize = minimize,
-                       aggregator = aggregator, properties = properties,
-                       predict_type = predict_type, task_properties = task_properties,
-                       packages = packages, man = man)
+      predict_type = "partition", task_properties = character(),
+      packages = character(), man = NA_character_) {
+      super$initialize(id,
+        task_type = "clust", range = range, minimize = minimize,
+        aggregator = aggregator, properties = properties,
+        predict_type = predict_type, task_properties = task_properties,
+        packages = packages, man = man
+      )
     }
   )
 )

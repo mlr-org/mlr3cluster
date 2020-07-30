@@ -4,7 +4,6 @@ MeasureClustInternal = R6Class("MeasureClustInternal",
   inherit = MeasureClust,
   public = list(
     crit = NULL,
-
     initialize = function(name) {
       info = measures[[name]]
       super$initialize(
@@ -20,12 +19,12 @@ MeasureClustInternal = R6Class("MeasureClustInternal",
 
     }
   ),
-
   private = list(
     .score = function(prediction, task, ...) {
       X = as.matrix(task$data(rows = prediction$row_ids))
-      if (!is.double(X)) # clusterCrit does not convert lgls/ints
+      if (!is.double(X)) { # clusterCrit does not convert lgls/ints
         storage.mode(X) = "double"
+      }
       intCriteria(X, prediction$partition, self$crit)[[1L]]
     }
   )
