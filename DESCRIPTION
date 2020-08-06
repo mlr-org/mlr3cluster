@@ -45,6 +45,7 @@ Collate:
     'LearnerClustFeatureless.R'
     'LearnerClustKMeans.R'
     'LearnerClustPAM.R'
+    'LearnerClustXMeans.R'
     'MeasureClust.R'
     'measures.R'
     'MeasureClustInternal.R'
