@@ -94,7 +94,7 @@ PredictionClust = R6Class("PredictionClust",
 
 
 #' @export
-as.data.table.PredictionClust = function(x, ...) {
+as.data.table.PredictionClust = function(x, ...) { #nolint
   tab = copy(x$data$tab)
   if ("prob" %in% x$predict_types) {
     prob = as.data.table(x$data$prob)
