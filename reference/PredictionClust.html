@@ -200,7 +200,11 @@ Row ids of the predicted observations, i.e. the row ids of the test set.</p></dd
 Vector of cluster partitions.</p></dd>
 
 <dt><code>prob</code></dt><dd><p>(<code><a href='https://rdrr.io/r/base/matrix.html'>matrix()</a></code>)<br />
-TBD.</p></dd>
+Numeric matrix of cluster membership probabilities with one column for each cluster
+and one row for each observation.
+Columns must be named with cluster numbers, row names are automatically removed.
+If <code>prob</code> is provided, but <code>partition</code> is not, the cluster memberships are calculated from
+the probabilities using <code><a href='https://rdrr.io/r/base/maxCol.html'>max.col()</a></code> with <code>ties.method</code> set to <code>"first"</code>.</p></dd>
 
 </dl><p></div></p>
 <p><hr>
