@@ -18,22 +18,22 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamDbl$new(id = "B", default = 1, lower = 0),
-          ParamDbl$new(id = "C", default = 0, lower = 0),
-          ParamUty$new(id = "D", default = "weka.core.EuclideanDistance"),
-          ParamInt$new(id = "H", default = 4L, lower = 1L),
-          ParamInt$new(id = "I", default = 1L, lower = 1L),
-          ParamInt$new(id = "J", default = 1000L, lower = 1L),
-          ParamUty$new(id = "K", default = ""),
-          ParamInt$new(id = "L", default = 2L, lower = 1L),
-          ParamInt$new(id = "M", default = 1000L, lower = 1L),
-          ParamInt$new(id = "S", default = 10L, lower = 1L),
-          ParamInt$new(id = "U", default = 0L, lower = 0L),
-          ParamLgl$new(id = "use.kdtree", default = FALSE),
-          ParamUty$new(id = "N"),
-          ParamUty$new(id = "O"),
-          ParamUty$new(id = "Y"),
-          ParamLgl$new(id = "output.debug.info", default = FALSE)
+          ParamDbl$new(id = "B", default = 1, lower = 0, tags = "train"),
+          ParamDbl$new(id = "C", default = 0, lower = 0, tags = "train"),
+          ParamUty$new(id = "D", default = "weka.core.EuclideanDistance", tags = "train"),
+          ParamInt$new(id = "H", default = 4L, lower = 1L, tags = "train"),
+          ParamInt$new(id = "I", default = 1L, lower = 1L, tags = "train"),
+          ParamInt$new(id = "J", default = 1000L, lower = 1L, tags = "train"),
+          ParamUty$new(id = "K", default = "", tags = "train"),
+          ParamInt$new(id = "L", default = 2L, lower = 1L, tags = "train"),
+          ParamInt$new(id = "M", default = 1000L, lower = 1L, tags = "train"),
+          ParamInt$new(id = "S", default = 10L, lower = 1L, tags = "train"),
+          ParamInt$new(id = "U", default = 0L, lower = 0L, tags = "train"),
+          ParamLgl$new(id = "use.kdtree", default = FALSE, tags = "train"),
+          ParamUty$new(id = "N", tags = "train"),
+          ParamUty$new(id = "O", tags = "train"),
+          ParamUty$new(id = "Y", tags = "train"),
+          ParamLgl$new(id = "output.debug.info", default = FALSE, tags = "train")
         )
       )
 
