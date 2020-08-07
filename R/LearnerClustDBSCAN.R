@@ -57,11 +57,14 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      invoke(dbscan::dbscan, x = task$data(), .args = pv)
+      m = invoke(dbscan::dbscan, x = task$data(), .args = pv)
+      structure(list(cluster = m$cluster, eps = m$eps,
+            minPts = m$minPts, data = task$data()),
+            class = c("dbscan_fast", "dbscan"))
     },
 
     .predict = function(task) {
-      partition = self$model$cluster
+      partition = predict(self$model, newdata = task$data(), self$model$data)
       PredictionClust$new(task = task, partition = partition)
     }
   )
