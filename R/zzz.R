@@ -38,6 +38,7 @@ register_mlr3 = function() {
   x$add("clust.agnes", LearnerClustAgnes)
   x$add("clust.diana", LearnerClustDiana)
   x$add("clust.fanny", LearnerClustFanny)
+  x$add("clust.cmeans", LearnerClustCMeans)
   x$add("clust.dbscan", LearnerClustDBSCAN)
   x$add("clust.xmeans", LearnerClustXMeans)
 

@@ -39,6 +39,7 @@ RoxygenNote: 7.1.1
 Collate:
     'LearnerClust.R'
     'LearnerClustAgnes.R'
+    'LearnerClustCMeans.R'
     'LearnerClustDBSCAN.R'
     'LearnerClustDiana.R'
     'LearnerClustFanny.R'

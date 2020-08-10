@@ -25,7 +25,7 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
             if (test_numeric(x)) {
               return(TRUE)
             } else {
-              stop("`weights` need to be a numeric vector!")
+              stop("`weights` need to be a numeric vector")
             }
           }, tags = "train"),
           ParamFct$new(

@@ -28,7 +28,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
               } else if (test_int(x)) {
                 assert_true(x >= 1L)
               } else {
-                return("centers must be either integer or data.frame with initial cluster centers!")
+                return("`centers`` must be either integer or data.frame with initial cluster centers")
               }
             }
           ),
@@ -58,13 +58,13 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
     .train = function(task) {
       if ("nstart" %in% names(self$param_set$values)) {
         if (!test_int(self$param_set$values$centers)) {
-          warning("warning: `nstart` parameter is only relevant when `centers` is integer")
+          warning("`nstart` parameter is only relevant when `centers` is integer.")
         }
       }
 
       if (test_data_frame(self$param_set$values$centers)) {
         if (length(self$param_set$values$centers) != task$ncol) {
-          stop("`centers` must have same number of columns as data!")
+          stop("`centers` must have same number of columns as data.")
         }
       }
 
