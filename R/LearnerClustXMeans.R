@@ -29,11 +29,11 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
           ParamInt$new(id = "M", default = 1000L, lower = 1L, tags = "train"),
           ParamInt$new(id = "S", default = 10L, lower = 1L, tags = "train"),
           ParamInt$new(id = "U", default = 0L, lower = 0L, tags = "train"),
-          ParamLgl$new(id = "use.kdtree", default = FALSE, tags = "train"),
+          ParamLgl$new(id = "use_kdtree", default = FALSE, tags = "train"),
           ParamUty$new(id = "N", tags = "train"),
           ParamUty$new(id = "O", tags = "train"),
           ParamUty$new(id = "Y", tags = "train"),
-          ParamLgl$new(id = "output.debug.info", default = FALSE, tags = "train")
+          ParamLgl$new(id = "output_debug_info", default = FALSE, tags = "train")
         )
       )
 
@@ -51,6 +51,7 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
+      names(pv) = chartr("_", "-", names(pv))
       ctrl = do.call(RWeka::Weka_control, pv)
       invoke(RWeka::XMeans, x = task$data(), control = ctrl)
     },
