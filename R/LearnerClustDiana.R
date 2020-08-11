@@ -5,7 +5,8 @@
 #'
 #' @description
 #' A [LearnerClust] for divisive hierarchical clustering implemented in [cluster::diana()].
-#' Predictions are generated using [stats::cutree()].
+#' Predictions are generated using [stats::cutree()] which cuts the tree resulting from
+#' hierarchical clustering into specified number of groups (see parameter `k`).
 #'
 #' @templateVar id clust.diana
 #' @template section_dictionary_learner
@@ -52,6 +53,11 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
       if (test_true(self$param_set$values$k > task$nrow)) {
         stop(sprintf("`k` needs to be between 1 and %s", task$nrow))
       }
+
+      msg = "clust.diana doesn't predict on new data"
+      msg = paste(msg, "and prediction results may not make sense", sep = " ")
+      msg = paste(msg, "if you use it on new data", sep = " ")
+      warning(msg)
 
       partition = stats::cutree(self$model, self$param_set$values$k)
       PredictionClust$new(task = task, partition = partition)
