@@ -22,7 +22,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamInt$new(id = "k", lower = 1L, default = 1L, tags = "train"),
+          ParamInt$new(id = "k", lower = 1L, default = 2L, tags = "train"),
           ParamDbl$new(id = "memb.exp", lower = 1L, default = 2L, tags = "train"),
           ParamFct$new(
             id = "metric", default = "euclidean",

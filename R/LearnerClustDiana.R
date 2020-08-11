@@ -7,6 +7,7 @@
 #' A [LearnerClust] for divisive hierarchical clustering implemented in [cluster::diana()].
 #' The predict method uses [stats::cutree()] which cuts the tree resulting from
 #' hierarchical clustering into specified number of groups (see parameter `k`).
+#' The default number for `k` is 2.
 #'
 #' @templateVar id clust.diana
 #' @template section_dictionary_learner
@@ -25,12 +26,12 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
             levels = c("euclidean", "manhattan"), tags = "train"),
           ParamLgl$new(id = "stand", default = FALSE, tags = "train"),
           ParamInt$new(id = "trace.lev", lower = 0L, default = 0L, tags = "train"),
-          ParamInt$new(id = "k", lower = 1L, default = 1L, tags = "predict")
+          ParamInt$new(id = "k", lower = 1L, default = 2L, tags = "predict")
         )
       )
 
       # set defaults
-      ps$values = list(metric = "euclidean", stand = FALSE, trace.lev = 0L, k = 1L)
+      ps$values = list(metric = "euclidean", stand = FALSE, trace.lev = 0L, k = 2L)
 
       super$initialize(
         id = "clust.diana",

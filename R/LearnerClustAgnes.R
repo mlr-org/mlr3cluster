@@ -7,6 +7,7 @@
 #' A [LearnerClust] for agglomerative hierarchical clustering implemented in [cluster::agnes()].
 #' The predict method uses [stats::cutree()] which cuts the tree resulting from
 #' hierarchical clustering into specified number of groups (see parameter `k`).
+#' The default number for `k` is 2.
 #'
 #' @templateVar id clust.agnes
 #' @template section_dictionary_learner
@@ -33,7 +34,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
             ), tags = "train"
           ),
           ParamInt$new("trace.lev", lower = 0L, default = 0L, tags = "train"),
-          ParamInt$new("k", lower = 1L, default = 1L, tags = "predict"),
+          ParamInt$new("k", lower = 1L, default = 2L, tags = "predict"),
           ParamUty$new(
             id = "par.method", tags = "train",
             custom_check = function(x) {
@@ -53,7 +54,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
       ps$add_dep("par.method", "method", CondAnyOf$new(c("flexible", "gaverage")))
 
       # set defaults
-      ps$values = list(metric = "euclidean", stand = FALSE, trace.lev = 0L, k = 1L)
+      ps$values = list(metric = "euclidean", stand = FALSE, trace.lev = 0L, k = 2L)
 
       super$initialize(
         id = "clust.agnes",
