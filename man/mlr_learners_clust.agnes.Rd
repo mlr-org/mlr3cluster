@@ -6,7 +6,7 @@
 \title{Agglomerative Hierarchical Clustering Learner}
 \description{
 A \link{LearnerClust} for agglomerative hierarchical clustering implemented in \code{\link[cluster:agnes]{cluster::agnes()}}.
-Predictions are generated using \code{\link[stats:cutree]{stats::cutree()}} which cuts the tree resulting from
+The predict method uses \code{\link[stats:cutree]{stats::cutree()}} which cuts the tree resulting from
 hierarchical clustering into specified number of groups (see parameter \code{k}).
 }
 \section{Dictionary}{

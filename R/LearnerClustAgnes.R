@@ -5,7 +5,7 @@
 #'
 #' @description
 #' A [LearnerClust] for agglomerative hierarchical clustering implemented in [cluster::agnes()].
-#' Predictions are generated using [stats::cutree()] which cuts the tree resulting from
+#' The predict method uses [stats::cutree()] which cuts the tree resulting from
 #' hierarchical clustering into specified number of groups (see parameter `k`).
 #'
 #' @templateVar id clust.agnes

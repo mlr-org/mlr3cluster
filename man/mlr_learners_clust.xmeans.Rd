@@ -6,6 +6,8 @@
 \title{X-means Cluster Learner}
 \description{
 A \link{LearnerClust} for X-means clustering implemented in \code{\link[RWeka:XMeans]{RWeka::XMeans()}}.
+The predict method uses \code{\link[RWeka:predict.Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
+cluster memberships for new data.
 }
 \section{Dictionary}{
 

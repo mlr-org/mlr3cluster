@@ -5,6 +5,8 @@
 #'
 #' @description
 #' A [LearnerClust] for X-means clustering implemented in [RWeka::XMeans()].
+#' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the
+#' cluster memberships for new data.
 #'
 #' @templateVar id clust.xmeans
 #' @template section_dictionary_learner

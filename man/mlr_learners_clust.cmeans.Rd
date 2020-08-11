@@ -7,6 +7,8 @@
 \description{
 A \link{LearnerClust} for fuzzy clustering implemented in \code{\link[e1071:cmeans]{e1071::cmeans()}}.
 The default number of clusters has been initialized to 2.
+The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the
+cluster memberships for new data.
 }
 \section{Dictionary}{
 

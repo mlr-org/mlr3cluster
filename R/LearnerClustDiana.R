@@ -5,7 +5,7 @@
 #'
 #' @description
 #' A [LearnerClust] for divisive hierarchical clustering implemented in [cluster::diana()].
-#' Predictions are generated using [stats::cutree()] which cuts the tree resulting from
+#' The predict method uses [stats::cutree()] which cuts the tree resulting from
 #' hierarchical clustering into specified number of groups (see parameter `k`).
 #'
 #' @templateVar id clust.diana
