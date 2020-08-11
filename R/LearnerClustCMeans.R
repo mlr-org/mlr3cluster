@@ -27,7 +27,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
               } else if (test_int(x)) {
                 assert_true(x >= 1L)
               } else {
-                return("`centers` must be either integer or data.frame with initial cluster centers")
+                return("`centers` must be integer or data.frame with initial cluster centers")
               }
             }
           ),
@@ -53,7 +53,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
               } else if (test_count(x)) {
                 return(TRUE)
               } else {
-                return("`weights` needs to be either a numeric vector with all positive values or a single positive number")
+                return("`weights` must be positive numeric vector or a single positive number")
               }
             },
             tags = "train"),
