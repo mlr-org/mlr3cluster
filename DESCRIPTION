@@ -29,6 +29,7 @@ Imports:
     paradox,
     R6
 Suggests:
+    bibtex,
     mlbench,
     testthat
 Remotes:
