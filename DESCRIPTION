@@ -24,7 +24,7 @@ Imports:
     clue,
     clusterCrit,
     data.table,
-    mlr3 (>= 0.4.0-9000),
+    mlr3 (>= 0.5.0),
     mlr3misc (>= 0.4.0),
     paradox,
     R6
