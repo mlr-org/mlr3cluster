@@ -45,7 +45,7 @@ register_mlr3 = function() {
   x = utils::getFromNamespace("mlr_measures", ns = "mlr3")
   x$add("clust.db", MeasureClustInternal, name = "db")
   x$add("clust.dunn", MeasureClustInternal, name = "dunn")
-  x$add("clust.hb", MeasureClustInternal, name = "ch")
+  x$add("clust.ch", MeasureClustInternal, name = "ch")
   x$add("clust.silhouette", MeasureClustInternal, name = "silhouette")
 }
 
