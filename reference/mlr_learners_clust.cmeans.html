@@ -42,7 +42,9 @@
 
 <meta property="og:title" content="Fuzzy C-Means Clustering Learner — mlr_learners_clust.cmeans" />
 <meta property="og:description" content="A LearnerClust for fuzzy clustering implemented in e1071::cmeans().
-The default number of clusters has been initialized to 2." />
+The default number of clusters has been initialized to 2.
+The predict method uses clue::cl_predict() to compute the
+cluster memberships for new data." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -139,7 +141,9 @@ The default number of clusters has been initialized to 2." />
 
     <div class="ref-description">
     <p>A <a href='LearnerClust.html'>LearnerClust</a> for fuzzy clustering implemented in <code>e1071::cmeans()</code>.
-The default number of clusters has been initialized to 2.</p>
+The default number of clusters has been initialized to 2.
+The predict method uses <code><a href='https://rdrr.io/pkg/clue/man/cl_predict.html'>clue::cl_predict()</a></code> to compute the
+cluster memberships for new data.</p>
     </div>
 
 
