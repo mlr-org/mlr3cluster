@@ -6,8 +6,9 @@
 \title{Divisive Hierarchical Clustering Learner}
 \description{
 A \link{LearnerClust} for divisive hierarchical clustering implemented in \code{\link[cluster:diana]{cluster::diana()}}.
-Predictions are generated using \code{\link[stats:cutree]{stats::cutree()}} which cuts the tree resulting from
+The predict method uses \code{\link[stats:cutree]{stats::cutree()}} which cuts the tree resulting from
 hierarchical clustering into specified number of groups (see parameter \code{k}).
+The default number for \code{k} is 2.
 }
 \section{Dictionary}{
 

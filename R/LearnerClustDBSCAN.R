@@ -5,6 +5,8 @@
 #'
 #' @description
 #' A [LearnerClust] for density-based clustering implemented in [dbscan::dbscan()].
+#' The predict method uses [dbscan::predict.dbscan_fast()] to compute the
+#' cluster memberships for new data.
 #'
 #' @templateVar id clust.dbscan
 #' @template section_dictionary_learner

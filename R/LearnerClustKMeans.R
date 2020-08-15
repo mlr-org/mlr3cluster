@@ -6,7 +6,8 @@
 #' @description
 #' A [LearnerClust] for k-means clustering implemented in [stats::kmeans()].
 #' The default number of clusters has been initialized to 2.
-#' Predictions are generated using [clue::cl_predict()].
+#' The predict method uses [clue::cl_predict()] to compute the
+#' cluster memberships for new data.
 #'
 #' @templateVar id clust.kmeans
 #' @template section_dictionary_learner

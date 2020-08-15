@@ -18,13 +18,25 @@ test_that("Learner properties are respected", {
   learner$param_set$values = list(eps = 25)
   expect_learner(learner, task)
 
-  p = learner$train(task)$predict(task)
-  expect_prediction_clust(p)
+  # test on multiple paramsets
+  parset_list = list(
+    list(eps = 25),
+    list(eps = 25, minPts = 10),
+    list(eps = 25, search = "linear")
+  )
 
-  if ("complete" %in% learner$properties) {
-    expect_prediction_complete(p, learner$predict_type)
-  }
-  if ("exclusive" %in% learner$properties) {
-    expect_prediction_exclusive(p, learner$predict_type)
+  for (i in seq_along(parset_list)) {
+    parset = parset_list[[i]]
+    learner$param_set$values = parset
+
+    p = learner$train(task)$predict(task)
+    expect_prediction_clust(p)
+
+    if ("complete" %in% learner$properties) {
+      expect_prediction_complete(p, learner$predict_type)
+    }
+    if ("exclusive" %in% learner$properties) {
+      expect_prediction_exclusive(p, learner$predict_type)
+    }
   }
 })
