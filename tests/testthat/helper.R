@@ -3,9 +3,9 @@ library(mlr3cluster)
 library(checkmate)
 library(testthat)
 
-lapply(list.files(system.file("testthat", package = "mlr3"),
-  pattern = "^helper.*\\.[rR]$", full.names = TRUE
-), source)
+lapply(list.files(system.file("testthat", package = "mlr3"), pattern = "^helper.*\\.[rR]",
+                  full.names = TRUE), source)
+
 
 generate_tasks.LearnerClust = function(learner, N = 20L) { # nolint
   set.seed(1)
@@ -18,7 +18,7 @@ registerS3method("generate_tasks", "LearnerClust", generate_tasks.LearnerClust,
 )
 
 sanity_check.PredictionClust = function(prediction, task, ...) { # nolint
-  prediction$score(measure = msr("clust.silhouette"), task = task) > 0
+  prediction$score(measures = msr("clust.silhouette"), task = task) > 0
 }
 registerS3method("sanity_check", "PredictionClust", sanity_check.PredictionClust,
   envir = parent.frame()

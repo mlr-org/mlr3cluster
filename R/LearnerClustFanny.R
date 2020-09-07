@@ -55,10 +55,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
     },
 
     .predict = function(task) {
-      msg = "clust.fanny doesn't predict on new data"
-      msg = paste(msg, "and prediction results may not make sense", sep = " ")
-      msg = paste(msg, "if you use it on new data", sep = " ")
-      warning(msg)
+      warn_prediction_useless(self$id)
 
       partition = self$model$clustering
 

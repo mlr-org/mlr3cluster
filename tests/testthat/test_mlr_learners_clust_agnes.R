@@ -28,7 +28,7 @@ test_that("Learner properties are respected", {
     parset = parset_list[[i]]
     learner$param_set$values = parset
 
-    p = learner$train(task)$predict(task)
+    p = suppressWarnings(learner$train(task)$predict(task), classes = "predictionUselessWarning")
     expect_prediction_clust(p)
 
     if ("complete" %in% learner$properties) {

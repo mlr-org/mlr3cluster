@@ -1,3 +1,9 @@
+if (Sys.info()[["sysname"]] != "Windows") {
+  get_stage("script") %>%
+    add_code_step(RWeka::WPM("refresh-cache")) %>%
+    add_code_step(RWeka::WPM("install-package", "XMeans"))
+}
+
 # installs dependencies, runs R CMD check, runs covr::codecov()
 do_package_checks()
 
