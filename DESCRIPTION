@@ -29,11 +29,12 @@ Imports:
     paradox,
     R6
 Suggests:
+    RWeka,
     bibtex,
+    dbscan,
+    e1071,
     mlbench,
     testthat
-Remotes:
-    mlr-org/mlr3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.1.1
