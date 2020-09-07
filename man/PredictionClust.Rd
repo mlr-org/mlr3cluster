@@ -19,9 +19,6 @@ Access the stored partition.}
 
 \item{\code{prob}}{(\code{matrix()})\cr
 Access to the stored probabilities.}
-
-\item{\code{missing}}{(\code{integer()})\cr
-Returns \code{row_ids} for which the predictions are missing or incomplete.}
 }
 \if{html}{\out{</div>}}
 }
@@ -52,7 +49,8 @@ Creates a new instance of this \link[R6:R6Class]{R6} class.
   task = NULL,
   row_ids = task$row_ids,
   partition = NULL,
-  prob = NULL
+  prob = NULL,
+  check = TRUE
 )}\if{html}{\out{</div>}}
 }
 

@@ -52,6 +52,7 @@ Collate:
     'measures.R'
     'MeasureClustInternal.R'
     'PredictionClust.R'
+    'PredictionDataClust.R'
     'TaskClust.R'
     'TaskClust_usarrest.R'
     'zzz.R'

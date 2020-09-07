@@ -6,7 +6,7 @@
 \title{Density-Based Clustering Learner}
 \description{
 A \link{LearnerClust} for density-based clustering implemented in \code{\link[dbscan:dbscan]{dbscan::dbscan()}}.
-The predict method uses \code{\link[dbscan:predict.dbscan_fast]{dbscan::predict.dbscan_fast()}} to compute the
+The predict method uses \code{\link[dbscan:dbscan]{dbscan::predict.dbscan_fast()}} to compute the
 cluster memberships for new data.
 }
 \section{Dictionary}{
