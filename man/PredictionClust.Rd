@@ -11,6 +11,18 @@ the predicted partition and cluster probability.
 \section{Super class}{
 \code{\link[mlr3:Prediction]{mlr3::Prediction}} -> \code{PredictionClust}
 }
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{task_type}}{(\code{character(1)})\cr
+Type of task, i.e. \code{"clust"}.}
+
+\item{\code{man}}{(\code{character(1)})\cr
+String in the format \verb{[pkg]::[topic]} pointing to a manual page for this object.
+The referenced help package can be opened via method \verb{$help()}.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
 \describe{

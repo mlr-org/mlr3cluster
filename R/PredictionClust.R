@@ -37,7 +37,17 @@ PredictionClust = R6Class("PredictionClust",
       }
       self$data = pdata
       self$predict_types = intersect(c("partition", "prob"), names(pdata))
-    }
+    },
+
+    #' @field task_type (`character(1)`)\cr
+    #'   Type of task, i.e. `"clust"`.
+    task_type = "clust",
+
+    #' @field man (`character(1)`)\cr
+    #'   String in the format `[pkg]::[topic]` pointing to a manual page for this object.
+    #'   The referenced help package can be opened via method `$help()`.
+    man = "mlr3cluster::PredictionClust"
+
   ),
   active = list(
     #' @field partition (`integer()`)\cr
