@@ -1,6 +1,6 @@
 #' @export
-as_prediction.PredictionDataClust = function(x) { # nolint
-  invoke(PredictionClust$new, .args = x)
+as_prediction.PredictionDataClust = function(x, check = TRUE) { # nolint
+  invoke(PredictionClust$new, check = check, .args = x)
 }
 
 #' @export
