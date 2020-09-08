@@ -1,11 +1,11 @@
 #' @export
-as_prediction.PredictionDataClust = function(x) {
+as_prediction.PredictionDataClust = function(x) { # nolint
   invoke(PredictionClust$new, .args = x)
 }
 
 #' @export
 check_prediction_data.PredictionDataClust = function(pdata) { # nolint
-  assert_row_ids(pdata$row_ids)
+  pdata$row_ids = assert_row_ids(pdata$row_ids)
   n = length(pdata$row_ids)
   assert_integer(pdata$partition, len = n, any.missing = FALSE, null.ok = TRUE)
 
