@@ -84,6 +84,9 @@ and one row for each observation.
 Columns must be named with cluster numbers, row names are automatically removed.
 If \code{prob} is provided, but \code{partition} is not, the cluster memberships are calculated from
 the probabilities using \code{\link[=max.col]{max.col()}} with \code{ties.method} set to \code{"first"}.}
+
+\item{\code{check}}{(\code{logical(1)})\cr
+If \code{TRUE}, performs some argument checks and predict type conversions.}
 }
 \if{html}{\out{</div>}}
 }
