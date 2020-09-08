@@ -59,7 +59,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
               }
             },
             tags = "train"),
-          ParamUty$new(id = "control")
+          ParamUty$new(id = "control", tags = "train")
         )
       )
       # add deps
@@ -89,7 +89,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
       }
 
       pv = self$param_set$get_values(tags = "train")
-      invoke(e1071::cmeans, x = task$data(), .args = pv)
+      invoke(e1071::cmeans, x = task$data(), .args = pv, .opts = allow_partial_matching)
     },
 
     .predict = function(task) {

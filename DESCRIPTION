@@ -2,15 +2,15 @@ Package: mlr3cluster
 Title: Cluster extension for 'mlr3'
 Version: 0.1.4
 Authors@R:
-    c(person(given = "Michel",
-           family = "Lang",
-           role = c("aut"),
-           email = "michellang@gmail.com",
-           comment = c(ORCID = "0000-0001-9754-0393")),
-      person(given = "Damir",
-           family = "Pulatov",
-           role = c("cre", "aut"),
-           email = "dpulatov@uwyo.edu"))
+    c(person(given = "Damir",
+             family = "Pulatov",
+             role = c("cre", "aut"),
+             email = "dpulatov@uwyo.edu"),
+      person(given = "Michel",
+             family = "Lang",
+             role = "aut",
+             email = "michellang@gmail.com",
+             comment = c(ORCID = "0000-0001-9754-0393")))
 Description: Extends the 'mlr3' package with cluster analysis.
 License: LGPL-3
 URL: https:///mlr3cluster.mlr-org.com,
@@ -30,10 +30,11 @@ Imports:
     R6
 Suggests:
     bibtex,
+    dbscan,
+    e1071,
     mlbench,
+    RWeka,
     testthat
-Remotes:
-    mlr-org/mlr3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.1.1
@@ -55,4 +56,5 @@ Collate:
     'PredictionDataClust.R'
     'TaskClust.R'
     'TaskClust_usarrest.R'
+    'helper.R'
     'zzz.R'
