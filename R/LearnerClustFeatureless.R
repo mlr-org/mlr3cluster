@@ -43,11 +43,9 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
       pv = self$param_set$get_values(tags = "train")
       n = task$nrow
       if (pv$num.clusters > n) {
-        stop("number of clusters must lie between 1 and nrow(data)",
-          call. = FALSE
-        )
+        stopf("number of clusters must lie between 1 and nrow(data)")
       } else if (pv$num.clusters == n) {
-        clustering = seq_along(1:n)
+        clustering = seq_len(n)
       } else {
         times = c(
           rep.int(n / pv$num.clusters, pv$num.clusters - 1),
@@ -67,14 +65,14 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
       n = task$nrow
       pv = self$param_set$get_values(tags = "train")
       if (n <= pv$num.clusters) {
-        partition = seq_along(1:n)
+        partition = seq_len(n)
       } else {
         times = c(
           rep.int(n / pv$num.clusters, pv$num.clusters - 1),
           n - (pv$num.clusters - 1) * floor(n / pv$num.clusters)
         )
 
-        partition = rep.int(seq_along(1:pv$num.clusters),
+        partition = rep.int(seq_len(pv$num.clusters),
           times = times
         )
       }

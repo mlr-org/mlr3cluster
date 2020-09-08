@@ -66,10 +66,10 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
           r = unname(lapply(self$param_set$values$medoids, function(i) {
             test_true(i <= task$nrow) && test_true(i >= 1)
           }))
-          if (test_true(sum(unlist(r)) != self$param_set$values$k)) {
+          if (sum(unlist(r)) != self$param_set$values$k) {
             msg = sprintf("`medoids` need to contain valid indices from 1")
             msg = sprintf("%s to %s (number of observations)!", msg, self$param_set$values$k)
-            stop(msg)
+            stopf(msg)
           }
         }
       }

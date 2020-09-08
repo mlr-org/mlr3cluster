@@ -39,11 +39,10 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
             id = "par.method", tags = "train",
             custom_check = function(x) {
               if (test_numeric(x) || test_list(x)) {
-                if (length(x) == 1L || length(x) == 3L || length(x) == 4L) {
+                if (length(x) %in% c(1L, 3L, 4L)) {
                   return(TRUE)
-                } else {
-                  stop("`par.method` needs be of length 1, 3, or 4")
                 }
+                stop("`par.method` needs be of length 1, 3, or 4")
               } else {
                 stop("`par.method` needs to be a numeric vector")
               }
@@ -71,9 +70,10 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
       pv = self$param_set$get_values(tags = "train")
       invoke(cluster::agnes, x = task$data(), diss = FALSE, .args = pv)
     },
+
     .predict = function(task) {
-      if (test_true(self$param_set$values$k > task$nrow)) {
-        stop(sprintf("`k` needs to be between 1 and %s", task$nrow))
+      if (self$param_set$values$k > task$nrow) {
+        stopf("`k` needs to be between 1 and %i", task$nrow)
       }
 
       warn_prediction_useless(self$id)
