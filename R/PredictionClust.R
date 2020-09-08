@@ -27,6 +27,9 @@ PredictionClust = R6Class("PredictionClust",
     #'   Columns must be named with cluster numbers, row names are automatically removed.
     #'   If `prob` is provided, but `partition` is not, the cluster memberships are calculated from
     #'   the probabilities using [max.col()] with `ties.method` set to `"first"`.
+    #'
+    #' @param check (`logical(1)`)\cr
+    #'   If `TRUE`, performs some argument checks and predict type conversions.
     initialize = function(task = NULL, row_ids = task$row_ids, partition = NULL, prob = NULL, check = TRUE) {
       pdata = list(row_ids = row_ids, partition = partition, prob = prob)
       pdata = discard(pdata, is.null)
