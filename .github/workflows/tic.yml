@@ -52,6 +52,11 @@ jobs:
           r-version: ${{ matrix.config.r }}
           Ncpus: 4
 
+      - name: "[Custom block] [Linux] Reconfigure java"
+        if: runner.os == 'Linux'
+        run: |
+          sudo R CMD javareconf
+
       # LaTeX. Installation time:
       # Linux: ~ 1 min
       # macOS: ~ 1 min 30s
