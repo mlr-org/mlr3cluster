@@ -42,7 +42,7 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 | [clust.diana](https://mlr-org.github.io/mlr3cluster/reference/mlr_learners_clust.diana.html) | Divisive Hierarchical Clustering | [cluster](https://CRAN.R-project.org/package=cluster) |
 | [clust.fanny](https://mlr-org.github.io/mlr3cluster/reference/mlr_learners_clust.fanny.html) | Fuzzy Clustering | [cluster](https://CRAN.R-project.org/package=cluster) |
 | [clust.featureless](https://mlr-org.github.io/mlr3cluster/reference/mlr_learners_clust.featureless.html) | Simple Featureless Clustering | [mlr3cluster](https://github.com/mlr-org/mlr3cluster) |
-| [clust.kmeans](https://mlr-org.github.io/mlr3cluster/reference/mlr_learners_clust.kmeans.html) | K-Means Clustering | [stats](https://CRAN.R-project.org/package=stats) | 
+| [clust.kmeans](https://mlr-org.github.io/mlr3cluster/reference/mlr_learners_clust.kmeans.html) | K-Means Clustering | [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html) | 
 | [clust.pam](https://mlr-org.github.io/mlr3cluster/reference/mlr_learners_clust.pam.html) | Clustering Around Medoids | [cluster](https://CRAN.R-project.org/package=cluster) |
 | [clust.xmeans](https://mlr-org.github.io/mlr3cluster/reference/mlr_learners_clust.xmeans.html) | K-Means with Automatic Determination of k | [RWeka](https://CRAN.R-project.org/package=RWeka) |
 
