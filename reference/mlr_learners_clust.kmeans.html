@@ -42,7 +42,8 @@
 
 <meta property="og:title" content="KMeans Cluster Learner — mlr_learners_clust.kmeans" />
 <meta property="og:description" content="A LearnerClust for k-means clustering implemented in stats::kmeans().
-The default number of clusters has been initialized to 2.
+stats::kmeans() doesn't have a default value for the number of clusters.
+Therefore, the centers parameter here is set to 2 by default.
 The predict method uses clue::cl_predict() to compute the
 cluster memberships for new data." />
 <meta name="twitter:card" content="summary" />
@@ -141,7 +142,8 @@ cluster memberships for new data." />
 
     <div class="ref-description">
     <p>A <a href='LearnerClust.html'>LearnerClust</a> for k-means clustering implemented in <code><a href='https://rdrr.io/r/stats/kmeans.html'>stats::kmeans()</a></code>.
-The default number of clusters has been initialized to 2.
+<code><a href='https://rdrr.io/r/stats/kmeans.html'>stats::kmeans()</a></code> doesn't have a default value for the number of clusters.
+Therefore, the <code>centers</code> parameter here is set to 2 by default.
 The predict method uses <code><a href='https://rdrr.io/pkg/clue/man/cl_predict.html'>clue::cl_predict()</a></code> to compute the
 cluster memberships for new data.</p>
     </div>

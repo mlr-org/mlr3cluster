@@ -43,7 +43,8 @@
 <meta property="og:title" content="Featureless Clustering Learner — mlr_learners_clust.featureless" />
 <meta property="og:description" content="A simple LearnerClust which assigns first n observations to cluster 1,
 second n observations to cluster 2, and so on.
-Hyperparameter num.clusters controls the number of clusters.
+Hyperparameter num_clusters controls the number of clusters and is
+set to 1 by default.
 The train method tries to assign cluster memberships to each
 observation such that each cluster has an equal amount of observations.
 The predict method uses does the same thing as the train but for new data." />
@@ -144,7 +145,8 @@ The predict method uses does the same thing as the train but for new data." />
     <div class="ref-description">
     <p>A simple <a href='LearnerClust.html'>LearnerClust</a> which assigns first n observations to cluster 1,
 second n observations to cluster 2, and so on.
-Hyperparameter <code>num.clusters</code> controls the number of clusters.
+Hyperparameter <code>num_clusters</code> controls the number of clusters and is
+set to 1 by default.
 The train method tries to assign cluster memberships to each
 observation such that each cluster has an equal amount of observations.
 The predict method uses does the same thing as the train but for new data.</p>

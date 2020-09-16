@@ -42,7 +42,9 @@
 
 <meta property="og:title" content="Partitioning Around Medoids Cluster Learner — mlr_learners_clust.pam" />
 <meta property="og:description" content="A LearnerClust for PAM clustering implemented in cluster::pam().
-The default number of clusters has been initialized to 2.
+cluster::pam() doesn't have a default value for the number of clusters.
+Therefore, the k parameter which correponds to the number
+of clusters here is set to 2 by default.
 The predict method uses clue::cl_predict() to compute the
 cluster memberships for new data." />
 <meta name="twitter:card" content="summary" />
@@ -141,7 +143,9 @@ cluster memberships for new data." />
 
     <div class="ref-description">
     <p>A <a href='LearnerClust.html'>LearnerClust</a> for PAM clustering implemented in <code><a href='https://rdrr.io/pkg/cluster/man/pam.html'>cluster::pam()</a></code>.
-The default number of clusters has been initialized to 2.
+<code><a href='https://rdrr.io/pkg/cluster/man/pam.html'>cluster::pam()</a></code> doesn't have a default value for the number of clusters.
+Therefore, the <code>k</code> parameter which correponds to the number
+of clusters here is set to 2 by default.
 The predict method uses <code><a href='https://rdrr.io/pkg/clue/man/cl_predict.html'>clue::cl_predict()</a></code> to compute the
 cluster memberships for new data.</p>
     </div>
