@@ -4,14 +4,14 @@
 \name{mlr3cluster-package}
 \alias{mlr3cluster}
 \alias{mlr3cluster-package}
-\title{mlr3cluster: Cluster extension for 'mlr3'}
+\title{mlr3cluster: Cluster Extension for 'mlr3'}
 \description{
 Extends the 'mlr3' package with cluster analysis.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https:///mlr3cluster.mlr-org.com}
+  \item \url{https://mlr-org.github.io/mlr3cluster/}
   \item \url{https://github.com/mlr-org/mlr3cluster}
   \item Report bugs at \url{https://github.com/mlr-org/mlr3cluster/issues}
 }

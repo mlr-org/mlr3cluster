@@ -3,7 +3,7 @@
 #' @format [R6::R6Class()] inheriting from [MeasureClust].
 #'
 #' @description
-#' The score function calls [clusterCrit::intCriteria()] from package \CRANpkg{clustCrit}.
+#' The score function calls [clusterCrit::intCriteria()] from package \CRANpkg{clusterCrit}.
 #' Argument `crit` is set to "<%= measures[[id]]$crit %>".
 #'
 #' @section Construction:

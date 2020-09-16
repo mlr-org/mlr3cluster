@@ -1,5 +1,5 @@
 Package: mlr3cluster
-Title: Cluster extension for 'mlr3'
+Title: Cluster Extension for 'mlr3'
 Version: 0.1.4
 Authors@R:
     c(person(given = "Damir",
@@ -13,7 +13,7 @@ Authors@R:
              comment = c(ORCID = "0000-0001-9754-0393")))
 Description: Extends the 'mlr3' package with cluster analysis.
 License: LGPL-3
-URL: https:///mlr3cluster.mlr-org.com,
+URL: https://mlr-org.github.io/mlr3cluster/,
     https://github.com/mlr-org/mlr3cluster
 BugReports: https://github.com/mlr-org/mlr3cluster/issues
 Depends:
@@ -35,8 +35,6 @@ Suggests:
     mlbench,
     RWeka,
     testthat
-Remotes:
-    mlr-org/mlr3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.1.1
