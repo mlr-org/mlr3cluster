@@ -5,7 +5,8 @@
 #'
 #' @description
 #' A [LearnerClust] for k-means clustering implemented in [stats::kmeans()].
-#' The default number of clusters has been initialized to 2.
+#' [stats::kmeans()] doesn't have a default value for the number of clusters.
+#' Therefore, the `centers` parameter here is set to 2 by default.
 #' The predict method uses [clue::cl_predict()] to compute the
 #' cluster memberships for new data.
 #'
@@ -43,7 +44,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
           ParamInt$new(id = "trace", lower = 0L, default = 0L, tags = c("train"))
         )
       )
-      ps$values = list(centers = 2L, algorithm = "Hartigan-Wong", iter.max = 10L, trace = 0L)
+      ps$values = list(centers = 2L)
 
       super$initialize(
         id = "clust.kmeans",

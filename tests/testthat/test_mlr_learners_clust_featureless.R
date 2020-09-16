@@ -15,9 +15,9 @@ test_that("Learner properties are respected", {
 
   # test on multiple paramsets
   parset_list = list(
-    list(num.clusters = 1L),
-    list(num.clusters = 2L),
-    list(num.clusters = 3L)
+    list(num_clusters = 1L),
+    list(num_clusters = 2L),
+    list(num_clusters = 3L)
   )
 
   for (i in seq_along(parset_list)) {

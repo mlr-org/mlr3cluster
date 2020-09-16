@@ -6,7 +6,8 @@
 \title{KMeans Cluster Learner}
 \description{
 A \link{LearnerClust} for k-means clustering implemented in \code{\link[stats:kmeans]{stats::kmeans()}}.
-The default number of clusters has been initialized to 2.
+\code{\link[stats:kmeans]{stats::kmeans()}} doesn't have a default value for the number of clusters.
+Therefore, the \code{centers} parameter here is set to 2 by default.
 The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the
 cluster memberships for new data.
 }

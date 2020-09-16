@@ -3,7 +3,7 @@ context("LearnerClust")
 test_that("predict on newdata works / clust", {
   task = tsk("usarrests")$filter(1:40)
   learner = lrn("clust.featureless")
-  learner$param_set$values = list(num.clusters = 1L)
+  learner$param_set$values = list(num_clusters = 1L)
   expect_error(learner$predict(task), "trained")
   learner$train(task)
   expect_task(learner$state$train_task)
@@ -25,7 +25,7 @@ test_that("predict on newdata works / clust", {
 test_that("reset()", {
   task = tsk("usarrests")
   lrn = lrn("clust.featureless")
-  lrn$param_set$values = list(num.clusters = 2L)
+  lrn$param_set$values = list(num_clusters = 2L)
 
   lrn$train(task)
   expect_list(lrn$state, names = "unique")
@@ -36,7 +36,7 @@ test_that("reset()", {
 test_that("empty predict set (#421)", {
   task = tsk("usarrests")
   learner = lrn("clust.featureless")
-  learner$param_set$values = list(num.clusters = 1L)
+  learner$param_set$values = list(num_clusters = 1L)
   resampling = rsmp("holdout", ratio = 1)
   hout = resampling$instantiate(task)
   model = learner$train(task, hout$train_set(1))

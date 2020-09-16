@@ -6,7 +6,8 @@
 #' @description
 #' A simple [LearnerClust] which assigns first n observations to cluster 1,
 #' second n observations to cluster 2, and so on.
-#' Hyperparameter `num.clusters` controls the number of clusters.
+#' Hyperparameter `num_clusters` controls the number of clusters and is
+#' set to 1 by default.
 #' The train method tries to assign cluster memberships to each
 #' observation such that each cluster has an equal amount of observations.
 #' The predict method uses does the same thing as the train but for new data.
@@ -23,11 +24,11 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamInt$new(id = "num.clusters", lower = 1L,
+          ParamInt$new(id = "num_clusters", lower = 1L,
                        default = 1L, tags = c("required", "train"))
         )
       )
-      ps$values = list(num.clusters = 1L)
+      ps$values = list(num_clusters = 1L)
 
       super$initialize(
         id = "clust.featureless",
@@ -42,17 +43,17 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       n = task$nrow
-      if (pv$num.clusters > n) {
+      if (pv$num_clusters > n) {
         stopf("number of clusters must lie between 1 and nrow(data)")
-      } else if (pv$num.clusters == n) {
+      } else if (pv$num_clusters == n) {
         clustering = seq_len(n)
       } else {
         times = c(
-          rep.int(n / pv$num.clusters, pv$num.clusters - 1),
-          n - (pv$num.clusters - 1) * floor(n / pv$num.clusters)
+          rep.int(n / pv$num_clusters, pv$num_clusters - 1),
+          n - (pv$num_clusters - 1) * floor(n / pv$num_clusters)
         )
 
-        clustering = rep.int(seq_along(1:pv$num.clusters),
+        clustering = rep.int(seq_along(1:pv$num_clusters),
           times = times
         )
       }
@@ -64,15 +65,15 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
     .predict = function(task) {
       n = task$nrow
       pv = self$param_set$get_values(tags = "train")
-      if (n <= pv$num.clusters) {
+      if (n <= pv$num_clusters) {
         partition = seq_len(n)
       } else {
         times = c(
-          rep.int(n / pv$num.clusters, pv$num.clusters - 1),
-          n - (pv$num.clusters - 1) * floor(n / pv$num.clusters)
+          rep.int(n / pv$num_clusters, pv$num_clusters - 1),
+          n - (pv$num_clusters - 1) * floor(n / pv$num_clusters)
         )
 
-        partition = rep.int(seq_len(pv$num.clusters),
+        partition = rep.int(seq_len(pv$num_clusters),
           times = times
         )
       }

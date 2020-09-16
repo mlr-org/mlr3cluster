@@ -5,7 +5,9 @@
 #'
 #' @description
 #' A [LearnerClust] for PAM clustering implemented in [cluster::pam()].
-#' The default number of clusters has been initialized to 2.
+#' [cluster::pam()] doesn't have a default value for the number of clusters.
+#' Therefore, the `k` parameter which correponds to the number
+#' of clusters here is set to 2 by default.
 #' The predict method uses [clue::cl_predict()] to compute the
 #' cluster memberships for new data.
 #'
@@ -42,10 +44,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
           ParamInt$new(id = "trace.lev", lower = 0L, default = 0L, tags = "train")
         )
       )
-      ps$values = list(
-        k = 2L, stand = FALSE, do.swap = TRUE, pamonce = 0L, medoids = NULL,
-        trace.lev = 0L
-      )
+      ps$values = list(k = 2L)
 
       super$initialize(
         id = "clust.pam",

@@ -8,7 +8,7 @@
 A \link{LearnerClust} for divisive hierarchical clustering implemented in \code{\link[cluster:diana]{cluster::diana()}}.
 The predict method uses \code{\link[stats:cutree]{stats::cutree()}} which cuts the tree resulting from
 hierarchical clustering into specified number of groups (see parameter \code{k}).
-The default number for \code{k} is 2.
+The default value for \code{k} is 2.
 }
 \section{Dictionary}{
 

@@ -5,7 +5,9 @@
 #'
 #' @description
 #' A [LearnerClust] for fuzzy clustering implemented in [cluster::fanny()].
-#' The default number of clusters has been initialized to 2.
+#' [cluster::fanny()] doesn't have a deafult value for the number of clusters.
+#' Therefore, the `k` parameter which correponds to the number
+#' of clusters here is set to 2 by default.
 #' The predict method copies cluster assignments and memberships
 #' generated for train data. The predict does not work for
 #' new data.
@@ -22,7 +24,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamInt$new(id = "k", lower = 1L, default = 2L, tags = "train"),
+          ParamInt$new(id = "k", lower = 1L, default = 2L, tags = c("required", "train")),
           ParamDbl$new(id = "memb.exp", lower = 1L, default = 2L, tags = "train"),
           ParamFct$new(
             id = "metric", default = "euclidean",
@@ -33,9 +35,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
           ParamInt$new(id = "trace.lev", lower = 0L, default = 0L, tags = "train")
         )
       )
-      ps$values = list(
-        k = 2L, memb.exp = 2L, metric = "euclidean", stand = FALSE,
-        maxit = 500L, tol = 1e-15, trace.lev = 0L)
+      ps$values = list(k = 2L)
 
       super$initialize(
         id = "clust.fanny",

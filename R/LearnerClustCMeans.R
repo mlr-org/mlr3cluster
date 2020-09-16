@@ -5,7 +5,8 @@
 #'
 #' @description
 #' A [LearnerClust] for fuzzy clustering implemented in [e1071::cmeans()].
-#' The default number of clusters has been initialized to 2.
+#' [e1071::cmeans()] doesn't have a default value for the number of clusters.
+#' Therefore, the `centers` parameter here is set to 2 by default.
 #' The predict method uses [clue::cl_predict()] to compute the
 #' cluster memberships for new data.
 #'
@@ -65,9 +66,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
       # add deps
       ps$add_dep("rate.par", "method", CondEqual$new("ufcl"))
 
-      ps$values = list(
-        centers = 2L, iter.max = 100L, verbose = FALSE,
-        dist = "euclidean", m = 2L, weights = 1L)
+      ps$values = list(centers = 2L)
 
       super$initialize(
         id = "clust.cmeans",
@@ -75,7 +74,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         predict_types = c("partition", "prob"),
         param_set = ps,
         properties = c("partitional", "fuzzy", "complete"),
-        packages = "cluster"
+        packages = "e1071"
       )
     }
   ),

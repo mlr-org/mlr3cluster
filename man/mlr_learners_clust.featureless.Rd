@@ -7,7 +7,8 @@
 \description{
 A simple \link{LearnerClust} which assigns first n observations to cluster 1,
 second n observations to cluster 2, and so on.
-Hyperparameter \code{num.clusters} controls the number of clusters.
+Hyperparameter \code{num_clusters} controls the number of clusters and is
+set to 1 by default.
 The train method tries to assign cluster memberships to each
 observation such that each cluster has an equal amount of observations.
 The predict method uses does the same thing as the train but for new data.

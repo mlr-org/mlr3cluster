@@ -12,7 +12,7 @@ test_that("Construction", {
 test_that("Internally constructed Prediction", {
   task = tsk("usarrests")
   lrn = mlr_learners$get("clust.featureless")
-  lrn$param_set$values = list(num.clusters = 1L)
+  lrn$param_set$values = list(num_clusters = 1L)
   p = lrn$train(task)$predict(task)
   expect_prediction(p)
   expect_prediction_clust(p)

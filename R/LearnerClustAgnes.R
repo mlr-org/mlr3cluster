@@ -52,8 +52,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
       # param deps
       ps$add_dep("par.method", "method", CondAnyOf$new(c("flexible", "gaverage")))
 
-      # set defaults
-      ps$values = list(metric = "euclidean", stand = FALSE, trace.lev = 0L, k = 2L)
+      ps$values = list(k = 2L)
 
       super$initialize(
         id = "clust.agnes",
