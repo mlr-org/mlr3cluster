@@ -1,6 +1,7 @@
 .ignore
 .editorconfig
 .gitignore
+cran-comments.md
 ^man-roxygen$
 ^.*\.Rproj$
 ^\.Rproj\.user$
