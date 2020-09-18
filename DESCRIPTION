@@ -13,7 +13,7 @@ Authors@R:
              comment = c(ORCID = "0000-0001-9754-0393")))
 Description: Extends the 'mlr3' package with cluster analysis.
 License: LGPL-3
-URL: https://mlr-org.github.io/mlr3cluster/,
+URL: https://mlr3cluster.mlr-org.com,
     https://github.com/mlr-org/mlr3cluster
 BugReports: https://github.com/mlr-org/mlr3cluster/issues
 Depends:
