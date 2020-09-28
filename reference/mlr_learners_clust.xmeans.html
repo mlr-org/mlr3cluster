@@ -199,6 +199,24 @@ cluster memberships for new data.</p>
 
 
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>learner</span> <span class='op'>=</span> <span class='fu'>mlr3</span><span class='fu'>::</span><span class='fu'><a href='https://mlr3.mlr-org.com/reference/mlr_sugar.html'>lrn</a></span><span class='op'>(</span><span class='st'>"clust.xmeans"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>learner</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; &lt;LearnerClustXMeans:clust.xmeans&gt;
+#&gt; * Model: -
+#&gt; * Parameters: list()
+#&gt; * Packages: RWeka
+#&gt; * Predict Type: partition
+#&gt; * Feature types: logical, integer, numeric
+#&gt; * Properties: complete, exclusive, partitional</div><div class='input'>
+<span class='co'># available parameters:</span>
+<span class='va'>learner</span><span class='op'>$</span><span class='va'>param_set</span><span class='op'>$</span><span class='fu'>ids</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "B"                 "C"                 "D"                
+#&gt;  [4] "H"                 "I"                 "J"                
+#&gt;  [7] "K"                 "L"                 "M"                
+#&gt; [10] "S"                 "U"                 "use_kdtree"       
+#&gt; [13] "N"                 "O"                 "Y"                
+#&gt; [16] "output_debug_info"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
