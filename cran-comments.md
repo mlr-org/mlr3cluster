@@ -20,3 +20,7 @@ Windows builder may not have the updated version of the package.
 
 ## Downstream dependencies
 There are no downstream dependencies. 
+
+## Resubmission
+CRAN maintainer suggested adding more examples to exported functions.
+I followed his suggestion and submitting the package again.  
