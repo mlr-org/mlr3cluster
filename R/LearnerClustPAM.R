@@ -13,6 +13,7 @@
 #'
 #' @templateVar id clust.pam
 #' @template section_dictionary_learner
+#' @template example
 #'
 #' @export
 LearnerClustPAM = R6Class("LearnerClustPAM",

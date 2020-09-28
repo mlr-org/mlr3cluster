@@ -11,7 +11,7 @@ Extends the 'mlr3' package with cluster analysis.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://mlr-org.github.io/mlr3cluster/}
+  \item \url{https://mlr3cluster.mlr-org.com}
   \item \url{https://github.com/mlr-org/mlr3cluster}
   \item Report bugs at \url{https://github.com/mlr-org/mlr3cluster/issues}
 }

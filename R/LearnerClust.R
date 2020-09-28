@@ -22,6 +22,7 @@
 #' @export
 #' @examples
 #' library(mlr3)
+#' library(mlr3cluster)
 #' ids = mlr_learners$keys("^clust")
 #' ids
 #'

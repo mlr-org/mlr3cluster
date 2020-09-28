@@ -14,6 +14,12 @@
 #'
 #' @templateVar id clust.featureless
 #' @template section_dictionary_learner
+#' @examples
+#' learner = mlr3::lrn("clust.kmeans")
+#' print(learner)
+#'
+#' # available parameters:
+#' learner$param_set$ids()
 #'
 #' @export
 LearnerClustFeatureless = R6Class("LearnerClustFeatureless",

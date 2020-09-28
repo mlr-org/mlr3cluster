@@ -11,6 +11,14 @@
 #' @template param_backend
 #' @family Task
 #' @export
+#' @examples
+#' library(mlr3)
+#' library(mlr3cluster)
+#' task = TaskClust$new("usarrests", backend = USArrests)
+#' task$task_type
+#'
+#' # possible properties:
+#' mlr_reflections$task_properties$clust
 TaskClust = R6Class("TaskClust",
   inherit = Task,
   public = list(

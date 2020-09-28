@@ -7,6 +7,15 @@
 This object wraps the predictions returned by a learner of class \link{LearnerClust}, i.e.
 the predicted partition and cluster probability.
 }
+\examples{
+library(mlr3)
+library(mlr3cluster)
+task = tsk("usarrests")
+learner = lrn("clust.kmeans")
+p = learner$train(task)$predict(task)
+p$predict_types
+head(as.data.table(p))
+}
 \concept{Prediction}
 \section{Super class}{
 \code{\link[mlr3:Prediction]{mlr3::Prediction}} -> \code{PredictionClust}

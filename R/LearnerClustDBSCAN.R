@@ -10,6 +10,7 @@
 #'
 #' @templateVar id clust.dbscan
 #' @template section_dictionary_learner
+#' @template example
 #'
 #' @export
 LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",

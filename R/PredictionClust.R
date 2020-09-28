@@ -6,6 +6,14 @@
 #'
 #' @family Prediction
 #' @export
+#' @examples
+#' library(mlr3)
+#' library(mlr3cluster)
+#' task = tsk("usarrests")
+#' learner = lrn("clust.kmeans")
+#' p = learner$train(task)$predict(task)
+#' p$predict_types
+#' head(as.data.table(p))
 PredictionClust = R6Class("PredictionClust",
   inherit = Prediction,
   public = list(

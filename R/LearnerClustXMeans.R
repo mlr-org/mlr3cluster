@@ -10,6 +10,7 @@
 #'
 #' @templateVar id clust.xmeans
 #' @template section_dictionary_learner
+#' @template example
 #'
 #' @export
 LearnerClustXMeans = R6Class("LearnerClustXMeans",

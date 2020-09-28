@@ -10,6 +10,15 @@ The \code{task_type} is set to \code{"clust"}.
 
 Predefined tasks are stored in the \link[mlr3misc:Dictionary]{dictionary} \link{mlr_tasks}.
 }
+\examples{
+library(mlr3)
+library(mlr3cluster)
+task = TaskClust$new("usarrests", backend = USArrests)
+task$task_type
+
+# possible properties:
+mlr_reflections$task_properties$clust
+}
 \concept{Task}
 \section{Super class}{
 \code{\link[mlr3:Task]{mlr3::Task}} -> \code{TaskClust}

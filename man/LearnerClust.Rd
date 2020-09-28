@@ -19,6 +19,7 @@ Predefined learners can be found in the \link[mlr3misc:Dictionary]{mlr3misc::Dic
 }
 \examples{
 library(mlr3)
+library(mlr3cluster)
 ids = mlr_learners$keys("^clust")
 ids
 

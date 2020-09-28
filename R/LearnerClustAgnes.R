@@ -11,6 +11,7 @@
 #'
 #' @templateVar id clust.agnes
 #' @template section_dictionary_learner
+#' @template example
 #'
 #' @export
 LearnerClustAgnes = R6Class("LearnerClustAgnes",
