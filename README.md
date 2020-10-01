@@ -13,6 +13,12 @@ Cluster analysis for mlr3
 
 ## Installation
 
+Install the last release from CRAN:
+
+``` r
+install.packages("mlr3cluster")
+```
+
 Install the development version from GitHub:
 
 ``` r
