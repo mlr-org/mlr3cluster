@@ -29,7 +29,6 @@ Imports:
     paradox,
     R6
 Suggests:
-    bibtex,
     dbscan,
     e1071,
     mlbench,
