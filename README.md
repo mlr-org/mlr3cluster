@@ -76,7 +76,7 @@ preds = learner$predict(task = task)
 
 ## More Resources
 
-Check out the **[blogpost](https://deploy-preview-24--mlr-web.netlify.app/docs/introducing-mlr3cluster-cluster-analysis-package/)** for a more detailed introduction to the package.
+Check out the **[blogpost](https://mlr-org.com/docs/introducing-mlr3cluster-cluster-analysis-package/)** for a more detailed introduction to the package.
 Also, **[mlr3book](https://mlr3book.mlr-org.com/)** section on clustering is coming soon!
 
 ## Future Plans
