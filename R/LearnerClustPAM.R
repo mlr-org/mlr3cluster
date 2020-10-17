@@ -75,7 +75,10 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
       }
 
       pv = self$param_set$get_values(tags = "train")
-      invoke(cluster::pam, x = task$data(), diss = FALSE, .args = pv)
+      m = invoke(cluster::pam, x = task$data(), diss = FALSE, .args = pv)
+      self$assignments = m$clustering
+
+      return(m)
     },
     .predict = function(task) {
       partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))

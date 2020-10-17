@@ -61,10 +61,13 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       m = invoke(dbscan::dbscan, x = task$data(), .args = pv)
-      set_class(
+      m = set_class(
         list(cluster = m$cluster, eps = m$eps, minPts = m$minPts, data = task$data()),
         c("dbscan_fast", "dbscan")
       )
+
+      self$assignments = m$cluster
+      return(m)
     },
 
     .predict = function(task) {

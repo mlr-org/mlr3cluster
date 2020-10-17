@@ -72,7 +72,10 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
       }
 
       pv = self$param_set$get_values(tags = "train")
-      invoke(stats::kmeans, x = task$data(), .args = pv)
+      m = invoke(stats::kmeans, x = task$data(), .args = pv)
+      self$assignments = m$cluster
+
+      return(m)
     },
     .predict = function(task) {
       partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))

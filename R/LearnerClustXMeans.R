@@ -56,7 +56,12 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
       pv = self$param_set$get_values(tags = "train")
       names(pv) = chartr("_", "-", names(pv))
       ctrl = do.call(RWeka::Weka_control, pv)
-      invoke(RWeka::XMeans, x = task$data(), control = ctrl)
+      m = invoke(RWeka::XMeans, x = task$data(), control = ctrl)
+
+      self$assignments = m$class_ids
+      names(self$assignments) = NULL
+
+      return(m)
     },
 
     .predict = function(task) {
