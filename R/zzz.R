@@ -41,6 +41,7 @@ register_mlr3 = function() {
   x$add("clust.cmeans", LearnerClustCMeans)
   x$add("clust.dbscan", LearnerClustDBSCAN)
   x$add("clust.xmeans", LearnerClustXMeans)
+  x$add("clust.cobweb", LearnerClustCobweb)
 
   x = utils::getFromNamespace("mlr_measures", ns = "mlr3")
   x$add("clust.db", MeasureClustInternal, name = "db")
