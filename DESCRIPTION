@@ -46,6 +46,7 @@ Collate:
     'LearnerClustDiana.R'
     'LearnerClustEM.R'
     'LearnerClustFanny.R'
+    'LearnerClustFarthestFirst.R'
     'LearnerClustFeatureless.R'
     'LearnerClustKMeans.R'
     'LearnerClustPAM.R'
