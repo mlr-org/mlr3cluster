@@ -44,6 +44,7 @@ Collate:
     'LearnerClustCobweb.R'
     'LearnerClustDBSCAN.R'
     'LearnerClustDiana.R'
+    'LearnerClustEM.R'
     'LearnerClustFanny.R'
     'LearnerClustFeatureless.R'
     'LearnerClustKMeans.R'
