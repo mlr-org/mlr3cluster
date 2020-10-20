@@ -9,6 +9,7 @@
 #' Therefore, the `clusters` parameter here is set to 2 by default.
 #' The predict method uses [ClusterR::predict_MBatchKMeans()] to compute the
 #' cluster memberships for new data.
+#' The learner supports both partitional and fuzzy clustering.
 #'
 #' @templateVar id clust.MBatchKMeans
 #' @template section_dictionary_learner
@@ -49,9 +50,9 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
      super$initialize(
        id = "clust.MBatchKMeans",
        feature_types = c("logical", "integer", "numeric"),
-       predict_types = "partition",
+       predict_types = c("partition", "prob"),
        param_set = ps,
-       properties = c("partitional", "exclusive", "complete"),
+       properties = c("partitional", "fuzzy", "exclusive", "complete"),
        packages = c("ClusterR")
      )
    }
@@ -71,11 +72,23 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
      invoke(ClusterR::MiniBatchKmeans, data = task$data(), .args = pv)
    },
    .predict = function(task) {
-     partition = unclass(ClusterR::predict_MBatchKMeans(data = task$data(),
-                         CENTROIDS = self$model$centroids,
-                         fuzzy = FALSE))
-     partition = as.integer(partition)
-     PredictionClust$new(task = task, partition = partition)
+     if (self$predict_type == "partition") {
+        partition = unclass(ClusterR::predict_MBatchKMeans(data = task$data(),
+                          CENTROIDS = self$model$centroids,
+                          fuzzy = FALSE))
+        partition = as.integer(partition)
+        pred = PredictionClust$new(task = task, partition = partition)
+     } else if (self$predict_type == "prob") {
+        partition = unclass(ClusterR::predict_MBatchKMeans(data = task$data(),
+                          CENTROIDS = self$model$centroids,
+                          fuzzy = TRUE))
+        colnames(partition$fuzzy_clusters) = seq_len(ncol(partition$fuzzy_clusters))
+        pred = PredictionClust$new(task = task,
+                            partition = as.integer(partition$clusters),
+                            prob = partition$fuzzy_clusters)
+     }
+
+     return(pred)
    }
   )
 )
