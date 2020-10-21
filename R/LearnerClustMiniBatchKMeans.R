@@ -19,76 +19,81 @@
 LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
   inherit = LearnerClust,
   public = list(
-   #' @description
-   #' Creates a new instance of this [R6][R6::R6Class] class.
-   initialize = function() {
-     ps = ParamSet$new(
-       params = list(
-         ParamInt$new(id = "clusters", default = 2L, lower = 1L, tags = "train"),
-         ParamInt$new(id = "batch_size", lower = 1L, default = 10L, tags = "train"),
-         ParamInt$new(id = "num_init", lower = 1L, default = 1L, tags = "train"),
-         ParamInt$new(id = "max_iters", lower = 1L, default = 100L, tags = "train"),
-         ParamDbl$new(id = "init_fraction", lower = 0L, upper = 1L,
-                      default = 1L, tags = "train"),
-         ParamFct$new(id = "initializer",
-           levels = c("optimal_init", "quantile_init", "kmeans++", "random"),
-           default = "kmeans++", tags = "train"
-         ),
-         ParamInt$new(id = "early_stop_iter", lower = 1L, default = 10L, tags = "train"),
-         ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
-         ParamUty$new(id = "CENTROIDS", default = NULL, tags = "train"),
-         ParamDbl$new(id = "tol", default = 1e-04, lower = 0, tags = "train"),
-         ParamDbl$new(id = "tol_optimal_init", default = 0.3, lower = 0, tags = "train"),
-         ParamInt$new(id = "seed", default = 1L, tags = "train")
-       )
-     )
-     ps$values = list(clusters = 2L)
+    #' @description
+    #' Creates a new instance of this [R6][R6::R6Class] class.
+    initialize = function() {
+      ps = ParamSet$new(
+        params = list(
+          ParamInt$new(id = "clusters", default = 2L, lower = 1L, tags = "train"),
+          ParamInt$new(id = "batch_size", lower = 1L, default = 10L, tags = "train"),
+          ParamInt$new(id = "num_init", lower = 1L, default = 1L, tags = "train"),
+          ParamInt$new(id = "max_iters", lower = 1L, default = 100L, tags = "train"),
+          ParamDbl$new(
+            id = "init_fraction", lower = 0L, upper = 1L,
+            default = 1L, tags = "train"),
+          ParamFct$new(
+            id = "initializer",
+            levels = c("optimal_init", "quantile_init", "kmeans++", "random"),
+            default = "kmeans++", tags = "train"
+          ),
+          ParamInt$new(id = "early_stop_iter", lower = 1L, default = 10L, tags = "train"),
+          ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
+          ParamUty$new(id = "CENTROIDS", default = NULL, tags = "train"),
+          ParamDbl$new(id = "tol", default = 1e-04, lower = 0, tags = "train"),
+          ParamDbl$new(id = "tol_optimal_init", default = 0.3, lower = 0, tags = "train"),
+          ParamInt$new(id = "seed", default = 1L, tags = "train")
+        )
+      )
+      ps$values = list(clusters = 2L)
 
-     # add deps
-     ps$add_dep("init_fraction", "initializer", CondAnyOf$new(c("kmeans++", "optimal_init")))
+      # add deps
+      ps$add_dep("init_fraction", "initializer", CondAnyOf$new(c("kmeans++", "optimal_init")))
 
-     super$initialize(
-       id = "clust.MBatchKMeans",
-       feature_types = c("logical", "integer", "numeric"),
-       predict_types = c("partition", "prob"),
-       param_set = ps,
-       properties = c("partitional", "fuzzy", "exclusive", "complete"),
-       packages = c("ClusterR")
-     )
-   }
+      super$initialize(
+        id = "clust.MBatchKMeans",
+        feature_types = c("logical", "integer", "numeric"),
+        predict_types = c("partition", "prob"),
+        param_set = ps,
+        properties = c("partitional", "fuzzy", "exclusive", "complete"),
+        packages = c("ClusterR")
+      )
+    }
   ),
   private = list(
-   .train = function(task) {
-     if (test_matrix(self$param_set$values$CENTROIDS)) {
-       if (ncol(self$param_set$values$CENTROIDS) != task$ncol) {
-         stop("`CENTROIDS` must have same number of columns as data.")
-       }
-       if (nrow(self$param_set$values$CENTROIDS) != self$param_set$values$clusters) {
+    .train = function(task) {
+      if (test_matrix(self$param_set$values$CENTROIDS)) {
+        if (ncol(self$param_set$values$CENTROIDS) != task$ncol) {
+          stop("`CENTROIDS` must have same number of columns as data.")
+        }
+        if (nrow(self$param_set$values$CENTROIDS) != self$param_set$values$clusters) {
           stop("`CENTROIDS` must have same number of rows as `clusters`")
-       }
-     }
+        }
+      }
 
-     pv = self$param_set$get_values(tags = "train")
-     invoke(ClusterR::MiniBatchKmeans, data = task$data(), .args = pv)
-   },
-   .predict = function(task) {
-     if (self$predict_type == "partition") {
-        partition = unclass(ClusterR::predict_MBatchKMeans(data = task$data(),
-                          CENTROIDS = self$model$centroids,
-                          fuzzy = FALSE))
+      pv = self$param_set$get_values(tags = "train")
+      invoke(ClusterR::MiniBatchKmeans, data = task$data(), .args = pv)
+    },
+    .predict = function(task) {
+      if (self$predict_type == "partition") {
+        partition = unclass(ClusterR::predict_MBatchKMeans(
+          data = task$data(),
+          CENTROIDS = self$model$centroids,
+          fuzzy = FALSE))
         partition = as.integer(partition)
         pred = PredictionClust$new(task = task, partition = partition)
-     } else if (self$predict_type == "prob") {
-        partition = unclass(ClusterR::predict_MBatchKMeans(data = task$data(),
-                          CENTROIDS = self$model$centroids,
-                          fuzzy = TRUE))
+      } else if (self$predict_type == "prob") {
+        partition = unclass(ClusterR::predict_MBatchKMeans(
+          data = task$data(),
+          CENTROIDS = self$model$centroids,
+          fuzzy = TRUE))
         colnames(partition$fuzzy_clusters) = seq_len(ncol(partition$fuzzy_clusters))
-        pred = PredictionClust$new(task = task,
-                            partition = as.integer(partition$clusters),
-                            prob = partition$fuzzy_clusters)
-     }
+        pred = PredictionClust$new(
+          task = task,
+          partition = as.integer(partition$clusters),
+          prob = partition$fuzzy_clusters)
+      }
 
-     return(pred)
-   }
+      return(pred)
+    }
   )
 )
