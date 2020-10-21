@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Agglomerative Hierarchical Clustering Learner — mlr_learners_clust.agnes • mlr3cluster</title>
+<title>Cobweb Clustering Learner — mlr_learners_clust.cobweb • mlr3cluster</title>
 
 
 <!-- jquery -->
@@ -40,11 +40,10 @@
 
 
 
-<meta property="og:title" content="Agglomerative Hierarchical Clustering Learner — mlr_learners_clust.agnes" />
-<meta property="og:description" content="A LearnerClust for agglomerative hierarchical clustering implemented in cluster::agnes().
-The predict method uses stats::cutree() which cuts the tree resulting from
-hierarchical clustering into specified number of groups (see parameter k).
-The default number for k is 2." />
+<meta property="og:title" content="Cobweb Clustering Learner — mlr_learners_clust.cobweb" />
+<meta property="og:description" content="A LearnerClust for Cobweb clustering implemented in RWeka::Cobweb().
+The predict method uses RWeka::predict.Weka_clusterer() to compute the
+cluster memberships for new data." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -137,16 +136,15 @@ The default number for k is 2." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Agglomerative Hierarchical Clustering Learner</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mlr-org/mlr3cluster/blob/master/R/LearnerClustAgnes.R'><code>R/LearnerClustAgnes.R</code></a></small>
-    <div class="hidden name"><code>mlr_learners_clust.agnes.Rd</code></div>
+    <h1>Cobweb Clustering Learner</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mlr-org/mlr3cluster/blob/master/R/LearnerClustCobweb.R'><code>R/LearnerClustCobweb.R</code></a></small>
+    <div class="hidden name"><code>mlr_learners_clust.cobweb.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A <a href='LearnerClust.html'>LearnerClust</a> for agglomerative hierarchical clustering implemented in <code><a href='https://rdrr.io/pkg/cluster/man/agnes.html'>cluster::agnes()</a></code>.
-The predict method uses <code><a href='https://rdrr.io/r/stats/cutree.html'>stats::cutree()</a></code> which cuts the tree resulting from
-hierarchical clustering into specified number of groups (see parameter <code>k</code>).
-The default number for <code>k</code> is 2.</p>
+    <p>A <a href='LearnerClust.html'>LearnerClust</a> for Cobweb clustering implemented in <code><a href='https://rdrr.io/pkg/RWeka/man/Weka_clusterers.html'>RWeka::Cobweb()</a></code>.
+The predict method uses <code><a href='https://rdrr.io/pkg/RWeka/man/predict_Weka_clusterer.html'>RWeka::predict.Weka_clusterer()</a></code> to compute the
+cluster memberships for new data.</p>
     </div>
 
 
@@ -155,21 +153,21 @@ The default number for <code>k</code> is 2.</p>
 
     
 
-<p>This <a href='https://mlr3.mlr-org.com/reference/Learner.html'>Learner</a> can be instantiated via the <a href='https://rdrr.io/pkg/mlr3misc/man/Dictionary.html'>dictionary</a> <a href='https://mlr3.mlr-org.com/reference/mlr_learners.html'>mlr_learners</a> or with the associated sugar function <code><a href='https://mlr3.mlr-org.com/reference/mlr_sugar.html'>lrn()</a></code>:</p><pre><span class='va'>mlr_learners</span><span class='op'>$</span><span class='fu'>get</span><span class='op'>(</span><span class='st'>"clust.agnes"</span><span class='op'>)</span>
-<span class='fu'><a href='https://mlr3.mlr-org.com/reference/mlr_sugar.html'>lrn</a></span><span class='op'>(</span><span class='st'>"clust.agnes"</span><span class='op'>)</span>
+<p>This <a href='https://mlr3.mlr-org.com/reference/Learner.html'>Learner</a> can be instantiated via the <a href='https://rdrr.io/pkg/mlr3misc/man/Dictionary.html'>dictionary</a> <a href='https://mlr3.mlr-org.com/reference/mlr_learners.html'>mlr_learners</a> or with the associated sugar function <code><a href='https://mlr3.mlr-org.com/reference/mlr_sugar.html'>lrn()</a></code>:</p><pre><span class='va'>mlr_learners</span><span class='op'>$</span><span class='fu'>get</span><span class='op'>(</span><span class='st'>"clust.cobweb"</span><span class='op'>)</span>
+<span class='fu'><a href='https://mlr3.mlr-org.com/reference/mlr_sugar.html'>lrn</a></span><span class='op'>(</span><span class='st'>"clust.cobweb"</span><span class='op'>)</span>
 </pre>
 
     <h2 class="hasAnchor" id="super-classes"><a class="anchor" href="#super-classes"></a>Super classes</h2>
 
-    <p><code><a href='https://mlr3.mlr-org.com/reference/Learner.html'>mlr3::Learner</a></code> -&gt; <code><a href='LearnerClust.html'>mlr3cluster::LearnerClust</a></code> -&gt; <code>LearnerClustAgnes</code></p>
+    <p><code><a href='https://mlr3.mlr-org.com/reference/Learner.html'>mlr3::Learner</a></code> -&gt; <code><a href='LearnerClust.html'>mlr3cluster::LearnerClust</a></code> -&gt; <code>LearnerClustCobweb</code></p>
     <h2 class="hasAnchor" id="methods"><a class="anchor" href="#methods"></a>Methods</h2>
 
     
 <h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Public methods</h3>
 
 <ul>
-<li><p><a href='#method-new'><code>LearnerClustAgnes$new()</code></a></p></li>
-<li><p><a href='#method-clone'><code>LearnerClustAgnes$clone()</code></a></p></li>
+<li><p><a href='#method-new'><code>LearnerClustCobweb$new()</code></a></p></li>
+<li><p><a href='#method-clone'><code>LearnerClustCobweb$clone()</code></a></p></li>
 </ul>
 <p><details ><summary>Inherited methods</summary>
 <ul>
@@ -186,12 +184,12 @@ The default number for <code>k</code> is 2.</p>
 <hr>
 <a id="method-new"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>new()</code></h3>
 <p>Creates a new instance of this <a href='https://r6.r-lib.org/reference/R6Class.html'>R6</a> class.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
-<p><div class="r"></p><pre><span class='va'>LearnerClustAgnes</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
+<p><div class="r"></p><pre><span class='va'>LearnerClustCobweb</span><span class='op'>$</span><span class='fu'>new</span><span class='op'>(</span><span class='op'>)</span></pre><p></div></p>
 
 <p><hr>
 <a id="method-clone"></a></p><h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Usage</h4>
-<p><div class="r"></p><pre><span class='va'>LearnerClustAgnes</span><span class='op'>$</span><span class='fu'>clone</span><span class='op'>(</span>deep <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre><p></div></p>
+<p><div class="r"></p><pre><span class='va'>LearnerClustCobweb</span><span class='op'>$</span><span class='fu'>clone</span><span class='op'>(</span>deep <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre><p></div></p>
 
 <h4 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Arguments</h4>
 <p><div class="arguments"></p><dl>
@@ -202,19 +200,18 @@ The default number for <code>k</code> is 2.</p>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>learner</span> <span class='op'>=</span> <span class='fu'>mlr3</span><span class='fu'>::</span><span class='fu'><a href='https://mlr3.mlr-org.com/reference/mlr_sugar.html'>lrn</a></span><span class='op'>(</span><span class='st'>"clust.agnes"</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>learner</span> <span class='op'>=</span> <span class='fu'>mlr3</span><span class='fu'>::</span><span class='fu'><a href='https://mlr3.mlr-org.com/reference/mlr_sugar.html'>lrn</a></span><span class='op'>(</span><span class='st'>"clust.cobweb"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>learner</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; &lt;LearnerClustAgnes:clust.agnes&gt;
+</div><div class='output co'>#&gt; &lt;LearnerClustCobweb:clust.cobweb&gt;
 #&gt; * Model: -
-#&gt; * Parameters: k=2
-#&gt; * Packages: cluster
+#&gt; * Parameters: list()
+#&gt; * Packages: RWeka
 #&gt; * Predict Type: partition
 #&gt; * Feature types: logical, integer, numeric
-#&gt; * Properties: complete, exclusive, hierarchical</div><div class='input'>
+#&gt; * Properties: complete, exclusive, partitional</div><div class='input'>
 <span class='co'># available parameters:</span>
 <span class='va'>learner</span><span class='op'>$</span><span class='va'>param_set</span><span class='op'>$</span><span class='fu'>ids</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "metric"     "stand"      "method"     "trace.lev"  "k"         
-#&gt; [6] "par.method"</div></pre>
+</div><div class='output co'>#&gt; [1] "A" "C" "S"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

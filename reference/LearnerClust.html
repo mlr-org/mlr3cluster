@@ -158,7 +158,7 @@ Predefined learners can be found in the mlr3misc::Dictionary mlr3::mlr_learners.
 </ul></li>
 </ul>
 
-<p>Predefined learners can be found in the <a href='https://mlr3misc.mlr-org.com/reference/Dictionary.html'>mlr3misc::Dictionary</a> <a href='https://mlr3.mlr-org.com/reference/mlr_learners.html'>mlr3::mlr_learners</a>.</p>
+<p>Predefined learners can be found in the <a href='https://rdrr.io/pkg/mlr3misc/man/Dictionary.html'>mlr3misc::Dictionary</a> <a href='https://mlr3.mlr-org.com/reference/mlr_learners.html'>mlr3::mlr_learners</a>.</p>
     </div>
 
 
@@ -249,9 +249,11 @@ but loaded (not attached) later on-demand via <code><a href='https://rdrr.io/r/b
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://mlr3cluster.mlr-org.com'>mlr3cluster</a></span><span class='op'>)</span>
 <span class='va'>ids</span> <span class='op'>=</span> <span class='va'>mlr_learners</span><span class='op'>$</span><span class='fu'>keys</span><span class='op'>(</span><span class='st'>"^clust"</span><span class='op'>)</span>
 <span class='va'>ids</span>
-</div><div class='output co'>#&gt; [1] "clust.agnes"       "clust.cmeans"      "clust.dbscan"     
-#&gt; [4] "clust.diana"       "clust.fanny"       "clust.featureless"
-#&gt; [7] "clust.kmeans"      "clust.pam"         "clust.xmeans"     </div><div class='input'>
+</div><div class='output co'>#&gt;  [1] "clust.agnes"        "clust.cmeans"       "clust.cobweb"      
+#&gt;  [4] "clust.dbscan"       "clust.diana"        "clust.em"          
+#&gt;  [7] "clust.fanny"        "clust.featureless"  "clust.ff"          
+#&gt; [10] "clust.kmeans"       "clust.MBatchKMeans" "clust.pam"         
+#&gt; [13] "clust.SimpleKMeans" "clust.xmeans"      </div><div class='input'>
 <span class='co'># get a specific learner from mlr_learners:</span>
 <span class='va'>lrn</span> <span class='op'>=</span> <span class='va'>mlr_learners</span><span class='op'>$</span><span class='fu'>get</span><span class='op'>(</span><span class='st'>"clust.kmeans"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>lrn</span><span class='op'>)</span>
