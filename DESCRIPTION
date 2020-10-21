@@ -32,6 +32,7 @@ Suggests:
     dbscan,
     e1071,
     ClusterR,
+    kernlab,
     mlbench,
     RWeka,
     testthat
@@ -49,6 +50,7 @@ Collate:
     'LearnerClustFanny.R'
     'LearnerClustFarthestFirst.R'
     'LearnerClustFeatureless.R'
+    'LearnerClustKKMeans.R'
     'LearnerClustKMeans.R'
     'LearnerClustMiniBatchKMeans.R'
     'LearnerClustPAM.R'
