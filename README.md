@@ -29,7 +29,7 @@ devtools::install_github("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-  - A selection of 9 clustering learners that represent a wide variety of clusterers:
+  - A selection of 14 clustering learners that represent a wide variety of clusterers:
     partitional, hierarchical, fuzzy, etc.
   - A selection of 4 performance measures
   - One built-in task to get started with clustering
@@ -44,12 +44,17 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 | :--| :------ | :------ |
 | [clust.agnes](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.agnes.html) | Agglomerative Hierarchical Clustering |  [cluster](https://CRAN.R-project.org/package=cluster) |
 | [clust.cmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans.html) | Fuzzy C-Means Clustering |  [e1071](https://CRAN.R-project.org/package=e1071) |
+| [clust.cobweb](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb.html) | Cobweb Clustering Algorithm |  [RWeka](https://CRAN.R-project.org/package=RWeka) |
 | [clust.dbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan.html) | Density-based Clustering | [dbscan](https://CRAN.R-project.org/package=dbscan) |
 | [clust.diana](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.diana.html) | Divisive Hierarchical Clustering | [cluster](https://CRAN.R-project.org/package=cluster) |
+| [clust.em](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.em.html) | Expectation-Maximization Clustering |  [RWeka](https://CRAN.R-project.org/package=RWeka) |
 | [clust.fanny](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny.html) | Fuzzy Clustering | [cluster](https://CRAN.R-project.org/package=cluster) |
 | [clust.featureless](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.html) | Simple Featureless Clustering | [mlr3cluster](https://github.com/mlr-org/mlr3cluster) |
+| [clust.ff](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.FF.html) | FarthestFirst Clustering Algorithm |  [RWeka](https://CRAN.R-project.org/package=RWeka) |
 | [clust.kmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.html) | K-Means Clustering | [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html) |
+| [clust.MBatchKMeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.MiniBatchKMeans.html) | Mini Batch K-Means Clustering| [ClusterR](https://CRAN.R-project.org/package=ClusterR) |
 | [clust.pam](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.html) | Clustering Around Medoids | [cluster](https://CRAN.R-project.org/package=cluster) |
+| [clust.SimpleKMeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.SimpleKMeans.html) | K-Means Clustering (WEKA) |  [RWeka](https://CRAN.R-project.org/package=RWeka) |
 | [clust.xmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.html) | K-Means with Automatic Determination of k | [RWeka](https://CRAN.R-project.org/package=RWeka) |
 
 ### Cluster Measures
