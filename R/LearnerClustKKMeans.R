@@ -22,7 +22,6 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-
       ps = ParamSet$new(
         params = list(
           ParamUty$new(
@@ -77,11 +76,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
   ),
   private = list(
     .train = function(task) {
-      if (test_data_frame(self$param_set$values$centers)) {
-        if (length(self$param_set$values$centers) != task$ncol) {
-          stop("`centers` must have same number of columns as data.")
-        }
-      }
+      check_centers_param(self$param_set$values$centers, task, test_data_frame, "centers")
 
       pv = self$param_set$get_values(tags = "train")
       invoke(kernlab::kkmeans, x = as.matrix(task$data()), .args = pv)
