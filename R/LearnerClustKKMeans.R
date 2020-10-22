@@ -1,4 +1,4 @@
-#' @title Kernal K-Means Clustering Learner
+#' @title Kernel K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.kkmeans
 #' @include LearnerClust.R

@@ -3,7 +3,7 @@
 \name{mlr_learners_clust.kkmeans}
 \alias{mlr_learners_clust.kkmeans}
 \alias{LearnerClustKKMeans}
-\title{Kernal K-Means Clustering Learner}
+\title{Kernel K-Means Clustering Learner}
 \description{
 A \link{LearnerClust} for kernel k-means clustering implemented in \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}}.
 \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} doesn't have a default value for the number of clusters.

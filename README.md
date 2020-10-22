@@ -29,7 +29,7 @@ devtools::install_github("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-  - A selection of 14 clustering learners that represent a wide variety of clusterers:
+  - A selection of 15 clustering learners that represent a wide variety of clusterers:
     partitional, hierarchical, fuzzy, etc.
   - A selection of 4 performance measures
   - One built-in task to get started with clustering
@@ -51,6 +51,7 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 | [clust.fanny](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny.html) | Fuzzy Clustering | [cluster](https://CRAN.R-project.org/package=cluster) |
 | [clust.featureless](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.html) | Simple Featureless Clustering | [mlr3cluster](https://github.com/mlr-org/mlr3cluster) |
 | [clust.ff](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.FF.html) | FarthestFirst Clustering Algorithm |  [RWeka](https://CRAN.R-project.org/package=RWeka) |
+| [clust.kkmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.html) | Kernel K-Means Clustering |  [kernlab](https://CRAN.R-project.org/package=kernlab) |
 | [clust.kmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.html) | K-Means Clustering | [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html) |
 | [clust.MBatchKMeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.MiniBatchKMeans.html) | Mini Batch K-Means Clustering| [ClusterR](https://CRAN.R-project.org/package=ClusterR) |
 | [clust.pam](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.html) | Clustering Around Medoids | [cluster](https://CRAN.R-project.org/package=cluster) |
