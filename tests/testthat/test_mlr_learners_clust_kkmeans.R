@@ -26,7 +26,7 @@ test_that("Learner properties are respected", {
   parset_list = list(
     list(centers = 2L, kernel = "polydot", degree = 2L),
     list(centers = centers, kernel = "laplacedot", sigma = 2L),
-    list(centers = 3L, kernel = "besseldot", order = 3L)
+    list(centers = 3L, kernel = "anovadot")
   )
 
   for (i in seq_along(parset_list)) {
