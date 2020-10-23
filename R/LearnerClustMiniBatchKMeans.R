@@ -55,7 +55,7 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
         predict_types = c("partition", "prob"),
         param_set = ps,
         properties = c("partitional", "fuzzy", "exclusive", "complete"),
-        packages = c("ClusterR")
+        packages = "ClusterR"
       )
     }
   ),
