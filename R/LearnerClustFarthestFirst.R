@@ -43,7 +43,12 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
       pv = self$param_set$get_values(tags = "train")
       names(pv) = chartr("_", "-", names(pv))
       ctrl = do.call(RWeka::Weka_control, pv)
-      invoke(RWeka::FarthestFirst, x = task$data(), control = ctrl)
+      m = invoke(RWeka::FarthestFirst, x = task$data(), control = ctrl)
+
+      self$assignments = m$class_ids + 1L
+      names(self$assignments) = NULL
+
+      return(m)
     },
 
     .predict = function(task) {
