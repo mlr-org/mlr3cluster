@@ -8,3 +8,11 @@ allow_partial_matching = list(
   warnPartialMatchAttr = FALSE,
   warnPartialMatchDollar = FALSE
 )
+
+check_centers_param = function(centers, task, test_class, name) {
+  if (test_class(centers)) {
+    if (ncol(centers) != task$ncol) {
+      stop(sprintf("`%s` must have same number of columns as data.", name))
+    }
+  }
+}

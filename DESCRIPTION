@@ -31,6 +31,8 @@ Imports:
 Suggests:
     dbscan,
     e1071,
+    ClusterR,
+    kernlab,
     mlbench,
     RWeka,
     testthat
@@ -41,12 +43,18 @@ Collate:
     'LearnerClust.R'
     'LearnerClustAgnes.R'
     'LearnerClustCMeans.R'
+    'LearnerClustCobweb.R'
     'LearnerClustDBSCAN.R'
     'LearnerClustDiana.R'
+    'LearnerClustEM.R'
     'LearnerClustFanny.R'
+    'LearnerClustFarthestFirst.R'
     'LearnerClustFeatureless.R'
+    'LearnerClustKKMeans.R'
     'LearnerClustKMeans.R'
+    'LearnerClustMiniBatchKMeans.R'
     'LearnerClustPAM.R'
+    'LearnerClustSimpleKMeans.R'
     'LearnerClustXMeans.R'
     'MeasureClust.R'
     'measures.R'

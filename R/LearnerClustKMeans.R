@@ -65,11 +65,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
         }
       }
 
-      if (test_data_frame(self$param_set$values$centers)) {
-        if (length(self$param_set$values$centers) != task$ncol) {
-          stop("`centers` must have same number of columns as data.")
-        }
-      }
+      check_centers_param(self$param_set$values$centers, task, test_data_frame, "centers")
 
       pv = self$param_set$get_values(tags = "train")
       m = invoke(stats::kmeans, x = task$data(), .args = pv)
