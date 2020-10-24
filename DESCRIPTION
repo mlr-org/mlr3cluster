@@ -34,6 +34,7 @@ Suggests:
     ClusterR,
     kernlab,
     apcluster,
+    LPCM,
     mlbench,
     RWeka,
     testthat
@@ -54,6 +55,7 @@ Collate:
     'LearnerClustFeatureless.R'
     'LearnerClustKKMeans.R'
     'LearnerClustKMeans.R'
+    'LearnerClustMeanShift.R'
     'LearnerClustMiniBatchKMeans.R'
     'LearnerClustPAM.R'
     'LearnerClustSimpleKMeans.R'
