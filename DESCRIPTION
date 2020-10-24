@@ -33,6 +33,7 @@ Suggests:
     e1071,
     ClusterR,
     kernlab,
+    apcluster,
     mlbench,
     RWeka,
     testthat
@@ -41,6 +42,7 @@ Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.1.1
 Collate:
     'LearnerClust.R'
+    'LearnerClustAffinityPropagation.R'
     'LearnerClustAgnes.R'
     'LearnerClustCMeans.R'
     'LearnerClustCobweb.R'
