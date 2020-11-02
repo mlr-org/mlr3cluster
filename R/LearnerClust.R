@@ -32,7 +32,7 @@
 LearnerClust = R6Class("LearnerClust",
   inherit = Learner,
   public = list(
-    #' @field assignments (`NULL` | `integer(1)`)\cr
+    #' @field assignments (`NULL` | `vector()`)\cr
     #' Cluster assignments from learned model.
     assignments = NULL,
 

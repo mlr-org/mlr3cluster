@@ -33,7 +33,7 @@ print(lrn)
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{assignments}}{(\code{NULL} | \code{integer(1)})\cr
+\item{\code{assignments}}{(\code{NULL} | \code{vector()})\cr
 Cluster assignments from learned model.}
 }
 \if{html}{\out{</div>}}
