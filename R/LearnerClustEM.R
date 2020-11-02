@@ -54,8 +54,7 @@ LearnerClustEM = R6Class("LearnerClustEM",
       names(pv) = chartr("_", "-", names(pv))
       ctrl = do.call(RWeka::Weka_control, pv)
       m = invoke(RWeka::make_Weka_clusterer("weka/clusterers/EM"), x = task$data(), control = ctrl)
-      self$assignments = m$class_ids + 1L
-      names(self$assignments) = NULL
+      self$assignments = unname(m$class_ids + 1L)
 
       return(m)
     },
