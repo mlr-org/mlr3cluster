@@ -46,6 +46,7 @@ Default is \code{TRUE}.}
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{LearnerClust$new()}}
+\item \href{#method-reset}{\code{LearnerClust$reset()}}
 \item \href{#method-clone}{\code{LearnerClust$clone()}}
 }
 }
@@ -57,7 +58,6 @@ Default is \code{TRUE}.}
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict">}\href{../../mlr3/html/Learner.html#method-predict}{\code{mlr3::Learner$predict()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict_newdata">}\href{../../mlr3/html/Learner.html#method-predict_newdata}{\code{mlr3::Learner$predict_newdata()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="print">}\href{../../mlr3/html/Learner.html#method-print}{\code{mlr3::Learner$print()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="reset">}\href{../../mlr3/html/Learner.html#method-reset}{\code{mlr3::Learner$reset()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="train">}\href{../../mlr3/html/Learner.html#method-train}{\code{mlr3::Learner$train()}}\out{</span>}
 }
 \out{</details>}
@@ -112,6 +112,16 @@ but loaded (not attached) later on-demand via \code{\link[=requireNamespace]{req
 }
 \if{html}{\out{</div>}}
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-reset"></a>}}
+\if{latex}{\out{\hypertarget{method-reset}{}}}
+\subsection{Method \code{reset()}}{
+Reset \code{assignments} field before calling parent's \code{reset()}.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{LearnerClust$reset()}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

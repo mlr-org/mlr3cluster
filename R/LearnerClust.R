@@ -52,6 +52,13 @@ LearnerClust = R6Class("LearnerClust",
         predict_types = predict_types,
         feature_types = feature_types, properties = properties, packages = packages
       )
+    },
+
+    #' @description
+    #' Reset `assignments` field before calling parent's `reset()`.
+    reset = function() {
+      self$assignments = NULL
+      super$reset()
     }
   ),
 )
