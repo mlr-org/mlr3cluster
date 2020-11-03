@@ -43,7 +43,9 @@ LearnerClustCobweb = R6Class("LearnerClustCobweb",
       pv = self$param_set$get_values(tags = "train")
       ctrl = do.call(RWeka::Weka_control, pv)
       m = invoke(RWeka::Cobweb, x = task$data(), control = ctrl)
-      self$assignments = unname(m$class_ids + 1L)
+      if (self$save_assignments) {
+        self$assignments = unname(m$class_ids + 1L)
+      }
 
       return(m)
     },

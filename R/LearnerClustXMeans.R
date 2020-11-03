@@ -57,8 +57,9 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
       names(pv) = chartr("_", "-", names(pv))
       ctrl = do.call(RWeka::Weka_control, pv)
       m = invoke(RWeka::XMeans, x = task$data(), control = ctrl)
-
-      self$assignments = unname(m$class_ids + 1L)
+      if (self$save_assignments) {
+        self$assignments = unname(m$class_ids + 1L)
+      }
 
       return(m)
     },

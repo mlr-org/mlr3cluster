@@ -70,12 +70,13 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
 
       pv = self$param_set$get_values(tags = "train")
       m = invoke(ClusterR::MiniBatchKmeans, data = task$data(), .args = pv)
-
-      self$assignments = unclass(ClusterR::predict_MBatchKMeans(
-        data = task$data(),
-        CENTROIDS = m$centroids,
-        fuzzy = FALSE))
-      self$assignments = as.integer(self$assignments)
+      if (self$save_assignments) {
+        self$assignments = unclass(ClusterR::predict_MBatchKMeans(
+          data = task$data(),
+          CENTROIDS = m$centroids,
+          fuzzy = FALSE))
+        self$assignments = as.integer(self$assignments)
+      }
 
       return(m)
     },

@@ -65,8 +65,10 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
         list(cluster = m$cluster, eps = m$eps, minPts = m$minPts, data = task$data()),
         c("dbscan_fast", "dbscan")
       )
+      if (self$save_assignments) {
+        self$assignments = m$cluster
+      }
 
-      self$assignments = m$cluster
       return(m)
     },
 

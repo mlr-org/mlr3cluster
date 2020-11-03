@@ -53,7 +53,9 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       m = invoke(cluster::fanny, x = task$data(), .args = pv)
-      self$assignments = m$clustering
+      if (self$save_assignments) {
+        self$assignments = m$clustering
+      }
 
       return(m)
     },

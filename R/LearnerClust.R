@@ -36,6 +36,12 @@ LearnerClust = R6Class("LearnerClust",
     #' Cluster assignments from learned model.
     assignments = NULL,
 
+    #' @field save_assignments (`logical()`)\cr
+    #' Should assignments for 'train' data be saved in the learner?
+    #' Default is `TRUE`.
+    save_assignments = TRUE,
+
+
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function(id, param_set = ParamSet$new(), predict_types = "partition",

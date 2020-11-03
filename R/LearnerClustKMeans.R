@@ -69,7 +69,9 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
 
       pv = self$param_set$get_values(tags = "train")
       m = invoke(stats::kmeans, x = task$data(), .args = pv)
-      self$assignments = m$cluster
+      if (self$save_assignments) {
+        self$assignments = m$cluster
+      }
 
       return(m)
     },

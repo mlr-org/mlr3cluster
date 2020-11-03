@@ -67,8 +67,10 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
         list(clustering = clustering, features = task$feature_names),
         "clust.featureless_model"
       )
+      if (self$save_assignments) {
+        self$assignments = m$clustering
+      }
 
-      self$assignments = m$clustering
       return(m)
     },
     .predict = function(task) {

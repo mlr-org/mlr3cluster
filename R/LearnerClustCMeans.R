@@ -86,7 +86,9 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
 
       pv = self$param_set$get_values(tags = "train")
       m = invoke(e1071::cmeans, x = task$data(), .args = pv, .opts = allow_partial_matching)
-      self$assignments = m$cluster
+      if (self$save_assignments) {
+        self$assignments = m$cluster
+      }
 
       return(m)
     },

@@ -47,7 +47,9 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       m = invoke(cluster::diana, x = task$data(), diss = FALSE, .args = pv)
-      self$assignments = stats::cutree(m, self$param_set$values$k)
+      if (self$save_assignments) {
+        self$assignments = stats::cutree(m, self$param_set$values$k)
+      }
 
       return(m)
     },
