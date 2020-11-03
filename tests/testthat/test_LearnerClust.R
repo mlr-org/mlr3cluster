@@ -43,3 +43,19 @@ test_that("empty predict set (#421)", {
   pred = learner$predict(task, hout$test_set(1))
   expect_true(any(grepl("No data to predict on", learner$log$msg)))
 })
+
+test_that("assignment saving works", {
+  task = tsk("usarrests")
+  learner = lrn("clust.featureless")
+
+  expect_true(learner$save_assignments)
+  learner$train(task)
+  expect_vector(learner$assignments)
+  expect_length(learner$assignments, task$nrow)
+
+  learner$reset()
+  learner$save_assignments = FALSE
+  expect_false(learner$save_assignments)
+  learner$train(task)
+  expect_null(learner$assignments)
+})

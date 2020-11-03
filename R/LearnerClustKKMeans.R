@@ -79,7 +79,11 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
       check_centers_param(self$param_set$values$centers, task, test_data_frame, "centers")
 
       pv = self$param_set$get_values(tags = "train")
-      invoke(kernlab::kkmeans, x = as.matrix(task$data()), .args = pv)
+      m = invoke(kernlab::kkmeans, x = as.matrix(task$data()), .args = pv)
+      if (self$save_assignments) {
+        self$assignments = m[seq_along(m)]
+      }
+      return(m)
     },
     .predict = function(task) {
       # all of predict is taken from mlr2

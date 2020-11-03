@@ -63,10 +63,15 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
           times = times
         )
       }
-      set_class(
+      m = set_class(
         list(clustering = clustering, features = task$feature_names),
         "clust.featureless_model"
       )
+      if (self$save_assignments) {
+        self$assignments = m$clustering
+      }
+
+      return(m)
     },
     .predict = function(task) {
       n = task$nrow

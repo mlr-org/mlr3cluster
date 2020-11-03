@@ -68,7 +68,12 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      invoke(cluster::agnes, x = task$data(), diss = FALSE, .args = pv)
+      m = invoke(cluster::agnes, x = task$data(), diss = FALSE, .args = pv)
+      if (self$save_assignments) {
+        self$assignments = stats::cutree(m, self$param_set$values$k)
+      }
+
+      return(m)
     },
 
     .predict = function(task) {
@@ -78,8 +83,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
 
       warn_prediction_useless(self$id)
 
-      partition = stats::cutree(self$model, self$param_set$values$k)
-      PredictionClust$new(task = task, partition = partition)
+      PredictionClust$new(task = task, partition = self$assignments)
     }
   )
 )

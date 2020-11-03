@@ -32,6 +32,16 @@
 LearnerClust = R6Class("LearnerClust",
   inherit = Learner,
   public = list(
+    #' @field assignments (`NULL` | `vector()`)\cr
+    #' Cluster assignments from learned model.
+    assignments = NULL,
+
+    #' @field save_assignments (`logical()`)\cr
+    #' Should assignments for 'train' data be saved in the learner?
+    #' Default is `TRUE`.
+    save_assignments = TRUE,
+
+
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function(id, param_set = ParamSet$new(), predict_types = "partition",
@@ -42,6 +52,13 @@ LearnerClust = R6Class("LearnerClust",
         predict_types = predict_types,
         feature_types = feature_types, properties = properties, packages = packages
       )
+    },
+
+    #' @description
+    #' Reset `assignments` field before calling parent's `reset()`.
+    reset = function() {
+      self$assignments = NULL
+      super$reset()
     }
-  )
+  ),
 )

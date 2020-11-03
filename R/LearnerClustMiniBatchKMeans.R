@@ -69,7 +69,16 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
       }
 
       pv = self$param_set$get_values(tags = "train")
-      invoke(ClusterR::MiniBatchKmeans, data = task$data(), .args = pv)
+      m = invoke(ClusterR::MiniBatchKmeans, data = task$data(), .args = pv)
+      if (self$save_assignments) {
+        self$assignments = unclass(ClusterR::predict_MBatchKMeans(
+          data = task$data(),
+          CENTROIDS = m$centroids,
+          fuzzy = FALSE))
+        self$assignments = as.integer(self$assignments)
+      }
+
+      return(m)
     },
     .predict = function(task) {
       if (self$predict_type == "partition") {
