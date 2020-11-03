@@ -68,7 +68,12 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
       check_centers_param(self$param_set$values$centers, task, test_data_frame, "centers")
 
       pv = self$param_set$get_values(tags = "train")
-      invoke(stats::kmeans, x = task$data(), .args = pv)
+      m = invoke(stats::kmeans, x = task$data(), .args = pv)
+      if (self$save_assignments) {
+        self$assignments = m$cluster
+      }
+
+      return(m)
     },
     .predict = function(task) {
       partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))
