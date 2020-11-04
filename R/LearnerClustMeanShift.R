@@ -62,7 +62,12 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
       }
 
       pv = self$param_set$get_values(tags = "train")
-      invoke(LPCM::ms, X = task$data(), .args = pv)
+      m = invoke(LPCM::ms, X = task$data(), .args = pv)
+      if (self$save_assignments) {
+        self$assignments = m$cluster.label
+      }
+
+      return(m)
     },
     .predict = function(task) {
       warn_prediction_useless(self$id)

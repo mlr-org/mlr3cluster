@@ -1,9 +1,9 @@
-context("clust.ap")
+context("clust.meanshift")
 
-skip_if_not_installed("apcluster")
+skip_if_not_installed("LPCM")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.ap")
+  learner = mlr3::lrn("clust.meanshift")
   expect_learner(learner)
 
   result = run_autotest(learner)
@@ -13,22 +13,21 @@ test_that("autotest", {
 
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
-  learner = mlr_learners$get("clust.ap")
+  learner = mlr_learners$get("clust.meanshift")
   expect_learner(learner, task)
 
   # test on multiple paramsets
   parset_list = list(
-    list(s = apcluster::negDistMat(r = 2L)),
-    list(s = apcluster::linSimMat, details = TRUE, q = 0.5),
-    list(s = apcluster::expSimMat, lam = 0.5, nonoise = TRUE, includeSim = TRUE),
-    list(s = apcluster::corSimMat, convits = 50L, maxits = 500L)
+    list(h = 2L),
+    list(subset = 1:3, scaled = 2L),
+    list(thr = 0.1, iter = 100L)
   )
 
   for (i in seq_along(parset_list)) {
     parset = parset_list[[i]]
     learner$param_set$values = parset
 
-    p = learner$train(task)$predict(task)
+    p = suppressWarnings(learner$train(task)$predict(task), classes = "predictionUselessWarning")
     expect_prediction_clust(p)
 
     if ("complete" %in% learner$properties) {
