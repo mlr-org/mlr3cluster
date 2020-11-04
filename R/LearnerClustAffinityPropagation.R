@@ -6,10 +6,13 @@
 #' @description
 #' A [LearnerClust] for Affinity Propagation clustering implemented in [apcluster::apcluster()].
 #' [apcluster::apcluster()] doesn't have set a default for similarity function.
-#' Therefore, the `s` parameter here is set to `apcluster::negDistMat(r = 2L)`` by default
+#' Therefore, the `s` parameter here is set to `apcluster::negDistMat(r = 2L)` by default
 #' since this is what is used in the original paper on Affity Propagation clustering.
-#' There is no predict method in `apcluster` package, so the method
-#' calls [apcluster::labels()] to find cluster labels for the 'training' data.
+#' The predict method computes the closest cluster exemplar to find the
+#' cluster memberships for new data.
+#' The code is taken from
+#' [StackOverflow](https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi)
+#' answer by the `apcluster` package maintainer.
 #'
 #' @templateVar id clust.ap
 #' @template section_dictionary_learner
@@ -58,11 +61,24 @@ LearnerClustAP = R6Class("LearnerClustAP",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      invoke(apcluster::apcluster, x = task$data(), .args = pv)
+      m = invoke(apcluster::apcluster, x = task$data(), .args = pv)
+      # add data points corresponding to examplars
+      attributes(m)$exemplar_data = task$data()[m@exemplars, ]
+
+      if (self$save_assignments) {
+        self$assignments = apcluster::labels(m, type = "enum")
+      }
+
+      return(m)
     },
     .predict = function(task) {
-      warn_prediction_useless(self$id)
-      partition = apcluster::labels(self$model, type = "enum")
+      sim_func = self$param_set$values$s
+      exemplar_data = attributes(self$model)$exemplar_data
+
+      sim_mat = sim_func(rbind(exemplar_data, task$data()),
+                         sel = (1:nrow(task$data())) +
+                           nrow(exemplar_data))[1:nrow(exemplar_data), ]
+      partition = unname(apply(sim_mat, 2, which.max))
       PredictionClust$new(task = task, partition = partition)
     }
   )

@@ -7,8 +7,13 @@
 \description{
 A \link{LearnerClust} for Affinity Propagation clustering implemented in \code{\link[apcluster:apcluster]{apcluster::apcluster()}}.
 \code{\link[apcluster:apcluster]{apcluster::apcluster()}} doesn't have set a default for similarity function.
-Therefore, the \code{s} parameter here is set to \verb{apcluster::negDistMat(r = 2L)`` by default since this is what is used in the original paper on Affity Propagation clustering. There is no predict method in }apcluster` package, so the method
-calls \code{\link[apcluster:labels]{apcluster::labels()}} to find cluster labels for the 'training' data.
+Therefore, the \code{s} parameter here is set to \code{apcluster::negDistMat(r = 2L)} by default
+since this is what is used in the original paper on Affity Propagation clustering.
+The predict method computes the closest cluster exemplar to find the
+cluster memberships for new data.
+The code is taken from
+\href{https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi}{StackOverflow}
+answer by the \code{apcluster} package maintainer.
 }
 \section{Dictionary}{
 
@@ -42,8 +47,8 @@ learner$param_set$ids()
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict">}\href{../../mlr3/html/Learner.html#method-predict}{\code{mlr3::Learner$predict()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict_newdata">}\href{../../mlr3/html/Learner.html#method-predict_newdata}{\code{mlr3::Learner$predict_newdata()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="print">}\href{../../mlr3/html/Learner.html#method-print}{\code{mlr3::Learner$print()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="reset">}\href{../../mlr3/html/Learner.html#method-reset}{\code{mlr3::Learner$reset()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="train">}\href{../../mlr3/html/Learner.html#method-train}{\code{mlr3::Learner$train()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="mlr3cluster" data-topic="LearnerClust" data-id="reset">}\href{../../mlr3cluster/html/LearnerClust.html#method-reset}{\code{mlr3cluster::LearnerClust$reset()}}\out{</span>}
 }
 \out{</details>}
 }
