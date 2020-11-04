@@ -27,8 +27,9 @@ LearnerClustAP = R6Class("LearnerClustAP",
     initialize = function() {
       ps = ParamSet$new(
         params = list(
-          ParamUty$new(id = "s", default = apcluster::negDistMat(r = 2L),
-                       tags = c("required", "train")),
+          ParamUty$new(
+            id = "s", default = apcluster::negDistMat(r = 2L),
+            tags = c("required", "train")),
           ParamUty$new(id = "p", custom_check = function(x) {
             if (test_numeric(x)) {
               return(TRUE)
@@ -76,8 +77,8 @@ LearnerClustAP = R6Class("LearnerClustAP",
       exemplar_data = attributes(self$model)$exemplar_data
 
       sim_mat = sim_func(rbind(exemplar_data, task$data()),
-                         sel = (1:nrow(task$data())) +
-                           nrow(exemplar_data))[1:nrow(exemplar_data), ]
+        sel = (1:nrow(task$data())) +
+          nrow(exemplar_data))[1:nrow(exemplar_data), ]
       partition = unname(apply(sim_mat, 2, which.max))
       PredictionClust$new(task = task, partition = partition)
     }
