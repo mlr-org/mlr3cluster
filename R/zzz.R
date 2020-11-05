@@ -17,7 +17,8 @@ register_mlr3 = function() {
       ~type, ~package, ~task, ~learner, ~prediction, ~measure,
       "clust", "mlr3cluster", "TaskClust", "LearnerClust", "PredictionClust", "MeasureClust"
     )), "type")
-    x$task_col_roles$clust = x$task_col_roles$regr
+    x$task_col_roles$clust = c(
+      "feature", "name", "order", "stratum", "group", "weight")
     x$task_properties$clust = x$task_properties$regr
     x$learner_properties$clust = c(
       "missings", "partitional", "hierarchical", "exclusive",

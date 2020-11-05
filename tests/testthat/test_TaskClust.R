@@ -4,7 +4,7 @@ test_that("Basic ops on usarrests task", {
   task = tsk("usarrests")
   expect_task(task)
   expect_task_clust(task)
-  expect_identical(task$target_names, character(0))
+  expect_null(task$target_names)
 })
 
 test_that("0 feature task", {
