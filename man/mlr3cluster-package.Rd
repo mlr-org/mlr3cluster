@@ -18,7 +18,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Damir Pulatov \email{dpulatov@uwyo.edu}
+\strong{Maintainer}: Damir Pulatov \email{damirpolat@protonmail.com}
 
 Authors:
 \itemize{
