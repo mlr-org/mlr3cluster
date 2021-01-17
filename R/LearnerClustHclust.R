@@ -40,6 +40,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
                                  )
                                  # param deps
                                  ps$add_dep("p", "distmethod", CondAnyOf$new("minkowski"))
+                                 ps$values = list(k = 2L, distmethod = "euclidean")
 
                                  super$initialize(
                                    id = "clust.hclust",
@@ -53,9 +54,10 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
                              ),
                              private = list(
                                .train = function(task) {
+                                 d = self$param_set$values$distmethod
                                  dist_arg = self$param_set$get_values(tags = c("train", "dist"))
                                  dist = invoke(stats::dist, x = task$data(),
-                                               method = self$param_set$values$distmethod, .args = dist_arg)
+                                               method = ifelse(is.null(d), "euclidean", d), .args = dist_arg)
                                  pv = self$param_set$get_values(tags = c("train", "hclust"))
                                  m = invoke(stats::hclust, d = dist, .args = pv)
                                  if (self$save_assignments) {
