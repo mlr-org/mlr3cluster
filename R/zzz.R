@@ -49,6 +49,7 @@ register_mlr3 = function() {
   x$add("clust.kkmeans", LearnerClustKKMeans)
   x$add("clust.ap", LearnerClustAP)
   x$add("clust.meanshift", LearnerClustMeanShift)
+  x$add("clust.hclust", LearnerClustHclust)
 
   x = utils::getFromNamespace("mlr_measures", ns = "mlr3")
   x$add("clust.db", MeasureClustInternal, name = "db")
