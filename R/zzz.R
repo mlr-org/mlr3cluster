@@ -56,6 +56,7 @@ register_mlr3 = function() {
   x$add("clust.dunn", MeasureClustInternal, name = "dunn")
   x$add("clust.ch", MeasureClustInternal, name = "ch")
   x$add("clust.silhouette", MeasureClustInternal, name = "silhouette")
+  x$add("clust.wss", MeasureClustInternal, name = "wss")
 }
 
 .onLoad = function(libname, pkgname) { # nolint

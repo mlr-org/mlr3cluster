@@ -56,3 +56,15 @@ measures$dunn = make_measure_info("Dunn", lower = 0, upper = Inf, minimize = FAL
 #' @templateVar id silhouette
 #' @template measure_internal
 measures$silhouette = make_measure_info("Silhouette", lower = 0, upper = Inf, minimize = FALSE)
+
+#' @title Calinski Harabasz Pseudo F-Statistic
+#'
+#' @templateVar id ch
+#' @template measure_internal
+measures$ch = make_measure_info("Calinski_Harabasz", lower = 0, upper = Inf, minimize = FALSE)
+
+#' @title Within Sum of Squares
+#'
+#' @templateVar id wss
+#' @template measure_internal
+measures$wss = mlr3cluster:::make_measure_info("Trace_W", lower = 0, upper = Inf, minimize = TRUE)
