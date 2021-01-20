@@ -52,6 +52,7 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 | [clust.fanny](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny.html) | Fuzzy Clustering | [cluster](https://CRAN.R-project.org/package=cluster) |
 | [clust.featureless](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.html) | Simple Featureless Clustering | [mlr3cluster](https://github.com/mlr-org/mlr3cluster) |
 | [clust.ff](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.FF.html) | FarthestFirst Clustering Algorithm |  [RWeka](https://CRAN.R-project.org/package=RWeka) |
+| [clust.hclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.html) | Agglomerative Hierarchical Clustering | [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html) |
 | [clust.kkmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.html) | Kernel K-Means Clustering |  [kernlab](https://CRAN.R-project.org/package=kernlab) |
 | [clust.kmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.html) | K-Means Clustering | [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html) |
 | [clust.MBatchKMeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.MiniBatchKMeans.html) | Mini Batch K-Means Clustering | [ClusterR](https://CRAN.R-project.org/package=ClusterR) |
@@ -68,6 +69,7 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 | [clust.dunn](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn.html) | Dunn index | [clusterCrit](https://CRAN.R-project.org/package=clusterCrit) |
 | [clust.ch](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch.html) | Calinski Harabasz Pseudo F-Statistic | [clusterCrit](https://CRAN.R-project.org/package=clusterCrit) |
 | [clust.silhouette](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette.html) | Rousseeuw's Silhouette Quality Index | [clusterCrit](https://CRAN.R-project.org/package=clusterCrit) |
+| [clust.wss](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss.html) | Within Sum of Squares | [clusterCrit](https://CRAN.R-project.org/package=clusterCrit) |
 
 
 ## Example
