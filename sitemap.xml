@@ -55,6 +55,9 @@
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.html</loc>
   </url>
   <url>
+    <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.html</loc>
+  </url>
+  <url>
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.html</loc>
   </url>
   <url>
@@ -80,6 +83,9 @@
   </url>
   <url>
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette.html</loc>
+  </url>
+  <url>
+    <loc>https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss.html</loc>
   </url>
   <url>
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_tasks_usarrests.html</loc>
