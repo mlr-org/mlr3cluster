@@ -53,6 +53,7 @@ Collate:
     'LearnerClustFanny.R'
     'LearnerClustFarthestFirst.R'
     'LearnerClustFeatureless.R'
+    'LearnerClustHclust.R'
     'LearnerClustKKMeans.R'
     'LearnerClustKMeans.R'
     'LearnerClustMeanShift.R'
