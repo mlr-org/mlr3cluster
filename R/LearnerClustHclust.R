@@ -30,7 +30,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
                                      ParamFct$new("distmethod",
                                                   default = "euclidean",
                                                   levels = c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"),
-                                                  tags = c("train")
+                                                  tags = "train"
                                      ),
                                      ParamLgl$new("diag", default = FALSE, tags = c("train", "dist")),
                                      ParamLgl$new("upper", default = FALSE, tags = c("train", "dist")),

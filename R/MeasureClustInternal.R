@@ -67,4 +67,4 @@ measures$ch = make_measure_info("Calinski_Harabasz", lower = 0, upper = Inf, min
 #'
 #' @templateVar id wss
 #' @template measure_internal
-measures$wss = mlr3cluster:::make_measure_info("Trace_W", lower = 0, upper = Inf, minimize = TRUE)
+measures$wss = make_measure_info("Trace_W", lower = 0, upper = Inf, minimize = TRUE)
