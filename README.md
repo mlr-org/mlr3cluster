@@ -3,7 +3,7 @@
 Cluster analysis for mlr3
 
 <!-- badges: start -->
-[![tic](https://github.com/mlr-org/mlr3cluster/workflows/tic/badge.svg?branch=master)](https://github.com/mlr-org/mlr3cluster/actions)
+[![tic](https://github.com/mlr-org/mlr3cluster/workflows/tic/badge.svg?branch=main)](https://github.com/mlr-org/mlr3cluster/actions)
 [![CRAN status](https://www.r-pkg.org/badges/version/mlr3cluster)](https://CRAN.R-project.org/package=mlr3cluster)
 [![StackOverflow](https://img.shields.io/badge/stackoverflow-mlr3-orange.svg)](https://stackoverflow.com/questions/tagged/mlr3)
 [![Mattermost](https://img.shields.io/badge/chat-mattermost-orange.svg)](https://lmmisld-lmu-stats-slds.srv.mwn.de/mlr_invite/)
