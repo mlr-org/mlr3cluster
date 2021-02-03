@@ -68,5 +68,6 @@ Collate:
     'PredictionDataClust.R'
     'TaskClust.R'
     'TaskClust_usarrest.R'
+    'as_task_clust.R'
     'helper.R'
     'zzz.R'
