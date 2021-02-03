@@ -5,8 +5,8 @@
 \alias{LearnerClustCobweb}
 \title{Cobweb Clustering Learner}
 \description{
-A \link{LearnerClust} for Cobweb clustering implemented in \code{\link[RWeka:Cobweb]{RWeka::Cobweb()}}.
-The predict method uses \code{\link[RWeka:predict.Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
+A \link{LearnerClust} for Cobweb clustering implemented in \code{\link[RWeka:Weka_clusterers]{RWeka::Cobweb()}}.
+The predict method uses \code{\link[RWeka:predict_Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
 cluster memberships for new data.
 }
 \section{Dictionary}{

@@ -5,8 +5,8 @@
 \alias{LearnerClustFarthestFirst}
 \title{Farthest First Clustering Algorithm Learner}
 \description{
-A \link{LearnerClust} for Farthest First clustering implemented in \code{\link[RWeka:FarthestFirst]{RWeka::FarthestFirst()}}.
-The predict method uses \code{\link[RWeka:predict.Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
+A \link{LearnerClust} for Farthest First clustering implemented in \code{\link[RWeka:Weka_clusterers]{RWeka::FarthestFirst()}}.
+The predict method uses \code{\link[RWeka:predict_Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
 cluster memberships for new data.
 }
 \section{Dictionary}{

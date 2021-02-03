@@ -34,6 +34,7 @@ msr("clust.db")
 Other cluster measures: 
 \code{\link{mlr_measures_clust.ch}},
 \code{\link{mlr_measures_clust.dunn}},
-\code{\link{mlr_measures_clust.silhouette}}
+\code{\link{mlr_measures_clust.silhouette}},
+\code{\link{mlr_measures_clust.wss}}
 }
 \concept{cluster measures}
