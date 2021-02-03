@@ -43,8 +43,7 @@ as_task_clust = function(x, ...) {
 
 #' @rdname as_task_clust
 #' @param clone (`logical(1)`)\cr
-#'   If `TRUE`, ensures that the returned object is not the same as the input `x`, e.g.
-#'   by cloning it or constructing it from a [dictionary][mlr3misc::Dictionary] such as [mlr_learners].
+#'   If `TRUE`, ensures that the returned object is not the same as the input `x`.
 #' @export
 as_task_clust.TaskClust = function(x, clone = FALSE, ...) { # nolint
   if (clone) x$clone() else x

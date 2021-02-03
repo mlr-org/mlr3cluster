@@ -23,8 +23,7 @@ Object to convert, e.g. a \code{data.frame()}.}
 Additional arguments.}
 
 \item{clone}{(\code{logical(1)})\cr
-If \code{TRUE}, ensures that the returned object is not the same as the input \code{x}, e.g.
-by cloning it or constructing it from a \link[mlr3misc:Dictionary]{dictionary} such as \link{mlr_learners}.}
+If \code{TRUE}, ensures that the returned object is not the same as the input \code{x}.}
 
 \item{id}{(\code{character(1)})\cr
 Id for the new task.
