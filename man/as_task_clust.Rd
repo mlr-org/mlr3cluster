@@ -17,10 +17,7 @@ as_task_clust(x, ...)
 }
 \arguments{
 \item{x}{(\code{any})\cr
-Object to convert, e.g. a \code{data.frame()}.}
-
-\item{...}{(\code{any})\cr
-Additional arguments.}
+Object to coerce.}
 
 \item{clone}{(\code{logical(1)})\cr
 If \code{TRUE}, ensures that the returned object is not the same as the input \code{x}.}
@@ -29,6 +26,17 @@ If \code{TRUE}, ensures that the returned object is not the same as the input \c
 Id for the new task.
 Defaults to the (deparsed and substituted) name of \code{x}.}
 }
+\value{
+\link{TaskClust}.
+}
 \description{
-Convert to a Cluster Task
+Convert object to a \link{TaskClust}.
+This is a S3 generic, specialized for at least the following objects:
+\enumerate{
+\item \link{TaskClust}: ensure the identity.
+\item \code{\link[=data.frame]{data.frame()}} and \link{DataBackend}: provides an alternative to calling constructor of \link{TaskClust}.
+}
+}
+\examples{
+as_task_clust(datasets::USArrests)
 }

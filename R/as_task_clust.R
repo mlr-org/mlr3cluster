@@ -1,9 +1,18 @@
 #' @title Convert to a Cluster Task
-#' @param x (`any`)\cr
-#'   Object to convert, e.g. a `data.frame()`.
-#' @param ... (`any`)\cr
-#'   Additional arguments.
+#'
+#' @description
+#' Convert object to a [TaskClust].
+#' This is a S3 generic, specialized for at least the following objects:
+#'
+#' 1. [TaskClust]: ensure the identity.
+#' 2. [data.frame()] and [DataBackend]: provides an alternative to calling constructor of [TaskClust].
+#'
+#' @inheritParams mlr3::as_task
+#'
+#' @return [TaskClust].
 #' @export
+#' @examples
+#' as_task_clust(datasets::USArrests)
 as_task_clust = function(x, ...) {
   UseMethod("as_task_clust")
 }
