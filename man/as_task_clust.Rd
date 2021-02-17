@@ -17,7 +17,10 @@ as_task_clust(x, ...)
 }
 \arguments{
 \item{x}{(\code{any})\cr
-Object to coerce.}
+Object to convert.}
+
+\item{...}{(\code{any})\cr
+Additional arguments.}
 
 \item{clone}{(\code{logical(1)})\cr
 If \code{TRUE}, ensures that the returned object is not the same as the input \code{x}.}

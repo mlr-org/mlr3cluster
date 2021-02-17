@@ -12,13 +12,13 @@ test_that("predict on newdata works / clust", {
   # passing the task
   p = learner$predict_newdata(newdata = newdata, task = task)
   expect_data_table(as.data.table(p), nrows = 10)
-  expect_set_equal(as.data.table(p)$row_id, 1:10)
+  expect_set_equal(as.data.table(p)$row_ids, 1:10)
   expect_null(p$truth)
 
   # rely on internally stored task representation
   p = learner$predict_newdata(newdata = newdata, task = NULL)
   expect_data_table(as.data.table(p), nrows = 10)
-  expect_set_equal(as.data.table(p)$row_id, 1:10)
+  expect_set_equal(as.data.table(p)$row_ids, 1:10)
   expect_null(p$truth)
 })
 

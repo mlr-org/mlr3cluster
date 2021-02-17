@@ -13,10 +13,11 @@ as_prediction_clust(x, ...)
 \method{as_prediction_clust}{data.frame}(x, ...)
 }
 \arguments{
-\item{x}{(any)\cr
+\item{x}{(\code{any})\cr
 Object to convert.}
 
-\item{...}{(one or more \link[mlr3]{PredictionData} objects).}
+\item{...}{(\code{any})\cr
+Additional arguments.}
 }
 \value{
 \link{PredictionClust}.
