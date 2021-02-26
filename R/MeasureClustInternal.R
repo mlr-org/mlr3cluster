@@ -20,8 +20,8 @@ MeasureClustInternal = R6Class("MeasureClustInternal",
     }
   ),
   private = list(
-    .score = function(prediction, task, ...) {
-      X = as.matrix(task$data(rows = prediction$row_ids))
+    .score = function(prediction, ...) {
+      X = as.matrix(prediction$data$task$data(rows = prediction$row_ids))
       if (!is.double(X)) { # clusterCrit does not convert lgls/ints
         storage.mode(X) = "double"
       }
