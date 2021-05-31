@@ -39,7 +39,8 @@ PredictionClust = R6Class("PredictionClust",
     #' @param check (`logical(1)`)\cr
     #'   If `TRUE`, performs some argument checks and predict type conversions.
     initialize = function(task = NULL, row_ids = task$row_ids, partition = NULL, prob = NULL, check = TRUE) {
-      pdata = list(row_ids = row_ids, partition = partition, prob = prob)
+      pdata = list(row_ids = row_ids, partition = partition,
+                   prob = prob, task = task)
       pdata = discard(pdata, is.null)
       class(pdata) = c("PredictionDataClust", "PredictionData")
 
