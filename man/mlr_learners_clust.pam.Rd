@@ -7,7 +7,7 @@
 \description{
 A \link{LearnerClust} for PAM clustering implemented in \code{\link[cluster:pam]{cluster::pam()}}.
 \code{\link[cluster:pam]{cluster::pam()}} doesn't have a default value for the number of clusters.
-Therefore, the \code{k} parameter which correponds to the number
+Therefore, the \code{k} parameter which corresponds to the number
 of clusters here is set to 2 by default.
 The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the
 cluster memberships for new data.
