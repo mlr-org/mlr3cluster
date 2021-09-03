@@ -87,7 +87,7 @@ preds = learner$predict(task = task)
 ## More Resources
 
 Check out the **[blogpost](https://mlr-org.com/docs/introducing-mlr3cluster-cluster-analysis-package/)** for a more detailed introduction to the package.
-Also, **[mlr3book](https://mlr3book.mlr-org.com/)** section on clustering is coming soon!
+Also, **[mlr3book](https://mlr3book.mlr-org.com/special-tasks.html#cluster)** has a section on clustering.
 
 ## Future Plans
 
