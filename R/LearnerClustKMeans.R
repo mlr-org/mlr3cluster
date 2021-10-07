@@ -21,29 +21,22 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ParamSet$new(
-        params = list(
-          ParamUty$new(
-            id = "centers", tags = c("required", "train"), default = 2L,
-            custom_check = function(x) {
-              if (test_data_frame(x)) {
-                return(TRUE)
-              } else if (test_int(x)) {
-                assert_true(x >= 1L)
-              } else {
-                return("`centers` must be integer or data.frame with initial cluster centers")
-              }
+      ps = ps(
+        centers = p_uty(tags = c("required", "train"), default = 2L,
+          custom_check = function(x) {
+            if (test_data_frame(x)) {
+              return(TRUE)
+            } else if (test_int(x)) {
+              assert_true(x >= 1L)
+            } else {
+              return("`centers` must be integer or data.frame with initial cluster centers")
             }
-          ),
-          ParamInt$new(id = "iter.max", lower = 1L, default = 10L, tags = c("train")),
-          ParamFct$new(
-            id = "algorithm",
-            levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"),
-            default = "Hartigan-Wong", tags = c("train")
-          ),
-          ParamInt$new(id = "nstart", lower = 1L, default = 1L, tags = c("train")),
-          ParamInt$new(id = "trace", lower = 0L, default = 0L, tags = c("train"))
-        )
+          }
+        ),
+        iter.max = p_int(lower = 1L, default = 10L, tags = c("train")),
+        algorithm = p_fct(levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"), default = "Hartigan-Wong", tags = c("train")),
+        nstart = p_int(lower = 1L, default = 1L, tags = c("train")),
+        trace = p_int(lower = 0L, default = 0L, tags = c("train"))
       )
       ps$values = list(centers = 2L)
 

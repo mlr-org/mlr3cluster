@@ -23,18 +23,14 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ParamSet$new(
-        params = list(
-          ParamInt$new(id = "k", lower = 1L, default = 2L, tags = c("required", "train")),
-          ParamDbl$new(id = "memb.exp", lower = 1L, default = 2L, tags = "train"),
-          ParamFct$new(
-            id = "metric", default = "euclidean",
-            levels = c("euclidean", "manhattan", "SqEuclidean"), tags = "train"),
-          ParamLgl$new(id = "stand", default = FALSE, tags = "train"),
-          ParamInt$new(id = "maxit", lower = 0L, default = 500L, tags = "train"),
-          ParamDbl$new(id = "tol", lower = 0L, default = 1e-15, tags = "train"),
-          ParamInt$new(id = "trace.lev", lower = 0L, default = 0L, tags = "train")
-        )
+      ps = ps(
+        k = p_int(lower = 1L, default = 2L, tags = c("required", "train")),
+        memb.exp = p_dbl(lower = 1L, default = 2L, tags = "train"),
+        metric = p_fct(default = "euclidean", levels = c("euclidean", "manhattan", "SqEuclidean"), tags = "train"),
+        stand = p_lgl(default = FALSE, tags = "train"),
+        maxit = p_int(lower = 0L, default = 500L, tags = "train"),
+        tol = p_dbl(lower = 0L, default = 1e-15, tags = "train"),
+        trace.lev = p_int(lower = 0L, default = 0L, tags = "train")
       )
       ps$values = list(k = 2L)
 

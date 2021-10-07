@@ -19,28 +19,24 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ParamSet$new(
-        params = list(
-          ParamUty$new(
-            id = "h",
-            custom_check = function(x) {
-              if (test_numeric(x) || test_int(x)) {
-                return(TRUE)
-              } else {
-                return("`h` must be either integer or numeric vector")
-              }
-            }, tags = "train"),
-          ParamUty$new(id = "subset", custom_check = function(x) {
-            if (test_numeric(x)) {
+      ps = ps(
+        h = p_uty(custom_check = function(x) {
+            if (test_numeric(x) || test_int(x)) {
               return(TRUE)
             } else {
-              return("`subset` must be a numeric vector")
+              return("`h` must be either integer or numeric vector")
             }
           }, tags = "train"),
-          ParamInt$new(id = "scaled", lower = 0L, default = 1, tags = "train"),
-          ParamInt$new(id = "iter", lower = 1L, default = 200L, tags = "train"),
-          ParamDbl$new(id = "thr", default = 0.01, tags = "train")
-        )
+        subset = p_uty(custom_check = function(x) {
+          if (test_numeric(x)) {
+            return(TRUE)
+          } else {
+            return("`subset` must be a numeric vector")
+          }
+        }, tags = "train"),
+        scaled = p_int(lower = 0L, default = 1, tags = "train"),
+        iter = p_int(lower = 1L, default = 200L, tags = "train"),
+        thr = p_dbl(default = 0.01, tags = "train")
       )
 
       super$initialize(

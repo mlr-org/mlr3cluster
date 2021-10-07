@@ -25,27 +25,23 @@ LearnerClustAP = R6Class("LearnerClustAP",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ParamSet$new(
-        params = list(
-          ParamUty$new(
-            id = "s", default = apcluster::negDistMat(r = 2L),
-            tags = c("required", "train")),
-          ParamUty$new(id = "p", custom_check = function(x) {
-            if (test_numeric(x)) {
-              return(TRUE)
-            } else {
-              stop("`p` needs to be a numeric vector")
-            }
-          }, default = NA, tags = "train"),
-          ParamDbl$new(id = "q", lower = 0L, upper = 1L, tags = "train"),
-          ParamInt$new(id = "maxits", lower = 1L, default = 1000L, tags = "train"),
-          ParamInt$new(id = "convits", lower = 1L, default = 100L, tags = "train"),
-          ParamDbl$new(id = "lam", lower = 0.5, upper = 1L, default = 0.9, tags = "train"),
-          ParamLgl$new(id = "includeSim", default = FALSE, tags = "train"),
-          ParamLgl$new(id = "details", default = FALSE, tags = "train"),
-          ParamLgl$new(id = "nonoise", default = FALSE, tags = "train"),
-          ParamInt$new(id = "seed", tags = "train")
-        )
+      ps = ps(
+        s = p_uty(default = apcluster::negDistMat(r = 2L), tags = c("required", "train")),
+        p = p_uty(custom_check = function(x) {
+          if (test_numeric(x)) {
+            return(TRUE)
+          } else {
+            stop("`p` needs to be a numeric vector")
+          }
+        }, default = NA, tags = "train"),
+        q = p_dbl(lower = 0L, upper = 1L, tags = "train"),
+        maxits = p_int(lower = 1L, default = 1000L, tags = "train"),
+        convits = p_int(lower = 1L, default = 100L, tags = "train"),
+        lam = p_dbl(lower = 0.5, upper = 1L, default = 0.9, tags = "train"),
+        includeSim = p_lgl(default = FALSE, tags = "train"),
+        details = p_lgl(default = FALSE, tags = "train"),
+        nonoise = p_lgl(default = FALSE, tags = "train"),
+        seed = p_int(tags = "train")
       )
       ps$values = list(s = apcluster::negDistMat(r = 2L))
 

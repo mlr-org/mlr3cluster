@@ -71,7 +71,7 @@ Creates a new instance of this \link[R6:R6Class]{R6} class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LearnerClust$new(
   id,
-  param_set = ParamSet$new(),
+  param_set = ps(),
   predict_types = "partition",
   feature_types = character(),
   properties = character(),

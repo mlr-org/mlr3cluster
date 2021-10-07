@@ -19,26 +19,24 @@ LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ParamSet$new(
-        params = list(
-          ParamUty$new(id = "A", default = "weka.core.EuclideanDistance", tags = "train"),
-          ParamLgl$new(id = "C", default = FALSE, tags = "train"),
-          ParamLgl$new(id = "fast", default = FALSE, tags = "train"),
-          ParamInt$new(id = "I", default = 100L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "init", default = 0L, lower = 0L, upper = 3L, tags = "train"),
-          ParamLgl$new(id = "M", default = FALSE, tags = "train"),
-          ParamInt$new(id = "max_candidates", default = 100L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "min_density", default = 2L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "N", default = 2L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "num_slots", default = 1L, lower = 1L, tags = "train"),
-          ParamLgl$new(id = "O", default = FALSE, tags = "train"),
-          ParamInt$new(id = "periodic_pruning", default = 10000L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "S", default = 10L, lower = 0L, tags = "train"),
-          ParamDbl$new(id = "t2", default = -1, tags = "train"),
-          ParamDbl$new(id = "t1", default = -1.5, tags = "train"),
-          ParamLgl$new(id = "V", default = FALSE, tags = "train"),
-          ParamLgl$new(id = "output_debug_info", default = FALSE, tags = "train")
-        )
+      ps = ps(
+        A                 = p_uty(default = "weka.core.EuclideanDistance", tags = "train"),
+        C                 = p_lgl(default = FALSE, tags = "train"),
+        fast              = p_lgl(default = FALSE, tags = "train"),
+        I                 = p_int(default = 100L, lower = 1L, tags = "train"),
+        init              = p_int(default = 0L, lower = 0L, upper = 3L, tags = "train"),
+        M                 = p_lgl(default = FALSE, tags = "train"),
+        max_candidates    = p_int(default = 100L, lower = 1L, tags = "train"),
+        min_density       = p_int(default = 2L, lower = 1L, tags = "train"),
+        N                 = p_int(default = 2L, lower = 1L, tags = "train"),
+        num_slots         = p_int(default = 1L, lower = 1L, tags = "train"),
+        O                 = p_lgl(default = FALSE, tags = "train"),
+        periodic_pruning  = p_int(default = 10000L, lower = 1L, tags = "train"),
+        S                 = p_int(default = 10L, lower = 0L, tags = "train"),
+        t2                = p_dbl(default = -1, tags = "train"),
+        t1                = p_dbl(default = -1.5, tags = "train"),
+        V                 = p_lgl(default = FALSE, tags = "train"),
+        output_debug_info = p_lgl(default = FALSE, tags = "train")
       )
 
       super$initialize(

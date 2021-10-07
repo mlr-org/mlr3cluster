@@ -22,27 +22,19 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ParamSet$new(
-        params = list(
-          ParamInt$new(id = "clusters", default = 2L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "batch_size", lower = 1L, default = 10L, tags = "train"),
-          ParamInt$new(id = "num_init", lower = 1L, default = 1L, tags = "train"),
-          ParamInt$new(id = "max_iters", lower = 1L, default = 100L, tags = "train"),
-          ParamDbl$new(
-            id = "init_fraction", lower = 0L, upper = 1L,
-            default = 1L, tags = "train"),
-          ParamFct$new(
-            id = "initializer",
-            levels = c("optimal_init", "quantile_init", "kmeans++", "random"),
-            default = "kmeans++", tags = "train"
-          ),
-          ParamInt$new(id = "early_stop_iter", lower = 1L, default = 10L, tags = "train"),
-          ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
-          ParamUty$new(id = "CENTROIDS", default = NULL, tags = "train"),
-          ParamDbl$new(id = "tol", default = 1e-04, lower = 0, tags = "train"),
-          ParamDbl$new(id = "tol_optimal_init", default = 0.3, lower = 0, tags = "train"),
-          ParamInt$new(id = "seed", default = 1L, tags = "train")
-        )
+      ps = ps(
+        clusters = p_int(default = 2L, lower = 1L, tags = "train"),
+        batch_size = p_int(lower = 1L, default = 10L, tags = "train"),
+        num_init = p_int(lower = 1L, default = 1L, tags = "train"),
+        max_iters = p_int(lower = 1L, default = 100L, tags = "train"),
+        init_fraction = p_dbl(lower = 0L, upper = 1L, default = 1L, tags = "train"),
+        initializer = p_fct(levels = c("optimal_init", "quantile_init", "kmeans++", "random"), default = "kmeans++", tags = "train"),
+        early_stop_iter = p_int(lower = 1L, default = 10L, tags = "train"),
+        verbose = p_lgl(default = FALSE, tags = "train"),
+        CENTROIDS = p_uty(default = NULL, tags = "train"),
+        tol = p_dbl(default = 1e-04, lower = 0, tags = "train"),
+        tol_optimal_init = p_dbl(default = 0.3, lower = 0, tags = "train"),
+        seed = p_int(default = 1L, tags = "train")
       )
       ps$values = list(clusters = 2L)
 
