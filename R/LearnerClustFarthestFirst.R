@@ -19,12 +19,10 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ParamSet$new(
-        params = list(
-          ParamInt$new(id = "N", default = 2L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "S", default = 1L, lower = 1L, tags = "train"),
-          ParamLgl$new(id = "output_debug_info", default = FALSE, tags = "train")
-        )
+      ps = ps(
+        N = p_int(default = 2L, lower = 1L, tags = "train"),
+        S = p_int(default = 1L, lower = 1L, tags = "train"),
+        output_debug_info = p_lgl(default = FALSE, tags = "train")
       )
 
       super$initialize(

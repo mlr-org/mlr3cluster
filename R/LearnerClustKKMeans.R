@@ -22,36 +22,28 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ParamSet$new(
-        params = list(
-          ParamUty$new(
-            id = "centers", tags = c("required", "train"), default = 2L,
-            custom_check = function(x) {
-              if (test_data_frame(x)) {
-                return(TRUE)
-              } else if (test_int(x)) {
-                assert_true(x >= 1L)
-              } else {
-                return("`centers` must be integer or data.frame with initial cluster centers")
-              }
+      ps = ps(
+        centers = p_uty(tags = c("required", "train"), default = 2L,
+          custom_check = function(x) {
+            if (test_data_frame(x)) {
+              return(TRUE)
+            } else if (test_int(x)) {
+              assert_true(x >= 1L)
+            } else {
+              return("`centers` must be integer or data.frame with initial cluster centers")
             }
-          ),
-          ParamFct$new(
-            id = "kernel", default = "rbfdot",
-            levels = c(
-              "vanilladot", "polydot", "rbfdot", "tanhdot",
-              "laplacedot", "besseldot", "anovadot", "splinedot"),
-            tags = "train"),
-          ParamDbl$new(id = "sigma", lower = 0, tags = "train"),
-          ParamInt$new(id = "degree", default = 3L, lower = 1L, tags = "train"),
-          ParamDbl$new(id = "scale", default = 1, lower = 0, tags = "train"),
-          ParamDbl$new(id = "offset", default = 1, tags = "train"),
-          ParamInt$new(id = "order", default = 1L, tags = "train"),
-          ParamFct$new(
-            id = "alg", levels = c("kkmeans", "kerninghan"),
-            default = "kkmeans", tags = "train"),
-          ParamDbl$new(id = "p", default = 1, tags = "train")
-        )
+          }
+        ),
+        kernel = p_fct(default = "rbfdot",
+          levels = c( "vanilladot", "polydot", "rbfdot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
+          tags = "train"),
+        sigma = p_dbl(lower = 0, tags = "train"),
+        degree = p_int(default = 3L, lower = 1L, tags = "train"),
+        scale = p_dbl(default = 1, lower = 0, tags = "train"),
+        offset = p_dbl(default = 1, tags = "train"),
+        order = p_int(default = 1L, tags = "train"),
+        alg = p_fct(levels = c("kkmeans", "kerninghan"), default = "kkmeans", tags = "train"),
+        p = p_dbl(default = 1, tags = "train")
       )
       ps$values = list(centers = 2L)
 

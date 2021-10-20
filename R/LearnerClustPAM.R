@@ -22,28 +22,24 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ParamSet$new(
-        params = list(
-          ParamInt$new(id = "k", lower = 1L, default = 2L, tags = c("required", "train")),
-          ParamFct$new(id = "metric", levels = c("euclidian", "manhattan"), tags = "train"),
-          ParamUty$new(
-            id = "medoids",
-            default = NULL, tags = "train",
-            custom_check = function(x) {
-              if (test_integerish(x)) {
-                return(TRUE)
-              } else if (test_null(x)) {
-                return(TRUE)
-              } else {
-                stop("`medoids` needs to be either `NULL` or vector with row indices!")
-              }
+      ps = ps(
+        k = p_int(lower = 1L, default = 2L, tags = c("required", "train")),
+        metric = p_fct(levels = c("euclidian", "manhattan"), tags = "train"),
+        medoids = p_uty(default = NULL, tags = "train",
+          custom_check = function(x) {
+            if (test_integerish(x)) {
+              return(TRUE)
+            } else if (test_null(x)) {
+              return(TRUE)
+            } else {
+              stop("`medoids` needs to be either `NULL` or vector with row indices!")
             }
-          ),
-          ParamLgl$new(id = "stand", default = FALSE, tags = "train"),
-          ParamLgl$new(id = "do.swap", default = TRUE, tags = "train"),
-          ParamInt$new(id = "pamonce", lower = 0L, upper = 5L, default = 0, tags = "train"),
-          ParamInt$new(id = "trace.lev", lower = 0L, default = 0L, tags = "train")
-        )
+          }
+        ),
+        stand = p_lgl(default = FALSE, tags = "train"),
+        do.swap = p_lgl(default = TRUE, tags = "train"),
+        pamonce = p_int(lower = 0L, upper = 5L, default = 0, tags = "train"),
+        trace.lev = p_int(lower = 0L, default = 0L, tags = "train")
       )
       ps$values = list(k = 2L)
 

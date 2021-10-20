@@ -19,25 +19,23 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ParamSet$new(
-        params = list(
-          ParamDbl$new(id = "B", default = 1, lower = 0, tags = "train"),
-          ParamDbl$new(id = "C", default = 0, lower = 0, tags = "train"),
-          ParamUty$new(id = "D", default = "weka.core.EuclideanDistance", tags = "train"),
-          ParamInt$new(id = "H", default = 4L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "I", default = 1L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "J", default = 1000L, lower = 1L, tags = "train"),
-          ParamUty$new(id = "K", default = "", tags = "train"),
-          ParamInt$new(id = "L", default = 2L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "M", default = 1000L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "S", default = 10L, lower = 1L, tags = "train"),
-          ParamInt$new(id = "U", default = 0L, lower = 0L, tags = "train"),
-          ParamLgl$new(id = "use_kdtree", default = FALSE, tags = "train"),
-          ParamUty$new(id = "N", tags = "train"),
-          ParamUty$new(id = "O", tags = "train"),
-          ParamUty$new(id = "Y", tags = "train"),
-          ParamLgl$new(id = "output_debug_info", default = FALSE, tags = "train")
-        )
+      ps = ps(
+        B                 = p_dbl(default = 1, lower = 0, tags = "train"),
+        C                 = p_dbl(default = 0, lower = 0, tags = "train"),
+        D                 = p_uty(default = "weka.core.EuclideanDistance", tags = "train"),
+        H                 = p_int(default = 4L, lower = 1L, tags = "train"),
+        I                 = p_int(default = 1L, lower = 1L, tags = "train"),
+        J                 = p_int(default = 1000L, lower = 1L, tags = "train"),
+        K                 = p_uty(default = "", tags = "train"),
+        L                 = p_int(default = 2L, lower = 1L, tags = "train"),
+        M                 = p_int(default = 1000L, lower = 1L, tags = "train"),
+        S                 = p_int(default = 10L, lower = 1L, tags = "train"),
+        U                 = p_int(default = 0L, lower = 0L, tags = "train"),
+        use_kdtree        = p_lgl(default = FALSE, tags = "train"),
+        N                 = p_uty(tags = "train"),
+        O                 = p_uty(tags = "train"),
+        Y                 = p_uty(tags = "train"),
+        output_debug_info = p_lgl(default = FALSE, tags = "train")
       )
 
       super$initialize(
