@@ -50,7 +50,8 @@ LearnerClust = R6Class("LearnerClust",
       super$initialize(
         id = id, task_type = "clust", param_set = param_set,
         predict_types = predict_types,
-        feature_types = feature_types, properties = properties, packages = packages
+        feature_types = feature_types, properties = properties,
+        packages = c("mlr3cluster", packages)
       )
     },
 
