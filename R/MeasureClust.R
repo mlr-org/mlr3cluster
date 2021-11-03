@@ -35,7 +35,7 @@ MeasureClust = R6Class("MeasureClust",
         task_type = "clust", range = range, minimize = minimize,
         aggregator = aggregator, properties = properties,
         predict_type = predict_type, task_properties = task_properties,
-        packages = packages, man = man
+        packages = c("mlr3cluster", packages), man = man
       )
     }
   )
