@@ -20,7 +20,7 @@ test_that("Internally constructed Prediction", {
 
 test_that("filter works", {
   task = tsk("usarrests")
-  lrn = mlr_learners$get("clust.featureless", )
+  lrn = mlr_learners$get("clust.featureless")
   lrn$param_set$values = list(num_clusters = 1L)
   p = lrn$train(task)$predict(task)
   pdata = p$data
