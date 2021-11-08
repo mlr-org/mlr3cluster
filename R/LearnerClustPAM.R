@@ -12,7 +12,7 @@
 #' cluster memberships for new data.
 #'
 #' @templateVar id clust.pam
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

@@ -17,6 +17,28 @@ lrn("clust.agnes")
 }
 }
 
+\section{Meta Information}{
+
+\itemize{
+\item Task type: \dQuote{clust}
+\item Predict Types: \dQuote{partition}
+\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
+\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{cluster}
+}
+}
+
+\section{Parameters}{
+\tabular{lllll}{
+   Id \tab Type \tab Default \tab Levels \tab Range \cr
+   metric \tab character \tab euclidean \tab euclidean, manhattan \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   stand \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   method \tab character \tab average \tab average, single, complete, ward, weighted, flexible, gaverage \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   trace.lev \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   par.method \tab list \tab - \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+}
+}
+
 \examples{
 learner = mlr3::lrn("clust.agnes")
 print(learner)

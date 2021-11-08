@@ -12,7 +12,7 @@
 #' The learner supports both partitional and fuzzy clustering.
 #'
 #' @templateVar id clust.MBatchKMeans
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

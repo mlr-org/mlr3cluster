@@ -10,7 +10,7 @@
 #' cluster memberships for new data.
 #'
 #' @templateVar id clust.em
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

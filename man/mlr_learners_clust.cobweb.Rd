@@ -16,6 +16,25 @@ lrn("clust.cobweb")
 }
 }
 
+\section{Meta Information}{
+
+\itemize{
+\item Task type: \dQuote{clust}
+\item Predict Types: \dQuote{partition}
+\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
+\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{RWeka}
+}
+}
+
+\section{Parameters}{
+\tabular{llll}{
+   Id \tab Type \tab Default \tab Range \cr
+   A \tab numeric \tab 1 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   C \tab numeric \tab 0.002 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   S \tab integer \tab 42 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+}
+}
+
 \examples{
 learner = mlr3::lrn("clust.cobweb")
 print(learner)

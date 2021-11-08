@@ -13,7 +13,7 @@
 #' new data.
 #'
 #' @templateVar id clust.fanny
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

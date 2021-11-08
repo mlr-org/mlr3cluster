@@ -5,13 +5,8 @@
 \alias{LearnerClustFeatureless}
 \title{Featureless Clustering Learner}
 \description{
-A simple \link{LearnerClust} which assigns first n observations to cluster 1,
-second n observations to cluster 2, and so on.
-Hyperparameter \code{num_clusters} controls the number of clusters and is
-set to 1 by default.
-The train method tries to assign cluster memberships to each
-observation such that each cluster has an equal amount of observations.
-The predict method uses does the same thing as the train but for new data.
+A simple \link{LearnerClust} which randomly (but evenly) assigns observations to
+\code{num_clusters} partitions (default: 1 partition).
 }
 \section{Dictionary}{
 
@@ -20,13 +15,29 @@ lrn("clust.featureless")
 }
 }
 
+\section{Meta Information}{
+
+\itemize{
+\item Task type: \dQuote{clust}
+\item Predict Types: \dQuote{partition}, \dQuote{prob}
+\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
+\item Required Packages: \CRANpkg{mlr3cluster}
+}
+}
+
+\section{Parameters}{
+\tabular{llll}{
+   Id \tab Type \tab Default \tab Range \cr
+   num_clusters \tab integer \tab 1 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+}
+}
+
 \examples{
-learner = mlr3::lrn("clust.kmeans")
+learner = mlr3::lrn("clust.featureless")
 print(learner)
 
 # available parameters:
 learner$param_set$ids()
-
 }
 \section{Super classes}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{\link[mlr3cluster:LearnerClust]{mlr3cluster::LearnerClust}} -> \code{LearnerClustFeatureless}
