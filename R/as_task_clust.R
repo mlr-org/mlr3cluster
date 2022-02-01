@@ -30,10 +30,10 @@ as_task_clust.TaskClust = function(x, clone = FALSE, ...) { # nolint
 #' @rdname as_task_clust
 #' @param id (`character(1)`)\cr
 #'   Id for the new task.
-#'   Defaults to the (deparsed and substituted) name of `x`.
+#'   Defaults to the (deparsed and substituted) name of the data argument.
 #' @export
 as_task_clust.data.frame = function(x, id = deparse(substitute(x)), ...) { # nolint
-  ii = which(map_lgl(subset(x, select = map_lgl(x, is.double)), anyInfinite))
+  ii = which(map_lgl(keep(x, is.double), anyInfinite))
   if (length(ii)) {
     warningf("Detected columns with unsupported Inf values in data: %s", str_collapse(names(ii)))
   }
@@ -46,4 +46,16 @@ as_task_clust.data.frame = function(x, id = deparse(substitute(x)), ...) { # nol
 #' @export
 as_task_clust.DataBackend = function(x, id = deparse(substitute(x)), ...) { # nolint
   TaskClust$new(id = id, backend = x)
+}
+
+#' @rdname as_task_clust
+#' @export
+as_task_clust.formula = function(x, data, id = deparse(substitute(data)), ...) { # nolint
+  assert_subset(all.vars(x), c(names(data), "."), .var.name = "formula")
+  if (attributes(terms(x, data = data))$response) {
+    stopf("Formula %s has a response", format(x))
+  }
+  tab = model.frame(x, data)
+
+  as_task_clust(tab, id = id, ...)
 }

@@ -13,10 +13,10 @@ as_prediction_clust(x, ...)
 \method{as_prediction_clust}{data.frame}(x, ...)
 }
 \arguments{
-\item{x}{(\code{any})\cr
+\item{x}{(any)\cr
 Object to convert.}
 
-\item{...}{(\code{any})\cr
+\item{...}{(any)\cr
 Additional arguments.}
 }
 \value{
