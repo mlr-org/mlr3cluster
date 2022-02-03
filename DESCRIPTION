@@ -27,7 +27,8 @@ Imports:
     data.table,
     mlr3misc (>= 0.4.0),
     paradox,
-    R6
+    R6,
+    stats
 Suggests:
     dbscan,
     e1071,

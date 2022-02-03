@@ -6,6 +6,7 @@
 #' @importFrom R6 R6Class
 #' @importFrom clue cl_predict
 #' @importFrom clusterCrit intCriteria
+#' @importFrom stats model.frame terms
 "_PACKAGE"
 
 register_mlr3 = function() {

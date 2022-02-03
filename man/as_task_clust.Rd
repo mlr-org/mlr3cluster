@@ -31,6 +31,9 @@ If \code{TRUE}, ensures that the returned object is not the same as the input \c
 \item{id}{(\code{character(1)})\cr
 Id for the new task.
 Defaults to the (deparsed and substituted) name of the data argument.}
+
+\item{data}{(\code{data.frame()})\cr
+Data frame containing all columns specified in formula \code{x}.}
 }
 \value{
 \link{TaskClust}.

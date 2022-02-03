@@ -49,8 +49,11 @@ as_task_clust.DataBackend = function(x, id = deparse(substitute(x)), ...) { # no
 }
 
 #' @rdname as_task_clust
+#' @param data (`data.frame()`)\cr
+#'   Data frame containing all columns specified in formula `x`.
 #' @export
 as_task_clust.formula = function(x, data, id = deparse(substitute(data)), ...) { # nolint
+  assert_data_frame(data)
   assert_subset(all.vars(x), c(names(data), "."), .var.name = "formula")
   if (attributes(terms(x, data = data))$response) {
     stopf("Formula %s has a response", format(x))
