@@ -15,7 +15,7 @@
 #' answer by the `apcluster` package maintainer.
 #'
 #' @templateVar id clust.ap
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

@@ -19,6 +19,31 @@ lrn("clust.kkmeans")
 }
 }
 
+\section{Meta Information}{
+
+\itemize{
+\item Task type: \dQuote{clust}
+\item Predict Types: \dQuote{partition}
+\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
+\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{kernlab}
+}
+}
+
+\section{Parameters}{
+\tabular{lllll}{
+   Id \tab Type \tab Default \tab Levels \tab Range \cr
+   centers \tab list \tab 2 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   kernel \tab character \tab rbfdot \tab vanilladot, polydot, rbfdot, tanhdot, laplacedot, besseldot, anovadot, splinedot \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   sigma \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   degree \tab integer \tab 3 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   scale \tab numeric \tab 1 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   offset \tab numeric \tab 1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   order \tab integer \tab 1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   alg \tab character \tab kkmeans \tab kkmeans, kerninghan \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   p \tab numeric \tab 1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+}
+}
+
 \examples{
 learner = mlr3::lrn("clust.kkmeans")
 print(learner)

@@ -11,7 +11,7 @@
 #' cluster memberships for new data.
 #'
 #' @templateVar id clust.cmeans
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

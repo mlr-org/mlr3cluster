@@ -10,7 +10,7 @@
 #' The default number for `k` is 2.
 #'
 #' @templateVar id clust.agnes
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

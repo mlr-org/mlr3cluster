@@ -9,7 +9,7 @@
 #' returns cluster labels for the 'training' data.
 #'
 #' @templateVar id clust.meanshift
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

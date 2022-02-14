@@ -20,6 +20,29 @@ lrn("clust.fanny")
 }
 }
 
+\section{Meta Information}{
+
+\itemize{
+\item Task type: \dQuote{clust}
+\item Predict Types: \dQuote{partition}, \dQuote{prob}
+\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
+\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{cluster}
+}
+}
+
+\section{Parameters}{
+\tabular{lllll}{
+   Id \tab Type \tab Default \tab Levels \tab Range \cr
+   k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   memb.exp \tab numeric \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   metric \tab character \tab euclidean \tab euclidean, manhattan, SqEuclidean \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   stand \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   maxit \tab integer \tab 500 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   tol \tab numeric \tab 1e-15 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   trace.lev \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+}
+}
+
 \examples{
 learner = mlr3::lrn("clust.fanny")
 print(learner)

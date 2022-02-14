@@ -9,7 +9,7 @@
 #' cluster memberships for new data.
 #'
 #' @templateVar id clust.xmeans
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

@@ -12,7 +12,7 @@
 #' assign clusters for new data points.
 #'
 #' @templateVar id clust.kkmeans
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

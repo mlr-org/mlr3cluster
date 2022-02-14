@@ -16,6 +16,30 @@ lrn("clust.dbscan")
 }
 }
 
+\section{Meta Information}{
+
+\itemize{
+\item Task type: \dQuote{clust}
+\item Predict Types: \dQuote{partition}
+\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
+\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{dbscan}
+}
+}
+
+\section{Parameters}{
+\tabular{lllll}{
+   Id \tab Type \tab Default \tab Levels \tab Range \cr
+   eps \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   minPts \tab integer \tab 5 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   borderPoints \tab logical \tab TRUE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   weights \tab list \tab - \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   search \tab character \tab kdtree \tab kdtree, linear, dist \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   bucketSize \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   splitRule \tab character \tab SUGGEST \tab STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   approx \tab numeric \tab 0 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+}
+}
+
 \examples{
 learner = mlr3::lrn("clust.dbscan")
 print(learner)

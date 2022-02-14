@@ -15,6 +15,29 @@ lrn("clust.hclust")
 }
 }
 
+\section{Meta Information}{
+
+\itemize{
+\item Task type: \dQuote{clust}
+\item Predict Types: \dQuote{partition}
+\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
+\item Required Packages: \CRANpkg{mlr3cluster}
+}
+}
+
+\section{Parameters}{
+\tabular{lllll}{
+   Id \tab Type \tab Default \tab Levels \tab Range \cr
+   method \tab character \tab complete \tab ward.D, ward.D2, single, complete, average, mcquitty, median, centroid \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   members \tab list \tab NULL \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   distmethod \tab character \tab euclidean \tab euclidean, maximum, manhattan, canberra, binary, minkowski \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   diag \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   upper \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   p \tab numeric \tab 2 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+}
+}
+
 \examples{
 learner = mlr3::lrn("clust.hclust")
 print(learner)

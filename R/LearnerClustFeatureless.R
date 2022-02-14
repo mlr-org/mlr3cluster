@@ -4,23 +4,12 @@
 #' @include LearnerClust.R
 #'
 #' @description
-#' A simple [LearnerClust] which assigns first n observations to cluster 1,
-#' second n observations to cluster 2, and so on.
-#' Hyperparameter `num_clusters` controls the number of clusters and is
-#' set to 1 by default.
-#' The train method tries to assign cluster memberships to each
-#' observation such that each cluster has an equal amount of observations.
-#' The predict method uses does the same thing as the train but for new data.
+#' A simple [LearnerClust] which randomly (but evenly) assigns observations to
+#' `num_clusters` partitions (default: 1 partition).
 #'
 #' @templateVar id clust.featureless
-#' @template section_dictionary_learner
-#' @examples
-#' learner = mlr3::lrn("clust.kmeans")
-#' print(learner)
-#'
-#' # available parameters:
-#' learner$param_set$ids()
-#'
+#' @template learner
+#' @template example
 #' @export
 LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
   inherit = LearnerClust,
@@ -29,63 +18,64 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        num_clusters = p_int(lower = 1L, default = 1L, tags = c("required", "train"))
+        num_clusters = p_int(lower = 1L, default = 1L, tags = c("required", "train", "predict"))
       )
       ps$values = list(num_clusters = 1L)
 
       super$initialize(
         id = "clust.featureless",
         feature_types = c("logical", "integer", "numeric"),
-        predict_types = "partition",
+        predict_types = c("partition", "prob"),
         param_set = ps,
         properties = c("partitional", "exclusive", "complete", "missings")
       )
     }
   ),
+
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
+      k = pv$num_clusters
       n = task$nrow
-      if (pv$num_clusters > n) {
-        stopf("number of clusters must lie between 1 and nrow(data)")
-      } else if (pv$num_clusters == n) {
-        clustering = seq_len(n)
-      } else {
-        times = c(
-          rep.int(n / pv$num_clusters, pv$num_clusters - 1),
-          n - (pv$num_clusters - 1) * floor(n / pv$num_clusters)
-        )
 
-        clustering = rep.int(seq_along(1:pv$num_clusters),
-          times = times
-        )
+      if (k > n) {
+        stopf("number of clusters must lie between 1 and nrow(data)")
       }
-      m = set_class(
-        list(clustering = clustering, features = task$feature_names),
+
+      partition = chunk(n, n_chunks = k)
+
+      if (self$save_assignments) {
+        self$assignments = partition
+      }
+
+      set_class(
+        list(clustering = partition, features = task$feature_names),
         "clust.featureless_model"
       )
-      if (self$save_assignments) {
-        self$assignments = m$clustering
-      }
-
-      return(m)
     },
-    .predict = function(task) {
-      n = task$nrow
-      pv = self$param_set$get_values(tags = "train")
-      if (n <= pv$num_clusters) {
-        partition = seq_len(n)
-      } else {
-        times = c(
-          rep.int(n / pv$num_clusters, pv$num_clusters - 1),
-          n - (pv$num_clusters - 1) * floor(n / pv$num_clusters)
-        )
 
-        partition = rep.int(seq_len(pv$num_clusters),
-          times = times
-        )
+    .predict = function(task) {
+      pv = self$param_set$get_values(tags = "predict")
+      n = task$nrow
+      k = pv$num_clusters
+
+      partition = chunk(n, n_chunks = k)
+      prob = NULL
+
+      if (self$predict_type == "prob") {
+        prob = matrix(runif(n * k), nrow = n, ncol = k)
+        prob = prob / rowSums(prob)
+
+        # reorder rows so that the max probability corresponds to
+        # the selected partition in `partition`
+        prob = do.call(rbind, map(seq_along(partition), function(i) {
+          x = prob[i,, drop = TRUE]
+          pos = which_max(x)
+          if (pos == i) x else append(x[-pos], x[pos], after = partition[i] - 1L)
+        }))
       }
-      PredictionClust$new(task = task, partition = partition)
+
+      PredictionClust$new(task = task, partition = partition, prob = prob)
     }
   )
 )

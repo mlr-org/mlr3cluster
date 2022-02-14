@@ -9,7 +9,7 @@
 #'
 #'
 #' @templateVar id clust.hclust
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export

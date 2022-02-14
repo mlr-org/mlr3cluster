@@ -10,7 +10,7 @@
 #' The default value for `k` is 2.
 #'
 #' @templateVar id clust.diana
-#' @template section_dictionary_learner
+#' @template learner
 #' @template example
 #'
 #' @export
