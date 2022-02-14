@@ -74,3 +74,19 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
 
   set_class(result, "PredictionDataClust")
 }
+
+#' @export
+filter_prediction_data.PredictionDataClust = function(pdata, row_ids) {
+  keep = pdata$row_ids %in% row_ids
+  pdata$row_ids = pdata$row_ids[keep]
+
+  if (!is.null(pdata$partition)) {
+    pdata$partition = pdata$partition[keep]
+  }
+
+  if (!is.null(pdata$prob)) {
+    pdata$prob = pdata$prob[keep,, drop = FALSE]
+  }
+
+  pdata
+}
