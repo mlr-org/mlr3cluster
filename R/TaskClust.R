@@ -20,7 +20,7 @@
 #' # possible properties:
 #' mlr_reflections$task_properties$clust
 TaskClust = R6Class("TaskClust",
-  inherit = Task,
+  inherit = TaskUnsupervised,
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
