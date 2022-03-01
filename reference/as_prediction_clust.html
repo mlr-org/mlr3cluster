@@ -119,13 +119,13 @@ Additional arguments.</p></dd>
 <span class="r-in"><span class="fu">as_prediction_clust</span><span class="op">(</span><span class="va">tab</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;PredictionClust&gt; for 50 observations:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     row_ids partition     prob.1     prob.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1         1 0.96673374 0.03326626</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           2         1 0.97242629 0.02757371</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           3         1 0.95902600 0.04097400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           1         1 0.96673620 0.03326380</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           2         1 0.97242605 0.02757395</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           3         1 0.95902458 0.04097542</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---                                        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          48         2 0.03618647 0.96381353</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          49         2 0.06255100 0.93744900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          50         2 0.24741003 0.75258997</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          48         2 0.03618557 0.96381443</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          49         2 0.06254985 0.93745015</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          50         2 0.24741852 0.75258148</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># split data.table into a 3 data.tables based on UrbanPop</span></span>
 <span class="r-in"><span class="va">f</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">task</span><span class="op">$</span><span class="fu">data</span><span class="op">(</span>rows <span class="op">=</span> <span class="va">tab</span><span class="op">$</span><span class="va">row_ids</span><span class="op">)</span><span class="op">$</span><span class="va">UrbanPop</span>, <span class="fl">3</span><span class="op">)</span></span>
