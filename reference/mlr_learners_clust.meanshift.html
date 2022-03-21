@@ -100,12 +100,12 @@ returns cluster labels for the 'training' data.</p>
 <ul><li><p>Task type: “clust”</p></li>
 <li><p>Predict Types: “partition”</p></li>
 <li><p>Feature Types: “logical”, “integer”, “numeric”</p></li>
-<li><p>Required Packages: <a href="https://CRAN.R-project.org/package=mlr3cluster" class="external-link"><span class="pkg">mlr3cluster</span></a>, <a href="https://CRAN.R-project.org/package=LPCM" class="external-link"><span class="pkg">LPCM</span></a></p></li>
+<li><p>Required Packages: <a href="https://CRAN.R-project.org/package=mlr3" class="external-link"><span class="pkg">mlr3</span></a>, <a href="https://CRAN.R-project.org/package=mlr3cluster" class="external-link"><span class="pkg">mlr3cluster</span></a>, <a href="https://CRAN.R-project.org/package=LPCM" class="external-link"><span class="pkg">LPCM</span></a></p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
     
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Range</td></tr><tr><td>h</td><td>list</td><td>-</td><td>\((-\infty, \infty)\)</td></tr><tr><td>subset</td><td>list</td><td>-</td><td>\((-\infty, \infty)\)</td></tr><tr><td>scaled</td><td>integer</td><td>1</td><td>\([0, \infty)\)</td></tr><tr><td>iter</td><td>integer</td><td>200</td><td>\([1, \infty)\)</td></tr><tr><td>thr</td><td>numeric</td><td>0.01</td><td>\((-\infty, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Range</td></tr><tr><td>h</td><td>untyped</td><td>-</td><td>-</td></tr><tr><td>subset</td><td>untyped</td><td>-</td><td>-</td></tr><tr><td>scaled</td><td>integer</td><td>1</td><td>\([0, \infty)\)</td></tr><tr><td>iter</td><td>integer</td><td>200</td><td>\([1, \infty)\)</td></tr><tr><td>thr</td><td>numeric</td><td>0.01</td><td>\((-\infty, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="super-classes">Super classes<a class="anchor" aria-label="anchor" href="#super-classes"></a></h2>
     <p><code><a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a></code> -&gt; <code><a href="LearnerClust.html">mlr3cluster::LearnerClust</a></code> -&gt; <code>LearnerClustMeanShift</code></p>
@@ -158,7 +158,7 @@ returns cluster labels for the 'training' data.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">learner</span> <span class="op">=</span> <span class="fu">mlr3</span><span class="fu">::</span><span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">lrn</a></span><span class="op">(</span><span class="st">"clust.meanshift"</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;LearnerClustMeanShift:clust.meanshift&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;LearnerClustMeanShift:clust.meanshift&gt;: Mean Shift Clustering</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Model: -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Parameters: list()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Packages: mlr3, mlr3cluster, LPCM</span>

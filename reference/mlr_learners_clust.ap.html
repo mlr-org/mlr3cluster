@@ -118,12 +118,12 @@ answer by the <code>apcluster</code> package maintainer.</p>
 <ul><li><p>Task type: “clust”</p></li>
 <li><p>Predict Types: “partition”</p></li>
 <li><p>Feature Types: “logical”, “integer”, “numeric”</p></li>
-<li><p>Required Packages: <a href="https://CRAN.R-project.org/package=mlr3cluster" class="external-link"><span class="pkg">mlr3cluster</span></a>, <a href="https://CRAN.R-project.org/package=apcluster" class="external-link"><span class="pkg">apcluster</span></a></p></li>
+<li><p>Required Packages: <a href="https://CRAN.R-project.org/package=mlr3" class="external-link"><span class="pkg">mlr3</span></a>, <a href="https://CRAN.R-project.org/package=mlr3cluster" class="external-link"><span class="pkg">mlr3cluster</span></a>, <a href="https://CRAN.R-project.org/package=apcluster" class="external-link"><span class="pkg">apcluster</span></a></p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
     
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>s</td><td>list</td><td>function (x, sel = NA) , negDistMat(x, sel, r = r, method = method, p = p)</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>p</td><td>list</td><td>NA</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>q</td><td>numeric</td><td>-</td><td></td><td>\([0, 1]\)</td></tr><tr><td>maxits</td><td>integer</td><td>1000</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>convits</td><td>integer</td><td>100</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>lam</td><td>numeric</td><td>0.9</td><td></td><td>\([0.5, 1]\)</td></tr><tr><td>includeSim</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>\((-\infty, \infty)\)</td></tr><tr><td>details</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>\((-\infty, \infty)\)</td></tr><tr><td>nonoise</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>\((-\infty, \infty)\)</td></tr><tr><td>seed</td><td>integer</td><td>-</td><td></td><td>\((-\infty, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>s</td><td>untyped</td><td>apcluster::negDistMat, 2</td><td></td><td>-</td></tr><tr><td>p</td><td>untyped</td><td>NA</td><td></td><td>-</td></tr><tr><td>q</td><td>numeric</td><td>-</td><td></td><td>\([0, 1]\)</td></tr><tr><td>maxits</td><td>integer</td><td>1000</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>convits</td><td>integer</td><td>100</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>lam</td><td>numeric</td><td>0.9</td><td></td><td>\([0.5, 1]\)</td></tr><tr><td>includeSim</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>details</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>nonoise</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>seed</td><td>integer</td><td>-</td><td></td><td>\((-\infty, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="super-classes">Super classes<a class="anchor" aria-label="anchor" href="#super-classes"></a></h2>
     <p><code><a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a></code> -&gt; <code><a href="LearnerClust.html">mlr3cluster::LearnerClust</a></code> -&gt; <code>LearnerClustAP</code></p>
@@ -176,7 +176,7 @@ answer by the <code>apcluster</code> package maintainer.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">learner</span> <span class="op">=</span> <span class="fu">mlr3</span><span class="fu">::</span><span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">lrn</a></span><span class="op">(</span><span class="st">"clust.ap"</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;LearnerClustAP:clust.ap&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;LearnerClustAP:clust.ap&gt;: Affinity Propagation Clustering</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Model: -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Parameters: s=&lt;function&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Packages: mlr3, mlr3cluster, apcluster</span>

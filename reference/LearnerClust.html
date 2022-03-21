@@ -147,7 +147,8 @@ Default is <code>TRUE</code>.</p></dd>
   predict_types <span class="op">=</span> <span class="st">"partition"</span>,
   feature_types <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,
   properties <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,
-  packages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>
+  packages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,
+  label <span class="op">=</span> <span class="cn">NA_character_</span>
 <span class="op">)</span></code></pre></div><p></p></div>
 </div>
 
@@ -190,6 +191,11 @@ The following properties are currently standardized and understood by learners i
 Set of required packages.
 A warning is signaled by the constructor if at least one of the packages is not installed,
 but loaded (not attached) later on-demand via <code><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace()</a></code>.</p></dd>
+
+
+<dt><code>label</code></dt>
+<dd><p>(<code>character(1)</code>)<br>
+Label for the new instance.</p></dd>
 
 
 </dl><p></p></div>
@@ -239,7 +245,7 @@ but loaded (not attached) later on-demand via <code><a href="https://rdrr.io/r/b
 <span class="r-in"><span class="co"># get a specific learner from mlr_learners:</span></span>
 <span class="r-in"><span class="va">lrn</span> <span class="op">=</span> <span class="va">mlr_learners</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"clust.kmeans"</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">lrn</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;LearnerClustKMeans:clust.kmeans&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;LearnerClustKMeans:clust.kmeans&gt;: K-Means</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Model: -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Parameters: centers=2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Packages: mlr3, mlr3cluster, stats, clue</span>
