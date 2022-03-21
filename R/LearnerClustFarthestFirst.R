@@ -1,4 +1,4 @@
-#' @title Farthest First Clustering Algorithm Learner
+#' @title Farthest First Clustering Learner
 #'
 #' @name mlr_learners_clust.FF
 #' @include LearnerClust.R
@@ -31,7 +31,8 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
         predict_types = "partition",
         param_set = ps,
         properties = c("partitional", "exclusive", "complete"),
-        packages = "RWeka"
+        packages = "RWeka",
+        label = "Farthest First Clustering"
       )
     }
   ),

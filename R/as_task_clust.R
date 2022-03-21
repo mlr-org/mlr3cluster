@@ -58,7 +58,8 @@ as_task_clust.formula = function(x, data, id = deparse(substitute(data)), ...) {
   if (attributes(terms(x, data = data))$response) {
     stopf("Formula %s has a response", format(x))
   }
-  tab = model.frame(x, data)
+  tab = model.frame(x, data, na.action = "na.pass")
+  attr(tab, "terms") = attr(tab, "na.action") = NULL
 
   as_task_clust(tab, id = id, ...)
 }

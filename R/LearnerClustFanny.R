@@ -1,4 +1,4 @@
-#' @title Fuzzy Analysis Cluster Learner
+#' @title Fuzzy Analysis Clustering Learner
 #'
 #' @name mlr_learners_clust.fanny
 #' @include LearnerClust.R
@@ -40,7 +40,8 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
         predict_types = c("partition", "prob"),
         param_set = ps,
         properties = c("partitional", "fuzzy", "complete"),
-        packages = "cluster"
+        packages = "cluster",
+        label = "Fuzzy Analysis Clustering"
       )
     }
   ),

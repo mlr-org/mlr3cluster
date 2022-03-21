@@ -49,7 +49,8 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
         predict_types = "partition",
         param_set = ps,
         properties = c("hierarchical", "exclusive", "complete"),
-        packages = "cluster"
+        packages = "cluster",
+        label = "Agglomerative Hierarchical Clustering"
       )
     }
   ),

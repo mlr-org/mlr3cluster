@@ -31,7 +31,8 @@ LearnerClustCobweb = R6Class("LearnerClustCobweb",
         predict_types = "partition",
         param_set = ps,
         properties = c("partitional", "exclusive", "complete"),
-        packages = "RWeka"
+        packages = "RWeka",
+        label = "Cobweb Clustering"
       )
     }
   ),

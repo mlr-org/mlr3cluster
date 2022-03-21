@@ -1,4 +1,4 @@
-#' @title Partitioning Around Medoids Cluster Learner
+#' @title Partitioning Around Medoids Clustering Learner
 #'
 #' @name mlr_learners_clust.pam
 #' @include LearnerClust.R
@@ -49,7 +49,8 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
         predict_types = "partition",
         param_set = ps,
         properties = c("partitional", "exclusive", "complete"),
-        packages = "cluster"
+        packages = "cluster",
+        label = "Partitioning Around Medoids"
       )
     }
   ),

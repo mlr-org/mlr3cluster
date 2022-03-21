@@ -39,7 +39,8 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
         predict_types = "partition",
         param_set = ps,
         properties = c("hierarchical", "exclusive", "complete"),
-        packages = character()
+        packages = "stats",
+        label = "Agglomerative Hierarchical Clustering"
       )
     }
   ),

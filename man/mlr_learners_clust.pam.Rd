@@ -3,7 +3,7 @@
 \name{mlr_learners_clust.pam}
 \alias{mlr_learners_clust.pam}
 \alias{LearnerClustPAM}
-\title{Partitioning Around Medoids Cluster Learner}
+\title{Partitioning Around Medoids Clustering Learner}
 \description{
 A \link{LearnerClust} for PAM clustering implemented in \code{\link[cluster:pam]{cluster::pam()}}.
 \code{\link[cluster:pam]{cluster::pam()}} doesn't have a default value for the number of clusters.
@@ -25,7 +25,7 @@ lrn("clust.pam")
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
-\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{cluster}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{cluster}
 }
 }
 
@@ -33,10 +33,10 @@ lrn("clust.pam")
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   metric \tab character \tab - \tab euclidian, manhattan \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   medoids \tab list \tab NULL \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   stand \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   do.swap \tab logical \tab TRUE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   metric \tab character \tab - \tab euclidian, manhattan \tab - \cr
+   medoids \tab untyped \tab  \tab  \tab - \cr
+   stand \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   do.swap \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    pamonce \tab integer \tab 0 \tab  \tab \eqn{[0, 5]}{[0, 5]} \cr
    trace.lev \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
 }

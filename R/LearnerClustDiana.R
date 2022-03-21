@@ -34,7 +34,8 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
         predict_types = "partition",
         param_set = ps,
         properties = c("hierarchical", "exclusive", "complete"),
-        packages = "cluster"
+        packages = "cluster",
+        label = "Divisive Hierarchical Clustering"
       )
     }
   ),

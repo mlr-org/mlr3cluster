@@ -23,15 +23,15 @@ lrn("clust.diana")
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
-\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{cluster}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{cluster}
 }
 }
 
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   metric \tab character \tab euclidean \tab euclidean, manhattan \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   stand \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   metric \tab character \tab euclidean \tab euclidean, manhattan \tab - \cr
+   stand \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    trace.lev \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
 }

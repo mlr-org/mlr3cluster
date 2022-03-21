@@ -1,4 +1,4 @@
-#' @title X-means Cluster Learner
+#' @title X-means Clustering Learner
 #'
 #' @name mlr_learners_clust.xmeans
 #' @include LearnerClust.R
@@ -44,7 +44,8 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
         predict_types = "partition",
         param_set = ps,
         properties = c("partitional", "exclusive", "complete"),
-        packages = "RWeka"
+        packages = "RWeka",
+        label = "X-means"
       )
     }
   ),

@@ -75,7 +75,8 @@ Creates a new instance of this \link[R6:R6Class]{R6} class.
   predict_types = "partition",
   feature_types = character(),
   properties = character(),
-  packages = character()
+  packages = character(),
+  label = NA_character_
 )}\if{html}{\out{</div>}}
 }
 
@@ -110,6 +111,9 @@ The following properties are currently standardized and understood by learners i
 Set of required packages.
 A warning is signaled by the constructor if at least one of the packages is not installed,
 but loaded (not attached) later on-demand via \code{\link[=requireNamespace]{requireNamespace()}}.}
+
+\item{\code{label}}{(\code{character(1)})\cr
+Label for the new instance.}
 }
 \if{html}{\out{</div>}}
 }

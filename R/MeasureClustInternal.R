@@ -13,6 +13,7 @@ MeasureClustInternal = R6Class("MeasureClustInternal",
         predict_type = info$predict_type,
         packages = "clusterCrit",
         properties = "requires_task",
+        label = gsub("_", " ", info$crit, fixed = TRUE),
         man = paste0("mlr3cluster::mlr_measures_clust.", name)
       )
       self$crit = info$crit

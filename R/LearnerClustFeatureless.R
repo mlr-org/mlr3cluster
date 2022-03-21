@@ -27,7 +27,8 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
         param_set = ps,
-        properties = c("partitional", "exclusive", "complete", "missings")
+        properties = c("partitional", "exclusive", "complete", "missings"),
+        label = "Featureless Clustering"
       )
     }
   ),

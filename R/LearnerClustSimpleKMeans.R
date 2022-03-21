@@ -1,4 +1,4 @@
-#' @title K Means Clustering Algorithm Learner from Weka
+#' @title K-Means Clustering Learner from Weka
 #'
 #' @name mlr_learners_clust.SimpleKMeans
 #' @include LearnerClust.R
@@ -45,7 +45,8 @@ LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
         predict_types = "partition",
         param_set = ps,
         properties = c("partitional", "exclusive", "complete"),
-        packages = "RWeka"
+        packages = "RWeka",
+        label = "K-Means (Weka)"
       )
     }
   ),

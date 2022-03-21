@@ -20,8 +20,8 @@ task$task_type
 mlr_reflections$task_properties$clust
 }
 \concept{Task}
-\section{Super class}{
-\code{\link[mlr3:Task]{mlr3::Task}} -> \code{TaskClust}
+\section{Super classes}{
+\code{\link[mlr3:Task]{mlr3::Task}} -> \code{\link[mlr3:TaskUnsupervised]{mlr3::TaskUnsupervised}} -> \code{TaskClust}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -49,6 +49,7 @@ mlr_reflections$task_properties$clust
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="rename">}\href{../../mlr3/html/Task.html#method-rename}{\code{mlr3::Task$rename()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="select">}\href{../../mlr3/html/Task.html#method-select}{\code{mlr3::Task$select()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="set_col_roles">}\href{../../mlr3/html/Task.html#method-set_col_roles}{\code{mlr3::Task$set_col_roles()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="set_levels">}\href{../../mlr3/html/Task.html#method-set_levels}{\code{mlr3::Task$set_levels()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="set_row_roles">}\href{../../mlr3/html/Task.html#method-set_row_roles}{\code{mlr3::Task$set_row_roles()}}\out{</span>}
 }
 \out{</details>}
@@ -59,7 +60,7 @@ mlr_reflections$task_properties$clust
 \subsection{Method \code{new()}}{
 Creates a new instance of this \link[R6:R6Class]{R6} class.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TaskClust$new(id, backend)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{TaskClust$new(id, backend, label = NA_character_)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -71,6 +72,9 @@ Identifier for the new instance.}
 \item{\code{backend}}{(\link{DataBackend})\cr
 Either a \link{DataBackend}, or any object which is convertible to a \link{DataBackend} with \code{as_data_backend()}.
 E.g., a \code{data.frame()} will be converted to a \link{DataBackendDataTable}.}
+
+\item{\code{label}}{(\code{character(1)})\cr
+Label for the new instance.}
 }
 \if{html}{\out{</div>}}
 }

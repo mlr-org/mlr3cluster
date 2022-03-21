@@ -3,7 +3,7 @@
 \name{mlr_learners_clust.MiniBatchKMeans}
 \alias{mlr_learners_clust.MiniBatchKMeans}
 \alias{LearnerClustMiniBatchKMeans}
-\title{Mini Batch K-Means Cluster Learner}
+\title{Mini Batch K-Means Clustering Learner}
 \description{
 A \link{LearnerClust} for mini batch k-means clustering implemented in \code{\link[ClusterR:MiniBatchKmeans]{ClusterR::MiniBatchKmeans()}}.
 \code{\link[ClusterR:MiniBatchKmeans]{ClusterR::MiniBatchKmeans()}} doesn't have a default value for the number of clusters.
@@ -25,7 +25,7 @@ lrn("clust.MBatchKMeans")
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}, \dQuote{prob}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
-\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{ClusterR}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{ClusterR}
 }
 }
 
@@ -37,10 +37,10 @@ lrn("clust.MBatchKMeans")
    num_init \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    max_iters \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    init_fraction \tab numeric \tab 1 \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
-   initializer \tab character \tab kmeans++ \tab optimal_init, quantile_init, kmeans++, random \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   initializer \tab character \tab kmeans++ \tab optimal_init, quantile_init, kmeans++, random \tab - \cr
    early_stop_iter \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   verbose \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   CENTROIDS \tab list \tab NULL \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   verbose \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   CENTROIDS \tab untyped \tab  \tab  \tab - \cr
    tol \tab numeric \tab 1e-04 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    tol_optimal_init \tab numeric \tab 0.3 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    seed \tab integer \tab 1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr

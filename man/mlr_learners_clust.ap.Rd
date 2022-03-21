@@ -28,22 +28,22 @@ lrn("clust.ap")
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
-\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{apcluster}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{apcluster}
 }
 }
 
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   s \tab list \tab function (x, sel = NA) , negDistMat(x, sel, r = r, method = method, p = p) \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   p \tab list \tab NA \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   s \tab untyped \tab apcluster::negDistMat, 2 \tab  \tab - \cr
+   p \tab untyped \tab NA \tab  \tab - \cr
    q \tab numeric \tab - \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
    maxits \tab integer \tab 1000 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    convits \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    lam \tab numeric \tab 0.9 \tab  \tab \eqn{[0.5, 1]}{[0.5, 1]} \cr
-   includeSim \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   details \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   nonoise \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   includeSim \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   details \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   nonoise \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    seed \tab integer \tab - \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
 }
 }

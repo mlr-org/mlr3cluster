@@ -23,7 +23,7 @@ lrn("clust.em")
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
-\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{RWeka}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{RWeka}
 }
 }
 
@@ -40,8 +40,8 @@ lrn("clust.em")
    S \tab integer \tab 100 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    X \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    K \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   V \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   V \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
 }
 }
 

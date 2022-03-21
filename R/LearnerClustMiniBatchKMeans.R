@@ -1,4 +1,4 @@
-#' @title Mini Batch K-Means Cluster Learner
+#' @title Mini Batch K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.MiniBatchKMeans
 #' @include LearnerClust.R
@@ -47,7 +47,8 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
         predict_types = c("partition", "prob"),
         param_set = ps,
         properties = c("partitional", "fuzzy", "exclusive", "complete"),
-        packages = "ClusterR"
+        packages = "ClusterR",
+        label = "Mini Batch K-Means"
       )
     }
   ),

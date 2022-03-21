@@ -17,6 +17,7 @@
 #' @template param_learner_properties
 #' @template param_data_formats
 #' @template param_packages
+#' @template param_label
 #' @template param_man
 #'
 #' @export
@@ -46,12 +47,13 @@ LearnerClust = R6Class("LearnerClust",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function(id, param_set = ps(), predict_types = "partition",
       feature_types = character(), properties = character(),
-      packages = character()) {
+      packages = character(), label = NA_character_) {
       super$initialize(
         id = id, task_type = "clust", param_set = param_set,
         predict_types = predict_types,
         feature_types = feature_types, properties = properties,
-        packages = c("mlr3cluster", packages)
+        packages = c("mlr3cluster", packages),
+        label = label
       )
     },
 

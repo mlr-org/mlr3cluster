@@ -21,7 +21,7 @@ lrn("clust.featureless")
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}, \dQuote{prob}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
-\item Required Packages: \CRANpkg{mlr3cluster}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}
 }
 }
 

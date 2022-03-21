@@ -3,7 +3,7 @@
 \name{mlr_learners_clust.FF}
 \alias{mlr_learners_clust.FF}
 \alias{LearnerClustFarthestFirst}
-\title{Farthest First Clustering Algorithm Learner}
+\title{Farthest First Clustering Learner}
 \description{
 A \link{LearnerClust} for Farthest First clustering implemented in \code{\link[RWeka:Weka_clusterers]{RWeka::FarthestFirst()}}.
 The predict method uses \code{\link[RWeka:predict_Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
@@ -22,7 +22,7 @@ lrn("clust.ff")
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
-\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{RWeka}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{RWeka}
 }
 }
 
@@ -31,7 +31,7 @@ lrn("clust.ff")
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    N \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    S \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
 }
 }
 

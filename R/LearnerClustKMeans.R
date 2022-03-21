@@ -1,4 +1,4 @@
-#' @title KMeans Cluster Learner
+#' @title K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.kmeans
 #' @include LearnerClust.R
@@ -46,7 +46,8 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
         predict_types = "partition",
         param_set = ps,
         properties = c("partitional", "exclusive", "complete"),
-        packages = c("stats", "clue")
+        packages = c("stats", "clue"),
+        label = "K-Means"
       )
     }
   ),

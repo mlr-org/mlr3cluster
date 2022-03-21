@@ -3,7 +3,7 @@
 \name{mlr_learners_clust.SimpleKMeans}
 \alias{mlr_learners_clust.SimpleKMeans}
 \alias{LearnerClustSimpleKMeans}
-\title{K Means Clustering Algorithm Learner from Weka}
+\title{K-Means Clustering Learner from Weka}
 \description{
 A \link{LearnerClust} for Simple K Means clustering implemented in \code{\link[RWeka:Weka_clusterers]{RWeka::SimpleKMeans()}}.
 The predict method uses \code{\link[RWeka:predict_Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
@@ -22,30 +22,30 @@ lrn("clust.SimpleKMeans")
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
-\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{RWeka}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{RWeka}
 }
 }
 
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   A \tab list \tab weka.core.EuclideanDistance \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   C \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   fast \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   A \tab untyped \tab weka.core.EuclideanDistance \tab  \tab - \cr
+   C \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   fast \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    I \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    init \tab integer \tab 0 \tab  \tab \eqn{[0, 3]}{[0, 3]} \cr
-   M \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   M \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    max_candidates \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    min_density \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    N \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    num_slots \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   O \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   O \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    periodic_pruning \tab integer \tab 10000 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    S \tab integer \tab 10 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    t2 \tab numeric \tab -1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
    t1 \tab numeric \tab -1.5 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   V \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   V \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
 }
 }
 

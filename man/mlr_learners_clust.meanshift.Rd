@@ -22,15 +22,15 @@ lrn("clust.meanshift")
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
-\item Required Packages: \CRANpkg{mlr3cluster}, \CRANpkg{LPCM}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{LPCM}
 }
 }
 
 \section{Parameters}{
 \tabular{llll}{
    Id \tab Type \tab Default \tab Range \cr
-   h \tab list \tab - \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   subset \tab list \tab - \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   h \tab untyped \tab - \tab - \cr
+   subset \tab untyped \tab - \tab - \cr
    scaled \tab integer \tab 1 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    iter \tab integer \tab 200 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    thr \tab numeric \tab 0.01 \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr

@@ -45,7 +45,8 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
         predict_types = "partition",
         param_set = ps,
         properties = c("partitional", "exclusive", "complete"),
-        packages = "LPCM"
+        packages = "LPCM",
+        label = "Mean Shift Clustering"
       )
     }
   ),

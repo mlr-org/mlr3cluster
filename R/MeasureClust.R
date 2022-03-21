@@ -18,6 +18,7 @@
 #' @template param_predict_sets
 #' @template param_task_properties
 #' @template param_packages
+#' @template param_label
 #' @template param_man
 #'
 #' @seealso
@@ -30,12 +31,12 @@ MeasureClust = R6Class("MeasureClust",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function(id, range, minimize = NA, aggregator = NULL, properties = character(),
       predict_type = "partition", task_properties = character(),
-      packages = character(), man = NA_character_) {
+      packages = character(), label = NA_character_, man = NA_character_) {
       super$initialize(id,
         task_type = "clust", range = range, minimize = minimize,
         aggregator = aggregator, properties = properties,
         predict_type = predict_type, task_properties = task_properties,
-        packages = c("mlr3cluster", packages), man = man
+        packages = c("mlr3cluster", packages), label = label, man = man
       )
     }
   )
