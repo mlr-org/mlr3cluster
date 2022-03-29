@@ -1,3 +1,8 @@
+## mlr3cluster 0.1.3
+* code refactoring
+* small fixes
+* add filter to PredictionClust
+
 ## mlr3cluster 0.1.2
 * Add Hclust
 * test and doc hclust
