@@ -10,7 +10,7 @@ test_that("Cluster measures", {
 
   for (key in keys) {
     m = mlr_measures$get(key)
-    if (m$task_type == "clust") {
+    if (m$measure_type == "clust") {
       perf = m$score(prediction = p, task = task, learner = learner)
       expect_number(perf, na.ok = FALSE, lower = m$range[1], upper = m$range[2])
     }

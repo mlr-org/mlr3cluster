@@ -39,6 +39,8 @@ Suggests:
     mlbench,
     RWeka,
     testthat
+Remotes:
+    mlr-org/mlr3@task_type
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.1.2
