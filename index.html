@@ -109,10 +109,10 @@
 </h2>
 <p>Install the last release from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mlr3cluster"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"mlr3cluster"</span><span class="op">)</span></span></code></pre></div>
 <p>Install the development version from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"mlr-org/mlr3cluster"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"mlr-org/mlr3cluster"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="feature-overview">Feature Overview<a class="anchor" aria-label="anchor" href="#feature-overview"></a>
@@ -273,13 +273,13 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<pre class="{r}"><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mlr3.mlr-org.com" class="external-link">mlr3</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mlr3cluster.mlr-org.com">mlr3cluster</a></span><span class="op">)</span>
-
-<span class="va">task</span> <span class="op">=</span> <span class="va">mlr_tasks</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"usarrests"</span><span class="op">)</span>
-<span class="va">learner</span> <span class="op">=</span> <span class="va">mlr_learners</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"clust.kmeans"</span><span class="op">)</span>
-<span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span>
-<span class="va">preds</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></code></pre>
+<pre class="{r}"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mlr3.mlr-org.com" class="external-link">mlr3</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mlr3cluster.mlr-org.com">mlr3cluster</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">task</span> <span class="op">=</span> <span class="va">mlr_tasks</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"usarrests"</span><span class="op">)</span></span>
+<span><span class="va">learner</span> <span class="op">=</span> <span class="va">mlr_learners</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"clust.kmeans"</span><span class="op">)</span></span>
+<span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span>
+<span><span class="va">preds</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="more-resources">More Resources<a class="anchor" aria-label="anchor" href="#more-resources"></a>
