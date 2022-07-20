@@ -10,8 +10,10 @@
 A cluster task for the \link[datasets:USArrests]{datasets::USArrests} data set.
 }
 \section{Construction}{
-\preformatted{mlr_tasks$get("usarrests")
+
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_tasks$get("usarrests")
 tsk("usarrests")
-}
+}\if{html}{\out{</div>}}
 }
 

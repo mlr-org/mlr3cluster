@@ -17,14 +17,18 @@ Argument \code{crit} is set to "Calinski_Harabasz".
 }
 \section{Construction}{
 
-This measures can be retrieved from the dictionary \link{mlr_measures}:\preformatted{mlr_measures$get("clust.ch")
+This measures can be retrieved from the dictionary \link{mlr_measures}:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.ch")
 msr("clust.ch")
-}
+}\if{html}{\out{</div>}}
 
 
-This measures can be retrieved from the dictionary \link{mlr_measures}:\preformatted{mlr_measures$get("clust.ch")
+This measures can be retrieved from the dictionary \link{mlr_measures}:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.ch")
 msr("clust.ch")
-}
+}\if{html}{\out{</div>}}
 }
 
 \section{Meta Information}{

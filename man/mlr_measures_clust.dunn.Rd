@@ -12,9 +12,11 @@ Argument \code{crit} is set to "Dunn".
 }
 \section{Construction}{
 
-This measures can be retrieved from the dictionary \link{mlr_measures}:\preformatted{mlr_measures$get("clust.dunn")
+This measures can be retrieved from the dictionary \link{mlr_measures}:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.dunn")
 msr("clust.dunn")
-}
+}\if{html}{\out{</div>}}
 }
 
 \section{Meta Information}{

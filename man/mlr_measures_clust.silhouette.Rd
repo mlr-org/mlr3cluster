@@ -12,9 +12,11 @@ Argument \code{crit} is set to "Silhouette".
 }
 \section{Construction}{
 
-This measures can be retrieved from the dictionary \link{mlr_measures}:\preformatted{mlr_measures$get("clust.silhouette")
+This measures can be retrieved from the dictionary \link{mlr_measures}:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.silhouette")
 msr("clust.silhouette")
-}
+}\if{html}{\out{</div>}}
 }
 
 \section{Meta Information}{

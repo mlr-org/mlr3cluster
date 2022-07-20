@@ -12,9 +12,11 @@ Argument \code{crit} is set to "Davies_Bouldin".
 }
 \section{Construction}{
 
-This measures can be retrieved from the dictionary \link{mlr_measures}:\preformatted{mlr_measures$get("clust.db")
+This measures can be retrieved from the dictionary \link{mlr_measures}:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.db")
 msr("clust.db")
-}
+}\if{html}{\out{</div>}}
 }
 
 \section{Meta Information}{

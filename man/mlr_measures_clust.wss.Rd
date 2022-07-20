@@ -12,9 +12,11 @@ Argument \code{crit} is set to "Trace_W".
 }
 \section{Construction}{
 
-This measures can be retrieved from the dictionary \link{mlr_measures}:\preformatted{mlr_measures$get("clust.wss")
+This measures can be retrieved from the dictionary \link{mlr_measures}:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.wss")
 msr("clust.wss")
-}
+}\if{html}{\out{</div>}}
 }
 
 \section{Meta Information}{
