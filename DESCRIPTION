@@ -24,6 +24,7 @@ Imports:
     checkmate,
     clue,
     clusterCrit,
+    cluster,
     data.table,
     mlr3misc (>= 0.9.4),
     paradox,
@@ -39,9 +40,11 @@ Suggests:
     mlbench,
     RWeka,
     testthat
+Remotes:
+    mlr-org/mlr3@reflections
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 Collate:
     'LearnerClust.R'
     'LearnerClustAffinityPropagation.R'
