@@ -16,10 +16,17 @@ register_mlr3 = function() {
 
   # task
   x$task_types = x$task_types[!"clust"]
-  x$task_types = setkeyv(rbind(x$task_types, rowwise_table(
-    ~type,    ~package,       ~task,        ~learner,       ~prediction,        ~prediction_data,       ~measure,
-    "clust",  "mlr3cluster",  "TaskClust",  "LearnerClust", "PredictionClust",  "PredictionDataClust",  "MeasureClust"
-  )), "type")
+  if (packageVersion("mlr3") > "0.13.4") {
+    x$task_types = setkeyv(rbind(x$task_types, rowwise_table(
+      ~type,    ~package,       ~task,        ~learner,       ~prediction,        ~prediction_data,       ~measure,
+      "clust",  "mlr3cluster",  "TaskClust",  "LearnerClust", "PredictionClust",  "PredictionDataClust",  "MeasureClust"
+    )), "type")
+  } else {
+    x$task_types = setkeyv(rbind(x$task_types, rowwise_table(
+      ~type,    ~package,       ~task,        ~learner,       ~prediction,        ~measure,
+      "clust",  "mlr3cluster",  "TaskClust",  "LearnerClust", "PredictionClust",  "MeasureClust"
+    )), "type")
+  }
 
   x$task_col_roles$clust = x$task_col_roles$regr
   x$task_properties$clust = x$task_properties$regr
