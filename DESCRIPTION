@@ -41,7 +41,7 @@ Suggests:
     RWeka,
     testthat
 Remotes:
-    mlr-org/mlr3@reflections
+    mlr-org/mlr3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.2.1
