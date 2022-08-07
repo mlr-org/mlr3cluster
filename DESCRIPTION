@@ -18,12 +18,13 @@ URL: https://mlr3cluster.mlr-org.com,
 BugReports: https://github.com/mlr-org/mlr3cluster/issues
 Depends:
     R (>= 3.1.0),
-    mlr3 (>= 0.13.3)
+    mlr3 (>= 0.13.4-9000)
 Imports:
     backports (>= 1.1.10),
     checkmate,
     clue,
     clusterCrit,
+    cluster,
     data.table,
     mlr3misc (>= 0.9.4),
     paradox,
@@ -39,9 +40,11 @@ Suggests:
     mlbench,
     RWeka,
     testthat
+Remotes:
+    mlr-org/mlr3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 Collate:
     'LearnerClust.R'
     'LearnerClustAffinityPropagation.R'

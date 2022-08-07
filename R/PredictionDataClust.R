@@ -4,7 +4,7 @@ as_prediction.PredictionDataClust = function(x, check = TRUE, ...) { # nolint
 }
 
 #' @export
-check_prediction_data.PredictionDataClust = function(pdata) { # nolint
+check_prediction_data.PredictionDataClust = function(pdata, ...) { # nolint
   pdata$row_ids = assert_row_ids(pdata$row_ids)
   n = length(pdata$row_ids)
   assert_integer(pdata$partition, len = n, any.missing = FALSE, null.ok = TRUE)
@@ -30,7 +30,7 @@ check_prediction_data.PredictionDataClust = function(pdata) { # nolint
 
 
 #' @export
-is_missing_prediction_data.PredictionDataClust = function(pdata) { # nolint
+is_missing_prediction_data.PredictionDataClust = function(pdata, ...) { # nolint
   miss = logical(length(pdata$row_ids))
 
   if (!is.null(pdata$partition)) {
@@ -76,7 +76,7 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
 }
 
 #' @export
-filter_prediction_data.PredictionDataClust = function(pdata, row_ids) {
+filter_prediction_data.PredictionDataClust = function(pdata, row_ids, ...) {
   keep = pdata$row_ids %in% row_ids
   pdata$row_ids = pdata$row_ids[keep]
 
