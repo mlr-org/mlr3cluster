@@ -35,11 +35,13 @@ lrn("clust.featureless")
 }
 
 \examples{
-learner = mlr3::lrn("clust.featureless")
-print(learner)
+if (requireNamespace("mlr3")) {
+  learner = mlr3::lrn("clust.featureless")
+  print(learner)
 
-# available parameters:
-learner$param_set$ids()
+  # available parameters:
+  learner$param_set$ids()
+}
 }
 \section{Super classes}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{\link[mlr3cluster:LearnerClust]{mlr3cluster::LearnerClust}} -> \code{LearnerClustFeatureless}

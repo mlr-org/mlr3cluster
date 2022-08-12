@@ -51,11 +51,13 @@ lrn("clust.ap")
 }
 
 \examples{
-learner = mlr3::lrn("clust.ap")
-print(learner)
+if (requireNamespace("apcluster")) {
+  learner = mlr3::lrn("clust.ap")
+  print(learner)
 
-# available parameters:
-learner$param_set$ids()
+  # available parameters:
+  learner$param_set$ids()
+}
 }
 \section{Super classes}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{\link[mlr3cluster:LearnerClust]{mlr3cluster::LearnerClust}} -> \code{LearnerClustAP}
