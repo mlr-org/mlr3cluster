@@ -19,7 +19,7 @@ register_mlr3 = function() {
   x$task_types = setkeyv(rbind(x$task_types, rowwise_table(
     ~type,    ~package,       ~task,        ~learner,       ~prediction,        ~prediction_data,       ~measure,
     "clust",  "mlr3cluster",  "TaskClust",  "LearnerClust", "PredictionClust",  "PredictionDataClust",  "MeasureClust"
-  )), "type")
+  ), fill = TRUE), "type")
 
   x$task_col_roles$clust = x$task_col_roles$regr
   x$task_properties$clust = x$task_properties$regr
