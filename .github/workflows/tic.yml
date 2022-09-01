@@ -1,5 +1,6 @@
 ## tic GitHub Actions template: linux-deploy
 ## revision date: 2022-08-28
+# [Custom header]
 on:
   workflow_dispatch:
   push:
@@ -29,7 +30,7 @@ jobs:
       matrix:
         config:
           # use a different tic template type if you do not want to build on all listed platforms
-          - { os: ubuntu-latest, r: "release", pkgdown: "true" }
+          - { os: ubuntu-latest, r: "release", pkgdown: "true", codecov: "false" }
 
     env:
       # make sure to run `tic::use_ghactions_deploy()` to set up deployment
@@ -75,7 +76,7 @@ jobs:
         run: Rscript -e "install.packages('pak', repos = 'https://r-lib.github.io/p/pak/stable')"
 
       - name: "[Stage] Install"
-        run: Rscript -e "if (grepl('Ubuntu', Sys.info()[['version']])) {options(repos = c(CRAN = sprintf('https://packagemanager.rstudio.com/all/__linux__/%s/latest', system('lsb_release -cs', intern = TRUE))))}; pak::pkg_install('ropensci/tic')" -e "print(tic::dsl_load())" -e "tic::prepare_all_stages()" -e "tic::before_install()" -e "tic::install()"
+        run: Rscript -e "if (grepl('Ubuntu', Sys.info()[['version']]) && !grepl('Under development', R.version[['status']])) {options(repos = c(CRAN = sprintf('https://packagemanager.rstudio.com/all/__linux__/%s/latest', system('lsb_release -cs', intern = TRUE))))}else{options(repos = c(CRAN = 'cloud.r-project.org'))}; pak::pkg_install('ropensci/tic')" -e "print(tic::dsl_load())" -e "tic::prepare_all_stages()" -e "tic::before_install()" -e "tic::install()"
 
       - name: "[Stage] Script"
         run: Rscript -e 'tic::script()'
