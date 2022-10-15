@@ -56,6 +56,7 @@ register_mlr3 = function() {
   x$add("clust.ap", LearnerClustAP)
   x$add("clust.meanshift", LearnerClustMeanShift)
   x$add("clust.hclust", LearnerClustHclust)
+  x$add("clust.mclust", LearnerClustMclust)
 
   # measures
   x = utils::getFromNamespace("mlr_measures", ns = "mlr3")
