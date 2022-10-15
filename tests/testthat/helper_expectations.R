@@ -31,5 +31,6 @@ expect_prediction_fuzzy = function(p, predict_type) {
   expect_numeric(round(rowSums(p$prob), 2), lower = 1L, upper = 1L)
 
   partition = max.col(p$prob, ties.method = "first")
+  partition = as.numeric(colnames(p$prob)[partition])
   expect_true(unique(partition == p$partition))
 }
