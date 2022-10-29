@@ -56,7 +56,7 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
       pv = self$param_set$get_values(tags = "train")
       m = invoke(dbscan::dbscan, x = task$data(), .args = pv)
       m = set_class(
-        list(cluster = m$cluster, eps = m$eps, minPts = m$minPts, data = task$data()),
+        list(cluster = m$cluster, eps = m$eps, minPts = m$minPts, data = task$data(), dist = m$dist),
         c("dbscan_fast", "dbscan")
       )
       if (self$save_assignments) {
