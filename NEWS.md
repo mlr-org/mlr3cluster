@@ -1,6 +1,9 @@
+## mlr3cluster 0.1.5
+* Added Mclust learner
+* Fix error associated with new dbscan release
+
 ## mlr3cluster 0.1.4
 * code refactoring
-
 
 ## mlr3cluster 0.1.3
 * code refactoring
