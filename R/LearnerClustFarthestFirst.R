@@ -10,7 +10,15 @@
 #'
 #' @templateVar id clust.ff
 #' @template learner
-#' @template example
+#' @examples
+#' \dontrun{
+#' if (requireNamespace("RWeka")) {
+#'   learner = mlr3::lrn("clust.ff")
+#'   print(learner)
+#'
+#'   # available parameters:
+#'   learner$param_set$ids()
+#' }}
 #'
 #' @export
 LearnerClustFarthestFirst = R6Class("LearnerClustFF",
