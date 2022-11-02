@@ -1,5 +1,5 @@
 if (Sys.info()[["sysname"]] != "Windows") {
-  get_stage("script") %>%
+  get_stage("install") %>%
     add_code_step(RWeka::WPM("refresh-cache")) %>%
     add_code_step(RWeka::WPM("install-package", "XMeans"))
 }
