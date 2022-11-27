@@ -1,5 +1,5 @@
 ## tic GitHub Actions template: linux-deploy
-## revision date: 2022-08-28
+## revision date: 2022-11-23
 # [Custom header]
 on:
   workflow_dispatch:
@@ -62,7 +62,7 @@ jobs:
       - name: "[Cache] Prepare daily timestamp for cache"
         if: runner.os != 'Windows'
         id: date
-        run: echo "::set-output name=date::$(date '+%d-%m')"
+        run: echo "date=$(date '+%d-%m')" >> $GITHUB_OUTPUT
 
       - name: "[Cache] Cache R packages"
         if: runner.os != 'Windows'
@@ -71,10 +71,6 @@ jobs:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-r-${{ matrix.config.r }}-${{steps.date.outputs.date}}
           restore-keys: ${{ runner.os }}-r-${{ matrix.config.r }}-${{steps.date.outputs.date}}
-
-      - name: "[Stage] Reconfigure java"
-        if: runner.os != 'Windows'
-        run: sudo R CMD javareconf
 
       - name: "[Stage] Install pak"
         run: Rscript -e "install.packages('pak', repos = 'https://r-lib.github.io/p/pak/stable')"
