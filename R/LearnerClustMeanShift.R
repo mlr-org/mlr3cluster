@@ -73,3 +73,5 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
     }
   )
 )
+
+learners[["clust.meanshift"]] = LearnerClustMeanShift

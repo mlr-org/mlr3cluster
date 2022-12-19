@@ -70,3 +70,5 @@ LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
     }
   )
 )
+
+learners[["clust.SimpleKMeans"]] = LearnerClustSimpleKMeans

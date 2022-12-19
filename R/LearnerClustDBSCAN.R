@@ -72,3 +72,5 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
     }
   )
 )
+
+learners[["clust.dbscan"]] = LearnerClustDBSCAN

@@ -81,3 +81,5 @@ LearnerClustAP = R6Class("LearnerClustAP",
     }
   )
 )
+
+learners[["clust.ap"]] = LearnerClustAP

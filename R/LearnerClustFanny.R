@@ -69,3 +69,5 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
     }
   )
 )
+
+learners[["clust.fanny"]] = LearnerClustFanny

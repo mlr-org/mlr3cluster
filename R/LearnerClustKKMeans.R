@@ -101,3 +101,5 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
     }
   )
 )
+
+learners[["clust.kkmeans"]] = LearnerClustKKMeans

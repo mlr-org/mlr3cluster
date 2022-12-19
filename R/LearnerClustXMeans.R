@@ -69,3 +69,5 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
     }
   )
 )
+
+learners[["clust.xmeans"]] = LearnerClustXMeans

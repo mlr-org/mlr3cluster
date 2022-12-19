@@ -55,3 +55,5 @@ LearnerClustCobweb = R6Class("LearnerClustCobweb",
     }
   )
 )
+
+learners[["clust.cobweb"]] = LearnerClustCobweb

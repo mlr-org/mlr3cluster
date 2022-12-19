@@ -80,3 +80,5 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
     }
   )
 )
+
+learners[["clust.featureless"]] = LearnerClustFeatureless

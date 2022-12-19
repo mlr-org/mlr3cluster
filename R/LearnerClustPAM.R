@@ -85,3 +85,5 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
     }
   )
 )
+
+learners[["clust.pam"]] = LearnerClustPAM

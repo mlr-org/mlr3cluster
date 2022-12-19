@@ -97,3 +97,5 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
     }
   )
 )
+
+learners[["clust.mclust"]] = LearnerClustMclust

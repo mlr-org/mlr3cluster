@@ -97,3 +97,5 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
     }
   )
 )
+
+learners[["clust.MBatchKMeans"]] = LearnerClustMiniBatchKMeans

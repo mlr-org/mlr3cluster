@@ -64,3 +64,5 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
     }
   )
 )
+
+learners[["clust.ff"]] = LearnerClustFarthestFirst
