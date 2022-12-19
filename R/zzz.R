@@ -60,7 +60,7 @@ register_mlr3 = function() {
 
   walk(names(learners), function(id) mlr_learners$remove(id))
   walk(names(measures), function(id) mlr_measures$remove(paste("clust", id, sep = ".")))
-  mlr_tasks$remove("usarrests")
+  walk(names(tasks), function(id) mlr_tasks$remove(id))
 }
 
 leanify_package()

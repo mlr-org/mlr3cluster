@@ -19,3 +19,5 @@ load_task_usarrests = function(id = "usarrests") {
   b$hash = task$man = "mlr3cluster::mlr_tasks_usarrests"
   task
 }
+
+tasks[["usarrests"]] = load_task_usarrests
