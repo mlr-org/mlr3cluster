@@ -38,25 +38,7 @@ register_mlr3 = function() {
 
   # learners
   x = utils::getFromNamespace("mlr_learners", ns = "mlr3")
-  x$add("clust.featureless", LearnerClustFeatureless)
-  x$add("clust.kmeans", LearnerClustKMeans)
-  x$add("clust.pam", LearnerClustPAM)
-  x$add("clust.agnes", LearnerClustAgnes)
-  x$add("clust.diana", LearnerClustDiana)
-  x$add("clust.fanny", LearnerClustFanny)
-  x$add("clust.cmeans", LearnerClustCMeans)
-  x$add("clust.dbscan", LearnerClustDBSCAN)
-  x$add("clust.xmeans", LearnerClustXMeans)
-  x$add("clust.cobweb", LearnerClustCobweb)
-  x$add("clust.em", LearnerClustEM)
-  x$add("clust.ff", LearnerClustFarthestFirst)
-  x$add("clust.SimpleKMeans", LearnerClustSimpleKMeans)
-  x$add("clust.MBatchKMeans", LearnerClustMiniBatchKMeans)
-  x$add("clust.kkmeans", LearnerClustKKMeans)
-  x$add("clust.ap", LearnerClustAP)
-  x$add("clust.meanshift", LearnerClustMeanShift)
-  x$add("clust.hclust", LearnerClustHclust)
-  x$add("clust.mclust", LearnerClustMclust)
+  iwalk(learners, function(obj, nm) x$add(nm, obj))
 
   # measures
   x = utils::getFromNamespace("mlr_measures", ns = "mlr3")
@@ -71,6 +53,14 @@ register_mlr3 = function() {
   backports::import(pkgname)
 
   register_mlr3()
+}
+
+.onUnload = function(libpaths) { # nolint
+  mlr_learners = mlr3::mlr_learners
+
+  walk(names(learners), function(id) mlr_learners$remove(id))
+  walk(names(measures), function(id) mlr_measures$remove(paste("clust", id, sep = ".")))
+  mlr_tasks$remove("usarrests")
 }
 
 leanify_package()
