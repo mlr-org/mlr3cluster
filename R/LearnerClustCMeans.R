@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.cmeans
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for fuzzy clustering implemented in [e1071::cmeans()].

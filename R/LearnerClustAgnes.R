@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.agnes
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for agglomerative hierarchical clustering implemented in [cluster::agnes()].

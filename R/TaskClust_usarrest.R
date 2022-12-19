@@ -1,6 +1,7 @@
 #' @title US Arrests Cluster Task
 #'
 #' @name mlr_tasks_usarrests
+#' @include aaa.R
 #' @format [R6::R6Class] inheriting from [TaskClust].
 #'
 #' @section Construction:

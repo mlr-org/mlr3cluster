@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.meanshift
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Mean Shift clustering implemented in [LPCM::ms()].

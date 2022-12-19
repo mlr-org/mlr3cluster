@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.featureless
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A simple [LearnerClust] which randomly (but evenly) assigns observations to

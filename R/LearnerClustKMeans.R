@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.kmeans
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for k-means clustering implemented in [stats::kmeans()].

@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.MiniBatchKMeans
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for mini batch k-means clustering implemented in [ClusterR::MiniBatchKmeans()].

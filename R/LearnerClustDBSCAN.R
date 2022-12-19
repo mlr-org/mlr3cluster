@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.dbscan
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for density-based clustering implemented in [dbscan::dbscan()].

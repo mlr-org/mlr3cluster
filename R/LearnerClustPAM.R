@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.pam
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for PAM clustering implemented in [cluster::pam()].

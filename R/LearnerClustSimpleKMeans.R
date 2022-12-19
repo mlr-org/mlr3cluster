@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.SimpleKMeans
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Simple K Means clustering implemented in [RWeka::SimpleKMeans()].
