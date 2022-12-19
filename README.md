@@ -29,7 +29,7 @@ devtools::install_github("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-  - A selection of 17 clustering learners that represent a wide variety of clusterers:
+  - A selection of 19 clustering learners that represent a wide variety of clusterers:
     partitional, hierarchical, fuzzy, etc.
   - A selection of 4 performance measures
   - One built-in task to get started with clustering
