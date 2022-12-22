@@ -34,12 +34,12 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
 
-      - run: RWeka::WPM("install-package", "XMeans")
-        shell: Rscript {0}
-
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
           needs: check
+
+      - run: RWeka::WPM("install-package", "XMeans")
+        shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
