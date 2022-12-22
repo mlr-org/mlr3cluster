@@ -1,6 +1,7 @@
 # mlr3cluster 0.1.6
 
 * Add states as row names to `usarrest` task.
+* Remove dictionary items after unloading package.
 
 # mlr3cluster 0.1.5
 
