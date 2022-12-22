@@ -148,7 +148,8 @@ Default is <code>TRUE</code>.</p></dd>
 <span>  feature_types <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  properties <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  packages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  label <span class="op">=</span> <span class="cn">NA_character_</span></span>
+<span>  label <span class="op">=</span> <span class="cn">NA_character_</span>,</span>
+<span>  man <span class="op">=</span> <span class="cn">NA_character_</span></span>
 <span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
@@ -196,6 +197,12 @@ but loaded (not attached) later on-demand via <code><a href="https://rdrr.io/r/b
 <dt><code>label</code></dt>
 <dd><p>(<code>character(1)</code>)<br>
 Label for the new instance.</p></dd>
+
+
+<dt><code>man</code></dt>
+<dd><p>(<code>character(1)</code>)<br>
+String in the format <code>[pkg]::[topic]</code> pointing to a manual page for this object.
+The referenced help package can be opened via method <code>$help()</code>.</p></dd>
 
 
 </dl><p></p></div>

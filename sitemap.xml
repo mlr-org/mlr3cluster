@@ -37,10 +37,7 @@
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr3cluster-package.html</loc>
   </url>
   <url>
-    <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.FF.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.MiniBatchKMeans.html</loc>
+    <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.MBatchKMeans.html</loc>
   </url>
   <url>
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.SimpleKMeans.html</loc>
@@ -71,6 +68,9 @@
   </url>
   <url>
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.html</loc>
+  </url>
+  <url>
+    <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.html</loc>
   </url>
   <url>
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.html</loc>
