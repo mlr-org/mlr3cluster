@@ -51,6 +51,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
         param_set = ps,
         properties = c("partitional", "exclusive", "complete"),
         packages = "cluster",
+        man = "mlr3cluster::mlr_learners_clust.pam",
         label = "Partitioning Around Medoids"
       )
     }
