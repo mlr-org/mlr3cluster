@@ -1,4 +1,5 @@
-# r cmd check workflow of the mlr3 ecosystem v0.3.0
+# Workflow sets WEKA_HOME and installs XMeans
+# r cmd check workflow of the mlr3 ecosystem v0.3.1
 # https://github.com/mlr-org/actions
 on:
   workflow_dispatch:
@@ -16,6 +17,9 @@ on:
       - main
 
 name: r-cmd-check
+
+env:
+   WEKA_HOME: ~/work/mlr3cluster
 
 jobs:
   r-cmd-check:
@@ -52,7 +56,8 @@ jobs:
         with:
           limit-access-to-actor: true
 
-      - run: |
+      - name: Install XMeans
+        run: |
           RWeka::WPM("refresh-cache")
           RWeka::WPM("install-package", "XMeans")
         shell: Rscript {0}
