@@ -47,12 +47,12 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
-      - run: RWeka::WPM("install-package", "XMeans")
-        shell: Rscript {0}
-
-      - uses: r-lib/actions/check-r-package@v2
-
       - uses: mxschmitt/action-tmate@v3
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
         with:
           limit-access-to-actor: true
+
+      - run: RWeka::WPM("install-package", "XMeans")
+        shell: Rscript {0}
+
+      - uses: r-lib/actions/check-r-package@v2
