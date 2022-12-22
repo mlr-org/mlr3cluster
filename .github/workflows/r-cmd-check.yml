@@ -19,7 +19,7 @@ on:
 name: r-cmd-check
 
 env:
-   WEKA_HOME: ~/work/mlr3cluster
+   WEKA_HOME: /home/runner/work/mlr3cluster
 
 jobs:
   r-cmd-check:
