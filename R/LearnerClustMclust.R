@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.mclust
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for model-based clustering implemented in [mclust::Mclust()].
@@ -97,3 +98,5 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
     }
   )
 )
+
+learners[["clust.mclust"]] = LearnerClustMclust

@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.ap
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Affinity Propagation clustering implemented in [apcluster::apcluster()].
@@ -81,3 +82,5 @@ LearnerClustAP = R6Class("LearnerClustAP",
     }
   )
 )
+
+learners[["clust.ap"]] = LearnerClustAP

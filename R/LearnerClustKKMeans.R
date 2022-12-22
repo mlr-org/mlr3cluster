@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.kkmeans
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for kernel k-means clustering implemented in [kernlab::kkmeans()].
@@ -101,3 +102,5 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
     }
   )
 )
+
+learners[["clust.kkmeans"]] = LearnerClustKKMeans

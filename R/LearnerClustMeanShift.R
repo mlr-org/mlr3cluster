@@ -2,6 +2,7 @@
 #'
 #' @name mlr_learners_clust.meanshift
 #' @include LearnerClust.R
+#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Mean Shift clustering implemented in [LPCM::ms()].
@@ -73,3 +74,5 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
     }
   )
 )
+
+learners[["clust.meanshift"]] = LearnerClustMeanShift
