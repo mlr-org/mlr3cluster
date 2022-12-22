@@ -1,7 +1,7 @@
 context("clust.xmeans")
 
-skip_if_not_installed("RWeka")
 skip_on_cran()
+skip_if_not_installed("RWeka")
 
 test_that("autotest", {
   learner = mlr3::lrn("clust.xmeans")
