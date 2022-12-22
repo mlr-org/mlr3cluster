@@ -1,12 +1,10 @@
-## Reason for submission
-Additional features. 
+## R CMD check results
 
-## Test environments
-	- Ubuntu 18.04.5 LTS, R 3.6.3 (locally), R 4.0.2 (travis-ci), R Under development (unstable) (2020-09-14 r79203) (travis-ci)
-	- win-builder (release) 
+0 errors | 0 warnings | 0 notes
 
-## Test results
-No errors/warnings/notes on Ubuntu and Windows. 
+## revdepcheck results
 
-## Downstream dependencies
-There are no downstream dependencies. 
+We checked 2 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
+
+ * We saw 0 new problems
+ * We failed to check 0 packages
