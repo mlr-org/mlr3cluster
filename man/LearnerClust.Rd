@@ -76,7 +76,8 @@ Creates a new instance of this \link[R6:R6Class]{R6} class.
   feature_types = character(),
   properties = character(),
   packages = character(),
-  label = NA_character_
+  label = NA_character_,
+  man = NA_character_
 )}\if{html}{\out{</div>}}
 }
 
@@ -114,6 +115,10 @@ but loaded (not attached) later on-demand via \code{\link[=requireNamespace]{req
 
 \item{\code{label}}{(\code{character(1)})\cr
 Label for the new instance.}
+
+\item{\code{man}}{(\code{character(1)})\cr
+String in the format \verb{[pkg]::[topic]} pointing to a manual page for this object.
+The referenced help package can be opened via method \verb{$help()}.}
 }
 \if{html}{\out{</div>}}
 }

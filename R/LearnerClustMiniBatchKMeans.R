@@ -49,6 +49,7 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
         param_set = ps,
         properties = c("partitional", "fuzzy", "exclusive", "complete"),
         packages = "ClusterR",
+        man = "mlr3cluster::mlr_learners_clust.MBatchKMeans",
         label = "Mini Batch K-Means"
       )
     }

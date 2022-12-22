@@ -64,6 +64,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
         param_set = ps,
         properties = c("partitional", "exclusive", "complete"),
         packages = "kernlab",
+        man = "mlr3cluster::mlr_learners_clust.kkmeans",
         label = "Kernel K-Means"
       )
     }
