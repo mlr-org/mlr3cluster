@@ -8,6 +8,7 @@
 }
 \description{
 A cluster task for the \link[datasets:USArrests]{datasets::USArrests} data set.
+Rownames are stored as variable \code{"states"} with column role \code{"name"}.
 }
 \section{Construction}{
 
