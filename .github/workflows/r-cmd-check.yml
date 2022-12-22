@@ -52,7 +52,9 @@ jobs:
         with:
           limit-access-to-actor: true
 
-      - run: RWeka::WPM("install-package", "XMeans")
+      - run: |
+          RWeka::WPM("refresh-cache")
+          RWeka::WPM("install-package", "XMeans")
         shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
