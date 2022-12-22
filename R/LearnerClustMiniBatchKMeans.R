@@ -12,7 +12,7 @@
 #' cluster memberships for new data.
 #' The learner supports both partitional and fuzzy clustering.
 #'
-#' @templateVar id clust.MBatchKMeans
+#' @templateVar id clust.MiniBatchKMeans
 #' @template learner
 #' @template example
 #'
@@ -43,7 +43,7 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
       ps$add_dep("init_fraction", "initializer", CondAnyOf$new(c("kmeans++", "optimal_init")))
 
       super$initialize(
-        id = "clust.MBatchKMeans",
+        id = "clust.MiniBatchKMeans",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
         param_set = ps,
@@ -99,4 +99,4 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
   )
 )
 
-learners[["clust.MBatchKMeans"]] = LearnerClustMiniBatchKMeans
+learners[["clust.MiniBatchKMeans"]] = LearnerClustMiniBatchKMeans

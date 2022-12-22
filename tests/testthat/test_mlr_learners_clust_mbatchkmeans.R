@@ -1,9 +1,9 @@
-context("clust.MBatchKMeans")
+context("clust.MiniBatchKMeans")
 
 skip_if_not_installed("ClusterR")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.MBatchKMeans")
+  learner = mlr3::lrn("clust.MiniBatchKMeans")
   expect_learner(learner)
 
   result = run_autotest(learner)
@@ -12,7 +12,7 @@ test_that("autotest", {
 
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
-  learner = mlr_learners$get("clust.MBatchKMeans")
+  learner = mlr_learners$get("clust.MiniBatchKMeans")
   expect_learner(learner, task)
 
   # test on multiple paramsets
