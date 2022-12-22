@@ -1,6 +1,6 @@
 #' @title Mini Batch K-Means Clustering Learner
 #'
-#' @name mlr_learners_clust.MiniBatchKMeans
+#' @name mlr_learners_clust.MBatchKMeans
 #' @include LearnerClust.R
 #' @include aaa.R
 #'
