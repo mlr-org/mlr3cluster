@@ -1,19 +1,19 @@
 #' @include measures.R
 #' @include MeasureClust.R
-MeasureClustInternal = R6Class("MeasureClustInternal",
+MeasureClustFPC = R6Class("MeasureClustFPC",
   inherit = MeasureClust,
   public = list(
     crit = NULL,
-    initialize = function(name) {
+    initialize = function(name, label) {
       info = measures[[name]]
       super$initialize(
         id = paste0("clust.", name),
         range = c(info$lower, info$upper),
         minimize = info$minimize,
         predict_type = info$predict_type,
-        packages = "clusterCrit",
+        packages = "fpc",
         properties = "requires_task",
-        label = gsub("_", " ", info$crit, fixed = TRUE),
+        label = label,
         man = paste0("mlr3cluster::mlr_measures_clust.", name)
       )
       self$crit = info$crit
@@ -22,50 +22,69 @@ MeasureClustInternal = R6Class("MeasureClustInternal",
   ),
   private = list(
     .score = function(prediction, task, ...) {
-      X = as.matrix(task$data(rows = prediction$row_ids))
-      if (!is.double(X)) { # clusterCrit does not convert lgls/ints
-        storage.mode(X) = "double"
-      }
-      intCriteria(X, prediction$partition, self$crit)[[1L]]
+      X = dist(task$data(rows = prediction$row_ids))
+      suppressWarnings(cluster.stats(X, clustering = prediction$partition, silhouette = FALSE)[[self$crit]])
     }
   )
 )
+
+
+MeasureClustSil = R6Class("MeasureClustSil",
+  inherit = MeasureClust,
+  public = list(
+    crit = NULL,
+    initialize = function(name, label) {
+      info = measures[[name]]
+      super$initialize(
+        id = paste0("clust.", name),
+        range = c(info$lower, info$upper),
+        minimize = info$minimize,
+        predict_type = info$predict_type,
+        packages = "cluster",
+        properties = "requires_task",
+        label = label,
+        man = paste0("mlr3cluster::mlr_measures_clust.", name)
+      )
+      self$crit = info$crit
+
+    }
+  ),
+  private = list(
+    .score = function(prediction, task, ...) {
+      X = dist(task$data(rows = prediction$row_ids))
+
+      if(length(unique(prediction$partition)) == 1L) {
+        return(0L)
+      } else {
+        return(mean(silhouette(prediction$partition, X)[, self$crit]))
+      }
+    }
+  )
+)
+
+#' @title Rousseeuw's Silhouette Quality Index
+#'
+#' @templateVar id silhouette
+#' @template measure_internal
+measures$silhouette = make_measure_info("sil_width", "Silhouette", lower = 0, upper = Inf, minimize = FALSE)
+
 
 #' @title Calinski Harabasz Pseudo F-Statistic
 #'
 #' @templateVar id ch
 #' @template measure_internal
-measures$ch = make_measure_info("Calinski_Harabasz", lower = 0, upper = Inf, minimize = FALSE)
-
-
-#' @title Davies-Bouldin Cluster Separation Measure
-#'
-#' @templateVar id db
-#' @template measure_internal
-measures$db = make_measure_info("Davies_Bouldin", lower = 0, upper = Inf, minimize = TRUE)
+measures$ch = make_measure_info("ch", "Calinski Harabasz", lower = 0, upper = Inf, minimize = FALSE)
 
 
 #' @title Dunn Index
 #'
 #' @templateVar id dunn
 #' @template measure_internal
-measures$dunn = make_measure_info("Dunn", lower = 0, upper = Inf, minimize = FALSE)
+measures$dunn = make_measure_info("dunn", "Dunn", lower = 0, upper = Inf, minimize = FALSE)
 
-
-#' @title Rousseeuw's Silhouette Quality Index
-#'
-#' @templateVar id silhouette
-#' @template measure_internal
-measures$silhouette = make_measure_info("Silhouette", lower = 0, upper = Inf, minimize = FALSE)
-
-#' @title Calinski Harabasz Pseudo F-Statistic
-#'
-#' @templateVar id ch
-#' @template measure_internal
-measures$ch = make_measure_info("Calinski_Harabasz", lower = 0, upper = Inf, minimize = FALSE)
 
 #' @title Within Sum of Squares
 #'
 #' @templateVar id wss
 #' @template measure_internal
-measures$wss = make_measure_info("Trace_W", lower = 0, upper = Inf, minimize = TRUE)
+measures$wss = make_measure_info("within.cluster.ss", "Within Sum of Squares", lower = 0, upper = Inf, minimize = TRUE)
