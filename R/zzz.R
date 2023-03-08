@@ -7,7 +7,7 @@
 #' @importFrom clue cl_predict
 #' @importFrom fpc cluster.stats
 #' @importFrom cluster silhouette
-#' @importFrom stats model.frame terms predict runif
+#' @importFrom stats model.frame terms predict runif dist
 "_PACKAGE"
 
 register_mlr3 = function() {
