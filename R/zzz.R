@@ -5,7 +5,8 @@
 #' @import checkmate
 #' @importFrom R6 R6Class
 #' @importFrom clue cl_predict
-#' @importFrom clusterCrit intCriteria
+#' @importFrom fpc cluster.stats
+#' @importFrom cluster silhouette
 #' @importFrom stats model.frame terms predict runif
 "_PACKAGE"
 
@@ -42,11 +43,10 @@ register_mlr3 = function() {
 
   # measures
   x = utils::getFromNamespace("mlr_measures", ns = "mlr3")
-  x$add("clust.db", MeasureClustInternal, name = "db")
-  x$add("clust.dunn", MeasureClustInternal, name = "dunn")
-  x$add("clust.ch", MeasureClustInternal, name = "ch")
-  x$add("clust.silhouette", MeasureClustInternal, name = "silhouette")
-  x$add("clust.wss", MeasureClustInternal, name = "wss")
+  x$add("clust.silhouette", MeasureClustSil, name = "silhouette", label = "Silhouette")
+  x$add("clust.dunn", MeasureClustFPC, name = "dunn", label = "Dunn")
+  x$add("clust.ch", MeasureClustFPC, name = "ch", label = "Calinski Harabasz")
+  x$add("clust.wss", MeasureClustFPC, name = "wss", label = "Within Sum of Squares")
 }
 
 .onLoad = function(libname, pkgname) {
