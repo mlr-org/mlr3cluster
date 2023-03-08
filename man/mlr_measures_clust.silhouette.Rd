@@ -7,8 +7,8 @@
 \code{\link[R6:R6Class]{R6::R6Class()}} inheriting from \link{MeasureClust}.
 }
 \description{
-The score function calls \code{\link[clusterCrit:intCriteria]{clusterCrit::intCriteria()}} from package \CRANpkg{clusterCrit}.
-Argument \code{crit} is set to "sil_width".
+The score function calls \code{\link[cluster:silhouette]{cluster::silhouette()}} from package \CRANpkg{cluster}.
+"sil_width" is used subset output of the function call.
 }
 \section{Construction}{
 

@@ -7,8 +7,8 @@
 \code{\link[R6:R6Class]{R6::R6Class()}} inheriting from \link{MeasureClust}.
 }
 \description{
-The score function calls \code{\link[clusterCrit:intCriteria]{clusterCrit::intCriteria()}} from package \CRANpkg{clusterCrit}.
-Argument \code{crit} is set to "dunn".
+The score function calls \code{\link[fpc:cluster.stats]{fpc::cluster.stats()}} from package \CRANpkg{fpc}.
+"dunn" is used subset output of the function call.
 }
 \section{Construction}{
 
