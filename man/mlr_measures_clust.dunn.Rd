@@ -8,7 +8,7 @@
 }
 \description{
 The score function calls \code{\link[clusterCrit:intCriteria]{clusterCrit::intCriteria()}} from package \CRANpkg{clusterCrit}.
-Argument \code{crit} is set to "Dunn".
+Argument \code{crit} is set to "dunn".
 }
 \section{Construction}{
 
@@ -35,7 +35,6 @@ msr("clust.dunn")
 
 Other cluster measures: 
 \code{\link{mlr_measures_clust.ch}},
-\code{\link{mlr_measures_clust.db}},
 \code{\link{mlr_measures_clust.silhouette}},
 \code{\link{mlr_measures_clust.wss}}
 }

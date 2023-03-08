@@ -8,7 +8,7 @@
 }
 \description{
 The score function calls \code{\link[clusterCrit:intCriteria]{clusterCrit::intCriteria()}} from package \CRANpkg{clusterCrit}.
-Argument \code{crit} is set to "Trace_W".
+Argument \code{crit} is set to "within.cluster.ss".
 }
 \section{Construction}{
 
@@ -35,7 +35,6 @@ msr("clust.wss")
 
 Other cluster measures: 
 \code{\link{mlr_measures_clust.ch}},
-\code{\link{mlr_measures_clust.db}},
 \code{\link{mlr_measures_clust.dunn}},
 \code{\link{mlr_measures_clust.silhouette}}
 }
