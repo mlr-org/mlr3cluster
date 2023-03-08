@@ -23,7 +23,7 @@ Imports:
     backports (>= 1.1.10),
     checkmate,
     clue,
-    clusterCrit,
+    fpc,
     cluster,
     data.table,
     mlr3misc (>= 0.9.4),
