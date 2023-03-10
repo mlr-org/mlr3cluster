@@ -66,11 +66,10 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 
 | ID | Measure | Package |
 | :--| :------ | :------ |
-| [clust.db](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.db.html) | Davies-Bouldin Cluster Separation | [clusterCrit](https://CRAN.R-project.org/package=clusterCrit) |
-| [clust.dunn](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn.html) | Dunn index | [clusterCrit](https://CRAN.R-project.org/package=clusterCrit) |
-| [clust.ch](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch.html) | Calinski Harabasz Pseudo F-Statistic | [clusterCrit](https://CRAN.R-project.org/package=clusterCrit) |
-| [clust.silhouette](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette.html) | Rousseeuw's Silhouette Quality Index | [clusterCrit](https://CRAN.R-project.org/package=clusterCrit) |
-| [clust.wss](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss.html) | Within Sum of Squares | [clusterCrit](https://CRAN.R-project.org/package=clusterCrit) |
+| [clust.dunn](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn.html) | Dunn index | [fpc](https://cran.r-project.org/package=fpc) |
+| [clust.ch](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch.html) | Calinski Harabasz Pseudo F-Statistic | [fpc](https://cran.r-project.org/package=fpc) |
+| [clust.silhouette](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette.html) | Rousseeuw's Silhouette Quality Index | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.wss](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss.html) | Within Sum of Squares | [fpc](https://cran.r-project.org/package=fpc) |
 
 
 ## Example

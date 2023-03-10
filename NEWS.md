@@ -1,4 +1,7 @@
-# mlr3cluster (development version)
+# mlr3cluster 0.1.7
+
+* Replace 'clusterCrit' measures with alternatives from 'cluster' and 'fpc' packages
+* Remove broken unloading test
 
 # mlr3cluster 0.1.6
 
