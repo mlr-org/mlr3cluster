@@ -5,24 +5,12 @@
 \title{Calinski Harabasz Pseudo F-Statistic}
 \format{
 \code{\link[R6:R6Class]{R6::R6Class()}} inheriting from \link{MeasureClust}.
-
-\code{\link[R6:R6Class]{R6::R6Class()}} inheriting from \link{MeasureClust}.
 }
 \description{
-The score function calls \code{\link[clusterCrit:intCriteria]{clusterCrit::intCriteria()}} from package \CRANpkg{clusterCrit}.
-Argument \code{crit} is set to "Calinski_Harabasz".
-
-The score function calls \code{\link[clusterCrit:intCriteria]{clusterCrit::intCriteria()}} from package \CRANpkg{clusterCrit}.
-Argument \code{crit} is set to "Calinski_Harabasz".
+The score function calls \code{\link[fpc:cluster.stats]{fpc::cluster.stats()}} from package \CRANpkg{fpc}.
+"ch" is used subset output of the function call.
 }
 \section{Construction}{
-
-This measures can be retrieved from the dictionary \link{mlr_measures}:
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.ch")
-msr("clust.ch")
-}\if{html}{\out{</div>}}
-
 
 This measures can be retrieved from the dictionary \link{mlr_measures}:
 
@@ -38,13 +26,6 @@ msr("clust.ch")
 \item Minimize: \code{FALSE}
 \item Required predict type: \code{partition}
 }
-
-
-\itemize{
-\item Range: \eqn{[0, \infty)}{[0, Inf)}
-\item Minimize: \code{FALSE}
-\item Required predict type: \code{partition}
-}
 }
 
 \seealso{
@@ -52,18 +33,7 @@ msr("clust.ch")
 
 \code{as.data.table(mlr_measures)} for a complete table of all (also dynamically created) \link[mlr3:Measure]{mlr3::Measure} implementations.
 
-\link[mlr3misc:Dictionary]{Dictionary} of \link[mlr3:Measure]{Measures}: \link[mlr3:mlr_measures]{mlr3::mlr_measures}
-
-\code{as.data.table(mlr_measures)} for a complete table of all (also dynamically created) \link[mlr3:Measure]{mlr3::Measure} implementations.
-
 Other cluster measures: 
-\code{\link{mlr_measures_clust.db}},
-\code{\link{mlr_measures_clust.dunn}},
-\code{\link{mlr_measures_clust.silhouette}},
-\code{\link{mlr_measures_clust.wss}}
-
-Other cluster measures: 
-\code{\link{mlr_measures_clust.db}},
 \code{\link{mlr_measures_clust.dunn}},
 \code{\link{mlr_measures_clust.silhouette}},
 \code{\link{mlr_measures_clust.wss}}

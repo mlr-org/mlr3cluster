@@ -3,8 +3,8 @@
 #' @format [R6::R6Class()] inheriting from [MeasureClust].
 #'
 #' @description
-#' The score function calls [clusterCrit::intCriteria()] from package \CRANpkg{clusterCrit}.
-#' Argument `crit` is set to "<%= measures[[id]]$crit %>".
+#' The score function calls [cluster::silhouette()] from package \CRANpkg{cluster}.
+#' "<%= measures[[id]]$crit %>" is used subset output of the function call.
 #'
 #' @section Construction:
 #' This measures can be retrieved from the dictionary [mlr_measures]:
