@@ -106,6 +106,9 @@
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss.html</loc>
   </url>
   <url>
+    <loc>https://mlr3cluster.mlr-org.com/reference/mlr_tasks_ruspini.html</loc>
+  </url>
+  <url>
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_tasks_usarrests.html</loc>
   </url>
 </urlset>
