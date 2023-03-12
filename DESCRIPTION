@@ -47,6 +47,7 @@ RoxygenNote: 7.2.3
 Collate:
     'LearnerClust.R'
     'aaa.R'
+    'bibentries.R'
     'LearnerClustAffinityPropagation.R'
     'LearnerClustAgnes.R'
     'LearnerClustCMeans.R'
@@ -73,6 +74,7 @@ Collate:
     'PredictionDataClust.R'
     'TaskClust.R'
     'TaskClust_usarrest.R'
+    'TaskClust_ruspini.R'
     'as_prediction_clust.R'
     'as_task_clust.R'
     'helper.R'

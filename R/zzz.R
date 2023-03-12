@@ -36,6 +36,7 @@ register_mlr3 = function() {
   # tasks
   x = utils::getFromNamespace("mlr_tasks", ns = "mlr3")
   x$add("usarrests", load_task_usarrests)
+  x$add("ruspini", load_task_ruspini)
 
   # learners
   x = utils::getFromNamespace("mlr_learners", ns = "mlr3")
