@@ -11,7 +11,15 @@
 #'
 #' @templateVar id clust.SimpleKMeans
 #' @template learner
-#' @template example
+#' @examples
+#' \dontrun{
+#' if (requireNamespace("RWeka")) {
+#'   learner = mlr3::lrn("clust.SimpleKMeans")
+#'   print(learner)
+#'
+#'   # available parameters:
+#'   learner$param_set$ids()
+#' }}
 #'
 #' @export
 LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
