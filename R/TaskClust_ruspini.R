@@ -13,6 +13,9 @@
 #' @description
 #' A cluster task for the [cluster::ruspini] data set.
 #'
+#' @source
+#' `r format_bib("ruspini_1970")`
+#'
 NULL
 
 load_task_ruspini = function(id = "ruspini") {
