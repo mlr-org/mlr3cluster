@@ -1,3 +1,7 @@
+# mlr3cluster 0.1.8
+
+* Add new task based on `ruspini` dataset
+
 # mlr3cluster 0.1.7
 
 * Replace 'clusterCrit' measures with alternatives from 'cluster' and 'fpc' packages

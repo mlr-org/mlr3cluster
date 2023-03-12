@@ -32,7 +32,7 @@ The current version of **mlr3cluster** contains:
   - A selection of 19 clustering learners that represent a wide variety of clusterers:
     partitional, hierarchical, fuzzy, etc.
   - A selection of 4 performance measures
-  - One built-in task to get started with clustering
+  - Two built-in tasks to get started with clustering
 
 Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3viz)** which enables you to create great visualizations with just one line of code!
 
