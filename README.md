@@ -47,6 +47,7 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 | [clust.cmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans.html) | Fuzzy C-Means Clustering |  [e1071](https://CRAN.R-project.org/package=e1071) |
 | [clust.cobweb](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb.html) | Cobweb Clustering Algorithm |  [RWeka](https://CRAN.R-project.org/package=RWeka) |
 | [clust.dbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan.html) | Density-based Clustering | [dbscan](https://CRAN.R-project.org/package=dbscan) |
+| [clust.dbscan_fpc](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan_fpc.html) | Density-based Clustering with fpc | [fpc](https://CRAN.R-project.org/package=fpc) |
 | [clust.diana](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.diana.html) | Divisive Hierarchical Clustering | [cluster](https://CRAN.R-project.org/package=cluster) |
 | [clust.em](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.em.html) | Expectation-Maximization Clustering |  [RWeka](https://CRAN.R-project.org/package=RWeka) |
 | [clust.fanny](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny.html) | Fuzzy Clustering | [cluster](https://CRAN.R-project.org/package=cluster) |
