@@ -1,6 +1,6 @@
 Package: mlr3cluster
 Title: Cluster Extension for 'mlr3'
-Version: 0.1.8
+Version: 0.1.8.9000
 Authors@R:
     c(person(given = "Damir",
              family = "Pulatov",
@@ -52,6 +52,7 @@ Collate:
     'LearnerClustCMeans.R'
     'LearnerClustCobweb.R'
     'LearnerClustDBSCAN.R'
+    'LearnerClustDBSCANfpc.R'
     'LearnerClustDiana.R'
     'LearnerClustEM.R'
     'LearnerClustFanny.R'

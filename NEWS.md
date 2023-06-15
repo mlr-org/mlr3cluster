@@ -1,3 +1,7 @@
+# mlr3cluster (development version)
+
+* Add DBSCAN learner from 'fpc' package
+
 # mlr3cluster 0.1.8
 
 * Add new task based on `ruspini` dataset
