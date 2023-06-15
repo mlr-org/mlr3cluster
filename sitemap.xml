@@ -58,6 +58,9 @@
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan.html</loc>
   </url>
   <url>
+    <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan_fpc.html</loc>
+  </url>
+  <url>
     <loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.diana.html</loc>
   </url>
   <url>
