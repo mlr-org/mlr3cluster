@@ -61,9 +61,10 @@ LearnerClustAP = R6Class("LearnerClustAP",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(apcluster::apcluster, x = task$data(), .args = pv)
+      d = task$data()
+      m = invoke(apcluster::apcluster, x = d, .args = pv)
       # add data points corresponding to examplars
-      attributes(m)$exemplar_data = task$data()[m@exemplars, ]
+      attributes(m)$exemplar_data = d[m@exemplars, ]
 
       if (self$save_assignments) {
         self$assignments = apcluster::labels(m, type = "enum")
@@ -75,8 +76,9 @@ LearnerClustAP = R6Class("LearnerClustAP",
       sim_func = self$param_set$values$s
       exemplar_data = attributes(self$model)$exemplar_data
 
-      sim_mat = sim_func(rbind(exemplar_data, task$data()),
-        sel = (1:nrow(task$data())) +
+      d = task$data()
+      sim_mat = sim_func(rbind(exemplar_data, d),
+        sel = (1:nrow(d)) +
           nrow(exemplar_data))[1:nrow(exemplar_data), ]
       partition = unname(apply(sim_mat, 2, which.max))
       PredictionClust$new(task = task, partition = partition)
