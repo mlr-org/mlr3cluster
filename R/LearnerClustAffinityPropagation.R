@@ -7,8 +7,6 @@
 #' @description
 #' A [LearnerClust] for Affinity Propagation clustering implemented in [apcluster::apcluster()].
 #' [apcluster::apcluster()] doesn't have set a default for similarity function.
-#' Therefore, the `s` parameter here is set to `apcluster::negDistMat(r = 2L)` by default
-#' since this is what is used in the original paper on Affity Propagation clustering.
 #' The predict method computes the closest cluster exemplar to find the
 #' cluster memberships for new data.
 #' The code is taken from
