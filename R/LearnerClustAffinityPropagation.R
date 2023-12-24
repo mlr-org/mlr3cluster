@@ -27,7 +27,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        s = p_uty(default = apcluster::negDistMat(r = 2L), tags = c("required", "train")),
+        s = p_uty(tags = c("required", "train")),
         p = p_uty(custom_check = function(x) {
           if (test_numeric(x)) {
             return(TRUE)
@@ -44,7 +44,6 @@ LearnerClustAP = R6Class("LearnerClustAP",
         nonoise = p_lgl(default = FALSE, tags = "train"),
         seed = p_int(tags = "train")
       )
-      ps$values = list(s = apcluster::negDistMat(r = 2L))
 
       super$initialize(
         id = "clust.ap",

@@ -4,6 +4,7 @@ skip_if_not_installed("apcluster")
 
 test_that("autotest", {
   learner = mlr3::lrn("clust.ap")
+  learner$param_set$values = list(s = apcluster::negDistMat(r = 2L))
   expect_learner(learner)
 
   result = run_autotest(learner)
