@@ -25,7 +25,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        k = p_int(lower = 1L, default = 2L, tags = c("required", "train")),
+        k = p_int(lower = 1L, tags = c("required", "train")),
         memb.exp = p_dbl(lower = 1L, default = 2L, tags = "train"),
         metric = p_fct(default = "euclidean", levels = c("euclidean", "manhattan", "SqEuclidean"), tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),

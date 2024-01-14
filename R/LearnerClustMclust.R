@@ -21,48 +21,48 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        G = p_uty(default = c(1:9), custom_check = function(x) {
+        G = p_uty(default = c(1:9), custom_check = crate(function(x) {
           if (test_numeric(x)) {
             return(TRUE)
           } else {
             stop("`G` need to be a numeric vector")
           }
-        }, tags = "train"),
-        modelNames = p_uty(custom_check = function(x) {
+        }), tags = "train"),
+        modelNames = p_uty(custom_check = crate(function(x) {
           if (test_character(x)) {
             return(TRUE)
           } else {
             stop("`modelNames` need to be a character vector")
           }
-        }, tags = "train"),
-        prior = p_uty(custom_check = function(x) {
+        }), tags = "train"),
+        prior = p_uty(custom_check = crate(function(x) {
           if (test_list(x)) {
             return(TRUE)
           } else {
             stop("`prior` need to be a list")
           }
-        }, tags = "train"),
-        control = p_uty(default = mclust::emControl(), custom_check = function(x) {
+        }), tags = "train"),
+        control = p_uty(default = mclust::emControl(), custom_check = crate(function(x) {
           if (test_list(x)) {
             return(TRUE)
           } else {
             stop("`control` need to be a list of control parameters for EM")
           }
-        }, tags = "train"),
-        initialization = p_uty(custom_check = function(x) {
+        }), tags = "train"),
+        initialization = p_uty(custom_check = crate(function(x) {
           if (test_list(x)) {
             return(TRUE)
           } else {
             stop("`initialization` need to be a list of initialization components")
           }
-        }, tags = "train"),
-        x = p_uty(custom_check = function(x) {
+        }), tags = "train"),
+        x = p_uty(custom_check = crate(function(x) {
           if (test_class(x, "mclustBIC")) {
             return(TRUE)
           } else {
             stop("`x` need to be an object of class 'mclustBIC'")
           }
-        }, tags = "train")
+        }), tags = "train")
       )
 
       super$initialize(

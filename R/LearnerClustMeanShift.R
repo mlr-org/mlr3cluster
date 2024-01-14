@@ -21,20 +21,20 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        h = p_uty(custom_check = function(x) {
+        h = p_uty(custom_check = crate(function(x) {
             if (test_numeric(x) || test_int(x)) {
               return(TRUE)
             } else {
               return("`h` must be either integer or numeric vector")
             }
-          }, tags = "train"),
-        subset = p_uty(custom_check = function(x) {
+          }), tags = "train"),
+        subset = p_uty(custom_check = crate(function(x) {
           if (test_numeric(x)) {
             return(TRUE)
           } else {
             return("`subset` must be a numeric vector")
           }
-        }, tags = "train"),
+        }), tags = "train"),
         scaled = p_int(lower = 0L, default = 1, tags = "train"),
         iter = p_int(lower = 1L, default = 200L, tags = "train"),
         thr = p_dbl(default = 0.01, tags = "train")

@@ -24,10 +24,10 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        k = p_int(lower = 1L, default = 2L, tags = c("required", "train")),
+        k = p_int(lower = 1L, tags = c("required", "train")),
         metric = p_fct(levels = c("euclidian", "manhattan"), tags = "train"),
         medoids = p_uty(default = NULL, tags = "train",
-          custom_check = function(x) {
+          custom_check = custom(function(x) {
             if (test_integerish(x)) {
               return(TRUE)
             } else if (test_null(x)) {
@@ -35,7 +35,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
             } else {
               stop("`medoids` needs to be either `NULL` or vector with row indices!")
             }
-          }
+          })
         ),
         stand = p_lgl(default = FALSE, tags = "train"),
         do.swap = p_lgl(default = TRUE, tags = "train"),

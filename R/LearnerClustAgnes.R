@@ -27,7 +27,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
         method = p_fct(default = "average", levels = c("average", "single", "complete", "ward", "weighted", "flexible", "gaverage"), tags = "train"),
         trace.lev = p_int(lower = 0L, default = 0L, tags = "train"),
         k = p_int(lower = 1L, default = 2L, tags = "predict"),
-        par.method = p_uty(tags = "train", custom_check = function(x) {
+        par.method = p_uty(tags = "train", custom_check = crate(function(x) {
             if (test_numeric(x) || test_list(x)) {
               if (length(x) %in% c(1L, 3L, 4L)) {
                 return(TRUE)
@@ -36,7 +36,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
             } else {
               stop("`par.method` needs to be a numeric vector")
             }
-          })
+          }))
       )
 
       # param deps

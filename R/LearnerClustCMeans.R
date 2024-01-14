@@ -23,8 +23,8 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        centers = p_uty(tags = c("required", "train"), default = 2L,
-          custom_check = function(x) {
+        centers = p_uty(tags = c("required", "train"),
+          custom_check = crate(function(x) {
             if (test_data_frame(x)) {
               return(TRUE)
             } else if (test_int(x)) {
@@ -32,7 +32,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
             } else {
               return("`centers` must be integer or data.frame with initial cluster centers")
             }
-          }
+          })
         ),
         iter.max = p_int(lower = 1L, default = 100L, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train"),
@@ -40,7 +40,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         method = p_fct(levels = c("cmeans", "ufcl"), default = "cmeans", tags = "train"),
         m = p_dbl(lower = 1L, default = 2L, tags = "train"),
         rate.par = p_dbl(lower = 0L, upper = 1L, tags = "train"),
-        weights = p_uty(default = 1L, custom_check = function(x) {
+        weights = p_uty(default = 1L, custom_check = crate(function(x) {
             if (test_numeric(x)) {
               if (sum(sign(x)) == length(x)) {
                 return(TRUE)
@@ -52,7 +52,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
             } else {
               return("`weights` must be positive numeric vector or a single positive number")
             }
-          },
+          }),
           tags = "train"),
         control = p_uty(tags = "train")
       )

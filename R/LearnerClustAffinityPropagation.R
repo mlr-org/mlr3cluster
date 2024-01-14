@@ -26,13 +26,13 @@ LearnerClustAP = R6Class("LearnerClustAP",
     initialize = function() {
       ps = ps(
         s = p_uty(tags = c("required", "train")),
-        p = p_uty(custom_check = function(x) {
+        p = p_uty(custom_check = crate(function(x) {
           if (test_numeric(x)) {
             return(TRUE)
           } else {
             stop("`p` needs to be a numeric vector")
           }
-        }, default = NA, tags = "train"),
+        }), default = NA, tags = "train"),
         q = p_dbl(lower = 0L, upper = 1L, tags = "train"),
         maxits = p_int(lower = 1L, default = 1000L, tags = "train"),
         convits = p_int(lower = 1L, default = 100L, tags = "train"),
