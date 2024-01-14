@@ -27,7 +27,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
         k = p_int(lower = 1L, tags = c("required", "train")),
         metric = p_fct(levels = c("euclidian", "manhattan"), tags = "train"),
         medoids = p_uty(default = NULL, tags = "train",
-          custom_check = custom(function(x) {
+          custom_check = crate(function(x) {
             if (test_integerish(x)) {
               return(TRUE)
             } else if (test_null(x)) {
