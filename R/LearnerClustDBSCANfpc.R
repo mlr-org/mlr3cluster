@@ -30,7 +30,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
           } else if (test_int(x, lower = 0, upper = 2)) {
             return(TRUE)
           } else {
-            stop("`showplot` need to be either logical or integer between 0 and 2")
+            return("`showplot` need to be either logical or integer between 0 and 2")
           }
         }), default = FALSE, tags = "train"),
         countmode = p_uty(custom_check = crate(function(x) {
@@ -39,7 +39,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
           } else if (test_null(x)) {
             return(TRUE)
           } else {
-            stop("`countmode` need to be NULL or vector of integers")
+            return("`countmode` need to be NULL or vector of integers")
           }
         }), default = NULL, tags = "train")
       )

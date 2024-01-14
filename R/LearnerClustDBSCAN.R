@@ -28,7 +28,7 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
           if (test_numeric(x)) {
             return(TRUE)
           } else {
-            stop("`weights` need to be a numeric vector")
+            return("`weights` need to be a numeric vector")
           }
         }), tags = "train"),
         search = p_fct(levels = c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),

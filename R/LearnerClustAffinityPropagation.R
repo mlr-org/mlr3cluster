@@ -30,7 +30,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
           if (test_numeric(x)) {
             return(TRUE)
           } else {
-            stop("`p` needs to be a numeric vector")
+            return("`p` needs to be a numeric vector")
           }
         }), default = NA, tags = "train"),
         q = p_dbl(lower = 0L, upper = 1L, tags = "train"),

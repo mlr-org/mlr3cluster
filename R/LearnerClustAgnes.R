@@ -32,9 +32,9 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
               if (length(x) %in% c(1L, 3L, 4L)) {
                 return(TRUE)
               }
-              stop("`par.method` needs be of length 1, 3, or 4")
+              return("`par.method` needs be of length 1, 3, or 4")
             } else {
-              stop("`par.method` needs to be a numeric vector")
+              return("`par.method` needs to be a numeric vector")
             }
           }))
       )

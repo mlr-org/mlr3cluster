@@ -33,7 +33,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
             } else if (test_null(x)) {
               return(TRUE)
             } else {
-              stop("`medoids` needs to be either `NULL` or vector with row indices!")
+              return("`medoids` needs to be either `NULL` or vector with row indices!")
             }
           })
         ),
