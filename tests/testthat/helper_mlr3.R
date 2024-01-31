@@ -1,9 +1,8 @@
-lapply(list.files(system.file("testthat", package = "mlr3"), pattern = "^helper.*\\.[rR]",
-                  full.names = TRUE), source)
+lapply(list.files(system.file("testthat", package = "mlr3"), pattern = "^helper.*\\.[rR]", full.names = TRUE), source)
 
 generate_tasks.LearnerClust = function(learner, N = 20L) { # nolint
-  set.seed(1)
-  data = mlbench::mlbench.2dnormals(N, cl = 2, r = 2, sd = 0.1)
+  set.seed(1L)
+  data = mlbench::mlbench.2dnormals(N, cl = 2L, r = 2, sd = 0.1)
   task = TaskClust$new("sanity", mlr3::as_data_backend(as.data.frame(data$x)))
   list(task)
 }

@@ -26,7 +26,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
         distmethod = p_fct(default = "euclidean", levels = c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"), tags = "train"),
         diag = p_lgl(default = FALSE, tags = c("train", "dist")),
         upper = p_lgl(default = FALSE, tags = c("train", "dist")),
-        p = p_dbl(default = 2L, tags = c("train", "dist")),
+        p = p_dbl(default = 2, tags = c("train", "dist")),
         k = p_int(lower = 1L, default = 2L, tags = "predict")
       )
 

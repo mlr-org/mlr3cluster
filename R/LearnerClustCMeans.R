@@ -38,8 +38,8 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         verbose = p_lgl(default = FALSE, tags = "train"),
         dist = p_fct(levels = c("euclidean", "manhattan"), default = "euclidean", tags = "train"),
         method = p_fct(levels = c("cmeans", "ufcl"), default = "cmeans", tags = "train"),
-        m = p_dbl(lower = 1L, default = 2L, tags = "train"),
-        rate.par = p_dbl(lower = 0L, upper = 1L, tags = "train"),
+        m = p_dbl(lower = 1, default = 2, tags = "train"),
+        rate.par = p_dbl(lower = 0, upper = 1, tags = "train"),
         weights = p_uty(default = 1L, custom_check = function(x) {
             if (test_numeric(x)) {
               if (sum(sign(x)) == length(x)) {

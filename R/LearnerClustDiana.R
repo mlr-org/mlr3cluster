@@ -55,7 +55,7 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
 
     .predict = function(task) {
       if (test_true(self$param_set$values$k > task$nrow)) {
-        stop(sprintf("`k` needs to be between 1 and %s", task$nrow))
+        stopf("`k` needs to be between 1 and %s", task$nrow)
       }
 
       warn_prediction_useless(self$id)
