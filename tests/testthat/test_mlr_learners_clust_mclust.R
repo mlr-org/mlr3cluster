@@ -1,5 +1,3 @@
-context("clust.mclust")
-
 skip_if_not_installed("mclust")
 
 test_that("autotest", {
