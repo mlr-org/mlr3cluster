@@ -24,28 +24,25 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
         scale = p_lgl(default = FALSE, tags = "train"),
         method = p_fct(levels = c("hybrid", "raw", "dist"), tags = "train"),
         seeds = p_lgl(default = TRUE, tags = "train"),
-        showplot = p_uty(custom_check = function(x) {
-          if (test_flag(x)) {
-            return(TRUE)
-          } else if (test_int(x, lower = 0, upper = 2)) {
-            return(TRUE)
+        showplot = p_uty(default = FALSE, tags = "train", custom_check = crate(function(x) {
+          if (test_flag(x) && test_int(x, lower = 0, upper = 2)) {
+            TRUE
           } else {
-            stop("`showplot` need to be either logical or integer between 0 and 2")
+            "`showplot` need to be either logical or integer between 0 and 2"
           }
-        }, default = FALSE, tags = "train"),
-        countmode = p_uty(custom_check = function(x) {
-          if (test_integer(x)) {
-            return(TRUE)
-          } else if (test_null(x)) {
-            return(TRUE)
+        })),
+        countmode = p_uty(default = NULL, tags = "train", custom_check = crate(function(x) {
+          if (test_integer(x, null.ok = TRUE)) {
+            TRUE
           } else {
-            stop("`countmode` need to be NULL or vector of integers")
+            "`countmode` need to be NULL or vector of integers"
           }
-        }, default = NULL, tags = "train")
+        }))
       )
 
-      param_set$values = list(MinPts = 5L, scale = FALSE, seeds = TRUE,
-        showplot = FALSE, countmode = NULL)
+      param_set$set_values(
+        MinPts = 5L, scale = FALSE, seeds = TRUE, showplot = FALSE, countmode = NULL
+      )
 
       super$initialize(
         id = "clust.dbscan_fpc",

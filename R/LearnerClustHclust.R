@@ -32,7 +32,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
 
       # param deps
       ps$add_dep("p", "distmethod", CondAnyOf$new("minkowski"))
-      ps$values = list(k = 2L, distmethod = "euclidean")
+      ps$set_values(k = 2L, distmethod = "euclidean")
 
       super$initialize(
         id = "clust.hclust",

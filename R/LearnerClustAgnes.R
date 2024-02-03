@@ -27,22 +27,22 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
         method = p_fct(default = "average", levels = c("average", "single", "complete", "ward", "weighted", "flexible", "gaverage"), tags = "train"),
         trace.lev = p_int(lower = 0L, default = 0L, tags = "train"),
         k = p_int(lower = 1L, default = 2L, tags = "predict"),
-        par.method = p_uty(tags = "train", custom_check = function(x) {
-            if (test_numeric(x) || test_list(x)) {
-              if (length(x) %in% c(1L, 3L, 4L)) {
-                return(TRUE)
-              }
-              stop("`par.method` needs be of length 1, 3, or 4")
-            } else {
-              stop("`par.method` needs to be a numeric vector")
-            }
-          })
+        par.method = p_uty(tags = "train", custom_check = crate(function(x) {
+          if (!(test_numeric(x) || test_list(x))) {
+            return("`par.method` needs to be a numeric vector")
+          }
+          if (length(x) %in% c(1L, 3L, 4L)) {
+            TRUE
+          } else {
+            "`par.method` needs be of length 1, 3, or 4"
+          }
+        }))
       )
 
       # param deps
       ps$add_dep("par.method", "method", CondAnyOf$new(c("flexible", "gaverage")))
 
-      ps$values = list(k = 2L)
+      ps$set_values(k = 2L)
 
       super$initialize(
         id = "clust.agnes",

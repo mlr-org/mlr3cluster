@@ -33,7 +33,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
         tol = p_dbl(lower = 0L, default = 1e-15, tags = "train"),
         trace.lev = p_int(lower = 0L, default = 0L, tags = "train")
       )
-      ps$values = list(k = 2L)
+      ps$set_values(k = 2L)
 
       super$initialize(
         id = "clust.fanny",

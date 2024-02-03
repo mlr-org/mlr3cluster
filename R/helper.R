@@ -16,3 +16,11 @@ check_centers_param = function(centers, task, test_class, name) {
     }
   }
 }
+
+check_centers = function(x) {
+  if (test_data_frame(x) && test_int(x, lower = 1L)) {
+    TRUE
+  } else {
+    "`centers` must be integer or data.frame with initial cluster centers"
+  }
+}

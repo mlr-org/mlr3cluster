@@ -21,7 +21,7 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
       ps = ps(
         num_clusters = p_int(lower = 1L, default = 1L, tags = c("required", "train", "predict"))
       )
-      ps$values = list(num_clusters = 1L)
+      ps$set_values(num_clusters = 1L)
 
       super$initialize(
         id = "clust.featureless",

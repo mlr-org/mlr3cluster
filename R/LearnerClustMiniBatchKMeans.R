@@ -37,7 +37,7 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
         tol_optimal_init = p_dbl(default = 0.3, lower = 0, tags = "train"),
         seed = p_int(default = 1L, tags = "train")
       )
-      ps$values = list(clusters = 2L)
+      ps$set_values(clusters = 2L)
 
       # add deps
       ps$add_dep("init_fraction", "initializer", CondAnyOf$new(c("kmeans++", "optimal_init")))

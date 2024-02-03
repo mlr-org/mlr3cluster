@@ -27,7 +27,7 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
         trace.lev = p_int(lower = 0L, default = 0L, tags = "train"),
         k = p_int(lower = 1L, default = 2L, tags = "predict")
       )
-      ps$values = list(k = 2L)
+      ps$set_values(k = 2L)
 
       super$initialize(
         id = "clust.diana",
