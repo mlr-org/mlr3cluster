@@ -31,7 +31,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         m = p_dbl(lower = 1L, default = 2L, tags = "train"),
         rate.par = p_dbl(lower = 0L, upper = 1L, tags = "train"),
         weights = p_uty(default = 1L, tags = "train", custom_check = crate(function(x) {
-          if (test_numeric(x) && !all(x > 0) || check_count(x)) {
+          if (test_numeric(x) && all(x > 0) || check_count(x, positive = TRUE)) {
             TRUE
           } else {
             "`weights` must be positive numeric vector or a single positive number"
