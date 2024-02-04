@@ -1,5 +1,3 @@
-context("clust.meanshift")
-
 skip_if_not_installed("LPCM")
 
 test_that("autotest", {

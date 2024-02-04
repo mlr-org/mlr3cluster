@@ -1,5 +1,3 @@
-context("mlr_learners_clust_featureless")
-
 test_that("autotest", {
   learner = lrn("clust.featureless")
   expect_learner(learner)

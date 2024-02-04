@@ -1,5 +1,3 @@
-context("clust.dbscan")
-
 skip_if_not_installed("dbscan")
 
 test_that("autotest", {

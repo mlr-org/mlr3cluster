@@ -1,5 +1,3 @@
-context("clust.ap")
-
 skip_if_not_installed("apcluster")
 
 test_that("autotest", {
