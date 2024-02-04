@@ -33,7 +33,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
             } else if (test_null(x)) {
               return(TRUE)
             } else {
-              stop("`medoids` needs to be either `NULL` or vector with row indices!")
+              stopf("`medoids` needs to be either `NULL` or vector with row indices!")
             }
           }
         ),
@@ -60,7 +60,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
     .train = function(task) {
       if (!is.null(self$param_set$values$medoids)) {
         if (test_true(length(self$param_set$values$medoids) != self$param_set$values$k)) {
-          stop("number of `medoids`' needs to match `k`!")
+          stopf("number of `medoids`' needs to match `k`!")
         } else {
           r = unname(lapply(self$param_set$values$medoids, function(i) {
             test_true(i <= task$nrow) && test_true(i >= 1)

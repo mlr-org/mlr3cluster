@@ -30,13 +30,13 @@ LearnerClustAP = R6Class("LearnerClustAP",
           if (test_numeric(x)) {
             return(TRUE)
           } else {
-            stop("`p` needs to be a numeric vector")
+            stopf("`p` needs to be a numeric vector")
           }
         }, default = NA, tags = "train"),
-        q = p_dbl(lower = 0L, upper = 1L, tags = "train"),
+        q = p_dbl(lower = 0L, upper = 1, tags = "train"),
         maxits = p_int(lower = 1L, default = 1000L, tags = "train"),
         convits = p_int(lower = 1L, default = 100L, tags = "train"),
-        lam = p_dbl(lower = 0.5, upper = 1L, default = 0.9, tags = "train"),
+        lam = p_dbl(lower = 0.5, upper = 1, default = 0.9, tags = "train"),
         includeSim = p_lgl(default = FALSE, tags = "train"),
         details = p_lgl(default = FALSE, tags = "train"),
         nonoise = p_lgl(default = FALSE, tags = "train"),

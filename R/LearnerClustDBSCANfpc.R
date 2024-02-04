@@ -19,7 +19,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        eps = p_dbl(lower = 0L, tags = c("required", "train")),
+        eps = p_dbl(lower = 0, tags = c("required", "train")),
         MinPts = p_int(lower = 0L, default = 5L, tags = "train"),
         scale = p_lgl(default = FALSE, tags = "train"),
         method = p_fct(levels = c("hybrid", "raw", "dist"), tags = "train"),
@@ -30,7 +30,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
           } else if (test_int(x, lower = 0, upper = 2)) {
             return(TRUE)
           } else {
-            stop("`showplot` need to be either logical or integer between 0 and 2")
+            stopf("`showplot` need to be either logical or integer between 0 and 2")
           }
         }, default = FALSE, tags = "train"),
         countmode = p_uty(custom_check = function(x) {
@@ -39,7 +39,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
           } else if (test_null(x)) {
             return(TRUE)
           } else {
-            stop("`countmode` need to be NULL or vector of integers")
+            stopf("`countmode` need to be NULL or vector of integers")
           }
         }, default = NULL, tags = "train")
       )
