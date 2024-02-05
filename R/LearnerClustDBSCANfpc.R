@@ -25,7 +25,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
         method = p_fct(levels = c("hybrid", "raw", "dist"), tags = "train"),
         seeds = p_lgl(default = TRUE, tags = "train"),
         showplot = p_uty(default = FALSE, tags = "train", custom_check = crate(function(x) {
-          if (test_flag(x) && test_int(x, lower = 0, upper = 2)) {
+          if (test_flag(x) || test_int(x, lower = 0, upper = 2)) {
             TRUE
           } else {
             "`showplot` need to be either logical or integer between 0 and 2"
