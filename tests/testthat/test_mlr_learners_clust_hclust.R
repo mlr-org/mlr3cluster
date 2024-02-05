@@ -1,5 +1,3 @@
-context("clust.hclust")
-
 test_that("autotest", {
   learner = mlr3::lrn("clust.hclust")
   expect_learner(learner)

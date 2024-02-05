@@ -1,5 +1,3 @@
-context("MeasureClust")
-
 test_that("Cluster measures", {
   keys = mlr_measures$keys("clust")
   task = tsk("usarrests")

@@ -1,5 +1,3 @@
-context("clust.fanny")
-
 skip_if_not_installed("clue")
 
 test_that("autotest", {

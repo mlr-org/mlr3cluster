@@ -28,7 +28,7 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
         batch_size = p_int(lower = 1L, default = 10L, tags = "train"),
         num_init = p_int(lower = 1L, default = 1L, tags = "train"),
         max_iters = p_int(lower = 1L, default = 100L, tags = "train"),
-        init_fraction = p_dbl(lower = 0L, upper = 1L, default = 1L, tags = "train"),
+        init_fraction = p_dbl(lower = 0, upper = 1, default = 1, tags = "train"),
         initializer = p_fct(levels = c("optimal_init", "quantile_init", "kmeans++", "random"), default = "kmeans++", tags = "train"),
         early_stop_iter = p_int(lower = 1L, default = 10L, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train"),
@@ -59,7 +59,7 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
       check_centers_param(self$param_set$values$CENTROIDS, task, test_matrix, "CENTROIDS")
       if (test_matrix(self$param_set$values$CENTROIDS)) {
         if (nrow(self$param_set$values$CENTROIDS) != self$param_set$values$clusters) {
-          stop("`CENTROIDS` must have same number of rows as `clusters`")
+          stopf("`CENTROIDS` must have same number of rows as `clusters`")
         }
       }
 

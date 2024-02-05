@@ -50,7 +50,7 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
     .train = function(task) {
       if (!is.null(self$param_set$values$subset)) {
         if (length(self$param_set$values$subset) > task$nrow) {
-          stop("`subset` length must be less than or equal to number of observations in task")
+          stopf("`subset` length must be less than or equal to number of observations in task")
         }
       }
 

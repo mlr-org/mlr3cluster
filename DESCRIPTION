@@ -40,7 +40,7 @@ Suggests:
     mclust,
     mlbench,
     RWeka,
-    testthat
+    testthat (>= 3.0.0)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.2.3
@@ -80,3 +80,4 @@ Collate:
     'bibentries.R'
     'helper.R'
     'zzz.R'
+Config/testthat/edition: 3

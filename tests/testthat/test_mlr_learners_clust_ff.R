@@ -1,5 +1,3 @@
-context("clust.ff")
-
 skip_if_not_installed("RWeka")
 skip_on_cran()
 

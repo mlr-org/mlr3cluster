@@ -1,5 +1,3 @@
-context("clust.dbscan_fpc")
-
 skip_if_not_installed("fpc")
 
 test_that("autotest", {

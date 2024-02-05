@@ -21,14 +21,14 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        eps = p_dbl(lower = 0L, tags = c("required", "train")),
+        eps = p_dbl(lower = 0, tags = c("required", "train")),
         minPts = p_int(lower = 0L, default = 5L, tags = "train"),
         borderPoints = p_lgl(default = TRUE, tags = "train"),
         weights = p_uty(tags = "train"), custom_check = crate(check_numeric),
         search = p_fct(levels = c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
         bucketSize = p_int(lower = 1L, default = 10L, tags = "train"),
         splitRule = p_fct(levels = c("STD", "MIDPT", "FAIR", "SL_MIDPT", "SL_FAIR", "SUGGEST"), default = "SUGGEST", tags = "train"),
-        approx = p_dbl(default = 0L, tags = "train")
+        approx = p_dbl(default = 0, tags = "train")
       )
       # add deps
       ps$add_dep("bucketSize", "search", CondEqual$new("kdtree"))

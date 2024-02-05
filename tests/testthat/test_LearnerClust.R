@@ -1,5 +1,3 @@
-context("LearnerClust")
-
 test_that("predict on newdata works / clust", {
   task = tsk("usarrests")$filter(1:40)
   learner = lrn("clust.featureless")
