@@ -70,6 +70,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
 
       return(m)
     },
+
     .predict = function(task) {
       partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))
       prob = unclass(cl_predict(self$model, newdata = task$data(), type = "memberships"))

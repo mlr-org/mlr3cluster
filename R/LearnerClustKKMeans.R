@@ -72,6 +72,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
       }
       return(m)
     },
+
     .predict = function(task) {
       # all of predict is taken from mlr2
 

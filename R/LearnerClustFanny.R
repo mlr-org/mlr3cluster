@@ -57,6 +57,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
 
       return(m)
     },
+
     .predict = function(task) {
       warn_prediction_useless(self$id)
 

@@ -73,6 +73,7 @@ LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
 
       return(m)
     },
+
     .predict = function(task) {
       partition = predict(self$model, newdata = task$data(), type = "class") + 1L
       PredictionClust$new(task = task, partition = partition)

@@ -53,6 +53,7 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
 
       return(m)
     },
+
     .predict = function(task) {
       predictions = predict(self$model, newdata = task$data())
       partition = as.integer(predictions$classification)

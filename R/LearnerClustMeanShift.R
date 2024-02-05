@@ -62,6 +62,7 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
 
       return(m)
     },
+
     .predict = function(task) {
       warn_prediction_useless(self$id)
       partition = as.integer(self$model$cluster.label)

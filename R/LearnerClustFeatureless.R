@@ -55,6 +55,7 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
         "clust.featureless_model"
       )
     },
+
     .predict = function(task) {
       pv = self$param_set$get_values(tags = "predict")
       n = task$nrow

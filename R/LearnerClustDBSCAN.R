@@ -62,6 +62,7 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
 
       return(m)
     },
+
     .predict = function(task) {
       partition = predict(self$model, newdata = task$data(), self$model$data)
       PredictionClust$new(task = task, partition = partition)

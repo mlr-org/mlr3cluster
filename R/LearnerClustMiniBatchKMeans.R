@@ -78,6 +78,7 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
 
       return(m)
     },
+
     .predict = function(task) {
       if (self$predict_type == "partition") {
         partition = unclass(ClusterR::predict_MBatchKMeans(
