@@ -21,9 +21,16 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        method = p_fct(default = "complete", levels = c("ward.D", "ward.D2", "single", "complete", "average", "mcquitty" , "median", "centroid"), tags = c("train", "hclust")),
+        method = p_fct(
+          default = "complete",
+          levels = c("ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", "centroid"),
+          tags = c("train", "hclust")
+        ),
         members = p_uty(default = NULL, tags = c("train", "hclust")),
-        distmethod = p_fct(default = "euclidean", levels = c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"), tags = "train"),
+        distmethod = p_fct(
+          default = "euclidean", levels = c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"),
+          tags = "train"
+        ),
         diag = p_lgl(default = FALSE, tags = c("train", "dist")),
         upper = p_lgl(default = FALSE, tags = c("train", "dist")),
         p = p_dbl(default = 2, tags = c("train", "dist")),
@@ -46,13 +53,14 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       d = self$param_set$values$distmethod
       dist_arg = self$param_set$get_values(tags = c("train", "dist"))
-      dist = invoke(stats::dist, x = task$data(),
-        method = ifelse(is.null(d), "euclidean", d), .args = dist_arg)
+      dist = invoke(stats::dist,
+        x = task$data(),
+        method = ifelse(is.null(d), "euclidean", d), .args = dist_arg
+      )
       pv = self$param_set$get_values(tags = c("train", "hclust"))
       m = invoke(stats::hclust, d = dist, .args = pv)
       if (self$save_assignments) {
@@ -61,7 +69,6 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
 
       return(m)
     },
-
     .predict = function(task) {
       if (self$param_set$values$k > task$nrow) {
         stopf("`k` needs to be between 1 and %i", task$nrow)

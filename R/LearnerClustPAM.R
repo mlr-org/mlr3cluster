@@ -26,7 +26,9 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
       ps = ps(
         k = p_int(lower = 1L, default = 2L, tags = c("required", "train")),
         metric = p_fct(levels = c("euclidian", "manhattan"), tags = "train"),
-        medoids = p_uty(default = NULL, tags = "train", custom_check = crate(function(x) check_integerish(x, null.ok = TRUE))),
+        medoids = p_uty(
+          default = NULL, tags = "train", custom_check = crate(function(x) check_integerish(x, null.ok = TRUE))
+        ),
         stand = p_lgl(default = FALSE, tags = "train"),
         do.swap = p_lgl(default = TRUE, tags = "train"),
         pamonce = p_int(lower = 0L, upper = 5L, default = 0, tags = "train"),

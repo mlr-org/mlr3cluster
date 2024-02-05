@@ -26,7 +26,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
     initialize = function() {
       ps = ps(
         s = p_uty(tags = c("required", "train")),
-        p = p_uty(default = NA, tags = "train", custom_check = crate(check_numeric)),
+        p = p_uty(default = NA, tags = "train", custom_check = crate(function(x) check_numeric(x))),
         q = p_dbl(lower = 0, upper = 1, tags = "train"),
         maxits = p_int(lower = 1L, default = 1000L, tags = "train"),
         convits = p_int(lower = 1L, default = 100L, tags = "train"),
@@ -68,9 +68,10 @@ LearnerClustAP = R6Class("LearnerClustAP",
       exemplar_data = attributes(self$model)$exemplar_data
 
       d = task$data()
-      sim_mat = sim_func(rbind(exemplar_data, d),
-        sel = (1:nrow(d)) +
-          nrow(exemplar_data))[1:nrow(exemplar_data), ]
+      sim_mat = sim_func(
+        rbind(exemplar_data, d),
+        sel = (seq_len(nrow(d))) + nrow(exemplar_data)
+      )[seq_len(nrow(exemplar_data)), ]
       partition = unname(apply(sim_mat, 2, which.max))
       PredictionClust$new(task = task, partition = partition)
     }

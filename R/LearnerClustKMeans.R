@@ -23,9 +23,13 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        centers = p_uty(tags = c("required", "train"), default = 2L, custom_check = crate(check_centers)),
+        centers = p_uty(
+          tags = c("required", "train"), default = 2L, custom_check = crate(function(x) check_centers(x))
+        ),
         iter.max = p_int(lower = 1L, default = 10L, tags = c("train")),
-        algorithm = p_fct(levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"), default = "Hartigan-Wong", tags = c("train")),
+        algorithm = p_fct(
+          levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"), default = "Hartigan-Wong", tags = c("train")
+        ),
         nstart = p_int(lower = 1L, default = 1L, tags = c("train")),
         trace = p_int(lower = 0L, default = 0L, tags = c("train"))
       )

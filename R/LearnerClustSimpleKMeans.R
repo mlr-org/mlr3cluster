@@ -19,7 +19,8 @@
 #'
 #'   # available parameters:
 #'   learner$param_set$ids()
-#' }}
+#' }
+#' }
 #'
 #' @export
 LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
@@ -60,7 +61,6 @@ LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
@@ -73,7 +73,6 @@ LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
 
       return(m)
     },
-
     .predict = function(task) {
       partition = predict(self$model, newdata = task$data(), type = "class") + 1L
       PredictionClust$new(task = task, partition = partition)

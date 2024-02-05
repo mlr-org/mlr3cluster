@@ -47,7 +47,6 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
@@ -58,7 +57,6 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
 
       return(m)
     },
-
     .predict = function(task) {
       warn_prediction_useless(self$id)
 

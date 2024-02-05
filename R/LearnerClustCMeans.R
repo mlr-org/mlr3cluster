@@ -23,7 +23,9 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        centers = p_uty(tags = c("required", "train"), default = 2L, custom_check = crate(check_centers)),
+        centers = p_uty(
+          tags = c("required", "train"), default = 2L, custom_check = crate(function(x) check_centers(x))
+        ),
         iter.max = p_int(lower = 1L, default = 100L, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train"),
         dist = p_fct(levels = c("euclidean", "manhattan"), default = "euclidean", tags = "train"),
@@ -56,7 +58,6 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       check_centers_param(self$param_set$values$centers, task, test_data_frame, "centers")
@@ -69,7 +70,6 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
 
       return(m)
     },
-
     .predict = function(task) {
       partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))
       prob = unclass(cl_predict(self$model, newdata = task$data(), type = "memberships"))

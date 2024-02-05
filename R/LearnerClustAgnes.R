@@ -24,7 +24,11 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
       ps = ps(
         metric = p_fct(default = "euclidean", levels = c("euclidean", "manhattan"), tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
-        method = p_fct(default = "average", levels = c("average", "single", "complete", "ward", "weighted", "flexible", "gaverage"), tags = "train"),
+        method = p_fct(
+          default = "average",
+          levels = c("average", "single", "complete", "ward", "weighted", "flexible", "gaverage"),
+          tags = "train"
+        ),
         trace.lev = p_int(lower = 0L, default = 0L, tags = "train"),
         k = p_int(lower = 1L, default = 2L, tags = "predict"),
         par.method = p_uty(tags = "train", custom_check = crate(function(x) {
@@ -66,7 +70,6 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
 
       return(m)
     },
-
     .predict = function(task) {
       if (self$param_set$values$k > task$nrow) {
         stopf("`k` needs to be between 1 and %i", task$nrow)

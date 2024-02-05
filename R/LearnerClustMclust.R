@@ -21,12 +21,12 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        G = p_uty(default = 1:9, tags = "train", custom_check = crate(check_numeric)),
-        modelNames = p_uty(tags = "train", custom_check = crate(check_character)),
-        prior = p_uty(tags = "train", custom_check = crate(check_list)),
-        control = p_uty(default = mclust::emControl(), tags = "train", custom_check = crate(check_list)),
-        initialization = p_uty(tags = "train", custom_check = crate(check_list)),
-        x = p_uty(tags = "train", custom_check = crate(function(x) check_class(x, "mclustBIC"))),
+        G = p_uty(default = 1:9, tags = "train", custom_check = crate(function(x) check_numeric(x))),
+        modelNames = p_uty(tags = "train", custom_check = crate(function(x) check_character(x))),
+        prior = p_uty(tags = "train", custom_check = crate(function(x) check_list(x))),
+        control = p_uty(default = mclust::emControl(), tags = "train", custom_check = crate(function(x) check_list(x))),
+        initialization = p_uty(tags = "train", custom_check = crate(function(x) check_list(x))),
+        x = p_uty(tags = "train", custom_check = crate(function(x) check_class(x, "mclustBIC")))
       )
 
       super$initialize(
@@ -41,7 +41,6 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
@@ -54,7 +53,6 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
 
       return(m)
     },
-
     .predict = function(task) {
       predictions = predict(self$model, newdata = task$data())
       partition = as.integer(predictions$classification)

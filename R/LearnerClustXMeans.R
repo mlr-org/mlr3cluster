@@ -51,7 +51,6 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
@@ -64,7 +63,6 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
 
       return(m)
     },
-
     .predict = function(task) {
       partition = predict(self$model, newdata = task$data(), type = "class") + 1L
       PredictionClust$new(task = task, partition = partition)

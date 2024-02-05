@@ -17,7 +17,6 @@ MeasureClustFPC = R6Class("MeasureClustFPC",
         man = paste0("mlr3cluster::mlr_measures_clust.", name)
       )
       self$crit = info$crit
-
     }
   ),
   private = list(
@@ -46,7 +45,6 @@ MeasureClustSil = R6Class("MeasureClustSil",
         man = paste0("mlr3cluster::mlr_measures_clust.", name)
       )
       self$crit = info$crit
-
     }
   ),
   private = list(

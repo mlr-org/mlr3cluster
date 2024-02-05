@@ -41,7 +41,6 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
@@ -52,7 +51,6 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
 
       return(m)
     },
-
     .predict = function(task) {
       if (test_true(self$param_set$values$k > task$nrow)) {
         stopf("`k` needs to be between 1 and %s", task$nrow)

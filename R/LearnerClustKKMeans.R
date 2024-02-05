@@ -24,10 +24,14 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        centers = p_uty(tags = c("required", "train"), default = 2L, custom_check = crate(check_centers)),
-        kernel = p_fct(default = "rbfdot",
+        centers = p_uty(
+          tags = c("required", "train"), default = 2L, custom_check = crate(function(x) check_centers(x))
+        ),
+        kernel = p_fct(
+          default = "rbfdot",
           levels = c("vanilladot", "polydot", "rbfdot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
-          tags = "train"),
+          tags = "train"
+        ),
         sigma = p_dbl(lower = 0, tags = "train"),
         degree = p_int(default = 3L, lower = 1L, tags = "train"),
         scale = p_dbl(default = 1, lower = 0, tags = "train"),
@@ -39,9 +43,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
       ps$set_values(centers = 2L)
 
       # add deps
-      ps$add_dep(
-        "sigma", "kernel",
-        CondAnyOf$new(c("rbfdot", "anovadot", "besseldot", "laplacedot")))
+      ps$add_dep("sigma", "kernel", CondAnyOf$new(c("rbfdot", "anovadot", "besseldot", "laplacedot")))
       ps$add_dep("degree", "kernel", CondAnyOf$new(c("polydot", "anovadot", "besseldot")))
       ps$add_dep("scale", "kernel", CondAnyOf$new(c("polydot", "tanhdot")))
       ps$add_dep("offset", "kernel", CondAnyOf$new(c("polydot", "tanhdot")))
@@ -79,11 +81,14 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
       # kernel product between each new datapoint and the centers
       d_xc = matrix(kernlab::kernelMatrix(K, as.matrix(task$data()), c), ncol = nrow(c))
       # kernel product between each new datapoint and itself: rows are identical
-      d_xx = matrix(rep(diag(kernlab::kernelMatrix(K, as.matrix(task$data()))),
-        each = ncol(d_xc)), ncol = ncol(d_xc), byrow = TRUE)
+      d_xx = matrix(
+        rep(diag(kernlab::kernelMatrix(K, as.matrix(task$data()))), each = ncol(d_xc)),
+        ncol = ncol(d_xc), byrow = TRUE
+      )
       # kernel product between each center and itself: columns are identical
-      d_cc = matrix(rep(diag(kernlab::kernelMatrix(K, as.matrix(c))),
-        each = nrow(d_xc)), nrow = nrow(d_xc))
+      d_cc = matrix(
+        rep(diag(kernlab::kernelMatrix(K, as.matrix(c))), each = nrow(d_xc)), nrow = nrow(d_xc)
+      )
       # this is the squared kernel distance to the centers
       d2 = d_xx + d_cc - 2 * d_xc
       # the nearest center determines cluster assignment
