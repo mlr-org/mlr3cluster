@@ -24,7 +24,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         s = p_uty(tags = c("required", "train")),
         p = p_uty(default = NA, tags = "train", custom_check = crate(function(x) check_numeric(x))),
         q = p_dbl(lower = 0, upper = 1, tags = "train"),
@@ -41,7 +41,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
         id = "clust.ap",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "apcluster",
         man = "mlr3cluster::mlr_learners_clust.ap",

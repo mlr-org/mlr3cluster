@@ -22,7 +22,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         centers = p_uty(
           tags = c("required", "train"), default = 2L, custom_check = crate(check_centers)
         ),
@@ -42,15 +42,15 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         control = p_uty(tags = "train")
       )
       # add deps
-      ps$add_dep("rate.par", "method", CondEqual$new("ufcl"))
+      param_set$add_dep("rate.par", "method", CondEqual$new("ufcl"))
 
-      ps$set_values(centers = 2L)
+      param_set$set_values(centers = 2L)
 
       super$initialize(
         id = "clust.cmeans",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "fuzzy", "complete"),
         packages = "e1071",
         man = "mlr3cluster::mlr_learners_clust.cmeans",

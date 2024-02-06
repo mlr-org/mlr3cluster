@@ -20,7 +20,7 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         B                 = p_dbl(default = 1, lower = 0, tags = "train"),
         C                 = p_dbl(default = 0, lower = 0, tags = "train"),
         D                 = p_uty(default = "weka.core.EuclideanDistance", tags = "train"),
@@ -43,7 +43,7 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
         id = "clust.xmeans",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "RWeka",
         man = "mlr3cluster::mlr_learners_clust.xmeans",

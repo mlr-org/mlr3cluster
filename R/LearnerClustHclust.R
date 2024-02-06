@@ -20,7 +20,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         method = p_fct(
           default = "complete",
           levels = c("ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", "centroid"),
@@ -38,14 +38,14 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
       )
 
       # param deps
-      ps$add_dep("p", "distmethod", CondAnyOf$new("minkowski"))
-      ps$set_values(k = 2L, distmethod = "euclidean")
+      param_set$add_dep("p", "distmethod", CondAnyOf$new("minkowski"))
+      param_set$set_values(k = 2L, distmethod = "euclidean")
 
       super$initialize(
         id = "clust.hclust",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("hierarchical", "exclusive", "complete"),
         packages = "stats",
         man = "mlr3cluster::mlr_learners_clust.hclust",

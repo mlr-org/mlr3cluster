@@ -23,7 +23,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         centers = p_uty(
           tags = c("required", "train"), default = 2L, custom_check = crate(check_centers)
         ),
@@ -40,20 +40,20 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
         alg = p_fct(levels = c("kkmeans", "kerninghan"), default = "kkmeans", tags = "train"),
         p = p_dbl(default = 1, tags = "train")
       )
-      ps$set_values(centers = 2L)
+      param_set$set_values(centers = 2L)
 
       # add deps
-      ps$add_dep("sigma", "kernel", CondAnyOf$new(c("rbfdot", "anovadot", "besseldot", "laplacedot")))
-      ps$add_dep("degree", "kernel", CondAnyOf$new(c("polydot", "anovadot", "besseldot")))
-      ps$add_dep("scale", "kernel", CondAnyOf$new(c("polydot", "tanhdot")))
-      ps$add_dep("offset", "kernel", CondAnyOf$new(c("polydot", "tanhdot")))
-      ps$add_dep("order", "kernel", CondEqual$new("besseldot"))
+      param_set$add_dep("sigma", "kernel", CondAnyOf$new(c("rbfdot", "anovadot", "besseldot", "laplacedot")))
+      param_set$add_dep("degree", "kernel", CondAnyOf$new(c("polydot", "anovadot", "besseldot")))
+      param_set$add_dep("scale", "kernel", CondAnyOf$new(c("polydot", "tanhdot")))
+      param_set$add_dep("offset", "kernel", CondAnyOf$new(c("polydot", "tanhdot")))
+      param_set$add_dep("order", "kernel", CondEqual$new("besseldot"))
 
       super$initialize(
         id = "clust.kkmeans",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "kernlab",
         man = "mlr3cluster::mlr_learners_clust.kkmeans",

@@ -29,7 +29,7 @@ LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         A                 = p_uty(default = "weka.core.EuclideanDistance", tags = "train"),
         C                 = p_lgl(default = FALSE, tags = "train"),
         fast              = p_lgl(default = FALSE, tags = "train"),
@@ -53,7 +53,7 @@ LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
         id = "clust.SimpleKMeans",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "RWeka",
         man = "mlr3cluster::mlr_learners_clust.SimpleKMeans",

@@ -29,7 +29,7 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         N = p_int(default = 2L, lower = 1L, tags = "train"),
         S = p_int(default = 1L, lower = 1L, tags = "train"),
         output_debug_info = p_lgl(default = FALSE, tags = "train")
@@ -39,7 +39,7 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
         id = "clust.ff",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "RWeka",
         man = "mlr3cluster::mlr_learners_clust.ff",

@@ -20,7 +20,7 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         eps = p_dbl(lower = 0, tags = c("required", "train")),
         minPts = p_int(lower = 0L, default = 5L, tags = "train"),
         borderPoints = p_lgl(default = TRUE, tags = "train"),
@@ -33,14 +33,14 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
         approx = p_dbl(default = 0, tags = "train")
       )
       # add deps
-      ps$add_dep("bucketSize", "search", CondEqual$new("kdtree"))
-      ps$add_dep("splitRule", "search", CondEqual$new("kdtree"))
+      param_set$add_dep("bucketSize", "search", CondEqual$new("kdtree"))
+      param_set$add_dep("splitRule", "search", CondEqual$new("kdtree"))
 
       super$initialize(
         id = "clust.dbscan",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "dbscan",
         man = "mlr3cluster::mlr_learners_clust.dbscan",

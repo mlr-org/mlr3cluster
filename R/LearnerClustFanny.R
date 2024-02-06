@@ -24,7 +24,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         k = p_int(lower = 1L, default = 2L, tags = c("required", "train")),
         memb.exp = p_dbl(lower = 1, default = 2, tags = "train"),
         metric = p_fct(default = "euclidean", levels = c("euclidean", "manhattan", "SqEuclidean"), tags = "train"),
@@ -33,13 +33,13 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
         tol = p_dbl(lower = 0, default = 1e-15, tags = "train"),
         trace.lev = p_int(lower = 0L, default = 0L, tags = "train")
       )
-      ps$set_values(k = 2L)
+      param_set$set_values(k = 2L)
 
       super$initialize(
         id = "clust.fanny",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "fuzzy", "complete"),
         packages = "cluster",
         man = "mlr3cluster::mlr_learners_clust.fanny",

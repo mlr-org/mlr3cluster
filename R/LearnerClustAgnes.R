@@ -21,7 +21,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         metric = p_fct(default = "euclidean", levels = c("euclidean", "manhattan"), tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
         method = p_fct(
@@ -44,15 +44,15 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
       )
 
       # param deps
-      ps$add_dep("par.method", "method", CondAnyOf$new(c("flexible", "gaverage")))
+      param_set$add_dep("par.method", "method", CondAnyOf$new(c("flexible", "gaverage")))
 
-      ps$set_values(k = 2L)
+      param_set$set_values(k = 2L)
 
       super$initialize(
         id = "clust.agnes",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("hierarchical", "exclusive", "complete"),
         packages = "cluster",
         man = "mlr3cluster::mlr_learners_clust.agnes",

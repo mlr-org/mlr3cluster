@@ -20,7 +20,7 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         h = p_uty(tags = "train", custom_check = crate(function(x) {
           if (test_numeric(x) || test_int(x)) {
             TRUE
@@ -38,7 +38,7 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
         id = "clust.meanshift",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "LPCM",
         man = "mlr3cluster::mlr_learners_clust.meanshift",

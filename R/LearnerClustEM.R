@@ -21,7 +21,7 @@ LearnerClustEM = R6Class("LearnerClustEM",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         I = p_int(default = 100L, lower = 1L, tags = "train"),
         ll_cv = p_dbl(default = 1e-6, lower = 1e-6, tags = "train"),
         ll_iter = p_dbl(default = 1e-6, lower = 1e-6, tags = "train"),
@@ -40,7 +40,7 @@ LearnerClustEM = R6Class("LearnerClustEM",
         id = "clust.em",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "RWeka",
         man = "mlr3cluster::mlr_learners_clust.em",
