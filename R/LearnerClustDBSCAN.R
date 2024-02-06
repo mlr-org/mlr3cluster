@@ -24,16 +24,12 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
         eps = p_dbl(lower = 0, tags = c("required", "train")),
         minPts = p_int(lower = 0L, default = 5L, tags = "train"),
         borderPoints = p_lgl(default = TRUE, tags = "train"),
-        weights = p_uty(custom_check = function(x) {
-          if (test_numeric(x)) {
-            return(TRUE)
-          } else {
-            stopf("`weights` need to be a numeric vector")
-          }
-        }, tags = "train"),
+        weights = p_uty(tags = "train", custom_check = crate(function(x) check_numeric(x))),
         search = p_fct(levels = c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
         bucketSize = p_int(lower = 1L, default = 10L, tags = "train"),
-        splitRule = p_fct(levels = c("STD", "MIDPT", "FAIR", "SL_MIDPT", "SL_FAIR", "SUGGEST"), default = "SUGGEST", tags = "train"),
+        splitRule = p_fct(
+          levels = c("STD", "MIDPT", "FAIR", "SL_MIDPT", "SL_FAIR", "SUGGEST"), default = "SUGGEST", tags = "train"
+        ),
         approx = p_dbl(default = 0, tags = "train")
       )
       # add deps
@@ -52,7 +48,6 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")

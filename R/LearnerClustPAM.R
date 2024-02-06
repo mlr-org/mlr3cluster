@@ -26,23 +26,15 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
       ps = ps(
         k = p_int(lower = 1L, default = 2L, tags = c("required", "train")),
         metric = p_fct(levels = c("euclidian", "manhattan"), tags = "train"),
-        medoids = p_uty(default = NULL, tags = "train",
-          custom_check = function(x) {
-            if (test_integerish(x)) {
-              return(TRUE)
-            } else if (test_null(x)) {
-              return(TRUE)
-            } else {
-              stopf("`medoids` needs to be either `NULL` or vector with row indices!")
-            }
-          }
+        medoids = p_uty(
+          default = NULL, tags = "train", custom_check = crate(function(x) check_integerish(x, null.ok = TRUE))
         ),
         stand = p_lgl(default = FALSE, tags = "train"),
         do.swap = p_lgl(default = TRUE, tags = "train"),
         pamonce = p_int(lower = 0L, upper = 5L, default = 0, tags = "train"),
         trace.lev = p_int(lower = 0L, default = 0L, tags = "train")
       )
-      ps$values = list(k = 2L)
+      ps$set_values(k = 2L)
 
       super$initialize(
         id = "clust.pam",
@@ -81,6 +73,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
 
       return(m)
     },
+
     .predict = function(task) {
       partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))
       PredictionClust$new(task = task, partition = partition)

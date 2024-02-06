@@ -21,7 +21,7 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
       ps = ps(
         num_clusters = p_int(lower = 1L, default = 1L, tags = c("required", "train", "predict"))
       )
-      ps$values = list(num_clusters = 1L)
+      ps$set_values(num_clusters = 1L)
 
       super$initialize(
         id = "clust.featureless",
@@ -34,7 +34,6 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
@@ -72,7 +71,7 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
         # reorder rows so that the max probability corresponds to
         # the selected partition in `partition`
         prob = do.call(rbind, map(seq_along(partition), function(i) {
-          x = prob[i,, drop = TRUE]
+          x = prob[i, , drop = TRUE]
           pos = which_max(x)
           if (pos == i) x else append(x[-pos], x[pos], after = partition[i] - 1L)
         }))

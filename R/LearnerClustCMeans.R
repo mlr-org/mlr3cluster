@@ -23,16 +23,8 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ps(
-        centers = p_uty(tags = c("required", "train"), default = 2L,
-          custom_check = function(x) {
-            if (test_data_frame(x)) {
-              return(TRUE)
-            } else if (test_int(x)) {
-              assert_true(x >= 1L)
-            } else {
-              return("`centers` must be integer or data.frame with initial cluster centers")
-            }
-          }
+        centers = p_uty(
+          tags = c("required", "train"), default = 2L, custom_check = crate(check_centers)
         ),
         iter.max = p_int(lower = 1L, default = 100L, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train"),
@@ -40,26 +32,19 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         method = p_fct(levels = c("cmeans", "ufcl"), default = "cmeans", tags = "train"),
         m = p_dbl(lower = 1, default = 2, tags = "train"),
         rate.par = p_dbl(lower = 0, upper = 1, tags = "train"),
-        weights = p_uty(default = 1L, custom_check = function(x) {
-            if (test_numeric(x)) {
-              if (sum(sign(x)) == length(x)) {
-                return(TRUE)
-              } else {
-                return("`weights` must contain only positive numbers")
-              }
-            } else if (test_count(x)) {
-              return(TRUE)
-            } else {
-              return("`weights` must be positive numeric vector or a single positive number")
-            }
-          },
-          tags = "train"),
+        weights = p_uty(default = 1L, tags = "train", custom_check = crate(function(x) {
+          if (test_numeric(x) && all(x > 0) || check_count(x, positive = TRUE)) {
+            TRUE
+          } else {
+            "`weights` must be positive numeric vector or a single positive number"
+          }
+        })),
         control = p_uty(tags = "train")
       )
       # add deps
       ps$add_dep("rate.par", "method", CondEqual$new("ufcl"))
 
-      ps$values = list(centers = 2L)
+      ps$set_values(centers = 2L)
 
       super$initialize(
         id = "clust.cmeans",
@@ -73,7 +58,6 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       check_centers_param(self$param_set$values$centers, task, test_data_frame, "centers")

@@ -19,7 +19,8 @@
 #'
 #'   # available parameters:
 #'   learner$param_set$ids()
-#' }}
+#' }
+#' }
 #'
 #' @export
 LearnerClustFarthestFirst = R6Class("LearnerClustFF",
@@ -46,7 +47,6 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")

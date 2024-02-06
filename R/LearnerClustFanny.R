@@ -33,7 +33,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
         tol = p_dbl(lower = 0, default = 1e-15, tags = "train"),
         trace.lev = p_int(lower = 0L, default = 0L, tags = "train")
       )
-      ps$values = list(k = 2L)
+      ps$set_values(k = 2L)
 
       super$initialize(
         id = "clust.fanny",
@@ -47,7 +47,6 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")

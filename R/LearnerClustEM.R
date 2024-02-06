@@ -48,7 +48,6 @@ LearnerClustEM = R6Class("LearnerClustEM",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
