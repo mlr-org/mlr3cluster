@@ -21,9 +21,9 @@ LearnerClustCobweb = R6Class("LearnerClustCobweb",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        A = p_dbl(default = 1, lower = 0, tags = "train"),
-        C = p_dbl(default = 0.002, lower = 0, tags = "train"),
-        S = p_int(default = 42L, lower = 1L, tags = "train")
+        A = p_dbl(0, default = 1, tags = "train"),
+        C = p_dbl(0, default = 0.002, tags = "train"),
+        S = p_int(1L, default = 42L, tags = "train")
       )
 
       super$initialize(

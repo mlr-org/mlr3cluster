@@ -22,16 +22,16 @@ LearnerClustEM = R6Class("LearnerClustEM",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        I = p_int(default = 100L, lower = 1L, tags = "train"),
-        ll_cv = p_dbl(default = 1e-6, lower = 1e-6, tags = "train"),
-        ll_iter = p_dbl(default = 1e-6, lower = 1e-6, tags = "train"),
-        M = p_dbl(default = 1e-6, lower = 1e-6, tags = "train"),
-        max = p_int(default = -1L, lower = -1L, tags = "train"),
-        N = p_int(default = -1L, lower = -1L, tags = "train"),
-        num_slots = p_int(default = 1L, lower = 1L, tags = "train"),
-        S = p_int(default = 100L, lower = 0L, tags = "train"),
-        X = p_int(default = 10L, lower = 1L, tags = "train"),
-        K = p_int(default = 10L, lower = 1L, tags = "train"),
+        I = p_int(1L, default = 100L, tags = "train"),
+        ll_cv = p_dbl(1e-6, default = 1e-6, tags = "train"),
+        ll_iter = p_dbl(1e-6, default = 1e-6, tags = "train"),
+        M = p_dbl(1e-6, default = 1e-6, tags = "train"),
+        max = p_int(-1L, default = -1L, tags = "train"),
+        N = p_int(-1L, default = -1L, tags = "train"),
+        num_slots = p_int(1L, default = 1L, tags = "train"),
+        S = p_int(0L, default = 100L, tags = "train"),
+        X = p_int(1L, default = 10L,  tags = "train"),
+        K = p_int(1L, default = 10L, tags = "train"),
         V = p_lgl(default = FALSE, tags = "train"),
         output_debug_info = p_lgl(default = FALSE, tags = "train")
       )

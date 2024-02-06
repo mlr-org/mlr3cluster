@@ -26,12 +26,12 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
         centers = p_uty(
           tags = c("required", "train"), default = 2L, custom_check = crate(check_centers)
         ),
-        iter.max = p_int(lower = 1L, default = 10L, tags = c("train")),
+        iter.max = p_int(1L, default = 10L, tags = c("train")),
         algorithm = p_fct(
           levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"), default = "Hartigan-Wong", tags = c("train")
         ),
-        nstart = p_int(lower = 1L, default = 1L, tags = c("train")),
-        trace = p_int(lower = 0L, default = 0L, tags = c("train"))
+        nstart = p_int(1L, default = 1L, tags = c("train")),
+        trace = p_int(0L, default = 0L, tags = c("train"))
       )
       param_set$set_values(centers = 2L)
 

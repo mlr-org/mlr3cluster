@@ -29,8 +29,8 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
           }
         })),
         subset = p_uty(tags = "train", custom_check = crate(function(x) check_numeric(x))),
-        scaled = p_int(lower = 0L, default = 1, tags = "train"),
-        iter = p_int(lower = 1L, default = 200L, tags = "train"),
+        scaled = p_int(0L, default = 1, tags = "train"),
+        iter = p_int(1L, default = 200L, tags = "train"),
         thr = p_dbl(default = 0.01, tags = "train")
       )
 

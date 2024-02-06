@@ -30,8 +30,8 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        N = p_int(default = 2L, lower = 1L, tags = "train"),
-        S = p_int(default = 1L, lower = 1L, tags = "train"),
+        N = p_int(1L, default = 2L, tags = "train"),
+        S = p_int(1L, default = 1L, tags = "train"),
         output_debug_info = p_lgl(default = FALSE, tags = "train")
       )
 
