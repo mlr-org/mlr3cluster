@@ -23,32 +23,32 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
-        clusters = p_int(default = 2L, lower = 1L, tags = "train"),
-        batch_size = p_int(lower = 1L, default = 10L, tags = "train"),
-        num_init = p_int(lower = 1L, default = 1L, tags = "train"),
-        max_iters = p_int(lower = 1L, default = 100L, tags = "train"),
-        init_fraction = p_dbl(lower = 0, upper = 1, default = 1, tags = "train"),
+      param_set = ps(
+        clusters = p_int(1L, default = 2L, tags = "train"),
+        batch_size = p_int(1L, default = 10L, tags = "train"),
+        num_init = p_int(1L, default = 1L, tags = "train"),
+        max_iters = p_int(1L, default = 100L, tags = "train"),
+        init_fraction = p_dbl(0, 1, default = 1, tags = "train"),
         initializer = p_fct(
           levels = c("optimal_init", "quantile_init", "kmeans++", "random"), default = "kmeans++", tags = "train"
         ),
-        early_stop_iter = p_int(lower = 1L, default = 10L, tags = "train"),
+        early_stop_iter = p_int(1L, default = 10L, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train"),
         CENTROIDS = p_uty(default = NULL, tags = "train"),
-        tol = p_dbl(default = 1e-04, lower = 0, tags = "train"),
-        tol_optimal_init = p_dbl(default = 0.3, lower = 0, tags = "train"),
+        tol = p_dbl(0, default = 1e-04, tags = "train"),
+        tol_optimal_init = p_dbl(0, default = 0.3, tags = "train"),
         seed = p_int(default = 1L, tags = "train")
       )
-      ps$set_values(clusters = 2L)
+      param_set$set_values(clusters = 2L)
 
       # add deps
-      ps$add_dep("init_fraction", "initializer", CondAnyOf$new(c("kmeans++", "optimal_init")))
+      param_set$add_dep("init_fraction", "initializer", CondAnyOf$new(c("kmeans++", "optimal_init")))
 
       super$initialize(
         id = "clust.MBatchKMeans",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "fuzzy", "exclusive", "complete"),
         packages = "ClusterR",
         man = "mlr3cluster::mlr_learners_clust.MBatchKMeans",

@@ -20,7 +20,7 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      parma_set = ps(
         G = p_uty(default = 1:9, tags = "train", custom_check = crate(function(x) check_numeric(x))),
         modelNames = p_uty(tags = "train", custom_check = crate(function(x) check_character(x))),
         prior = p_uty(tags = "train", custom_check = crate(function(x) check_list(x))),
@@ -33,7 +33,7 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
         id = "clust.mclust",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
-        param_set = ps,
+        param_set = parma_set,
         properties = c("partitional", "fuzzy", "complete"),
         packages = "mclust",
         man = "mlr3cluster::mlr_learners_clust.mclust",

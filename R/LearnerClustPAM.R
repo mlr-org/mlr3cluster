@@ -23,24 +23,24 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
-        k = p_int(lower = 1L, default = 2L, tags = c("required", "train")),
+      param_set = ps(
+        k = p_int(1L, default = 2L, tags = c("required", "train")),
         metric = p_fct(levels = c("euclidian", "manhattan"), tags = "train"),
         medoids = p_uty(
           default = NULL, tags = "train", custom_check = crate(function(x) check_integerish(x, null.ok = TRUE))
         ),
         stand = p_lgl(default = FALSE, tags = "train"),
         do.swap = p_lgl(default = TRUE, tags = "train"),
-        pamonce = p_int(lower = 0L, upper = 5L, default = 0, tags = "train"),
-        trace.lev = p_int(lower = 0L, default = 0L, tags = "train")
+        pamonce = p_int(0L, 5L, default = 0, tags = "train"),
+        trace.lev = p_int(0L, default = 0L, tags = "train")
       )
-      ps$set_values(k = 2L)
+      param_set$set_values(k = 2L)
 
       super$initialize(
         id = "clust.pam",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "cluster",
         man = "mlr3cluster::mlr_learners_clust.pam",
