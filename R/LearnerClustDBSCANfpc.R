@@ -48,7 +48,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
         id = "clust.dbscan_fpc",
         packages = "fpc",
         feature_types = c("logical", "integer", "numeric"),
-        predict_types = c("partition"),
+        predict_types = "partition",
         param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         man = "mlr3cluster::mlr_learners_clust.dbscan_fpc",
@@ -62,7 +62,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
       m = invoke(fpc::dbscan, data = task$data(), .args = pars)
       m = set_class(
         list(cluster = m$cluster, eps = m$eps, MinPts = m$MinPts, isseed = m$isseed, data = task$data()),
-        c("dbscan")
+        "dbscan"
       )
       if (self$save_assignments) {
         self$assignments = m$cluster

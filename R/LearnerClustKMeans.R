@@ -26,12 +26,12 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
         centers = p_uty(
           tags = c("required", "train"), default = 2L, custom_check = crate(check_centers)
         ),
-        iter.max = p_int(1L, default = 10L, tags = c("train")),
+        iter.max = p_int(1L, default = 10L, tags = "train"),
         algorithm = p_fct(
-          levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"), default = "Hartigan-Wong", tags = c("train")
+          levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"), default = "Hartigan-Wong", tags = "train"
         ),
-        nstart = p_int(1L, default = 1L, tags = c("train")),
-        trace = p_int(0L, default = 0L, tags = c("train"))
+        nstart = p_int(1L, default = 1L, tags = "train"),
+        trace = p_int(0L, default = 0L, tags = "train")
       )
       param_set$set_values(centers = 2L)
 
@@ -50,10 +50,8 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
 
   private = list(
     .train = function(task) {
-      if ("nstart" %in% names(self$param_set$values)) {
-        if (!test_int(self$param_set$values$centers)) {
-          warningf("`nstart` parameter is only relevant when `centers` is integer.")
-        }
+      if ("nstart" %in% names(self$param_set$values) && !test_int(self$param_set$values$centers)) {
+        warningf("`nstart` parameter is only relevant when `centers` is integer.")
       }
 
       check_centers_param(self$param_set$values$centers, task, test_data_frame, "centers")

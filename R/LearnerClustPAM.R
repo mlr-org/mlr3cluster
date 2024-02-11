@@ -31,7 +31,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
         ),
         stand = p_lgl(default = FALSE, tags = "train"),
         do.swap = p_lgl(default = TRUE, tags = "train"),
-        pamonce = p_int(0L, 5L, default = 0, tags = "train"),
+        pamonce = p_int(0L, 5L, default = 0L, tags = "train"),
         trace.lev = p_int(0L, default = 0L, tags = "train")
       )
       param_set$set_values(k = 2L)
@@ -53,15 +53,14 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
       if (!is.null(self$param_set$values$medoids)) {
         if (test_true(length(self$param_set$values$medoids) != self$param_set$values$k)) {
           stopf("number of `medoids`' needs to match `k`!")
-        } else {
-          r = unname(lapply(self$param_set$values$medoids, function(i) {
-            test_true(i <= task$nrow) && test_true(i >= 1)
-          }))
-          if (sum(unlist(r)) != self$param_set$values$k) {
-            msg = sprintf("`medoids` need to contain valid indices from 1")
-            msg = sprintf("%s to %s (number of observations)!", msg, self$param_set$values$k)
-            stopf(msg)
-          }
+        }
+        r = map_lgl(self$param_set$values$medoids, function(i) {
+          test_true(i <= task$nrow) && test_true(i >= 1L)
+        })
+        if (sum(r) != self$param_set$values$k) {
+          msg = sprintf("`medoids` need to contain valid indices from 1")
+          msg = sprintf("%s to %s (number of observations)!", msg, self$param_set$values$k)
+          stopf(msg)
         }
       }
 
