@@ -10,10 +10,8 @@ allow_partial_matching = list(
 )
 
 check_centers_param = function(centers, task, test_class, name) {
-  if (test_class(centers)) {
-    if (ncol(centers) != task$ncol) {
-      stopf("`%s` must have same number of columns as data.", name)
-    }
+  if (test_class(centers) && ncol(centers) != task$ncol) {
+    stopf("`%s` must have same number of columns as data.", name)
   }
 }
 

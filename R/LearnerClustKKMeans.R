@@ -93,7 +93,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
       # this is the squared kernel distance to the centers
       d2 = d_xx + d_cc - 2 * d_xc
       # the nearest center determines cluster assignment
-      partition = apply(d2, 1, function(x) which.min(x))
+      partition = apply(d2, 1L, which.min)
 
       PredictionClust$new(task = task, partition = partition)
     }

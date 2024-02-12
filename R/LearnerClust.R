@@ -63,5 +63,5 @@ LearnerClust = R6Class("LearnerClust",
       self$assignments = NULL
       super$reset()
     }
-  ),
+  )
 )
