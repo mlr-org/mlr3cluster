@@ -27,7 +27,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
       param_set = ps(
         s = p_uty(tags = c("required", "train")),
         p = p_uty(default = NA, tags = "train", custom_check = crate(function(x) check_numeric(x))),
-        q = p_dbl(0L, 1L, tags = "train"),
+        q = p_dbl(0, 1, tags = "train"),
         maxits = p_int(1L, default = 1000L, tags = "train"),
         convits = p_int(1L, default = 100L, tags = "train"),
         lam = p_dbl(0.5, 1, default = 0.9, tags = "train"),
