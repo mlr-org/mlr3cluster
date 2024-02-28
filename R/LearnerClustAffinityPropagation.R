@@ -24,15 +24,9 @@ LearnerClustAP = R6Class("LearnerClustAP",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         s = p_uty(tags = c("required", "train")),
-        p = p_uty(custom_check = crate(function(x) {
-          if (test_numeric(x)) {
-            return(TRUE)
-          } else {
-            return("`p` needs to be a numeric vector")
-          }
-        }), default = NA, tags = "train"),
+        p = p_uty(default = NA, tags = "train", custom_check = crate(function(x) check_numeric(x))),
         q = p_dbl(lower = 0L, upper = 1L, tags = "train"),
         maxits = p_int(lower = 1L, default = 1000L, tags = "train"),
         convits = p_int(lower = 1L, default = 100L, tags = "train"),
@@ -47,7 +41,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
         id = "clust.ap",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "apcluster",
         man = "mlr3cluster::mlr_learners_clust.ap",
@@ -69,14 +63,16 @@ LearnerClustAP = R6Class("LearnerClustAP",
 
       return(m)
     },
+
     .predict = function(task) {
       sim_func = self$param_set$values$s
       exemplar_data = attributes(self$model)$exemplar_data
 
       d = task$data()
-      sim_mat = sim_func(rbind(exemplar_data, d),
-        sel = (1:nrow(d)) +
-          nrow(exemplar_data))[1:nrow(exemplar_data), ]
+      sim_mat = sim_func(
+        rbind(exemplar_data, d),
+        sel = (seq_len(nrow(d))) + nrow(exemplar_data)
+      )[seq_len(nrow(exemplar_data)), ]
       partition = unname(apply(sim_mat, 2, which.max))
       PredictionClust$new(task = task, partition = partition)
     }

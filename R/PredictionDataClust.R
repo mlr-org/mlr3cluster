@@ -85,7 +85,7 @@ filter_prediction_data.PredictionDataClust = function(pdata, row_ids, ...) {
   }
 
   if (!is.null(pdata$prob)) {
-    pdata$prob = pdata$prob[keep,, drop = FALSE]
+    pdata$prob = pdata$prob[keep, , drop = FALSE]
   }
 
   pdata

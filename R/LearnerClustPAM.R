@@ -23,32 +23,24 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
-        k = p_int(lower = 1L, tags = c("required", "train")),
+      param_set = ps(
+        k = p_int(1L, tags = c("required", "train")),
         metric = p_fct(levels = c("euclidian", "manhattan"), tags = "train"),
-        medoids = p_uty(default = NULL, tags = "train",
-          custom_check = crate(function(x) {
-            if (test_integerish(x)) {
-              return(TRUE)
-            } else if (test_null(x)) {
-              return(TRUE)
-            } else {
-              return("`medoids` needs to be either `NULL` or vector with row indices!")
-            }
-          })
+        medoids = p_uty(
+          default = NULL, tags = "train", custom_check = crate(function(x) check_integerish(x, null.ok = TRUE))
         ),
         stand = p_lgl(default = FALSE, tags = "train"),
         do.swap = p_lgl(default = TRUE, tags = "train"),
-        pamonce = p_int(lower = 0L, upper = 5L, default = 0, tags = "train"),
-        trace.lev = p_int(lower = 0L, default = 0L, tags = "train")
+        pamonce = p_int(0L, 5L, default = 0L, tags = "train"),
+        trace.lev = p_int(0L, default = 0L, tags = "train")
       )
-      ps$values = list(k = 2L)
+      param_set$set_values(k = 2L)
 
       super$initialize(
         id = "clust.pam",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "cluster",
         man = "mlr3cluster::mlr_learners_clust.pam",
@@ -60,16 +52,15 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
     .train = function(task) {
       if (!is.null(self$param_set$values$medoids)) {
         if (test_true(length(self$param_set$values$medoids) != self$param_set$values$k)) {
-          stop("number of `medoids`' needs to match `k`!")
-        } else {
-          r = unname(lapply(self$param_set$values$medoids, function(i) {
-            test_true(i <= task$nrow) && test_true(i >= 1)
-          }))
-          if (sum(unlist(r)) != self$param_set$values$k) {
-            msg = sprintf("`medoids` need to contain valid indices from 1")
-            msg = sprintf("%s to %s (number of observations)!", msg, self$param_set$values$k)
-            stopf(msg)
-          }
+          stopf("number of `medoids`' needs to match `k`!")
+        }
+        r = map_lgl(self$param_set$values$medoids, function(i) {
+          test_true(i <= task$nrow) && test_true(i >= 1L)
+        })
+        if (sum(r) != self$param_set$values$k) {
+          msg = sprintf("`medoids` need to contain valid indices from 1")
+          msg = sprintf("%s to %s (number of observations)!", msg, self$param_set$values$k)
+          stopf(msg)
         }
       }
 
@@ -81,6 +72,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
 
       return(m)
     },
+
     .predict = function(task) {
       partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))
       PredictionClust$new(task = task, partition = partition)

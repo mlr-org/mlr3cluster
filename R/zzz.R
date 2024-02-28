@@ -11,7 +11,6 @@
 "_PACKAGE"
 
 register_mlr3 = function() {
-
   # reflections
   x = utils::getFromNamespace("mlr_reflections", ns = "mlr3")
 
@@ -24,7 +23,9 @@ register_mlr3 = function() {
 
   x$task_col_roles$clust = x$task_col_roles$regr
   x$task_properties$clust = x$task_properties$regr
-  x$learner_properties$clust = c("missings", "partitional", "hierarchical", "exclusive", "overlapping", "fuzzy", "complete", "partial")
+  x$learner_properties$clust = c(
+    "missings", "partitional", "hierarchical", "exclusive", "overlapping", "fuzzy", "complete", "partial"
+  )
 
   # measure
   x$measure_properties$clust = x$measure_properties$regr

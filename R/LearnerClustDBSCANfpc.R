@@ -19,39 +19,36 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        eps = p_dbl(lower = 0L, tags = c("required", "train")),
-        MinPts = p_int(lower = 0L, default = 5L, tags = "train"),
+        eps = p_dbl(0, tags = c("required", "train")),
+        MinPts = p_int(0L, default = 5L, tags = "train"),
         scale = p_lgl(default = FALSE, tags = "train"),
         method = p_fct(levels = c("hybrid", "raw", "dist"), tags = "train"),
         seeds = p_lgl(default = TRUE, tags = "train"),
-        showplot = p_uty(custom_check = crate(function(x) {
-          if (test_flag(x)) {
-            return(TRUE)
-          } else if (test_int(x, lower = 0, upper = 2)) {
-            return(TRUE)
+        showplot = p_uty(default = FALSE, tags = "train", custom_check = crate(function(x) {
+          if (test_flag(x) || test_int(x, lower = 0, upper = 2)) {
+            TRUE
           } else {
-            return("`showplot` need to be either logical or integer between 0 and 2")
+            "`showplot` need to be either logical or integer between 0 and 2"
           }
-        }), default = FALSE, tags = "train"),
-        countmode = p_uty(custom_check = crate(function(x) {
-          if (test_integer(x)) {
-            return(TRUE)
-          } else if (test_null(x)) {
-            return(TRUE)
+        })),
+        countmode = p_uty(default = NULL, tags = "train", custom_check = crate(function(x) {
+          if (test_integer(x, null.ok = TRUE)) {
+            TRUE
           } else {
-            return("`countmode` need to be NULL or vector of integers")
+            "`countmode` need to be NULL or vector of integers"
           }
-        }), default = NULL, tags = "train")
+        }))
       )
 
-      param_set$values = list(MinPts = 5L, scale = FALSE, seeds = TRUE,
-        showplot = FALSE, countmode = NULL)
+      param_set$set_values(
+        MinPts = 5L, scale = FALSE, seeds = TRUE, showplot = FALSE, countmode = NULL
+      )
 
       super$initialize(
         id = "clust.dbscan_fpc",
         packages = "fpc",
         feature_types = c("logical", "integer", "numeric"),
-        predict_types = c("partition"),
+        predict_types = "partition",
         param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         man = "mlr3cluster::mlr_learners_clust.dbscan_fpc",
@@ -65,7 +62,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
       m = invoke(fpc::dbscan, data = task$data(), .args = pars)
       m = set_class(
         list(cluster = m$cluster, eps = m$eps, MinPts = m$MinPts, isseed = m$isseed, data = task$data()),
-        c("dbscan")
+        "dbscan"
       )
       if (self$save_assignments) {
         self$assignments = m$cluster
@@ -73,6 +70,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
 
       return(m)
     },
+
     .predict = function(task) {
       partition = as.integer(predict(self$model, data = self$model$data, newdata = task$data()))
       PredictionClust$new(task = task, partition = partition)

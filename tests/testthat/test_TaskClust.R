@@ -1,5 +1,3 @@
-context("TaskClust")
-
 test_that("Basic ops on usarrests task", {
   task = tsk("usarrests")
   expect_task(task)

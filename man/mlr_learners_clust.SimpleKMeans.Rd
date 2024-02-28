@@ -59,7 +59,8 @@ if (requireNamespace("RWeka")) {
 
   # available parameters:
   learner$param_set$ids()
-}}
+}
+}
 
 }
 \section{Super classes}{

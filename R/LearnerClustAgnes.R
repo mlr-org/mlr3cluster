@@ -21,34 +21,38 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
+      param_set = ps(
         metric = p_fct(default = "euclidean", levels = c("euclidean", "manhattan"), tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
-        method = p_fct(default = "average", levels = c("average", "single", "complete", "ward", "weighted", "flexible", "gaverage"), tags = "train"),
-        trace.lev = p_int(lower = 0L, default = 0L, tags = "train"),
-        k = p_int(lower = 1L, default = 2L, tags = "predict"),
+        method = p_fct(
+          default = "average",
+          levels = c("average", "single", "complete", "ward", "weighted", "flexible", "gaverage"),
+          tags = "train"
+        ),
+        trace.lev = p_int(0L, default = 0L, tags = "train"),
+        k = p_int(1L, default = 2L, tags = "predict"),
         par.method = p_uty(tags = "train", custom_check = crate(function(x) {
-            if (test_numeric(x) || test_list(x)) {
-              if (length(x) %in% c(1L, 3L, 4L)) {
-                return(TRUE)
-              }
-              return("`par.method` needs be of length 1, 3, or 4")
-            } else {
-              return("`par.method` needs to be a numeric vector")
-            }
-          }))
+          if (!(test_numeric(x) || test_list(x))) {
+            return("`par.method` needs to be a numeric vector")
+          }
+          if (length(x) %in% c(1L, 3L, 4L)) {
+            TRUE
+          } else {
+            "`par.method` needs be of length 1, 3, or 4"
+          }
+        }))
       )
 
       # param deps
-      ps$add_dep("par.method", "method", CondAnyOf$new(c("flexible", "gaverage")))
+      param_set$add_dep("par.method", "method", CondAnyOf$new(c("flexible", "gaverage")))
 
-      ps$values = list(k = 2L)
+      param_set$set_values(k = 2L)
 
       super$initialize(
         id = "clust.agnes",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("hierarchical", "exclusive", "complete"),
         packages = "cluster",
         man = "mlr3cluster::mlr_learners_clust.agnes",

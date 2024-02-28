@@ -20,25 +20,32 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
-        method = p_fct(default = "complete", levels = c("ward.D", "ward.D2", "single", "complete", "average", "mcquitty" , "median", "centroid"), tags = c("train", "hclust")),
+      param_set = ps(
+        method = p_fct(
+          default = "complete",
+          levels = c("ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", "centroid"),
+          tags = c("train", "hclust")
+        ),
         members = p_uty(default = NULL, tags = c("train", "hclust")),
-        distmethod = p_fct(default = "euclidean", levels = c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"), tags = "train"),
+        distmethod = p_fct(
+          default = "euclidean", levels = c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"),
+          tags = "train"
+        ),
         diag = p_lgl(default = FALSE, tags = c("train", "dist")),
         upper = p_lgl(default = FALSE, tags = c("train", "dist")),
-        p = p_dbl(default = 2L, tags = c("train", "dist")),
-        k = p_int(lower = 1L, default = 2L, tags = "predict")
+        p = p_dbl(default = 2, tags = c("train", "dist")),
+        k = p_int(1L, default = 2L, tags = "predict")
       )
 
       # param deps
-      ps$add_dep("p", "distmethod", CondAnyOf$new("minkowski"))
-      ps$values = list(k = 2L, distmethod = "euclidean")
+      param_set$add_dep("p", "distmethod", CondAnyOf$new("minkowski"))
+      param_set$set_values(k = 2L, distmethod = "euclidean")
 
       super$initialize(
         id = "clust.hclust",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("hierarchical", "exclusive", "complete"),
         packages = "stats",
         man = "mlr3cluster::mlr_learners_clust.hclust",
@@ -46,13 +53,14 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       d = self$param_set$values$distmethod
       dist_arg = self$param_set$get_values(tags = c("train", "dist"))
-      dist = invoke(stats::dist, x = task$data(),
-        method = ifelse(is.null(d), "euclidean", d), .args = dist_arg)
+      dist = invoke(stats::dist,
+        x = task$data(),
+        method = ifelse(is.null(d), "euclidean", d), .args = dist_arg
+      )
       pv = self$param_set$get_values(tags = c("train", "hclust"))
       m = invoke(stats::hclust, d = dist, .args = pv)
       if (self$save_assignments) {

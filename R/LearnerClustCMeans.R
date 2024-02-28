@@ -22,50 +22,35 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
-        centers = p_uty(tags = c("required", "train"),
-          custom_check = crate(function(x) {
-            if (test_data_frame(x)) {
-              return(TRUE)
-            } else if (test_int(x)) {
-              assert_true(x >= 1L)
-            } else {
-              return("`centers` must be integer or data.frame with initial cluster centers")
-            }
-          })
+      param_set = ps(
+        centers = p_uty(
+          tags = c("required", "train"), custom_check = check_centers
         ),
-        iter.max = p_int(lower = 1L, default = 100L, tags = "train"),
+        iter.max = p_int(1L, default = 100L, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train"),
         dist = p_fct(levels = c("euclidean", "manhattan"), default = "euclidean", tags = "train"),
         method = p_fct(levels = c("cmeans", "ufcl"), default = "cmeans", tags = "train"),
-        m = p_dbl(lower = 1L, default = 2L, tags = "train"),
-        rate.par = p_dbl(lower = 0L, upper = 1L, tags = "train"),
-        weights = p_uty(default = 1L, custom_check = crate(function(x) {
-            if (test_numeric(x)) {
-              if (sum(sign(x)) == length(x)) {
-                return(TRUE)
-              } else {
-                return("`weights` must contain only positive numbers")
-              }
-            } else if (test_count(x)) {
-              return(TRUE)
-            } else {
-              return("`weights` must be positive numeric vector or a single positive number")
-            }
-          }),
-          tags = "train"),
+        m = p_dbl(1, default = 2, tags = "train"),
+        rate.par = p_dbl(0, 1, tags = "train"),
+        weights = p_uty(default = 1L, tags = "train", custom_check = crate(function(x) {
+          if (test_numeric(x) && all(x > 0) || check_count(x, positive = TRUE)) {
+            TRUE
+          } else {
+            "`weights` must be positive numeric vector or a single positive number"
+          }
+        })),
         control = p_uty(tags = "train")
       )
       # add deps
-      ps$add_dep("rate.par", "method", CondEqual$new("ufcl"))
+      param_set$add_dep("rate.par", "method", CondEqual$new("ufcl"))
 
-      ps$values = list(centers = 2L)
+      param_set$set_values(centers = 2L)
 
       super$initialize(
         id = "clust.cmeans",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "fuzzy", "complete"),
         packages = "e1071",
         man = "mlr3cluster::mlr_learners_clust.cmeans",
@@ -73,7 +58,6 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
       )
     }
   ),
-
   private = list(
     .train = function(task) {
       check_centers_param(self$param_set$values$centers, task, test_data_frame, "centers")

@@ -26,8 +26,8 @@ Imports:
     fpc,
     cluster,
     data.table,
-    mlr3misc (>= 0.9.4),
-    paradox,
+    mlr3misc (>= 0.10.0),
+    paradox (>= 0.10.0),
     R6,
     stats
 Suggests:
@@ -40,10 +40,10 @@ Suggests:
     mclust,
     mlbench,
     RWeka,
-    testthat
+    testthat (>= 3.0.0)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Collate:
     'LearnerClust.R'
     'aaa.R'
@@ -80,3 +80,4 @@ Collate:
     'bibentries.R'
     'helper.R'
     'zzz.R'
+Config/testthat/edition: 3

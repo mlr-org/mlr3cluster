@@ -20,23 +20,17 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
-        h = p_uty(custom_check = crate(function(x) {
-            if (test_numeric(x) || test_int(x)) {
-              return(TRUE)
-            } else {
-              return("`h` must be either integer or numeric vector")
-            }
-          }), tags = "train"),
-        subset = p_uty(custom_check = crate(function(x) {
-          if (test_numeric(x)) {
-            return(TRUE)
+      param_set = ps(
+        h = p_uty(tags = "train", custom_check = crate(function(x) {
+          if (test_numeric(x) || test_int(x)) {
+            TRUE
           } else {
-            return("`subset` must be a numeric vector")
+            "`h` must be either integer or numeric vector"
           }
-        }), tags = "train"),
-        scaled = p_int(lower = 0L, default = 1, tags = "train"),
-        iter = p_int(lower = 1L, default = 200L, tags = "train"),
+        })),
+        subset = p_uty(tags = "train", custom_check = crate(function(x) check_numeric(x))),
+        scaled = p_int(0L, default = 1, tags = "train"),
+        iter = p_int(1L, default = 200L, tags = "train"),
         thr = p_dbl(default = 0.01, tags = "train")
       )
 
@@ -44,7 +38,7 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
         id = "clust.meanshift",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "LPCM",
         man = "mlr3cluster::mlr_learners_clust.meanshift",
@@ -54,10 +48,8 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
   ),
   private = list(
     .train = function(task) {
-      if (!is.null(self$param_set$values$subset)) {
-        if (length(self$param_set$values$subset) > task$nrow) {
-          stop("`subset` length must be less than or equal to number of observations in task")
-        }
+      if (!is.null(self$param_set$values$subset) && length(self$param_set$values$subset) > task$nrow) {
+        stopf("`subset` length must be less than or equal to number of observations in task")
       }
 
       pv = self$param_set$get_values(tags = "train")
@@ -68,6 +60,7 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
 
       return(m)
     },
+
     .predict = function(task) {
       warn_prediction_useless(self$id)
       partition = as.integer(self$model$cluster.label)

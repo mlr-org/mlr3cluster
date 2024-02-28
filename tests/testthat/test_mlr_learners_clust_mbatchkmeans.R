@@ -1,5 +1,3 @@
-context("clust.MBatchKMeans")
-
 skip_if_not_installed("ClusterR")
 
 test_that("autotest", {

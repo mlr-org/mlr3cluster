@@ -23,30 +23,32 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      ps = ps(
-        clusters = p_int(default = 2L, lower = 1L, tags = "train"),
-        batch_size = p_int(lower = 1L, default = 10L, tags = "train"),
-        num_init = p_int(lower = 1L, default = 1L, tags = "train"),
-        max_iters = p_int(lower = 1L, default = 100L, tags = "train"),
-        init_fraction = p_dbl(lower = 0L, upper = 1L, default = 1L, tags = "train"),
-        initializer = p_fct(levels = c("optimal_init", "quantile_init", "kmeans++", "random"), default = "kmeans++", tags = "train"),
-        early_stop_iter = p_int(lower = 1L, default = 10L, tags = "train"),
+      param_set = ps(
+        clusters = p_int(1L, default = 2L, tags = "train"),
+        batch_size = p_int(1L, default = 10L, tags = "train"),
+        num_init = p_int(1L, default = 1L, tags = "train"),
+        max_iters = p_int(1L, default = 100L, tags = "train"),
+        init_fraction = p_dbl(0, 1, default = 1, tags = "train"),
+        initializer = p_fct(
+          levels = c("optimal_init", "quantile_init", "kmeans++", "random"), default = "kmeans++", tags = "train"
+        ),
+        early_stop_iter = p_int(1L, default = 10L, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train"),
         CENTROIDS = p_uty(default = NULL, tags = "train"),
-        tol = p_dbl(default = 1e-04, lower = 0, tags = "train"),
-        tol_optimal_init = p_dbl(default = 0.3, lower = 0, tags = "train"),
+        tol = p_dbl(0, default = 1e-04, tags = "train"),
+        tol_optimal_init = p_dbl(0, default = 0.3, tags = "train"),
         seed = p_int(default = 1L, tags = "train")
       )
-      ps$values = list(clusters = 2L)
+      param_set$set_values(clusters = 2L)
 
       # add deps
-      ps$add_dep("init_fraction", "initializer", CondAnyOf$new(c("kmeans++", "optimal_init")))
+      param_set$add_dep("init_fraction", "initializer", CondAnyOf$new(c("kmeans++", "optimal_init")))
 
       super$initialize(
         id = "clust.MBatchKMeans",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
-        param_set = ps,
+        param_set = param_set,
         properties = c("partitional", "fuzzy", "exclusive", "complete"),
         packages = "ClusterR",
         man = "mlr3cluster::mlr_learners_clust.MBatchKMeans",
@@ -57,10 +59,9 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
   private = list(
     .train = function(task) {
       check_centers_param(self$param_set$values$CENTROIDS, task, test_matrix, "CENTROIDS")
-      if (test_matrix(self$param_set$values$CENTROIDS)) {
-        if (nrow(self$param_set$values$CENTROIDS) != self$param_set$values$clusters) {
-          stop("`CENTROIDS` must have same number of rows as `clusters`")
-        }
+      if (test_matrix(self$param_set$values$CENTROIDS) &&
+            nrow(self$param_set$values$CENTROIDS) != self$param_set$values$clusters) {
+        stopf("`CENTROIDS` must have same number of rows as `clusters`")
       }
 
       pv = self$param_set$get_values(tags = "train")
@@ -69,30 +70,35 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
         self$assignments = unclass(ClusterR::predict_MBatchKMeans(
           data = task$data(),
           CENTROIDS = m$centroids,
-          fuzzy = FALSE))
+          fuzzy = FALSE
+        ))
         self$assignments = as.integer(self$assignments)
       }
 
       return(m)
     },
+
     .predict = function(task) {
       if (self$predict_type == "partition") {
         partition = unclass(ClusterR::predict_MBatchKMeans(
           data = task$data(),
           CENTROIDS = self$model$centroids,
-          fuzzy = FALSE))
+          fuzzy = FALSE
+        ))
         partition = as.integer(partition)
         pred = PredictionClust$new(task = task, partition = partition)
       } else if (self$predict_type == "prob") {
         partition = unclass(ClusterR::predict_MBatchKMeans(
           data = task$data(),
           CENTROIDS = self$model$centroids,
-          fuzzy = TRUE))
+          fuzzy = TRUE
+        ))
         colnames(partition$fuzzy_clusters) = seq_len(ncol(partition$fuzzy_clusters))
         pred = PredictionClust$new(
           task = task,
           partition = as.integer(partition$clusters),
-          prob = partition$fuzzy_clusters)
+          prob = partition$fuzzy_clusters
+        )
       }
 
       return(pred)

@@ -10,9 +10,15 @@ allow_partial_matching = list(
 )
 
 check_centers_param = function(centers, task, test_class, name) {
-  if (test_class(centers)) {
-    if (ncol(centers) != task$ncol) {
-      stop(sprintf("`%s` must have same number of columns as data.", name))
-    }
+  if (test_class(centers) && ncol(centers) != task$ncol) {
+    stopf("`%s` must have same number of columns as data.", name)
+  }
+}
+
+check_centers = function(x) {
+  if (test_data_frame(x) || test_int(x, lower = 1L)) {
+    TRUE
+  } else {
+    "`centers` must be integer or data.frame with initial cluster centers"
   }
 }
