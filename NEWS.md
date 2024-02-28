@@ -1,6 +1,7 @@
 # mlr3cluster (development version)
 
 * Add DBSCAN learner from 'fpc' package
+* Compatibility with upcoming 'paradox' release
 
 # mlr3cluster 0.1.8
 
