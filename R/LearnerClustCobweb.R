@@ -1,8 +1,6 @@
 #' @title Cobweb Clustering Learner
 #'
 #' @name mlr_learners_clust.cobweb
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Cobweb clustering implemented in [RWeka::Cobweb()].
@@ -57,4 +55,5 @@ LearnerClustCobweb = R6Class("LearnerClustCobweb",
   )
 )
 
+#' @include aaa.R
 learners[["clust.cobweb"]] = LearnerClustCobweb

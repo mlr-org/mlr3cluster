@@ -1,8 +1,6 @@
 #' @title Gaussian Mixture Models-Based Clustering Learner
 #'
 #' @name mlr_learners_clust.mclust
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for model-based clustering implemented in [mclust::Mclust()].
@@ -21,11 +19,11 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       parma_set = ps(
-        G = p_uty(default = 1:9, tags = "train", custom_check = crate(function(x) check_numeric(x))),
-        modelNames = p_uty(tags = "train", custom_check = crate(function(x) check_character(x))),
-        prior = p_uty(tags = "train", custom_check = crate(function(x) check_list(x))),
-        control = p_uty(default = mclust::emControl(), tags = "train", custom_check = crate(function(x) check_list(x))),
-        initialization = p_uty(tags = "train", custom_check = crate(function(x) check_list(x))),
+        G = p_uty(default = 1:9, tags = "train", custom_check = check_numeric),
+        modelNames = p_uty(tags = "train", custom_check = check_character),
+        prior = p_uty(tags = "train", custom_check = check_list),
+        control = p_uty(default = mclust::emControl(), tags = "train", custom_check = check_list),
+        initialization = p_uty(tags = "train", custom_check = check_list),
         x = p_uty(tags = "train", custom_check = crate(function(x) check_class(x, "mclustBIC")))
       )
 
@@ -63,4 +61,5 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
   )
 )
 
+#' @include aaa.R
 learners[["clust.mclust"]] = LearnerClustMclust

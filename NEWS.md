@@ -1,6 +1,8 @@
 # mlr3cluster (development version)
 
 * Add DBSCAN learner from 'fpc' package
+* Add HDBSCAN learner from 'hdbscan' package
+* Add OPTICS learner from 'dbscan' package
 
 # mlr3cluster 0.1.8
 

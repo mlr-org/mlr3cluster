@@ -1,8 +1,6 @@
 #' @title Mean Shift Clustering Learner
 #'
 #' @name mlr_learners_clust.meanshift
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Mean Shift clustering implemented in [LPCM::ms()].
@@ -28,7 +26,7 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
             "`h` must be either integer or numeric vector"
           }
         })),
-        subset = p_uty(tags = "train", custom_check = crate(function(x) check_numeric(x))),
+        subset = p_uty(tags = "train", custom_check = check_numeric),
         scaled = p_int(0L, default = 1, tags = "train"),
         iter = p_int(1L, default = 200L, tags = "train"),
         thr = p_dbl(default = 0.01, tags = "train")
@@ -69,4 +67,5 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
   )
 )
 
+#' @include aaa.R
 learners[["clust.meanshift"]] = LearnerClustMeanShift

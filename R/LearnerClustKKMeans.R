@@ -1,8 +1,6 @@
 #' @title Kernel K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.kkmeans
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for kernel k-means clustering implemented in [kernlab::kkmeans()].
@@ -25,7 +23,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
     initialize = function() {
       param_set = ps(
         centers = p_uty(
-          tags = c("required", "train"), default = 2L, custom_check = crate(check_centers)
+          tags = c("required", "train"), default = 2L, custom_check = check_centers
         ),
         kernel = p_fct(
           default = "rbfdot",
@@ -100,4 +98,5 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
   )
 )
 
+#' @include aaa.R
 learners[["clust.kkmeans"]] = LearnerClustKKMeans
