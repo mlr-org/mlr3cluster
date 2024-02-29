@@ -1,8 +1,6 @@
 #' @title Featureless Clustering Learner
 #'
 #' @name mlr_learners_clust.featureless
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A simple [LearnerClust] which randomly (but evenly) assigns observations to
@@ -80,4 +78,5 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
   )
 )
 
+#' @include aaa.R
 learners[["clust.featureless"]] = LearnerClustFeatureless

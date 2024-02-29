@@ -1,8 +1,6 @@
 #' @title Affinity Propagation Clustering Learner
 #'
 #' @name mlr_learners_clust.ap
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Affinity Propagation clustering implemented in [apcluster::apcluster()].
@@ -26,7 +24,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
     initialize = function() {
       param_set = ps(
         s = p_uty(tags = c("required", "train")),
-        p = p_uty(default = NA, tags = "train", custom_check = crate(function(x) check_numeric(x))),
+        p = p_uty(default = NA, tags = "train", custom_check = check_numeric),
         q = p_dbl(0, 1, tags = "train"),
         maxits = p_int(1L, default = 1000L, tags = "train"),
         convits = p_int(1L, default = 100L, tags = "train"),
@@ -79,4 +77,5 @@ LearnerClustAP = R6Class("LearnerClustAP",
   )
 )
 
+#' @include aaa.R
 learners[["clust.ap"]] = LearnerClustAP

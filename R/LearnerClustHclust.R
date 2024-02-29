@@ -1,8 +1,6 @@
 #' @title Agglomerative Hierarchical Clustering Learner
 #'
 #' @name mlr_learners_clust.hclust
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for agglomerative hierarchical clustering implemented in [stats::hclust()].
@@ -82,4 +80,5 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
   )
 )
 
+#' @include aaa.R
 learners[["clust.hclust"]] = LearnerClustHclust

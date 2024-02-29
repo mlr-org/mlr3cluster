@@ -1,8 +1,6 @@
 #' @title Expectation-Maximization Clustering Learner
 #'
 #' @name mlr_learners_clust.em
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Expectation-Maximization clustering implemented in
@@ -68,4 +66,5 @@ LearnerClustEM = R6Class("LearnerClustEM",
   )
 )
 
+#' @include aaa.R
 learners[["clust.em"]] = LearnerClustEM

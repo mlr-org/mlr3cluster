@@ -3,11 +3,10 @@
 \name{mlr_learners_clust.dbscan_fpc}
 \alias{mlr_learners_clust.dbscan_fpc}
 \alias{LearnerClustDBSCANfpc}
-\title{Density-Based Clustering Learner with fpc}
+\title{Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner}
 \description{
-A \link{LearnerClust} for density-based clustering implemented in \code{\link[fpc:dbscan]{fpc::dbscan()}}.
-The predict method uses \code{\link[fpc:dbscan]{fpc::predict.dbscan()}} to compute the
-cluster memberships for new data.
+DBSCAN (Density-based spatial clustering of applications with noise) clustering.
+Calls \code{\link[fpc:dbscan]{fpc::dbscan()}} from \CRANpkg{fpc}.
 }
 \section{Dictionary}{
 
@@ -50,6 +49,34 @@ if (requireNamespace("fpc")) {
   learner$param_set$ids()
 }
 }
+\references{
+Ester, Martin, Kriegel, Hans-Peter, Sander, Jörg, Xu, Xiaowei, others (1996).
+\dQuote{A density-based algorithm for discovering clusters in large spatial databases with noise.}
+In \emph{kdd}, volume 96 number 34, 226--231.
+}
+\seealso{
+\itemize{
+\item Chapter in the \href{https://mlr3book.mlr-org.com/}{mlr3book}:
+\url{https://mlr3book.mlr-org.com/chapters/chapter2/data_and_basic_modeling.html#sec-learners}
+\item Package \href{https://github.com/mlr-org/mlr3extralearners}{mlr3extralearners} for more learners.
+\item \link[mlr3misc:Dictionary]{Dictionary} of \link[=Learner]{Learners}: \link{mlr_learners}
+\item \code{as.data.table(mlr_learners)} for a table of available \link[=Learner]{Learners} in the running session (depending on the loaded packages).
+\item \CRANpkg{mlr3pipelines} to combine learners with pre- and postprocessing steps.
+\item Extension packages for additional task types:
+\itemize{
+\item \CRANpkg{mlr3proba} for probabilistic supervised regression and survival analysis.
+\item \CRANpkg{mlr3cluster} for unsupervised clustering.
+}
+\item \CRANpkg{mlr3tuning} for tuning of hyperparameters, \CRANpkg{mlr3tuningspaces}
+for established default tuning spaces.
+}
+
+Other Learner: 
+\code{\link{mlr_learners_clust.dbscan}},
+\code{\link{mlr_learners_clust.hdbscan}},
+\code{\link{mlr_learners_clust.optics}}
+}
+\concept{Learner}
 \section{Super classes}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{\link[mlr3cluster:LearnerClust]{mlr3cluster::LearnerClust}} -> \code{LearnerClustDBSCANfpc}
 }

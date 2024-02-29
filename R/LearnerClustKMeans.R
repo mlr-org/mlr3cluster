@@ -1,8 +1,6 @@
 #' @title K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.kmeans
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for k-means clustering implemented in [stats::kmeans()].
@@ -24,7 +22,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
     initialize = function() {
       param_set = ps(
         centers = p_uty(
-          tags = c("required", "train"), default = 2L, custom_check = crate(check_centers)
+          tags = c("required", "train"), default = 2L, custom_check = check_centers
         ),
         iter.max = p_int(1L, default = 10L, tags = "train"),
         algorithm = p_fct(
@@ -72,4 +70,5 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
   )
 )
 
+#' @include aaa.R
 learners[["clust.kmeans"]] = LearnerClustKMeans

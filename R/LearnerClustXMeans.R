@@ -1,8 +1,6 @@
 #' @title X-means Clustering Learner
 #'
 #' @name mlr_learners_clust.xmeans
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for X-means clustering implemented in [RWeka::XMeans()].
@@ -71,4 +69,5 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
   )
 )
 
+#' @include aaa.R
 learners[["clust.xmeans"]] = LearnerClustXMeans

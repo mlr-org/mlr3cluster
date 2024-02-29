@@ -1,8 +1,6 @@
 #' @title Divisive Hierarchical Clustering Learner
 #'
 #' @name mlr_learners_clust.diana
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for divisive hierarchical clustering implemented in [cluster::diana()].
@@ -64,4 +62,5 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
   )
 )
 
+#' @include aaa.R
 learners[["clust.diana"]] = LearnerClustDiana

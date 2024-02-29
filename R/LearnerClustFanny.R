@@ -1,8 +1,6 @@
 #' @title Fuzzy Analysis Clustering Learner
 #'
 #' @name mlr_learners_clust.fanny
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for fuzzy clustering implemented in [cluster::fanny()].
@@ -71,4 +69,5 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
   )
 )
 
+#' @include aaa.R
 learners[["clust.fanny"]] = LearnerClustFanny

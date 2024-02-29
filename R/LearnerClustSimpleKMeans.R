@@ -1,8 +1,6 @@
 #' @title K-Means Clustering Learner from Weka
 #'
 #' @name mlr_learners_clust.SimpleKMeans
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Simple K Means clustering implemented in [RWeka::SimpleKMeans()].
@@ -81,4 +79,5 @@ LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
   )
 )
 
+#' @include aaa.R
 learners[["clust.SimpleKMeans"]] = LearnerClustSimpleKMeans

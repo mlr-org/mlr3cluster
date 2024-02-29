@@ -1,8 +1,6 @@
 #' @title Agglomerative Hierarchical Clustering Learner
 #'
 #' @name mlr_learners_clust.agnes
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for agglomerative hierarchical clustering implemented in [cluster::agnes()].
@@ -83,4 +81,5 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
   )
 )
 
+#' @include aaa.R
 learners[["clust.agnes"]] = LearnerClustAgnes
