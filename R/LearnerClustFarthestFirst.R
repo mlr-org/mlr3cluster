@@ -9,18 +9,13 @@
 #'
 #' @templateVar id clust.ff
 #' @template learner
-#' @examples
-#' \dontrun{
-#' if (requireNamespace("RWeka")) {
-#'   learner = mlr3::lrn("clust.ff")
-#'   print(learner)
 #'
-#'   # available parameters:
-#'   learner$param_set$ids()
-#' }
-#' }
+#' @references
+#' `r format_bib("witten2002data", "hochbaum1985best")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustFarthestFirst = R6Class("LearnerClustFF",
   inherit = LearnerClust,
   public = list(

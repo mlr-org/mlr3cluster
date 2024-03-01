@@ -11,9 +11,13 @@
 #'
 #' @templateVar id clust.cmeans
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("dimitriadou2008misc", "bezdek2013pattern")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustCMeans = R6Class("LearnerClustCMeans",
   inherit = LearnerClust,
   public = list(

@@ -8,8 +8,10 @@
 #'
 #' @templateVar id clust.featureless
 #' @template learner
-#' @template example
+#'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
   inherit = LearnerClust,
   public = list(

@@ -12,9 +12,13 @@
 #'
 #' @templateVar id clust.pam
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("reynolds2006clustering", "schubert2019faster")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustPAM = R6Class("LearnerClustPAM",
   inherit = LearnerClust,
   public = list(

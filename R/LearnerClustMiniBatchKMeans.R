@@ -12,9 +12,13 @@
 #'
 #' @templateVar id clust.MBatchKMeans
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("sculley2010web")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
   inherit = LearnerClust,
   public = list(

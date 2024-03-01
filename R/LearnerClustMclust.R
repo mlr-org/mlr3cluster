@@ -9,9 +9,13 @@
 #'
 #' @templateVar id clust.mclust
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("scrucca2016mclust", "fraley2002model")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustMclust = R6Class("LearnerClustMclust",
   inherit = LearnerClust,
   public = list(

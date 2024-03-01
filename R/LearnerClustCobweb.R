@@ -9,9 +9,13 @@
 #'
 #' @templateVar id clust.cobweb
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("witten2002data", "fisher1987knowledge", "gennari1989models")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustCobweb = R6Class("LearnerClustCobweb",
   inherit = LearnerClust,
   public = list(

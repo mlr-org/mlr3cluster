@@ -10,7 +10,7 @@
 #' @template learner
 #'
 #' @references
-#' `r format_bib("campello2013density")`
+#' `r format_bib("hahsler2019dbscan", "campello2013density")`
 #'
 #' @export
 #' @template seealso_learner

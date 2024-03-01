@@ -13,9 +13,13 @@
 #'
 #' @templateVar id clust.ap
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("bodenhofer2011apcluster", "frey2007clustering")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustAP = R6Class("LearnerClustAP",
   inherit = LearnerClust,
   public = list(

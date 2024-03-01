@@ -10,7 +10,7 @@
 #' @template learner
 #'
 #' @references
-#' `r format_bib("ester1996density")`
+#' `r format_bib("hahsler2019dbscan", "ester1996density")`
 #'
 #' @export
 #' @template seealso_learner
