@@ -51,6 +51,11 @@ if (requireNamespace("dbscan")) {
 }
 }
 \references{
+Hahsler M, Piekenbrock M, Doran D (2019).
+\dQuote{dbscan: Fast Density-Based Clustering with R.}
+\emph{Journal of Statistical Software}, \bold{91}(1), 1--30.
+\doi{10.18637/jss.v091.i01}.
+
 Ester, Martin, Kriegel, Hans-Peter, Sander, Jörg, Xu, Xiaowei, others (1996).
 \dQuote{A density-based algorithm for discovering clusters in large spatial databases with noise.}
 In \emph{kdd}, volume 96 number 34, 226--231.
@@ -73,9 +78,27 @@ for established default tuning spaces.
 }
 
 Other Learner: 
+\code{\link{mlr_learners_clust.MBatchKMeans}},
+\code{\link{mlr_learners_clust.SimpleKMeans}},
+\code{\link{mlr_learners_clust.agnes}},
+\code{\link{mlr_learners_clust.ap}},
+\code{\link{mlr_learners_clust.cmeans}},
+\code{\link{mlr_learners_clust.cobweb}},
 \code{\link{mlr_learners_clust.dbscan_fpc}},
+\code{\link{mlr_learners_clust.diana}},
+\code{\link{mlr_learners_clust.em}},
+\code{\link{mlr_learners_clust.fanny}},
+\code{\link{mlr_learners_clust.featureless}},
+\code{\link{mlr_learners_clust.ff}},
+\code{\link{mlr_learners_clust.hclust}},
 \code{\link{mlr_learners_clust.hdbscan}},
-\code{\link{mlr_learners_clust.optics}}
+\code{\link{mlr_learners_clust.kkmeans}},
+\code{\link{mlr_learners_clust.kmeans}},
+\code{\link{mlr_learners_clust.mclust}},
+\code{\link{mlr_learners_clust.meanshift}},
+\code{\link{mlr_learners_clust.optics}},
+\code{\link{mlr_learners_clust.pam}},
+\code{\link{mlr_learners_clust.xmeans}}
 }
 \concept{Learner}
 \section{Super classes}{

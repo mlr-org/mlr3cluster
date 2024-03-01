@@ -6,12 +6,15 @@
 #' A [LearnerClust] for agglomerative hierarchical clustering implemented in [stats::hclust()].
 #' Difference Calculation is done by [stats::dist()]
 #'
-#'
 #' @templateVar id clust.hclust
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("becker1988s", "everitt1974cluster", "hartigan1975clustering", "sneath1973numerical", "anderberg1973cluster", "gordon1999classification", "murtagh1985multidimensional", "mcquitty1966similarity", "legendre2012numerical", "murtagh2014ward")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustHclust = R6Class("LearnerClustHclust",
   inherit = LearnerClust,
   public = list(

@@ -10,9 +10,13 @@
 #'
 #' @templateVar id clust.em
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("witten2002data", "dempster1977maximum")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustEM = R6Class("LearnerClustEM",
   inherit = LearnerClust,
   public = list(

@@ -9,9 +9,13 @@
 #'
 #' @templateVar id clust.meanshift
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("cheng1995mean")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
   inherit = LearnerClust,
   public = list(

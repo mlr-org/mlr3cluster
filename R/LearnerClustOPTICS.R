@@ -10,7 +10,7 @@
 #' @template learner
 #'
 #' @references
-#' `r format_bib("ankerst1999optics")`
+#' `r format_bib("hahsler2019dbscan", "ankerst1999optics")`
 #'
 #' @export
 #' @template seealso_learner

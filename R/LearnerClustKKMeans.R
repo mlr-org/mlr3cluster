@@ -12,9 +12,13 @@
 #'
 #' @templateVar id clust.kkmeans
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("karatzoglou2004kernlab", "dhillon2004unified")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
   inherit = LearnerClust,
   public = list(
