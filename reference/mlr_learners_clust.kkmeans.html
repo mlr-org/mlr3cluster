@@ -116,6 +116,52 @@ assign clusters for new data points.</p>
     
 <table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>centers</td><td>untyped</td><td>2</td><td></td><td>-</td></tr><tr><td>kernel</td><td>character</td><td>rbfdot</td><td>vanilladot, polydot, rbfdot, tanhdot, laplacedot, besseldot, anovadot, splinedot</td><td>-</td></tr><tr><td>sigma</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>degree</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>scale</td><td>numeric</td><td>1</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>offset</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>order</td><td>integer</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>alg</td><td>character</td><td>kkmeans</td><td>kkmeans, kerninghan</td><td>-</td></tr><tr><td>p</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr></table></div>
     <div class="section level2">
+    <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
+    <p>Karatzoglou, Alexandros, Smola, Alexandros, Hornik, Kurt, Zeileis, Achim (2004).
+“kernlab-an S4 package for kernel methods in R.”
+<em>Journal of statistical software</em>, <b>11</b>, 1--20.</p>
+<p>Dhillon, S I, Guan, Yuqiang, Kulis, Brian (2004).
+<em>A unified view of kernel k-means, spectral clustering and graph cuts</em>.
+Citeseer.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index">
+<ul><li><p>Chapter in the <a href="https://mlr3book.mlr-org.com/" class="external-link">mlr3book</a>:
+<a href="https://mlr3book.mlr-org.com/chapters/chapter2/data_and_basic_modeling.html#sec-learners" class="external-link">https://mlr3book.mlr-org.com/chapters/chapter2/data_and_basic_modeling.html#sec-learners</a></p></li>
+<li><p>Package <a href="https://github.com/mlr-org/mlr3extralearners" class="external-link">mlr3extralearners</a> for more learners.</p></li>
+<li><p><a href="https://mlr3misc.mlr-org.com/reference/Dictionary.html" class="external-link">Dictionary</a> of <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">Learners</a>: <a href="https://mlr3.mlr-org.com/reference/mlr_learners.html" class="external-link">mlr_learners</a></p></li>
+<li><p><code>as.data.table(mlr_learners)</code> for a table of available <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">Learners</a> in the running session (depending on the loaded packages).</p></li>
+<li><p><a href="https://CRAN.R-project.org/package=mlr3pipelines" class="external-link"><span class="pkg">mlr3pipelines</span></a> to combine learners with pre- and postprocessing steps.</p></li>
+<li><p>Extension packages for additional task types:</p><ul><li><p><a href="https://CRAN.R-project.org/package=mlr3proba" class="external-link"><span class="pkg">mlr3proba</span></a> for probabilistic supervised regression and survival analysis.</p></li>
+<li><p><a href="https://CRAN.R-project.org/package=mlr3cluster" class="external-link"><span class="pkg">mlr3cluster</span></a> for unsupervised clustering.</p></li>
+</ul></li>
+<li><p><a href="https://CRAN.R-project.org/package=mlr3tuning" class="external-link"><span class="pkg">mlr3tuning</span></a> for tuning of hyperparameters, <a href="https://CRAN.R-project.org/package=mlr3tuningspaces" class="external-link"><span class="pkg">mlr3tuningspaces</span></a>
+for established default tuning spaces.</p></li>
+</ul><p>Other Learner: 
+<code><a href="mlr_learners_clust.MBatchKMeans.html">mlr_learners_clust.MBatchKMeans</a></code>,
+<code><a href="mlr_learners_clust.SimpleKMeans.html">mlr_learners_clust.SimpleKMeans</a></code>,
+<code><a href="mlr_learners_clust.agnes.html">mlr_learners_clust.agnes</a></code>,
+<code><a href="mlr_learners_clust.ap.html">mlr_learners_clust.ap</a></code>,
+<code><a href="mlr_learners_clust.cmeans.html">mlr_learners_clust.cmeans</a></code>,
+<code><a href="mlr_learners_clust.cobweb.html">mlr_learners_clust.cobweb</a></code>,
+<code><a href="mlr_learners_clust.dbscan.html">mlr_learners_clust.dbscan</a></code>,
+<code><a href="mlr_learners_clust.dbscan_fpc.html">mlr_learners_clust.dbscan_fpc</a></code>,
+<code><a href="mlr_learners_clust.diana.html">mlr_learners_clust.diana</a></code>,
+<code><a href="mlr_learners_clust.em.html">mlr_learners_clust.em</a></code>,
+<code><a href="mlr_learners_clust.fanny.html">mlr_learners_clust.fanny</a></code>,
+<code><a href="mlr_learners_clust.featureless.html">mlr_learners_clust.featureless</a></code>,
+<code><a href="mlr_learners_clust.ff.html">mlr_learners_clust.ff</a></code>,
+<code><a href="mlr_learners_clust.hclust.html">mlr_learners_clust.hclust</a></code>,
+<code><a href="mlr_learners_clust.hdbscan.html">mlr_learners_clust.hdbscan</a></code>,
+<code><a href="mlr_learners_clust.kmeans.html">mlr_learners_clust.kmeans</a></code>,
+<code><a href="mlr_learners_clust.mclust.html">mlr_learners_clust.mclust</a></code>,
+<code><a href="mlr_learners_clust.meanshift.html">mlr_learners_clust.meanshift</a></code>,
+<code><a href="mlr_learners_clust.optics.html">mlr_learners_clust.optics</a></code>,
+<code><a href="mlr_learners_clust.pam.html">mlr_learners_clust.pam</a></code>,
+<code><a href="mlr_learners_clust.xmeans.html">mlr_learners_clust.xmeans</a></code></p></div>
+    </div>
+    <div class="section level2">
     <h2 id="super-classes">Super classes<a class="anchor" aria-label="anchor" href="#super-classes"></a></h2>
     <p><code><a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a></code> -&gt; <code><a href="LearnerClust.html">mlr3cluster::LearnerClust</a></code> -&gt; <code>LearnerClustKKMeans</code></p>
     </div>

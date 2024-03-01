@@ -105,7 +105,12 @@ Calls <code><a href="https://rdrr.io/pkg/dbscan/man/optics.html" class="external
 <table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>eps</td><td>numeric</td><td>NULL</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>minPts</td><td>integer</td><td>5</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>search</td><td>character</td><td>kdtree</td><td>kdtree, linear, dist</td><td>-</td></tr><tr><td>bucketSize</td><td>integer</td><td>10</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>splitRule</td><td>character</td><td>SUGGEST</td><td>STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST</td><td>-</td></tr><tr><td>approx</td><td>numeric</td><td>0</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>eps_cl</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Ankerst, Mihael, Breunig, M M, Kriegel, Hans-Peter, Sander, Jörg (1999).
+    <p>Hahsler M, Piekenbrock M, Doran D (2019).
+“dbscan: Fast Density-Based Clustering with R.”
+<em>Journal of Statistical Software</em>, <b>91</b>(1), 1--30.
+<a href="https://doi.org/10.18637/jss.v091.i01" class="external-link">doi:10.18637/jss.v091.i01</a>
+.</p>
+<p>Ankerst, Mihael, Breunig, M M, Kriegel, Hans-Peter, Sander, Jörg (1999).
 “OPTICS: Ordering points to identify the clustering structure.”
 <em>ACM Sigmod record</em>, <b>28</b>(2), 49--60.</p>
     </div>
@@ -124,9 +129,27 @@ Calls <code><a href="https://rdrr.io/pkg/dbscan/man/optics.html" class="external
 <li><p><a href="https://CRAN.R-project.org/package=mlr3tuning" class="external-link"><span class="pkg">mlr3tuning</span></a> for tuning of hyperparameters, <a href="https://CRAN.R-project.org/package=mlr3tuningspaces" class="external-link"><span class="pkg">mlr3tuningspaces</span></a>
 for established default tuning spaces.</p></li>
 </ul><p>Other Learner: 
+<code><a href="mlr_learners_clust.MBatchKMeans.html">mlr_learners_clust.MBatchKMeans</a></code>,
+<code><a href="mlr_learners_clust.SimpleKMeans.html">mlr_learners_clust.SimpleKMeans</a></code>,
+<code><a href="mlr_learners_clust.agnes.html">mlr_learners_clust.agnes</a></code>,
+<code><a href="mlr_learners_clust.ap.html">mlr_learners_clust.ap</a></code>,
+<code><a href="mlr_learners_clust.cmeans.html">mlr_learners_clust.cmeans</a></code>,
+<code><a href="mlr_learners_clust.cobweb.html">mlr_learners_clust.cobweb</a></code>,
 <code><a href="mlr_learners_clust.dbscan.html">mlr_learners_clust.dbscan</a></code>,
 <code><a href="mlr_learners_clust.dbscan_fpc.html">mlr_learners_clust.dbscan_fpc</a></code>,
-<code><a href="mlr_learners_clust.hdbscan.html">mlr_learners_clust.hdbscan</a></code></p></div>
+<code><a href="mlr_learners_clust.diana.html">mlr_learners_clust.diana</a></code>,
+<code><a href="mlr_learners_clust.em.html">mlr_learners_clust.em</a></code>,
+<code><a href="mlr_learners_clust.fanny.html">mlr_learners_clust.fanny</a></code>,
+<code><a href="mlr_learners_clust.featureless.html">mlr_learners_clust.featureless</a></code>,
+<code><a href="mlr_learners_clust.ff.html">mlr_learners_clust.ff</a></code>,
+<code><a href="mlr_learners_clust.hclust.html">mlr_learners_clust.hclust</a></code>,
+<code><a href="mlr_learners_clust.hdbscan.html">mlr_learners_clust.hdbscan</a></code>,
+<code><a href="mlr_learners_clust.kkmeans.html">mlr_learners_clust.kkmeans</a></code>,
+<code><a href="mlr_learners_clust.kmeans.html">mlr_learners_clust.kmeans</a></code>,
+<code><a href="mlr_learners_clust.mclust.html">mlr_learners_clust.mclust</a></code>,
+<code><a href="mlr_learners_clust.meanshift.html">mlr_learners_clust.meanshift</a></code>,
+<code><a href="mlr_learners_clust.pam.html">mlr_learners_clust.pam</a></code>,
+<code><a href="mlr_learners_clust.xmeans.html">mlr_learners_clust.xmeans</a></code></p></div>
     </div>
     <div class="section level2">
     <h2 id="super-classes">Super classes<a class="anchor" aria-label="anchor" href="#super-classes"></a></h2>

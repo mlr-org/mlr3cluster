@@ -104,6 +104,81 @@ Difference Calculation is done by <code><a href="https://rdrr.io/r/stats/dist.ht
     
 <table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>method</td><td>character</td><td>complete</td><td>ward.D, ward.D2, single, complete, average, mcquitty, median, centroid</td><td>-</td></tr><tr><td>members</td><td>untyped</td><td></td><td></td><td>-</td></tr><tr><td>distmethod</td><td>character</td><td>euclidean</td><td>euclidean, maximum, manhattan, canberra, binary, minkowski</td><td>-</td></tr><tr><td>diag</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>upper</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>p</td><td>numeric</td><td>2</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>k</td><td>integer</td><td>2</td><td></td><td>\([1, \infty)\)</td></tr></table></div>
     <div class="section level2">
+    <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
+    <p>Becker, A R, Chambers, M J, Wilks, R A (1988).
+<em>The New S Language</em>.
+Wadsworth &amp; Brooks/Cole.</p>
+<p>Everitt, S B (1974).
+<em>Cluster Analysis</em>.
+Heinemann Educational Books.</p>
+<p>Hartigan, A J (1975).
+<em>Clustering Algorithms</em>.
+John Wiley &amp; Sons.</p>
+<p>Sneath, HA P, Sokal, R R (1973).
+<em>Numerical Taxonomy</em>.
+Freeman.</p>
+<p>Anderberg, R M (1973).
+<em>Cluster Analysis for Applications</em>.
+Academic Press.</p>
+<p>Gordon, David A (1999).
+<em>Classification</em>, 2 edition.
+Chapman and Hall / CRC.</p>
+<p>Murtagh, Fionn (1985).
+“Multidimensional Clustering Algorithms.”
+In <em>COMPSTAT Lectures 4</em>.
+Physica-Verlag.</p>
+<p>McQuitty, L L (1966).
+“Similarity Analysis by Reciprocal Pairs for Discrete and Continuous Data.”
+<em>Educational and Psychological Measurement</em>, <b>26</b>(4), 825--831.
+<a href="https://doi.org/10.1177/001316446602600402" class="external-link">doi:10.1177/001316446602600402</a>
+.</p>
+<p>Legendre, Pierre, Legendre, Louis (2012).
+<em>Numerical Ecology</em>, 3 edition.
+Elsevier Science BV.</p>
+<p>Murtagh, Fionn, Legendre, Pierre (2014).
+“Ward's Hierarchical Agglomerative Clustering Method: Which Algorithms Implement Ward's Criterion?”
+<em>Journal of Classification</em>, <b>31</b>, 274--295.
+<a href="https://doi.org/10.1007/s00357-014-9161-z" class="external-link">doi:10.1007/s00357-014-9161-z</a>
+.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index">
+<ul><li><p>Chapter in the <a href="https://mlr3book.mlr-org.com/" class="external-link">mlr3book</a>:
+<a href="https://mlr3book.mlr-org.com/chapters/chapter2/data_and_basic_modeling.html#sec-learners" class="external-link">https://mlr3book.mlr-org.com/chapters/chapter2/data_and_basic_modeling.html#sec-learners</a></p></li>
+<li><p>Package <a href="https://github.com/mlr-org/mlr3extralearners" class="external-link">mlr3extralearners</a> for more learners.</p></li>
+<li><p><a href="https://mlr3misc.mlr-org.com/reference/Dictionary.html" class="external-link">Dictionary</a> of <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">Learners</a>: <a href="https://mlr3.mlr-org.com/reference/mlr_learners.html" class="external-link">mlr_learners</a></p></li>
+<li><p><code>as.data.table(mlr_learners)</code> for a table of available <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">Learners</a> in the running session (depending on the loaded packages).</p></li>
+<li><p><a href="https://CRAN.R-project.org/package=mlr3pipelines" class="external-link"><span class="pkg">mlr3pipelines</span></a> to combine learners with pre- and postprocessing steps.</p></li>
+<li><p>Extension packages for additional task types:</p><ul><li><p><a href="https://CRAN.R-project.org/package=mlr3proba" class="external-link"><span class="pkg">mlr3proba</span></a> for probabilistic supervised regression and survival analysis.</p></li>
+<li><p><a href="https://CRAN.R-project.org/package=mlr3cluster" class="external-link"><span class="pkg">mlr3cluster</span></a> for unsupervised clustering.</p></li>
+</ul></li>
+<li><p><a href="https://CRAN.R-project.org/package=mlr3tuning" class="external-link"><span class="pkg">mlr3tuning</span></a> for tuning of hyperparameters, <a href="https://CRAN.R-project.org/package=mlr3tuningspaces" class="external-link"><span class="pkg">mlr3tuningspaces</span></a>
+for established default tuning spaces.</p></li>
+</ul><p>Other Learner: 
+<code><a href="mlr_learners_clust.MBatchKMeans.html">mlr_learners_clust.MBatchKMeans</a></code>,
+<code><a href="mlr_learners_clust.SimpleKMeans.html">mlr_learners_clust.SimpleKMeans</a></code>,
+<code><a href="mlr_learners_clust.agnes.html">mlr_learners_clust.agnes</a></code>,
+<code><a href="mlr_learners_clust.ap.html">mlr_learners_clust.ap</a></code>,
+<code><a href="mlr_learners_clust.cmeans.html">mlr_learners_clust.cmeans</a></code>,
+<code><a href="mlr_learners_clust.cobweb.html">mlr_learners_clust.cobweb</a></code>,
+<code><a href="mlr_learners_clust.dbscan.html">mlr_learners_clust.dbscan</a></code>,
+<code><a href="mlr_learners_clust.dbscan_fpc.html">mlr_learners_clust.dbscan_fpc</a></code>,
+<code><a href="mlr_learners_clust.diana.html">mlr_learners_clust.diana</a></code>,
+<code><a href="mlr_learners_clust.em.html">mlr_learners_clust.em</a></code>,
+<code><a href="mlr_learners_clust.fanny.html">mlr_learners_clust.fanny</a></code>,
+<code><a href="mlr_learners_clust.featureless.html">mlr_learners_clust.featureless</a></code>,
+<code><a href="mlr_learners_clust.ff.html">mlr_learners_clust.ff</a></code>,
+<code><a href="mlr_learners_clust.hdbscan.html">mlr_learners_clust.hdbscan</a></code>,
+<code><a href="mlr_learners_clust.kkmeans.html">mlr_learners_clust.kkmeans</a></code>,
+<code><a href="mlr_learners_clust.kmeans.html">mlr_learners_clust.kmeans</a></code>,
+<code><a href="mlr_learners_clust.mclust.html">mlr_learners_clust.mclust</a></code>,
+<code><a href="mlr_learners_clust.meanshift.html">mlr_learners_clust.meanshift</a></code>,
+<code><a href="mlr_learners_clust.optics.html">mlr_learners_clust.optics</a></code>,
+<code><a href="mlr_learners_clust.pam.html">mlr_learners_clust.pam</a></code>,
+<code><a href="mlr_learners_clust.xmeans.html">mlr_learners_clust.xmeans</a></code></p></div>
+    </div>
+    <div class="section level2">
     <h2 id="super-classes">Super classes<a class="anchor" aria-label="anchor" href="#super-classes"></a></h2>
     <p><code><a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a></code> -&gt; <code><a href="LearnerClust.html">mlr3cluster::LearnerClust</a></code> -&gt; <code>LearnerClustHclust</code></p>
     </div>
