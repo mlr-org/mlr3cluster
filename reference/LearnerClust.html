@@ -94,7 +94,7 @@ Predefined learners can be found in the mlr3misc::Dictionary mlr3::mlr_learners.
 
     <div class="ref-description section level2">
     <p>This Learner specializes <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a> for cluster problems:</p><ul><li><p><code>task_type</code> is set to <code>"clust"</code>.</p></li>
-<li><p>Creates <a href="https://mlr3.mlr-org.com/reference/Prediction.html" class="external-link">Prediction</a>s of class <a href="PredictionClust.html">PredictionClust</a>.</p></li>
+<li><p>Creates Predictions of class <a href="PredictionClust.html">PredictionClust</a>.</p></li>
 <li><p>Possible values for <code>predict_types</code> are:</p><ul><li><p><code>"partition"</code>: Integer indicating the cluster membership.</p></li>
 <li><p><code>"prob"</code>: Probability for belonging to each cluster.</p></li>
 </ul></li>
@@ -246,9 +246,10 @@ The referenced help package can be opened via method <code>$help()</code>.</p></
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "clust.ap"           "clust.cmeans"       "clust.cobweb"      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "clust.dbscan"       "clust.dbscan_fpc"   "clust.diana"       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10] "clust.em"           "clust.fanny"        "clust.featureless" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "clust.ff"           "clust.hclust"       "clust.kkmeans"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "clust.kmeans"       "clust.mclust"       "clust.meanshift"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "clust.pam"          "clust.xmeans"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "clust.ff"           "clust.hclust"       "clust.hdbscan"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "clust.kkmeans"      "clust.kmeans"       "clust.mclust"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "clust.meanshift"    "clust.optics"       "clust.pam"         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [22] "clust.xmeans"      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># get a specific learner from mlr_learners:</span></span></span>
 <span class="r-in"><span><span class="va">lrn</span> <span class="op">=</span> <span class="va">mlr_learners</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"clust.kmeans"</span><span class="op">)</span></span></span>

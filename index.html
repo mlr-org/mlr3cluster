@@ -200,34 +200,44 @@
 <td align="left"><a href="https://CRAN.R-project.org/package=RWeka" class="external-link">RWeka</a></td>
 </tr>
 <tr class="even">
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.html">clust.hdbscan</a></td>
+<td align="left">HDBSCAN Clustering</td>
+<td align="left"><a href="https://CRAN.R-project.org/package=dbscan" class="external-link">dbscan</a></td>
+</tr>
+<tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.html">clust.hclust</a></td>
 <td align="left">Agglomerative Hierarchical Clustering</td>
 <td align="left"><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html" class="external-link">stats</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.html">clust.kkmeans</a></td>
 <td align="left">Kernel K-Means Clustering</td>
 <td align="left"><a href="https://CRAN.R-project.org/package=kernlab" class="external-link">kernlab</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.html">clust.kmeans</a></td>
 <td align="left">K-Means Clustering</td>
 <td align="left"><a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html" class="external-link">stats</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.html">clust.mclust</a></td>
 <td align="left">Gaussian Mixture Models-Based Clustering</td>
 <td align="left"><a href="https://cran.r-project.org/package=mclust" class="external-link">mclust</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.MiniBatchKMeans.html">clust.MBatchKMeans</a></td>
 <td align="left">Mini Batch K-Means Clustering</td>
 <td align="left"><a href="https://CRAN.R-project.org/package=ClusterR" class="external-link">ClusterR</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.html">clust.meanshift</a></td>
 <td align="left">Mean Shift Clustering</td>
 <td align="left"><a href="https://CRAN.R-project.org/package=LPCM" class="external-link">LPCM</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.html">clust.optics</a></td>
+<td align="left">OPTICS Clustering</td>
+<td align="left"><a href="https://CRAN.R-project.org/package=dbscan" class="external-link">dbscan</a></td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.html">clust.pam</a></td>
@@ -289,13 +299,9 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<pre class="{r}"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mlr3.mlr-org.com" class="external-link">mlr3</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mlr3cluster.mlr-org.com">mlr3cluster</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">task</span> <span class="op">=</span> <span class="va">mlr_tasks</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"usarrests"</span><span class="op">)</span></span>
-<span><span class="va">learner</span> <span class="op">=</span> <span class="va">mlr_learners</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"clust.kmeans"</span><span class="op">)</span></span>
-<span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span>
-<span><span class="va">preds</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></code></pre>
+<p>```{r} library(mlr3) library(mlr3cluster)</p>
+<p>task = mlr_tasks<span class="math inline">$get("usarrests")
+learner = mlr_learners$</span>get(“clust.kmeans”) learner<span class="math inline"><em>t</em><em>r</em><em>a</em><em>i</em><em>n</em>(<em>t</em><em>a</em><em>s</em><em>k</em>)<em>p</em><em>r</em><em>e</em><em>d</em><em>s</em> = <em>l</em><em>e</em><em>a</em><em>r</em><em>n</em><em>e</em><em>r</em></span>predict(task = task) ```</p>
 </div>
 <div class="section level2">
 <h2 id="more-resources">More Resources<a class="anchor" aria-label="anchor" href="#more-resources"></a>
