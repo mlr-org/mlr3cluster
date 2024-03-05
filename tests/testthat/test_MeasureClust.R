@@ -1,7 +1,7 @@
 test_that("Cluster measures", {
   keys = mlr_measures$keys("clust")
   task = tsk("usarrests")
-  learner = lrn("clust.kmeans", centers = 2)
+  learner = lrn("clust.kmeans", centers = 2L)
   p = learner$train(task)$predict(task)
 
   for (key in keys) {

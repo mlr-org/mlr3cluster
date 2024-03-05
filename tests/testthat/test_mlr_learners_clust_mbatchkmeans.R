@@ -13,7 +13,7 @@ test_that("Learner properties are respected", {
   expect_learner(learner, task)
 
   # test on multiple paramsets
-  centers = data.frame(matrix(ncol = length(colnames(task$data())), nrow = 4))
+  centers = data.frame(matrix(ncol = length(colnames(task$data())), nrow = 4L))
   colnames(centers) = colnames(task$data())
   centers$Assault = c(100, 200, 150, 300)
   centers$Murder = c(11, 3, 10, 5)
