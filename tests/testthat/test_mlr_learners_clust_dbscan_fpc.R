@@ -1,19 +1,15 @@
 skip_if_not_installed("fpc")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.dbscan_fpc")
-  learner$param_set$values = list(eps = 25)
+  learner = mlr3::lrn("clust.dbscan_fpc", eps = 25)
   expect_learner(learner)
-
   result = run_autotest(learner)
   expect_true(result, info = result$error)
 })
 
-
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
-  learner = mlr_learners$get("clust.dbscan_fpc")
-  learner$param_set$values = list(eps = 25)
+  learner = lrn("clust.dbscan_fpc", eps = 25)
   expect_learner(learner, task)
 
   # test on multiple paramsets

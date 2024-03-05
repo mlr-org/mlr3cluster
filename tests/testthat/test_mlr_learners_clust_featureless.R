@@ -1,14 +1,13 @@
 test_that("autotest", {
-  learner = lrn("clust.featureless")
+  learner = mlr3::lrn("clust.featureless")
   expect_learner(learner)
-
   result = run_autotest(learner)
   expect_true(result, info = result$error)
 })
 
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
-  learner = mlr_learners$get("clust.featureless")
+  learner = lrn("clust.featureless")
   expect_learner(learner, task)
 
   # test on multiple paramsets

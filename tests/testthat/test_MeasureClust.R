@@ -1,10 +1,8 @@
 test_that("Cluster measures", {
   keys = mlr_measures$keys("clust")
   task = tsk("usarrests")
-  learner = mlr_learners$get("clust.kmeans")
-  learner$param_set$values = list(centers = 2)
-  learner$train(task)
-  p = learner$predict(task)
+  learner = lrn("clust.kmeans", centers = 2)
+  p = learner$train(task)$predict(task)
 
   for (key in keys) {
     m = mlr_measures$get(key)

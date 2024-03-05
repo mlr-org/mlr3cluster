@@ -2,14 +2,14 @@ test_that("Basic ops on usarrests task", {
   task = tsk("usarrests")
   expect_task(task)
   expect_task_clust(task)
-  expect_identical(task$target_names, character(0))
+  expect_identical(task$target_names, character(0L))
 })
 
 test_that("Basic ops on ruspini task", {
   task = tsk("ruspini")
   expect_task(task)
   expect_task_clust(task)
-  expect_identical(task$target_names, character(0))
+  expect_identical(task$target_names, character(0L))
 })
 
 test_that("0 feature task", {
@@ -22,8 +22,7 @@ test_that("0 feature task", {
   expect_task_clust(task)
   expect_data_table(task$data(), ncols = 1L)
 
-  lrn = lrn("clust.featureless")
-  lrn$param_set$values = list(num_clusters = 3L)
-  p = lrn$train(task)$predict(task)
+  learner = lrn("clust.featureless", num_clusters = 3L)
+  p = learner$train(task)$predict(task)
   expect_prediction(p)
 })
