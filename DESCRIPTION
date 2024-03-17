@@ -1,46 +1,44 @@
 Package: mlr3cluster
 Title: Cluster Extension for 'mlr3'
 Version: 0.1.8.9000
-Authors@R:
-    c(person(given = "Damir",
-             family = "Pulatov",
-             role = c("cre", "aut"),
-             email = "damirpolat@protonmail.com"),
-      person(given = "Michel",
-             family = "Lang",
-             role = "aut",
-             email = "michellang@gmail.com",
-             comment = c(ORCID = "0000-0001-9754-0393")))
+Authors@R: c(
+    person("Damir", "Pulatov", , "damirpolat@protonmail.com", role = c("cre", "aut")),
+    person("Michel", "Lang", , "michellang@gmail.com", role = "aut",
+           comment = c(ORCID = "0000-0001-9754-0393")),
+    person("Maximilian", "Muecke", role = "ctb",
+           comment = c(ORCID = "0009-0000-9432-9795"))
+  )
 Description: Extends the 'mlr3' package with cluster analysis.
 License: LGPL-3
 URL: https://mlr3cluster.mlr-org.com,
     https://github.com/mlr-org/mlr3cluster
 BugReports: https://github.com/mlr-org/mlr3cluster/issues
 Depends:
-    R (>= 3.1.0),
-    mlr3 (>= 0.14.0)
+    mlr3 (>= 0.14.0),
+    R (>= 3.1.0)
 Imports:
     backports (>= 1.1.10),
     checkmate,
     clue,
-    fpc,
     cluster,
     data.table,
+    fpc,
     mlr3misc (>= 0.10.0),
     paradox (>= 0.10.0),
     R6,
     stats
 Suggests:
+    apcluster,
+    ClusterR,
     dbscan,
     e1071,
-    ClusterR,
     kernlab,
-    apcluster,
     LPCM,
     mclust,
     mlbench,
     RWeka,
     testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.3.1
@@ -82,4 +80,3 @@ Collate:
     'bibentries.R'
     'helper.R'
     'zzz.R'
-Config/testthat/edition: 3

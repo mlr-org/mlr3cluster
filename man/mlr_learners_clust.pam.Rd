@@ -34,7 +34,7 @@ lrn("clust.pam")
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    metric \tab character \tab - \tab euclidian, manhattan \tab - \cr
    medoids \tab untyped \tab  \tab  \tab - \cr
    stand \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr

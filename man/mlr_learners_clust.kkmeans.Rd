@@ -34,7 +34,7 @@ lrn("clust.kkmeans")
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   centers \tab untyped \tab 2 \tab  \tab - \cr
+   centers \tab untyped \tab - \tab  \tab - \cr
    kernel \tab character \tab rbfdot \tab vanilladot, polydot, rbfdot, tanhdot, laplacedot, besseldot, anovadot, splinedot \tab - \cr
    sigma \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    degree \tab integer \tab 3 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

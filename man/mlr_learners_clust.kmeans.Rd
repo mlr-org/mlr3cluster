@@ -33,7 +33,7 @@ lrn("clust.kmeans")
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   centers \tab untyped \tab 2 \tab  \tab - \cr
+   centers \tab untyped \tab - \tab  \tab - \cr
    iter.max \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    algorithm \tab character \tab Hartigan-Wong \tab Hartigan-Wong, Lloyd, Forgy, MacQueen \tab - \cr
    nstart \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

@@ -4,6 +4,8 @@
 .gitignore
 cran-comments.md
 ^man-roxygen$
+^README.html$
+^README\.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
@@ -12,7 +14,6 @@ cran-comments.md
 ^\.pre-commit-config\.yaml$
 ^\.ccache$
 ^\.github$
-^tic\.R$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
