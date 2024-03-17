@@ -24,7 +24,8 @@ LearnerClustHDBSCAN = R6Class("LearnerClustHDBSCAN",
       param_set = ps(
         minPts = p_int(0L, tags = c("required", "train")),
         gen_hdbscan_tree = p_lgl(default = FALSE, tags = "train"),
-        gen_simplified_tree = p_lgl(default = FALSE, tags = "train")
+        gen_simplified_tree = p_lgl(default = FALSE, tags = "train"),
+        verbose = p_lgl(default = FALSE, tags = "train")
       )
 
       super$initialize(

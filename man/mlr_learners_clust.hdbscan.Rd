@@ -33,6 +33,7 @@ lrn("clust.hdbscan")
    minPts \tab integer \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    gen_hdbscan_tree \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    gen_simplified_tree \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   verbose \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
 }
 }
 
