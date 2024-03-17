@@ -3,18 +3,17 @@ skip_if_not_installed("ClusterR")
 test_that("autotest", {
   learner = mlr3::lrn("clust.MBatchKMeans")
   expect_learner(learner)
-
   result = run_autotest(learner)
   expect_true(result, info = result$error)
 })
 
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
-  learner = mlr_learners$get("clust.MBatchKMeans")
+  learner = lrn("clust.MBatchKMeans")
   expect_learner(learner, task)
 
   # test on multiple paramsets
-  centers = data.frame(matrix(ncol = length(colnames(task$data())), nrow = 4))
+  centers = data.frame(matrix(ncol = length(colnames(task$data())), nrow = 4L))
   colnames(centers) = colnames(task$data())
   centers$Assault = c(100, 200, 150, 300)
   centers$Murder = c(11, 3, 10, 5)

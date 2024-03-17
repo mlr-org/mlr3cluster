@@ -1,17 +1,15 @@
 skip_if_not_installed("dbscan")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.optics")
-  learner$param_set$values = list(eps = 25, eps_cl = 20)
+  learner = mlr3::lrn("clust.optics", eps = 25, eps_cl = 20)
   expect_learner(learner)
-
   result = run_autotest(learner)
   expect_true(result, info = result$error)
 })
 
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
-  learner = mlr_learners$get("clust.optics")
+  learner = lrn("clust.optics")
   expect_learner(learner, task)
 
   # test on multiple paramsets

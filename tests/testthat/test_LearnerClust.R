@@ -1,7 +1,6 @@
 test_that("predict on newdata works / clust", {
   task = tsk("usarrests")$filter(1:40)
-  learner = lrn("clust.featureless")
-  learner$param_set$values = list(num_clusters = 1L)
+  learner = lrn("clust.featureless", num_clusters = 1L)
   expect_error(learner$predict(task), "trained")
   learner$train(task)
   expect_task(learner$state$train_task)
@@ -15,26 +14,24 @@ test_that("predict on newdata works / clust", {
 
   # rely on internally stored task representation
   p = learner$predict_newdata(newdata = newdata, task = NULL)
-  expect_data_table(as.data.table(p), nrows = 10)
+  expect_data_table(as.data.table(p), nrows = 10L)
   expect_set_equal(as.data.table(p)$row_ids, 1:10)
   expect_null(p$truth)
 })
 
 test_that("reset()", {
   task = tsk("usarrests")
-  lrn = lrn("clust.featureless")
-  lrn$param_set$values = list(num_clusters = 2L)
+  learner = lrn("clust.featureless", num_clusters = 2L)
 
-  lrn$train(task)
-  expect_list(lrn$state, names = "unique")
-  expect_learner(lrn$reset())
-  expect_null(lrn$state)
+  learner$train(task)
+  expect_list(learner$state, names = "unique")
+  expect_learner(learner$reset())
+  expect_null(learner$state)
 })
 
 test_that("empty predict set (#421)", {
   task = tsk("usarrests")
-  learner = lrn("clust.featureless")
-  learner$param_set$values = list(num_clusters = 1L)
+  learner = lrn("clust.featureless", num_clusters = 1L)
   resampling = rsmp("holdout", ratio = 1)
   hout = resampling$instantiate(task)
   model = learner$train(task, hout$train_set(1))

@@ -77,12 +77,12 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 
 ## Example
 
-```{r}
+```r
 library(mlr3)
 library(mlr3cluster)
 
-task = mlr_tasks$get("usarrests")
-learner = mlr_learners$get("clust.kmeans")
+task = tsk("usarrests")
+learner = lrn("clust.kmeans")
 learner$train(task)
 preds = learner$predict(task = task)
 ```

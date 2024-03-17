@@ -3,15 +3,13 @@ skip_if_not_installed("mclust")
 test_that("autotest", {
   learner = mlr3::lrn("clust.mclust")
   expect_learner(learner)
-
   result = run_autotest(learner)
   expect_true(result, info = result$error)
 })
 
-
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
-  learner = mlr_learners$get("clust.mclust")
+  learner = lrn("clust.mclust")
   expect_learner(learner, task)
 
   # test on multiple paramsets

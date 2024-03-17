@@ -24,8 +24,8 @@ ids = mlr_learners$keys("^clust")
 ids
 
 # get a specific learner from mlr_learners:
-lrn = mlr_learners$get("clust.kmeans")
-print(lrn)
+learner = lrn("clust.kmeans")
+print(learner)
 }
 \section{Super class}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{LearnerClust}

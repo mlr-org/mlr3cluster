@@ -28,8 +28,8 @@
 #' ids
 #'
 #' # get a specific learner from mlr_learners:
-#' lrn = mlr_learners$get("clust.kmeans")
-#' print(lrn)
+#' learner = lrn("clust.kmeans")
+#' print(learner)
 LearnerClust = R6Class("LearnerClust",
   inherit = Learner,
   public = list(
