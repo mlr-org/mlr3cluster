@@ -1,9 +1,11 @@
-# mlr3cluster (development version)
+# mlr3cluster 0.1.9
 
 * Add DBSCAN learner from 'fpc' package
 * Add HDBSCAN learner from 'dbscan' package
 * Add OPTICS learner from 'dbscan' package
 * Compatibility with upcoming 'paradox' release
+* Move to testthat3
+* Refactoring
 
 # mlr3cluster 0.1.8
 

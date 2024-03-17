@@ -29,7 +29,7 @@ devtools::install_github("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-  - A selection of 19 clustering learners that represent a wide variety of clusterers:
+  - A selection of 22 clustering learners that represent a wide variety of clusterers:
     partitional, hierarchical, fuzzy, etc.
   - A selection of 4 performance measures
   - Two built-in tasks to get started with clustering
@@ -89,8 +89,8 @@ preds = learner$predict(task = task)
 
 ## More Resources
 
-Check out the **[blogpost](https://mlr-org.com/posts/2020-08-26-introducing-mlr3cluster-cluster-analysis-package/)** for a more detailed introduction to the package.
-Also, **[mlr3book](https://mlr3book.mlr-org.com/special.html#cluster)** has a section on clustering.
+Check out the **[blogpost](https://www.r-bloggers.com/2020/10/introducing-mlr3cluster-cluster-analysis-package/)** for a more detailed introduction to the package.
+Also, **[mlr3book](https://mlr3book.mlr-org.com/chapters/chapter13/beyond_regression_and_classification.html#sec-cluster)** has a section on clustering.
 
 ## Future Plans
 
