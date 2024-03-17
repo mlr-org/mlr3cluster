@@ -94,7 +94,7 @@ Predefined learners can be found in the mlr3misc::Dictionary mlr3::mlr_learners.
 
     <div class="ref-description section level2">
     <p>This Learner specializes <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a> for cluster problems:</p><ul><li><p><code>task_type</code> is set to <code>"clust"</code>.</p></li>
-<li><p>Creates Predictions of class <a href="PredictionClust.html">PredictionClust</a>.</p></li>
+<li><p>Creates <a href="https://mlr3.mlr-org.com/reference/Prediction.html" class="external-link">Prediction</a>s of class <a href="PredictionClust.html">PredictionClust</a>.</p></li>
 <li><p>Possible values for <code>predict_types</code> are:</p><ul><li><p><code>"partition"</code>: Integer indicating the cluster membership.</p></li>
 <li><p><code>"prob"</code>: Probability for belonging to each cluster.</p></li>
 </ul></li>
@@ -252,8 +252,8 @@ The referenced help package can be opened via method <code>$help()</code>.</p></
 <span class="r-out co"><span class="r-pr">#&gt;</span> [22] "clust.xmeans"      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># get a specific learner from mlr_learners:</span></span></span>
-<span class="r-in"><span><span class="va">lrn</span> <span class="op">=</span> <span class="va">mlr_learners</span><span class="op">$</span><span class="fu">get</span><span class="op">(</span><span class="st">"clust.kmeans"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">lrn</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">learner</span> <span class="op">=</span> <span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">lrn</a></span><span class="op">(</span><span class="st">"clust.kmeans"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;LearnerClustKMeans:clust.kmeans&gt;: K-Means</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Model: -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Parameters: centers=2</span>
