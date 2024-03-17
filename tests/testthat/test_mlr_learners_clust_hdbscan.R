@@ -1,8 +1,8 @@
 skip_if_not_installed("dbscan")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.dbscan")
-  learner$param_set$values = list(eps = 25)
+  learner = mlr3::lrn("clust.hdbscan")
+  learner$param_set$values = list(minPts = 5L)
   expect_learner(learner)
 
   result = run_autotest(learner)
@@ -12,15 +12,16 @@ test_that("autotest", {
 
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
-  learner = mlr_learners$get("clust.dbscan")
-  learner$param_set$values = list(eps = 25)
+  learner = mlr_learners$get("clust.hdbscan")
+  learner$param_set$values = list(minPts = 5L)
   expect_learner(learner, task)
 
   # test on multiple paramsets
   parset_list = list(
-    list(eps = 25),
-    list(eps = 25, minPts = 10L),
-    list(eps = 25, search = "linear")
+    list(minPts = 5L),
+    list(minPts = 5L, gen_hdbscan_tree = TRUE),
+    list(minPts = 5L, gen_simplified_tree = TRUE),
+    list(minPts = 5L, gen_hdbscan_tree = TRUE, gen_simplified_tree = TRUE)
   )
 
   for (i in seq_along(parset_list)) {

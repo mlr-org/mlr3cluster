@@ -1,8 +1,6 @@
 #' @title Agglomerative Hierarchical Clustering Learner
 #'
 #' @name mlr_learners_clust.agnes
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for agglomerative hierarchical clustering implemented in [cluster::agnes()].
@@ -12,9 +10,13 @@
 #'
 #' @templateVar id clust.agnes
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("kaufman2009finding")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustAgnes = R6Class("LearnerClustAgnes",
   inherit = LearnerClust,
   public = list(
@@ -83,4 +85,5 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
   )
 )
 
+#' @include aaa.R
 learners[["clust.agnes"]] = LearnerClustAgnes

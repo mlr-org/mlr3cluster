@@ -1,17 +1,20 @@
-#' @title Density-Based Clustering Learner with fpc
+#' @title Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner
 #'
 #' @name mlr_learners_clust.dbscan_fpc
 #'
 #' @description
-#' A [LearnerClust] for density-based clustering implemented in [fpc::dbscan()].
-#' The predict method uses [fpc::predict.dbscan()] to compute the
-#' cluster memberships for new data.
+#' DBSCAN (Density-based spatial clustering of applications with noise) clustering.
+#' Calls [fpc::dbscan()] from \CRANpkg{fpc}.
 #'
 #' @templateVar id clust.dbscan_fpc
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("ester1996density")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
   inherit = LearnerClust,
   public = list(
@@ -60,10 +63,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
     .train = function(task) {
       pars = self$param_set$get_values(tags = "train")
       m = invoke(fpc::dbscan, data = task$data(), .args = pars)
-      m = set_class(
-        list(cluster = m$cluster, eps = m$eps, MinPts = m$MinPts, isseed = m$isseed, data = task$data()),
-        "dbscan"
-      )
+      m = insert_named(m, list(data = task$data()))
       if (self$save_assignments) {
         self$assignments = m$cluster
       }
@@ -72,10 +72,11 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
     },
 
     .predict = function(task) {
-      partition = as.integer(predict(self$model, data = self$model$data, newdata = task$data()))
+      partition = as.integer(invoke(predict, self$model, data = self$model$data), newdata = task$data())
       PredictionClust$new(task = task, partition = partition)
     }
   )
 )
 
+#' @include aaa.R
 learners[["clust.dbscan_fpc"]] = LearnerClustDBSCANfpc

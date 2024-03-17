@@ -1,59 +1,60 @@
-#' @title Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner
+#' @title Ordering Points to Identify the Clustering Structure (OPTICS) Clustering Learner
 #'
-#' @name mlr_learners_clust.dbscan
+#' @name mlr_learners_clust.optics
 #'
 #' @description
-#' DBSCAN (Density-based spatial clustering of applications with noise) clustering.
-#' Calls [dbscan::dbscan()] from \CRANpkg{dbscan}.
+#' OPTICS (Ordering points to identify the clustering structure) point ordering clustering.
+#' Calls [dbscan::optics()] from \CRANpkg{dbscan}.
 #'
-#' @templateVar id clust.dbscan
+#' @templateVar id clust.optics
 #' @template learner
 #'
 #' @references
-#' `r format_bib("hahsler2019dbscan", "ester1996density")`
+#' `r format_bib("hahsler2019dbscan", "ankerst1999optics")`
 #'
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
+LearnerClustOPTICS = R6Class("LearnerClustOPTICS",
   inherit = LearnerClust,
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        eps = p_dbl(0, tags = c("required", "train")),
+        eps = p_dbl(0, special_vals = list(NULL), default = NULL, tags = "train"),
         minPts = p_int(0L, default = 5L, tags = "train"),
-        borderPoints = p_lgl(default = TRUE, tags = "train"),
-        weights = p_uty(tags = "train", custom_check = check_numeric),
         search = p_fct(levels = c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
         bucketSize = p_int(1L, default = 10L, tags = "train"),
         splitRule = p_fct(
           levels = c("STD", "MIDPT", "FAIR", "SL_MIDPT", "SL_FAIR", "SUGGEST"), default = "SUGGEST", tags = "train"
         ),
-        approx = p_dbl(default = 0, tags = "train")
+        approx = p_dbl(default = 0, tags = "train"),
+        eps_cl = p_dbl(0, tags = c("required", "train"))
       )
       # add deps
       param_set$add_dep("bucketSize", "search", CondEqual$new("kdtree"))
       param_set$add_dep("splitRule", "search", CondEqual$new("kdtree"))
 
       super$initialize(
-        id = "clust.dbscan",
+        id = "clust.optics",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
         param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
         packages = "dbscan",
-        man = "mlr3cluster::mlr_learners_clust.dbscan",
-        label = "Density-Based Clustering"
+        man = "mlr3cluster::mlr_learners_clust.optics",
+        label = "OPTICS Clustering"
       )
     }
   ),
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(dbscan::dbscan, x = task$data(), .args = pv)
+      m = invoke(dbscan::optics, x = task$data(), .args = remove_named(pv, "eps_cl"))
       m = insert_named(m, list(data = task$data()))
+      m = invoke(dbscan::extractDBSCAN, object = m, eps_cl = pv$eps_cl)
+
       if (self$save_assignments) {
         self$assignments = m$cluster
       }
@@ -69,4 +70,4 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
 )
 
 #' @include aaa.R
-learners[["clust.dbscan"]] = LearnerClustDBSCAN
+learners[["clust.optics"]] = LearnerClustOPTICS

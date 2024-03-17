@@ -1,8 +1,6 @@
 #' @title K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.kmeans
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for k-means clustering implemented in [stats::kmeans()].
@@ -13,9 +11,13 @@
 #'
 #' @templateVar id clust.kmeans
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("forgy1965cluster", "hartigan1979algorithm", "lloyd1982least", "macqueen1967some")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustKMeans = R6Class("LearnerClustKMeans",
   inherit = LearnerClust,
   public = list(
@@ -72,4 +74,5 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
   )
 )
 
+#' @include aaa.R
 learners[["clust.kmeans"]] = LearnerClustKMeans

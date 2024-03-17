@@ -48,6 +48,52 @@ if (requireNamespace("cluster")) {
   learner$param_set$ids()
 }
 }
+\references{
+Kaufman, Leonard, Rousseeuw, J P (2009).
+\emph{Finding groups in data: an introduction to cluster analysis}.
+John Wiley & Sons.
+}
+\seealso{
+\itemize{
+\item Chapter in the \href{https://mlr3book.mlr-org.com/}{mlr3book}:
+\url{https://mlr3book.mlr-org.com/chapters/chapter2/data_and_basic_modeling.html#sec-learners}
+\item Package \href{https://github.com/mlr-org/mlr3extralearners}{mlr3extralearners} for more learners.
+\item \link[mlr3misc:Dictionary]{Dictionary} of \link[=Learner]{Learners}: \link{mlr_learners}
+\item \code{as.data.table(mlr_learners)} for a table of available \link[=Learner]{Learners} in the running session (depending on the loaded packages).
+\item \CRANpkg{mlr3pipelines} to combine learners with pre- and postprocessing steps.
+\item Extension packages for additional task types:
+\itemize{
+\item \CRANpkg{mlr3proba} for probabilistic supervised regression and survival analysis.
+\item \CRANpkg{mlr3cluster} for unsupervised clustering.
+}
+\item \CRANpkg{mlr3tuning} for tuning of hyperparameters, \CRANpkg{mlr3tuningspaces}
+for established default tuning spaces.
+}
+
+Other Learner: 
+\code{\link{mlr_learners_clust.MBatchKMeans}},
+\code{\link{mlr_learners_clust.SimpleKMeans}},
+\code{\link{mlr_learners_clust.agnes}},
+\code{\link{mlr_learners_clust.ap}},
+\code{\link{mlr_learners_clust.cmeans}},
+\code{\link{mlr_learners_clust.cobweb}},
+\code{\link{mlr_learners_clust.dbscan}},
+\code{\link{mlr_learners_clust.dbscan_fpc}},
+\code{\link{mlr_learners_clust.em}},
+\code{\link{mlr_learners_clust.fanny}},
+\code{\link{mlr_learners_clust.featureless}},
+\code{\link{mlr_learners_clust.ff}},
+\code{\link{mlr_learners_clust.hclust}},
+\code{\link{mlr_learners_clust.hdbscan}},
+\code{\link{mlr_learners_clust.kkmeans}},
+\code{\link{mlr_learners_clust.kmeans}},
+\code{\link{mlr_learners_clust.mclust}},
+\code{\link{mlr_learners_clust.meanshift}},
+\code{\link{mlr_learners_clust.optics}},
+\code{\link{mlr_learners_clust.pam}},
+\code{\link{mlr_learners_clust.xmeans}}
+}
+\concept{Learner}
 \section{Super classes}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{\link[mlr3cluster:LearnerClust]{mlr3cluster::LearnerClust}} -> \code{LearnerClustDiana}
 }

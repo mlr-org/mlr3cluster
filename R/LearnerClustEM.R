@@ -1,8 +1,6 @@
 #' @title Expectation-Maximization Clustering Learner
 #'
 #' @name mlr_learners_clust.em
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Expectation-Maximization clustering implemented in
@@ -12,9 +10,13 @@
 #'
 #' @templateVar id clust.em
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("witten2002data", "dempster1977maximum")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustEM = R6Class("LearnerClustEM",
   inherit = LearnerClust,
   public = list(
@@ -68,4 +70,5 @@ LearnerClustEM = R6Class("LearnerClustEM",
   )
 )
 
+#' @include aaa.R
 learners[["clust.em"]] = LearnerClustEM

@@ -1,8 +1,6 @@
 #' @title Fuzzy C-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.cmeans
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for fuzzy clustering implemented in [e1071::cmeans()].
@@ -13,9 +11,13 @@
 #'
 #' @templateVar id clust.cmeans
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("dimitriadou2008misc", "bezdek2013pattern")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustCMeans = R6Class("LearnerClustCMeans",
   inherit = LearnerClust,
   public = list(
@@ -81,4 +83,5 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
   )
 )
 
+#' @include aaa.R
 learners[["clust.cmeans"]] = LearnerClustCMeans

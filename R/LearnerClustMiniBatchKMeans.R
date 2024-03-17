@@ -1,8 +1,6 @@
 #' @title Mini Batch K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.MBatchKMeans
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for mini batch k-means clustering implemented in [ClusterR::MiniBatchKmeans()].
@@ -14,9 +12,13 @@
 #'
 #' @templateVar id clust.MBatchKMeans
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("sculley2010web")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
   inherit = LearnerClust,
   public = list(
@@ -106,4 +108,5 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
   )
 )
 
+#' @include aaa.R
 learners[["clust.MBatchKMeans"]] = LearnerClustMiniBatchKMeans

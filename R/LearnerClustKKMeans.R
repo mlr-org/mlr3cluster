@@ -1,8 +1,6 @@
 #' @title Kernel K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.kkmeans
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for kernel k-means clustering implemented in [kernlab::kkmeans()].
@@ -14,9 +12,13 @@
 #'
 #' @templateVar id clust.kkmeans
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("karatzoglou2004kernlab", "dhillon2004unified")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
   inherit = LearnerClust,
   public = list(
@@ -100,4 +102,5 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
   )
 )
 
+#' @include aaa.R
 learners[["clust.kkmeans"]] = LearnerClustKKMeans

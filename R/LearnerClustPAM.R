@@ -1,8 +1,6 @@
 #' @title Partitioning Around Medoids Clustering Learner
 #'
 #' @name mlr_learners_clust.pam
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for PAM clustering implemented in [cluster::pam()].
@@ -14,9 +12,13 @@
 #'
 #' @templateVar id clust.pam
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("reynolds2006clustering", "schubert2019faster")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustPAM = R6Class("LearnerClustPAM",
   inherit = LearnerClust,
   public = list(
@@ -80,4 +82,5 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
   )
 )
 
+#' @include aaa.R
 learners[["clust.pam"]] = LearnerClustPAM

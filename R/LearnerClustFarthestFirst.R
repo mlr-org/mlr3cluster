@@ -1,8 +1,6 @@
 #' @title Farthest First Clustering Learner
 #'
 #' @name mlr_learners_clust.ff
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for Farthest First clustering implemented in [RWeka::FarthestFirst()].
@@ -11,18 +9,13 @@
 #'
 #' @templateVar id clust.ff
 #' @template learner
-#' @examples
-#' \dontrun{
-#' if (requireNamespace("RWeka")) {
-#'   learner = mlr3::lrn("clust.ff")
-#'   print(learner)
 #'
-#'   # available parameters:
-#'   learner$param_set$ids()
-#' }
-#' }
+#' @references
+#' `r format_bib("witten2002data", "hochbaum1985best")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustFarthestFirst = R6Class("LearnerClustFF",
   inherit = LearnerClust,
   public = list(
@@ -67,4 +60,5 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
   )
 )
 
+#' @include aaa.R
 learners[["clust.ff"]] = LearnerClustFarthestFirst

@@ -1,8 +1,6 @@
 #' @title Divisive Hierarchical Clustering Learner
 #'
 #' @name mlr_learners_clust.diana
-#' @include LearnerClust.R
-#' @include aaa.R
 #'
 #' @description
 #' A [LearnerClust] for divisive hierarchical clustering implemented in [cluster::diana()].
@@ -12,9 +10,13 @@
 #'
 #' @templateVar id clust.diana
 #' @template learner
-#' @template example
+#'
+#' @references
+#' `r format_bib("kaufman2009finding")`
 #'
 #' @export
+#' @template seealso_learner
+#' @template example
 LearnerClustDiana = R6Class("LearnerClustDiana",
   inherit = LearnerClust,
   public = list(
@@ -64,4 +66,5 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
   )
 )
 
+#' @include aaa.R
 learners[["clust.diana"]] = LearnerClustDiana
