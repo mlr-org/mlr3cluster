@@ -26,7 +26,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
     initialize = function() {
       param_set = ps(
         centers = p_uty(
-          tags = c("required", "train"), default = 2L, custom_check = check_centers
+          tags = c("required", "train"), custom_check = check_centers
         ),
         iter.max = p_int(1L, default = 10L, tags = "train"),
         algorithm = p_fct(

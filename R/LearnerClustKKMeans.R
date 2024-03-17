@@ -27,7 +27,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
     initialize = function() {
       param_set = ps(
         centers = p_uty(
-          tags = c("required", "train"), default = 2L, custom_check = check_centers
+          tags = c("required", "train"), custom_check = check_centers
         ),
         kernel = p_fct(
           default = "rbfdot",

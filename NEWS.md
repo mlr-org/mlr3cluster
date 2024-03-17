@@ -3,6 +3,7 @@
 * Add DBSCAN learner from 'fpc' package
 * Add HDBSCAN learner from 'dbscan' package
 * Add OPTICS learner from 'dbscan' package
+* Compatibility with upcoming 'paradox' release
 
 # mlr3cluster 0.1.8
 
