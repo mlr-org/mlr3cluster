@@ -61,7 +61,8 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 ```{r, echo = FALSE}
 cran_pkgs = function(pkgs) {
   mlr3misc::map_chr(pkgs, function(pkg) {
-    pkg = pkg[[length(pkg)]]
+    ii = if (length(pkg) > 2L) 3L else 2L
+    pkg = pkg[ii]
     if (pkg == "stats") {
       "[stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html)"
     } else {
