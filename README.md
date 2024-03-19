@@ -102,11 +102,8 @@ prediction = learner$predict(task = task)
 
 ## More Resources
 
-Check out the
-**[blogpost](https://www.r-bloggers.com/2020/10/introducing-mlr3cluster-cluster-analysis-package/)**
-for a more detailed introduction to the package. Also,
-**[mlr3book](https://mlr3book.mlr-org.com/chapters/chapter13/beyond_regression_and_classification.html#sec-cluster)**
-has a section on clustering.
+Check out the **[blogpost](https://www.r-bloggers.com/2020/10/introducing-mlr3cluster-cluster-analysis-package/)** for a more detailed introduction to the package.
+Also, **[mlr3book](https://mlr3book.mlr-org.com/chapters/chapter13/beyond_regression_and_classification.html#sec-cluster)** has a section on clustering.
 
 ## Future Plans
 
