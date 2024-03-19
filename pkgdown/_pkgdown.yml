@@ -5,7 +5,7 @@ template:
   package: mlr3pkgdowntemplate
 
 development:
-  mode: release
+  mode: auto
   version_label: default
   version_tooltip: "Version"
 
