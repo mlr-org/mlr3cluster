@@ -11,7 +11,11 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
 library(mlr3cluster)
+library(mlr3misc)
+lrn_clust = as.data.table(mlr3::mlr_learners)[task_type == "clust", .(key, label, packages)]
+msr_clust = as.data.table(mlr3::mlr_measures)[task_type == "clust", .(key, label, packages)]
 ```
 
 # mlr3cluster
@@ -48,8 +52,8 @@ pak::pak("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-- A selection of 22 clustering learners that represent a wide variety of clusterers: partitional, hierarchical, fuzzy, etc.
-- A selection of 4 performance measures
+- A selection of `r nrow(lrn_clust)` clustering learners that represent a wide variety of clusterers: partitional, hierarchical, fuzzy, etc.
+- A selection of `r nrow(msr_clust)` performance measures
 - Two built-in tasks to get started with clustering
 
 Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3viz)** which enables you to create great visualizations with just one line of code!
@@ -59,35 +63,30 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 ### Cluster Learners
 
 ```{r, echo = FALSE}
-cran_pkgs = function(pkgs) {
-  mlr3misc::map_chr(pkgs, function(pkg) {
-    ii = if (length(pkg) > 2L) 3L else 2L
-    pkg = pkg[ii]
-    if (pkg == "stats") {
-      "[stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html)"
-    } else {
-      sprintf("[%1$s](https://cran.r-project.org/package=%1$s)", pkg)
-    }
-  })
+cran_pkg = function(pkgs) {
+  pkgs = ifelse(
+    pkgs %in% c("stats", "graphics", "datasets"), pkgs, sprintf("[%1$s](https://cran.r-project.org/package=%1$s)", pkgs)
+  )
+  toString(pkgs)
 }
 
-content = as.data.table(mlr3::mlr_learners, objects = TRUE)[task_type == "clust", .(key, label, packages)]
-content[, `:=`(
+lrn_clust[, packages := map(packages, function(x) setdiff(x, c("mlr3", "mlr3cluster")))]
+lrn_clust[, `:=`(
   key = sprintf("[%1$s](https://mlr3cluster.mlr-org.com/reference/mlr_learners_%1$s)", key),
-  packages = cran_pkgs(packages)
+  packages = map_chr(packages, cran_pkg)
 )]
-knitr::kable(content, format = "markdown", col.names = tools::toTitleCase(names(content)))
+knitr::kable(lrn_clust, format = "markdown", col.names = tools::toTitleCase(names(lrn_clust)))
 ```
 
 ### Cluster Measures
 
 ```{r, echo = FALSE}
-content = as.data.table(mlr3::mlr_measures, objects = TRUE)[task_type == "clust", .(key, label, packages)]
-content[, `:=`(
+msr_clust[, packages := map(packages, function(x) setdiff(x, c("mlr3", "mlr3cluster")))]
+msr_clust[, `:=`(
   key = sprintf("[%1$s](https://mlr3cluster.mlr-org.com/reference/mlr_measures_%1$s)", key),
-  packages = cran_pkgs(packages)
+  packages = map_chr(packages, cran_pkg)
 )]
-knitr::kable(content, format = "markdown", col.names = tools::toTitleCase(names(content)))
+knitr::kable(msr_clust, format = "markdown", col.names = tools::toTitleCase(names(msr_clust)))
 ```
 
 
