@@ -59,12 +59,21 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 ### Cluster Learners
 
 ```{r, echo = FALSE}
+cran_pkgs = function(pkgs) {
+  mlr3misc::map_chr(pkgs, function(pkg) {
+    pkg = pkg[[length(pkg)]]
+    if (pkg == "stats") {
+      "[stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/stats-package.html)"
+    } else {
+      sprintf("[%1$s](https://cran.r-project.org/package=%1$s)", pkg)
+    }
+  })
+}
+
 content = as.data.table(mlr3::mlr_learners, objects = TRUE)[task_type == "clust", .(key, label, packages)]
 content[, `:=`(
   key = sprintf("[%1$s](https://mlr3cluster.mlr-org.com/reference/mlr_learners_%1$s)", key),
-  packages = sprintf(
-    "[%1$s](https://cran.r-project.org/package=%1$s)", mlr3misc::map_chr(packages, function(x) x[[length(x)]])
-  )
+  packages = cran_pkgs(packages)
 )]
 knitr::kable(content, format = "markdown", col.names = tools::toTitleCase(names(content)))
 ```
@@ -75,9 +84,7 @@ knitr::kable(content, format = "markdown", col.names = tools::toTitleCase(names(
 content = as.data.table(mlr3::mlr_measures, objects = TRUE)[task_type == "clust", .(key, label, packages)]
 content[, `:=`(
   key = sprintf("[%1$s](https://mlr3cluster.mlr-org.com/reference/mlr_measures_%1$s)", key),
-  packages = sprintf(
-    "[%1$s](https://cran.r-project.org/package=%1$s)", mlr3misc::map_chr(packages, function(x) x[[length(x)]])
-  )
+  packages = cran_pkgs(packages)
 )]
 knitr::kable(content, format = "markdown", col.names = tools::toTitleCase(names(content)))
 ```
