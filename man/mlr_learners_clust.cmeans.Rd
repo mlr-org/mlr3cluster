@@ -33,7 +33,7 @@ lrn("clust.cmeans")
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   centers \tab untyped \tab 2 \tab  \tab - \cr
+   centers \tab untyped \tab - \tab  \tab - \cr
    iter.max \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    verbose \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    dist \tab character \tab euclidean \tab euclidean, manhattan \tab - \cr

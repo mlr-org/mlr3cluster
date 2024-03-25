@@ -30,7 +30,7 @@ lrn("clust.featureless")
 \section{Parameters}{
 \tabular{llll}{
    Id \tab Type \tab Default \tab Range \cr
-   num_clusters \tab integer \tab 1 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   num_clusters \tab integer \tab - \tab \eqn{[1, \infty)}{[1, Inf)} \cr
 }
 }
 

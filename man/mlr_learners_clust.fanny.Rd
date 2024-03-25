@@ -35,7 +35,7 @@ lrn("clust.fanny")
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    memb.exp \tab numeric \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    metric \tab character \tab euclidean \tab euclidean, manhattan, SqEuclidean \tab - \cr
    stand \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
