@@ -31,7 +31,7 @@ LearnerClustBIRCH = R6Class("LearnerClustBIRCH",
 
       super$initialize(
         id = "clust.birch",
-        feature_types = c("logical", "integer", "numeric"),
+        feature_types = c("integer", "numeric"),
         predict_types = "partition",
         param_set = param_set,
         properties = c("hierarchical", "exclusive", "complete"),

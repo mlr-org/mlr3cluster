@@ -30,7 +30,7 @@ LearnerClustBICO = R6Class("LearnerClustBICO",
 
       super$initialize(
         id = "clust.bico",
-        feature_types = c("logical", "integer", "numeric"),
+        feature_types = c("integer", "numeric"),
         predict_types = "partition",
         param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),

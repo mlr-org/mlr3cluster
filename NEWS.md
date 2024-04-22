@@ -1,5 +1,8 @@
 # mlr3cluster (development version)
 
+* Add BIRCH learner from 'stream' package
+* Add BICO learner from 'stream' package
+
 # mlr3cluster 0.1.9
 
 * Add DBSCAN learner from 'fpc' package

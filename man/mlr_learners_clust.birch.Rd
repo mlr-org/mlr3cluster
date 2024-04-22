@@ -22,7 +22,7 @@ lrn("clust.birch")
 \itemize{
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}
-\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
+\item Feature Types: \dQuote{integer}, \dQuote{numeric}
 \item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{stream}
 }
 }
