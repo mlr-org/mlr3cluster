@@ -22,9 +22,9 @@ LearnerClustBIRCH = R6Class("LearnerClustBIRCH",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        threshold = p_dbl(tags = c("train", "required")),
-        branching = p_int(tags = c("train", "required")),
-        maxLeaf = p_int(tags = c("train", "required")),
+        threshold = p_dbl(0L, tags = c("train", "required")),
+        branching = p_int(1L, tags = c("train", "required")),
+        maxLeaf = p_int(1L, tags = c("train", "required")),
         maxMem = p_int(0L, default = 0L, tags = "train"),
         outlierThreshold = p_dbl(default = 0.25, tags = "train")
       )

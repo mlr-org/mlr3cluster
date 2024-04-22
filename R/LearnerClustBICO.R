@@ -25,7 +25,7 @@ LearnerClustBICO = R6Class("LearnerClustBICO",
         k = p_int(1L, default = 5L, tags = "train"),
         space = p_int(1L, default = 10L, tags = "train"),
         p = p_int(1L, default = 10L, tags = "train"),
-        iterations = p_int(0L, default = 10L, tags = "train")
+        iterations = p_int(1L, default = 10L, tags = "train")
       )
 
       super$initialize(

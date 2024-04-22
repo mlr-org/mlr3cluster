@@ -18,8 +18,7 @@
 LearnerClustHDBSCAN = R6Class("LearnerClustHDBSCAN",
   inherit = LearnerClust,
   public = list(
-    #' @description
-    #' Creates a new instance of this [R6][R6::R6Class] class.
+    #' @description Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
         minPts = p_int(0L, tags = c("required", "train")),

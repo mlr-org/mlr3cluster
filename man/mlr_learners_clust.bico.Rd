@@ -33,7 +33,7 @@ lrn("clust.bico")
    k \tab integer \tab 5 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    space \tab integer \tab 10 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    p \tab integer \tab 10 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   iterations \tab integer \tab 10 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   iterations \tab integer \tab 10 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
 }
 }
 

@@ -30,9 +30,9 @@ lrn("clust.birch")
 \section{Parameters}{
 \tabular{llll}{
    Id \tab Type \tab Default \tab Range \cr
-   threshold \tab numeric \tab - \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   branching \tab integer \tab - \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   maxLeaf \tab integer \tab - \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   threshold \tab numeric \tab - \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   branching \tab integer \tab - \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   maxLeaf \tab integer \tab - \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    maxMem \tab integer \tab 0 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    outlierThreshold \tab numeric \tab 0.25 \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
 }
