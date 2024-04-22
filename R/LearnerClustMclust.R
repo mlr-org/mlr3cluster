@@ -57,7 +57,7 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
     },
 
     .predict = function(task) {
-      predictions = predict(self$model, newdata = task$data())
+      predictions = invoke(predict, self$model, newdata = task$data())
       partition = as.integer(predictions$classification)
       prob = predictions$z
       PredictionClust$new(task = task, partition = partition, prob = prob)
