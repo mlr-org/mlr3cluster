@@ -53,16 +53,13 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
   private = list(
     .train = function(task) {
       if (!is.null(self$param_set$values$medoids)) {
-        if (test_true(length(self$param_set$values$medoids) != self$param_set$values$k)) {
+        if (length(self$param_set$values$medoids) != self$param_set$values$k) {
           stopf("number of `medoids`' needs to match `k`!")
         }
-        r = map_lgl(self$param_set$values$medoids, function(i) {
-          test_true(i <= task$nrow) && test_true(i >= 1L)
-        })
+        r = map_lgl(self$param_set$values$medoids, function(i) i <= task$nrow && i >= 1L)
         if (sum(r) != self$param_set$values$k) {
           msg = sprintf("`medoids` need to contain valid indices from 1")
-          msg = sprintf("%s to %s (number of observations)!", msg, self$param_set$values$k)
-          stopf(msg)
+          stopf("%s to %s (number of observations)!", msg, self$param_set$values$k)
         }
       }
 
