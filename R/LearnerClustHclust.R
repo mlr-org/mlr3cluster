@@ -56,23 +56,26 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
   ),
   private = list(
     .train = function(task) {
-      d = self$param_set$values$distmethod
-      dist_arg = self$param_set$get_values(tags = c("train", "dist"))
+      pv = self$param_set$get_values()
       dist = invoke(stats::dist,
         x = task$data(),
-        method = ifelse(is.null(d), "euclidean", d), .args = dist_arg
+        method = pv$d %??% "euclidean",
+        .args = self$param_set$get_values(tags = c("train", "dist"))
       )
-      pv = self$param_set$get_values(tags = c("train", "hclust"))
-      m = invoke(stats::hclust, d = dist, .args = pv)
+      m = invoke(stats::hclust,
+        d = dist,
+        .args = self$param_set$get_values(tags = c("train", "hclust"))
+      )
       if (self$save_assignments) {
-        self$assignments = stats::cutree(m, self$param_set$values$k)
+        self$assignments = stats::cutree(m, pv$k)
       }
 
       return(m)
     },
 
     .predict = function(task) {
-      if (self$param_set$values$k > task$nrow) {
+      pv = self$param_set$get_values(tags = "predict")
+      if (pv$k > task$nrow) {
         stopf("`k` needs to be between 1 and %i", task$nrow)
       }
 

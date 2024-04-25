@@ -64,17 +64,22 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
   ),
   private = list(
     .train = function(task) {
-      pv = self$param_set$get_values(tags = "train")
-      m = invoke(cluster::agnes, x = task$data(), diss = FALSE, .args = pv)
+      pv = self$param_set$get_values()
+      m = invoke(cluster::agnes,
+        x = task$data(),
+        diss = FALSE,
+        .args = remove_named(pv, "k")
+      )
       if (self$save_assignments) {
-        self$assignments = stats::cutree(m, self$param_set$values$k)
+        self$assignments = stats::cutree(m, pv$k)
       }
 
       return(m)
     },
 
     .predict = function(task) {
-      if (self$param_set$values$k > task$nrow) {
+      pv = self$param_set$get_values(tags = "predict")
+      if (pv$k > task$nrow) {
         stopf("`k` needs to be between 1 and %i", task$nrow)
       }
 

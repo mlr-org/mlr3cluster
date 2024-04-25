@@ -67,7 +67,8 @@ LearnerClustAP = R6Class("LearnerClustAP",
     },
 
     .predict = function(task) {
-      sim_func = self$param_set$values$s
+      pv = self$param_set$get_values()
+      sim_func = pv$s
       exemplar_data = attributes(self$model)$exemplar_data
 
       d = task$data()
