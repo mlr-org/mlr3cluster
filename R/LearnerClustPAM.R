@@ -52,18 +52,17 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
   ),
   private = list(
     .train = function(task) {
-      if (!is.null(self$param_set$values$medoids)) {
-        if (length(self$param_set$values$medoids) != self$param_set$values$k) {
+      pv = self$param_set$get_values(tags = "train")
+      if (!is.null(pv$medoids)) {
+        if (length(pv$medoids) != pv$k) {
           stopf("number of `medoids`' needs to match `k`!")
         }
-        r = map_lgl(self$param_set$values$medoids, function(i) i <= task$nrow && i >= 1L)
-        if (sum(r) != self$param_set$values$k) {
+        if (sum(pv$medoids <= task$nrow & pv$medoids >= 1L) != pv$k) {
           msg = sprintf("`medoids` need to contain valid indices from 1")
-          stopf("%s to %s (number of observations)!", msg, self$param_set$values$k)
+          stopf("%s to %s (number of observations)!", msg, pv$k)
         }
       }
 
-      pv = self$param_set$get_values(tags = "train")
       m = invoke(cluster::pam, x = task$data(), diss = FALSE, .args = pv)
       if (self$save_assignments) {
         self$assignments = m$clustering
