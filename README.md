@@ -41,7 +41,7 @@ pak::pak("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-- A selection of 22 clustering learners that represent a wide variety of
+- A selection of 24 clustering learners that represent a wide variety of
   clusterers: partitional, hierarchical, fuzzy, etc.
 - A selection of 4 performance measures
 - Two built-in tasks to get started with clustering
@@ -60,6 +60,8 @@ create great visualizations with just one line of code!
 | [clust.SimpleKMeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.SimpleKMeans) | K-Means (Weka)                        | [RWeka](https://cran.r-project.org/package=RWeka)         |
 | [clust.agnes](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.agnes)               | Agglomerative Hierarchical Clustering | [cluster](https://cran.r-project.org/package=cluster)     |
 | [clust.ap](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap)                     | Affinity Propagation Clustering       | [apcluster](https://cran.r-project.org/package=apcluster) |
+| [clust.bico](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.bico)                 | BICO Clustering                       | [stream](https://cran.r-project.org/package=stream)       |
+| [clust.birch](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch)               | BIRCH Clustering                      | [stream](https://cran.r-project.org/package=stream)       |
 | [clust.cmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans)             | Fuzzy C-Means Clustering Learner      | [e1071](https://cran.r-project.org/package=e1071)         |
 | [clust.cobweb](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb)             | Cobweb Clustering                     | [RWeka](https://cran.r-project.org/package=RWeka)         |
 | [clust.dbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan)             | Density-Based Clustering              | [dbscan](https://cran.r-project.org/package=dbscan)       |

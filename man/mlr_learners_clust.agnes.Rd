@@ -76,6 +76,8 @@ Other Learner:
 \code{\link{mlr_learners_clust.MBatchKMeans}},
 \code{\link{mlr_learners_clust.SimpleKMeans}},
 \code{\link{mlr_learners_clust.ap}},
+\code{\link{mlr_learners_clust.bico}},
+\code{\link{mlr_learners_clust.birch}},
 \code{\link{mlr_learners_clust.cmeans}},
 \code{\link{mlr_learners_clust.cobweb}},
 \code{\link{mlr_learners_clust.dbscan}},

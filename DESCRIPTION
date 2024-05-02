@@ -37,6 +37,7 @@ Suggests:
     mclust,
     mlbench,
     RWeka,
+    stream,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8
@@ -47,6 +48,8 @@ Collate:
     'aaa.R'
     'LearnerClustAffinityPropagation.R'
     'LearnerClustAgnes.R'
+    'LearnerClustBICO.R'
+    'LearnerClustBIRCH.R'
     'LearnerClustCMeans.R'
     'LearnerClustCobweb.R'
     'LearnerClustDBSCAN.R'
