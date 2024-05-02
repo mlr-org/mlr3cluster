@@ -49,6 +49,12 @@
     <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ap.html</loc>
   </url>
   <url>
+    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.bico.html</loc>
+  </url>
+  <url>
+    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.birch.html</loc>
+  </url>
+  <url>
     <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cmeans.html</loc>
   </url>
   <url>
