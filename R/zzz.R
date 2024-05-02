@@ -24,7 +24,7 @@ register_mlr3 = function() {
   x$task_col_roles$clust = x$task_col_roles$regr
   x$task_properties$clust = x$task_properties$regr
   x$learner_properties$clust = c(
-    "missings", "partitional", "hierarchical", "exclusive", "overlapping", "fuzzy", "complete", "partial"
+    "missings", "partitional", "hierarchical", "exclusive", "overlapping", "fuzzy", "complete", "partial", "density"
   )
 
   # measure

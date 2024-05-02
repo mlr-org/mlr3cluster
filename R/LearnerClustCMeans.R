@@ -62,9 +62,9 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
   ),
   private = list(
     .train = function(task) {
-      check_centers_param(self$param_set$values$centers, task, test_data_frame, "centers")
-
       pv = self$param_set$get_values(tags = "train")
+      assert_centers_param(pv$centers, task, test_data_frame, "centers")
+
       m = invoke(e1071::cmeans, x = task$data(), .args = pv, .opts = allow_partial_matching)
       if (self$save_assignments) {
         self$assignments = m$cluster
@@ -74,8 +74,8 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
     },
 
     .predict = function(task) {
-      partition = unclass(cl_predict(self$model, newdata = task$data(), type = "class_ids"))
-      prob = unclass(cl_predict(self$model, newdata = task$data(), type = "memberships"))
+      partition = unclass(invoke(cl_predict, self$model, newdata = task$data(), type = "class_ids"))
+      prob = unclass(invoke(cl_predict, self$model, newdata = task$data(), type = "memberships"))
       colnames(prob) = seq_len(ncol(prob))
 
       PredictionClust$new(task = task, partition = partition, prob = prob)
