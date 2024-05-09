@@ -27,7 +27,6 @@ MeasureClustFPC = R6Class("MeasureClustFPC",
   )
 )
 
-
 MeasureClustSil = R6Class("MeasureClustSil",
   inherit = MeasureClust,
   public = list(
@@ -66,20 +65,17 @@ MeasureClustSil = R6Class("MeasureClustSil",
 #' @template measure_sil
 measures$silhouette = make_measure_info("sil_width", "Silhouette", lower = 0, upper = Inf, minimize = FALSE)
 
-
 #' @title Calinski Harabasz Pseudo F-Statistic
 #'
 #' @templateVar id ch
 #' @template measure_fpc
 measures$ch = make_measure_info("ch", "Calinski Harabasz", lower = 0, upper = Inf, minimize = FALSE)
 
-
 #' @title Dunn Index
 #'
 #' @templateVar id dunn
 #' @template measure_fpc
 measures$dunn = make_measure_info("dunn", "Dunn", lower = 0, upper = Inf, minimize = FALSE)
-
 
 #' @title Within Sum of Squares
 #'
