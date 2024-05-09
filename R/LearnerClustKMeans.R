@@ -63,8 +63,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
       if (self$save_assignments) {
         self$assignments = m$cluster
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {

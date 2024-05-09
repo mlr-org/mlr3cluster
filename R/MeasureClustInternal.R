@@ -51,9 +51,9 @@ MeasureClustSil = R6Class("MeasureClustSil",
       X = dist(task$data(rows = prediction$row_ids))
 
       if (length(unique(prediction$partition)) == 1L) {
-        return(0L)
+        0L
       } else {
-        return(mean(silhouette(prediction$partition, X)[, self$crit]))
+        mean(silhouette(prediction$partition, X)[, self$crit])
       }
     }
   )

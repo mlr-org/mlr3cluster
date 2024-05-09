@@ -62,8 +62,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
       if (self$save_assignments) {
         self$assignments = apcluster::labels(m, type = "enum")
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {

@@ -67,8 +67,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
       if (self$save_assignments) {
         self$assignments = m$clustering
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {

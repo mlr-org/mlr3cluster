@@ -70,8 +70,7 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
       if (self$save_assignments) {
         self$assignments = as.integer(invoke(predict, m, newdata = task$data()))
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {
