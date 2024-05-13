@@ -1,10 +1,10 @@
 #' @title Ruspini Cluster Task
 #'
 #' @name mlr_tasks_ruspini
-#' @include aaa.R
 #' @format [R6::R6Class] inheriting from [TaskClust].
 #'
 #' @section Construction:
+#'
 #' ```
 #' mlr_tasks$get("ruspini")
 #' tsk("ruspini")
@@ -25,4 +25,5 @@ load_task_ruspini = function(id = "ruspini") {
   task
 }
 
+#' @include aaa.R
 tasks[["ruspini"]] = load_task_ruspini

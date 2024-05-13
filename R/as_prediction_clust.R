@@ -36,13 +36,11 @@ as_prediction_clust = function(x, ...) {
   UseMethod("as_prediction_clust")
 }
 
-
 #' @rdname as_prediction_clust
 #' @export
 as_prediction_clust.PredictionClust = function(x, ...) { # nolint
   x
 }
-
 
 #' @rdname as_prediction_clust
 #' @export
