@@ -357,5 +357,13 @@ bibentries = c( # nolint start
     pages = "141--182",
     year = "1997",
     publisher = "Springer"
+  ),
+  berry1979inter = bibentry("article",
+    title = "Interactive Data Analysis: A Practical Primer",
+    author = "Berry, J. Brian",
+    journal = "Journal of the Royal Statistical Society: Series C (Applied Statistics)",
+    volume = "28",
+    pages = "181",
+    year = "1979"
   )
 ) # nolint end

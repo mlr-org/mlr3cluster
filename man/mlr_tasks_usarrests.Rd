@@ -10,11 +10,51 @@
 A cluster task for the \link[datasets:USArrests]{datasets::USArrests} data set.
 Rownames are stored as variable \code{"states"} with column role \code{"name"}.
 }
-\section{Construction}{
+\section{Dictionary}{
 
+This \link{Task} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link{mlr_tasks} or with the associated sugar function \code{\link[=tsk]{tsk()}}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_tasks$get("usarrests")
 tsk("usarrests")
 }\if{html}{\out{</div>}}
 }
 
+\section{Meta Information}{
+
+\itemize{
+\item Task type: \dQuote{clust}
+\item Dimensions: 50x4
+\item Properties: -
+\item Has Missings: \code{FALSE}
+\item Target: -
+\item Features: \dQuote{Assault}, \dQuote{Murder}, \dQuote{Rape}, \dQuote{UrbanPop}
+}
+}
+
+\references{
+Berry, Brian J (1979).
+\dQuote{Interactive Data Analysis: A Practical Primer.}
+\emph{Journal of the Royal Statistical Society: Series C (Applied Statistics)}, \bold{28}, 181.
+}
+\seealso{
+\itemize{
+\item Chapter in the \href{https://mlr3book.mlr-org.com/}{mlr3book}:
+\url{https://mlr3book.mlr-org.com/chapters/chapter2/data_and_basic_modeling.html}
+\item Package \CRANpkg{mlr3data} for more toy tasks.
+\item Package \CRANpkg{mlr3oml} for downloading tasks from \url{https://www.openml.org}.
+\item Package \CRANpkg{mlr3viz} for some generic visualizations.
+\item \link[mlr3misc:Dictionary]{Dictionary} of \link[=Task]{Tasks}: \link{mlr_tasks}
+\item \code{as.data.table(mlr_tasks)} for a table of available \link[=Task]{Tasks} in the running session (depending on the loaded packages).
+\item \CRANpkg{mlr3fselect} and \CRANpkg{mlr3filters} for feature selection and feature filtering.
+\item Extension packages for additional task types:
+\itemize{
+\item Unsupervised clustering: \CRANpkg{mlr3cluster}
+\item Probabilistic supervised regression and survival analysis: \url{https://mlr3proba.mlr-org.com/}.
+}
+}
+
+Other Task: 
+\code{\link{TaskClust}},
+\code{\link{mlr_tasks_ruspini}}
+}
+\concept{Task}

@@ -19,6 +19,11 @@ task$task_type
 # possible properties:
 mlr_reflections$task_properties$clust
 }
+\seealso{
+Other Task: 
+\code{\link{mlr_tasks_ruspini}},
+\code{\link{mlr_tasks_usarrests}}
+}
 \concept{Task}
 \section{Super classes}{
 \code{\link[mlr3:Task]{mlr3::Task}} -> \code{\link[mlr3:TaskUnsupervised]{mlr3::TaskUnsupervised}} -> \code{TaskClust}

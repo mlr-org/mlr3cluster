@@ -3,17 +3,17 @@
 #' @name mlr_tasks_usarrests
 #' @format [R6::R6Class] inheriting from [TaskClust].
 #'
-#' @section Construction:
-#'
-#' ```
-#' mlr_tasks$get("usarrests")
-#' tsk("usarrests")
-#' ```
-#'
 #' @description
 #' A cluster task for the [datasets::USArrests] data set.
 #' Rownames are stored as variable `"states"` with column role `"name"`.
 #'
+#' @templateVar id usarrests
+#' @template task
+#'
+#' @references
+#' `r format_bib("berry1979inter")`
+#'
+#' @template seealso_task
 NULL
 
 load_task_usarrests = function(id = "usarrests") {
