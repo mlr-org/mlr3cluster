@@ -67,7 +67,6 @@ PredictionClust = R6Class("PredictionClust",
   )
 )
 
-
 #' @export
 as.data.table.PredictionClust = function(x, ...) { # nolint
   tab = as.data.table(x$data[c("row_ids", "partition")])

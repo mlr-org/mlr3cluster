@@ -42,7 +42,6 @@ LearnerClust = R6Class("LearnerClust",
     #' Default is `TRUE`.
     save_assignments = TRUE,
 
-
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function(id, param_set = ps(), predict_types = "partition", feature_types = character(),

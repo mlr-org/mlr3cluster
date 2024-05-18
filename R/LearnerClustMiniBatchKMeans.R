@@ -68,41 +68,19 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
 
       m = invoke(ClusterR::MiniBatchKmeans, data = task$data(), .args = pv)
       if (self$save_assignments) {
-        self$assignments = unclass(invoke(ClusterR::predict_MBatchKMeans,
-          data = task$data(),
-          CENTROIDS = m$centroids,
-          fuzzy = FALSE
-        ))
-        self$assignments = as.integer(self$assignments)
+        self$assignments = as.integer(invoke(predict, m, newdata = task$data()))
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {
-      if (self$predict_type == "partition") {
-        partition = unclass(invoke(ClusterR::predict_MBatchKMeans,
-          data = task$data(),
-          CENTROIDS = self$model$centroids,
-          fuzzy = FALSE
-        ))
-        partition = as.integer(partition)
-        pred = PredictionClust$new(task = task, partition = partition)
-      } else if (self$predict_type == "prob") {
-        partition = unclass(invoke(ClusterR::predict_MBatchKMeans,
-          data = task$data(),
-          CENTROIDS = self$model$centroids,
-          fuzzy = TRUE
-        ))
-        colnames(partition$fuzzy_clusters) = seq_len(ncol(partition$fuzzy_clusters))
-        pred = PredictionClust$new(
-          task = task,
-          partition = as.integer(partition$clusters),
-          prob = partition$fuzzy_clusters
-        )
+      partition = as.integer(invoke(predict, self$model, newdata = task$data()))
+      prob = NULL
+      if (self$predict_type == "prob") {
+        prob = invoke(predict, self$model, newdata = task$data(), fuzzy = TRUE)
+        colnames(prob) = seq_len(ncol(prob))
       }
-
-      return(pred)
+      PredictionClust$new(task = task, partition = partition, prob = prob)
     }
   )
 )

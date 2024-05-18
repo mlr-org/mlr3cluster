@@ -52,8 +52,7 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
       if (self$save_assignments) {
         self$assignments = m$classification
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {

@@ -56,8 +56,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
       if (self$save_assignments) {
         self$assignments = m$clustering
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {

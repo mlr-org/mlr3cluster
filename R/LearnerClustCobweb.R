@@ -48,8 +48,7 @@ LearnerClustCobweb = R6Class("LearnerClustCobweb",
       if (self$save_assignments) {
         self$assignments = unname(m$class_ids + 1L)
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {

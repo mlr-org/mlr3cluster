@@ -72,7 +72,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
       if (self$save_assignments) {
         self$assignments = m[seq_along(m)]
       }
-      return(m)
+      m
     },
 
     .predict = function(task) {

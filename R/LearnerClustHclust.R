@@ -69,8 +69,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
       if (self$save_assignments) {
         self$assignments = stats::cutree(m, pv$k)
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {

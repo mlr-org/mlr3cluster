@@ -1,21 +1,18 @@
 #' @title Ruspini Cluster Task
 #'
 #' @name mlr_tasks_ruspini
-#' @include aaa.R
 #' @format [R6::R6Class] inheriting from [TaskClust].
-#'
-#' @section Construction:
-#' ```
-#' mlr_tasks$get("ruspini")
-#' tsk("ruspini")
-#' ```
 #'
 #' @description
 #' A cluster task for the [cluster::ruspini] data set.
 #'
-#' @source
+#' @templateVar id ruspini
+#' @template task
+#'
+#' @references
 #' `r format_bib("ruspini_1970")`
 #'
+#' @template seealso_task
 NULL
 
 load_task_ruspini = function(id = "ruspini") {
@@ -25,4 +22,5 @@ load_task_ruspini = function(id = "ruspini") {
   task
 }
 
+#' @include aaa.R
 tasks[["ruspini"]] = load_task_ruspini

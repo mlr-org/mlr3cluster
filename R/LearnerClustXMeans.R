@@ -62,8 +62,7 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
       if (self$save_assignments) {
         self$assignments = unname(m$class_ids + 1L)
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {

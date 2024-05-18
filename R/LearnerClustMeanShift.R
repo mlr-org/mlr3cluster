@@ -59,8 +59,7 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
       if (self$save_assignments) {
         self$assignments = m$cluster.label
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {

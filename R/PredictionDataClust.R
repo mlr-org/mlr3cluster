@@ -28,7 +28,6 @@ check_prediction_data.PredictionDataClust = function(pdata, ...) { # nolint
   pdata
 }
 
-
 #' @export
 is_missing_prediction_data.PredictionDataClust = function(pdata, ...) { # nolint
   miss = logical(length(pdata$row_ids))

@@ -51,8 +51,7 @@ LearnerClustBICO = R6Class("LearnerClustBICO",
       if (self$save_assignments) {
         self$assignments = as.integer(invoke(predict, m, newdata = dt)[[1L]])
       }
-
-      return(m)
+      m
     },
 
     .predict = function(task) {

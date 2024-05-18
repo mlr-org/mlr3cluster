@@ -2,7 +2,7 @@
 # R specific hooks: https://github.com/lorenzwalthert/precommit
 repos:
   - repo: https://github.com/lorenzwalthert/precommit
-    rev: v0.4.0
+    rev: v0.4.2
     hooks:
       - id: style-files
         args: [--style_pkg=styler.mlr, --style_fun=mlr_style]
@@ -29,6 +29,7 @@ repos:
         - mlr3
         - mlr3misc
         - paradox
+        - stream
       # codemeta must be above use-tidy-description when both are used
       - id: use-tidy-description
       - id: readme-rmd-rendered
@@ -37,7 +38,7 @@ repos:
       - id: deps-in-desc
         exclude: data-raw|inst
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: check-added-large-files
         args: [--maxkb=200]
