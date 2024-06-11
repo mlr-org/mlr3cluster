@@ -102,7 +102,7 @@ Difference Calculation is done by <code><a href="https://rdrr.io/r/stats/dist.ht
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
     
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>method</td><td>character</td><td>complete</td><td>ward.D, ward.D2, single, complete, average, mcquitty, median, centroid</td><td>-</td></tr><tr><td>members</td><td>untyped</td><td></td><td></td><td>-</td></tr><tr><td>distmethod</td><td>character</td><td>euclidean</td><td>euclidean, maximum, manhattan, canberra, binary, minkowski</td><td>-</td></tr><tr><td>diag</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>upper</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>p</td><td>numeric</td><td>2</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>k</td><td>integer</td><td>2</td><td></td><td>\([1, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>method</td><td>character</td><td>complete</td><td>ward.D, ward.D2, single, complete, average, mcquitty, median, centroid</td><td>-</td></tr><tr><td>members</td><td>untyped</td><td>NULL</td><td></td><td>-</td></tr><tr><td>distmethod</td><td>character</td><td>euclidean</td><td>euclidean, maximum, manhattan, canberra, binary, minkowski</td><td>-</td></tr><tr><td>diag</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>upper</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>p</td><td>numeric</td><td>2</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>k</td><td>integer</td><td>2</td><td></td><td>\([1, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Becker, A R, Chambers, M J, Wilks, R A (1988).
@@ -239,7 +239,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;LearnerClustHclust:clust.hclust&gt;: Agglomerative Hierarchical Clustering</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Model: -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * Parameters: k=2, distmethod=euclidean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * Parameters: distmethod=euclidean, k=2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Packages: mlr3, mlr3cluster, stats</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Predict Types:  [partition]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Feature Types: logical, integer, numeric</span>
