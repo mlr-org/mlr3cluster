@@ -33,20 +33,21 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
         ),
         trace.lev = p_int(0L, default = 0L, tags = "train"),
         k = p_int(1L, default = 2L, tags = "predict"),
-        par.method = p_uty(tags = "train", custom_check = crate(function(x) {
-          if (!(test_numeric(x) || test_list(x))) {
-            return("`par.method` needs to be a numeric vector")
-          }
-          if (length(x) %in% c(1L, 3L, 4L)) {
-            TRUE
-          } else {
-            "`par.method` needs be of length 1, 3, or 4"
-          }
-        }))
+        par.method = p_uty(
+          tags = "train",
+          depends = quote(method %in% c("flexible", "gaverage")),
+          custom_check = crate(function(x) {
+            if (!(test_numeric(x) || test_list(x))) {
+              return("`par.method` needs to be a numeric vector")
+            }
+            if (length(x) %in% c(1L, 3L, 4L)) {
+              TRUE
+            } else {
+              "`par.method` needs be of length 1, 3, or 4"
+            }
+          })
+        )
       )
-
-      # param deps
-      param_set$add_dep("par.method", "method", CondAnyOf$new(c("flexible", "gaverage")))
 
       param_set$set_values(k = 2L)
 

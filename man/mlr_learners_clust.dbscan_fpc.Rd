@@ -36,7 +36,7 @@ lrn("clust.dbscan_fpc")
    method \tab character \tab - \tab hybrid, raw, dist \tab - \cr
    seeds \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    showplot \tab untyped \tab FALSE \tab  \tab - \cr
-   countmode \tab untyped \tab  \tab  \tab - \cr
+   countmode \tab untyped \tab NULL \tab  \tab - \cr
 }
 }
 

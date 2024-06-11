@@ -31,7 +31,7 @@ lrn("clust.hclust")
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    method \tab character \tab complete \tab ward.D, ward.D2, single, complete, average, mcquitty, median, centroid \tab - \cr
-   members \tab untyped \tab  \tab  \tab - \cr
+   members \tab untyped \tab NULL \tab  \tab - \cr
    distmethod \tab character \tab euclidean \tab euclidean, maximum, manhattan, canberra, binary, minkowski \tab - \cr
    diag \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    upper \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr

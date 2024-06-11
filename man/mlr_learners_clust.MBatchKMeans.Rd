@@ -42,7 +42,7 @@ lrn("clust.MBatchKMeans")
    initializer \tab character \tab kmeans++ \tab optimal_init, quantile_init, kmeans++, random \tab - \cr
    early_stop_iter \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    verbose \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   CENTROIDS \tab untyped \tab  \tab  \tab - \cr
+   CENTROIDS \tab untyped \tab NULL \tab  \tab - \cr
    tol \tab numeric \tab 1e-04 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    tol_optimal_init \tab numeric \tab 0.3 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    seed \tab integer \tab 1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr

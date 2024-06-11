@@ -31,10 +31,10 @@ lrn("clust.mclust")
 \section{Parameters}{
 \tabular{lll}{
    Id \tab Type \tab Default \cr
-   G \tab untyped \tab :, 1, 9 \cr
+   G \tab untyped \tab 1:9 \cr
    modelNames \tab untyped \tab - \cr
    prior \tab untyped \tab - \cr
-   control \tab untyped \tab mclust::emControl \cr
+   control \tab untyped \tab mclust::emControl() \cr
    initialization \tab untyped \tab - \cr
    x \tab untyped \tab - \cr
 }

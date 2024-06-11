@@ -36,6 +36,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
         pamonce = p_int(0L, 5L, default = 0L, tags = "train"),
         trace.lev = p_int(0L, default = 0L, tags = "train")
       )
+
       param_set$set_values(k = 2L)
 
       super$initialize(

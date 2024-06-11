@@ -27,15 +27,15 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
         borderPoints = p_lgl(default = TRUE, tags = "train"),
         weights = p_uty(tags = "train", custom_check = check_numeric),
         search = p_fct(levels = c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
-        bucketSize = p_int(1L, default = 10L, tags = "train"),
+        bucketSize = p_int(1L, default = 10L, tags = "train", depends = quote(search == "kdtree")),
         splitRule = p_fct(
-          levels = c("STD", "MIDPT", "FAIR", "SL_MIDPT", "SL_FAIR", "SUGGEST"), default = "SUGGEST", tags = "train"
+          levels = c("STD", "MIDPT", "FAIR", "SL_MIDPT", "SL_FAIR", "SUGGEST"),
+          default = "SUGGEST",
+          tags = "train",
+          depends = quote(search == "kdtree")
         ),
         approx = p_dbl(default = 0, tags = "train")
       )
-      # add deps
-      param_set$add_dep("bucketSize", "search", CondEqual$new("kdtree"))
-      param_set$add_dep("splitRule", "search", CondEqual$new("kdtree"))
 
       super$initialize(
         id = "clust.dbscan",

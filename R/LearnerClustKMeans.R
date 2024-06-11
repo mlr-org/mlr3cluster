@@ -35,6 +35,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
         nstart = p_int(1L, default = 1L, tags = "train"),
         trace = p_int(0L, default = 0L, tags = "train")
       )
+
       param_set$set_values(centers = 2L)
 
       super$initialize(
