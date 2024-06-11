@@ -33,11 +33,11 @@ lrn("clust.xmeans")
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    B \tab numeric \tab 1 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    C \tab numeric \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   D \tab untyped \tab weka.core.EuclideanDistance \tab  \tab - \cr
+   D \tab untyped \tab "weka.core.EuclideanDistance" \tab  \tab - \cr
    H \tab integer \tab 4 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    I \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    J \tab integer \tab 1000 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   K \tab untyped \tab  \tab  \tab - \cr
+   K \tab untyped \tab "" \tab  \tab - \cr
    L \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    M \tab integer \tab 1000 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    S \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

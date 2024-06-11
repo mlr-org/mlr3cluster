@@ -30,7 +30,9 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
         batch_size = p_int(1L, default = 10L, tags = "train"),
         num_init = p_int(1L, default = 1L, tags = "train"),
         max_iters = p_int(1L, default = 100L, tags = "train"),
-        init_fraction = p_dbl(0, 1, default = 1, tags = "train"),
+        init_fraction = p_dbl(
+          0, 1, default = 1, tags = "train", depends = quote(initializer %in% c("kmeans++", "optimal_init"))
+        ),
         initializer = p_fct(
           levels = c("optimal_init", "quantile_init", "kmeans++", "random"), default = "kmeans++", tags = "train"
         ),
@@ -41,10 +43,8 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
         tol_optimal_init = p_dbl(0, default = 0.3, tags = "train"),
         seed = p_int(default = 1L, tags = "train")
       )
-      param_set$set_values(clusters = 2L)
 
-      # add deps
-      param_set$add_dep("init_fraction", "initializer", CondAnyOf$new(c("kmeans++", "optimal_init")))
+      param_set$set_values(clusters = 2L)
 
       super$initialize(
         id = "clust.MBatchKMeans",

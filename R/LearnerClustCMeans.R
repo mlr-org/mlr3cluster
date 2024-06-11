@@ -33,7 +33,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         dist = p_fct(levels = c("euclidean", "manhattan"), default = "euclidean", tags = "train"),
         method = p_fct(levels = c("cmeans", "ufcl"), default = "cmeans", tags = "train"),
         m = p_dbl(1, default = 2, tags = "train"),
-        rate.par = p_dbl(0, 1, tags = "train"),
+        rate.par = p_dbl(0, 1, tags = "train", depends = quote(method == "ufcl")),
         weights = p_uty(default = 1L, tags = "train", custom_check = crate(function(x) {
           if (test_numeric(x) && all(x > 0) || check_count(x, positive = TRUE)) {
             TRUE
@@ -43,8 +43,6 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         })),
         control = p_uty(tags = "train")
       )
-      # add deps
-      param_set$add_dep("rate.par", "method", CondEqual$new("ufcl"))
 
       param_set$set_values(centers = 2L)
 

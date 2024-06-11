@@ -31,7 +31,7 @@ lrn("clust.SimpleKMeans")
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   A \tab untyped \tab weka.core.EuclideanDistance \tab  \tab - \cr
+   A \tab untyped \tab "weka.core.EuclideanDistance" \tab  \tab - \cr
    C \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    fast \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    I \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

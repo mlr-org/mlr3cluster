@@ -40,7 +40,7 @@ lrn("clust.cmeans")
    method \tab character \tab cmeans \tab cmeans, ufcl \tab - \cr
    m \tab numeric \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    rate.par \tab numeric \tab - \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
-   weights \tab untyped \tab 1 \tab  \tab - \cr
+   weights \tab untyped \tab 1L \tab  \tab - \cr
    control \tab untyped \tab - \tab  \tab - \cr
 }
 }
