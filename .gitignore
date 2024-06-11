@@ -97,3 +97,6 @@ rsconnect/
 
 revdep/
 CRAN-SUBMISSION
+
+# MacOS
+.DS_Store
