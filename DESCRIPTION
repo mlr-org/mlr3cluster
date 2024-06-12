@@ -23,7 +23,7 @@ Imports:
     cluster,
     data.table,
     fpc,
-    mlr3misc (>= 0.10.0),
+    mlr3misc (>= 0.14.0),
     paradox (>= 1.0.0),
     R6,
     stats
