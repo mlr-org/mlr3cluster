@@ -29,7 +29,7 @@ Imports:
     stats
 Suggests:
     apcluster,
-    ClusterR,
+    ClusterR (>= 1.3.1),
     dbscan,
     e1071,
     kernlab,
