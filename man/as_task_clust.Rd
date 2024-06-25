@@ -12,11 +12,11 @@ as_task_clust(x, ...)
 
 \method{as_task_clust}{TaskClust}(x, clone = FALSE, ...)
 
-\method{as_task_clust}{data.frame}(x, id = deparse(substitute(x)), ...)
+\method{as_task_clust}{data.frame}(x, id = deparse1(substitute(x)), ...)
 
-\method{as_task_clust}{DataBackend}(x, id = deparse(substitute(x)), ...)
+\method{as_task_clust}{DataBackend}(x, id = deparse1(substitute(x)), ...)
 
-\method{as_task_clust}{formula}(x, data, id = deparse(substitute(data)), ...)
+\method{as_task_clust}{formula}(x, data, id = deparse1(substitute(data)), ...)
 }
 \arguments{
 \item{x}{(any)\cr
