@@ -1,129 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/MeasureClust.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/PredictionClust.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr3cluster-package.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.MBatchKMeans.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.SimpleKMeans.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.agnes.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ap.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.bico.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.birch.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cmeans.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cobweb.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan_fpc.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.diana.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.ch.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.silhouette.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wss.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_ruspini.html</loc>
-  </url>
-  <url>
-    <loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_usarrests.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/LICENSE-text.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/authors.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/index.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/news/index.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/MeasureClust.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/PredictionClust.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/index.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr3cluster-package.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.MBatchKMeans.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.SimpleKMeans.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.agnes.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ap.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.bico.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.birch.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cmeans.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cobweb.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan_fpc.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.diana.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.ch.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.silhouette.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wss.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_ruspini.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_usarrests.html</loc></url>
 </urlset>
+
