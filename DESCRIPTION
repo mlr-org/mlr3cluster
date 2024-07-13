@@ -5,7 +5,7 @@ Authors@R: c(
     person("Damir", "Pulatov", , "damirpolat@protonmail.com", role = c("cre", "aut")),
     person("Michel", "Lang", , "michellang@gmail.com", role = "aut",
            comment = c(ORCID = "0000-0001-9754-0393")),
-    person("Maximilian", "Muecke", role = "ctb",
+    person("Maximilian", "Mücke", role = "ctb",
            comment = c(ORCID = "0009-0000-9432-9795"))
   )
 Description: Extends the 'mlr3' package with cluster analysis.
@@ -42,7 +42,7 @@ Suggests:
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Collate:
     'LearnerClust.R'
     'aaa.R'
