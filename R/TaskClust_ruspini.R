@@ -22,5 +22,5 @@ load_task_ruspini = function(id = "ruspini") {
   task
 }
 
-#' @include aaa.R
-tasks[["ruspini"]] = load_task_ruspini
+#' @include zzz.R
+register_task("ruspini", load_task_ruspini)

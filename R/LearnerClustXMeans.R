@@ -72,5 +72,5 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
   )
 )
 
-#' @include aaa.R
-learners[["clust.xmeans"]] = LearnerClustXMeans
+#' @include zzz.R
+register_learner("clust.xmeans", LearnerClustXMeans)

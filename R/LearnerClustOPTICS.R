@@ -68,5 +68,5 @@ LearnerClustOPTICS = R6Class("LearnerClustOPTICS",
   )
 )
 
-#' @include aaa.R
-learners[["clust.optics"]] = LearnerClustOPTICS
+#' @include zzz.R
+register_learner("clust.optics", LearnerClustOPTICS)

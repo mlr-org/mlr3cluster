@@ -85,5 +85,5 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
   )
 )
 
-#' @include aaa.R
-learners[["clust.MBatchKMeans"]] = LearnerClustMiniBatchKMeans
+#' @include zzz.R
+register_learner("clust.MBatchKMeans", LearnerClustMiniBatchKMeans)

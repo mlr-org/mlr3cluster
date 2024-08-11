@@ -73,5 +73,5 @@ LearnerClustSimpleKMeans = R6Class("LearnerClustSimpleKMeans",
   )
 )
 
-#' @include aaa.R
-learners[["clust.SimpleKMeans"]] = LearnerClustSimpleKMeans
+#' @include zzz.R
+register_learner("clust.SimpleKMeans", LearnerClustSimpleKMeans)

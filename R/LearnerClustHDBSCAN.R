@@ -59,5 +59,5 @@ LearnerClustHDBSCAN = R6Class("LearnerClustHDBSCAN",
   )
 )
 
-#' @include aaa.R
-learners[["clust.hdbscan"]] = LearnerClustHDBSCAN
+#' @include zzz.R
+register_learner("clust.hdbscan", LearnerClustHDBSCAN)

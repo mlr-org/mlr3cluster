@@ -78,5 +78,5 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
   )
 )
 
-#' @include aaa.R
-learners[["clust.pam"]] = LearnerClustPAM
+#' @include zzz.R
+register_learner("clust.pam", LearnerClustPAM)

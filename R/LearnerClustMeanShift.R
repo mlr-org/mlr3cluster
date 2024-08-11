@@ -70,5 +70,5 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
   )
 )
 
-#' @include aaa.R
-learners[["clust.meanshift"]] = LearnerClustMeanShift
+#' @include zzz.R
+register_learner("clust.meanshift", LearnerClustMeanShift)
