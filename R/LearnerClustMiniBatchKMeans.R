@@ -66,18 +66,20 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
         stopf("`CENTROIDS` must have same number of rows as `clusters`")
       }
 
-      m = invoke(ClusterR::MiniBatchKmeans, data = task$data(), .args = pv)
+      data = task$data()
+      m = invoke(ClusterR::MiniBatchKmeans, data = data, .args = pv)
       if (self$save_assignments) {
-        self$assignments = as.integer(invoke(predict, m, newdata = task$data()))
+        self$assignments = as.integer(invoke(predict, m, newdata = data))
       }
       m
     },
 
     .predict = function(task) {
-      partition = as.integer(invoke(predict, self$model, newdata = task$data()))
+      data = task$data()
+      partition = as.integer(invoke(predict, self$model, newdata = data))
       prob = NULL
       if (self$predict_type == "prob") {
-        prob = invoke(predict, self$model, newdata = task$data(), fuzzy = TRUE)
+        prob = invoke(predict, self$model, newdata = data, fuzzy = TRUE)
         colnames(prob) = seq_len(ncol(prob))
       }
       PredictionClust$new(task = task, partition = partition, prob = prob)

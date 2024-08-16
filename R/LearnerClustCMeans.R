@@ -34,13 +34,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         method = p_fct(levels = c("cmeans", "ufcl"), default = "cmeans", tags = "train"),
         m = p_dbl(1, default = 2, tags = "train"),
         rate.par = p_dbl(0, 1, tags = "train", depends = quote(method == "ufcl")),
-        weights = p_uty(default = 1L, tags = "train", custom_check = crate(function(x) {
-          if (test_numeric(x) && all(x > 0) || check_count(x, positive = TRUE)) {
-            TRUE
-          } else {
-            "`weights` must be positive numeric vector or a single positive number"
-          }
-        })),
+        use_weights = p_lgl(default = FALSE, tags = "train"),
         control = p_uty(tags = "train")
       )
 
@@ -51,7 +45,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
         param_set = param_set,
-        properties = c("partitional", "fuzzy", "complete"),
+        properties = c("partitional", "fuzzy", "complete", "weights"),
         packages = "e1071",
         man = "mlr3cluster::mlr_learners_clust.cmeans",
         label = "Fuzzy C-Means Clustering Learner"
@@ -62,6 +56,10 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       assert_centers_param(pv$centers, task, test_data_frame, "centers")
+
+      if (isTRUE(pv$use_weights)) {
+        pv$weights = task$weights_learner$weight
+      }
 
       m = invoke(e1071::cmeans, x = task$data(), .args = pv, .opts = allow_partial_matching)
       if (self$save_assignments) {

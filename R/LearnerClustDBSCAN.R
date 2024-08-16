@@ -25,7 +25,7 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
         eps = p_dbl(0, tags = c("required", "train")),
         minPts = p_int(0L, default = 5L, tags = "train"),
         borderPoints = p_lgl(default = TRUE, tags = "train"),
-        weights = p_uty(tags = "train", custom_check = check_numeric),
+        use_weights = p_lgl(default = FALSE, tags = "train"),
         search = p_fct(levels = c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
         bucketSize = p_int(1L, default = 10L, tags = "train", depends = quote(search == "kdtree")),
         splitRule = p_fct(
@@ -42,7 +42,7 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
         param_set = param_set,
-        properties = c("density", "exclusive", "complete"),
+        properties = c("density", "exclusive", "complete", "weights"),
         packages = "dbscan",
         man = "mlr3cluster::mlr_learners_clust.dbscan",
         label = "Density-Based Clustering"
@@ -52,11 +52,18 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(dbscan::dbscan, x = task$data(), .args = pv)
-      m = insert_named(m, list(data = task$data()))
+      data = task$data()
+
+      if (isTRUE(pv$use_weights)) {
+        pv$weights = task$weights_learner$weight
+      }
+
+      m = invoke(dbscan::dbscan, x = data, .args = pv)
+      m = insert_named(m, list(data = data))
       if (self$save_assignments) {
         self$assignments = m$cluster
       }
+
       m
     },
 
