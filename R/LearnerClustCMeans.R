@@ -60,6 +60,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
       if (isTRUE(pv$use_weights)) {
         pv$weights = task$weights_learner$weight
       }
+      pv$use_weights = NULL
 
       m = invoke(e1071::cmeans, x = task$data(), .args = pv, .opts = allow_partial_matching)
       if (self$save_assignments) {

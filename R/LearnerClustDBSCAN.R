@@ -57,6 +57,7 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
       if (isTRUE(pv$use_weights)) {
         pv$weights = task$weights_learner$weight
       }
+      pv$use_weights = NULL
 
       m = invoke(dbscan::dbscan, x = data, .args = pv)
       m = insert_named(m, list(data = data))
