@@ -35,7 +35,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
         diag = p_lgl(default = FALSE, tags = c("train", "dist")),
         upper = p_lgl(default = FALSE, tags = c("train", "dist")),
         p = p_dbl(default = 2, tags = c("train", "dist"), depends = quote(distmethod == "minkowski")),
-        k = p_int(1L, default = 2L, tags = "predict")
+        k = p_int(1L, default = 2L, tags = c("train", "predict"))
       )
 
       param_set$set_values(k = 2L, distmethod = "euclidean")
@@ -54,7 +54,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
   ),
   private = list(
     .train = function(task) {
-      pv = self$param_set$get_values()
+      pv = self$param_set$get_values(tags = "train")
       dist = invoke(stats::dist,
         x = task$data(),
         method = pv$d %??% "euclidean",

@@ -27,7 +27,7 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
         metric = p_fct(default = "euclidean", levels = c("euclidean", "manhattan"), tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
         trace.lev = p_int(0L, default = 0L, tags = "train"),
-        k = p_int(1L, default = 2L, tags = "predict")
+        k = p_int(1L, default = 2L, tags = c("train", "predict"))
       )
 
       param_set$set_values(k = 2L)
@@ -46,7 +46,7 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
   ),
   private = list(
     .train = function(task) {
-      pv = self$param_set$get_values()
+      pv = self$param_set$get_values(tags = "train")
       m = invoke(cluster::diana,
         x = task$data(),
         diss = FALSE,

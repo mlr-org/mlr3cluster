@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,r
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,linux,r
 
+tests/testthat/Rplots.pdf
+
 ### Linux ###
 *~
 

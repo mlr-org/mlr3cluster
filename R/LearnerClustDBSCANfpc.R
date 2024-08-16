@@ -62,8 +62,9 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(fpc::dbscan, data = task$data(), .args = pv)
-      m = insert_named(m, list(data = task$data()))
+      data = task$data()
+      m = invoke(fpc::dbscan, data = data, .args = pv)
+      m = insert_named(m, list(data = data))
       if (self$save_assignments) {
         self$assignments = m$cluster
       }
