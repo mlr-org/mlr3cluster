@@ -58,5 +58,5 @@ LearnerClustCobweb = R6Class("LearnerClustCobweb",
   )
 )
 
-#' @include aaa.R
-learners[["clust.cobweb"]] = LearnerClustCobweb
+#' @include zzz.R
+register_learner("clust.cobweb", LearnerClustCobweb)

@@ -1,2 +1,0 @@
-learners = list()
-tasks = list()

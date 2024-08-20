@@ -45,7 +45,7 @@ Roxygen: list(markdown = TRUE, r6 = TRUE)
 RoxygenNote: 7.3.2
 Collate:
     'LearnerClust.R'
-    'aaa.R'
+    'zzz.R'
     'LearnerClustAffinityPropagation.R'
     'LearnerClustAgnes.R'
     'LearnerClustBICO.R'
@@ -82,4 +82,3 @@ Collate:
     'as_task_clust.R'
     'bibentries.R'
     'helper.R'
-    'zzz.R'

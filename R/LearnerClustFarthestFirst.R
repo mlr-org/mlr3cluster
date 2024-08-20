@@ -59,5 +59,5 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
   )
 )
 
-#' @include aaa.R
-learners[["clust.ff"]] = LearnerClustFarthestFirst
+#' @include zzz.R
+register_learner("clust.ff", LearnerClustFarthestFirst)

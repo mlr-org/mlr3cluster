@@ -100,5 +100,5 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
   )
 )
 
-#' @include aaa.R
-learners[["clust.kkmeans"]] = LearnerClustKKMeans
+#' @include zzz.R
+register_learner("clust.kkmeans", LearnerClustKKMeans)

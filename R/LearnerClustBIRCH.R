@@ -62,5 +62,5 @@ LearnerClustBIRCH = R6Class("LearnerClustBIRCH",
   )
 )
 
-#' @include aaa.R
-learners[["clust.birch"]] = LearnerClustBIRCH
+#' @include zzz.R
+register_learner("clust.birch", LearnerClustBIRCH)

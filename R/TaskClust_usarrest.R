@@ -25,5 +25,5 @@ load_task_usarrests = function(id = "usarrests") {
   task
 }
 
-#' @include aaa.R
-tasks[["usarrests"]] = load_task_usarrests
+#' @include zzz.R
+register_task("usarrests", load_task_usarrests)

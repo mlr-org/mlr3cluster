@@ -77,5 +77,5 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
   )
 )
 
-#' @include aaa.R
-learners[["clust.dbscan_fpc"]] = LearnerClustDBSCANfpc
+#' @include zzz.R
+register_learner("clust.dbscan_fpc", LearnerClustDBSCANfpc)

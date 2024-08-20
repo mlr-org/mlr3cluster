@@ -61,5 +61,5 @@ LearnerClustBICO = R6Class("LearnerClustBICO",
   )
 )
 
-#' @include aaa.R
-learners[["clust.bico"]] = LearnerClustBICO
+#' @include zzz.R
+register_learner("clust.bico", LearnerClustBICO)

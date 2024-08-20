@@ -1,4 +1,4 @@
-library(testthat)
+library(checkmate)
 library(mlr3)
 library(mlr3cluster)
-library(checkmate)
+library(testthat)

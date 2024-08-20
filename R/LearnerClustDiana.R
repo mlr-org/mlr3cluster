@@ -71,5 +71,5 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
   )
 )
 
-#' @include aaa.R
-learners[["clust.diana"]] = LearnerClustDiana
+#' @include zzz.R
+register_learner("clust.diana", LearnerClustDiana)

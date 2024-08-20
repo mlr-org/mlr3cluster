@@ -69,5 +69,5 @@ LearnerClustEM = R6Class("LearnerClustEM",
   )
 )
 
-#' @include aaa.R
-learners[["clust.em"]] = LearnerClustEM
+#' @include zzz.R
+register_learner("clust.em", LearnerClustEM)

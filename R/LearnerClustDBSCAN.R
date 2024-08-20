@@ -67,5 +67,5 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
   )
 )
 
-#' @include aaa.R
-learners[["clust.dbscan"]] = LearnerClustDBSCAN
+#' @include zzz.R
+register_learner("clust.dbscan", LearnerClustDBSCAN)
