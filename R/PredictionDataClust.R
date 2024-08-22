@@ -89,3 +89,19 @@ filter_prediction_data.PredictionDataClust = function(pdata, row_ids, ...) {
 
   pdata
 }
+
+#' @export
+create_empty_prediction_data.TaskClust = function(task, learner) {
+  predict_types = mlr_reflections$learner_predict_types[["clust"]][[learner$predict_type]]
+
+  pdata = list(
+    row_ids = integer(),
+    partition = integer()
+  )
+
+  if ("prob" %in% predict_types) {
+    pdata$prob = matrix(integer())
+  }
+
+  set_class(pdata, "PredictionDataClust")
+}
