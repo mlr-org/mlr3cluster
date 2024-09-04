@@ -52,8 +52,9 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(dbscan::dbscan, x = task$data(), .args = pv)
-      m = insert_named(m, list(data = task$data()))
+      data = task$data()
+      m = invoke(dbscan::dbscan, x = data, .args = pv)
+      m = insert_named(m, list(data = data))
       if (self$save_assignments) {
         self$assignments = m$cluster
       }
