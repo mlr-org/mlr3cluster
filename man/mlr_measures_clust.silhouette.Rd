@@ -12,7 +12,7 @@ The score function calls \code{\link[cluster:silhouette]{cluster::silhouette()}}
 }
 \section{Construction}{
 
-This measures can be retrieved from the dictionary \link{mlr_measures}:
+This measures can be retrieved from the dictionary \link[mlr3:mlr_measures]{mlr3::mlr_measures}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.silhouette")
 msr("clust.silhouette")

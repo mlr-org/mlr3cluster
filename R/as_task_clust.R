@@ -5,7 +5,7 @@
 #' This is a S3 generic, specialized for at least the following objects:
 #'
 #' 1. [TaskClust]: ensure the identity.
-#' 2. [data.frame()] and [DataBackend]: provides an alternative to calling constructor of [TaskClust].
+#' 2. [data.frame()] and [mlr3::DataBackend]: provides an alternative to calling constructor of [TaskClust].
 #'
 #' @inheritParams mlr3::as_task
 #'

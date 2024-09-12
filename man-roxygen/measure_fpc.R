@@ -7,7 +7,7 @@
 #' "<%= measures[[id]]$crit %>" is used subset output of the function call.
 #'
 #' @section Construction:
-#' This measures can be retrieved from the dictionary [mlr_measures]:
+#' This measures can be retrieved from the dictionary [mlr3::mlr_measures]:
 #' ```
 #' mlr_measures$get("clust.<%= id %>")
 #' msr("clust.<%= id %>")

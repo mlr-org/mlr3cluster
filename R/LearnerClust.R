@@ -3,7 +3,7 @@
 #' @description
 #' This Learner specializes [mlr3::Learner] for cluster problems:
 #' * `task_type` is set to `"clust"`.
-#' * Creates [Prediction]s of class [PredictionClust].
+#' * Creates [mlr3::Prediction]s of class [PredictionClust].
 #' * Possible values for `predict_types` are:
 #'   - `"partition"`: Integer indicating the cluster membership.
 #'   - `"prob"`: Probability for belonging to each cluster.

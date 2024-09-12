@@ -5,7 +5,7 @@
 #' As an unsupervised task, this task has no target column.
 #' The `task_type` is set to `"clust"`.
 #'
-#' Predefined tasks are stored in the [dictionary][mlr3misc::Dictionary] [mlr_tasks].
+#' Predefined tasks are stored in the [dictionary][mlr3misc::Dictionary] [mlr3::mlr_tasks].
 #'
 #' @template param_id
 #' @template param_backend
