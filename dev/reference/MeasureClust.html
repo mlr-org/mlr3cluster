@@ -128,22 +128,22 @@ If <code>NULL</code>, defaults to <code><a href="https://rdrr.io/r/base/mean.htm
 <dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
 Properties of the measure.
 Must be a subset of <a href="https://mlr3.mlr-org.com/reference/mlr_reflections.html" class="external-link">mlr_reflections$measure_properties</a>.
-Supported by <code>mlr3</code>:</p><ul><li><p><code>"requires_task"</code> (requires the complete <a href="https://mlr3.mlr-org.com/reference/Task.html" class="external-link">Task</a>),</p></li>
-<li><p><code>"requires_learner"</code> (requires the trained <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">Learner</a>),</p></li>
-<li><p><code>"requires_train_set"</code> (requires the training indices from the <a href="https://mlr3.mlr-org.com/reference/Resampling.html" class="external-link">Resampling</a>), and</p></li>
+Supported by <code>mlr3</code>:</p><ul><li><p><code>"requires_task"</code> (requires the complete <a href="https://mlr3.mlr-org.com/reference/Task.html" class="external-link">mlr3::Task</a>),</p></li>
+<li><p><code>"requires_learner"</code> (requires the trained <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>),</p></li>
+<li><p><code>"requires_train_set"</code> (requires the training indices from the <a href="https://mlr3.mlr-org.com/reference/Resampling.html" class="external-link">mlr3::Resampling</a>), and</p></li>
 <li><p><code>"na_score"</code> (the measure is expected to occasionally return <code>NA</code> or <code>NaN</code>).</p></li>
 </ul></dd>
 
 
 <dt><code>predict_type</code></dt>
 <dd><p>(<code>character(1)</code>)<br>
-Required predict type of the <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">Learner</a>.
+Required predict type of the <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>.
 Possible values are stored in <a href="https://mlr3.mlr-org.com/reference/mlr_reflections.html" class="external-link">mlr_reflections$learner_predict_types</a>.</p></dd>
 
 
 <dt><code>task_properties</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
-Required task properties, see <a href="https://mlr3.mlr-org.com/reference/Task.html" class="external-link">Task</a>.</p></dd>
+Required task properties, see <a href="https://mlr3.mlr-org.com/reference/Task.html" class="external-link">mlr3::Task</a>.</p></dd>
 
 
 <dt><code>packages</code></dt>
