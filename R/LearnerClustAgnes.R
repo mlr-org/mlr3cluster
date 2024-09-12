@@ -32,7 +32,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
           tags = "train"
         ),
         trace.lev = p_int(0L, default = 0L, tags = "train"),
-        k = p_int(1L, default = 2L, tags = "predict"),
+        k = p_int(1L, default = 2L, tags = c("train", "predict")),
         par.method = p_uty(
           tags = "train",
           depends = quote(method %in% c("flexible", "gaverage")),
@@ -65,7 +65,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
   ),
   private = list(
     .train = function(task) {
-      pv = self$param_set$get_values()
+      pv = self$param_set$get_values(tags = "train")
       m = invoke(cluster::agnes,
         x = task$data(),
         diss = FALSE,

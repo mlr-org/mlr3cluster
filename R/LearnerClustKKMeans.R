@@ -78,12 +78,13 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
 
       c = kernlab::centers(self$model)
       K = kernlab::kernelf(self$model)
+      data = task$data()
 
       # kernel product between each new datapoint and the centers
-      d_xc = matrix(kernlab::kernelMatrix(K, as.matrix(task$data()), c), ncol = nrow(c))
+      d_xc = matrix(kernlab::kernelMatrix(K, as.matrix(data), c), ncol = nrow(c))
       # kernel product between each new datapoint and itself: rows are identical
       d_xx = matrix(
-        rep(diag(kernlab::kernelMatrix(K, as.matrix(task$data()))), each = ncol(d_xc)),
+        rep(diag(kernlab::kernelMatrix(K, as.matrix(data))), each = ncol(d_xc)),
         ncol = ncol(d_xc), byrow = TRUE
       )
       # kernel product between each center and itself: columns are identical

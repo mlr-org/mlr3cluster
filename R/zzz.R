@@ -10,8 +10,6 @@
 #' @importFrom stats model.frame terms predict runif dist
 "_PACKAGE"
 
-utils::globalVariables("type")
-
 mlr3cluster_tasks = new.env()
 mlr3cluster_learners = new.env()
 
@@ -28,7 +26,7 @@ register_learner = function(name, constructor) {
 register_mlr3 = function() {
   # reflections
   mlr_reflections = utils::getFromNamespace("mlr_reflections", ns = "mlr3")
-  mlr_reflections$task_types = mlr_reflections$task_types[type != "clust"]
+  mlr_reflections$task_types = mlr_reflections$task_types[!"clust"]
   mlr_reflections$task_types = setkeyv(rbind(mlr_reflections$task_types, rowwise_table(
     ~type,    ~package,       ~task,        ~learner,       ~prediction,        ~prediction_data,       ~measure,
     "clust",  "mlr3cluster",  "TaskClust",  "LearnerClust", "PredictionClust",  "PredictionDataClust",  "MeasureClust"
@@ -70,7 +68,7 @@ register_mlr3 = function() {
   walk(names(mlr3cluster_learners), function(id) mlr_learners$remove(id))
   walk(names(measures), function(id) mlr_measures$remove(paste("clust", id, sep = ".")))
 
-  mlr_reflections$task_types = mlr_reflections$task_types[type != "clust"]
+  mlr_reflections$task_types = mlr_reflections$task_types[!"clust"]
   reflections = c(
     "measure_properties", "default_measures", "learner_properties",
     "learner_predict_types",  "task_properties", "task_col_roles"
