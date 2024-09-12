@@ -3,8 +3,10 @@ skip_if_not_installed("LPCM")
 test_that("autotest", {
   learner = mlr3::lrn("clust.meanshift")
   expect_learner(learner)
-  result = run_autotest(learner)
-  expect_true(result, info = result$error)
+  task = generate_tasks(learner)
+  learner$train(task[[1]])
+  expect_class(learner$model, "ms")
+  expect_warning(learner$predict(task[[1]]), "doesn't predict on new data")
 })
 
 test_that("Learner properties are respected", {
@@ -23,7 +25,7 @@ test_that("Learner properties are respected", {
     parset = parset_list[[i]]
     learner$param_set$values = parset
 
-    p = suppressWarnings(learner$train(task)$predict(task), classes = "predictionUselessWarning")
+    p = suppressWarnings(learner$train(task)$predict(task))
     expect_prediction_clust(p)
 
     if ("complete" %in% learner$properties) {

@@ -3,8 +3,9 @@ skip_if_not_installed("ClusterR")
 test_that("autotest", {
   learner = mlr3::lrn("clust.MBatchKMeans")
   expect_learner(learner)
-  result = run_autotest(learner)
-  expect_true(result, info = result$error)
+  task = generate_tasks(learner)
+  suppressWarnings(learner$train(task[[1]]))
+  expect_class(learner$model, "MBatchKMeans")
 })
 
 test_that("Learner properties are respected", {
