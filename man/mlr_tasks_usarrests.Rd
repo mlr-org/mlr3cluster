@@ -12,7 +12,7 @@ Rownames are stored as variable \code{"states"} with column role \code{"name"}.
 }
 \section{Dictionary}{
 
-This \link[mlr3:Task]{mlr3::Task} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_tasks]{mlr3::mlr_tasks} or with the associated sugar function \code{\link[=tsk]{tsk()}}:
+This \link[mlr3:Task]{mlr3::Task} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_tasks]{mlr3::mlr_tasks} or with the associated sugar function \code{\link[mlr3:mlr_sugar]{mlr3::tsk()}}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_tasks$get("usarrests")
 tsk("usarrests")

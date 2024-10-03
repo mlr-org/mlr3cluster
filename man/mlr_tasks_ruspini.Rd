@@ -11,7 +11,7 @@ A cluster task for the \link[cluster:ruspini]{cluster::ruspini} data set.
 }
 \section{Dictionary}{
 
-This \link[mlr3:Task]{mlr3::Task} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_tasks]{mlr3::mlr_tasks} or with the associated sugar function \code{\link[=tsk]{tsk()}}:
+This \link[mlr3:Task]{mlr3::Task} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_tasks]{mlr3::mlr_tasks} or with the associated sugar function \code{\link[mlr3:mlr_sugar]{mlr3::tsk()}}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_tasks$get("ruspini")
 tsk("ruspini")
