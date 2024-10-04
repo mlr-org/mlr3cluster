@@ -15,7 +15,7 @@ URL: https://mlr3cluster.mlr-org.com,
 BugReports: https://github.com/mlr-org/mlr3cluster/issues
 Depends:
     mlr3 (>= 0.14.0),
-    R (>= 3.1.0)
+    R (>= 3.3.0)
 Imports:
     backports (>= 1.1.10),
     checkmate,
