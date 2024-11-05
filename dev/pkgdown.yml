@@ -1,8 +1,8 @@
 pandoc: 3.1.11
-pkgdown: 2.1.0
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-09-12T13:50Z
+last_built: 2024-11-05T07:55Z
 urls:
   reference: https://mlr3cluster.mlr-org.com/reference
   article: https://mlr3cluster.mlr-org.com/articles
