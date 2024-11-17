@@ -41,10 +41,10 @@ pak::pak("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
--   A selection of 22 clustering learners that represent a wide variety
-    of clusterers: partitional, hierarchical, fuzzy, etc.
--   A selection of 4 performance measures
--   Two built-in tasks to get started with clustering
+- A selection of 24 clustering learners that represent a wide variety of
+  clusterers: partitional, hierarchical, fuzzy, etc.
+- A selection of 4 performance measures
+- Two built-in tasks to get started with clustering
 
 Also, the package is integrated with
 **[mlr3viz](https://github.com/mlr-org/mlr3viz)** which enables you to
@@ -54,39 +54,41 @@ create great visualizations with just one line of code!
 
 ### Cluster Learners
 
-| Key                                                                                             | Label                                 | Packages                                                  |
-|:------------------------------------------------------------------------------------------------|:--------------------------------------|:----------------------------------------------------------|
-| [clust.MBatchKMeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.MBatchKMeans) | Mini Batch K-Means                    | [ClusterR](https://cran.r-project.org/package=ClusterR)   |
-| [clust.SimpleKMeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.SimpleKMeans) | K-Means (Weka)                        | [RWeka](https://cran.r-project.org/package=RWeka)         |
-| [clust.agnes](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.agnes)               | Agglomerative Hierarchical Clustering | [cluster](https://cran.r-project.org/package=cluster)     |
-| [clust.ap](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap)                     | Affinity Propagation Clustering       | [apcluster](https://cran.r-project.org/package=apcluster) |
-| [clust.cmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans)             | Fuzzy C-Means Clustering Learner      | [e1071](https://cran.r-project.org/package=e1071)         |
-| [clust.cobweb](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb)             | Cobweb Clustering                     | [RWeka](https://cran.r-project.org/package=RWeka)         |
-| [clust.dbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan)             | Density-Based Clustering              | [dbscan](https://cran.r-project.org/package=dbscan)       |
-| [clust.dbscan_fpc](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan_fpc)     | Density-Based Clustering with fpc     | [fpc](https://cran.r-project.org/package=fpc)             |
-| [clust.diana](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.diana)               | Divisive Hierarchical Clustering      | [cluster](https://cran.r-project.org/package=cluster)     |
-| [clust.em](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.em)                     | Expectation-Maximization Clustering   | [RWeka](https://cran.r-project.org/package=RWeka)         |
-| [clust.fanny](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny)               | Fuzzy Analysis Clustering             | [cluster](https://cran.r-project.org/package=cluster)     |
-| [clust.featureless](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless)   | Featureless Clustering                |                                                           |
-| [clust.ff](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff)                     | Farthest First Clustering             | [RWeka](https://cran.r-project.org/package=RWeka)         |
-| [clust.hclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust)             | Agglomerative Hierarchical Clustering | stats                                                     |
-| [clust.hdbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan)           | HDBSCAN Clustering                    | [dbscan](https://cran.r-project.org/package=dbscan)       |
-| [clust.kkmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans)           | Kernel K-Means                        | [kernlab](https://cran.r-project.org/package=kernlab)     |
-| [clust.kmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans)             | K-Means                               | stats, [clue](https://cran.r-project.org/package=clue)    |
-| [clust.mclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust)             | Gaussian Mixture Models Clustering    | [mclust](https://cran.r-project.org/package=mclust)       |
-| [clust.meanshift](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift)       | Mean Shift Clustering                 | [LPCM](https://cran.r-project.org/package=LPCM)           |
-| [clust.optics](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics)             | OPTICS Clustering                     | [dbscan](https://cran.r-project.org/package=dbscan)       |
-| [clust.pam](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam)                   | Partitioning Around Medoids           | [cluster](https://cran.r-project.org/package=cluster)     |
-| [clust.xmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans)             | X-means                               | [RWeka](https://cran.r-project.org/package=RWeka)         |
+| Key | Label | Packages |
+|:---|:---|:---|
+| [clust.MBatchKMeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.MBatchKMeans) | Mini Batch K-Means | [ClusterR](https://cran.r-project.org/package=ClusterR) |
+| [clust.SimpleKMeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.SimpleKMeans) | K-Means (Weka) | [RWeka](https://cran.r-project.org/package=RWeka) |
+| [clust.agnes](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.agnes) | Agglomerative Hierarchical Clustering | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.ap](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap) | Affinity Propagation Clustering | [apcluster](https://cran.r-project.org/package=apcluster) |
+| [clust.bico](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.bico) | BICO Clustering | [stream](https://cran.r-project.org/package=stream) |
+| [clust.birch](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch) | BIRCH Clustering | [stream](https://cran.r-project.org/package=stream) |
+| [clust.cmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans) | Fuzzy C-Means Clustering Learner | [e1071](https://cran.r-project.org/package=e1071) |
+| [clust.cobweb](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb) | Cobweb Clustering | [RWeka](https://cran.r-project.org/package=RWeka) |
+| [clust.dbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan) | Density-Based Clustering | [dbscan](https://cran.r-project.org/package=dbscan) |
+| [clust.dbscan_fpc](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan_fpc) | Density-Based Clustering with fpc | [fpc](https://cran.r-project.org/package=fpc) |
+| [clust.diana](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.diana) | Divisive Hierarchical Clustering | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.em](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.em) | Expectation-Maximization Clustering | [RWeka](https://cran.r-project.org/package=RWeka) |
+| [clust.fanny](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny) | Fuzzy Analysis Clustering | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.featureless](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless) | Featureless Clustering |  |
+| [clust.ff](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff) | Farthest First Clustering | [RWeka](https://cran.r-project.org/package=RWeka) |
+| [clust.hclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust) | Agglomerative Hierarchical Clustering | stats |
+| [clust.hdbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan) | HDBSCAN Clustering | [dbscan](https://cran.r-project.org/package=dbscan) |
+| [clust.kkmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans) | Kernel K-Means | [kernlab](https://cran.r-project.org/package=kernlab) |
+| [clust.kmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans) | K-Means | stats, [clue](https://cran.r-project.org/package=clue) |
+| [clust.mclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust) | Gaussian Mixture Models Clustering | [mclust](https://cran.r-project.org/package=mclust) |
+| [clust.meanshift](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift) | Mean Shift Clustering | [LPCM](https://cran.r-project.org/package=LPCM) |
+| [clust.optics](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics) | OPTICS Clustering | [dbscan](https://cran.r-project.org/package=dbscan) |
+| [clust.pam](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam) | Partitioning Around Medoids | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.xmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans) | X-means | [RWeka](https://cran.r-project.org/package=RWeka) |
 
 ### Cluster Measures
 
-| Key                                                                                         | Label                 | Packages                                              |
-|:--------------------------------------------------------------------------------------------|:----------------------|:------------------------------------------------------|
-| [clust.ch](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch)                 | Calinski Harabasz     | [fpc](https://cran.r-project.org/package=fpc)         |
-| [clust.dunn](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn)             | Dunn                  | [fpc](https://cran.r-project.org/package=fpc)         |
-| [clust.silhouette](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette) | Silhouette            | [cluster](https://cran.r-project.org/package=cluster) |
-| [clust.wss](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss)               | Within Sum of Squares | [fpc](https://cran.r-project.org/package=fpc)         |
+| Key | Label | Packages |
+|:---|:---|:---|
+| [clust.ch](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch) | Calinski Harabasz | [fpc](https://cran.r-project.org/package=fpc) |
+| [clust.dunn](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn) | Dunn | [fpc](https://cran.r-project.org/package=fpc) |
+| [clust.silhouette](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette) | Silhouette | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.wss](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss) | Within Sum of Squares | [fpc](https://cran.r-project.org/package=fpc) |
 
 ## Example
 
@@ -110,10 +112,10 @@ has a section on clustering.
 
 ## Future Plans
 
--   Add more learners and measures
--   Integrate the package with
-    **[mlr3pipelines](https://github.com/mlr-org/mlr3pipelines)** (work
-    in progress)
+- Add more learners and measures
+- Integrate the package with
+  **[mlr3pipelines](https://github.com/mlr-org/mlr3pipelines)** (work in
+  progress)
 
 If you have any questions, feedback or ideas, feel free to open an issue
 [here](https://github.com/mlr-org/mlr3cluster/issues).
