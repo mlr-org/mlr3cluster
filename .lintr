@@ -6,5 +6,11 @@ linters: linters_with_defaults(
     cyclocomp_linter = NULL, # do not check function complexity
     commented_code_linter = NULL, # allow code in comments
     line_length_linter = line_length_linter(120L),
-    object_length_linter = object_length_linter(40L)
-    )
+    object_length_linter = object_length_linter(40L),
+    undesirable_function_linter = undesirable_function_linter(fun = c(
+      # base messaging
+      "stop" = "use stopf()",
+      "warning" = "use warningf()",
+      "message" = "use messagef()"
+    ))
+  )
