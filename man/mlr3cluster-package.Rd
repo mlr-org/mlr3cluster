@@ -18,16 +18,17 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Damir Pulatov \email{damirpolat@protonmail.com}
+\strong{Maintainer}: Maximilian Mücke \email{muecke.maximilian@gmail.com} (\href{https://orcid.org/0009-0000-9432-9795}{ORCID})
 
 Authors:
 \itemize{
+  \item Damir Pulatov \email{damirpolat@protonmail.com}
   \item Michel Lang \email{michellang@gmail.com} (\href{https://orcid.org/0000-0001-9754-0393}{ORCID})
 }
 
 Other contributors:
 \itemize{
-  \item Maximilian Mücke (\href{https://orcid.org/0009-0000-9432-9795}{ORCID}) [contributor]
+  \item Marc Becker \email{marcbecker@posteo.de} (\href{https://orcid.org/0000-0002-8115-0400}{ORCID}) [contributor]
 }
 
 }
