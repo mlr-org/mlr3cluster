@@ -28,10 +28,10 @@ test_that("Learner properties are respected", {
     p = suppressWarnings(learner$train(task)$predict(task))
     expect_prediction_clust(p)
 
-    if ("complete" %in% learner$properties) {
+    if ("complete" %chin% learner$properties) {
       expect_prediction_complete(p, learner$predict_type)
     }
-    if ("exclusive" %in% learner$properties) {
+    if ("exclusive" %chin% learner$properties) {
       expect_prediction_exclusive(p, learner$predict_type)
     }
   }

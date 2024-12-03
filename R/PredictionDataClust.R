@@ -99,7 +99,7 @@ create_empty_prediction_data.TaskClust = function(task, learner) {
     partition = integer()
   )
 
-  if ("prob" %in% predict_types) {
+  if ("prob" %chin% predict_types) {
     pdata$prob = matrix(integer())
   }
 

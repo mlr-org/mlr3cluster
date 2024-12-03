@@ -70,7 +70,7 @@ PredictionClust = R6Class("PredictionClust",
 #' @export
 as.data.table.PredictionClust = function(x, ...) { # nolint
   tab = as.data.table(x$data[c("row_ids", "partition")])
-  if ("prob" %in% x$predict_types) {
+  if ("prob" %chin% x$predict_types) {
     prob = as.data.table(x$data$prob)
     setnames(prob, new = paste0("prob.", names(prob)))
     tab = rcbind(tab, prob)

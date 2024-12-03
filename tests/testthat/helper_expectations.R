@@ -8,7 +8,7 @@ expect_prediction_clust = function(p) {
     any.missing = FALSE, len = length(p$row_ids),
     null.ok = TRUE
   )
-  if ("prob" %in% p$predict_types) {
+  if ("prob" %chin% p$predict_types) {
     expect_matrix(p$prob, "numeric", any.missing = FALSE, nrows = length(p$row_ids))
   }
 }
