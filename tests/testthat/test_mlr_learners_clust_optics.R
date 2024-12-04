@@ -1,7 +1,7 @@
 skip_if_not_installed("dbscan")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.optics", eps = 25, eps_cl = 20)
+  learner = lrn("clust.optics", eps = 25, eps_cl = 20)
   expect_learner(learner)
   result = run_autotest(learner)
   expect_true(result, info = result$error)

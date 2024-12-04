@@ -1,7 +1,7 @@
 skip_if_not_installed("stream")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.birch", threshold = 0.1, branching = 8L, maxLeaf = 20L)
+  learner = lrn("clust.birch", threshold = 0.1, branching = 8L, maxLeaf = 20L)
   expect_learner(learner)
   result = run_autotest(learner)
   expect_true(result, info = result$error)

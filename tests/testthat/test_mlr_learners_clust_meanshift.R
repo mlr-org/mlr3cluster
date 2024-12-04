@@ -1,7 +1,7 @@
 skip_if_not_installed("LPCM")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.meanshift")
+  learner = lrn("clust.meanshift")
   expect_learner(learner)
   task = generate_tasks(learner)
   learner$train(task[[1]])

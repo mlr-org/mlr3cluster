@@ -1,7 +1,7 @@
 skip_if_not_installed("mclust")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.mclust")
+  learner = lrn("clust.mclust")
   expect_learner(learner)
   result = run_autotest(learner)
   expect_true(result, info = result$error)

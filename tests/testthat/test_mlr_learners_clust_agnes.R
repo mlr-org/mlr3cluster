@@ -1,7 +1,7 @@
 skip_if_not_installed("clue")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.agnes")
+  learner = lrn("clust.agnes")
   expect_learner(learner)
   task = generate_tasks(learner)
   learner$train(task[[1]])

@@ -2,7 +2,7 @@ skip_if_not_installed("RWeka")
 skip_on_cran()
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.ff")
+  learner = lrn("clust.ff")
   expect_learner(learner)
   result = run_autotest(learner)
   expect_true(result, info = result$error)

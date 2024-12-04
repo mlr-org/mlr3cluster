@@ -1,7 +1,7 @@
 skip_if_not_installed("ClusterR")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.MBatchKMeans")
+  learner = lrn("clust.MBatchKMeans")
   expect_learner(learner)
   task = generate_tasks(learner)
   suppressWarnings(learner$train(task[[1]]))

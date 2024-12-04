@@ -1,7 +1,7 @@
 skip_if_not_installed("kernlab")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.kkmeans")
+  learner = lrn("clust.kkmeans")
   expect_learner(learner)
   result = run_autotest(learner)
   expect_true(result, info = result$error)

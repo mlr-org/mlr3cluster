@@ -1,5 +1,5 @@
 test_that("autotest", {
-  learner = mlr3::lrn("clust.hclust")
+  learner = lrn("clust.hclust")
   expect_learner(learner)
   task = generate_tasks(learner)
   learner$train(task[[1]])

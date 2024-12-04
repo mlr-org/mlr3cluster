@@ -1,7 +1,7 @@
 skip_if_not_installed("dbscan")
 
 test_that("autotest", {
-  learner = mlr3::lrn("clust.hdbscan", minPts = 5L)
+  learner = lrn("clust.hdbscan", minPts = 5L)
   expect_learner(learner)
   result = run_autotest(learner)
   expect_true(result, info = result$error)
