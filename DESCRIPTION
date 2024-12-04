@@ -20,13 +20,13 @@ Depends:
     R (>= 3.3.0)
 Imports:
     backports (>= 1.1.10),
-    checkmate,
+    checkmate (>= 2.0.0),
     clue,
     cluster,
-    data.table,
+    data.table (>= 1.15.0),
     fpc,
-    mlr3misc (>= 0.14.0),
-    paradox (>= 1.0.0),
+    mlr3misc (>= 0.15.0),
+    paradox (>= 1.0.1),
     R6,
     stats
 Suggests:
