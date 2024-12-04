@@ -14,12 +14,12 @@ mlr3cluster_tasks = new.env()
 mlr3cluster_learners = new.env()
 
 register_task = function(name, constructor) {
-  if (name %chin% names(mlr3cluster_tasks)) stopf("task %s registered twice", name)
+  if (name %chin% names(mlr3cluster_tasks)) stopf("task %s registered twice.", name)
   mlr3cluster_tasks[[name]] = constructor
 }
 
 register_learner = function(name, constructor) {
-  if (name %chin% names(mlr3cluster_learners)) stopf("learner %s registered twice", name)
+  if (name %chin% names(mlr3cluster_learners)) stopf("learner %s registered twice.", name)
   mlr3cluster_learners[[name]] = constructor
 }
 

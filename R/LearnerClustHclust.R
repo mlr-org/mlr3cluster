@@ -73,7 +73,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
     .predict = function(task) {
       pv = self$param_set$get_values(tags = "predict")
       if (pv$k > task$nrow) {
-        stopf("`k` needs to be between 1 and %i", task$nrow)
+        stopf("`k` needs to be between 1 and %i.", task$nrow)
       }
 
       warn_prediction_useless(self$id)

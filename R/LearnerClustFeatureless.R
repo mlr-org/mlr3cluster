@@ -39,7 +39,7 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
       n = task$nrow
 
       if (k > n) {
-        stopf("number of clusters must lie between 1 and nrow(data)")
+        stopf("number of clusters must lie between 1 and `nrow(data)`.")
       }
 
       partition = chunk(n, n_chunks = k)
