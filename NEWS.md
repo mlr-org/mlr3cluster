@@ -1,5 +1,8 @@
 # mlr3cluster (development version)
 
+* fix: Mclust learner no longer sets the control default with a function not in
+  import to stay compliant with {paradox} conventions
+
 # mlr3cluster 0.1.10
 
 * Add BIRCH learner from 'stream' package

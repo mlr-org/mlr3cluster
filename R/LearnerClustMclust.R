@@ -26,7 +26,7 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
         G = p_uty(default = 1:9, tags = "train", custom_check = check_numeric),
         modelNames = p_uty(tags = "train", custom_check = check_character),
         prior = p_uty(tags = "train", custom_check = check_list),
-        control = p_uty(default = mclust::emControl(), tags = "train", custom_check = check_list),
+        control = p_uty(tags = "train", custom_check = check_list),
         initialization = p_uty(tags = "train", custom_check = check_list),
         x = p_uty(tags = "train", custom_check = crate(function(x) check_class(x, "mclustBIC")))
       )
