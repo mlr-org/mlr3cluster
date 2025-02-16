@@ -52,6 +52,7 @@ PredictionClust = R6Class("PredictionClust",
       self$predict_types = intersect(c("partition", "prob"), names(pdata))
     }
   ),
+
   active = list(
     #' @field partition (`integer()`)\cr
     #' Access the stored partition.
