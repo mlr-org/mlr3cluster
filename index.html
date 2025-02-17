@@ -17,8 +17,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.9/font.css" rel="stylesheet">
 <link href="deps/JetBrains_Mono-0.4.9/font.css" rel="stylesheet">
 <link href="deps/Roboto_Slab-0.4.9/font.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><script src="deps/MathJax-3.2.2/tex-chtml.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Cluster Extension for mlr3">
 <meta name="description" content="Extends the mlr3 package with cluster analysis.">
 <meta property="og:description" content="Extends the mlr3 package with cluster analysis.">
@@ -31,7 +31,7 @@
 
     <a class="navbar-brand me-2" href="index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.10</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.11</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,7 +91,7 @@
 </h2>
 <p>The current version of <strong>mlr3cluster</strong> contains:</p>
 <ul>
-<li>A selection of 22 clustering learners that represent a wide variety of clusterers: partitional, hierarchical, fuzzy, etc.</li>
+<li>A selection of 24 clustering learners that represent a wide variety of clusterers: partitional, hierarchical, fuzzy, etc.</li>
 <li>A selection of 4 performance measures</li>
 <li>Two built-in tasks to get started with clustering</li>
 </ul>
@@ -105,9 +105,9 @@
 </h3>
 <table class="table">
 <colgroup>
-<col width="49%">
-<col width="20%">
-<col width="30%">
+<col width="33%">
+<col width="33%">
+<col width="33%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">Key</th>
@@ -134,6 +134,16 @@
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap">clust.ap</a></td>
 <td align="left">Affinity Propagation Clustering</td>
 <td align="left"><a href="https://cran.r-project.org/package=apcluster" class="external-link">apcluster</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.bico">clust.bico</a></td>
+<td align="left">BICO Clustering</td>
+<td align="left"><a href="https://cran.r-project.org/package=stream" class="external-link">stream</a></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch">clust.birch</a></td>
+<td align="left">BIRCH Clustering</td>
+<td align="left"><a href="https://cran.r-project.org/package=stream" class="external-link">stream</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans">clust.cmeans</a></td>
@@ -234,9 +244,9 @@
 </h3>
 <table class="table">
 <colgroup>
-<col width="54%">
-<col width="13%">
-<col width="32%">
+<col width="33%">
+<col width="33%">
+<col width="33%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">Key</th>
@@ -322,7 +332,8 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Damir Pulatov <br><small class="roles"> Maintainer, author </small>  </li>
+<li>Maximilian Mücke <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0009-0000-9432-9795" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Damir Pulatov <br><small class="roles"> Author </small>  </li>
 <li>Michel Lang <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-9754-0393" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 <li><a href="authors.html">More about authors...</a></li>
 </ul>
@@ -335,7 +346,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Damir Pulatov, Michel Lang.</p>
+  <p>Developed by Maximilian Mücke, Damir Pulatov, Michel Lang.</p>
 </div>
 
 <div class="pkgdown-footer-right">
