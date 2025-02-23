@@ -29,7 +29,8 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
         ),
         members = p_uty(default = NULL, tags = c("train", "hclust")),
         distmethod = p_fct(
-          default = "euclidean", levels = c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"),
+          default = "euclidean",
+          levels = c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"),
           tags = "train"
         ),
         diag = p_lgl(default = FALSE, tags = c("train", "dist")),

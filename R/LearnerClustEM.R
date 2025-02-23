@@ -32,7 +32,7 @@ LearnerClustEM = R6Class("LearnerClustEM",
         N = p_int(-1L, default = -1L, tags = "train"),
         num_slots = p_int(1L, default = 1L, tags = "train"),
         S = p_int(0L, default = 100L, tags = "train"),
-        X = p_int(1L, default = 10L,  tags = "train"),
+        X = p_int(1L, default = 10L, tags = "train"),
         K = p_int(1L, default = 10L, tags = "train"),
         V = p_lgl(default = FALSE, tags = "train"),
         output_debug_info = p_lgl(default = FALSE, tags = "train")

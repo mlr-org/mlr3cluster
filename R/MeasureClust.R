@@ -30,9 +30,18 @@ MeasureClust = R6Class("MeasureClust",
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
-    initialize = function(id, range, minimize = NA, aggregator = NULL, properties = character(),
-      predict_type = "partition", task_properties = character(),
-      packages = character(), label = NA_character_, man = NA_character_) {
+    initialize = function(
+      id,
+      range,
+      minimize = NA,
+      aggregator = NULL,
+      properties = character(),
+      predict_type = "partition",
+      task_properties = character(),
+      packages = character(),
+      label = NA_character_,
+      man = NA_character_
+    ) {
       super$initialize(
         id = id,
         task_type = "clust",

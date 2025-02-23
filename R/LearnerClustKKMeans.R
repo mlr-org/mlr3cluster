@@ -26,9 +26,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        centers = p_uty(
-          tags = c("required", "train"), custom_check = check_centers
-        ),
+        centers = p_uty(tags = c("required", "train"), custom_check = check_centers),
         kernel = p_fct(
           default = "rbfdot",
           levels = c("vanilladot", "polydot", "rbfdot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),

@@ -43,9 +43,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
         }))
       )
 
-      param_set$set_values(
-        MinPts = 5L, scale = FALSE, seeds = TRUE, showplot = FALSE, countmode = NULL
-      )
+      param_set$set_values(MinPts = 5L, scale = FALSE, seeds = TRUE, showplot = FALSE, countmode = NULL)
 
       super$initialize(
         id = "clust.dbscan_fpc",
