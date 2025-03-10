@@ -1,13 +1,8 @@
 expect_prediction_clust = function(p) {
   expect_prediction(p)
-  expect_r6(p, "PredictionClust",
-    public = c("row_ids", "truth", "predict_types", "prob", "partition")
-  )
+  expect_r6(p, "PredictionClust", public = c("row_ids", "truth", "predict_types", "prob", "partition"))
   expect_numeric(p$truth, any.missing = TRUE, len = length(p$row_ids), null.ok = TRUE)
-  expect_numeric(p$partition,
-    any.missing = FALSE, len = length(p$row_ids),
-    null.ok = TRUE
-  )
+  expect_numeric(p$partition, any.missing = FALSE, len = length(p$row_ids), null.ok = TRUE)
   if ("prob" %chin% p$predict_types) {
     expect_matrix(p$prob, "numeric", any.missing = FALSE, nrows = length(p$row_ids))
   }

@@ -1,5 +1,6 @@
 #' @importFrom utils bibentry
-bibentries = c( # nolint start
+# nolint start
+bibentries = c(
   ruspini_1970 = bibentry("article",
     doi = "10.1016/S0020-0255(70)80056-1",
     year = "1970",
@@ -366,4 +367,5 @@ bibentries = c( # nolint start
     pages = "181",
     year = "1979"
   )
-) # nolint end
+)
+# nolint end
