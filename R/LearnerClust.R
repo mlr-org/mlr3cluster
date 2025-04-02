@@ -30,7 +30,8 @@
 #' # get a specific learner from mlr_learners:
 #' learner = lrn("clust.kmeans")
 #' print(learner)
-LearnerClust = R6Class("LearnerClust",
+LearnerClust = R6Class(
+  "LearnerClust",
   inherit = Learner,
   public = list(
     #' @field assignments (`NULL` | `vector()`)\cr

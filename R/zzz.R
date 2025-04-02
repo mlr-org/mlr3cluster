@@ -27,6 +27,7 @@ register_mlr3 = function() {
   # reflections
   mlr_reflections = utils::getFromNamespace("mlr_reflections", ns = "mlr3")
   mlr_reflections$task_types = mlr_reflections$task_types[!"clust"]
+  # fmt: skip
   mlr_reflections$task_types = setkeyv(rbind(mlr_reflections$task_types, rowwise_table(
     ~type,    ~package,       ~task,        ~learner,       ~prediction,        ~prediction_data,       ~measure,
     "clust",  "mlr3cluster",  "TaskClust",  "LearnerClust", "PredictionClust",  "PredictionDataClust",  "MeasureClust"
@@ -35,7 +36,15 @@ register_mlr3 = function() {
   mlr_reflections$task_col_roles$clust = mlr_reflections$task_col_roles$regr
   mlr_reflections$task_properties$clust = mlr_reflections$task_properties$regr
   mlr_reflections$learner_properties$clust = c(
-    "missings", "partitional", "hierarchical", "exclusive", "overlapping", "fuzzy", "complete", "partial", "density"
+    "missings",
+    "partitional",
+    "hierarchical",
+    "exclusive",
+    "overlapping",
+    "fuzzy",
+    "complete",
+    "partial",
+    "density"
   )
   mlr_reflections$learner_predict_types$clust = list(partition = "partition", prob = c("partition", "prob"))
   mlr_reflections$measure_properties$clust = mlr_reflections$measure_properties$regr
@@ -63,7 +72,8 @@ register_mlr3 = function() {
   register_namespace_callback(pkgname, "mlr3", register_mlr3)
 }
 
-.onUnload = function(libpaths) { # nolint
+.onUnload = function(libpaths) {
+  # nolint
   walk(names(mlr3cluster_tasks), function(id) mlr_tasks$remove(id))
   walk(names(mlr3cluster_learners), function(id) mlr_learners$remove(id))
   walk(names(measures), function(id) mlr_measures$remove(paste("clust", id, sep = ".")))

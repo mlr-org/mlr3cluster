@@ -16,20 +16,24 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
+LearnerClustMeanShift = R6Class(
+  "LearnerClustMeanShift",
   inherit = LearnerClust,
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        h = p_uty(tags = "train", custom_check = crate(function(x) {
-          if (test_numeric(x) || test_int(x)) {
-            TRUE
-          } else {
-            "`h` must be either integer or numeric vector"
-          }
-        })),
+        h = p_uty(
+          tags = "train",
+          custom_check = crate(function(x) {
+            if (test_numeric(x) || test_int(x)) {
+              TRUE
+            } else {
+              "`h` must be either integer or numeric vector"
+            }
+          })
+        ),
         subset = p_uty(tags = "train", custom_check = check_numeric),
         scaled = p_int(0L, default = 1, tags = "train"),
         iter = p_int(1L, default = 200L, tags = "train"),

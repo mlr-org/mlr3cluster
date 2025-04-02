@@ -18,7 +18,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustCMeans = R6Class("LearnerClustCMeans",
+LearnerClustCMeans = R6Class(
+  "LearnerClustCMeans",
   inherit = LearnerClust,
   public = list(
     #' @description
@@ -26,7 +27,8 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
     initialize = function() {
       param_set = ps(
         centers = p_uty(
-          tags = c("required", "train"), custom_check = check_centers
+          tags = c("required", "train"),
+          custom_check = check_centers
         ),
         iter.max = p_int(1L, default = 100L, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train"),
@@ -34,13 +36,17 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         method = p_fct(levels = c("cmeans", "ufcl"), default = "cmeans", tags = "train"),
         m = p_dbl(1, default = 2, tags = "train"),
         rate.par = p_dbl(0, 1, tags = "train", depends = quote(method == "ufcl")),
-        weights = p_uty(default = 1L, tags = "train", custom_check = crate(function(x) {
-          if (test_numeric(x) && all(x > 0) || check_count(x, positive = TRUE)) {
-            TRUE
-          } else {
-            "`weights` must be positive numeric vector or a single positive number"
-          }
-        })),
+        weights = p_uty(
+          default = 1L,
+          tags = "train",
+          custom_check = crate(function(x) {
+            if (test_numeric(x) && all(x > 0) || check_count(x, positive = TRUE)) {
+              TRUE
+            } else {
+              "`weights` must be positive numeric vector or a single positive number"
+            }
+          })
+        ),
         control = p_uty(tags = "train")
       )
 

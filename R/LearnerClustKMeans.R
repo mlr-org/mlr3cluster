@@ -18,7 +18,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustKMeans = R6Class("LearnerClustKMeans",
+LearnerClustKMeans = R6Class(
+  "LearnerClustKMeans",
   inherit = LearnerClust,
   public = list(
     #' @description
@@ -28,7 +29,9 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
         centers = p_uty(tags = c("required", "train"), custom_check = check_centers),
         iter.max = p_int(1L, default = 10L, tags = "train"),
         algorithm = p_fct(
-          levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"), default = "Hartigan-Wong", tags = "train"
+          levels = c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"),
+          default = "Hartigan-Wong",
+          tags = "train"
         ),
         nstart = p_int(1L, default = 1L, tags = "train"),
         trace = p_int(0L, default = 0L, tags = "train")

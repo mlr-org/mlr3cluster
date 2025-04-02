@@ -1,7 +1,8 @@
 #' @importFrom utils bibentry
 # nolint start
 bibentries = c(
-  ruspini_1970 = bibentry("article",
+  ruspini_1970 = bibentry(
+    "article",
     doi = "10.1016/S0020-0255(70)80056-1",
     year = "1970",
     volume = "2",
@@ -11,7 +12,8 @@ bibentries = c(
     title = "Numerical methods for fuzzy clustering",
     journal = "Information Sciences"
   ),
-  ester1996density = bibentry("inproceedings",
+  ester1996density = bibentry(
+    "inproceedings",
     title = "A density-based algorithm for discovering clusters in large spatial databases with noise",
     author = "Ester, Martin and Kriegel, Hans-Peter and Sander, J\u00F6rg and Xu, Xiaowei and others",
     booktitle = "kdd",
@@ -20,7 +22,8 @@ bibentries = c(
     pages = "226--231",
     year = "1996"
   ),
-  campello2013density = bibentry("inproceedings",
+  campello2013density = bibentry(
+    "inproceedings",
     title = "Density-based clustering based on hierarchical density estimates",
     author = "Campello, Ricardo JGB and Moulavi, Davoud and Sander, J\u00F6rg",
     booktitle = "Pacific-Asia conference on knowledge discovery and data mining",
@@ -28,7 +31,8 @@ bibentries = c(
     year = "2013",
     organization = "Springer"
   ),
-  ankerst1999optics = bibentry("article",
+  ankerst1999optics = bibentry(
+    "article",
     title = "OPTICS: Ordering points to identify the clustering structure",
     author = "Ankerst, Mihael and Breunig, Markus M and Kriegel, Hans-Peter and Sander, J\u00F6rg",
     journal = "ACM Sigmod record",
@@ -38,7 +42,8 @@ bibentries = c(
     year = "1999",
     publisher = "ACM New York, NY, USA"
   ),
-  frey2007clustering = bibentry("article",
+  frey2007clustering = bibentry(
+    "article",
     title = "Clustering by passing messages between data points",
     author = "Frey, Brendan J and Dueck, Delbert",
     journal = "science",
@@ -48,19 +53,22 @@ bibentries = c(
     year = "2007",
     publisher = "American Association for the Advancement of Science"
   ),
-  kaufman2009finding = bibentry("book",
+  kaufman2009finding = bibentry(
+    "book",
     title = "Finding groups in data: an introduction to cluster analysis",
     author = "Kaufman, Leonard and Rousseeuw, Peter J",
     year = "2009",
     publisher = "John Wiley & Sons"
   ),
-  bezdek2013pattern = bibentry("book",
+  bezdek2013pattern = bibentry(
+    "book",
     title = "Pattern recognition with fuzzy objective function algorithms",
     author = "Bezdek, James C",
     year = "2013",
     publisher = "Springer Science & Business Media"
   ),
-  fisher1987knowledge = bibentry("article",
+  fisher1987knowledge = bibentry(
+    "article",
     title = "Knowledge acquisition via incremental conceptual clustering",
     author = "Fisher, Douglas H",
     journal = "Machine learning",
@@ -69,7 +77,8 @@ bibentries = c(
     year = "1987",
     publisher = "Springer"
   ),
-  gennari1989models = bibentry("article",
+  gennari1989models = bibentry(
+    "article",
     title = "Models of incremental concept formation",
     author = "Gennari, John H and Langley, Pat and Fisher, Doug",
     journal = "Artificial intelligence",
@@ -79,7 +88,8 @@ bibentries = c(
     year = "1989",
     publisher = "Elsevier"
   ),
-  hochbaum1985best = bibentry("article",
+  hochbaum1985best = bibentry(
+    "article",
     title = "A best possible heuristic for the k-center problem",
     author = "Hochbaum, Dorit S and Shmoys, David B",
     journal = "Mathematics of operations research",
@@ -89,13 +99,15 @@ bibentries = c(
     year = "1985",
     publisher = "INFORMS"
   ),
-  dhillon2004unified = bibentry("book",
+  dhillon2004unified = bibentry(
+    "book",
     title = "A unified view of kernel k-means, spectral clustering and graph cuts",
     author = "Dhillon, Inderjit S and Guan, Yuqiang and Kulis, Brian",
     year = "2004",
     publisher = "Citeseer"
   ),
-  lloyd1982least = bibentry("article",
+  lloyd1982least = bibentry(
+    "article",
     title = "Least squares quantization in PCM",
     author = "Lloyd, Stuart P",
     journal = "IEEE Transactions on Information Theory",
@@ -105,7 +117,8 @@ bibentries = c(
     year = "1982",
     publisher = "IEEE"
   ),
-  forgy1965cluster = bibentry("article",
+  forgy1965cluster = bibentry(
+    "article",
     title = "Cluster analysis of multivariate data: efficiency versus interpretability of classifications",
     author = "Forgy, Edward W",
     journal = "Biometrics",
@@ -113,7 +126,8 @@ bibentries = c(
     pages = "768--769",
     year = "1965"
   ),
-  macqueen1967some = bibentry("inproceedings",
+  macqueen1967some = bibentry(
+    "inproceedings",
     title = "Some methods for classification and analysis of multivariate observations",
     author = "MacQueen, James",
     booktitle = "Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability",
@@ -123,7 +137,8 @@ bibentries = c(
     address = "Berkeley, CA",
     publisher = "University of California Press"
   ),
-  hartigan1979algorithm = bibentry("article",
+  hartigan1979algorithm = bibentry(
+    "article",
     title = "Algorithm AS 136: A K-means clustering algorithm",
     author = "Hartigan, John A and Wong, Manchek A",
     journal = "Journal of the Royal Statistical Society. Series C (Applied Statistics)",
@@ -133,7 +148,8 @@ bibentries = c(
     year = "1979",
     doi = "10.2307/2346830"
   ),
-  fraley2002model = bibentry("article",
+  fraley2002model = bibentry(
+    "article",
     title = "Model-based clustering, discriminant analysis, and density estimation",
     author = "Fraley, Chris and Raftery, Adrian E",
     journal = "Journal of the American statistical Association",
@@ -143,7 +159,8 @@ bibentries = c(
     year = "2002",
     publisher = "Taylor & Francis"
   ),
-  cheng1995mean = bibentry("article",
+  cheng1995mean = bibentry(
+    "article",
     title = "Mean shift, mode seeking, and clustering",
     author = "Cheng, Yizong",
     journal = "IEEE transactions on pattern analysis and machine intelligence",
@@ -153,7 +170,8 @@ bibentries = c(
     year = "1995",
     publisher = "IEEE"
   ),
-  hahsler2019dbscan = bibentry("article",
+  hahsler2019dbscan = bibentry(
+    "article",
     title = "{dbscan}: Fast Density-Based Clustering with {R}",
     author = "Michael Hahsler and Matthew Piekenbrock and Derek Doran",
     journal = "Journal of Statistical Software",
@@ -163,14 +181,16 @@ bibentries = c(
     pages = "1--30",
     doi = "10.18637/jss.v091.i01",
   ),
-  sculley2010web = bibentry("inproceedings",
+  sculley2010web = bibentry(
+    "inproceedings",
     title = "Web-scale k-means clustering",
     author = "Sculley, David",
     booktitle = "Proceedings of the 19th international conference on World wide web",
     pages = "1177--1178",
     year = "2010"
   ),
-  reynolds2006clustering = bibentry("article",
+  reynolds2006clustering = bibentry(
+    "article",
     title = "Clustering rules: a comparison of partitioning and hierarchical clustering algorithms",
     author = "Reynolds, Alan P and Richards, Graeme and de la Iglesia, Beatriz and Rayward-Smith, Victor J",
     journal = "Journal of Mathematical Modelling and Algorithms",
@@ -179,7 +199,8 @@ bibentries = c(
     year = "2006",
     publisher = "Springer"
   ),
-  schubert2019faster = bibentry("inproceedings",
+  schubert2019faster = bibentry(
+    "inproceedings",
     title = "Faster k-medoids clustering: improving the PAM, CLARA, and CLARANS algorithms",
     author = "Schubert, Erich and Rousseeuw, Peter J",
     booktitle = "Similarity Search and Applications: 12th International Conference, SISAP 2019, Newark, NJ, USA, October 2--4, 2019, Proceedings 12",
@@ -187,7 +208,8 @@ bibentries = c(
     year = "2019",
     organization = "Springer"
   ),
-  pelleg2000x = bibentry("inproceedings",
+  pelleg2000x = bibentry(
+    "inproceedings",
     title = "X-means: Extending k-means with efficient estimation of the number of clusters.",
     author = "Pelleg, Dan and Moore, Andrew W and others",
     booktitle = "Icml",
@@ -195,7 +217,8 @@ bibentries = c(
     pages = "727--734",
     year = "2000"
   ),
-  bodenhofer2011apcluster = bibentry("article",
+  bodenhofer2011apcluster = bibentry(
+    "article",
     title = "{APCluster}: an {R} package for affinity propagation clustering",
     author = "Bodenhofer, Ulrich and Kothmeier, Andreas and Hochreiter, Sepp",
     journal = "Bioinformatics",
@@ -205,7 +228,8 @@ bibentries = c(
     year = "2011",
     publisher = "Oxford University Press"
   ),
-  dimitriadou2008misc = bibentry("article",
+  dimitriadou2008misc = bibentry(
+    "article",
     title = "Misc functions of the Department of Statistics (e1071), TU Wien",
     author = "Dimitriadou, Evgenia and Hornik, Kurt and Leisch, Friedrich and Meyer, David and Weingessel, Andreas",
     journal = "R package",
@@ -214,7 +238,8 @@ bibentries = c(
     year = "2008",
     publisher = "Citeseer"
   ),
-  karatzoglou2004kernlab = bibentry("article",
+  karatzoglou2004kernlab = bibentry(
+    "article",
     title = "kernlab-an S4 package for kernel methods in R",
     author = "Karatzoglou, Alexandros and Smola, Alexandros and Hornik, Kurt and Zeileis, Achim",
     journal = "Journal of statistical software",
@@ -222,7 +247,8 @@ bibentries = c(
     pages = "1--20",
     year = "2004"
   ),
-  scrucca2016mclust = bibentry("article",
+  scrucca2016mclust = bibentry(
+    "article",
     title = "mclust 5: clustering, classification and density estimation using Gaussian finite mixture models",
     author = "Scrucca, Luca and Fop, Michael and Murphy, T Brendan and Raftery, Adrian E",
     journal = "The R journal",
@@ -232,7 +258,8 @@ bibentries = c(
     year = "2016",
     publisher = "NIH Public Access"
   ),
-  dempster1977maximum = bibentry("article",
+  dempster1977maximum = bibentry(
+    "article",
     title = "Maximum likelihood from incomplete data via the EM algorithm",
     author = "Dempster, Arthur P and Laird, Nan M and Rubin, Donald B",
     journal = "Journal of the royal statistical society: series B (methodological)",
@@ -242,7 +269,8 @@ bibentries = c(
     year = "1977",
     publisher = "Wiley Online Library"
   ),
-  witten2002data = bibentry("article",
+  witten2002data = bibentry(
+    "article",
     title = "Data mining: practical machine learning tools and techniques with Java implementations",
     author = "Witten, Ian H and Frank, Eibe",
     journal = "Acm Sigmod Record",
@@ -252,51 +280,59 @@ bibentries = c(
     year = "2002",
     publisher = "ACM New York, NY, USA"
   ),
-  becker1988s = bibentry("book",
+  becker1988s = bibentry(
+    "book",
     title = "The New S Language",
     author = "Becker, Richard A and Chambers, John M and Wilks, Allan R",
     year = "1988",
     publisher = "Wadsworth & Brooks/Cole"
   ),
-  everitt1974cluster = bibentry("book",
+  everitt1974cluster = bibentry(
+    "book",
     title = "Cluster Analysis",
     author = "Everitt, Brian S",
     year = "1974",
     publisher = "Heinemann Educational Books"
   ),
-  hartigan1975clustering = bibentry("book",
+  hartigan1975clustering = bibentry(
+    "book",
     title = "Clustering Algorithms",
     author = "Hartigan, John A",
     year = "1975",
     publisher = "John Wiley & Sons"
   ),
-  sneath1973numerical = bibentry("book",
+  sneath1973numerical = bibentry(
+    "book",
     title = "Numerical Taxonomy",
     author = "Sneath, Peter HA and Sokal, Robert R",
     year = "1973",
     publisher = "Freeman"
   ),
-  anderberg1973cluster = bibentry("book",
+  anderberg1973cluster = bibentry(
+    "book",
     title = "Cluster Analysis for Applications",
     author = "Anderberg, Michael R",
     year = "1973",
     publisher = "Academic Press"
   ),
-  gordon1999classification = bibentry("book",
+  gordon1999classification = bibentry(
+    "book",
     title = "Classification",
     author = "Gordon, Allan David",
     edition = "2",
     year = "1999",
     publisher = "Chapman and Hall / CRC"
   ),
-  murtagh1985multidimensional = bibentry("incollection",
+  murtagh1985multidimensional = bibentry(
+    "incollection",
     title = "Multidimensional Clustering Algorithms",
     author = "Murtagh, Fionn",
     booktitle = "COMPSTAT Lectures 4",
     publisher = "Physica-Verlag",
     year = "1985"
   ),
-  mcquitty1966similarity = bibentry("article",
+  mcquitty1966similarity = bibentry(
+    "article",
     title = "Similarity Analysis by Reciprocal Pairs for Discrete and Continuous Data",
     author = "McQuitty, Louis L",
     journal = "Educational and Psychological Measurement",
@@ -306,14 +342,16 @@ bibentries = c(
     year = "1966",
     doi = "10.1177/001316446602600402"
   ),
-  legendre2012numerical = bibentry("book",
+  legendre2012numerical = bibentry(
+    "book",
     title = "Numerical Ecology",
     author = "Legendre, Pierre and Legendre, Louis",
     edition = "3",
     year = "2012",
     publisher = "Elsevier Science BV"
   ),
-  murtagh2014ward = bibentry("article",
+  murtagh2014ward = bibentry(
+    "article",
     title = "Ward's Hierarchical Agglomerative Clustering Method: Which Algorithms Implement Ward's Criterion?",
     author = "Murtagh, Fionn and Legendre, Pierre",
     journal = "Journal of Classification",
@@ -322,7 +360,8 @@ bibentries = c(
     year = "2014",
     doi = "10.1007/s00357-014-9161-z"
   ),
-  hahsler2017stream = bibentry("article",
+  hahsler2017stream = bibentry(
+    "article",
     title = "Introduction to {stream}: An Extensible Framework for Data Stream Clustering Research with {R}",
     author = "Michael Hahsler and Matthew Bola\u00f1os and John Forrest",
     journal = "Journal of Statistical Software",
@@ -332,7 +371,8 @@ bibentries = c(
     pages = "1--50",
     doi = "10.18637/jss.v076.i14",
   ),
-  fichtenberger2013bico = bibentry("inproceedings",
+  fichtenberger2013bico = bibentry(
+    "inproceedings",
     title = "BICO: BIRCH Meets Coresets for k-Means Clustering",
     author = "Fichtenberger, Hendrik and Gille, Marc and Schmidt, Melanie and Schwiegelshohn, Chris and Sohler, Christian",
     booktitle = "Algorithms--ESA 2013: 21st Annual European Symposium, Sophia Antipolis, France, September 2-4, 2013. Proceedings 21",
@@ -340,7 +380,8 @@ bibentries = c(
     year = "2013",
     organization = "Springer"
   ),
-  zhang1996birch = bibentry("article",
+  zhang1996birch = bibentry(
+    "article",
     title = "BIRCH: An Efficient Data Clustering Method for Very Large Databases",
     author = "Zhang, Tian and Ramakrishnan, Raghu and Livny, Miron",
     journal = "ACM sigmod record",
@@ -350,7 +391,8 @@ bibentries = c(
     year = "1996",
     publisher = "ACM New York, NY, USA"
   ),
-  zhang1997birch = bibentry("article",
+  zhang1997birch = bibentry(
+    "article",
     title = "BIRCH: A new data clustering algorithm and its applications",
     author = "Zhang, Tian and Ramakrishnan, Raghu and Livny, Miron",
     journal = "Data Mining and Knowledge Discovery",
@@ -359,7 +401,8 @@ bibentries = c(
     year = "1997",
     publisher = "Springer"
   ),
-  berry1979inter = bibentry("article",
+  berry1979inter = bibentry(
+    "article",
     title = "Interactive Data Analysis: A Practical Primer",
     author = "Berry, J. Brian",
     journal = "Journal of the Royal Statistical Society: Series C (Applied Statistics)",
