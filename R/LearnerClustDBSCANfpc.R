@@ -15,7 +15,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
+LearnerClustDBSCANfpc = R6Class(
+  "LearnerClustDBSCANfpc",
   inherit = LearnerClust,
   public = list(
     #' @description
@@ -27,20 +28,28 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
         scale = p_lgl(default = FALSE, tags = "train"),
         method = p_fct(levels = c("hybrid", "raw", "dist"), tags = "train"),
         seeds = p_lgl(default = TRUE, tags = "train"),
-        showplot = p_uty(default = FALSE, tags = "train", custom_check = crate(function(x) {
-          if (test_flag(x) || test_int(x, lower = 0L, upper = 2L)) {
-            TRUE
-          } else {
-            "`showplot` need to be either logical or integer between 0 and 2"
-          }
-        })),
-        countmode = p_uty(default = NULL, tags = "train", custom_check = crate(function(x) {
-          if (test_integer(x, null.ok = TRUE)) {
-            TRUE
-          } else {
-            "`countmode` need to be NULL or vector of integers"
-          }
-        }))
+        showplot = p_uty(
+          default = FALSE,
+          tags = "train",
+          custom_check = crate(function(x) {
+            if (test_flag(x) || test_int(x, lower = 0L, upper = 2L)) {
+              TRUE
+            } else {
+              "`showplot` need to be either logical or integer between 0 and 2"
+            }
+          })
+        ),
+        countmode = p_uty(
+          default = NULL,
+          tags = "train",
+          custom_check = crate(function(x) {
+            if (test_integer(x, null.ok = TRUE)) {
+              TRUE
+            } else {
+              "`countmode` need to be NULL or vector of integers"
+            }
+          })
+        )
       )
 
       param_set$set_values(MinPts = 5L, scale = FALSE, seeds = TRUE, showplot = FALSE, countmode = NULL)
