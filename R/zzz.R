@@ -73,7 +73,6 @@ register_mlr3 = function() {
 }
 
 .onUnload = function(libpaths) {
-  # nolint
   walk(names(mlr3cluster_tasks), function(id) mlr_tasks$remove(id))
   walk(names(mlr3cluster_learners), function(id) mlr_learners$remove(id))
   walk(names(measures), function(id) mlr_measures$remove(paste("clust", id, sep = ".")))
