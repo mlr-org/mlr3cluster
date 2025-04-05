@@ -24,7 +24,8 @@
 #' @seealso
 #' Example cluster measures: [`clust.dunn`][mlr_measures_clust.dunn]
 #' @export
-MeasureClust = R6Class("MeasureClust",
+MeasureClust = R6Class(
+  "MeasureClust",
   inherit = Measure,
   cloneable = FALSE,
   public = list(
