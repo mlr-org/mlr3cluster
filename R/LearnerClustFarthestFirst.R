@@ -16,7 +16,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustFarthestFirst = R6Class("LearnerClustFF",
+LearnerClustFarthestFirst = R6Class(
+  "LearnerClustFF",
   inherit = LearnerClust,
   public = list(
     #' @description
