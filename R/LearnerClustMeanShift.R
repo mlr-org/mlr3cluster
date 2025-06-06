@@ -27,11 +27,7 @@ LearnerClustMeanShift = R6Class(
         h = p_uty(
           tags = "train",
           custom_check = crate(function(x) {
-            if (test_numeric(x) || test_int(x)) {
-              TRUE
-            } else {
-              "`h` must be either integer or numeric vector"
-            }
+            if (test_numeric(x) || test_int(x)) TRUE else "`h` must be either integer or numeric vector"
           })
         ),
         subset = p_uty(tags = "train", custom_check = check_numeric),

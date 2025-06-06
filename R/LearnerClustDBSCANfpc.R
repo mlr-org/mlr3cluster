@@ -43,11 +43,7 @@ LearnerClustDBSCANfpc = R6Class(
           default = NULL,
           tags = "train",
           custom_check = crate(function(x) {
-            if (test_integer(x, null.ok = TRUE)) {
-              TRUE
-            } else {
-              "`countmode` need to be NULL or vector of integers"
-            }
+            if (test_integer(x, null.ok = TRUE)) TRUE else "`countmode` need to be NULL or vector of integers"
           })
         )
       )
