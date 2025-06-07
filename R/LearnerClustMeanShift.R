@@ -48,6 +48,7 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
       )
     }
   ),
+
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")

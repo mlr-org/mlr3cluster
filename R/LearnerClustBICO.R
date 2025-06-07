@@ -40,6 +40,7 @@ LearnerClustBICO = R6Class("LearnerClustBICO",
       )
     }
   ),
+
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")

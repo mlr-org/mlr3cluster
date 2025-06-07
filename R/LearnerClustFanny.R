@@ -50,6 +50,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
       )
     }
   ),
+
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
