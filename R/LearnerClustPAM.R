@@ -60,9 +60,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
           stopf("number of `medoids`' needs to match `k`!")
         }
         if (sum(pv$medoids <= task$nrow & pv$medoids >= 1L) != pv$k) {
-          stopf(
-            "`medoids` need to contain valid indices from 1 to %i (number of observations)!", pv$k
-          )
+          stopf("`medoids` need to contain valid indices from 1 to %i (number of observations)!", pv$k)
         }
       }
 

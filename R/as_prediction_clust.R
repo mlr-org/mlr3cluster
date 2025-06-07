@@ -50,7 +50,9 @@ as_prediction_clust.data.frame = function(x, ...) { # nolint
 
   if (length(prob_cols) > 0L) {
     if (!all(startsWith(prob_cols, "prob."))) {
-      stopf("Table may only contain columns 'row_ids', 'partition' as well as columns prefixed with 'prob.' for class probabilities.") # nolint
+      stopf(
+        "Table may only contain columns 'row_ids', 'partition' as well as columns prefixed with 'prob.' for class probabilities." # nolint
+      )
     }
     prob = as.matrix(x[, prob_cols, with = FALSE])
     nms = colnames(prob)
