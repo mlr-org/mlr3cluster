@@ -15,7 +15,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustHDBSCAN = R6Class("LearnerClustHDBSCAN",
+LearnerClustHDBSCAN = R6Class(
+  "LearnerClustHDBSCAN",
   inherit = LearnerClust,
   public = list(
     #' @description

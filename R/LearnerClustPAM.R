@@ -19,7 +19,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustPAM = R6Class("LearnerClustPAM",
+LearnerClustPAM = R6Class(
+  "LearnerClustPAM",
   inherit = LearnerClust,
   public = list(
     #' @description
@@ -29,7 +30,9 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
         k = p_int(1L, tags = c("required", "train")),
         metric = p_fct(levels = c("euclidian", "manhattan"), tags = "train"),
         medoids = p_uty(
-          default = NULL, tags = "train", custom_check = crate(function(x) check_integerish(x, null.ok = TRUE))
+          default = NULL,
+          tags = "train",
+          custom_check = crate(function(x) check_integerish(x, null.ok = TRUE))
         ),
         stand = p_lgl(default = FALSE, tags = "train"),
         do.swap = p_lgl(default = TRUE, tags = "train"),

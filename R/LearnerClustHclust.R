@@ -15,7 +15,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustHclust = R6Class("LearnerClustHclust",
+LearnerClustHclust = R6Class(
+  "LearnerClustHclust",
   inherit = LearnerClust,
   public = list(
     #' @description
@@ -57,12 +58,14 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      dist = invoke(stats::dist,
+      dist = invoke(
+        stats::dist,
         x = task$data(),
         method = pv$d %??% "euclidean",
         .args = self$param_set$get_values(tags = c("train", "dist"))
       )
-      m = invoke(stats::hclust,
+      m = invoke(
+        stats::hclust,
         d = dist,
         .args = self$param_set$get_values(tags = c("train", "hclust"))
       )

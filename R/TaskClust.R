@@ -20,7 +20,8 @@
 #'
 #' # possible properties:
 #' mlr_reflections$task_properties$clust
-TaskClust = R6Class("TaskClust",
+TaskClust = R6Class(
+  "TaskClust",
   inherit = TaskUnsupervised,
   public = list(
     #' @description
