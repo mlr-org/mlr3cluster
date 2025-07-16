@@ -13,6 +13,7 @@ linters: linters_with_defaults(
       warning = "use warningf()",
       message = "use messagef()",
       # perf
-      ifelse = "use fifelse()"
+      ifelse = "use fifelse()",
+      rank = "use frank()"
     ))
   )
