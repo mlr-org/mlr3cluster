@@ -96,7 +96,6 @@ knitr::kable(msr_clust, format = "markdown", col.names = tools::toTitleCase(name
 
 ```{r}
 library(mlr3)
-library(mlr3viz)
 library(mlr3cluster)
 
 task = tsk("usarrests")

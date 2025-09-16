@@ -94,7 +94,6 @@ create great visualizations with just one line of code!
 
 ``` r
 library(mlr3)
-library(mlr3viz)
 library(mlr3cluster)
 
 task = tsk("usarrests")
