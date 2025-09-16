@@ -7,59 +7,59 @@
 
 # mlr3cluster 0.1.10
 
-* Add BIRCH learner from 'stream' package
-* Add BICO learner from 'stream' package
+* feat: Add BIRCH learner from 'stream' package
+* feat: Add BICO learner from 'stream' package
 
 # mlr3cluster 0.1.9
 
-* Add DBSCAN learner from 'fpc' package
-* Add HDBSCAN learner from 'dbscan' package
-* Add OPTICS learner from 'dbscan' package
-* Compatibility with upcoming 'paradox' release
-* Move to testthat3
-* Refactoring
+* feat: Add DBSCAN learner from 'fpc' package
+* feat: Add HDBSCAN learner from 'dbscan' package
+* feat: Add OPTICS learner from 'dbscan' package
+* chore: Compatibility with upcoming 'paradox' release
+* chore: Move to testthat3
+* refactor: General code refactoring
 
 # mlr3cluster 0.1.8
 
-* Add new task based on `ruspini` dataset
+* feat: Add new task based on `ruspini` dataset
 
 # mlr3cluster 0.1.7
 
-* Replace 'clusterCrit' measures with alternatives from 'cluster' and 'fpc' packages
-* Remove broken unloading test
+* chore: Replace 'clusterCrit' measures with alternatives from 'cluster' and 'fpc' packages
+* fix: Remove broken unloading test
 
 # mlr3cluster 0.1.6
 
-* Add states as row names to `usarrest` task.
-* Remove dictionary items after unloading package.
+* feat: Add states as row names to `usarrest` task
+* fix: Remove dictionary items after unloading package
 
 # mlr3cluster 0.1.5
 
-* Added Mclust learner
-* Fix error associated with new dbscan release
+* feat: Add Mclust learner
+* fix: Fix error associated with new dbscan release
 
 # mlr3cluster 0.1.4
 
-* code refactoring
+* refactor: General code refactoring
 
 # mlr3cluster 0.1.3
 
-* code refactoring
-* small fixes
-* add filter to PredictionClust
+* refactor: General code refactoring
+* fix: Small bug fixes
+* feat: Add filter to PredictionClust
 
 # mlr3cluster 0.1.2
 
-* Add Hclust
-* test and doc hclust
-* Add within sum of squares measure
-* add doc wss
-* code factor adaptions
+* feat: Add Hclust learner
+* docs: Add tests and documentation for Hclust
+* feat: Add within sum of squares measure
+* docs: Add documentation for WSS measure
+* refactor: Code factor adaptations
 
 # mlr3cluster 0.1.1
 
-* Eight new learners
-* Added `assignments` and `save_assignments` fields to `LearnerClust` class
+* feat: Add eight new learners
+* feat: Add `assignments` and `save_assignments` fields to `LearnerClust` class
 
 # mlr3cluster 0.1.0
 
