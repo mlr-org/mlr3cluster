@@ -94,14 +94,18 @@ knitr::kable(msr_clust, format = "markdown", col.names = tools::toTitleCase(name
 
 ## Example
 
-```{r, eval = FALSE}
+```{r}
 library(mlr3)
+library(mlr3viz)
 library(mlr3cluster)
 
 task = tsk("usarrests")
+task
+
 learner = lrn("clust.kmeans")
-learner$train(task)
-prediction = learner$predict(task = task)
+prediction = learner$train(task)$predict(task)
+measures = msrs(c("clust.wss", "clust.silhouette"))
+prediction$score(measures, task)
 ```
 
 ## More Resources

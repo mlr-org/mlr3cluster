@@ -2,6 +2,7 @@
 #' @include MeasureClust.R
 MeasureClustFPC = R6Class("MeasureClustFPC",
   inherit = MeasureClust,
+  cloneable = FALSE,
   public = list(
     crit = NULL,
     initialize = function(name, label) {
@@ -29,6 +30,7 @@ MeasureClustFPC = R6Class("MeasureClustFPC",
 
 MeasureClustSil = R6Class("MeasureClustSil",
   inherit = MeasureClust,
+  cloneable = FALSE,
   public = list(
     crit = NULL,
     initialize = function(name, label) {

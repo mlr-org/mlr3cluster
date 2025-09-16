@@ -38,6 +38,7 @@ Suggests:
     LPCM,
     mclust,
     mlbench,
+    mlr3viz,
     RWeka,
     stream,
     testthat (>= 3.0.0)
