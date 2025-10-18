@@ -1,5 +1,7 @@
 # mlr3cluster (development version)
 
+* docs: Better learner example section
+
 # mlr3cluster 0.1.11
 
 * fix: Mclust learner no longer sets the control default with a function not in
