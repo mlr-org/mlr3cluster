@@ -40,8 +40,20 @@ lrn("clust.featureless")
 learner = lrn("clust.featureless")
 print(learner)
 
-# available parameters:
-learner$param_set$ids()
+# Define a Task
+task = tsk("usarrests")
+
+# Train the learner on the task
+learner$train(task)
+
+# Print the model
+print(learner$model)
+
+# Make predictions for the task
+prediction = learner$predict(task)
+
+# Score the predictions
+prediction$score(task = task)
 \dontshow{\}) # examplesIf}
 }
 \seealso{
