@@ -202,10 +202,89 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Properties: complete, fuzzy, and partitional</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Other settings: use_weights = 'error'</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># available parameters:</span></span></span>
-<span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="va">param_set</span><span class="op">$</span><span class="fu">ids</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "centers"  "iter.max" "verbose"  "dist"     "method"   "m"        "rate.par"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [8] "weights"  "control" </span>
+<span class="r-in"><span><span class="co"># Define a Task</span></span></span>
+<span class="r-in"><span><span class="va">task</span> <span class="op">=</span> <span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">tsk</a></span><span class="op">(</span><span class="st">"usarrests"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Train the learner on the task</span></span></span>
+<span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Print the model</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Fuzzy c-means clustering with 2 clusters</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Cluster centers:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Assault   Murder     Rape UrbanPop</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 256.7319 11.64749 28.07181 68.53662</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 105.4648  4.83287 15.99945 62.71959</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Memberships:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  1           2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] 0.9667330458 0.033266954</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] 0.9724263619 0.027573638</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] 0.9590263993 0.040973601</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,] 0.6006053983 0.399394602</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] 0.9670360643 0.032963936</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] 0.7774011162 0.222598884</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] 0.0112943613 0.988705639</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,] 0.9699710448 0.030028955</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,] 0.8945923718 0.105407628</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,] 0.8380682177 0.161931782</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11,] 0.0814470396 0.918552960</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [12,] 0.0151734014 0.984826599</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13,] 0.9865811308 0.013418869</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [14,] 0.0044441806 0.995555819</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15,] 0.0579256091 0.942074391</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16,] 0.0052642074 0.994735793</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17,] 0.0067519083 0.993248092</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [18,] 0.9945025471 0.005497453</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19,] 0.0226027708 0.977397229</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20,] 0.9530366186 0.046963381</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21,] 0.1654190733 0.834580927</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [22,] 0.9964134489 0.003586551</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23,] 0.0319914595 0.968008540</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [24,] 0.9698619166 0.030138083</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25,] 0.4688884810 0.531111519</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26,] 0.0048557682 0.995144232</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27,] 0.0005398602 0.999460140</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28,] 0.9785279146 0.021472085</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [29,] 0.0569231594 0.943076841</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [30,] 0.2617085057 0.738291494</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31,] 0.9755277110 0.024472289</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [32,] 0.9862712681 0.013728732</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [33,] 0.8831680227 0.116831977</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [34,] 0.0818362790 0.918163721</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [35,] 0.0206965125 0.979303488</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [36,] 0.1583547711 0.841645229</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37,] 0.2417636817 0.758236318</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [38,] 0.0038991441 0.996100856</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [39,] 0.4116229359 0.588377064</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [40,] 0.9695669054 0.030433095</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41,] 0.0229352057 0.977064794</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [42,] 0.5927842391 0.407215761</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43,] 0.7469240237 0.253075976</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [44,] 0.0287483285 0.971251671</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [45,] 0.0862873842 0.913712616</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46,] 0.2018067414 0.798193259</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [47,] 0.1236780046 0.876321995</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [48,] 0.0361867277 0.963813272</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49,] 0.0625513208 0.937448679</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [50,] 0.2474076095 0.752592390</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Closest hard clustering:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 2 1 2 1 2 2 2 1 2 2 1 1 1 2 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [39] 2 1 2 1 1 2 2 2 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Available components:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "centers"     "size"        "cluster"     "membership"  "iter"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6] "withinerror" "call"       </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
+<span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
+<span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  0.1033191 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

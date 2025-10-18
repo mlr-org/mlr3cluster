@@ -202,14 +202,48 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Properties: complete, exclusive, and partitional</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Other settings: use_weights = 'error'</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># available parameters:</span></span></span>
-<span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="va">param_set</span><span class="op">$</span><span class="fu">ids</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "A"                 "C"                 "fast"             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "I"                 "init"              "M"                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "max_candidates"    "min_density"       "N"                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "num_slots"         "O"                 "periodic_pruning" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "S"                 "t2"                "t1"               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] "V"                 "output_debug_info"</span>
+<span class="r-in"><span><span class="co"># Define a Task</span></span></span>
+<span class="r-in"><span><span class="va">task</span> <span class="op">=</span> <span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">tsk</a></span><span class="op">(</span><span class="st">"usarrests"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Train the learner on the task</span></span></span>
+<span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Print the model</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> kMeans</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ======</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of iterations: 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Within cluster sum of squared errors: 6.596893867946197</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Initial starting points (random):</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Cluster 0: 113,7.2,21,65</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Cluster 1: 159,4.9,29.3,67</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Missing values globally replaced with mean/mode</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Final cluster centroids:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                          Cluster#</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Attribute    Full Data          0          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 (50.0)     (30.0)     (20.0)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ============================================</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Assault         170.76   114.4333     255.25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Murder           7.788       4.87     12.165</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rape            21.232    15.9433     29.165</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> UrbanPop         65.54    63.6333       68.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
+<span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
+<span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0.06459841 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

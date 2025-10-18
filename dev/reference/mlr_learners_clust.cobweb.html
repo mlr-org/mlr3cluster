@@ -199,9 +199,142 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Properties: complete, exclusive, and partitional</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Other settings: use_weights = 'error'</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># available parameters:</span></span></span>
-<span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="va">param_set</span><span class="op">$</span><span class="fu">ids</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "A" "C" "S"</span>
+<span class="r-in"><span><span class="co"># Define a Task</span></span></span>
+<span class="r-in"><span><span class="va">task</span> <span class="op">=</span> <span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">tsk</a></span><span class="op">(</span><span class="st">"usarrests"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Train the learner on the task</span></span></span>
+<span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Print the model</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of merges: 14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of splits: 10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of clusters: 65</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> node 0 [50]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 1 [8]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 2 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 1 [8]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 3 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 1 [8]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 4 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 1 [8]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 5 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 1 [8]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 6 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 1 [8]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 7 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 8 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 7 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 9 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 1 [8]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 10 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> node 0 [50]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 12 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 13 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 14 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 15 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 16 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 15 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 17 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 18 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 19 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 20 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 21 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 22 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 23 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 24 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 25 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 24 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 26 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 27 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 28 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 27 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 29 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 30 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 31 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 30 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 32 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 33 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 34 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 33 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 35 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 36 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 37 [3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 38 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 37 [3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 39 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 37 [3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 40 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 41 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 11 [25]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 42 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> node 0 [50]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 43 [17]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 44 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 43 [17]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 45 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 43 [17]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 46 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 43 [17]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 47 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 43 [17]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 48 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 49 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 48 [2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 50 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 43 [17]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   leaf 51 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 43 [17]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 52 [5]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 53 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 52 [5]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 54 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 52 [5]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 55 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 52 [5]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 56 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 52 [5]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 57 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   node 43 [17]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 58 [5]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 59 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 58 [5]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   node 60 [3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   |   leaf 61 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   node 60 [3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   |   leaf 62 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   node 60 [3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   |   leaf 63 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   node 58 [5]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> |   |   |   leaf 64 [1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
+<span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
+<span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          0 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

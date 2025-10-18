@@ -196,9 +196,92 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Properties: complete, exclusive, and hierarchical</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Other settings: use_weights = 'error'</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># available parameters:</span></span></span>
-<span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="va">param_set</span><span class="op">$</span><span class="fu">ids</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "metric"    "stand"     "trace.lev" "k"        </span>
+<span class="r-in"><span><span class="co"># Define a Task</span></span></span>
+<span class="r-in"><span><span class="va">task</span> <span class="op">=</span> <span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">tsk</a></span><span class="op">(</span><span class="st">"usarrests"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Train the learner on the task</span></span></span>
+<span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Print the model</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Merge:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       [,1] [,2]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  -15  -29</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  -17  -26</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,]  -14  -16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,]  -13  -32</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,]  -35  -44</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,]  -46  -50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,]   -7  -38</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,]  -19  -41</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,]  -36  -47</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,]    1  -49</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11,]  -21  -30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [12,]   -4  -42</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13,]    8  -48</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [14,]  -34  -45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15,]  -22  -28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16,]   -3  -31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17,]   -6  -43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [18,]   -1  -18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19,]  -37    6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20,]    2  -27</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21,]    3   20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [22,]   16  -20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23,]   18   -8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [24,]    7    5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25,]   10  -23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26,]  -12   21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27,]    4   15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28,]    9   19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [29,]   17  -10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [30,]   11  -39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31,]   -2  -24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [32,]   24   26</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [33,]  -25   28</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [34,]   22   -5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [35,]   12   29</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [36,]   30   33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37,]   23   27</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [38,]   -9  -33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [39,]   25   14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [40,]   34  -40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41,]   37   31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [42,]  -11   39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43,]   42   13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [44,]   32   36</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [45,]   41   35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46,]   40   38</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [47,]   44   43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [48,]   45   46</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49,]   48   47</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Order of objects:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  1 18  8 13 32 22 28  2 24  4 42  6 43 10  3 31 20  5 40  9 33  7 38 35 44</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26] 12 14 16 17 26 27 21 30 39 25 36 47 37 46 50 11 15 29 49 23 34 45 19 41 48</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Height:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  15.454449  16.976749  37.430469   6.236986  22.366046  13.297368</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7]  47.627933  28.635118  77.884530  12.614278  36.734861  14.501034</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13]  25.093027 150.045593  13.896043  15.890249  36.347352  47.061343</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19]  80.332123  38.527912 293.622751   8.027453  18.264994   6.637771</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25]  31.477135  19.904271   3.929377  15.766420   3.834058  15.766420</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31]  77.453083  11.456439  26.343880  36.847931  33.570821  10.305338</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37]  23.349518  15.630099   7.930952 137.516726  51.919264   2.291288</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43]  10.860018  19.437592  41.784447  13.044922  57.271022   8.537564</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49]  12.775367</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Divisive coefficient:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.9464692</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Available components:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "order"  "height" "dc"     "merge"  "diss"   "call"   "data"  </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
+<span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Learner 'clust.diana' doesn't predict on new data and predictions may not make sense on new data.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
+<span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  0.1033191 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
