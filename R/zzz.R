@@ -10,8 +10,8 @@
 #' @importFrom stats model.frame terms predict runif dist
 "_PACKAGE"
 
-mlr3cluster_tasks = new.env()
-mlr3cluster_learners = new.env()
+mlr3cluster_tasks = new.env(parent = emptyenv())
+mlr3cluster_learners = new.env(parent = emptyenv())
 
 register_task = function(name, constructor) {
   if (name %chin% names(mlr3cluster_tasks)) stopf("task %s registered twice.", name)
