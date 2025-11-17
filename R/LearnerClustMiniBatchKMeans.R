@@ -34,7 +34,7 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
           0, 1, default = 1, tags = "train", depends = quote(initializer %in% c("kmeans++", "optimal_init"))
         ),
         initializer = p_fct(
-          levels = c("optimal_init", "quantile_init", "kmeans++", "random"), default = "kmeans++", tags = "train"
+          c("optimal_init", "quantile_init", "kmeans++", "random"), default = "kmeans++", tags = "train"
         ),
         early_stop_iter = p_int(1L, default = 10L, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train"),

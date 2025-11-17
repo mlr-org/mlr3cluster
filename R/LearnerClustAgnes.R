@@ -24,11 +24,11 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        metric = p_fct(default = "euclidean", levels = c("euclidean", "manhattan"), tags = "train"),
+        metric = p_fct(c("euclidean", "manhattan"), default = "euclidean", tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
         method = p_fct(
-          default = "average",
           levels = c("average", "single", "complete", "ward", "weighted", "flexible", "gaverage"),
+          default = "average",
           tags = "train"
         ),
         trace.lev = p_int(0L, default = 0L, tags = "train"),

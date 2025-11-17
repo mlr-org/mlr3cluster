@@ -23,14 +23,14 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
     initialize = function() {
       param_set = ps(
         method = p_fct(
-          default = "complete",
           levels = c("ward.D", "ward.D2", "single", "complete", "average", "mcquitty", "median", "centroid"),
+          default = "complete",
           tags = c("train", "hclust")
         ),
         members = p_uty(default = NULL, tags = c("train", "hclust")),
         distmethod = p_fct(
-          default = "euclidean",
           levels = c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"),
+          default = "euclidean",
           tags = "train"
         ),
         diag = p_lgl(default = FALSE, tags = c("train", "dist")),

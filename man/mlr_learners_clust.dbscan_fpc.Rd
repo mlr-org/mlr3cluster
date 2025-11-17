@@ -33,7 +33,7 @@ lrn("clust.dbscan_fpc")
    eps \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    MinPts \tab integer \tab 5 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    scale \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   method \tab character \tab - \tab hybrid, raw, dist \tab - \cr
+   method \tab character \tab hybrid \tab hybrid, raw, dist \tab - \cr
    seeds \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    showplot \tab untyped \tab FALSE \tab  \tab - \cr
    countmode \tab untyped \tab NULL \tab  \tab - \cr
@@ -45,21 +45,6 @@ lrn("clust.dbscan_fpc")
 # Define the Learner and set parameter values
 learner = lrn("clust.dbscan_fpc")
 print(learner)
-
-# Define a Task
-task = tsk("usarrests")
-
-# Train the learner on the task
-learner$train(task)
-
-# Print the model
-print(learner$model)
-
-# Make predictions for the task
-prediction = learner$predict(task)
-
-# Score the predictions
-prediction$score(task = task)
 \dontshow{\}) # examplesIf}
 }
 \references{

@@ -14,7 +14,7 @@
 #'
 #' @export
 #' @template seealso_learner
-#' @template example
+#' @template simple_example
 LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
   inherit = LearnerClust,
   public = list(
@@ -25,7 +25,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
         eps = p_dbl(0, tags = c("train", "required")),
         MinPts = p_int(0L, default = 5L, tags = "train"),
         scale = p_lgl(default = FALSE, tags = "train"),
-        method = p_fct(levels = c("hybrid", "raw", "dist"), tags = "train"),
+        method = p_fct(c("hybrid", "raw", "dist"), default = "hybrid", tags = "train"),
         seeds = p_lgl(default = TRUE, tags = "train"),
         showplot = p_uty(default = FALSE, tags = "train", custom_check = crate(function(x) {
           if (test_flag(x) || test_int(x, lower = 0L, upper = 2L)) {
@@ -42,8 +42,6 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
           }
         }))
       )
-
-      param_set$set_values(MinPts = 5L, scale = FALSE, seeds = TRUE, showplot = FALSE, countmode = NULL)
 
       super$initialize(
         id = "clust.dbscan_fpc",

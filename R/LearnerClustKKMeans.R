@@ -28,8 +28,8 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
       param_set = ps(
         centers = p_uty(tags = c("train", "required"), custom_check = check_centers),
         kernel = p_fct(
-          default = "rbfdot",
           levels = c("vanilladot", "polydot", "rbfdot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
+          default = "rbfdot",
           tags = "train"
         ),
         sigma = p_dbl(
@@ -41,7 +41,7 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
         scale = p_dbl(0, default = 1, tags = "train", depends = quote(kernel %in% c("polydot", "tanhdot"))),
         offset = p_dbl(default = 1, tags = "train", depends = quote(kernel %in% c("polydot", "tanhdot"))),
         order = p_int(default = 1L, tags = "train", depends = quote(kernel == "besseldot")),
-        alg = p_fct(levels = c("kkmeans", "kerninghan"), default = "kkmeans", tags = "train"),
+        alg = p_fct(c("kkmeans", "kerninghan"), default = "kkmeans", tags = "train"),
         p = p_dbl(default = 1, tags = "train")
       )
 

@@ -29,7 +29,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
       param_set = ps(
         k = p_int(1L, tags = c("train", "required")),
         memb.exp = p_dbl(1, default = 2, tags = "train"),
-        metric = p_fct(default = "euclidean", levels = c("euclidean", "manhattan", "SqEuclidean"), tags = "train"),
+        metric = p_fct(c("euclidean", "manhattan", "SqEuclidean"), default = "euclidean", tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
         maxit = p_int(0L, default = 500L, tags = "train"),
         tol = p_dbl(0, default = 1e-15, tags = "train"),

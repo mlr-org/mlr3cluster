@@ -24,7 +24,7 @@ LearnerClustOPTICS = R6Class("LearnerClustOPTICS",
       param_set = ps(
         eps = p_dbl(0, special_vals = list(NULL), default = NULL, tags = "train"),
         minPts = p_int(0L, default = 5L, tags = "train"),
-        search = p_fct(levels = c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
+        search = p_fct(c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
         bucketSize = p_int(1L, default = 10L, tags = "train", depends = quote(search == "kdtree")),
         splitRule = p_fct(
           levels = c("STD", "MIDPT", "FAIR", "SL_MIDPT", "SL_FAIR", "SUGGEST"),
