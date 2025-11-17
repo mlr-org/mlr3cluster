@@ -184,23 +184,4 @@ print(learner)
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, exclusive, and hierarchical
 #> • Other settings: use_weights = 'error'
-
-# Define a Task
-task = tsk("usarrests")
-
-# Train the learner on the task
-learner$train(task)
-#> Error in .__ParamSet__get_values(self = self, private = private, super = super,     class = class, tags = tags, any_tags = any_tags, type = type,     check_required = check_required, remove_dependencies = remove_dependencies): Missing required parameters: threshold, branching, maxLeaf
-
-# Print the model
-print(learner$model)
-#> NULL
-
-# Make predictions for the task
-prediction = learner$predict(task)
-#> Error: Cannot predict, Learner 'clust.birch' has not been trained yet
-
-# Score the predictions
-prediction$score(task = task)
-#> Error: object 'prediction' not found
 ```

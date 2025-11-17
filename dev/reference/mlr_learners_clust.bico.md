@@ -192,7 +192,7 @@ learner$train(task)
 print(learner$model)
 #> BICO - Fast computation of k-means coresets 
 #> Class: DSC_BICO, DSC_Micro, DSC_R, DSC 
-#> Number of micro-clusters: 6 
+#> Number of micro-clusters: 10 
 #> Number of macro-clusters: 5 
 
 # Make predictions for the task
@@ -201,5 +201,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#> 0.09870305 
+#>   0.137278 
 ```

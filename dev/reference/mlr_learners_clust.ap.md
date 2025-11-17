@@ -172,3 +172,21 @@ The objects of this class are cloneable with this method.
 - `deep`:
 
   Whether to make a deep clone.
+
+## Examples
+
+``` r
+# Define the Learner and set parameter values
+learner = lrn("clust.ap")
+print(learner)
+#> 
+#> ── <LearnerClustAP> (clust.ap): Affinity Propagation Clustering ────────────────
+#> • Model: -
+#> • Parameters: list()
+#> • Packages: mlr3, mlr3cluster, and apcluster
+#> • Predict Types: [partition]
+#> • Feature Types: logical, integer, and numeric
+#> • Encapsulation: none (fallback: -)
+#> • Properties: complete, exclusive, and partitional
+#> • Other settings: use_weights = 'error'
+```
