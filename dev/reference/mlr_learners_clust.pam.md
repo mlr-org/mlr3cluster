@@ -37,16 +37,16 @@ or with the associated sugar function
 
 ## Parameters
 
-|           |           |         |                      |                  |
-|-----------|-----------|---------|----------------------|------------------|
-| Id        | Type      | Default | Levels               | Range            |
-| k         | integer   | \-      |                      | \\\[1, \infty)\\ |
-| metric    | character | \-      | euclidian, manhattan | \-               |
-| medoids   | untyped   | NULL    |                      | \-               |
-| stand     | logical   | FALSE   | TRUE, FALSE          | \-               |
-| do.swap   | logical   | TRUE    | TRUE, FALSE          | \-               |
-| pamonce   | integer   | 0       |                      | \\\[0, 5\]\\     |
-| trace.lev | integer   | 0       |                      | \\\[0, \infty)\\ |
+|           |           |           |                      |                  |
+|-----------|-----------|-----------|----------------------|------------------|
+| Id        | Type      | Default   | Levels               | Range            |
+| k         | integer   | \-        |                      | \\\[1, \infty)\\ |
+| metric    | character | euclidian | euclidian, manhattan | \-               |
+| medoids   | untyped   | NULL      |                      | \-               |
+| stand     | logical   | FALSE     | TRUE, FALSE          | \-               |
+| do.swap   | logical   | TRUE      | TRUE, FALSE          | \-               |
+| pamonce   | integer   | 0         |                      | \\\[0, 5\]\\     |
+| trace.lev | integer   | 0         |                      | \\\[0, \infty)\\ |
 
 ## References
 
