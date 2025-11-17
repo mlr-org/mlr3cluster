@@ -33,7 +33,7 @@ LearnerClustOPTICS = R6Class("LearnerClustOPTICS",
           depends = quote(search == "kdtree")
         ),
         approx = p_dbl(default = 0, tags = "train"),
-        eps_cl = p_dbl(0, tags = c("required", "train"))
+        eps_cl = p_dbl(0, tags = c("train", "required"))
       )
 
       super$initialize(

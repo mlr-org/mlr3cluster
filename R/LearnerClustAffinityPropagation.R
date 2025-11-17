@@ -27,16 +27,18 @@ LearnerClustAP = R6Class("LearnerClustAP",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        s = p_uty(tags = c("required", "train")),
-        p = p_uty(default = NA, tags = "train", custom_check = check_numeric),
-        q = p_dbl(0, 1, tags = "train"),
+        s = p_uty(tags = c("train", "required")),
+        p = p_uty(
+          default = NA_real_, special_vals = list(NA_real_), tags = "train", custom_check = check_numeric
+        ),
+        q = p_dbl(0, 1, default = NA_real_, special_vals = list(NA_real_), tags = "train"),
         maxits = p_int(1L, default = 1000L, tags = "train"),
         convits = p_int(1L, default = 100L, tags = "train"),
         lam = p_dbl(0.5, 1, default = 0.9, tags = "train"),
         includeSim = p_lgl(default = FALSE, tags = "train"),
         details = p_lgl(default = FALSE, tags = "train"),
         nonoise = p_lgl(default = FALSE, tags = "train"),
-        seed = p_int(tags = "train")
+        seed = p_int(default = NA_integer_, special_vals = list(NA_integer_), tags = "train")
       )
 
       super$initialize(
@@ -55,10 +57,10 @@ LearnerClustAP = R6Class("LearnerClustAP",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      d = task$data()
-      m = invoke(apcluster::apcluster, x = d, .args = pv)
+      data = task$data()
+      m = invoke(apcluster::apcluster, x = data, .args = pv)
       # add data points corresponding to examplars
-      attributes(m)$exemplar_data = d[m@exemplars, ]
+      setattr(m, "exemplar_data", data[m@exemplars])
 
       if (self$save_assignments) {
         self$assignments = apcluster::labels(m, type = "enum")
@@ -69,12 +71,12 @@ LearnerClustAP = R6Class("LearnerClustAP",
     .predict = function(task) {
       pv = self$param_set$get_values(tags = "train")
       sim_func = pv$s
-      exemplar_data = attributes(self$model)$exemplar_data
+      exemplar_data = attr(self$model, "exemplar_data")
 
-      d = task$data()
+      data = task$data()
       sim_mat = sim_func(
-        rbind(exemplar_data, d),
-        sel = (seq_len(nrow(d))) + nrow(exemplar_data)
+        rbind(exemplar_data, data),
+        sel = (seq_len(nrow(data))) + nrow(exemplar_data)
       )[seq_len(nrow(exemplar_data)), ]
       partition = unname(apply(sim_mat, 2L, which.max))
       PredictionClust$new(task = task, partition = partition)

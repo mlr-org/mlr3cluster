@@ -36,15 +36,15 @@ lrn("clust.ap")
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    s \tab untyped \tab - \tab  \tab - \cr
-   p \tab untyped \tab NA \tab  \tab - \cr
-   q \tab numeric \tab - \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
+   p \tab untyped \tab NA_real_ \tab  \tab - \cr
+   q \tab numeric \tab NA \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
    maxits \tab integer \tab 1000 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    convits \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    lam \tab numeric \tab 0.9 \tab  \tab \eqn{[0.5, 1]}{[0.5, 1]} \cr
    includeSim \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    details \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    nonoise \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   seed \tab integer \tab - \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   seed \tab integer \tab NA \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
 }
 }
 

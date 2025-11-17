@@ -26,7 +26,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(1L, tags = c("required", "train")),
+        k = p_int(1L, tags = c("train", "required")),
         metric = p_fct(levels = c("euclidian", "manhattan"), tags = "train"),
         medoids = p_uty(
           default = NULL, tags = "train", custom_check = crate(function(x) check_integerish(x, null.ok = TRUE))

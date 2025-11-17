@@ -58,7 +58,7 @@ as_task_clust.formula = function(x, data, id = deparse1(substitute(data)), ...) 
 
   assert_data_frame(data)
   assert_subset(all.vars(x), c(names(data), "."), .var.name = "formula")
-  if (attributes(terms(x, data = data))$response) {
+  if (attr(terms(x, data = data), "response")) {
     stopf("Formula %s has a response.", format(x))
   }
   tab = model.frame(x, data, na.action = "na.pass")

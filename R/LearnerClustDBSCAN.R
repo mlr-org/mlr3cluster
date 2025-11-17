@@ -22,7 +22,7 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        eps = p_dbl(0, tags = c("required", "train")),
+        eps = p_dbl(0, tags = c("train", "required")),
         minPts = p_int(0L, default = 5L, tags = "train"),
         borderPoints = p_lgl(default = TRUE, tags = "train"),
         weights = p_uty(tags = "train", custom_check = check_numeric),

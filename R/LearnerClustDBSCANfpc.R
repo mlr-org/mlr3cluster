@@ -22,7 +22,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        eps = p_dbl(0, tags = c("required", "train")),
+        eps = p_dbl(0, tags = c("train", "required")),
         MinPts = p_int(0L, default = 5L, tags = "train"),
         scale = p_lgl(default = FALSE, tags = "train"),
         method = p_fct(levels = c("hybrid", "raw", "dist"), tags = "train"),
