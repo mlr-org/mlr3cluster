@@ -37,7 +37,7 @@ or with the associated sugar function
 | eps       | numeric   | \-      |                   | \\\[0, \infty)\\ |
 | MinPts    | integer   | 5       |                   | \\\[0, \infty)\\ |
 | scale     | logical   | FALSE   | TRUE, FALSE       | \-               |
-| method    | character | \-      | hybrid, raw, dist | \-               |
+| method    | character | hybrid  | hybrid, raw, dist | \-               |
 | seeds     | logical   | TRUE    | TRUE, FALSE       | \-               |
 | showplot  | untyped   | FALSE   |                   | \-               |
 | countmode | untyped   | NULL    |                   | \-               |
@@ -170,30 +170,11 @@ print(learner)
 #> 
 #> ── <LearnerClustDBSCANfpc> (clust.dbscan_fpc): Density-Based Clustering with fpc
 #> • Model: -
-#> • Parameters: MinPts=5, scale=FALSE, seeds=TRUE, showplot=FALSE
+#> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and fpc
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, density, and exclusive
 #> • Other settings: use_weights = 'error'
-
-# Define a Task
-task = tsk("usarrests")
-
-# Train the learner on the task
-learner$train(task)
-#> Error in .__ParamSet__get_values(self = self, private = private, super = super,     class = class, tags = tags, any_tags = any_tags, type = type,     check_required = check_required, remove_dependencies = remove_dependencies): Missing required parameters: eps
-
-# Print the model
-print(learner$model)
-#> NULL
-
-# Make predictions for the task
-prediction = learner$predict(task)
-#> Error: Cannot predict, Learner 'clust.dbscan_fpc' has not been trained yet
-
-# Score the predictions
-prediction$score(task = task)
-#> Error: object 'prediction' not found
 ```
