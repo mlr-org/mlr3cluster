@@ -37,19 +37,19 @@ or with the associated sugar function
 
 ## Parameters
 
-|            |         |         |             |                       |
-|------------|---------|---------|-------------|-----------------------|
-| Id         | Type    | Default | Levels      | Range                 |
-| s          | untyped | \-      |             | \-                    |
-| p          | untyped | NA      |             | \-                    |
-| q          | numeric | \-      |             | \\\[0, 1\]\\          |
-| maxits     | integer | 1000    |             | \\\[1, \infty)\\      |
-| convits    | integer | 100     |             | \\\[1, \infty)\\      |
-| lam        | numeric | 0.9     |             | \\\[0.5, 1\]\\        |
-| includeSim | logical | FALSE   | TRUE, FALSE | \-                    |
-| details    | logical | FALSE   | TRUE, FALSE | \-                    |
-| nonoise    | logical | FALSE   | TRUE, FALSE | \-                    |
-| seed       | integer | \-      |             | \\(-\infty, \infty)\\ |
+|            |         |           |             |                       |
+|------------|---------|-----------|-------------|-----------------------|
+| Id         | Type    | Default   | Levels      | Range                 |
+| s          | untyped | \-        |             | \-                    |
+| p          | untyped | NA_real\_ |             | \-                    |
+| q          | numeric | NA        |             | \\\[0, 1\]\\          |
+| maxits     | integer | 1000      |             | \\\[1, \infty)\\      |
+| convits    | integer | 100       |             | \\\[1, \infty)\\      |
+| lam        | numeric | 0.9       |             | \\\[0.5, 1\]\\        |
+| includeSim | logical | FALSE     | TRUE, FALSE | \-                    |
+| details    | logical | FALSE     | TRUE, FALSE | \-                    |
+| nonoise    | logical | FALSE     | TRUE, FALSE | \-                    |
+| seed       | integer | NA        |             | \\(-\infty, \infty)\\ |
 
 ## References
 
