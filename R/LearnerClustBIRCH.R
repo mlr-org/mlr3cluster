@@ -14,7 +14,7 @@
 #'
 #' @export
 #' @template seealso_learner
-#' @template example
+#' @template simple_example
 LearnerClustBIRCH = R6Class("LearnerClustBIRCH",
   inherit = LearnerClust,
   public = list(

@@ -48,6 +48,13 @@ lrn("clust.ap")
 }
 }
 
+\examples{
+\dontshow{if (mlr3misc::require_namespaces(lrn("clust.ap")$packages, quietly = TRUE)) withAutoprint(\{ # examplesIf}
+# Define the Learner and set parameter values
+learner = lrn("clust.ap")
+print(learner)
+\dontshow{\}) # examplesIf}
+}
 \references{
 Bodenhofer, Ulrich, Kothmeier, Andreas, Hochreiter, Sepp (2011).
 \dQuote{APCluster: an R package for affinity propagation clustering.}
