@@ -77,7 +77,7 @@ Calls <code><a href="https://rdrr.io/pkg/dbscan/man/hdbscan.html" class="externa
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>minPts</td><td>integer</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>gen_hdbscan_tree</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>gen_simplified_tree</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>verbose</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>minPts</td><td>integer</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>cluster_selection_epsilon</td><td>numeric</td><td>0</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>gen_hdbscan_tree</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>gen_simplified_tree</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>verbose</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Hahsler M, Piekenbrock M, Doran D (2019).
@@ -188,7 +188,7 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;LearnerClustHDBSCAN&gt;</span><span style="font-weight: bold;"> (clust.hdbscan): HDBSCAN Clustering</span> <span style="color: #00BBBB;">───────────────────</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Model: -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> • Parameters: list()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Parameters: minPts=5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Packages: <span style="color: #0000BB;">mlr3</span>, <span style="color: #0000BB;">mlr3cluster</span>, and <span style="color: #0000BB;">dbscan</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Predict Types: [partition]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Feature Types: logical, integer, and numeric</span>
@@ -201,19 +201,26 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Train the learner on the task</span></span></span>
 <span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .__ParamSet__get_values(self = self, private = private, super = super,     class = class, tags = tags, any_tags = any_tags, type = type,     check_required = check_required, remove_dependencies = remove_dependencies):</span> Missing required parameters: minPts</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print the model</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> HDBSCAN clustering for 50 objects.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Parameters: minPts = 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> The clustering contains 3 cluster(s) and 13 noise points.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  0  1  2  3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 17 11  9 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Available fields: cluster, minPts, coredist, cluster_scores,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   membership_prob, outlier_scores, hc, data</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Cannot predict, Learner 'clust.hdbscan' has not been trained yet</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'prediction' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  0.2423918 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

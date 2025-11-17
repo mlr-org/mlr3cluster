@@ -2,6 +2,8 @@
 
 ## mlr3cluster (development version)
 
+- feat: Add `cluster_selection_epsilon` parameter to HDBSCAN learner and
+  initialize `minPts` to 5.
 - docs: Better learner example section
 
 ## mlr3cluster 0.1.11

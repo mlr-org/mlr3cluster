@@ -30,13 +30,14 @@ or with the associated sugar function
 
 ## Parameters
 
-|                     |         |         |             |                  |
-|---------------------|---------|---------|-------------|------------------|
-| Id                  | Type    | Default | Levels      | Range            |
-| minPts              | integer | \-      |             | \\\[0, \infty)\\ |
-| gen_hdbscan_tree    | logical | FALSE   | TRUE, FALSE | \-               |
-| gen_simplified_tree | logical | FALSE   | TRUE, FALSE | \-               |
-| verbose             | logical | FALSE   | TRUE, FALSE | \-               |
+|                           |         |         |             |                       |
+|---------------------------|---------|---------|-------------|-----------------------|
+| Id                        | Type    | Default | Levels      | Range                 |
+| minPts                    | integer | \-      |             | \\\[0, \infty)\\      |
+| cluster_selection_epsilon | numeric | 0       |             | \\(-\infty, \infty)\\ |
+| gen_hdbscan_tree          | logical | FALSE   | TRUE, FALSE | \-                    |
+| gen_simplified_tree       | logical | FALSE   | TRUE, FALSE | \-                    |
+| verbose                   | logical | FALSE   | TRUE, FALSE | \-                    |
 
 ## References
 
@@ -170,7 +171,7 @@ print(learner)
 #> 
 #> ── <LearnerClustHDBSCAN> (clust.hdbscan): HDBSCAN Clustering ───────────────────
 #> • Model: -
-#> • Parameters: list()
+#> • Parameters: minPts=5
 #> • Packages: mlr3, mlr3cluster, and dbscan
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
@@ -183,17 +184,24 @@ task = tsk("usarrests")
 
 # Train the learner on the task
 learner$train(task)
-#> Error in .__ParamSet__get_values(self = self, private = private, super = super,     class = class, tags = tags, any_tags = any_tags, type = type,     check_required = check_required, remove_dependencies = remove_dependencies): Missing required parameters: minPts
 
 # Print the model
 print(learner$model)
-#> NULL
+#> HDBSCAN clustering for 50 objects.
+#> Parameters: minPts = 5
+#> The clustering contains 3 cluster(s) and 13 noise points.
+#> 
+#>  0  1  2  3 
+#> 13 17 11  9 
+#> 
+#> Available fields: cluster, minPts, coredist, cluster_scores,
+#>                   membership_prob, outlier_scores, hc, data
 
 # Make predictions for the task
 prediction = learner$predict(task)
-#> Error: Cannot predict, Learner 'clust.hdbscan' has not been trained yet
 
 # Score the predictions
 prediction$score(task = task)
-#> Error: object 'prediction' not found
+#> clust.dunn 
+#>  0.2423918 
 ```

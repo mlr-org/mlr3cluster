@@ -36,8 +36,8 @@ or with the associated sugar function
 | Id           | Type      | Default | Levels                                       | Range                 |
 | eps          | numeric   | \-      |                                              | \\\[0, \infty)\\      |
 | minPts       | integer   | 5       |                                              | \\\[0, \infty)\\      |
-| borderPoints | logical   | TRUE    | TRUE, FALSE                                  | \-                    |
 | weights      | untyped   | \-      |                                              | \-                    |
+| borderPoints | logical   | TRUE    | TRUE, FALSE                                  | \-                    |
 | search       | character | kdtree  | kdtree, linear, dist                         | \-                    |
 | bucketSize   | integer   | 10      |                                              | \\\[1, \infty)\\      |
 | splitRule    | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \-                    |
@@ -182,23 +182,4 @@ print(learner)
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, density, and exclusive
 #> • Other settings: use_weights = 'error'
-
-# Define a Task
-task = tsk("usarrests")
-
-# Train the learner on the task
-learner$train(task)
-#> Error in .__ParamSet__get_values(self = self, private = private, super = super,     class = class, tags = tags, any_tags = any_tags, type = type,     check_required = check_required, remove_dependencies = remove_dependencies): Missing required parameters: eps
-
-# Print the model
-print(learner$model)
-#> NULL
-
-# Make predictions for the task
-prediction = learner$predict(task)
-#> Error: Cannot predict, Learner 'clust.dbscan' has not been trained yet
-
-# Score the predictions
-prediction$score(task = task)
-#> Error: object 'prediction' not found
 ```
