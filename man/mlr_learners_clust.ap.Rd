@@ -48,28 +48,6 @@ lrn("clust.ap")
 }
 }
 
-\examples{
-\dontshow{if (mlr3misc::require_namespaces(lrn("clust.ap")$packages, quietly = TRUE)) withAutoprint(\{ # examplesIf}
-# Define the Learner and set parameter values
-learner = lrn("clust.ap")
-print(learner)
-
-# Define a Task
-task = tsk("usarrests")
-
-# Train the learner on the task
-learner$train(task)
-
-# Print the model
-print(learner$model)
-
-# Make predictions for the task
-prediction = learner$predict(task)
-
-# Score the predictions
-prediction$score(task = task)
-\dontshow{\}) # examplesIf}
-}
 \references{
 Bodenhofer, Ulrich, Kothmeier, Andreas, Hochreiter, Sepp (2011).
 \dQuote{APCluster: an R package for affinity propagation clustering.}

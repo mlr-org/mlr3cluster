@@ -19,7 +19,6 @@
 #'
 #' @export
 #' @template seealso_learner
-#' @template example
 LearnerClustAP = R6Class("LearnerClustAP",
   inherit = LearnerClust,
   public = list(
@@ -76,7 +75,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
       data = task$data()
       sim_mat = sim_func(
         rbind(exemplar_data, data),
-        sel = (seq_len(nrow(data))) + nrow(exemplar_data)
+        sel = seq_len(nrow(data)) + nrow(exemplar_data)
       )[seq_len(nrow(exemplar_data)), ]
       partition = unname(apply(sim_mat, 2L, which.max))
       PredictionClust$new(task = task, partition = partition)
