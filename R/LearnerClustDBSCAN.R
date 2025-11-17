@@ -14,7 +14,7 @@
 #'
 #' @export
 #' @template seealso_learner
-#' @template example
+#' @template simple_example
 LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
   inherit = LearnerClust,
   public = list(
@@ -24,8 +24,8 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
       param_set = ps(
         eps = p_dbl(0, tags = c("train", "required")),
         minPts = p_int(0L, default = 5L, tags = "train"),
-        borderPoints = p_lgl(default = TRUE, tags = "train"),
         weights = p_uty(tags = "train", custom_check = check_numeric),
+        borderPoints = p_lgl(default = TRUE, tags = "train"),
         search = p_fct(levels = c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
         bucketSize = p_int(1L, default = 10L, tags = "train", depends = quote(search == "kdtree")),
         splitRule = p_fct(

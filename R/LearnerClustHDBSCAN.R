@@ -23,10 +23,13 @@ LearnerClustHDBSCAN = R6Class("LearnerClustHDBSCAN",
     initialize = function() {
       param_set = ps(
         minPts = p_int(0L, tags = c("train", "required")),
+        cluster_selection_epsilon = p_dbl(default = 0, tags = "train"),
         gen_hdbscan_tree = p_lgl(default = FALSE, tags = "train"),
         gen_simplified_tree = p_lgl(default = FALSE, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train")
       )
+
+      param_set$set_values(minPts = 5L)
 
       super$initialize(
         id = "clust.hdbscan",
