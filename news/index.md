@@ -2,6 +2,8 @@
 
 ## mlr3cluster 0.1.12
 
+CRAN release: 2025-11-19
+
 - feat: Add `cluster_selection_epsilon` parameter to HDBSCAN learner and
   initialize `minPts` to 5.
 - docs: Better learner example section
