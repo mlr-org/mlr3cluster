@@ -193,24 +193,4 @@ print(learner)
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, exclusive, and partitional
 #> • Other settings: use_weights = 'error'
-
-# Define a Task
-task = tsk("usarrests")
-
-# Train the learner on the task
-learner$train(task)
-#> Error in WPM(".check-installed-and-load", package): Required Weka package 'XMeans' is not installed.
-#> 
-
-# Print the model
-print(learner$model)
-#> NULL
-
-# Make predictions for the task
-prediction = learner$predict(task)
-#> Error: Cannot predict, Learner 'clust.xmeans' has not been trained yet
-
-# Score the predictions
-prediction$score(task = task)
-#> Error: object 'prediction' not found
 ```
