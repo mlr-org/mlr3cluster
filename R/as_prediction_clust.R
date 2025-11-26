@@ -55,8 +55,8 @@ as_prediction_clust.data.frame = function(x, ...) { # nolint
       )
     }
     prob = as.matrix(x[, prob_cols, with = FALSE])
-    nms = colnames(prob)
-    colnames(prob) = substr(nms, 6L, nchar(nms))
+    cn = colnames(prob)
+    colnames(prob) = substr(cn, 6L, nchar(cn))
   } else {
     prob = NULL
   }
