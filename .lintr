@@ -14,6 +14,7 @@ linters: linters_with_defaults(
       message = "use messagef()",
       # perf
       ifelse = "use fifelse()",
-      rank = "use frank()"
+      rank = "use frank()",
+      rev = "use frev()"
     ))
   )
