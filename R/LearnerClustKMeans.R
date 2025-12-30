@@ -53,7 +53,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       if (!is.null(pv$nstart) && !test_int(pv$centers)) {
-        warningf("`nstart` parameter is only relevant when `centers` is integer.")
+        warning_input("`nstart` parameter is only relevant when `centers` is integer.")
       }
 
       assert_centers_param(pv$centers, task, test_data_frame, "centers")
