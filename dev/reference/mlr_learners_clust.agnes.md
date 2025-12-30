@@ -202,7 +202,10 @@ print(learner$model)
 
 # Make predictions for the task
 prediction = learner$predict(task)
-#> Warning: Learner 'clust.agnes' doesn't predict on new data and predictions may not make sense on new data.
+#> Warning: 
+#> ✖ Learner 'clust.agnes' doesn't predict on new data and predictions may not
+#>   make sense on new data.
+#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)

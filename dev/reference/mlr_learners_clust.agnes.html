@@ -218,7 +218,10 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Learner 'clust.agnes' doesn't predict on new data and predictions may not make sense on new data.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Learner 'clust.agnes' doesn't predict on new data and predictions may not</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>   make sense on new data.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> → Class: Mlr3WarningInput</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
