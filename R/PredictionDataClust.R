@@ -55,7 +55,7 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
   predict_types = names(mlr_reflections$learner_predict_types$clust)
   predict_types = map(dots, function(x) intersect(names(x), predict_types))
   if (!every(predict_types[-1L], setequal, y = predict_types[[1L]])) {
-    stopf("Cannot combine predictions: Different predict types.")
+    error_input("Cannot combine predictions: Different predict types.")
   }
 
   elems = c("row_ids", "partition")

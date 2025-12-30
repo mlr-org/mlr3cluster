@@ -50,7 +50,7 @@ as_prediction_clust.data.frame = function(x, ...) { # nolint
 
   if (length(prob_cols) > 0L) {
     if (!all(startsWith(prob_cols, "prob."))) {
-      stopf(
+      error_input(
         "Table may only contain columns 'row_ids', 'partition' as well as columns prefixed with 'prob.' for class probabilities." # nolint
       )
     }

@@ -1,5 +1,5 @@
 warn_prediction_useless = function(id) {
-  warningf("Learner '%s' doesn't predict on new data and predictions may not make sense on new data.", id)
+  warning_input("Learner '%s' doesn't predict on new data and predictions may not make sense on new data.", id)
 }
 
 allow_partial_matching = list(
@@ -10,7 +10,7 @@ allow_partial_matching = list(
 
 assert_centers_param = function(centers, task, test_class, name) {
   if (test_class(centers) && ncol(centers) != task$ncol) {
-    stopf("`%s` must have same number of columns as data.", name)
+    error_input("`%s` must have same number of columns as data.", name)
   }
 }
 
