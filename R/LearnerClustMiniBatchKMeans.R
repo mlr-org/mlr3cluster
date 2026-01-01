@@ -64,7 +64,7 @@ LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
       pv = self$param_set$get_values(tags = "train")
       assert_centers_param(pv$CENTROIDS, task, test_matrix, "CENTROIDS")
       if (test_matrix(pv$CENTROIDS) && nrow(pv$CENTROIDS) != pv$clusters) {
-        error_input("`CENTROIDS` must have same number of rows as `clusters`.")
+        error_config("`CENTROIDS` must have same number of rows as `clusters`.")
       }
 
       data = task$data()
