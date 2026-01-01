@@ -17,14 +17,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/mlr-org/mlr3cluster/blob/main/DESCRIPTION)
 
-Mücke M, Pulatov D, Lang M (2025). *mlr3cluster: Cluster Extension for
+Mücke M, Pulatov D, Lang M (2026). *mlr3cluster: Cluster Extension for
 'mlr3'*. R package version 0.1.12.9000,
 <https://mlr3cluster.mlr-org.com>.
 
     @Manual{,
       title = {mlr3cluster: Cluster Extension for 'mlr3'},
       author = {Maximilian Mücke and Damir Pulatov and Michel Lang},
-      year = {2025},
+      year = {2026},
       note = {R package version 0.1.12.9000},
       url = {https://mlr3cluster.mlr-org.com},
     }
