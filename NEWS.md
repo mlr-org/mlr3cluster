@@ -1,6 +1,7 @@
 # mlr3cluster (development version)
 
 * feat: `Mlr3Error` and `Mlr3Warning` classes for errors and warnings.
+* R >= 3.4.0 is now required. Following {data.table} minimum R version.
 
 # mlr3cluster 0.1.12
 
