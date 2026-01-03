@@ -45,7 +45,8 @@ test_that("assignment saving works", {
 
   expect_true(learner$save_assignments)
   learner$train(task)
-  expect_vector(learner$assignments, len = task$nrow)
+  expect_vector(learner$assignments)
+  expect_length(learner$assignments, task$nrow)
 
   learner$reset()
   learner$save_assignments = FALSE
