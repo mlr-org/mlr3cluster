@@ -23,7 +23,7 @@ test_that("filter works", {
 
   pdata = filter_prediction_data(pdata, row_ids = 1:3)
   expect_set_equal(pdata$row_ids, 1:3)
-  expect_integer(pdata$partition, len = 3)
+  expect_integer(pdata$partition, len = 3L)
 })
 
 test_that("construction of empty PredictionDataClust", {

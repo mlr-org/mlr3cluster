@@ -2,9 +2,9 @@ test_that("autotest", {
   learner = lrn("clust.hclust")
   expect_learner(learner)
   task = generate_tasks(learner)
-  learner$train(task[[1]])
+  learner$train(task[[1L]])
   expect_class(learner$model, "hclust")
-  expect_warning(learner$predict(task[[1]]), "doesn't predict on new data")
+  expect_warning(learner$predict(task[[1L]]), "doesn't predict on new data")
 })
 
 test_that("Learner properties are respected", {

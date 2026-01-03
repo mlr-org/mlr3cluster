@@ -34,8 +34,8 @@ test_that("empty predict set (#421)", {
   learner = lrn("clust.featureless", num_clusters = 1L)
   resampling = rsmp("holdout", ratio = 1)
   hout = resampling$instantiate(task)
-  model = learner$train(task, hout$train_set(1))
-  pred = learner$predict(task, hout$test_set(1))
+  model = learner$train(task, hout$train_set(1L))
+  pred = learner$predict(task, hout$test_set(1L))
   expect_match(learner$log$msg, "No data to predict on", fixed = TRUE, all = FALSE)
 })
 
@@ -45,8 +45,7 @@ test_that("assignment saving works", {
 
   expect_true(learner$save_assignments)
   learner$train(task)
-  expect_vector(learner$assignments)
-  expect_length(learner$assignments, task$nrow)
+  expect_vector(learner$assignments, len = task$nrow)
 
   learner$reset()
   learner$save_assignments = FALSE

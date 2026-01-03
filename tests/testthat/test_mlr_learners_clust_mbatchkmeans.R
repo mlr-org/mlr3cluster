@@ -4,7 +4,7 @@ test_that("autotest", {
   learner = lrn("clust.MBatchKMeans")
   expect_learner(learner)
   task = generate_tasks(learner)
-  suppressWarnings(learner$train(task[[1]]))
+  suppressWarnings(learner$train(task[[1L]]))
   expect_class(learner$model, "MBatchKMeans")
 })
 
