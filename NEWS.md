@@ -1,5 +1,7 @@
 # mlr3cluster (development version)
 
+* feat: `Mlr3Error` and `Mlr3Warning` classes for errors and warnings.
+
 # mlr3cluster 0.1.12
 
 * feat: Add `cluster_selection_epsilon` parameter to HDBSCAN learner and
