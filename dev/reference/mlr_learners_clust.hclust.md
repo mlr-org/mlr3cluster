@@ -1,11 +1,11 @@
 # Agglomerative Hierarchical Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for agglomerative hierarchical clustering implemented in
-[`stats::hclust()`](https://rdrr.io/r/stats/hclust.html). Difference
-Calculation is done by
-[`stats::dist()`](https://rdrr.io/r/stats/dist.html)
+Agglomerative hierarchical clustering. Calls
+[`stats::hclust()`](https://rdrr.io/r/stats/hclust.html) from package
+[stats](https://CRAN.R-project.org/package=stats).
+
+Distance calculation is done by
+[`stats::dist()`](https://rdrr.io/r/stats/dist.html).
 
 ## Dictionary
 

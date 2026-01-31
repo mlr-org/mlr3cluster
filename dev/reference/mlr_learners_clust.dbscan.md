@@ -1,9 +1,9 @@
-# Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner
+# DBSCAN Clustering Learner
 
-DBSCAN (Density-based spatial clustering of applications with noise)
+DBSCAN (density-based spatial clustering of applications with noise)
 clustering. Calls
 [`dbscan::dbscan()`](https://rdrr.io/pkg/dbscan/man/dbscan.html) from
-[dbscan](https://CRAN.R-project.org/package=dbscan).
+package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
 

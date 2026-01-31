@@ -1,13 +1,12 @@
 # Partitioning Around Medoids Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for PAM clustering implemented in
-[`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html).
+Partitioning Around Medoids (PAM) clustering. Calls
+[`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html) from
+package [cluster](https://CRAN.R-project.org/package=cluster).
+
+The `k` parameter is set to 2 by default since
 [`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html) doesn't
-have a default value for the number of clusters. Therefore, the `k`
-parameter which corresponds to the number of clusters here is set to 2
-by default. The predict method uses
+have a default value for the number of clusters. The predict method uses
 [`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
 compute the cluster memberships for new data.
 

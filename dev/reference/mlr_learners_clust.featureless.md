@@ -1,9 +1,7 @@
 # Featureless Clustering Learner
 
-A simple
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-which randomly (but evenly) assigns observations to `num_clusters`
-partitions (default: 1 partition).
+Featureless clustering. Randomly (but evenly) assigns observations to
+`num_clusters` partitions (default: 1 partition).
 
 ## Dictionary
 

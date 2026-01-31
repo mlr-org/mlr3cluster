@@ -1,8 +1,8 @@
-# Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner
+# DBSCAN Clustering Learner (fpc)
 
-DBSCAN (Density-based spatial clustering of applications with noise)
+DBSCAN (density-based spatial clustering of applications with noise)
 clustering. Calls
-[`fpc::dbscan()`](https://rdrr.io/pkg/fpc/man/dbscan.html) from
+[`fpc::dbscan()`](https://rdrr.io/pkg/fpc/man/dbscan.html) from package
 [fpc](https://CRAN.R-project.org/package=fpc).
 
 ## Dictionary

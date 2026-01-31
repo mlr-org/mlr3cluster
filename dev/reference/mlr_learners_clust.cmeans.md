@@ -1,12 +1,12 @@
 # Fuzzy C-Means Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for fuzzy clustering implemented in
-[`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html).
+Fuzzy c-means clustering. Calls
+[`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html) from
+package [e1071](https://CRAN.R-project.org/package=e1071).
+
+The `centers` parameter is set to 2 by default since
 [`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html) doesn't
-have a default value for the number of clusters. Therefore, the
-`centers` parameter here is set to 2 by default. The predict method uses
+have a default value for the number of clusters. The predict method uses
 [`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
 compute the cluster memberships for new data.
 

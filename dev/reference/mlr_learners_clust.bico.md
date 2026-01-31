@@ -1,9 +1,9 @@
 # BICO Clustering Learner
 
-BICO (Fast computation of k-means coresets in a data stream) clustering.
+BICO (fast computation of k-means coresets in a data stream) clustering.
 Calls
 [`stream::DSC_BICO()`](https://rdrr.io/pkg/stream/man/DSC_BICO.html)
-from [stream](https://CRAN.R-project.org/package=stream).
+from package [stream](https://CRAN.R-project.org/package=stream).
 
 ## Dictionary
 

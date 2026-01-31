@@ -1,12 +1,12 @@
 # K-Means Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for k-means clustering implemented in
-[`stats::kmeans()`](https://rdrr.io/r/stats/kmeans.html).
+K-means clustering. Calls
+[`stats::kmeans()`](https://rdrr.io/r/stats/kmeans.html) from package
+[stats](https://CRAN.R-project.org/package=stats).
+
+The `centers` parameter is set to 2 by default since
 [`stats::kmeans()`](https://rdrr.io/r/stats/kmeans.html) doesn't have a
-default value for the number of clusters. Therefore, the `centers`
-parameter here is set to 2 by default. The predict method uses
+default value for the number of clusters. The predict method uses
 [`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
 compute the cluster memberships for new data.
 

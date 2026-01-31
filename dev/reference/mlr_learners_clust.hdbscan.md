@@ -1,8 +1,8 @@
-# Hierarchical DBSCAN (HDBSCAN) Clustering Learner
+# HDBSCAN Clustering Learner
 
-HDBSCAN (Hierarchical DBSCAN) clustering. Calls
+HDBSCAN (hierarchical DBSCAN) clustering. Calls
 [`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html) from
-[dbscan](https://CRAN.R-project.org/package=dbscan).
+package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
 

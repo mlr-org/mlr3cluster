@@ -1,8 +1,9 @@
-# Hierarchical Clustering with Prototypes Learner
+# Prototype Hierarchical Clustering Learner
 
-Hierarchical clustering with prototypes via minimax linkage. Calls
+Hierarchical clustering using minimax linkage with prototypes. Calls
 [`protoclust::protoclust()`](https://rdrr.io/pkg/protoclust/man/protoclust.html)
-from [protoclust](https://CRAN.R-project.org/package=protoclust).
+from package
+[protoclust](https://CRAN.R-project.org/package=protoclust).
 
 ## Dictionary
 

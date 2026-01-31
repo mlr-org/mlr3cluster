@@ -1,9 +1,9 @@
 # Cobweb Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for Cobweb clustering implemented in
-[`RWeka::Cobweb()`](https://rdrr.io/pkg/RWeka/man/Weka_clusterers.html).
+Cobweb clustering. Calls
+[`RWeka::Cobweb()`](https://rdrr.io/pkg/RWeka/man/Weka_clusterers.html)
+from package [RWeka](https://CRAN.R-project.org/package=RWeka).
+
 The predict method uses
 [`RWeka::predict.Weka_clusterer()`](https://rdrr.io/pkg/RWeka/man/predict_Weka_clusterer.html)
 to compute the cluster memberships for new data.

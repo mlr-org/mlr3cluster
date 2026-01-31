@@ -1,9 +1,9 @@
-# Gaussian Mixture Models-Based Clustering Learner
+# Gaussian Mixture Model Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for model-based clustering implemented in
-[`mclust::Mclust()`](https://mclust-org.github.io/mclust/reference/Mclust.html).
+Gaussian mixture model-based clustering. Calls
+[`mclust::Mclust()`](https://mclust-org.github.io/mclust/reference/Mclust.html)
+from package [mclust](https://CRAN.R-project.org/package=mclust).
+
 The predict method uses
 [`mclust::predict.Mclust()`](https://mclust-org.github.io/mclust/reference/predict.Mclust.html)
 to compute the cluster memberships for new data.

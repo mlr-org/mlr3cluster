@@ -1,15 +1,15 @@
 # Kernel K-Means Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for kernel k-means clustering implemented in
-[`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html).
+Kernel k-means clustering. Calls
 [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html)
-doesn't have a default value for the number of clusters. Therefore, the
-`centers` parameter here is set to 2 by default. Kernel parameters have
-to be passed directly and not by using the `kpar` list in `kkmeans`. The
-predict method finds the nearest center in kernel distance to assign
-clusters for new data points.
+from package [kernlab](https://CRAN.R-project.org/package=kernlab).
+
+The `centers` parameter is set to 2 by default since
+[`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html)
+doesn't have a default value for the number of clusters. Kernel
+parameters have to be passed directly and not by using the `kpar` list
+in `kkmeans`. The predict method finds the nearest center in kernel
+distance to assign clusters for new data points.
 
 ## Dictionary
 

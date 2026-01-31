@@ -1,10 +1,10 @@
 # Agglomerative Hierarchical Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for agglomerative hierarchical clustering implemented in
-[`cluster::agnes()`](https://rdrr.io/pkg/cluster/man/agnes.html). The
-predict method uses
+Agglomerative hierarchical clustering. Calls
+[`cluster::agnes()`](https://rdrr.io/pkg/cluster/man/agnes.html) from
+package [cluster](https://CRAN.R-project.org/package=cluster).
+
+The predict method uses
 [`stats::cutree()`](https://rdrr.io/r/stats/cutree.html) which cuts the
 tree resulting from hierarchical clustering into specified number of
 groups (see parameter `k`). The default number for `k` is 2.

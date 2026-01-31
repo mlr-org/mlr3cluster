@@ -1,9 +1,9 @@
-# Ordering Points to Identify the Clustering Structure (OPTICS) Clustering Learner
+# OPTICS Clustering Learner
 
-OPTICS (Ordering points to identify the clustering structure) point
-ordering clustering. Calls
+OPTICS (ordering points to identify the clustering structure)
+clustering. Calls
 [`dbscan::optics()`](https://rdrr.io/pkg/dbscan/man/optics.html) from
-[dbscan](https://CRAN.R-project.org/package=dbscan).
+package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
 

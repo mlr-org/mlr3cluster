@@ -1,11 +1,12 @@
 # Mean Shift Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for Mean Shift clustering implemented in
-[`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html). There is no
-predict method for [`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html),
-so the method returns cluster labels for the 'training' data.
+Mean shift clustering. Calls
+[`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html) from package
+[LPCM](https://CRAN.R-project.org/package=LPCM).
+
+There is no predict method for
+[`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html), so the method
+returns cluster labels for the training data.
 
 ## Dictionary
 

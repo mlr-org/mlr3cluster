@@ -1,15 +1,14 @@
 # Fuzzy Analysis Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for fuzzy clustering implemented in
-[`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html).
+Fuzzy Analysis (FANNY) clustering. Calls
+[`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html) from
+package [cluster](https://CRAN.R-project.org/package=cluster).
+
+The `k` parameter is set to 2 by default since
 [`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html) doesn't
-have a default value for the number of clusters. Therefore, the `k`
-parameter which corresponds to the number of clusters here is set to 2
-by default. The predict method copies cluster assignments and
-memberships generated for train data. The predict does not work for new
-data.
+have a default value for the number of clusters. The predict method
+copies cluster assignments and memberships generated for train data. The
+predict does not work for new data.
 
 ## Dictionary
 

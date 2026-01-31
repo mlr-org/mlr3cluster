@@ -1,9 +1,9 @@
 # BIRCH Clustering Learner
 
-BIRCH (Balanced Iterative Reducing Clustering using Hierarchies)
+BIRCH (balanced iterative reducing clustering using hierarchies)
 clustering. Calls
 [`stream::DSC_BIRCH()`](https://rdrr.io/pkg/stream/man/DSC_BIRCH.html)
-from [stream](https://CRAN.R-project.org/package=stream).
+from package [stream](https://CRAN.R-project.org/package=stream).
 
 ## Dictionary
 
