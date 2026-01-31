@@ -32,7 +32,8 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [e1071](https://CRAN.R-project.org/package=e1071)
+  [e1071](https://CRAN.R-project.org/package=e1071),
+  [clue](https://CRAN.R-project.org/package=clue)
 
 ## Parameters
 
@@ -182,7 +183,7 @@ print(learner)
 #> ── <LearnerClustCMeans> (clust.cmeans): Fuzzy C-Means Clustering Learner ───────
 #> • Model: -
 #> • Parameters: centers=2
-#> • Packages: mlr3, mlr3cluster, and e1071
+#> • Packages: mlr3, mlr3cluster, e1071, and clue
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)

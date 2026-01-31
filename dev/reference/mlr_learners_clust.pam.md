@@ -32,7 +32,8 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [cluster](https://CRAN.R-project.org/package=cluster)
+  [cluster](https://CRAN.R-project.org/package=cluster),
+  [clue](https://CRAN.R-project.org/package=clue)
 
 ## Parameters
 
@@ -183,7 +184,7 @@ print(learner)
 #> ── <LearnerClustPAM> (clust.pam): Partitioning Around Medoids ──────────────────
 #> • Model: -
 #> • Parameters: k=2
-#> • Packages: mlr3, mlr3cluster, and cluster
+#> • Packages: mlr3, mlr3cluster, cluster, and clue
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
