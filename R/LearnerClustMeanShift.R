@@ -55,7 +55,7 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       if (!is.null(pv$subset) && length(pv$subset) > task$nrow) {
-        error_input("`subset` length must be less than or equal to number of observations in task.")
+        error_config("`subset` length must be less than or equal to number of observations in task.")
       }
 
       m = invoke(LPCM::ms, X = task$data(), .args = pv)
