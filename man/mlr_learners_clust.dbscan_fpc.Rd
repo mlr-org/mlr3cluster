@@ -3,10 +3,10 @@
 \name{mlr_learners_clust.dbscan_fpc}
 \alias{mlr_learners_clust.dbscan_fpc}
 \alias{LearnerClustDBSCANfpc}
-\title{Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner}
+\title{DBSCAN Clustering Learner (fpc)}
 \description{
-DBSCAN (Density-based spatial clustering of applications with noise) clustering.
-Calls \code{\link[fpc:dbscan]{fpc::dbscan()}} from \CRANpkg{fpc}.
+DBSCAN (density-based spatial clustering of applications with noise) clustering.
+Calls \code{\link[fpc:dbscan]{fpc::dbscan()}} from package \CRANpkg{fpc}.
 }
 \section{Dictionary}{
 

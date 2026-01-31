@@ -5,8 +5,10 @@
 \alias{LearnerClustHclust}
 \title{Agglomerative Hierarchical Clustering Learner}
 \description{
-A \link{LearnerClust} for agglomerative hierarchical clustering implemented in \code{\link[stats:hclust]{stats::hclust()}}.
-Difference Calculation is done by \code{\link[stats:dist]{stats::dist()}}
+Agglomerative hierarchical clustering.
+Calls \code{\link[stats:hclust]{stats::hclust()}} from package \CRANpkg{stats}.
+
+Distance calculation is done by \code{\link[stats:dist]{stats::dist()}}.
 }
 \section{Dictionary}{
 

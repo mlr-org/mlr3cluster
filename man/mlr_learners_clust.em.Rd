@@ -5,8 +5,9 @@
 \alias{LearnerClustEM}
 \title{Expectation-Maximization Clustering Learner}
 \description{
-A \link{LearnerClust} for Expectation-Maximization clustering implemented in
-\code{\link[RWeka:Weka_interfaces]{RWeka::list_Weka_interfaces()}}.
+Expectation-Maximization clustering.
+Calls the EM Weka clusterer from package \CRANpkg{RWeka}.
+
 The predict method uses \code{\link[RWeka:predict_Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
 cluster memberships for new data.
 }

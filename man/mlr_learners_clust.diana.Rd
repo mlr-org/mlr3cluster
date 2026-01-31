@@ -5,7 +5,9 @@
 \alias{LearnerClustDiana}
 \title{Divisive Hierarchical Clustering Learner}
 \description{
-A \link{LearnerClust} for divisive hierarchical clustering implemented in \code{\link[cluster:diana]{cluster::diana()}}.
+Divisive hierarchical clustering.
+Calls \code{\link[cluster:diana]{cluster::diana()}} from package \CRANpkg{cluster}.
+
 The predict method uses \code{\link[stats:cutree]{stats::cutree()}} which cuts the tree resulting from
 hierarchical clustering into specified number of groups (see parameter \code{k}).
 The default value for \code{k} is 2.

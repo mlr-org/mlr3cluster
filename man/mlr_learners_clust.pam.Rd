@@ -5,10 +5,11 @@
 \alias{LearnerClustPAM}
 \title{Partitioning Around Medoids Clustering Learner}
 \description{
-A \link{LearnerClust} for PAM clustering implemented in \code{\link[cluster:pam]{cluster::pam()}}.
-\code{\link[cluster:pam]{cluster::pam()}} doesn't have a default value for the number of clusters.
-Therefore, the \code{k} parameter which corresponds to the number
-of clusters here is set to 2 by default.
+Partitioning Around Medoids (PAM) clustering.
+Calls \code{\link[cluster:pam]{cluster::pam()}} from package \CRANpkg{cluster}.
+
+The \code{k} parameter is set to 2 by default since \code{\link[cluster:pam]{cluster::pam()}}
+doesn't have a default value for the number of clusters.
 The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the
 cluster memberships for new data.
 }

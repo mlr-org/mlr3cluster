@@ -3,9 +3,11 @@
 \name{mlr_learners_clust.SimpleKMeans}
 \alias{mlr_learners_clust.SimpleKMeans}
 \alias{LearnerClustSimpleKMeans}
-\title{K-Means Clustering Learner from Weka}
+\title{K-Means Clustering Learner (Weka)}
 \description{
-A \link{LearnerClust} for Simple K Means clustering implemented in \code{\link[RWeka:Weka_clusterers]{RWeka::SimpleKMeans()}}.
+K-means clustering (Weka).
+Calls \code{\link[RWeka:Weka_clusterers]{RWeka::SimpleKMeans()}} from package \CRANpkg{RWeka}.
+
 The predict method uses \code{\link[RWeka:predict_Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
 cluster memberships for new data.
 }

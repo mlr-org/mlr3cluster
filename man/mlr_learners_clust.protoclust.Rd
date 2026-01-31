@@ -3,10 +3,10 @@
 \name{mlr_learners_clust.protoclust}
 \alias{mlr_learners_clust.protoclust}
 \alias{LearnerClustProtoclust}
-\title{Hierarchical Clustering with Prototypes Learner}
+\title{Prototype Hierarchical Clustering Learner}
 \description{
-Hierarchical clustering with prototypes via minimax linkage.
-Calls \code{\link[protoclust:protoclust]{protoclust::protoclust()}} from \CRANpkg{protoclust}.
+Hierarchical clustering using minimax linkage with prototypes.
+Calls \code{\link[protoclust:protoclust]{protoclust::protoclust()}} from package \CRANpkg{protoclust}.
 }
 \section{Dictionary}{
 

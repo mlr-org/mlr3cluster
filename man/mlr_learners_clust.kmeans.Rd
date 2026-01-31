@@ -5,9 +5,11 @@
 \alias{LearnerClustKMeans}
 \title{K-Means Clustering Learner}
 \description{
-A \link{LearnerClust} for k-means clustering implemented in \code{\link[stats:kmeans]{stats::kmeans()}}.
-\code{\link[stats:kmeans]{stats::kmeans()}} doesn't have a default value for the number of clusters.
-Therefore, the \code{centers} parameter here is set to 2 by default.
+K-means clustering.
+Calls \code{\link[stats:kmeans]{stats::kmeans()}} from package \CRANpkg{stats}.
+
+The \code{centers} parameter is set to 2 by default since \code{\link[stats:kmeans]{stats::kmeans()}}
+doesn't have a default value for the number of clusters.
 The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the
 cluster memberships for new data.
 }

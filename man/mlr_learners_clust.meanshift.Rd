@@ -5,9 +5,11 @@
 \alias{LearnerClustMeanShift}
 \title{Mean Shift Clustering Learner}
 \description{
-A \link{LearnerClust} for Mean Shift clustering implemented in \code{\link[LPCM:ms]{LPCM::ms()}}.
+Mean shift clustering.
+Calls \code{\link[LPCM:ms]{LPCM::ms()}} from package \CRANpkg{LPCM}.
+
 There is no predict method for \code{\link[LPCM:ms]{LPCM::ms()}}, so the method
-returns cluster labels for the 'training' data.
+returns cluster labels for the training data.
 }
 \section{Dictionary}{
 

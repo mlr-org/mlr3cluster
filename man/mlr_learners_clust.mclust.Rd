@@ -3,9 +3,11 @@
 \name{mlr_learners_clust.mclust}
 \alias{mlr_learners_clust.mclust}
 \alias{LearnerClustMclust}
-\title{Gaussian Mixture Models-Based Clustering Learner}
+\title{Gaussian Mixture Model Clustering Learner}
 \description{
-A \link{LearnerClust} for model-based clustering implemented in \code{\link[mclust:Mclust]{mclust::Mclust()}}.
+Gaussian mixture model-based clustering.
+Calls \code{\link[mclust:Mclust]{mclust::Mclust()}} from package \CRANpkg{mclust}.
+
 The predict method uses \code{\link[mclust:predict.Mclust]{mclust::predict.Mclust()}} to compute the
 cluster memberships for new data.
 }

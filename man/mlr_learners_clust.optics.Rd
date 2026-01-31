@@ -3,10 +3,10 @@
 \name{mlr_learners_clust.optics}
 \alias{mlr_learners_clust.optics}
 \alias{LearnerClustOPTICS}
-\title{Ordering Points to Identify the Clustering Structure (OPTICS) Clustering Learner}
+\title{OPTICS Clustering Learner}
 \description{
-OPTICS (Ordering points to identify the clustering structure) point ordering clustering.
-Calls \code{\link[dbscan:optics]{dbscan::optics()}} from \CRANpkg{dbscan}.
+OPTICS (ordering points to identify the clustering structure) clustering.
+Calls \code{\link[dbscan:optics]{dbscan::optics()}} from package \CRANpkg{dbscan}.
 }
 \section{Dictionary}{
 

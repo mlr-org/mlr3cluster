@@ -3,10 +3,10 @@
 \name{mlr_learners_clust.dbscan}
 \alias{mlr_learners_clust.dbscan}
 \alias{LearnerClustDBSCAN}
-\title{Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner}
+\title{DBSCAN Clustering Learner}
 \description{
-DBSCAN (Density-based spatial clustering of applications with noise) clustering.
-Calls \code{\link[dbscan:dbscan]{dbscan::dbscan()}} from \CRANpkg{dbscan}.
+DBSCAN (density-based spatial clustering of applications with noise) clustering.
+Calls \code{\link[dbscan:dbscan]{dbscan::dbscan()}} from package \CRANpkg{dbscan}.
 }
 \section{Dictionary}{
 

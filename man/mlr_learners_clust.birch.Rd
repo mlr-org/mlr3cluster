@@ -5,8 +5,8 @@
 \alias{LearnerClustBIRCH}
 \title{BIRCH Clustering Learner}
 \description{
-BIRCH (Balanced Iterative Reducing Clustering using Hierarchies) clustering.
-Calls \code{\link[stream:DSC_BIRCH]{stream::DSC_BIRCH()}} from \CRANpkg{stream}.
+BIRCH (balanced iterative reducing clustering using hierarchies) clustering.
+Calls \code{\link[stream:DSC_BIRCH]{stream::DSC_BIRCH()}} from package \CRANpkg{stream}.
 }
 \section{Dictionary}{
 

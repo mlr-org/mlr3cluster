@@ -5,9 +5,11 @@
 \alias{LearnerClustKKMeans}
 \title{Kernel K-Means Clustering Learner}
 \description{
-A \link{LearnerClust} for kernel k-means clustering implemented in \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}}.
-\code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} doesn't have a default value for the number of clusters.
-Therefore, the \code{centers} parameter here is set to 2 by default.
+Kernel k-means clustering.
+Calls \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} from package \CRANpkg{kernlab}.
+
+The \code{centers} parameter is set to 2 by default since \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}}
+doesn't have a default value for the number of clusters.
 Kernel parameters have to be passed directly and not by using the \code{kpar} list in \code{kkmeans}.
 The predict method finds the nearest center in kernel distance to
 assign clusters for new data points.

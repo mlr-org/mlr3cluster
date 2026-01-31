@@ -5,8 +5,8 @@
 \alias{LearnerClustBICO}
 \title{BICO Clustering Learner}
 \description{
-BICO (Fast computation of k-means coresets in a data stream) clustering.
-Calls \code{\link[stream:DSC_BICO]{stream::DSC_BICO()}} from \CRANpkg{stream}.
+BICO (fast computation of k-means coresets in a data stream) clustering.
+Calls \code{\link[stream:DSC_BICO]{stream::DSC_BICO()}} from package \CRANpkg{stream}.
 }
 \section{Dictionary}{
 

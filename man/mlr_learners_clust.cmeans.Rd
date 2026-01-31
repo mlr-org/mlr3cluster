@@ -5,9 +5,11 @@
 \alias{LearnerClustCMeans}
 \title{Fuzzy C-Means Clustering Learner}
 \description{
-A \link{LearnerClust} for fuzzy clustering implemented in \code{\link[e1071:cmeans]{e1071::cmeans()}}.
-\code{\link[e1071:cmeans]{e1071::cmeans()}} doesn't have a default value for the number of clusters.
-Therefore, the \code{centers} parameter here is set to 2 by default.
+Fuzzy c-means clustering.
+Calls \code{\link[e1071:cmeans]{e1071::cmeans()}} from package \CRANpkg{e1071}.
+
+The \code{centers} parameter is set to 2 by default since \code{\link[e1071:cmeans]{e1071::cmeans()}}
+doesn't have a default value for the number of clusters.
 The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the
 cluster memberships for new data.
 }
