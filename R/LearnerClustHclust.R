@@ -72,7 +72,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
         self$assignments = invoke(
           stats::cutree,
           tree = m,
-          .args = ps$get_values(tags = "cutree")
+          .args = ps$get_values(tags = c("train", "cutree"))
         )
       }
       m
