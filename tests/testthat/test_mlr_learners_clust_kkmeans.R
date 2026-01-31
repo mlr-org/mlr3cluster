@@ -26,8 +26,7 @@ test_that("Learner properties are respected", {
     list(centers = 3L, kernel = "anovadot")
   )
 
-  for (i in seq_along(parset_list)) {
-    parset = parset_list[[i]]
+  for (parset in parset_list) {
     learner$param_set$values = parset
 
     p = learner$train(task)$predict(task)

@@ -22,8 +22,7 @@ test_that("Learner properties are respected", {
     list(k = 2L, stand = TRUE)
   )
 
-  for (i in seq_along(parset_list)) {
-    parset = parset_list[[i]]
+  for (parset in parset_list) {
     learner$param_set$values = parset
 
     p = suppressWarnings(learner$train(task)$predict(task))

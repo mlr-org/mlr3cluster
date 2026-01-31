@@ -20,8 +20,7 @@ test_that("Learner properties are respected", {
     list(s = apcluster::corSimMat, convits = 50L, maxits = 500L)
   )
 
-  for (i in seq_along(parset_list)) {
-    parset = parset_list[[i]]
+  for (parset in parset_list) {
     learner$param_set$values = parset
 
     p = suppressWarnings(learner$train(task)$predict(task))
