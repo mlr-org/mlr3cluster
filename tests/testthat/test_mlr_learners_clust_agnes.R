@@ -1,5 +1,3 @@
-skip_if_not_installed("clue")
-
 test_that("autotest", {
   learner = lrn("clust.agnes")
   expect_learner(learner)

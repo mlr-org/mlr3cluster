@@ -46,7 +46,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
         predict_types = "partition",
         param_set = param_set,
         properties = c("partitional", "exclusive", "complete"),
-        packages = "cluster",
+        packages = c("cluster", "clue"),
         man = "mlr3cluster::mlr_learners_clust.pam",
         label = "Partitioning Around Medoids"
       )
@@ -73,7 +73,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
     },
 
     .predict = function(task) {
-      partition = unclass(invoke(cl_predict, self$model, newdata = task$data(), type = "class_ids"))
+      partition = unclass(invoke(clue::cl_predict, self$model, newdata = task$data(), type = "class_ids"))
       PredictionClust$new(task = task, partition = partition)
     }
   )

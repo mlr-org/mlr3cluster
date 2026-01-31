@@ -21,7 +21,6 @@ Depends:
 Imports:
     backports (>= 1.1.10),
     checkmate (>= 2.0.0),
-    clue,
     cluster,
     data.table (>= 1.15.0),
     fpc,
@@ -31,6 +30,7 @@ Imports:
     stats
 Suggests:
     apcluster,
+    clue,
     ClusterR (>= 1.3.1),
     dbscan,
     e1071,

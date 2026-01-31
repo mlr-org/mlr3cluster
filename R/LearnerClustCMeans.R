@@ -52,7 +52,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         predict_types = c("partition", "prob"),
         param_set = param_set,
         properties = c("partitional", "fuzzy", "complete"),
-        packages = "e1071",
+        packages = c("e1071", "clue"),
         man = "mlr3cluster::mlr_learners_clust.cmeans",
         label = "Fuzzy C-Means Clustering Learner"
       )
@@ -72,8 +72,8 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
     },
 
     .predict = function(task) {
-      partition = unclass(invoke(cl_predict, self$model, newdata = task$data(), type = "class_ids"))
-      prob = unclass(invoke(cl_predict, self$model, newdata = task$data(), type = "memberships"))
+      partition = unclass(invoke(clue::cl_predict, self$model, newdata = task$data(), type = "class_ids"))
+      prob = unclass(invoke(clue::cl_predict, self$model, newdata = task$data(), type = "memberships"))
       colnames(prob) = seq_len(ncol(prob))
 
       PredictionClust$new(task = task, partition = partition, prob = prob)

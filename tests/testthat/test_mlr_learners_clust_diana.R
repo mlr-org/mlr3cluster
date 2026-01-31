@@ -1,5 +1,3 @@
-skip_if_not_installed("clue")
-
 test_that("autotest", {
   learner = lrn("clust.diana")
   expect_learner(learner)
