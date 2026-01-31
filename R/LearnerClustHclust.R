@@ -36,10 +36,10 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
         diag = p_lgl(default = FALSE, tags = c("train", "dist")),
         upper = p_lgl(default = FALSE, tags = c("train", "dist")),
         p = p_dbl(default = 2, tags = c("train", "dist"), depends = quote(distmethod == "minkowski")),
-        k = p_int(1L, default = 2L, tags = c("train", "predict"))
+        k = p_int(1L, default = NULL, special_vals = list(NULL), tags = c("train", "cutree", "predict"))
       )
 
-      param_set$set_values(k = 2L, distmethod = "euclidean")
+      param_set$set_values(k = 2L)
 
       super$initialize(
         id = "clust.hclust",
@@ -56,18 +56,24 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
 
   private = list(
     .train = function(task) {
-      pv = self$param_set$get_values(tags = "train")
-      dist = invoke(stats::dist,
+      ps = self$param_set
+      dist = invoke(
+        stats::dist,
         x = task$data(),
-        method = pv$d %??% "euclidean",
-        .args = self$param_set$get_values(tags = c("train", "dist"))
+        method = ps$get_values(tags = "train")$distmethod %??% "euclidean",
+        .args = ps$get_values(tags = c("train", "dist"))
       )
-      m = invoke(stats::hclust,
+      m = invoke(
+        stats::hclust,
         d = dist,
-        .args = self$param_set$get_values(tags = c("train", "hclust"))
+        .args = ps$get_values(tags = c("train", "hclust"))
       )
       if (self$save_assignments) {
-        self$assignments = stats::cutree(m, pv$k)
+        self$assignments = invoke(
+          stats::cutree,
+          tree = m,
+          .args = ps$get_values(tags = c("train", "cutree"))
+        )
       }
       m
     },

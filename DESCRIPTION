@@ -38,6 +38,7 @@ Suggests:
     LPCM,
     mclust,
     mlbench,
+    protoclust,
     RWeka,
     stream,
     testthat (>= 3.0.0)
@@ -70,6 +71,7 @@ Collate:
     'LearnerClustMiniBatchKMeans.R'
     'LearnerClustOPTICS.R'
     'LearnerClustPAM.R'
+    'LearnerClustProtoclust.R'
     'LearnerClustSimpleKMeans.R'
     'LearnerClustXMeans.R'
     'MeasureClust.R'

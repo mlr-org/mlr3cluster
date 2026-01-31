@@ -63,7 +63,8 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(cluster::agnes,
+      m = invoke(
+        cluster::agnes,
         x = task$data(),
         diss = FALSE,
         .args = remove_named(pv, "k")
