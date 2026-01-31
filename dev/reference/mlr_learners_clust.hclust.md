@@ -41,7 +41,7 @@ or with the associated sugar function
 | diag       | logical   | FALSE     | TRUE, FALSE                                                            | \-                    |
 | upper      | logical   | FALSE     | TRUE, FALSE                                                            | \-                    |
 | p          | numeric   | 2         |                                                                        | \\(-\infty, \infty)\\ |
-| k          | integer   | 2         |                                                                        | \\\[1, \infty)\\      |
+| k          | integer   | NULL      |                                                                        | \\\[1, \infty)\\      |
 
 ## References
 
@@ -134,6 +134,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -200,7 +201,7 @@ print(learner)
 #> 
 #> ── <LearnerClustHclust> (clust.hclust): Agglomerative Hierarchical Clustering ──
 #> • Model: -
-#> • Parameters: distmethod=euclidean, k=2
+#> • Parameters: k=2
 #> • Packages: mlr3, mlr3cluster, and stats
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric

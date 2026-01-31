@@ -1,12 +1,8 @@
-# Expectation-Maximization Clustering Learner
+# Hierarchical Clustering with Prototypes Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-for Expectation-Maximization clustering implemented in
-[`RWeka::list_Weka_interfaces()`](https://rdrr.io/pkg/RWeka/man/Weka_interfaces.html).
-The predict method uses
-[`RWeka::predict.Weka_clusterer()`](https://rdrr.io/pkg/RWeka/man/predict_Weka_clusterer.html)
-to compute the cluster memberships for new data.
+Hierarchical clustering with prototypes via minimax linkage. Calls
+[`protoclust::protoclust()`](https://rdrr.io/pkg/protoclust/man/protoclust.html)
+from [protoclust](https://CRAN.R-project.org/package=protoclust).
 
 ## Dictionary
 
@@ -17,8 +13,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.em")
-    lrn("clust.em")
+    mlr_learners$get("clust.protoclust")
+    lrn("clust.protoclust")
 
 ## Meta Information
 
@@ -30,35 +26,24 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [RWeka](https://CRAN.R-project.org/package=RWeka)
+  [protoclust](https://CRAN.R-project.org/package=protoclust)
 
 ## Parameters
 
-|                   |         |         |             |                      |
-|-------------------|---------|---------|-------------|----------------------|
-| Id                | Type    | Default | Levels      | Range                |
-| I                 | integer | 100     |             | \\\[1, \infty)\\     |
-| ll_cv             | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
-| ll_iter           | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
-| M                 | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
-| max               | integer | -1      |             | \\\[-1, \infty)\\    |
-| N                 | integer | -1      |             | \\\[-1, \infty)\\    |
-| num_slots         | integer | 1       |             | \\\[1, \infty)\\     |
-| S                 | integer | 100     |             | \\\[0, \infty)\\     |
-| X                 | integer | 10      |             | \\\[1, \infty)\\     |
-| K                 | integer | 10      |             | \\\[1, \infty)\\     |
-| V                 | logical | FALSE   | TRUE, FALSE | \-                   |
-| output_debug_info | logical | FALSE   | TRUE, FALSE | \-                   |
+|        |           |           |                                                            |                       |
+|--------|-----------|-----------|------------------------------------------------------------|-----------------------|
+| Id     | Type      | Default   | Levels                                                     | Range                 |
+| method | character | euclidean | euclidean, maximum, manhattan, canberra, binary, minkowski | \-                    |
+| diag   | logical   | FALSE     | TRUE, FALSE                                                | \-                    |
+| upper  | logical   | FALSE     | TRUE, FALSE                                                | \-                    |
+| p      | numeric   | 2         |                                                            | \\(-\infty, \infty)\\ |
+| k      | integer   | NULL      |                                                            | \\\[1, \infty)\\      |
 
 ## References
 
-Witten, H I, Frank, Eibe (2002). “Data mining: practical machine
-learning tools and techniques with Java implementations.” *Acm Sigmod
-Record*, **31**(1), 76–77.
-
-Dempster, P A, Laird, M N, Rubin, B D (1977). “Maximum likelihood from
-incomplete data via the EM algorithm.” *Journal of the royal statistical
-society: series B (methodological)*, **39**(1), 1–22.
+Bien, Jacob, Tibshirani, Robert (2011). “Hierarchical Clustering with
+Prototypes via Minimax Linkage.” *Journal of the American Statistical
+Association*, **106**(495), 1075–1084.
 
 ## See also
 
@@ -105,6 +90,7 @@ Other Learner:
 [`mlr_learners_clust.dbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan.md),
 [`mlr_learners_clust.dbscan_fpc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan_fpc.md),
 [`mlr_learners_clust.diana`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.diana.md),
+[`mlr_learners_clust.em`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.md),
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
@@ -116,22 +102,21 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md),
-[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustEM`
+-\> `LearnerClustProtoclust`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustEM$new()`](#method-LearnerClustEM-new)
+- [`LearnerClustProtoclust$new()`](#method-LearnerClustProtoclust-new)
 
-- [`LearnerClustEM$clone()`](#method-LearnerClustEM-clone)
+- [`LearnerClustProtoclust$clone()`](#method-LearnerClustProtoclust-clone)
 
 Inherited methods
 
@@ -156,7 +141,7 @@ Creates a new instance of this
 
 #### Usage
 
-    LearnerClustEM$new()
+    LearnerClustProtoclust$new()
 
 ------------------------------------------------------------------------
 
@@ -166,7 +151,7 @@ The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustEM$clone(deep = FALSE)
+    LearnerClustProtoclust$clone(deep = FALSE)
 
 #### Arguments
 
@@ -178,17 +163,17 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.em")
+learner = lrn("clust.protoclust")
 print(learner)
 #> 
-#> ── <LearnerClustEM> (clust.em): Expectation-Maximization Clustering ────────────
+#> ── <LearnerClustProtoclust> (clust.protoclust): Hierarchical Clustering with Pro
 #> • Model: -
-#> • Parameters: list()
-#> • Packages: mlr3, mlr3cluster, and RWeka
+#> • Parameters: k=2
+#> • Packages: mlr3, mlr3cluster, and protoclust
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, and partitional
+#> • Properties: complete, exclusive, and hierarchical
 #> • Other settings: use_weights = 'error'
 
 # Define a Task
@@ -200,40 +185,23 @@ learner$train(task)
 # Print the model
 print(learner$model)
 #> 
-#> EM
-#> ==
+#> Call:
+#> protoclust::protoclust(d = d)
 #> 
-#> Number of clusters selected by cross validation: 2
-#> Number of iterations performed: 12
-#> 
-#> 
-#>              Cluster
-#> Attribute          0        1
-#>               (0.42)   (0.58)
-#> ==============================
-#> Assault
-#>   mean       252.4139 110.5952
-#>   std. dev.   43.9813  43.1685
-#> 
-#> Murder
-#>   mean        11.8783   4.7742
-#>   std. dev.    2.8171   2.2431
-#> 
-#> Rape
-#>   mean        28.5285  15.8558
-#>   std. dev.    8.3686   5.4395
-#> 
-#> UrbanPop
-#>   mean         68.058  63.6846
-#>   std. dev.     14.02  14.2715
-#> 
+#> Cluster method   : minimax 
+#> Distance         : euclidean 
+#> Number of objects: 50 
 #> 
 
 # Make predictions for the task
 prediction = learner$predict(task)
+#> Warning: 
+#> ✖ Learner 'clust.protoclust' doesn't predict on new data and predictions may
+#>   not make sense on new data.
+#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1220028 
+#>  0.1532626 
 ```

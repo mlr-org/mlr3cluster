@@ -89,6 +89,9 @@
 - [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md)
   [`LearnerClustPAM`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md)
   : Partitioning Around Medoids Clustering Learner
+- [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md)
+  [`LearnerClustProtoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md)
+  : Hierarchical Clustering with Prototypes Learner
 - [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
   [`LearnerClustXMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
   : X-means Clustering Learner
