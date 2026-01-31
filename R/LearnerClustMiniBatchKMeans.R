@@ -3,9 +3,11 @@
 #' @name mlr_learners_clust.MBatchKMeans
 #'
 #' @description
-#' A [LearnerClust] for mini batch k-means clustering implemented in [ClusterR::MiniBatchKmeans()].
-#' [ClusterR::MiniBatchKmeans()] doesn't have a default value for the number of clusters.
-#' Therefore, the `clusters` parameter here is set to 2 by default.
+#' Mini-batch k-means clustering.
+#' Calls [ClusterR::MiniBatchKmeans()] from package \CRANpkg{ClusterR}.
+#'
+#' The `clusters` parameter is set to 2 by default since [ClusterR::MiniBatchKmeans()]
+#' doesn't have a default value for the number of clusters.
 #' The predict method uses [ClusterR::predict_MBatchKMeans()] to compute the
 #' cluster memberships for new data.
 #' The learner supports both partitional and fuzzy clustering.

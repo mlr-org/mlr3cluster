@@ -3,8 +3,8 @@
 #' @name mlr_learners_clust.birch
 #'
 #' @description
-#' BIRCH (Balanced Iterative Reducing Clustering using Hierarchies) clustering.
-#' Calls [stream::DSC_BIRCH()] from \CRANpkg{stream}.
+#' BIRCH (balanced iterative reducing clustering using hierarchies) clustering.
+#' Calls [stream::DSC_BIRCH()] from package \CRANpkg{stream}.
 #'
 #' @templateVar id clust.birch
 #' @template learner

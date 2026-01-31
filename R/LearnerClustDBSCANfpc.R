@@ -1,10 +1,10 @@
-#' @title Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner
+#' @title DBSCAN Clustering Learner (fpc)
 #'
 #' @name mlr_learners_clust.dbscan_fpc
 #'
 #' @description
-#' DBSCAN (Density-based spatial clustering of applications with noise) clustering.
-#' Calls [fpc::dbscan()] from \CRANpkg{fpc}.
+#' DBSCAN (density-based spatial clustering of applications with noise) clustering.
+#' Calls [fpc::dbscan()] from package \CRANpkg{fpc}.
 #'
 #' @templateVar id clust.dbscan_fpc
 #' @template learner

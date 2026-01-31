@@ -1,10 +1,10 @@
-#' @title Ordering Points to Identify the Clustering Structure (OPTICS) Clustering Learner
+#' @title OPTICS Clustering Learner
 #'
 #' @name mlr_learners_clust.optics
 #'
 #' @description
-#' OPTICS (Ordering points to identify the clustering structure) point ordering clustering.
-#' Calls [dbscan::optics()] from \CRANpkg{dbscan}.
+#' OPTICS (ordering points to identify the clustering structure) clustering.
+#' Calls [dbscan::optics()] from package \CRANpkg{dbscan}.
 #'
 #' @templateVar id clust.optics
 #' @template learner

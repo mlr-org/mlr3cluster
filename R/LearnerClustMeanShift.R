@@ -3,9 +3,11 @@
 #' @name mlr_learners_clust.meanshift
 #'
 #' @description
-#' A [LearnerClust] for Mean Shift clustering implemented in [LPCM::ms()].
-#' There is no predict method for [`LPCM::ms()`], so the method
-#' returns cluster labels for the 'training' data.
+#' Mean shift clustering.
+#' Calls [LPCM::ms()] from package \CRANpkg{LPCM}.
+#'
+#' There is no predict method for [LPCM::ms()], so the method
+#' returns cluster labels for the training data.
 #'
 #' @templateVar id clust.meanshift
 #' @template learner

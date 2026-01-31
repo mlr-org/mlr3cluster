@@ -1,10 +1,10 @@
-#' @title Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner
+#' @title DBSCAN Clustering Learner
 #'
 #' @name mlr_learners_clust.dbscan
 #'
 #' @description
-#' DBSCAN (Density-based spatial clustering of applications with noise) clustering.
-#' Calls [dbscan::dbscan()] from \CRANpkg{dbscan}.
+#' DBSCAN (density-based spatial clustering of applications with noise) clustering.
+#' Calls [dbscan::dbscan()] from package \CRANpkg{dbscan}.
 #'
 #' @templateVar id clust.dbscan
 #' @template learner

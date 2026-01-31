@@ -3,9 +3,11 @@
 #' @name mlr_learners_clust.kmeans
 #'
 #' @description
-#' A [LearnerClust] for k-means clustering implemented in [stats::kmeans()].
-#' [stats::kmeans()] doesn't have a default value for the number of clusters.
-#' Therefore, the `centers` parameter here is set to 2 by default.
+#' K-means clustering.
+#' Calls [stats::kmeans()] from package \CRANpkg{stats}.
+#'
+#' The `centers` parameter is set to 2 by default since [stats::kmeans()]
+#' doesn't have a default value for the number of clusters.
 #' The predict method uses [clue::cl_predict()] to compute the
 #' cluster memberships for new data.
 #'

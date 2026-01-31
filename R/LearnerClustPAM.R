@@ -3,10 +3,11 @@
 #' @name mlr_learners_clust.pam
 #'
 #' @description
-#' A [LearnerClust] for PAM clustering implemented in [cluster::pam()].
-#' [cluster::pam()] doesn't have a default value for the number of clusters.
-#' Therefore, the `k` parameter which corresponds to the number
-#' of clusters here is set to 2 by default.
+#' Partitioning Around Medoids (PAM) clustering.
+#' Calls [cluster::pam()] from package \CRANpkg{cluster}.
+#'
+#' The `k` parameter is set to 2 by default since [cluster::pam()]
+#' doesn't have a default value for the number of clusters.
 #' The predict method uses [clue::cl_predict()] to compute the
 #' cluster memberships for new data.
 #'

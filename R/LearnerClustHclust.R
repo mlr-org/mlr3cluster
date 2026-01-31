@@ -3,8 +3,10 @@
 #' @name mlr_learners_clust.hclust
 #'
 #' @description
-#' A [LearnerClust] for agglomerative hierarchical clustering implemented in [stats::hclust()].
-#' Difference Calculation is done by [stats::dist()]
+#' Agglomerative hierarchical clustering.
+#' Calls [stats::hclust()] from package \CRANpkg{stats}.
+#'
+#' Distance calculation is done by [stats::dist()].
 #'
 #' @templateVar id clust.hclust
 #' @template learner

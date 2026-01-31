@@ -1,10 +1,10 @@
-#' @title Hierarchical Clustering with Prototypes Learner
+#' @title Prototype Hierarchical Clustering Learner
 #'
 #' @name mlr_learners_clust.protoclust
 #'
 #' @description
-#' Hierarchical clustering with prototypes via minimax linkage.
-#' Calls [protoclust::protoclust()] from \CRANpkg{protoclust}.
+#' Hierarchical clustering using minimax linkage with prototypes.
+#' Calls [protoclust::protoclust()] from package \CRANpkg{protoclust}.
 #'
 #' @templateVar id clust.protoclust
 #' @template learner

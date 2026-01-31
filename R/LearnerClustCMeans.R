@@ -3,9 +3,11 @@
 #' @name mlr_learners_clust.cmeans
 #'
 #' @description
-#' A [LearnerClust] for fuzzy clustering implemented in [e1071::cmeans()].
-#' [e1071::cmeans()] doesn't have a default value for the number of clusters.
-#' Therefore, the `centers` parameter here is set to 2 by default.
+#' Fuzzy c-means clustering.
+#' Calls [e1071::cmeans()] from package \CRANpkg{e1071}.
+#'
+#' The `centers` parameter is set to 2 by default since [e1071::cmeans()]
+#' doesn't have a default value for the number of clusters.
 #' The predict method uses [clue::cl_predict()] to compute the
 #' cluster memberships for new data.
 #'

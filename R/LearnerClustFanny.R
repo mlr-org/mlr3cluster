@@ -3,13 +3,13 @@
 #' @name mlr_learners_clust.fanny
 #'
 #' @description
-#' A [LearnerClust] for fuzzy clustering implemented in [cluster::fanny()].
-#' [cluster::fanny()] doesn't have a default value for the number of clusters.
-#' Therefore, the `k` parameter which corresponds to the number
-#' of clusters here is set to 2 by default.
+#' Fuzzy Analysis (FANNY) clustering.
+#' Calls [cluster::fanny()] from package \CRANpkg{cluster}.
+#'
+#' The `k` parameter is set to 2 by default since [cluster::fanny()]
+#' doesn't have a default value for the number of clusters.
 #' The predict method copies cluster assignments and memberships
-#' generated for train data. The predict does not work for
-#' new data.
+#' generated for train data. The predict does not work for new data.
 #'
 #' @templateVar id clust.fanny
 #' @template learner

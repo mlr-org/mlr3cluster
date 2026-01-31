@@ -3,7 +3,9 @@
 #' @name mlr_learners_clust.diana
 #'
 #' @description
-#' A [LearnerClust] for divisive hierarchical clustering implemented in [cluster::diana()].
+#' Divisive hierarchical clustering.
+#' Calls [cluster::diana()] from package \CRANpkg{cluster}.
+#'
 #' The predict method uses [stats::cutree()] which cuts the tree resulting from
 #' hierarchical clustering into specified number of groups (see parameter `k`).
 #' The default value for `k` is 2.

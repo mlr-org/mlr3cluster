@@ -1,9 +1,11 @@
-#' @title Gaussian Mixture Models-Based Clustering Learner
+#' @title Gaussian Mixture Model Clustering Learner
 #'
 #' @name mlr_learners_clust.mclust
 #'
 #' @description
-#' A [LearnerClust] for model-based clustering implemented in [mclust::Mclust()].
+#' Gaussian mixture model-based clustering.
+#' Calls [mclust::Mclust()] from package \CRANpkg{mclust}.
+#'
 #' The predict method uses [mclust::predict.Mclust()] to compute the
 #' cluster memberships for new data.
 #'

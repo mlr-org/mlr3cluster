@@ -1,9 +1,11 @@
-#' @title K-Means Clustering Learner from Weka
+#' @title K-Means Clustering Learner (Weka)
 #'
 #' @name mlr_learners_clust.SimpleKMeans
 #'
 #' @description
-#' A [LearnerClust] for Simple K Means clustering implemented in [RWeka::SimpleKMeans()].
+#' K-means clustering (Weka).
+#' Calls [RWeka::SimpleKMeans()] from package \CRANpkg{RWeka}.
+#'
 #' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the
 #' cluster memberships for new data.
 #'

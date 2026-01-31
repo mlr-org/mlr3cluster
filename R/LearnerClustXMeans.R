@@ -3,7 +3,9 @@
 #' @name mlr_learners_clust.xmeans
 #'
 #' @description
-#' A [LearnerClust] for X-means clustering implemented in [RWeka::XMeans()].
+#' X-means clustering.
+#' Calls [RWeka::XMeans()] from package \CRANpkg{RWeka}.
+#'
 #' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the
 #' cluster memberships for new data.
 #'

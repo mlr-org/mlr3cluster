@@ -3,8 +3,10 @@
 #' @name mlr_learners_clust.ap
 #'
 #' @description
-#' A [LearnerClust] for Affinity Propagation clustering implemented in [apcluster::apcluster()].
-#' [apcluster::apcluster()] doesn't have set a default for similarity function.
+#' Affinity Propagation clustering.
+#' Calls [apcluster::apcluster()] from package \CRANpkg{apcluster}.
+#'
+#' Note that [apcluster::apcluster()] doesn't have a default for the similarity function.
 #' The predict method computes the closest cluster exemplar to find the
 #' cluster memberships for new data.
 #' The code is taken from

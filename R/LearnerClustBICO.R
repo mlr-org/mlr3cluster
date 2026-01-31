@@ -3,8 +3,8 @@
 #' @name mlr_learners_clust.bico
 #'
 #' @description
-#' BICO (Fast computation of k-means coresets in a data stream) clustering.
-#' Calls [stream::DSC_BICO()] from \CRANpkg{stream}.
+#' BICO (fast computation of k-means coresets in a data stream) clustering.
+#' Calls [stream::DSC_BICO()] from package \CRANpkg{stream}.
 #'
 #' @templateVar id clust.bico
 #' @template learner

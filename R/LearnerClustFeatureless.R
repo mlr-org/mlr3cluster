@@ -3,8 +3,9 @@
 #' @name mlr_learners_clust.featureless
 #'
 #' @description
-#' A simple [LearnerClust] which randomly (but evenly) assigns observations to
-#' `num_clusters` partitions (default: 1 partition).
+#' Featureless clustering.
+#' Randomly (but evenly) assigns observations to `num_clusters` partitions
+#' (default: 1 partition).
 #'
 #' @templateVar id clust.featureless
 #' @template learner

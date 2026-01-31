@@ -3,8 +3,9 @@
 #' @name mlr_learners_clust.em
 #'
 #' @description
-#' A [LearnerClust] for Expectation-Maximization clustering implemented in
-#' [RWeka::list_Weka_interfaces()].
+#' Expectation-Maximization clustering.
+#' Calls the EM Weka clusterer from package \CRANpkg{RWeka}.
+#'
 #' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the
 #' cluster memberships for new data.
 #'
