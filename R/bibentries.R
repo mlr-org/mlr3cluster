@@ -366,6 +366,16 @@ bibentries = c(
     volume = "28",
     pages = "181",
     year = "1979"
+  ),
+  bien2011hierarchical = bibentry("article",
+    title = "Hierarchical Clustering with Prototypes via Minimax Linkage",
+    author = "Bien, Jacob and Tibshirani, Robert",
+    journal = "Journal of the American Statistical Association",
+    volume = "106",
+    number = "495",
+    pages = "1075--1084",
+    year = "2011",
+    publisher = "Taylor & Francis"
   )
 )
 # nolint end

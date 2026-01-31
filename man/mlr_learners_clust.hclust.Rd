@@ -36,7 +36,7 @@ lrn("clust.hclust")
    diag \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    upper \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    p \tab numeric \tab 2 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   k \tab integer \tab NULL \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
 }
 }
 
@@ -146,6 +146,7 @@ Other Learner:
 \code{\link{mlr_learners_clust.meanshift}},
 \code{\link{mlr_learners_clust.optics}},
 \code{\link{mlr_learners_clust.pam}},
+\code{\link{mlr_learners_clust.protoclust}},
 \code{\link{mlr_learners_clust.xmeans}}
 }
 \concept{Learner}

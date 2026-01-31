@@ -22,7 +22,7 @@ LearnerClustOPTICS = R6Class("LearnerClustOPTICS",
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        eps = p_dbl(0, special_vals = list(NULL), default = NULL, tags = "train"),
+        eps = p_dbl(0, default = NULL, special_vals = list(NULL), tags = "train"),
         minPts = p_int(0L, default = 5L, tags = "train"),
         search = p_fct(c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
         bucketSize = p_int(1L, default = 10L, tags = "train", depends = quote(search == "kdtree")),

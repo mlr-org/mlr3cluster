@@ -48,7 +48,8 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(cluster::diana,
+      m = invoke(
+        cluster::diana,
         x = task$data(),
         diss = FALSE,
         .args = remove_named(pv, "k")
