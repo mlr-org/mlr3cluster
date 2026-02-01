@@ -5,7 +5,8 @@ package [RWeka](https://CRAN.R-project.org/package=RWeka).
 
 The predict method uses
 [`RWeka::predict.Weka_clusterer()`](https://rdrr.io/pkg/RWeka/man/predict_Weka_clusterer.html)
-to compute the cluster memberships for new data.
+to compute the cluster memberships for new data. The learner supports
+both partitional and fuzzy clustering.
 
 ## Dictionary
 
@@ -23,7 +24,7 @@ or with the associated sugar function
 
 - Task type: “clust”
 
-- Predict Types: “partition”
+- Predict Types: “partition”, “prob”
 
 - Feature Types: “logical”, “integer”, “numeric”
 
@@ -184,10 +185,10 @@ print(learner)
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and RWeka
-#> • Predict Types: [partition]
+#> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, and partitional
+#> • Properties: complete, exclusive, fuzzy, and partitional
 #> • Other settings: use_weights = 'error'
 
 # Define a Task
