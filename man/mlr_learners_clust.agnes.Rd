@@ -3,7 +3,7 @@
 \name{mlr_learners_clust.agnes}
 \alias{mlr_learners_clust.agnes}
 \alias{LearnerClustAgnes}
-\title{Agglomerative Hierarchical Clustering Learner}
+\title{Agglomerative Nesting Clustering Learner}
 \description{
 Agglomerative hierarchical clustering.
 Calls \code{\link[cluster:agnes]{cluster::agnes()}} from package \CRANpkg{cluster}.

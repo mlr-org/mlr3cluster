@@ -3,7 +3,7 @@
 \name{mlr_learners_clust.xmeans}
 \alias{mlr_learners_clust.xmeans}
 \alias{LearnerClustXMeans}
-\title{X-means Clustering Learner}
+\title{X-Means Clustering Learner}
 \description{
 X-means clustering.
 Calls \code{\link[RWeka:Weka_clusterers]{RWeka::XMeans()}} from package \CRANpkg{RWeka}.

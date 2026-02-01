@@ -3,7 +3,7 @@
 \name{mlr_learners_clust.hclust}
 \alias{mlr_learners_clust.hclust}
 \alias{LearnerClustHclust}
-\title{Agglomerative Hierarchical Clustering Learner}
+\title{Hierarchical Clustering Learner}
 \description{
 Agglomerative hierarchical clustering.
 Calls \code{\link[stats:hclust]{stats::hclust()}} from package \CRANpkg{stats}.

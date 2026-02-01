@@ -1,4 +1,4 @@
-#' @title Agglomerative Hierarchical Clustering Learner
+#' @title Hierarchical Clustering Learner
 #'
 #' @name mlr_learners_clust.hclust
 #'

@@ -1,4 +1,4 @@
-#' @title Agglomerative Hierarchical Clustering Learner
+#' @title Agglomerative Nesting Clustering Learner
 #'
 #' @name mlr_learners_clust.agnes
 #'
@@ -57,7 +57,7 @@ LearnerClustAgnes = R6Class("LearnerClustAgnes",
         properties = c("hierarchical", "exclusive", "complete"),
         packages = "cluster",
         man = "mlr3cluster::mlr_learners_clust.agnes",
-        label = "Agglomerative Hierarchical Clustering"
+        label = "Agglomerative Nesting"
       )
     }
   ),

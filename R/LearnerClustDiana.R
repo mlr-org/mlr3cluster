@@ -1,4 +1,4 @@
-#' @title Divisive Hierarchical Clustering Learner
+#' @title Divisive Analysis Clustering Learner
 #'
 #' @name mlr_learners_clust.diana
 #'

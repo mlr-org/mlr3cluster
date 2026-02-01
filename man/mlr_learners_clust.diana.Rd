@@ -3,7 +3,7 @@
 \name{mlr_learners_clust.diana}
 \alias{mlr_learners_clust.diana}
 \alias{LearnerClustDiana}
-\title{Divisive Hierarchical Clustering Learner}
+\title{Divisive Analysis Clustering Learner}
 \description{
 Divisive hierarchical clustering.
 Calls \code{\link[cluster:diana]{cluster::diana()}} from package \CRANpkg{cluster}.

@@ -1,4 +1,4 @@
-#' @title X-means Clustering Learner
+#' @title X-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.xmeans
 #'
