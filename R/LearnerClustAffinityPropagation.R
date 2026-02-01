@@ -49,7 +49,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
         properties = c("partitional", "exclusive", "complete"),
         packages = "apcluster",
         man = "mlr3cluster::mlr_learners_clust.ap",
-        label = "Affinity Propagation Clustering"
+        label = "Affinity Propagation"
       )
     }
   ),

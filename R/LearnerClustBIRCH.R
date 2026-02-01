@@ -37,7 +37,7 @@ LearnerClustBIRCH = R6Class("LearnerClustBIRCH",
         properties = c("hierarchical", "exclusive", "complete"),
         packages = "stream",
         man = "mlr3cluster::mlr_learners_clust.birch",
-        label = "BIRCH Clustering"
+        label = "BIRCH"
       )
     }
   ),

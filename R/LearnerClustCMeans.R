@@ -54,7 +54,7 @@ LearnerClustCMeans = R6Class("LearnerClustCMeans",
         properties = c("partitional", "fuzzy", "complete"),
         packages = c("e1071", "clue"),
         man = "mlr3cluster::mlr_learners_clust.cmeans",
-        label = "Fuzzy C-Means Clustering Learner"
+        label = "Fuzzy C-Means"
       )
     }
   ),

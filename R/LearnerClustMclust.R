@@ -41,7 +41,7 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
         properties = c("partitional", "fuzzy", "complete"),
         packages = "mclust",
         man = "mlr3cluster::mlr_learners_clust.mclust",
-        label = "Gaussian Mixture Models Clustering"
+        label = "Gaussian Mixture Model"
       )
     }
   ),

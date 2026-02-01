@@ -51,7 +51,7 @@ LearnerClustXMeans = R6Class("LearnerClustXMeans",
         properties = c("partitional", "exclusive", "complete"),
         packages = "RWeka",
         man = "mlr3cluster::mlr_learners_clust.xmeans",
-        label = "X-means"
+        label = "X-Means"
       )
     }
   ),

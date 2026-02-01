@@ -47,7 +47,7 @@ LearnerClustEM = R6Class("LearnerClustEM",
         properties = c("partitional", "exclusive", "complete"),
         packages = "RWeka",
         man = "mlr3cluster::mlr_learners_clust.em",
-        label = "Expectation-Maximization Clustering"
+        label = "Expectation-Maximization"
       )
     }
   ),

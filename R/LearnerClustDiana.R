@@ -42,7 +42,7 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
         properties = c("hierarchical", "exclusive", "complete"),
         packages = "cluster",
         man = "mlr3cluster::mlr_learners_clust.diana",
-        label = "Divisive Hierarchical Clustering"
+        label = "Divisive Analysis"
       )
     }
   ),

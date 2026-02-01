@@ -51,7 +51,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
         param_set = param_set,
         properties = c("density", "exclusive", "complete"),
         man = "mlr3cluster::mlr_learners_clust.dbscan_fpc",
-        label = "Density-Based Clustering with fpc"
+        label = "DBSCAN (fpc)"
       )
     }
   ),

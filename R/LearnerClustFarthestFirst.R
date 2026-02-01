@@ -38,7 +38,7 @@ LearnerClustFarthestFirst = R6Class("LearnerClustFF",
         properties = c("partitional", "exclusive", "complete"),
         packages = "RWeka",
         man = "mlr3cluster::mlr_learners_clust.ff",
-        label = "Farthest First Clustering"
+        label = "Farthest First"
       )
     }
   ),

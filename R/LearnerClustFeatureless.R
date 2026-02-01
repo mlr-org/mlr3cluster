@@ -29,7 +29,7 @@ LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
         param_set = param_set,
         properties = c("partitional", "exclusive", "complete", "missings"),
         man = "mlr3cluster::mlr_learners_clust.featureless",
-        label = "Featureless Clustering"
+        label = "Featureless Clustering Learner"
       )
     }
   ),

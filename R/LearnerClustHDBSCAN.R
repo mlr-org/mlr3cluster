@@ -39,7 +39,7 @@ LearnerClustHDBSCAN = R6Class("LearnerClustHDBSCAN",
         properties = c("density", "exclusive", "complete"),
         packages = "dbscan",
         man = "mlr3cluster::mlr_learners_clust.hdbscan",
-        label = "HDBSCAN Clustering"
+        label = "HDBSCAN"
       )
     }
   ),

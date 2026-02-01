@@ -44,7 +44,7 @@ LearnerClustProtoclust = R6Class(
         properties = c("hierarchical", "exclusive", "complete"),
         packages = "protoclust",
         man = "mlr3cluster::mlr_learners_clust.protoclust",
-        label = "Hierarchical Clustering with Prototypes"
+        label = "Prototype Hierarchical Clustering"
       )
     }
   ),

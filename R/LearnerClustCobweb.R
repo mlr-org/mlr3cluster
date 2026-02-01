@@ -38,7 +38,7 @@ LearnerClustCobweb = R6Class("LearnerClustCobweb",
         properties = c("partitional", "exclusive", "complete"),
         packages = "RWeka",
         man = "mlr3cluster::mlr_learners_clust.cobweb",
-        label = "Cobweb Clustering"
+        label = "Cobweb"
       )
     }
   ),

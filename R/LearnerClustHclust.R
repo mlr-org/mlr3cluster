@@ -51,7 +51,7 @@ LearnerClustHclust = R6Class("LearnerClustHclust",
         properties = c("hierarchical", "exclusive", "complete"),
         packages = "stats",
         man = "mlr3cluster::mlr_learners_clust.hclust",
-        label = "Agglomerative Hierarchical Clustering"
+        label = "Hierarchical Clustering"
       )
     }
   ),

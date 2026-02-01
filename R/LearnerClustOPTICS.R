@@ -44,7 +44,7 @@ LearnerClustOPTICS = R6Class("LearnerClustOPTICS",
         properties = c("density", "exclusive", "complete"),
         packages = "dbscan",
         man = "mlr3cluster::mlr_learners_clust.optics",
-        label = "OPTICS Clustering"
+        label = "OPTICS"
       )
     }
   ),

@@ -46,7 +46,7 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
         properties = c("partitional", "fuzzy", "complete"),
         packages = "cluster",
         man = "mlr3cluster::mlr_learners_clust.fanny",
-        label = "Fuzzy Analysis Clustering"
+        label = "Fuzzy Analysis"
       )
     }
   ),

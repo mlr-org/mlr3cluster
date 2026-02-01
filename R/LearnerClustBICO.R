@@ -36,7 +36,7 @@ LearnerClustBICO = R6Class("LearnerClustBICO",
         properties = c("partitional", "exclusive", "complete"),
         packages = "stream",
         man = "mlr3cluster::mlr_learners_clust.bico",
-        label = "BICO Clustering"
+        label = "BICO"
       )
     }
   ),

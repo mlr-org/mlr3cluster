@@ -45,7 +45,7 @@ LearnerClustDBSCAN = R6Class("LearnerClustDBSCAN",
         properties = c("density", "exclusive", "complete"),
         packages = "dbscan",
         man = "mlr3cluster::mlr_learners_clust.dbscan",
-        label = "Density-Based Clustering"
+        label = "DBSCAN"
       )
     }
   ),
