@@ -10,6 +10,7 @@ Calls the EM Weka clusterer from package \CRANpkg{RWeka}.
 
 The predict method uses \code{\link[RWeka:predict_Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
 cluster memberships for new data.
+The learner supports both partitional and fuzzy clustering.
 }
 \section{Dictionary}{
 
@@ -24,7 +25,7 @@ lrn("clust.em")
 
 \itemize{
 \item Task type: \dQuote{clust}
-\item Predict Types: \dQuote{partition}
+\item Predict Types: \dQuote{partition}, \dQuote{prob}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
 \item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{RWeka}
 }

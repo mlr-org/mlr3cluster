@@ -8,6 +8,7 @@
 #'
 #' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the
 #' cluster memberships for new data.
+#' The learner supports both partitional and fuzzy clustering.
 #'
 #' @templateVar id clust.em
 #' @template learner
@@ -42,9 +43,9 @@ LearnerClustEM = R6Class("LearnerClustEM",
       super$initialize(
         id = "clust.em",
         feature_types = c("logical", "integer", "numeric"),
-        predict_types = "partition",
+        predict_types = c("partition", "prob"),
         param_set = param_set,
-        properties = c("partitional", "exclusive", "complete"),
+        properties = c("partitional", "fuzzy", "exclusive", "complete"),
         packages = "RWeka",
         man = "mlr3cluster::mlr_learners_clust.em",
         label = "Expectation-Maximization"
@@ -65,8 +66,14 @@ LearnerClustEM = R6Class("LearnerClustEM",
     },
 
     .predict = function(task) {
-      partition = invoke(predict, self$model, newdata = task$data(), type = "class") + 1L
-      PredictionClust$new(task = task, partition = partition)
+      data = task$data()
+      partition = invoke(predict, self$model, newdata = data, type = "class") + 1L
+      prob = NULL
+      if (self$predict_type == "prob") {
+        prob = invoke(predict, self$model, newdata = data, type = "memberships")
+        colnames(prob) = seq_len(ncol(prob))
+      }
+      PredictionClust$new(task = task, partition = partition, prob = prob)
     }
   )
 )

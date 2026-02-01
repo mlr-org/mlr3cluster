@@ -32,5 +32,8 @@ test_that("Learner properties are respected", {
     if ("exclusive" %chin% learner$properties) {
       expect_prediction_exclusive(p, learner$predict_type)
     }
+    if ("fuzzy" %chin% learner$properties) {
+      expect_prediction_fuzzy(p)
+    }
   }
 })
