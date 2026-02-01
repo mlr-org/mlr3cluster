@@ -174,7 +174,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.cobweb")
 print(learner)
 #> 
-#> ── <LearnerClustCobweb> (clust.cobweb): Cobweb Clustering ──────────────────────
+#> ── <LearnerClustCobweb> (clust.cobweb): Cobweb ─────────────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and RWeka

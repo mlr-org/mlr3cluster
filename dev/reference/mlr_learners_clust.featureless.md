@@ -154,7 +154,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.featureless")
 print(learner)
 #> 
-#> ── <LearnerClustFeatureless> (clust.featureless): Featureless Clustering ───────
+#> ── <LearnerClustFeatureless> (clust.featureless): Featureless Clustering Learner
 #> • Model: -
 #> • Parameters: num_clusters=1
 #> • Packages: mlr3 and mlr3cluster

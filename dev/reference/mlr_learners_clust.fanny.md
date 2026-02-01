@@ -173,7 +173,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.fanny")
 print(learner)
 #> 
-#> ── <LearnerClustFanny> (clust.fanny): Fuzzy Analysis Clustering ────────────────
+#> ── <LearnerClustFanny> (clust.fanny): Fuzzy Analysis ───────────────────────────
 #> • Model: -
 #> • Parameters: k=2
 #> • Packages: mlr3, mlr3cluster, and cluster

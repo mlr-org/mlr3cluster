@@ -175,7 +175,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.mclust")
 print(learner)
 #> 
-#> ── <LearnerClustMclust> (clust.mclust): Gaussian Mixture Models Clustering ─────
+#> ── <LearnerClustMclust> (clust.mclust): Gaussian Mixture Model ─────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and mclust

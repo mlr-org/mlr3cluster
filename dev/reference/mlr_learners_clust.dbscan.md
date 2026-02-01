@@ -174,7 +174,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.dbscan")
 print(learner)
 #> 
-#> ── <LearnerClustDBSCAN> (clust.dbscan): Density-Based Clustering ───────────────
+#> ── <LearnerClustDBSCAN> (clust.dbscan): DBSCAN ─────────────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and dbscan

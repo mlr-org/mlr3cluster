@@ -1,4 +1,4 @@
-# Agglomerative Hierarchical Clustering Learner
+# Hierarchical Clustering Learner
 
 Agglomerative hierarchical clustering. Calls
 [`stats::hclust()`](https://rdrr.io/r/stats/hclust.html) from package
@@ -199,7 +199,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.hclust")
 print(learner)
 #> 
-#> ── <LearnerClustHclust> (clust.hclust): Agglomerative Hierarchical Clustering ──
+#> ── <LearnerClustHclust> (clust.hclust): Hierarchical Clustering ────────────────
 #> • Model: -
 #> • Parameters: k=2
 #> • Packages: mlr3, mlr3cluster, and stats

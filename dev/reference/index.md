@@ -25,7 +25,7 @@
   : K-Means Clustering Learner (Weka)
 - [`mlr_learners_clust.agnes`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.agnes.md)
   [`LearnerClustAgnes`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.agnes.md)
-  : Agglomerative Hierarchical Clustering Learner
+  : Agglomerative Nesting Clustering Learner
 - [`mlr_learners_clust.ap`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ap.md)
   [`LearnerClustAP`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ap.md)
   : Affinity Propagation Clustering Learner
@@ -49,7 +49,7 @@
   : DBSCAN Clustering Learner (fpc)
 - [`mlr_learners_clust.diana`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.diana.md)
   [`LearnerClustDiana`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.diana.md)
-  : Divisive Hierarchical Clustering Learner
+  : Divisive Analysis Clustering Learner
 - [`mlr_learners_clust.em`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.md)
   [`LearnerClustEM`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.md)
   : Expectation-Maximization Clustering Learner
@@ -64,7 +64,7 @@
   : Farthest First Clustering Learner
 - [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md)
   [`LearnerClustHclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md)
-  : Agglomerative Hierarchical Clustering Learner
+  : Hierarchical Clustering Learner
 - [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md)
   [`LearnerClustHDBSCAN`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md)
   : HDBSCAN Clustering Learner
@@ -91,7 +91,7 @@
   : Prototype Hierarchical Clustering Learner
 - [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
   [`LearnerClustXMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
-  : X-means Clustering Learner
+  : X-Means Clustering Learner
 - [`mlr_measures_clust.ch`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.ch.md)
   : Calinski Harabasz Pseudo F-Statistic
 - [`mlr_measures_clust.dunn`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn.md)

@@ -1,4 +1,4 @@
-# X-means Clustering Learner
+# X-Means Clustering Learner
 
 X-means clustering. Calls
 [`RWeka::XMeans()`](https://rdrr.io/pkg/RWeka/man/Weka_clusterers.html)
@@ -185,7 +185,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.xmeans")
 print(learner)
 #> 
-#> ── <LearnerClustXMeans> (clust.xmeans): X-means ────────────────────────────────
+#> ── <LearnerClustXMeans> (clust.xmeans): X-Means ────────────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and RWeka

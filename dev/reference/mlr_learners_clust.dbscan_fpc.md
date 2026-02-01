@@ -169,7 +169,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.dbscan_fpc")
 print(learner)
 #> 
-#> ── <LearnerClustDBSCANfpc> (clust.dbscan_fpc): Density-Based Clustering with fpc
+#> ── <LearnerClustDBSCANfpc> (clust.dbscan_fpc): DBSCAN (fpc) ────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and fpc

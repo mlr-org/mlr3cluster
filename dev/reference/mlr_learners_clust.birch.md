@@ -176,7 +176,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.birch")
 print(learner)
 #> 
-#> ── <LearnerClustBIRCH> (clust.birch): BIRCH Clustering ─────────────────────────
+#> ── <LearnerClustBIRCH> (clust.birch): BIRCH ────────────────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and stream

@@ -1,4 +1,4 @@
-# Agglomerative Hierarchical Clustering Learner
+# Agglomerative Nesting Clustering Learner
 
 Agglomerative hierarchical clustering. Calls
 [`cluster::agnes()`](https://rdrr.io/pkg/cluster/man/agnes.html) from
@@ -171,7 +171,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.agnes")
 print(learner)
 #> 
-#> ── <LearnerClustAgnes> (clust.agnes): Agglomerative Hierarchical Clustering ────
+#> ── <LearnerClustAgnes> (clust.agnes): Agglomerative Nesting ────────────────────
 #> • Model: -
 #> • Parameters: k=2
 #> • Packages: mlr3, mlr3cluster, and cluster

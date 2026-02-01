@@ -172,7 +172,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.ff")
 print(learner)
 #> 
-#> ── <LearnerClustFF> (clust.ff): Farthest First Clustering ──────────────────────
+#> ── <LearnerClustFF> (clust.ff): Farthest First ─────────────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and RWeka

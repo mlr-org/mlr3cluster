@@ -1,4 +1,4 @@
-# Divisive Hierarchical Clustering Learner
+# Divisive Analysis Clustering Learner
 
 Divisive hierarchical clustering. Calls
 [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html) from
@@ -169,7 +169,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.diana")
 print(learner)
 #> 
-#> ── <LearnerClustDiana> (clust.diana): Divisive Hierarchical Clustering ─────────
+#> ── <LearnerClustDiana> (clust.diana): Divisive Analysis ────────────────────────
 #> • Model: -
 #> • Parameters: k=2
 #> • Packages: mlr3, mlr3cluster, and cluster

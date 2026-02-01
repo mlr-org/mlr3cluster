@@ -167,7 +167,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.protoclust")
 print(learner)
 #> 
-#> ── <LearnerClustProtoclust> (clust.protoclust): Hierarchical Clustering with Pro
+#> ── <LearnerClustProtoclust> (clust.protoclust): Prototype Hierarchical Clusterin
 #> • Model: -
 #> • Parameters: k=2
 #> • Packages: mlr3, mlr3cluster, and protoclust

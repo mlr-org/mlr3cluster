@@ -182,7 +182,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.ap")
 print(learner)
 #> 
-#> ── <LearnerClustAP> (clust.ap): Affinity Propagation Clustering ────────────────
+#> ── <LearnerClustAP> (clust.ap): Affinity Propagation ───────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and apcluster

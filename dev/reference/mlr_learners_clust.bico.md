@@ -173,7 +173,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.bico")
 print(learner)
 #> 
-#> ── <LearnerClustBICO> (clust.bico): BICO Clustering ────────────────────────────
+#> ── <LearnerClustBICO> (clust.bico): BICO ───────────────────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and stream

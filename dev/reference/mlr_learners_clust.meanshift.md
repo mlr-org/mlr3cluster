@@ -170,7 +170,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.meanshift")
 print(learner)
 #> 
-#> ── <LearnerClustMeanShift> (clust.meanshift): Mean Shift Clustering ────────────
+#> ── <LearnerClustMeanShift> (clust.meanshift): Mean Shift ───────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and LPCM

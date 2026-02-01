@@ -180,7 +180,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.em")
 print(learner)
 #> 
-#> ── <LearnerClustEM> (clust.em): Expectation-Maximization Clustering ────────────
+#> ── <LearnerClustEM> (clust.em): Expectation-Maximization ───────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and RWeka

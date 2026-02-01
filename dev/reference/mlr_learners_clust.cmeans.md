@@ -180,7 +180,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.cmeans")
 print(learner)
 #> 
-#> ── <LearnerClustCMeans> (clust.cmeans): Fuzzy C-Means Clustering Learner ───────
+#> ── <LearnerClustCMeans> (clust.cmeans): Fuzzy C-Means ──────────────────────────
 #> • Model: -
 #> • Parameters: centers=2
 #> • Packages: mlr3, mlr3cluster, e1071, and clue

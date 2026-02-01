@@ -173,7 +173,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.optics")
 print(learner)
 #> 
-#> ── <LearnerClustOPTICS> (clust.optics): OPTICS Clustering ──────────────────────
+#> ── <LearnerClustOPTICS> (clust.optics): OPTICS ─────────────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and dbscan

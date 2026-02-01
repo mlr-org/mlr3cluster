@@ -170,7 +170,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.hdbscan")
 print(learner)
 #> 
-#> ── <LearnerClustHDBSCAN> (clust.hdbscan): HDBSCAN Clustering ───────────────────
+#> ── <LearnerClustHDBSCAN> (clust.hdbscan): HDBSCAN ──────────────────────────────
 #> • Model: -
 #> • Parameters: minPts=5
 #> • Packages: mlr3, mlr3cluster, and dbscan
