@@ -23,7 +23,7 @@ MeasureClustFPC = R6Class("MeasureClustFPC",
   private = list(
     .score = function(prediction, task, ...) {
       X = stats::dist(task$data(rows = prediction$row_ids))
-      suppressWarnings(cluster.stats(X, clustering = prediction$partition, silhouette = FALSE)[[self$crit]])
+      suppressWarnings(fpc::cluster.stats(X, clustering = prediction$partition, silhouette = FALSE)[[self$crit]])
     }
   )
 )
@@ -55,7 +55,7 @@ MeasureClustSil = R6Class("MeasureClustSil",
       if (length(unique(prediction$partition)) == 1L) {
         0L
       } else {
-        mean(silhouette(prediction$partition, X)[, self$crit])
+        mean(cluster::silhouette(prediction$partition, X)[, self$crit])
       }
     }
   )

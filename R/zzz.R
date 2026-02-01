@@ -4,8 +4,6 @@
 #' @import mlr3misc
 #' @import paradox
 #' @importFrom R6 R6Class
-#' @importFrom cluster silhouette
-#' @importFrom fpc cluster.stats
 #' @importFrom stats model.frame terms predict runif
 "_PACKAGE"
 
