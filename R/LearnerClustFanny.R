@@ -63,12 +63,12 @@ LearnerClustFanny = R6Class("LearnerClustFanny",
 
     .predict = function(task) {
       warn_prediction_useless(self$id)
-
       partition = self$model$clustering
-
-      prob = self$model$membership
-      colnames(prob) = seq_len(ncol(prob))
-
+      prob = NULL
+      if (self$predict_type == "prob") {
+        prob = self$model$membership
+        colnames(prob) = seq_len(ncol(prob))
+      }
       PredictionClust$new(task = task, partition = partition, prob = prob)
     }
   )
