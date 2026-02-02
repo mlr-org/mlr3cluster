@@ -37,8 +37,6 @@ test_that("Learner properties are respected", {
       if (learner$predict_type == "prob") {
         expect_prediction_fuzzy(p)
       }
-
-      learner$reset()
     }
   }
 })
