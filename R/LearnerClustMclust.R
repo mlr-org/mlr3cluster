@@ -24,20 +24,23 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      parma_set = ps(
+      param_set = ps(
         G = p_uty(default = 1:9, tags = "train", custom_check = check_numeric),
         modelNames = p_uty(tags = "train", custom_check = check_character),
         prior = p_uty(tags = "train", custom_check = check_list),
         control = p_uty(tags = "train", custom_check = check_list),
         initialization = p_uty(tags = "train", custom_check = check_list),
-        x = p_uty(tags = "train", custom_check = crate(function(x) check_class(x, "mclustBIC")))
+        x = p_uty(tags = "train", custom_check = crate(function(x) check_class(x, "mclustBIC"))),
+        verbose = p_lgl(default = FALSE, tags = "train")
       )
+
+      param_set$set_values(verbose = FALSE)
 
       super$initialize(
         id = "clust.mclust",
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
-        param_set = parma_set,
+        param_set = param_set,
         properties = c("partitional", "fuzzy", "complete"),
         packages = "mclust",
         man = "mlr3cluster::mlr_learners_clust.mclust",
@@ -64,7 +67,6 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
       prob = NULL
       if (self$predict_type == "prob") {
         prob = predictions$z
-        colnames(prob) = seq_len(ncol(prob))
       }
       PredictionClust$new(task = task, partition = partition, prob = prob)
     }

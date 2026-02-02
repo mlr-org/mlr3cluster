@@ -6,7 +6,7 @@ on:
     inputs:
       debug_enabled:
         type: boolean
-        description: 'Run the build with tmate debugging enabled'
+        description: "Run the build with tmate debugging enabled"
         required: false
         default: false
   push:
@@ -19,7 +19,7 @@ on:
 name: r-cmd-check
 
 env:
-   WEKA_HOME: /home/runner/work/mlr3cluster
+  WEKA_HOME: /home/runner/work/mlr3cluster
 
 jobs:
   r-cmd-check:
@@ -34,8 +34,8 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest,   r: 'devel'}
-          - {os: ubuntu-latest,   r: 'release'}
+          - { os: ubuntu-latest, r: "devel" }
+          - { os: ubuntu-latest, r: "release" }
 
     steps:
       - uses: actions/checkout@v6
