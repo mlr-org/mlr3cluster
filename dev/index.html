@@ -97,7 +97,7 @@
 </h2>
 <p>The current version of <strong>mlr3cluster</strong> contains:</p>
 <ul>
-<li>A selection of 24 clustering learners that represent a wide variety of clusterers: partitional, hierarchical, fuzzy, etc.</li>
+<li>A selection of 25 clustering learners that represent a wide variety of clusterers: partitional, hierarchical, fuzzy, etc.</li>
 <li>A selection of 4 performance measures</li>
 <li>Two built-in tasks to get started with clustering</li>
 </ul>
@@ -133,77 +133,79 @@
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.agnes">clust.agnes</a></td>
-<td align="left">Agglomerative Hierarchical Clustering</td>
+<td align="left">Agglomerative Nesting</td>
 <td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap">clust.ap</a></td>
-<td align="left">Affinity Propagation Clustering</td>
+<td align="left">Affinity Propagation</td>
 <td align="left"><a href="https://cran.r-project.org/package=apcluster" class="external-link">apcluster</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.bico">clust.bico</a></td>
-<td align="left">BICO Clustering</td>
+<td align="left">BICO</td>
 <td align="left"><a href="https://cran.r-project.org/package=stream" class="external-link">stream</a></td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch">clust.birch</a></td>
-<td align="left">BIRCH Clustering</td>
+<td align="left">BIRCH</td>
 <td align="left"><a href="https://cran.r-project.org/package=stream" class="external-link">stream</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans">clust.cmeans</a></td>
-<td align="left">Fuzzy C-Means Clustering Learner</td>
-<td align="left"><a href="https://cran.r-project.org/package=e1071" class="external-link">e1071</a></td>
+<td align="left">Fuzzy C-Means</td>
+<td align="left">
+<a href="https://cran.r-project.org/package=e1071" class="external-link">e1071</a>, <a href="https://cran.r-project.org/package=clue" class="external-link">clue</a>
+</td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb">clust.cobweb</a></td>
-<td align="left">Cobweb Clustering</td>
+<td align="left">Cobweb</td>
 <td align="left"><a href="https://cran.r-project.org/package=RWeka" class="external-link">RWeka</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan">clust.dbscan</a></td>
-<td align="left">Density-Based Clustering</td>
+<td align="left">DBSCAN</td>
 <td align="left"><a href="https://cran.r-project.org/package=dbscan" class="external-link">dbscan</a></td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan_fpc">clust.dbscan_fpc</a></td>
-<td align="left">Density-Based Clustering with fpc</td>
+<td align="left">DBSCAN (fpc)</td>
 <td align="left"><a href="https://cran.r-project.org/package=fpc" class="external-link">fpc</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.diana">clust.diana</a></td>
-<td align="left">Divisive Hierarchical Clustering</td>
+<td align="left">Divisive Analysis</td>
 <td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.em">clust.em</a></td>
-<td align="left">Expectation-Maximization Clustering</td>
+<td align="left">Expectation-Maximization</td>
 <td align="left"><a href="https://cran.r-project.org/package=RWeka" class="external-link">RWeka</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny">clust.fanny</a></td>
-<td align="left">Fuzzy Analysis Clustering</td>
+<td align="left">Fuzzy Analysis</td>
 <td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless">clust.featureless</a></td>
-<td align="left">Featureless Clustering</td>
+<td align="left">Featureless Clustering Learner</td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff">clust.ff</a></td>
-<td align="left">Farthest First Clustering</td>
+<td align="left">Farthest First</td>
 <td align="left"><a href="https://cran.r-project.org/package=RWeka" class="external-link">RWeka</a></td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust">clust.hclust</a></td>
-<td align="left">Agglomerative Hierarchical Clustering</td>
+<td align="left">Hierarchical Clustering</td>
 <td align="left">stats</td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan">clust.hdbscan</a></td>
-<td align="left">HDBSCAN Clustering</td>
+<td align="left">HDBSCAN</td>
 <td align="left"><a href="https://cran.r-project.org/package=dbscan" class="external-link">dbscan</a></td>
 </tr>
 <tr class="even">
@@ -219,27 +221,34 @@
 </tr>
 <tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust">clust.mclust</a></td>
-<td align="left">Gaussian Mixture Models Clustering</td>
+<td align="left">Gaussian Mixture Model</td>
 <td align="left"><a href="https://cran.r-project.org/package=mclust" class="external-link">mclust</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift">clust.meanshift</a></td>
-<td align="left">Mean Shift Clustering</td>
+<td align="left">Mean Shift</td>
 <td align="left"><a href="https://cran.r-project.org/package=LPCM" class="external-link">LPCM</a></td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics">clust.optics</a></td>
-<td align="left">OPTICS Clustering</td>
+<td align="left">OPTICS</td>
 <td align="left"><a href="https://cran.r-project.org/package=dbscan" class="external-link">dbscan</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam">clust.pam</a></td>
 <td align="left">Partitioning Around Medoids</td>
-<td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
+<td align="left">
+<a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a>, <a href="https://cran.r-project.org/package=clue" class="external-link">clue</a>
+</td>
 </tr>
 <tr class="even">
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust">clust.protoclust</a></td>
+<td align="left">Prototype Hierarchical Clustering</td>
+<td align="left"><a href="https://cran.r-project.org/package=protoclust" class="external-link">protoclust</a></td>
+</tr>
+<tr class="odd">
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans">clust.xmeans</a></td>
-<td align="left">X-means</td>
+<td align="left">X-Means</td>
 <td align="left"><a href="https://cran.r-project.org/package=RWeka" class="external-link">RWeka</a></td>
 </tr>
 </tbody>
