@@ -66,7 +66,7 @@ LearnerClustMclust = R6Class("LearnerClustMclust",
         prob = predictions$z
         colnames(prob) = seq_len(ncol(prob))
       }
-      PredictionClust$new(task = task, partition = partition)
+      PredictionClust$new(task = task, partition = partition, prob = prob)
     }
   )
 )
