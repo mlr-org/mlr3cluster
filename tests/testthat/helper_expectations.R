@@ -20,10 +20,10 @@ expect_prediction_exclusive = function(p, predict_type) {
 }
 
 expect_prediction_fuzzy = function(p, predict_type) {
-  expect_numeric(p$prob, lower = 0L, upper = 1L)
-  expect_numeric(round(rowSums(p$prob), 2), lower = 1L, upper = 1L)
+  expect_numeric(p$prob, lower = 0, upper = 1)
+  expect_numeric(round(rowSums(p$prob), 2), lower = 1, upper = 1)
 
   partition = max.col(p$prob, ties.method = "first")
   partition = as.numeric(colnames(p$prob)[partition])
-  expect_true(unique(partition == p$partition))
+  expect_all_true(partition == p$partition)
 }

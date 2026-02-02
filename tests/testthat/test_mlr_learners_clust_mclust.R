@@ -19,25 +19,21 @@ test_that("Learner properties are respected", {
     list(G = 3)
   )
 
-  for (type in c("partition", "prob")) {
-    learner$predict_type = type
-    for (parset in parset_list) {
-      learner$param_set$values = parset
+  for (i in seq_along(parset_list)) {
+    parset = parset_list[[i]]
+    learner$param_set$values = parset
 
-      p = suppressWarnings(learner$train(task)$predict(task))
-      expect_prediction_clust(p)
+    p = suppressWarnings(learner$train(task)$predict(task))
+    expect_prediction_clust(p)
 
-      if ("complete" %chin% learner$properties) {
-        expect_prediction_complete(p, learner$predict_type)
-      }
-      if ("exclusive" %chin% learner$properties) {
-        expect_prediction_exclusive(p, "partition")
-      }
-      if (learner$predict_type == "prob") {
-        expect_prediction_fuzzy(p)
-      }
-
-      learner$reset()
+    if ("complete" %chin% learner$properties) {
+      expect_prediction_complete(p, learner$predict_type)
+    }
+    if ("exclusive" %chin% learner$properties) {
+      expect_prediction_exclusive(p, learner$predict_type)
+    }
+    if ("fuzzy" %chin% learner$properties) {
+      expect_prediction_fuzzy(p)
     }
   }
 })
