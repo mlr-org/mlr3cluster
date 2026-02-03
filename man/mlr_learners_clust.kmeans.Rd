@@ -39,7 +39,7 @@ lrn("clust.kmeans")
    iter.max \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    algorithm \tab character \tab Hartigan-Wong \tab Hartigan-Wong, Lloyd, Forgy, MacQueen \tab - \cr
    nstart \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   trace \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   trace \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
 }
 }
 

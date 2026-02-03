@@ -28,13 +28,21 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
     initialize = function() {
       param_set = ps(
         k = p_int(1L, tags = c("train", "required")),
-        metric = p_fct(c("euclidian", "manhattan"), default = "euclidian", tags = "train"),
+        metric = p_fct(c("euclidean", "manhattan"), default = "euclidean", tags = "train"),
         medoids = p_uty(
           default = NULL, tags = "train", custom_check = crate(function(x) check_integerish(x, null.ok = TRUE))
         ),
+        nstart = p_int(1L, default = 1L, tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
         do.swap = p_lgl(default = TRUE, tags = "train"),
-        pamonce = p_int(0L, 5L, default = 0L, tags = "train"),
+        pamonce = p_uty(
+          default = FALSE,
+          tags = "train",
+          custom_check = crate(function(x) check_flag(x) %check||% check_int(x, lower = 0L, upper = 6L))
+        ),
+        variant = p_fct(
+          c("original", "o_1", "o_2", "f_3", "f_4", "f_5", "faster"), default = "original", tags = "train"
+        ),
         trace.lev = p_int(0L, default = 0L, tags = "train")
       )
 

@@ -33,7 +33,7 @@ LearnerClustKMeans = R6Class("LearnerClustKMeans",
           c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"), default = "Hartigan-Wong", tags = "train"
         ),
         nstart = p_int(1L, default = 1L, tags = "train"),
-        trace = p_int(0L, default = 0L, tags = "train")
+        trace = p_lgl(default = FALSE, tags = "train")
       )
 
       param_set$set_values(centers = 2L)

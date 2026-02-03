@@ -31,13 +31,14 @@ lrn("clust.meanshift")
 }
 
 \section{Parameters}{
-\tabular{llll}{
-   Id \tab Type \tab Default \tab Range \cr
-   h \tab untyped \tab - \tab - \cr
-   subset \tab untyped \tab - \tab - \cr
-   scaled \tab integer \tab 1 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   iter \tab integer \tab 200 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   thr \tab numeric \tab 0.01 \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+\tabular{lllll}{
+   Id \tab Type \tab Default \tab Levels \tab Range \cr
+   h \tab untyped \tab - \tab  \tab - \cr
+   subset \tab untyped \tab - \tab  \tab - \cr
+   thr \tab numeric \tab 0.01 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   scaled \tab integer \tab 1 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   iter \tab integer \tab 200 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   plot \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
 }
 }
 

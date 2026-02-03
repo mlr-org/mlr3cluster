@@ -39,6 +39,7 @@ lrn("clust.fanny")
    memb.exp \tab numeric \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    metric \tab character \tab euclidean \tab euclidean, manhattan, SqEuclidean \tab - \cr
    stand \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   iniMem.p \tab untyped \tab NULL \tab  \tab - \cr
    maxit \tab integer \tab 500 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    tol \tab numeric \tab 1e-15 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    trace.lev \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr

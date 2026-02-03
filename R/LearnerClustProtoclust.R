@@ -31,6 +31,7 @@ LearnerClustProtoclust = R6Class(
         diag = p_lgl(default = FALSE, tags = c("train", "dist")),
         upper = p_lgl(default = FALSE, tags = c("train", "dist")),
         p = p_dbl(default = 2, tags = c("train", "dist"), depends = quote(method == "minkowski")),
+        verb = p_lgl(default = FALSE, tags = c("train", "protoclust")),
         k = p_int(1L, default = NULL, special_vals = list(NULL), tags = c("train", "protocut", "predict"))
       )
 
@@ -53,7 +54,7 @@ LearnerClustProtoclust = R6Class(
     .train = function(task) {
       ps = self$param_set
       d = invoke(stats::dist, x = task$data(), .args = ps$get_values(tags = c("train", "dist")))
-      m = invoke(protoclust::protoclust, d = d)
+      m = invoke(protoclust::protoclust, d = d, .args = ps$get_values(tags = c("train", "protoclust")))
       if (self$save_assignments) {
         self$assignments = invoke(
           protoclust::protocut,

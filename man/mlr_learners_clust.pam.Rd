@@ -36,11 +36,13 @@ lrn("clust.pam")
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   metric \tab character \tab euclidian \tab euclidian, manhattan \tab - \cr
+   metric \tab character \tab euclidean \tab euclidean, manhattan \tab - \cr
    medoids \tab untyped \tab NULL \tab  \tab - \cr
+   nstart \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    stand \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    do.swap \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
-   pamonce \tab integer \tab 0 \tab  \tab \eqn{[0, 5]}{[0, 5]} \cr
+   pamonce \tab untyped \tab FALSE \tab  \tab - \cr
+   variant \tab character \tab original \tab original, o_1, o_2, f_3, f_4, f_5, faster \tab - \cr
    trace.lev \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
 }
 }
