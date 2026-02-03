@@ -30,7 +30,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
         showplot = p_uty(
           default = FALSE,
           tags = "train",
-          custom_check = crate(function(x) test_flag(x) %check||% test_int(x, lower = 0L, upper = 2L))
+          custom_check = crate(function(x) check_flag(x) %check||% check_int(x, lower = 0L, upper = 2L))
         ),
         countmode = p_uty(
           default = NULL, tags = "train", custom_check = crate(function(x) check_integer(x, null.ok = TRUE))
