@@ -3,7 +3,10 @@
 * feat: `Mlr3Error` and `Mlr3Warning` classes for errors and warnings.
 * feat: Add protoclust learner from the protoclust package.
 * feat: EM learner now supports probabilistic assignments.
+* fix: Update learner parameter sets to match upstream package changes.
+* docs: Documentation improvements.
 * chore: mlr3cluster now requires R 3.4.0. Following data.table's minimum R version.
+* chore: mlr3cluster now requires mlr3 (>= 1.3.0) and mlr3misc (>= 0.19.0).
 
 # mlr3cluster 0.1.12
 
