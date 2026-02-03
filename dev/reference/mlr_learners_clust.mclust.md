@@ -34,15 +34,16 @@ or with the associated sugar function
 
 ## Parameters
 
-|                |         |         |
-|----------------|---------|---------|
-| Id             | Type    | Default |
-| G              | untyped | 1:9     |
-| modelNames     | untyped | \-      |
-| prior          | untyped | \-      |
-| control        | untyped | \-      |
-| initialization | untyped | \-      |
-| x              | untyped | \-      |
+|                |         |         |             |
+|----------------|---------|---------|-------------|
+| Id             | Type    | Default | Levels      |
+| G              | untyped | 1:9     |             |
+| modelNames     | untyped | \-      |             |
+| prior          | untyped | \-      |             |
+| control        | untyped | \-      |             |
+| initialization | untyped | \-      |             |
+| x              | untyped | \-      |             |
+| verbose        | logical | FALSE   | TRUE, FALSE |
 
 ## References
 
@@ -177,7 +178,7 @@ print(learner)
 #> 
 #> ── <LearnerClustMclust> (clust.mclust): Gaussian Mixture Model ─────────────────
 #> • Model: -
-#> • Parameters: list()
+#> • Parameters: verbose=FALSE
 #> • Packages: mlr3, mlr3cluster, and mclust
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
