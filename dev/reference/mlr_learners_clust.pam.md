@@ -37,16 +37,18 @@ or with the associated sugar function
 
 ## Parameters
 
-|           |           |           |                      |                  |
-|-----------|-----------|-----------|----------------------|------------------|
-| Id        | Type      | Default   | Levels               | Range            |
-| k         | integer   | \-        |                      | \\\[1, \infty)\\ |
-| metric    | character | euclidian | euclidian, manhattan | \-               |
-| medoids   | untyped   | NULL      |                      | \-               |
-| stand     | logical   | FALSE     | TRUE, FALSE          | \-               |
-| do.swap   | logical   | TRUE      | TRUE, FALSE          | \-               |
-| pamonce   | integer   | 0         |                      | \\\[0, 5\]\\     |
-| trace.lev | integer   | 0         |                      | \\\[0, \infty)\\ |
+|           |           |           |                                           |                  |
+|-----------|-----------|-----------|-------------------------------------------|------------------|
+| Id        | Type      | Default   | Levels                                    | Range            |
+| k         | integer   | \-        |                                           | \\\[1, \infty)\\ |
+| metric    | character | euclidean | euclidean, manhattan                      | \-               |
+| medoids   | untyped   | NULL      |                                           | \-               |
+| nstart    | integer   | 1         |                                           | \\\[1, \infty)\\ |
+| stand     | logical   | FALSE     | TRUE, FALSE                               | \-               |
+| do.swap   | logical   | TRUE      | TRUE, FALSE                               | \-               |
+| pamonce   | untyped   | FALSE     |                                           | \-               |
+| variant   | character | original  | original, o_1, o_2, f_3, f_4, f_5, faster | \-               |
+| trace.lev | integer   | 0         |                                           | \\\[0, \infty)\\ |
 
 ## References
 

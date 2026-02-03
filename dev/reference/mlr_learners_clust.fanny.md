@@ -43,6 +43,7 @@ or with the associated sugar function
 | memb.exp  | numeric   | 2         |                                   | \\\[1, \infty)\\ |
 | metric    | character | euclidean | euclidean, manhattan, SqEuclidean | \-               |
 | stand     | logical   | FALSE     | TRUE, FALSE                       | \-               |
+| iniMem.p  | untyped   | NULL      |                                   | \-               |
 | maxit     | integer   | 500       |                                   | \\\[0, \infty)\\ |
 | tol       | numeric   | 1e-15     |                                   | \\\[0, \infty)\\ |
 | trace.lev | integer   | 0         |                                   | \\\[0, \infty)\\ |

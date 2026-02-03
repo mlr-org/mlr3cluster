@@ -34,14 +34,15 @@ or with the associated sugar function
 
 ## Parameters
 
-|        |         |         |                       |
-|--------|---------|---------|-----------------------|
-| Id     | Type    | Default | Range                 |
-| h      | untyped | \-      | \-                    |
-| subset | untyped | \-      | \-                    |
-| scaled | integer | 1       | \\\[0, \infty)\\      |
-| iter   | integer | 200     | \\\[1, \infty)\\      |
-| thr    | numeric | 0.01    | \\(-\infty, \infty)\\ |
+|        |         |         |             |                       |
+|--------|---------|---------|-------------|-----------------------|
+| Id     | Type    | Default | Levels      | Range                 |
+| h      | untyped | \-      |             | \-                    |
+| subset | untyped | \-      |             | \-                    |
+| thr    | numeric | 0.01    |             | \\(-\infty, \infty)\\ |
+| scaled | integer | 1       |             | \\\[0, \infty)\\      |
+| iter   | integer | 200     |             | \\\[1, \infty)\\      |
+| plot   | logical | TRUE    | TRUE, FALSE | \-                    |
 
 ## References
 
@@ -172,7 +173,7 @@ print(learner)
 #> 
 #> ── <LearnerClustMeanShift> (clust.meanshift): Mean Shift ───────────────────────
 #> • Model: -
-#> • Parameters: list()
+#> • Parameters: plot=FALSE
 #> • Packages: mlr3, mlr3cluster, and LPCM
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
@@ -185,7 +186,6 @@ task = tsk("usarrests")
 
 # Train the learner on the task
 learner$train(task)
-
 
 # Print the model
 print(learner$model)

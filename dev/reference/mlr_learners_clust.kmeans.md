@@ -43,7 +43,7 @@ or with the associated sugar function
 | iter.max  | integer   | 10            |                                       | \\\[1, \infty)\\ |
 | algorithm | character | Hartigan-Wong | Hartigan-Wong, Lloyd, Forgy, MacQueen | \-               |
 | nstart    | integer   | 1             |                                       | \\\[1, \infty)\\ |
-| trace     | integer   | 0             |                                       | \\\[0, \infty)\\ |
+| trace     | logical   | FALSE         | TRUE, FALSE                           | \-               |
 
 ## References
 

@@ -83,7 +83,7 @@ returns cluster labels for the training data.</p>
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Range</td></tr><tr><td>h</td><td>untyped</td><td>-</td><td>-</td></tr><tr><td>subset</td><td>untyped</td><td>-</td><td>-</td></tr><tr><td>scaled</td><td>integer</td><td>1</td><td>\([0, \infty)\)</td></tr><tr><td>iter</td><td>integer</td><td>200</td><td>\([1, \infty)\)</td></tr><tr><td>thr</td><td>numeric</td><td>0.01</td><td>\((-\infty, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>h</td><td>untyped</td><td>-</td><td></td><td>-</td></tr><tr><td>subset</td><td>untyped</td><td>-</td><td></td><td>-</td></tr><tr><td>thr</td><td>numeric</td><td>0.01</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>scaled</td><td>integer</td><td>1</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>iter</td><td>integer</td><td>200</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>plot</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Cheng, Yizong (1995).
@@ -189,7 +189,7 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;LearnerClustMeanShift&gt;</span><span style="font-weight: bold;"> (clust.meanshift): Mean Shift</span> <span style="color: #00BBBB;">───────────────────────</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Model: -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> • Parameters: list()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Parameters: plot=FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Packages: <span style="color: #0000BB;">mlr3</span>, <span style="color: #0000BB;">mlr3cluster</span>, and <span style="color: #0000BB;">LPCM</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Predict Types: [partition]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Feature Types: logical, integer, and numeric</span>
@@ -202,7 +202,6 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Train the learner on the task</span></span></span>
 <span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="mlr_learners_clust.meanshift-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print the model</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
