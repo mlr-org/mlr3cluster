@@ -1,6 +1,6 @@
 Package: mlr3cluster
 Title: Cluster Extension for 'mlr3'
-Version: 0.1.12.9000
+Version: 0.2.0
 Authors@R: c(
     person("Maximilian", "Mücke", , "muecke.maximilian@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0000-9432-9795")),
