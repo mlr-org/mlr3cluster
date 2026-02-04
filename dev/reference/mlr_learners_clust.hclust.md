@@ -2,7 +2,7 @@
 
 Agglomerative hierarchical clustering. Calls
 [`stats::hclust()`](https://rdrr.io/r/stats/hclust.html) from package
-[stats](https://CRAN.R-project.org/package=stats).
+stats.
 
 Distance calculation is done by
 [`stats::dist()`](https://rdrr.io/r/stats/dist.html).

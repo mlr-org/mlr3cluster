@@ -2,7 +2,7 @@
 
 K-means clustering. Calls
 [`stats::kmeans()`](https://rdrr.io/r/stats/kmeans.html) from package
-[stats](https://CRAN.R-project.org/package=stats).
+stats.
 
 The `centers` parameter is set to 2 by default since
 [`stats::kmeans()`](https://rdrr.io/r/stats/kmeans.html) doesn't have a
