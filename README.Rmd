@@ -16,7 +16,6 @@ library(data.table)
 library(mlr3cluster)
 library(mlr3misc)
 lrn_clust = as.data.table(mlr3::mlr_learners)[task_type == "clust", .(key, label, packages)]
-lrn_clust = lrn_clust[key != "clust.protoclust"]
 msr_clust = as.data.table(mlr3::mlr_measures)[task_type == "clust", .(key, label, packages)]
 ```
 

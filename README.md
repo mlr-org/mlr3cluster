@@ -41,7 +41,7 @@ pak::pak("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-- A selection of 24 clustering learners that represent a wide variety of
+- A selection of 25 clustering learners that represent a wide variety of
   clusterers: partitional, hierarchical, fuzzy, etc.
 - A selection of 4 performance measures
 - Two built-in tasks to get started with clustering
@@ -79,6 +79,7 @@ create great visualizations with just one line of code!
 | [clust.meanshift](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift) | Mean Shift | [LPCM](https://cran.r-project.org/package=LPCM) |
 | [clust.optics](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics) | OPTICS | [dbscan](https://cran.r-project.org/package=dbscan) |
 | [clust.pam](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam) | Partitioning Around Medoids | [cluster](https://cran.r-project.org/package=cluster), [clue](https://cran.r-project.org/package=clue) |
+| [clust.protoclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust) | Prototype Hierarchical Clustering | [protoclust](https://cran.r-project.org/package=protoclust) |
 | [clust.xmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans) | X-Means | [RWeka](https://cran.r-project.org/package=RWeka) |
 
 ### Cluster Measures
