@@ -1,13 +1,13 @@
 # Mini Batch K-Means Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for mini batch k-means clustering implemented in
-[`ClusterR::MiniBatchKmeans()`](https://mlampros.github.io/ClusterR/reference/MiniBatchKmeans.html).
+Mini-batch k-means clustering. Calls
 [`ClusterR::MiniBatchKmeans()`](https://mlampros.github.io/ClusterR/reference/MiniBatchKmeans.html)
-doesn't have a default value for the number of clusters. Therefore, the
-`clusters` parameter here is set to 2 by default. The predict method
-uses
+from package [ClusterR](https://CRAN.R-project.org/package=ClusterR).
+
+The `clusters` parameter is set to 2 by default since
+[`ClusterR::MiniBatchKmeans()`](https://mlampros.github.io/ClusterR/reference/MiniBatchKmeans.html)
+doesn't have a default value for the number of clusters. The predict
+method uses
 [`ClusterR::predict_MBatchKMeans()`](https://mlampros.github.io/ClusterR/reference/predict_MBatchKMeans.html)
 to compute the cluster memberships for new data. The learner supports
 both partitional and fuzzy clustering.
@@ -115,6 +115,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes

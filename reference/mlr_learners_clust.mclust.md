@@ -1,9 +1,9 @@
-# Gaussian Mixture Models-Based Clustering Learner
+# Gaussian Mixture Model Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for model-based clustering implemented in
-[`mclust::Mclust()`](https://mclust-org.github.io/mclust/reference/Mclust.html).
+Gaussian mixture model-based clustering. Calls
+[`mclust::Mclust()`](https://mclust-org.github.io/mclust/reference/Mclust.html)
+from package [mclust](https://CRAN.R-project.org/package=mclust).
+
 The predict method uses
 [`mclust::predict.Mclust()`](https://mclust-org.github.io/mclust/reference/predict.Mclust.html)
 to compute the cluster memberships for new data.
@@ -34,15 +34,17 @@ or with the associated sugar function
 
 ## Parameters
 
-|                |         |         |
-|----------------|---------|---------|
-| Id             | Type    | Default |
-| G              | untyped | 1:9     |
-| modelNames     | untyped | \-      |
-| prior          | untyped | \-      |
-| control        | untyped | \-      |
-| initialization | untyped | \-      |
-| x              | untyped | \-      |
+|                |         |         |             |
+|----------------|---------|---------|-------------|
+| Id             | Type    | Default | Levels      |
+| G              | untyped | 1:9     |             |
+| modelNames     | untyped | \-      |             |
+| prior          | untyped | \-      |             |
+| control        | untyped | \-      |             |
+| initialization | untyped | \-      |             |
+| warn           | logical | FALSE   | TRUE, FALSE |
+| x              | untyped | \-      |             |
+| verbose        | logical | FALSE   | TRUE, FALSE |
 
 ## References
 
@@ -110,6 +112,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -174,9 +177,9 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.mclust")
 print(learner)
 #> 
-#> ── <LearnerClustMclust> (clust.mclust): Gaussian Mixture Models Clustering ─────
+#> ── <LearnerClustMclust> (clust.mclust): Gaussian Mixture Model ─────────────────
 #> • Model: -
-#> • Parameters: list()
+#> • Parameters: warn=FALSE, verbose=FALSE
 #> • Packages: mlr3, mlr3cluster, and mclust
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric

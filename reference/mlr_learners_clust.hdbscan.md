@@ -1,8 +1,8 @@
-# Hierarchical DBSCAN (HDBSCAN) Clustering Learner
+# HDBSCAN Clustering Learner
 
-HDBSCAN (Hierarchical DBSCAN) clustering. Calls
+HDBSCAN (hierarchical DBSCAN) clustering. Calls
 [`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html) from
-[dbscan](https://CRAN.R-project.org/package=dbscan).
+package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
 
@@ -105,6 +105,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -169,7 +170,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.hdbscan")
 print(learner)
 #> 
-#> ── <LearnerClustHDBSCAN> (clust.hdbscan): HDBSCAN Clustering ───────────────────
+#> ── <LearnerClustHDBSCAN> (clust.hdbscan): HDBSCAN ──────────────────────────────
 #> • Model: -
 #> • Parameters: minPts=5
 #> • Packages: mlr3, mlr3cluster, and dbscan

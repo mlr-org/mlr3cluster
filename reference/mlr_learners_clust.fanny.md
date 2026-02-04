@@ -1,15 +1,14 @@
 # Fuzzy Analysis Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for fuzzy clustering implemented in
-[`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html).
+Fuzzy Analysis (FANNY) clustering. Calls
+[`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html) from
+package [cluster](https://CRAN.R-project.org/package=cluster).
+
+The `k` parameter is set to 2 by default since
 [`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html) doesn't
-have a default value for the number of clusters. Therefore, the `k`
-parameter which corresponds to the number of clusters here is set to 2
-by default. The predict method copies cluster assignments and
-memberships generated for train data. The predict does not work for new
-data.
+have a default value for the number of clusters. The predict method
+copies cluster assignments and memberships generated for train data. The
+predict does not work for new data.
 
 ## Dictionary
 
@@ -44,6 +43,7 @@ or with the associated sugar function
 | memb.exp  | numeric   | 2         |                                   | \\\[1, \infty)\\ |
 | metric    | character | euclidean | euclidean, manhattan, SqEuclidean | \-               |
 | stand     | logical   | FALSE     | TRUE, FALSE                       | \-               |
+| iniMem.p  | untyped   | NULL      |                                   | \-               |
 | maxit     | integer   | 500       |                                   | \\\[0, \infty)\\ |
 | tol       | numeric   | 1e-15     |                                   | \\\[0, \infty)\\ |
 | trace.lev | integer   | 0         |                                   | \\\[0, \infty)\\ |
@@ -109,6 +109,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -173,7 +174,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.fanny")
 print(learner)
 #> 
-#> ── <LearnerClustFanny> (clust.fanny): Fuzzy Analysis Clustering ────────────────
+#> ── <LearnerClustFanny> (clust.fanny): Fuzzy Analysis ───────────────────────────
 #> • Model: -
 #> • Parameters: k=2
 #> • Packages: mlr3, mlr3cluster, and cluster
@@ -265,7 +266,10 @@ print(learner$model)
 
 # Make predictions for the task
 prediction = learner$predict(task)
-#> Warning: Learner 'clust.fanny' doesn't predict on new data and predictions may not make sense on new data.
+#> Warning: 
+#> ✖ Learner 'clust.fanny' doesn't predict on new data and predictions may not
+#>   make sense on new data.
+#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)

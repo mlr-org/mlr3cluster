@@ -5,19 +5,17 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Fuzzy Analysis Clustering Learner — mlr_learners_clust.fanny"><meta name="description" content="A LearnerClust for fuzzy clustering implemented in cluster::fanny().
-cluster::fanny() doesn't have a default value for the number of clusters.
-Therefore, the k parameter which corresponds to the number
-of clusters here is set to 2 by default.
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Fuzzy Analysis Clustering Learner — mlr_learners_clust.fanny"><meta name="description" content="Fuzzy Analysis (FANNY) clustering.
+Calls cluster::fanny() from package cluster.
+The k parameter is set to 2 by default since cluster::fanny()
+doesn't have a default value for the number of clusters.
 The predict method copies cluster assignments and memberships
-generated for train data. The predict does not work for
-new data."><meta property="og:description" content="A LearnerClust for fuzzy clustering implemented in cluster::fanny().
-cluster::fanny() doesn't have a default value for the number of clusters.
-Therefore, the k parameter which corresponds to the number
-of clusters here is set to 2 by default.
+generated for train data. The predict does not work for new data."><meta property="og:description" content="Fuzzy Analysis (FANNY) clustering.
+Calls cluster::fanny() from package cluster.
+The k parameter is set to 2 by default since cluster::fanny()
+doesn't have a default value for the number of clusters.
 The predict method copies cluster assignments and memberships
-generated for train data. The predict does not work for
-new data."></head><body>
+generated for train data. The predict does not work for new data."></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -25,7 +23,7 @@ new data."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.12</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,13 +60,12 @@ new data."></head><body>
     </div>
 
     <div class="ref-description section level2">
-    <p>A <a href="LearnerClust.html">LearnerClust</a> for fuzzy clustering implemented in <code><a href="https://rdrr.io/pkg/cluster/man/fanny.html" class="external-link">cluster::fanny()</a></code>.
-<code><a href="https://rdrr.io/pkg/cluster/man/fanny.html" class="external-link">cluster::fanny()</a></code> doesn't have a default value for the number of clusters.
-Therefore, the <code>k</code> parameter which corresponds to the number
-of clusters here is set to 2 by default.
+    <p>Fuzzy Analysis (FANNY) clustering.
+Calls <code><a href="https://rdrr.io/pkg/cluster/man/fanny.html" class="external-link">cluster::fanny()</a></code> from package <a href="https://CRAN.R-project.org/package=cluster" class="external-link"><span class="pkg">cluster</span></a>.</p>
+<p>The <code>k</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/cluster/man/fanny.html" class="external-link">cluster::fanny()</a></code>
+doesn't have a default value for the number of clusters.
 The predict method copies cluster assignments and memberships
-generated for train data. The predict does not work for
-new data.</p>
+generated for train data. The predict does not work for new data.</p>
     </div>
 
 
@@ -92,7 +89,7 @@ new data.</p>
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>memb.exp</td><td>numeric</td><td>2</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>metric</td><td>character</td><td>euclidean</td><td>euclidean, manhattan, SqEuclidean</td><td>-</td></tr><tr><td>stand</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>maxit</td><td>integer</td><td>500</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>tol</td><td>numeric</td><td>1e-15</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>trace.lev</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>memb.exp</td><td>numeric</td><td>2</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>metric</td><td>character</td><td>euclidean</td><td>euclidean, manhattan, SqEuclidean</td><td>-</td></tr><tr><td>stand</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>iniMem.p</td><td>untyped</td><td>NULL</td><td></td><td>-</td></tr><tr><td>maxit</td><td>integer</td><td>500</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>tol</td><td>numeric</td><td>1e-15</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>trace.lev</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Kaufman, Leonard, Rousseeuw, J P (2009).
@@ -136,6 +133,7 @@ for established default tuning spaces.</p></li>
 <code><a href="mlr_learners_clust.meanshift.html">mlr_learners_clust.meanshift</a></code>,
 <code><a href="mlr_learners_clust.optics.html">mlr_learners_clust.optics</a></code>,
 <code><a href="mlr_learners_clust.pam.html">mlr_learners_clust.pam</a></code>,
+<code><a href="mlr_learners_clust.protoclust.html">mlr_learners_clust.protoclust</a></code>,
 <code><a href="mlr_learners_clust.xmeans.html">mlr_learners_clust.xmeans</a></code></p></div>
     </div>
     <div class="section level2">
@@ -195,7 +193,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="va">learner</span> <span class="op">=</span> <span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">lrn</a></span><span class="op">(</span><span class="st">"clust.fanny"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;LearnerClustFanny&gt;</span><span style="font-weight: bold;"> (clust.fanny): Fuzzy Analysis Clustering</span> <span style="color: #00BBBB;">────────────────</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;LearnerClustFanny&gt;</span><span style="font-weight: bold;"> (clust.fanny): Fuzzy Analysis</span> <span style="color: #00BBBB;">───────────────────────────</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Model: -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Parameters: k=2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Packages: <span style="color: #0000BB;">mlr3</span>, <span style="color: #0000BB;">mlr3cluster</span>, and <span style="color: #0000BB;">cluster</span></span>
@@ -287,7 +285,10 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Learner 'clust.fanny' doesn't predict on new data and predictions may not make sense on new data.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Learner 'clust.fanny' doesn't predict on new data and predictions may not</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>   make sense on new data.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> → Class: Mlr3WarningInput</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>

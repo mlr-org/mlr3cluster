@@ -22,10 +22,10 @@
   : Mini Batch K-Means Clustering Learner
 - [`mlr_learners_clust.SimpleKMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.SimpleKMeans.md)
   [`LearnerClustSimpleKMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.SimpleKMeans.md)
-  : K-Means Clustering Learner from Weka
+  : K-Means Clustering Learner (Weka)
 - [`mlr_learners_clust.agnes`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.agnes.md)
   [`LearnerClustAgnes`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.agnes.md)
-  : Agglomerative Hierarchical Clustering Learner
+  : Agglomerative Nesting Clustering Learner
 - [`mlr_learners_clust.ap`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap.md)
   [`LearnerClustAP`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap.md)
   : Affinity Propagation Clustering Learner
@@ -43,15 +43,13 @@
   : Cobweb Clustering Learner
 - [`mlr_learners_clust.dbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan.md)
   [`LearnerClustDBSCAN`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan.md)
-  : Density-based Spatial Clustering of Applications with Noise (DBSCAN)
-  Clustering Learner
+  : DBSCAN Clustering Learner
 - [`mlr_learners_clust.dbscan_fpc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan_fpc.md)
   [`LearnerClustDBSCANfpc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan_fpc.md)
-  : Density-based Spatial Clustering of Applications with Noise (DBSCAN)
-  Clustering Learner
+  : DBSCAN Clustering Learner (fpc)
 - [`mlr_learners_clust.diana`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.diana.md)
   [`LearnerClustDiana`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.diana.md)
-  : Divisive Hierarchical Clustering Learner
+  : Divisive Analysis Clustering Learner
 - [`mlr_learners_clust.em`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.em.md)
   [`LearnerClustEM`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.em.md)
   : Expectation-Maximization Clustering Learner
@@ -66,10 +64,10 @@
   : Farthest First Clustering Learner
 - [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md)
   [`LearnerClustHclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md)
-  : Agglomerative Hierarchical Clustering Learner
+  : Hierarchical Clustering Learner
 - [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md)
   [`LearnerClustHDBSCAN`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md)
-  : Hierarchical DBSCAN (HDBSCAN) Clustering Learner
+  : HDBSCAN Clustering Learner
 - [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md)
   [`LearnerClustKKMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md)
   : Kernel K-Means Clustering Learner
@@ -78,20 +76,22 @@
   : K-Means Clustering Learner
 - [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md)
   [`LearnerClustMclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md)
-  : Gaussian Mixture Models-Based Clustering Learner
+  : Gaussian Mixture Model Clustering Learner
 - [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md)
   [`LearnerClustMeanShift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md)
   : Mean Shift Clustering Learner
 - [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md)
   [`LearnerClustOPTICS`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md)
-  : Ordering Points to Identify the Clustering Structure (OPTICS)
-  Clustering Learner
+  : OPTICS Clustering Learner
 - [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md)
   [`LearnerClustPAM`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md)
   : Partitioning Around Medoids Clustering Learner
+- [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md)
+  [`LearnerClustProtoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md)
+  : Prototype Hierarchical Clustering Learner
 - [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
   [`LearnerClustXMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
-  : X-means Clustering Learner
+  : X-Means Clustering Learner
 - [`mlr_measures_clust.ch`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch.md)
   : Calinski Harabasz Pseudo F-Statistic
 - [`mlr_measures_clust.dunn`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn.md)

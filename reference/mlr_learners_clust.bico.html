@@ -5,9 +5,9 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="BICO Clustering Learner — mlr_learners_clust.bico"><meta name="description" content="BICO (Fast computation of k-means coresets in a data stream) clustering.
-Calls stream::DSC_BICO() from stream."><meta property="og:description" content="BICO (Fast computation of k-means coresets in a data stream) clustering.
-Calls stream::DSC_BICO() from stream."></head><body>
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="BICO Clustering Learner — mlr_learners_clust.bico"><meta name="description" content="BICO (fast computation of k-means coresets in a data stream) clustering.
+Calls stream::DSC_BICO() from package stream."><meta property="og:description" content="BICO (fast computation of k-means coresets in a data stream) clustering.
+Calls stream::DSC_BICO() from package stream."></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -15,7 +15,7 @@ Calls stream::DSC_BICO() from stream."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.12</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,8 +52,8 @@ Calls stream::DSC_BICO() from stream."></head><body>
     </div>
 
     <div class="ref-description section level2">
-    <p>BICO (Fast computation of k-means coresets in a data stream) clustering.
-Calls <code><a href="https://rdrr.io/pkg/stream/man/DSC_BICO.html" class="external-link">stream::DSC_BICO()</a></code> from <a href="https://CRAN.R-project.org/package=stream" class="external-link"><span class="pkg">stream</span></a>.</p>
+    <p>BICO (fast computation of k-means coresets in a data stream) clustering.
+Calls <code><a href="https://rdrr.io/pkg/stream/man/DSC_BICO.html" class="external-link">stream::DSC_BICO()</a></code> from package <a href="https://CRAN.R-project.org/package=stream" class="external-link"><span class="pkg">stream</span></a>.</p>
     </div>
 
 
@@ -127,6 +127,7 @@ for established default tuning spaces.</p></li>
 <code><a href="mlr_learners_clust.meanshift.html">mlr_learners_clust.meanshift</a></code>,
 <code><a href="mlr_learners_clust.optics.html">mlr_learners_clust.optics</a></code>,
 <code><a href="mlr_learners_clust.pam.html">mlr_learners_clust.pam</a></code>,
+<code><a href="mlr_learners_clust.protoclust.html">mlr_learners_clust.protoclust</a></code>,
 <code><a href="mlr_learners_clust.xmeans.html">mlr_learners_clust.xmeans</a></code></p></div>
     </div>
     <div class="section level2">
@@ -186,7 +187,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="va">learner</span> <span class="op">=</span> <span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">lrn</a></span><span class="op">(</span><span class="st">"clust.bico"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;LearnerClustBICO&gt;</span><span style="font-weight: bold;"> (clust.bico): BICO Clustering</span> <span style="color: #00BBBB;">────────────────────────────</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;LearnerClustBICO&gt;</span><span style="font-weight: bold;"> (clust.bico): BICO</span> <span style="color: #00BBBB;">───────────────────────────────────────</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Model: -</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Parameters: list()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Packages: <span style="color: #0000BB;">mlr3</span>, <span style="color: #0000BB;">mlr3cluster</span>, and <span style="color: #0000BB;">stream</span></span>

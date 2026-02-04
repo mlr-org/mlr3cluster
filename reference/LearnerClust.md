@@ -195,7 +195,8 @@ ids
 #> [13] "clust.fanny"        "clust.featureless"  "clust.ff"          
 #> [16] "clust.hclust"       "clust.hdbscan"      "clust.kkmeans"     
 #> [19] "clust.kmeans"       "clust.mclust"       "clust.meanshift"   
-#> [22] "clust.optics"       "clust.pam"          "clust.xmeans"      
+#> [22] "clust.optics"       "clust.pam"          "clust.protoclust"  
+#> [25] "clust.xmeans"      
 
 # get a specific learner from mlr_learners:
 learner = lrn("clust.kmeans")

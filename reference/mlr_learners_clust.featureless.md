@@ -1,9 +1,7 @@
 # Featureless Clustering Learner
 
-A simple
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-which randomly (but evenly) assigns observations to `num_clusters`
-partitions (default: 1 partition).
+Featureless clustering. Randomly (but evenly) assigns observations to
+`num_clusters` partitions (default: 1 partition).
 
 ## Dictionary
 
@@ -91,6 +89,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -155,7 +154,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.featureless")
 print(learner)
 #> 
-#> ── <LearnerClustFeatureless> (clust.featureless): Featureless Clustering ───────
+#> ── <LearnerClustFeatureless> (clust.featureless): Featureless Clustering Learner
 #> • Model: -
 #> • Parameters: num_clusters=1
 #> • Packages: mlr3 and mlr3cluster

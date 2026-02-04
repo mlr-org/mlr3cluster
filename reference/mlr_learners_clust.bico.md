@@ -1,9 +1,9 @@
 # BICO Clustering Learner
 
-BICO (Fast computation of k-means coresets in a data stream) clustering.
+BICO (fast computation of k-means coresets in a data stream) clustering.
 Calls
 [`stream::DSC_BICO()`](https://rdrr.io/pkg/stream/man/DSC_BICO.html)
-from [stream](https://CRAN.R-project.org/package=stream).
+from package [stream](https://CRAN.R-project.org/package=stream).
 
 ## Dictionary
 
@@ -108,6 +108,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -172,7 +173,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.bico")
 print(learner)
 #> 
-#> ── <LearnerClustBICO> (clust.bico): BICO Clustering ────────────────────────────
+#> ── <LearnerClustBICO> (clust.bico): BICO ───────────────────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and stream

@@ -1,9 +1,9 @@
-# Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner
+# DBSCAN Clustering Learner
 
-DBSCAN (Density-based spatial clustering of applications with noise)
+DBSCAN (density-based spatial clustering of applications with noise)
 clustering. Calls
 [`dbscan::dbscan()`](https://rdrr.io/pkg/dbscan/man/dbscan.html) from
-[dbscan](https://CRAN.R-project.org/package=dbscan).
+package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
 
@@ -109,6 +109,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -173,7 +174,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.dbscan")
 print(learner)
 #> 
-#> ── <LearnerClustDBSCAN> (clust.dbscan): Density-Based Clustering ───────────────
+#> ── <LearnerClustDBSCAN> (clust.dbscan): DBSCAN ─────────────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and dbscan

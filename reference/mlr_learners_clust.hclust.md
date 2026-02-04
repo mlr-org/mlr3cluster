@@ -1,11 +1,11 @@
-# Agglomerative Hierarchical Clustering Learner
+# Hierarchical Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for agglomerative hierarchical clustering implemented in
-[`stats::hclust()`](https://rdrr.io/r/stats/hclust.html). Difference
-Calculation is done by
-[`stats::dist()`](https://rdrr.io/r/stats/dist.html)
+Agglomerative hierarchical clustering. Calls
+[`stats::hclust()`](https://rdrr.io/r/stats/hclust.html) from package
+stats.
+
+Distance calculation is done by
+[`stats::dist()`](https://rdrr.io/r/stats/dist.html).
 
 ## Dictionary
 
@@ -41,7 +41,7 @@ or with the associated sugar function
 | diag       | logical   | FALSE     | TRUE, FALSE                                                            | \-                    |
 | upper      | logical   | FALSE     | TRUE, FALSE                                                            | \-                    |
 | p          | numeric   | 2         |                                                                        | \\(-\infty, \infty)\\ |
-| k          | integer   | 2         |                                                                        | \\\[1, \infty)\\      |
+| k          | integer   | NULL      |                                                                        | \\\[1, \infty)\\      |
 
 ## References
 
@@ -134,6 +134,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -198,9 +199,9 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.hclust")
 print(learner)
 #> 
-#> ── <LearnerClustHclust> (clust.hclust): Agglomerative Hierarchical Clustering ──
+#> ── <LearnerClustHclust> (clust.hclust): Hierarchical Clustering ────────────────
 #> • Model: -
-#> • Parameters: distmethod=euclidean, k=2
+#> • Parameters: k=2
 #> • Packages: mlr3, mlr3cluster, and stats
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
@@ -227,7 +228,10 @@ print(learner$model)
 
 # Make predictions for the task
 prediction = learner$predict(task)
-#> Warning: Learner 'clust.hclust' doesn't predict on new data and predictions may not make sense on new data.
+#> Warning: 
+#> ✖ Learner 'clust.hclust' doesn't predict on new data and predictions may not
+#>   make sense on new data.
+#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)

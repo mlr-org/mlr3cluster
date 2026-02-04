@@ -1,13 +1,12 @@
 # Partitioning Around Medoids Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for PAM clustering implemented in
-[`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html).
+Partitioning Around Medoids (PAM) clustering. Calls
+[`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html) from
+package [cluster](https://CRAN.R-project.org/package=cluster).
+
+The `k` parameter is set to 2 by default since
 [`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html) doesn't
-have a default value for the number of clusters. Therefore, the `k`
-parameter which corresponds to the number of clusters here is set to 2
-by default. The predict method uses
+have a default value for the number of clusters. The predict method uses
 [`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
 compute the cluster memberships for new data.
 
@@ -33,20 +32,23 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [cluster](https://CRAN.R-project.org/package=cluster)
+  [cluster](https://CRAN.R-project.org/package=cluster),
+  [clue](https://CRAN.R-project.org/package=clue)
 
 ## Parameters
 
-|           |           |           |                      |                  |
-|-----------|-----------|-----------|----------------------|------------------|
-| Id        | Type      | Default   | Levels               | Range            |
-| k         | integer   | \-        |                      | \\\[1, \infty)\\ |
-| metric    | character | euclidian | euclidian, manhattan | \-               |
-| medoids   | untyped   | NULL      |                      | \-               |
-| stand     | logical   | FALSE     | TRUE, FALSE          | \-               |
-| do.swap   | logical   | TRUE      | TRUE, FALSE          | \-               |
-| pamonce   | integer   | 0         |                      | \\\[0, 5\]\\     |
-| trace.lev | integer   | 0         |                      | \\\[0, \infty)\\ |
+|           |           |           |                                           |                  |
+|-----------|-----------|-----------|-------------------------------------------|------------------|
+| Id        | Type      | Default   | Levels                                    | Range            |
+| k         | integer   | \-        |                                           | \\\[1, \infty)\\ |
+| metric    | character | euclidean | euclidean, manhattan                      | \-               |
+| medoids   | untyped   | NULL      |                                           | \-               |
+| nstart    | integer   | 1         |                                           | \\\[1, \infty)\\ |
+| stand     | logical   | FALSE     | TRUE, FALSE                               | \-               |
+| do.swap   | logical   | TRUE      | TRUE, FALSE                               | \-               |
+| pamonce   | untyped   | FALSE     |                                           | \-               |
+| variant   | character | original  | original, o_1, o_2, f_3, f_4, f_5, faster | \-               |
+| trace.lev | integer   | 0         |                                           | \\\[0, \infty)\\ |
 
 ## References
 
@@ -116,6 +118,7 @@ Other Learner:
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -183,7 +186,7 @@ print(learner)
 #> ── <LearnerClustPAM> (clust.pam): Partitioning Around Medoids ──────────────────
 #> • Model: -
 #> • Parameters: k=2
-#> • Packages: mlr3, mlr3cluster, and cluster
+#> • Packages: mlr3, mlr3cluster, cluster, and clue
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)

@@ -1,9 +1,9 @@
-# K-Means Clustering Learner from Weka
+# K-Means Clustering Learner (Weka)
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for Simple K Means clustering implemented in
-[`RWeka::SimpleKMeans()`](https://rdrr.io/pkg/RWeka/man/Weka_clusterers.html).
+K-means clustering (Weka). Calls
+[`RWeka::SimpleKMeans()`](https://rdrr.io/pkg/RWeka/man/Weka_clusterers.html)
+from package [RWeka](https://CRAN.R-project.org/package=RWeka).
+
 The predict method uses
 [`RWeka::predict.Weka_clusterer()`](https://rdrr.io/pkg/RWeka/man/predict_Weka_clusterer.html)
 to compute the cluster memberships for new data.
@@ -129,6 +129,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes

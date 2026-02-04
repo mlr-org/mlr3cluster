@@ -1,11 +1,12 @@
 # Affinity Propagation Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for Affinity Propagation clustering implemented in
-[`apcluster::apcluster()`](https://rdrr.io/pkg/apcluster/man/apcluster-methods.html).
+Affinity Propagation clustering. Calls
 [`apcluster::apcluster()`](https://rdrr.io/pkg/apcluster/man/apcluster-methods.html)
-doesn't have set a default for similarity function. The predict method
+from package [apcluster](https://CRAN.R-project.org/package=apcluster).
+
+Note that
+[`apcluster::apcluster()`](https://rdrr.io/pkg/apcluster/man/apcluster-methods.html)
+doesn't have a default for the similarity function. The predict method
 computes the closest cluster exemplar to find the cluster memberships
 for new data. The code is taken from
 [StackOverflow](https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi)
@@ -116,6 +117,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -180,7 +182,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.ap")
 print(learner)
 #> 
-#> ── <LearnerClustAP> (clust.ap): Affinity Propagation Clustering ────────────────
+#> ── <LearnerClustAP> (clust.ap): Affinity Propagation ───────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and apcluster

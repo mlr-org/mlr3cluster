@@ -1,10 +1,10 @@
-# Divisive Hierarchical Clustering Learner
+# Divisive Analysis Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for divisive hierarchical clustering implemented in
-[`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html). The
-predict method uses
+Divisive hierarchical clustering. Calls
+[`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html) from
+package [cluster](https://CRAN.R-project.org/package=cluster).
+
+The predict method uses
 [`stats::cutree()`](https://rdrr.io/r/stats/cutree.html) which cuts the
 tree resulting from hierarchical clustering into specified number of
 groups (see parameter `k`). The default value for `k` is 2.
@@ -104,6 +104,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -168,7 +169,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.diana")
 print(learner)
 #> 
-#> ── <LearnerClustDiana> (clust.diana): Divisive Hierarchical Clustering ─────────
+#> ── <LearnerClustDiana> (clust.diana): Divisive Analysis ────────────────────────
 #> • Model: -
 #> • Parameters: k=2
 #> • Packages: mlr3, mlr3cluster, and cluster
@@ -258,7 +259,10 @@ print(learner$model)
 
 # Make predictions for the task
 prediction = learner$predict(task)
-#> Warning: Learner 'clust.diana' doesn't predict on new data and predictions may not make sense on new data.
+#> Warning: 
+#> ✖ Learner 'clust.diana' doesn't predict on new data and predictions may not
+#>   make sense on new data.
+#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)

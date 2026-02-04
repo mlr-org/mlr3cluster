@@ -1,12 +1,12 @@
 # Expectation-Maximization Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for Expectation-Maximization clustering implemented in
-[`RWeka::list_Weka_interfaces()`](https://rdrr.io/pkg/RWeka/man/Weka_interfaces.html).
+Expectation-Maximization clustering. Calls the EM Weka clusterer from
+package [RWeka](https://CRAN.R-project.org/package=RWeka).
+
 The predict method uses
 [`RWeka::predict.Weka_clusterer()`](https://rdrr.io/pkg/RWeka/man/predict_Weka_clusterer.html)
-to compute the cluster memberships for new data.
+to compute the cluster memberships for new data. The learner supports
+both partitional and fuzzy clustering.
 
 ## Dictionary
 
@@ -24,7 +24,7 @@ or with the associated sugar function
 
 - Task type: “clust”
 
-- Predict Types: “partition”
+- Predict Types: “partition”, “prob”
 
 - Feature Types: “logical”, “integer”, “numeric”
 
@@ -116,6 +116,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -180,14 +181,14 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.em")
 print(learner)
 #> 
-#> ── <LearnerClustEM> (clust.em): Expectation-Maximization Clustering ────────────
+#> ── <LearnerClustEM> (clust.em): Expectation-Maximization ───────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and RWeka
-#> • Predict Types: [partition]
+#> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, and partitional
+#> • Properties: complete, exclusive, fuzzy, and partitional
 #> • Other settings: use_weights = 'error'
 
 # Define a Task

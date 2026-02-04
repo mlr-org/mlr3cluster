@@ -1,9 +1,9 @@
-# Ordering Points to Identify the Clustering Structure (OPTICS) Clustering Learner
+# OPTICS Clustering Learner
 
-OPTICS (Ordering points to identify the clustering structure) point
-ordering clustering. Calls
+OPTICS (ordering points to identify the clustering structure)
+clustering. Calls
 [`dbscan::optics()`](https://rdrr.io/pkg/dbscan/man/optics.html) from
-[dbscan](https://CRAN.R-project.org/package=dbscan).
+package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
 
@@ -108,6 +108,7 @@ Other Learner:
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -172,7 +173,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.optics")
 print(learner)
 #> 
-#> ── <LearnerClustOPTICS> (clust.optics): OPTICS Clustering ──────────────────────
+#> ── <LearnerClustOPTICS> (clust.optics): OPTICS ─────────────────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and dbscan

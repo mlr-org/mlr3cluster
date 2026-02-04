@@ -1,12 +1,12 @@
 # Fuzzy C-Means Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for fuzzy clustering implemented in
-[`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html).
+Fuzzy c-means clustering. Calls
+[`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html) from
+package [e1071](https://CRAN.R-project.org/package=e1071).
+
+The `centers` parameter is set to 2 by default since
 [`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html) doesn't
-have a default value for the number of clusters. Therefore, the
-`centers` parameter here is set to 2 by default. The predict method uses
+have a default value for the number of clusters. The predict method uses
 [`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
 compute the cluster memberships for new data.
 
@@ -32,7 +32,8 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [e1071](https://CRAN.R-project.org/package=e1071)
+  [e1071](https://CRAN.R-project.org/package=e1071),
+  [clue](https://CRAN.R-project.org/package=clue)
 
 ## Parameters
 
@@ -114,6 +115,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -178,10 +180,10 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.cmeans")
 print(learner)
 #> 
-#> ── <LearnerClustCMeans> (clust.cmeans): Fuzzy C-Means Clustering Learner ───────
+#> ── <LearnerClustCMeans> (clust.cmeans): Fuzzy C-Means ──────────────────────────
 #> • Model: -
 #> • Parameters: centers=2
-#> • Packages: mlr3, mlr3cluster, and e1071
+#> • Packages: mlr3, mlr3cluster, e1071, and clue
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)

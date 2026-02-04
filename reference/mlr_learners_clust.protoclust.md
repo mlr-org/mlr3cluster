@@ -1,12 +1,9 @@
-# Mean Shift Clustering Learner
+# Prototype Hierarchical Clustering Learner
 
-Mean shift clustering. Calls
-[`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html) from package
-[LPCM](https://CRAN.R-project.org/package=LPCM).
-
-There is no predict method for
-[`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html), so the method
-returns cluster labels for the training data.
+Hierarchical clustering using minimax linkage with prototypes. Calls
+[`protoclust::protoclust()`](https://rdrr.io/pkg/protoclust/man/protoclust.html)
+from package
+[protoclust](https://CRAN.R-project.org/package=protoclust).
 
 ## Dictionary
 
@@ -17,8 +14,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.meanshift")
-    lrn("clust.meanshift")
+    mlr_learners$get("clust.protoclust")
+    lrn("clust.protoclust")
 
 ## Meta Information
 
@@ -30,25 +27,25 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [LPCM](https://CRAN.R-project.org/package=LPCM)
+  [protoclust](https://CRAN.R-project.org/package=protoclust)
 
 ## Parameters
 
-|        |         |         |             |                       |
-|--------|---------|---------|-------------|-----------------------|
-| Id     | Type    | Default | Levels      | Range                 |
-| h      | untyped | \-      |             | \-                    |
-| subset | untyped | \-      |             | \-                    |
-| thr    | numeric | 0.01    |             | \\(-\infty, \infty)\\ |
-| scaled | integer | 1       |             | \\\[0, \infty)\\      |
-| iter   | integer | 200     |             | \\\[1, \infty)\\      |
-| plot   | logical | TRUE    | TRUE, FALSE | \-                    |
+|        |           |           |                                                            |                       |
+|--------|-----------|-----------|------------------------------------------------------------|-----------------------|
+| Id     | Type      | Default   | Levels                                                     | Range                 |
+| method | character | euclidean | euclidean, maximum, manhattan, canberra, binary, minkowski | \-                    |
+| diag   | logical   | FALSE     | TRUE, FALSE                                                | \-                    |
+| upper  | logical   | FALSE     | TRUE, FALSE                                                | \-                    |
+| p      | numeric   | 2         |                                                            | \\(-\infty, \infty)\\ |
+| verb   | logical   | FALSE     | TRUE, FALSE                                                | \-                    |
+| k      | integer   | NULL      |                                                            | \\\[1, \infty)\\      |
 
 ## References
 
-Cheng, Yizong (1995). “Mean shift, mode seeking, and clustering.” *IEEE
-transactions on pattern analysis and machine intelligence*, **17**(8),
-790–799.
+Bien, Jacob, Tibshirani, Robert (2011). “Hierarchical Clustering with
+Prototypes via Minimax Linkage.” *Journal of the American Statistical
+Association*, **106**(495), 1075–1084.
 
 ## See also
 
@@ -104,24 +101,24 @@ Other Learner:
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
+[`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
-[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
--\> `LearnerClustMeanShift`
+-\> `LearnerClustProtoclust`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustMeanShift$new()`](#method-LearnerClustMeanShift-new)
+- [`LearnerClustProtoclust$new()`](#method-LearnerClustProtoclust-new)
 
-- [`LearnerClustMeanShift$clone()`](#method-LearnerClustMeanShift-clone)
+- [`LearnerClustProtoclust$clone()`](#method-LearnerClustProtoclust-clone)
 
 Inherited methods
 
@@ -146,7 +143,7 @@ Creates a new instance of this
 
 #### Usage
 
-    LearnerClustMeanShift$new()
+    LearnerClustProtoclust$new()
 
 ------------------------------------------------------------------------
 
@@ -156,7 +153,7 @@ The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustMeanShift$clone(deep = FALSE)
+    LearnerClustProtoclust$clone(deep = FALSE)
 
 #### Arguments
 
@@ -168,17 +165,17 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.meanshift")
+learner = lrn("clust.protoclust")
 print(learner)
 #> 
-#> ── <LearnerClustMeanShift> (clust.meanshift): Mean Shift ───────────────────────
+#> ── <LearnerClustProtoclust> (clust.protoclust): Prototype Hierarchical Clusterin
 #> • Model: -
-#> • Parameters: plot=FALSE
-#> • Packages: mlr3, mlr3cluster, and LPCM
+#> • Parameters: k=2
+#> • Packages: mlr3, mlr3cluster, and protoclust
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, and partitional
+#> • Properties: complete, exclusive, and hierarchical
 #> • Other settings: use_weights = 'error'
 
 # Define a Task
@@ -190,22 +187,23 @@ learner$train(task)
 # Print the model
 print(learner$model)
 #> 
-#> Type plot( $ learner model ) to see a graphical display of the fitted object. 
+#> Call:
+#> protoclust::protoclust(d = d)
 #> 
-#> Type names( $ learner model ) to see an overview of items available. 
+#> Cluster method   : minimax 
+#> Distance         : euclidean 
+#> Number of objects: 50 
 #> 
-#> The data have been scaled by dividing through 
-#> 292 16.6 38.7 59
 
 # Make predictions for the task
 prediction = learner$predict(task)
 #> Warning: 
-#> ✖ Learner 'clust.meanshift' doesn't predict on new data and predictions may not
-#>   make sense on new data.
+#> ✖ Learner 'clust.protoclust' doesn't predict on new data and predictions may
+#>   not make sense on new data.
 #> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.6147292 
+#>  0.1532626 
 ```

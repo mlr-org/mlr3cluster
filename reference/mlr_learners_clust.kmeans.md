@@ -1,12 +1,12 @@
 # K-Means Clustering Learner
 
-A
-[LearnerClust](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-for k-means clustering implemented in
-[`stats::kmeans()`](https://rdrr.io/r/stats/kmeans.html).
+K-means clustering. Calls
+[`stats::kmeans()`](https://rdrr.io/r/stats/kmeans.html) from package
+stats.
+
+The `centers` parameter is set to 2 by default since
 [`stats::kmeans()`](https://rdrr.io/r/stats/kmeans.html) doesn't have a
-default value for the number of clusters. Therefore, the `centers`
-parameter here is set to 2 by default. The predict method uses
+default value for the number of clusters. The predict method uses
 [`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
 compute the cluster memberships for new data.
 
@@ -43,7 +43,7 @@ or with the associated sugar function
 | iter.max  | integer   | 10            |                                       | \\\[1, \infty)\\ |
 | algorithm | character | Hartigan-Wong | Hartigan-Wong, Lloyd, Forgy, MacQueen | \-               |
 | nstart    | integer   | 1             |                                       | \\\[1, \infty)\\ |
-| trace     | integer   | 0             |                                       | \\\[0, \infty)\\ |
+| trace     | logical   | FALSE         | TRUE, FALSE                           | \-               |
 
 ## References
 
@@ -120,6 +120,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes

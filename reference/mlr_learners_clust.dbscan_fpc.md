@@ -1,8 +1,8 @@
-# Density-based Spatial Clustering of Applications with Noise (DBSCAN) Clustering Learner
+# DBSCAN Clustering Learner (fpc)
 
-DBSCAN (Density-based spatial clustering of applications with noise)
+DBSCAN (density-based spatial clustering of applications with noise)
 clustering. Calls
-[`fpc::dbscan()`](https://rdrr.io/pkg/fpc/man/dbscan.html) from
+[`fpc::dbscan()`](https://rdrr.io/pkg/fpc/man/dbscan.html) from package
 [fpc](https://CRAN.R-project.org/package=fpc).
 
 ## Dictionary
@@ -104,6 +104,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
+[`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
@@ -168,7 +169,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.dbscan_fpc")
 print(learner)
 #> 
-#> ── <LearnerClustDBSCANfpc> (clust.dbscan_fpc): Density-Based Clustering with fpc
+#> ── <LearnerClustDBSCANfpc> (clust.dbscan_fpc): DBSCAN (fpc) ────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and fpc
