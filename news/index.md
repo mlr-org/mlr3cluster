@@ -2,6 +2,8 @@
 
 ## mlr3cluster 0.2.0
 
+CRAN release: 2026-02-04
+
 - feat: `Mlr3Error` and `Mlr3Warning` classes for errors and warnings.
 - feat: Add protoclust learner from the protoclust package.
 - feat: EM learner now supports probabilistic assignments.

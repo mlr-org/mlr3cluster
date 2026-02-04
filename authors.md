@@ -15,7 +15,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/mlr-org/mlr3cluster/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/mlr-org/mlr3cluster/blob/v0.2.0/DESCRIPTION)
 
 Mücke M, Pulatov D, Lang M (2026). *mlr3cluster: Cluster Extension for
 'mlr3'*. R package version 0.2.0, <https://mlr3cluster.mlr-org.com>.
