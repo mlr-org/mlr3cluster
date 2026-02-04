@@ -9,9 +9,11 @@
 ^Meta$
 ^README\.Rmd$
 ^README\.html$
+^\.?air\.toml$
 ^\.Renviron$
 ^\.Rproj\.user$
 ^\.ccache$
+^\.claude$
 ^\.dockerignore$
 ^\.editorconfig$
 ^\.gitattributes$
