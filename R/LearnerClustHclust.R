@@ -4,7 +4,7 @@
 #'
 #' @description
 #' Agglomerative hierarchical clustering.
-#' Calls [stats::hclust()] from package \CRANpkg{stats}.
+#' Calls [stats::hclust()] from package \pkg{stats}.
 #'
 #' Distance calculation is done by [stats::dist()].
 #'

@@ -6,7 +6,7 @@
 \title{K-Means Clustering Learner}
 \description{
 K-means clustering.
-Calls \code{\link[stats:kmeans]{stats::kmeans()}} from package \CRANpkg{stats}.
+Calls \code{\link[stats:kmeans]{stats::kmeans()}} from package \pkg{stats}.
 
 The \code{centers} parameter is set to 2 by default since \code{\link[stats:kmeans]{stats::kmeans()}}
 doesn't have a default value for the number of clusters.

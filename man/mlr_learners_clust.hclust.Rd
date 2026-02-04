@@ -6,7 +6,7 @@
 \title{Hierarchical Clustering Learner}
 \description{
 Agglomerative hierarchical clustering.
-Calls \code{\link[stats:hclust]{stats::hclust()}} from package \CRANpkg{stats}.
+Calls \code{\link[stats:hclust]{stats::hclust()}} from package \pkg{stats}.
 
 Distance calculation is done by \code{\link[stats:dist]{stats::dist()}}.
 }
