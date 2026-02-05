@@ -25,8 +25,5 @@ expect_prediction_fuzzy = function(p, predict_type) {
 
   partition = max.col(p$prob, ties.method = "first")
   partition = as.numeric(colnames(p$prob)[partition])
-  if (!all(partition == p$partition)) {
-    browser()
-  }
   expect_all_true(partition == p$partition)
 }
