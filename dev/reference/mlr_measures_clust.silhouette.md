@@ -3,7 +3,7 @@
 The score function calls
 [`cluster::silhouette()`](https://rdrr.io/pkg/cluster/man/silhouette.html)
 from package [cluster](https://CRAN.R-project.org/package=cluster).
-"sil_width" is used subset output of the function call.
+"sil_width" is used to subset the output of the function call.
 
 ## Format
 
@@ -13,7 +13,7 @@ inheriting from
 
 ## Construction
 
-This measures can be retrieved from the dictionary
+This measure can be retrieved from the dictionary
 [mlr3::mlr_measures](https://mlr3.mlr-org.com/reference/mlr_measures.html):
 
     mlr_measures$get("clust.silhouette")

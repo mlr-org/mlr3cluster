@@ -114,15 +114,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustFF`
+-\> `LearnerClustFarthestFirst`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustFarthestFirst$new()`](#method-LearnerClustFF-new)
+- [`LearnerClustFarthestFirst$new()`](#method-LearnerClustFarthestFirst-new)
 
-- [`LearnerClustFarthestFirst$clone()`](#method-LearnerClustFF-clone)
+- [`LearnerClustFarthestFirst$clone()`](#method-LearnerClustFarthestFirst-clone)
 
 Inherited methods
 
@@ -172,7 +172,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.ff")
 print(learner)
 #> 
-#> ── <LearnerClustFF> (clust.ff): Farthest First ─────────────────────────────────
+#> ── <LearnerClustFarthestFirst> (clust.ff): Farthest First ──────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and RWeka
