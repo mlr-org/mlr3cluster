@@ -63,7 +63,7 @@ LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
     },
 
     .predict = function(task) {
-      partition = as.integer(invoke(predict, self$model, data = self$model$data), newdata = task$data())
+      partition = as.integer(invoke(predict, self$model, data = self$model$data, newdata = task$data()))
       PredictionClust$new(task = task, partition = partition)
     }
   )

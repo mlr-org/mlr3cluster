@@ -7,31 +7,28 @@
 #'
 #' @return [PredictionClust].
 #' @export
-#' @examples
-#' if (requireNamespace("e1071")) {
-#'   # create a prediction object
-#'   task = tsk("usarrests")
-#'   learner = lrn("clust.kmeans")
-#'   learner = lrn("clust.cmeans", predict_type = "prob")
-#'   learner$train(task)
-#'   p = learner$predict(task)
+#' @examplesIf mlr3misc::require_namespaces(c("e1071", "clue"), quietly = TRUE)
+#' # create a prediction object
+#' task = tsk("usarrests")
+#' learner = lrn("clust.cmeans", predict_type = "prob")
+#' learner$train(task)
+#' p = learner$predict(task)
 #'
-#'   # convert to a data.table
-#'   tab = as.data.table(p)
+#' # convert to a data.table
+#' tab = as.data.table(p)
 #'
-#'   # convert back to a Prediction
-#'   as_prediction_clust(tab)
+#' # convert back to a Prediction
+#' as_prediction_clust(tab)
 #'
-#'   # split data.table into a 3 data.tables based on UrbanPop
-#'   f = cut(task$data(rows = tab$row_ids)$UrbanPop, 3)
-#'   tabs = split(tab, f)
+#' # split data.table into a 3 data.tables based on UrbanPop
+#' f = cut(task$data(rows = tab$row_ids)$UrbanPop, 3)
+#' tabs = split(tab, f)
 #'
-#'   # convert back to list of predictions
-#'   preds = lapply(tabs, as_prediction_clust)
+#' # convert back to list of predictions
+#' preds = lapply(tabs, as_prediction_clust)
 #'
-#'   # calculate performance in each group
-#'   sapply(preds, function(p) p$score(task = task))
-#' }
+#' # calculate performance in each group
+#' sapply(preds, function(p) p$score(task = task))
 as_prediction_clust = function(x, ...) {
   UseMethod("as_prediction_clust")
 }

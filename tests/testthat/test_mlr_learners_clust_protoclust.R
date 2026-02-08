@@ -1,3 +1,5 @@
+skip_if_not_installed("protoclust")
+
 test_that("autotest", {
   learner = lrn("clust.protoclust")
   expect_learner(learner)

@@ -8,11 +8,11 @@
 }
 \description{
 The score function calls \code{\link[fpc:cluster.stats]{fpc::cluster.stats()}} from package \CRANpkg{fpc}.
-"ch" is used subset output of the function call.
+"ch" is used to subset the output of the function call.
 }
 \section{Construction}{
 
-This measures can be retrieved from the dictionary \link[mlr3:mlr_measures]{mlr3::mlr_measures}:
+This measure can be retrieved from the dictionary \link[mlr3:mlr_measures]{mlr3::mlr_measures}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.ch")
 msr("clust.ch")

@@ -57,7 +57,7 @@ PredictionClust = R6Class("PredictionClust",
     #' @field partition (`integer()`)\cr
     #' Access the stored partition.
     partition = function() {
-      self$data$partition %??% rep(NA_real_, length(self$data$row_ids))
+      self$data$partition %??% rep(NA_integer_, length(self$data$row_ids))
     },
 
     #' @field prob (`matrix()`)\cr

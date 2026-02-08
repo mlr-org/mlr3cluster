@@ -4,10 +4,10 @@
 #'
 #' @description
 #' The score function calls [cluster::silhouette()] from package \CRANpkg{cluster}.
-#' "<%= measures[[id]]$crit %>" is used subset output of the function call.
+#' "<%= measures[[id]]$crit %>" is used to subset the output of the function call.
 #'
 #' @section Construction:
-#' This measures can be retrieved from the dictionary [mlr3::mlr_measures]:
+#' This measure can be retrieved from the dictionary [mlr3::mlr_measures]:
 #' ```
 #' mlr_measures$get("clust.<%= id %>")
 #' msr("clust.<%= id %>")
