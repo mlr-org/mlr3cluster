@@ -1,5 +1,9 @@
 # mlr3cluster (development version)
 
+* fix: Correctly pass `newdata` argument in `LearnerClustDBSCANfpc` predict method.
+* fix: Fix error message in `LearnerClustPAM` to report number of observations instead of `k`.
+* docs: Fix typos in measure documentation.
+
 # mlr3cluster 0.2.0
 
 * feat: `Mlr3Error` and `Mlr3Warning` classes for errors and warnings.
