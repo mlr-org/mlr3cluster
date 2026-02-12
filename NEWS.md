@@ -2,6 +2,7 @@
 
 * fix: Correctly pass `newdata` argument in `LearnerClustDBSCANfpc` predict method.
 * fix: Fix error message in `LearnerClustPAM` to report number of observations instead of `k`.
+* fix: Fix range of silhouette measure to `[-1, 1]`.
 * docs: Fix typos in measure documentation.
 
 # mlr3cluster 0.2.0
@@ -50,7 +51,7 @@
 
 # mlr3cluster 0.1.6
 
-* feat: Add states as row names to `usarrest` task.
+* feat: Add states as row names to `usarrests` task.
 * fix: Remove dictionary items after unloading package.
 
 # mlr3cluster 0.1.5

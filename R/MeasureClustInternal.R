@@ -65,7 +65,7 @@ MeasureClustSil = R6Class("MeasureClustSil",
 #'
 #' @templateVar id silhouette
 #' @template measure_sil
-measures$silhouette = make_measure_info("sil_width", "Silhouette", lower = 0, upper = Inf, minimize = FALSE)
+measures$silhouette = make_measure_info("sil_width", "Silhouette", lower = -1, upper = 1, minimize = FALSE)
 
 #' @title Calinski Harabasz Pseudo F-Statistic
 #'

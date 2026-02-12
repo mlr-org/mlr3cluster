@@ -22,7 +22,7 @@ msr("clust.silhouette")
 \section{Meta Information}{
 
 \itemize{
-\item Range: \eqn{[0, \infty)}{[0, Inf)}
+\item Range: \eqn{[-1, 1]}{[-1, 1]}
 \item Minimize: \code{FALSE}
 \item Required predict type: \code{partition}
 }

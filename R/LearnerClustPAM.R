@@ -66,7 +66,7 @@ LearnerClustPAM = R6Class("LearnerClustPAM",
       pv = self$param_set$get_values(tags = "train")
       if (!is.null(pv$medoids)) {
         if (length(pv$medoids) != pv$k) {
-          error_config("number of `medoids`' needs to match `k`!")
+          error_config("number of `medoids` needs to match `k`!")
         }
         if (sum(pv$medoids <= task$nrow & pv$medoids >= 1L) != pv$k) {
           error_input("`medoids` need to contain valid indices from 1 to %i (number of observations)!", task$nrow)
