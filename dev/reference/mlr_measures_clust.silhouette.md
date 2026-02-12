@@ -21,7 +21,7 @@ This measure can be retrieved from the dictionary
 
 ## Meta Information
 
-- Range: \\\[0, \infty)\\
+- Range: \\\[-1, 1\]\\
 
 - Minimize: `FALSE`
 

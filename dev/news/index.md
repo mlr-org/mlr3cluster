@@ -6,6 +6,7 @@
   predict method.
 - fix: Fix error message in `LearnerClustPAM` to report number of
   observations instead of `k`.
+- fix: Fix range of silhouette measure to `[-1, 1]`.
 - docs: Fix typos in measure documentation.
 
 ## mlr3cluster 0.2.0
@@ -73,7 +74,7 @@ CRAN release: 2023-03-10
 
 CRAN release: 2022-12-22
 
-- feat: Add states as row names to `usarrest` task.
+- feat: Add states as row names to `usarrests` task.
 - fix: Remove dictionary items after unloading package.
 
 ## mlr3cluster 0.1.5
