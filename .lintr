@@ -12,6 +12,9 @@ linters: linters_with_defaults(
       stop = "use stopf()",
       warning = "use warningf()",
       message = "use messagef()",
+      # misc
+      which.min = "use which_min()",
+      which.max = "use which_max()",
       # perf
       ifelse = "use fifelse()",
       rank = "use frank()",
