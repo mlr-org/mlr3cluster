@@ -18,7 +18,7 @@ i.e. the predicted partition and cluster probability.
 
 - `prob`:
 
-  ([`matrix()`](https://rdrr.io/r/base/matrix.html))  
+  ([`matrix()`](https://rdrr.io/r/base/matrix.html) \| `NULL`)  
   Access to the stored probabilities.
 
 ## Methods
@@ -59,7 +59,8 @@ Creates a new instance of this
 
 - `task`:
 
-  ([TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md))  
+  ([TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)
+  \| `NULL`)  
   Task, used to extract defaults for `row_ids`.
 
 - `row_ids`:
@@ -70,12 +71,12 @@ Creates a new instance of this
 
 - `partition`:
 
-  ([`integer()`](https://rdrr.io/r/base/integer.html))  
+  ([`integer()`](https://rdrr.io/r/base/integer.html) \| `NULL`)  
   Vector of cluster partitions.
 
 - `prob`:
 
-  ([`matrix()`](https://rdrr.io/r/base/matrix.html))  
+  ([`matrix()`](https://rdrr.io/r/base/matrix.html) \| `NULL`)  
   Numeric matrix of cluster membership probabilities with one column for
   each cluster and one row for each observation. Columns must be named
   with cluster numbers, row names are automatically removed. If `prob`

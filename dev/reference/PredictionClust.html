@@ -69,7 +69,7 @@ Access the stored partition.</p></dd>
 
 
 <dt><code>prob</code></dt>
-<dd><p>(<code><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix()</a></code>)<br>
+<dd><p>(<code><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix()</a></code> | <code>NULL</code>)<br>
 Access to the stored probabilities.</p></dd>
 
 
@@ -105,7 +105,7 @@ Access to the stored probabilities.</p></dd>
 <div class="section">
 <h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>task</code></dt>
-<dd><p>(<a href="TaskClust.html">TaskClust</a>)<br>
+<dd><p>(<a href="TaskClust.html">TaskClust</a> | <code>NULL</code>)<br>
 Task, used to extract defaults for <code>row_ids</code>.</p></dd>
 
 
@@ -115,12 +115,12 @@ Row ids of the predicted observations, i.e. the row ids of the test set.</p></dd
 
 
 <dt><code>partition</code></dt>
-<dd><p>(<code><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer()</a></code>)<br>
+<dd><p>(<code><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer()</a></code> | <code>NULL</code>)<br>
 Vector of cluster partitions.</p></dd>
 
 
 <dt><code>prob</code></dt>
-<dd><p>(<code><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix()</a></code>)<br>
+<dd><p>(<code><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix()</a></code> | <code>NULL</code>)<br>
 Numeric matrix of cluster membership probabilities with one column for each cluster
 and one row for each observation.
 Columns must be named with cluster numbers, row names are automatically removed.

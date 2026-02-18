@@ -35,7 +35,7 @@ Predefined learners can be found in the
 
 - `save_assignments`:
 
-  ([`logical()`](https://rdrr.io/r/base/logical.html))  
+  (`logical(1)`)  
   Should assignments for 'train' data be saved in the learner? Default
   is `TRUE`.
 
