@@ -36,7 +36,7 @@ LearnerClust = R6Class("LearnerClust",
     #' Cluster assignments from learned model.
     assignments = NULL,
 
-    #' @field save_assignments (`logical()`)\cr
+    #' @field save_assignments (`logical(1)`)\cr
     #' Should assignments for 'train' data be saved in the learner?
     #' Default is `TRUE`.
     save_assignments = TRUE,

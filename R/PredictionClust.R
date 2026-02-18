@@ -20,16 +20,16 @@ PredictionClust = R6Class("PredictionClust",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     #'
-    #' @param task ([TaskClust])\cr
+    #' @param task ([TaskClust] | `NULL`)\cr
     #'   Task, used to extract defaults for `row_ids`.
     #'
     #' @param row_ids (`integer()`)\cr
     #'   Row ids of the predicted observations, i.e. the row ids of the test set.
     #'
-    #' @param partition (`integer()`)\cr
+    #' @param partition (`integer()` | `NULL`)\cr
     #'   Vector of cluster partitions.
     #'
-    #' @param prob (`matrix()`)\cr
+    #' @param prob (`matrix()` | `NULL`)\cr
     #'   Numeric matrix of cluster membership probabilities with one column for each cluster
     #'   and one row for each observation.
     #'   Columns must be named with cluster numbers, row names are automatically removed.
@@ -60,7 +60,7 @@ PredictionClust = R6Class("PredictionClust",
       self$data$partition %??% rep(NA_integer_, length(self$data$row_ids))
     },
 
-    #' @field prob (`matrix()`)\cr
+    #' @field prob (`matrix()` | `NULL`)\cr
     #' Access to the stored probabilities.
     prob = function() {
       self$data$prob

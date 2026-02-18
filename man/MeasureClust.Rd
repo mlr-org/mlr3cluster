@@ -71,7 +71,7 @@ Set to \code{TRUE} if good predictions correspond to small values,
 and to \code{FALSE} if good predictions correspond to large values.
 If set to \code{NA} (default), tuning this measure is not possible.}
 
-\item{\code{aggregator}}{(\verb{function(x)})\cr
+\item{\code{aggregator}}{(\verb{function(x)} | \code{NULL})\cr
 Function to aggregate individual performance scores \code{x} where \code{x} is a numeric vector.
 If \code{NULL}, defaults to \code{\link[=mean]{mean()}}.}
 

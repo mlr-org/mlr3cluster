@@ -36,7 +36,7 @@ print(learner)
 \item{\code{assignments}}{(\code{NULL} | \code{vector()})\cr
 Cluster assignments from learned model.}
 
-\item{\code{save_assignments}}{(\code{logical()})\cr
+\item{\code{save_assignments}}{(\code{logical(1)})\cr
 Should assignments for 'train' data be saved in the learner?
 Default is \code{TRUE}.}
 }
