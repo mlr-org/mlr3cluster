@@ -74,6 +74,7 @@ Collate:
     'LearnerClustPAM.R'
     'LearnerClustProtoclust.R'
     'LearnerClustSimpleKMeans.R'
+    'LearnerClustSpectral.R'
     'LearnerClustXMeans.R'
     'MeasureClust.R'
     'measures.R'

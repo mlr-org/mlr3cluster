@@ -1,5 +1,6 @@
 # mlr3cluster (development version)
 
+* feat: Add spectral clustering learner `clust.specc` from the kernlab package.
 * fix: Correctly pass `newdata` argument in `LearnerClustDBSCANfpc` predict method.
 * fix: Fix error message in `LearnerClustPAM` to report number of observations instead of `k`.
 * fix: Fix range of silhouette measure to `[-1, 1]`.

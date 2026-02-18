@@ -8,7 +8,7 @@
 #'
 #' The `centers` parameter is set to 2 by default since [kernlab::kkmeans()]
 #' doesn't have a default value for the number of clusters.
-#' Kernel parameters have to be passed directly and not by using the `kpar` list in `kkmeans`.
+#' Kernel parameters have to be passed directly and not by using the `kpar` list in [kernlab::kkmeans()].
 #' The predict method finds the nearest center in kernel distance to
 #' assign clusters for new data points.
 #'
@@ -30,19 +30,20 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
       param_set = ps(
         centers = p_uty(tags = c("train", "required"), custom_check = check_centers),
         kernel = p_fct(
-          levels = c("vanilladot", "polydot", "rbfdot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
+          levels = c("rbfdot", "polydot", "vanilladot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
           default = "rbfdot",
           tags = "train"
         ),
         sigma = p_dbl(
-          0, tags = "train", depends = quote(kernel %in% c("rbfdot", "anovadot", "besseldot", "laplacedot"))
+          0, tags = c("train", "kpar"), depends = quote(kernel %in% c("rbfdot", "anovadot", "besseldot", "laplacedot"))
         ),
         degree = p_int(
-          1L, default = 3L, tags = "train", depends = quote(kernel %in% c("polydot", "anovadot", "besseldot"))
+          1L, default = 3L, tags = c("train", "kpar"),
+          depends = quote(kernel %in% c("polydot", "anovadot", "besseldot"))
         ),
-        scale = p_dbl(0, default = 1, tags = "train", depends = quote(kernel %in% c("polydot", "tanhdot"))),
-        offset = p_dbl(default = 1, tags = "train", depends = quote(kernel %in% c("polydot", "tanhdot"))),
-        order = p_int(default = 1L, tags = "train", depends = quote(kernel == "besseldot")),
+        scale = p_dbl(0, default = 1, tags = c("train", "kpar"), depends = quote(kernel %in% c("polydot", "tanhdot"))),
+        offset = p_dbl(default = 1, tags = c("train", "kpar"), depends = quote(kernel %in% c("polydot", "tanhdot"))),
+        order = p_int(default = 1L, tags = c("train", "kpar"), depends = quote(kernel == "besseldot")),
         alg = p_fct(c("kkmeans", "kerninghan"), default = "kkmeans", tags = "train"),
         p = p_dbl(default = 1, tags = "train")
       )
@@ -67,9 +68,15 @@ LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
       pv = self$param_set$get_values(tags = "train")
       assert_centers_param(pv$centers, task, test_data_frame, "centers")
 
+      kpar = self$param_set$get_values(tags = c("train", "kpar"))
+      if (length(kpar) > 0L) {
+        pv = remove_named(pv, names(kpar))
+        pv$kpar = kpar
+      }
+
       m = invoke(kernlab::kkmeans, x = as.matrix(task$data()), .args = pv)
       if (self$save_assignments) {
-        self$assignments = m[seq_along(m)]
+        self$assignments = as.integer(m)
       }
       m
     },

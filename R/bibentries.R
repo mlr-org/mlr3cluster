@@ -214,6 +214,13 @@ bibentries = c(
     year = "2008",
     publisher = "Citeseer"
   ),
+  ng2001spectral = bibentry("inproceedings",
+    title = "On Spectral Clustering: Analysis and an Algorithm",
+    author = "Ng, Andrew Y and Jordan, Michael I and Weiss, Yair",
+    booktitle = "Advances in Neural Information Processing Systems",
+    volume = "14",
+    year = "2001"
+  ),
   karatzoglou2004kernlab = bibentry("article",
     title = "kernlab-an S4 package for kernel methods in R",
     author = "Karatzoglou, Alexandros and Smola, Alexandros and Hornik, Kurt and Zeileis, Achim",

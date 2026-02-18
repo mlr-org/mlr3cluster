@@ -6,6 +6,9 @@
 #' Hierarchical clustering using minimax linkage with prototypes.
 #' Calls [protoclust::protoclust()] from package \CRANpkg{protoclust}.
 #'
+#' There is no predict method for [protoclust::protoclust()], so the method
+#' returns cluster labels for the training data.
+#'
 #' @templateVar id clust.protoclust
 #' @template learner
 #'
