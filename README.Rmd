@@ -17,6 +17,7 @@ library(mlr3cluster)
 library(mlr3misc)
 lrn_clust = as.data.table(mlr3::mlr_learners)[task_type == "clust", .(key, label, packages)]
 msr_clust = as.data.table(mlr3::mlr_measures)[task_type == "clust", .(key, label, packages)]
+lrn_clust = lrn_clust[key != "clust.specc"]
 ```
 
 # mlr3cluster
@@ -67,7 +68,8 @@ Also, the package is integrated with **[mlr3viz](https://github.com/mlr-org/mlr3
 cran_pkg = function(pkgs) {
   pkgs = fifelse(
     pkgs %chin% c("stats", "graphics", "datasets"),
-    pkgs, sprintf("[%1$s](https://cran.r-project.org/package=%1$s)", pkgs)
+    pkgs,
+    sprintf("[%1$s](https://cran.r-project.org/package=%1$s)", pkgs)
   )
   toString(pkgs)
 }
