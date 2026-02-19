@@ -56,3 +56,6 @@ CRAN-SUBMISSION
 
 # MacOS
 .DS_Store
+
+# claude
+.claude
