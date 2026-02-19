@@ -1,14 +1,18 @@
-# K-Means Clustering Learner
+# Spectral Clustering Learner
 
-K-means clustering. Calls
-[`stats::kmeans()`](https://rdrr.io/r/stats/kmeans.html) from package
-stats.
+Spectral clustering. Calls
+[`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html) from
+package [kernlab](https://CRAN.R-project.org/package=kernlab).
 
 The `centers` parameter is set to 2 by default since
-[`stats::kmeans()`](https://rdrr.io/r/stats/kmeans.html) doesn't have a
-default value for the number of clusters. The predict method uses
-[`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
-compute the cluster memberships for new data.
+[`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html) doesn't
+have a default value for the number of clusters. Kernel parameters have
+to be passed directly and not by using the `kpar` list in
+[`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html).
+
+There is no predict method for
+[`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html), so the
+method returns cluster labels for the training data.
 
 ## Dictionary
 
@@ -19,8 +23,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.kmeans")
-    lrn("clust.kmeans")
+    mlr_learners$get("clust.specc")
+    lrn("clust.specc")
 
 ## Meta Information
 
@@ -32,37 +36,34 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  'stats', [clue](https://CRAN.R-project.org/package=clue)
+  [kernlab](https://CRAN.R-project.org/package=kernlab)
 
 ## Parameters
 
-|           |           |               |                                       |                  |
-|-----------|-----------|---------------|---------------------------------------|------------------|
-| Id        | Type      | Default       | Levels                                | Range            |
-| centers   | untyped   | \-            |                                       | \-               |
-| iter.max  | integer   | 10            |                                       | \\\[1, \infty)\\ |
-| algorithm | character | Hartigan-Wong | Hartigan-Wong, Lloyd, Forgy, MacQueen | \-               |
-| nstart    | integer   | 1             |                                       | \\\[1, \infty)\\ |
-| trace     | logical   | FALSE         | TRUE, FALSE                           | \-               |
+|                |           |         |                                                                                  |                       |
+|----------------|-----------|---------|----------------------------------------------------------------------------------|-----------------------|
+| Id             | Type      | Default | Levels                                                                           | Range                 |
+| centers        | integer   | \-      |                                                                                  | \\\[1, \infty)\\      |
+| kernel         | character | rbfdot  | rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \-                    |
+| sigma          | numeric   | \-      |                                                                                  | \\\[0, \infty)\\      |
+| degree         | integer   | 3       |                                                                                  | \\\[1, \infty)\\      |
+| scale          | numeric   | 1       |                                                                                  | \\\[0, \infty)\\      |
+| offset         | numeric   | 1       |                                                                                  | \\(-\infty, \infty)\\ |
+| order          | integer   | 1       |                                                                                  | \\(-\infty, \infty)\\ |
+| nystrom.red    | logical   | FALSE   | TRUE, FALSE                                                                      | \-                    |
+| nystrom.sample | integer   | \-      |                                                                                  | \\\[1, \infty)\\      |
+| iterations     | integer   | 200     |                                                                                  | \\\[1, \infty)\\      |
+| mod.sample     | numeric   | 0.75    |                                                                                  | \\\[0, 1\]\\          |
 
 ## References
 
-Forgy, W E (1965). “Cluster analysis of multivariate data: efficiency
-versus interpretability of classifications.” *Biometrics*, **21**,
-768–769.
+Karatzoglou, Alexandros, Smola, Alexandros, Hornik, Kurt, Zeileis, Achim
+(2004). “kernlab-an S4 package for kernel methods in R.” *Journal of
+statistical software*, **11**, 1–20.
 
-Hartigan, A J, Wong, A M (1979). “Algorithm AS 136: A K-means clustering
-algorithm.” *Journal of the Royal Statistical Society. Series C (Applied
-Statistics)*, **28**(1), 100–108.
-[doi:10.2307/2346830](https://doi.org/10.2307/2346830) .
-
-Lloyd, P S (1982). “Least squares quantization in PCM.” *IEEE
-Transactions on Information Theory*, **28**(2), 129–137.
-
-MacQueen, James (1967). “Some methods for classification and analysis of
-multivariate observations.” In *Proceedings of the Fifth Berkeley
-Symposium on Mathematical Statistics and Probability*, volume 1,
-281–297.
+Ng, Y A, Jordan, I M, Weiss, Yair (2001). “On Spectral Clustering:
+Analysis and an Algorithm.” In *Advances in Neural Information
+Processing Systems*, volume 14.
 
 ## See also
 
@@ -116,27 +117,27 @@ Other Learner:
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md),
+[`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md),
-[`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.specc.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustKMeans`
+-\> `LearnerClustSpectral`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustKMeans$new()`](#method-LearnerClustKMeans-new)
+- [`LearnerClustSpectral$new()`](#method-LearnerClustSpectral-new)
 
-- [`LearnerClustKMeans$clone()`](#method-LearnerClustKMeans-clone)
+- [`LearnerClustSpectral$clone()`](#method-LearnerClustSpectral-clone)
 
 Inherited methods
 
@@ -161,7 +162,7 @@ Creates a new instance of this
 
 #### Usage
 
-    LearnerClustKMeans$new()
+    LearnerClustSpectral$new()
 
 ------------------------------------------------------------------------
 
@@ -171,7 +172,7 @@ The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustKMeans$clone(deep = FALSE)
+    LearnerClustSpectral$clone(deep = FALSE)
 
 #### Arguments
 
@@ -183,13 +184,13 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.kmeans")
+learner = lrn("clust.specc")
 print(learner)
 #> 
-#> ── <LearnerClustKMeans> (clust.kmeans): K-Means ────────────────────────────────
+#> ── <LearnerClustSpectral> (clust.specc): Spectral Clustering ───────────────────
 #> • Model: -
 #> • Parameters: centers=2
-#> • Packages: mlr3, mlr3cluster, stats, and clue
+#> • Packages: mlr3, mlr3cluster, and kernlab
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
@@ -204,31 +205,36 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> K-means clustering with 2 clusters of sizes 29, 21
+#> Spectral Clustering object of class "specc" 
 #> 
-#> Cluster means:
-#>    Assault    Murder     Rape UrbanPop
-#> 1 109.7586  4.841379 16.24828 64.03448
-#> 2 255.0000 11.857143 28.11429 67.61905
+#>  Cluster memberships: 
+#>  
+#> 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 2 2 1 2 2 1 1 2 1 2 2 2 2 1 1 2 2 1 2 2 1 2 2 1 1 2 2 1 1 2 
+#>  
+#> Gaussian Radial Basis kernel function. 
+#>  Hyperparameter : sigma =  0.0119047619047598 
 #> 
-#> Clustering vector:
-#>  [1] 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 1 2 1 2 1 1 1 2 1 1 2 2 2 1 1 1 1 1
-#> [39] 1 2 1 2 2 1 1 1 1 1 1 1
+#> Centers:  
+#>          [,1]     [,2]     [,3]  [,4]
+#> [1,]  87.5500  4.27000 14.39000 59.75
+#> [2,] 226.2333 10.13333 25.79333 69.40
 #> 
-#> Within cluster sum of squares by cluster:
-#> [1] 54762.30 41636.73
-#>  (between_SS / total_SS =  72.9 %)
+#> Cluster size:  
+#> [1] 20 30
 #> 
-#> Available components:
+#> Within-cluster sum of squares:  
+#> [1]  213075.9 1799973.6
 #> 
-#> [1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
-#> [6] "betweenss"    "size"         "iter"         "ifault"      
 
 # Make predictions for the task
 prediction = learner$predict(task)
+#> Warning: 
+#> ✖ Learner 'clust.specc' doesn't predict on new data and predictions may not
+#>   make sense on new data.
+#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1033191 
+#>  0.1323762 
 ```

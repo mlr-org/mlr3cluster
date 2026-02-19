@@ -2,6 +2,8 @@
 
 ## mlr3cluster (development version)
 
+- feat: Add spectral clustering learner `clust.specc` from the kernlab
+  package.
 - fix: Correctly pass `newdata` argument in `LearnerClustDBSCANfpc`
   predict method.
 - fix: Fix error message in `LearnerClustPAM` to report number of
