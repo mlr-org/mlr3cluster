@@ -75,8 +75,13 @@ LearnerClustProtoclust = R6Class(
       }
 
       warn_prediction_useless(self$id)
+      partition = self$assignments %??% invoke(
+        protoclust::protocut,
+        hc = self$model,
+        .args = self$param_set$get_values(tags = c("train", "protocut"))
+      )$cl
 
-      PredictionClust$new(task = task, partition = self$assignments)
+      PredictionClust$new(task = task, partition = partition)
     }
   )
 )

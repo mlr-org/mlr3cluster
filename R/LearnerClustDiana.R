@@ -69,8 +69,9 @@ LearnerClustDiana = R6Class("LearnerClustDiana",
       }
 
       warn_prediction_useless(self$id)
+      partition = self$assignments %??% stats::cutree(self$model, pv$k)
 
-      PredictionClust$new(task = task, partition = self$assignments)
+      PredictionClust$new(task = task, partition = partition)
     }
   )
 )
