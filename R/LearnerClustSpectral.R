@@ -48,7 +48,7 @@ LearnerClustSpectral = R6Class("LearnerClustSpectral",
         nystrom.red = p_lgl(default = FALSE, tags = "train"),
         nystrom.sample = p_int(1L, tags = "train", depends = quote(nystrom.red == TRUE)),
         iterations = p_int(1L, default = 200L, tags = "train"),
-        mod.sample = p_dbl(0, 1, default = 0.75, tags = "train", depends = quote(nystrom.red == TRUE))
+        mod.sample = p_dbl(0, 1, default = 0.75, tags = "train")
       )
 
       param_set$set_values(centers = 2L)
