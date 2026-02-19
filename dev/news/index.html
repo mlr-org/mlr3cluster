@@ -51,9 +51,10 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
 <ul><li>feat: Add spectral clustering learner <code>clust.specc</code> from the kernlab package.</li>
-<li>fix: Correctly pass <code>newdata</code> argument in <code>LearnerClustDBSCANfpc</code> predict method.</li>
-<li>fix: Fix error message in <code>LearnerClustPAM</code> to report number of observations instead of <code>k</code>.</li>
-<li>fix: Fix range of silhouette measure to <code>[-1, 1]</code>.</li>
+<li>fix: <code>LearnerClustDBSCANfpc</code> now correctly passes the <code>newdata</code> argument in the predict method.</li>
+<li>fix: <code>LearnerClustKKMeans</code> now correctly passes kernel parameters via the <code>kpar</code> list to <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code>.</li>
+<li>fix: <code>LearnerClustPAM</code> now reports the number of observations instead of <code>k</code> in the error message.</li>
+<li>fix: <code>clust.silhouette</code> measure now has the correct range of <code>[-1, 1]</code>.</li>
 <li>docs: Fix typos in measure documentation.</li>
 </ul></div>
     <div class="section level2">
