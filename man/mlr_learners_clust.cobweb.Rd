@@ -98,6 +98,7 @@ Other Learner:
 \code{\link{mlr_learners_clust.ap}},
 \code{\link{mlr_learners_clust.bico}},
 \code{\link{mlr_learners_clust.birch}},
+\code{\link{mlr_learners_clust.clara}},
 \code{\link{mlr_learners_clust.cmeans}},
 \code{\link{mlr_learners_clust.dbscan}},
 \code{\link{mlr_learners_clust.dbscan_fpc}},
