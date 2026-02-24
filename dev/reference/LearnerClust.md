@@ -190,13 +190,13 @@ ids = mlr_learners$keys("^clust")
 ids
 #>  [1] "clust.MBatchKMeans" "clust.SimpleKMeans" "clust.agnes"       
 #>  [4] "clust.ap"           "clust.bico"         "clust.birch"       
-#>  [7] "clust.cmeans"       "clust.cobweb"       "clust.dbscan"      
-#> [10] "clust.dbscan_fpc"   "clust.diana"        "clust.em"          
-#> [13] "clust.fanny"        "clust.featureless"  "clust.ff"          
-#> [16] "clust.hclust"       "clust.hdbscan"      "clust.kkmeans"     
-#> [19] "clust.kmeans"       "clust.mclust"       "clust.meanshift"   
-#> [22] "clust.optics"       "clust.pam"          "clust.protoclust"  
-#> [25] "clust.specc"        "clust.xmeans"      
+#>  [7] "clust.clara"        "clust.cmeans"       "clust.cobweb"      
+#> [10] "clust.dbscan"       "clust.dbscan_fpc"   "clust.diana"       
+#> [13] "clust.em"           "clust.fanny"        "clust.featureless" 
+#> [16] "clust.ff"           "clust.hclust"       "clust.hdbscan"     
+#> [19] "clust.kkmeans"      "clust.kmeans"       "clust.mclust"      
+#> [22] "clust.meanshift"    "clust.optics"       "clust.pam"         
+#> [25] "clust.protoclust"   "clust.specc"        "clust.xmeans"      
 
 # get a specific learner from mlr_learners:
 learner = lrn("clust.kmeans")

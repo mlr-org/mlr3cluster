@@ -2,6 +2,8 @@
 
 ## mlr3cluster (development version)
 
+- feat: Add CLARA clustering learner `clust.clara` from the cluster
+  package.
 - feat: Add spectral clustering learner `clust.specc` from the kernlab
   package.
 - fix: `LearnerClustDBSCANfpc` now correctly passes the `newdata`

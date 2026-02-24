@@ -1,14 +1,16 @@
-# Fuzzy Analysis Clustering Learner
+# CLARA Clustering Learner
 
-Fuzzy Analysis (FANNY) clustering. Calls
-[`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html) from
+Clustering Large Applications (CLARA) clustering. Calls
+[`cluster::clara()`](https://rdrr.io/pkg/cluster/man/clara.html) from
 package [cluster](https://CRAN.R-project.org/package=cluster).
 
-The `k` parameter is set to 2 by default since
-[`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html) doesn't
-have a default value for the number of clusters. The predict method
-copies cluster assignments and memberships generated for train data. The
-predict does not work for new data.
+CLARA extends the PAM algorithm to handle larger datasets by working on
+sub-datasets of fixed size. The `k` parameter is set to 2 by default
+since [`cluster::clara()`](https://rdrr.io/pkg/cluster/man/clara.html)
+doesn't have a default value for the number of clusters. The predict
+method uses
+[`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
+compute the cluster memberships for new data.
 
 ## Dictionary
 
@@ -19,39 +21,48 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.fanny")
-    lrn("clust.fanny")
+    mlr_learners$get("clust.clara")
+    lrn("clust.clara")
 
 ## Meta Information
 
 - Task type: “clust”
 
-- Predict Types: “partition”, “prob”
+- Predict Types: “partition”
 
 - Feature Types: “logical”, “integer”, “numeric”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [cluster](https://CRAN.R-project.org/package=cluster)
+  [cluster](https://CRAN.R-project.org/package=cluster),
+  [clue](https://CRAN.R-project.org/package=clue)
 
 ## Parameters
 
-|           |           |           |                                   |                  |
-|-----------|-----------|-----------|-----------------------------------|------------------|
-| Id        | Type      | Default   | Levels                            | Range            |
-| k         | integer   | \-        |                                   | \\\[1, \infty)\\ |
-| memb.exp  | numeric   | 2         |                                   | \\\[1, \infty)\\ |
-| metric    | character | euclidean | euclidean, manhattan, SqEuclidean | \-               |
-| stand     | logical   | FALSE     | TRUE, FALSE                       | \-               |
-| iniMem.p  | untyped   | NULL      |                                   | \-               |
-| maxit     | integer   | 500       |                                   | \\\[0, \infty)\\ |
-| tol       | numeric   | 1e-15     |                                   | \\\[0, \infty)\\ |
-| trace.lev | integer   | 0         |                                   | \\\[0, \infty)\\ |
+|           |           |           |                               |                  |
+|-----------|-----------|-----------|-------------------------------|------------------|
+| Id        | Type      | Default   | Levels                        | Range            |
+| k         | integer   | \-        |                               | \\\[1, \infty)\\ |
+| metric    | character | euclidean | euclidean, manhattan, jaccard | \-               |
+| stand     | logical   | FALSE     | TRUE, FALSE                   | \-               |
+| samples   | integer   | 5         |                               | \\\[1, \infty)\\ |
+| sampsize  | integer   | \-        |                               | \\\[1, \infty)\\ |
+| trace     | integer   | 0         |                               | \\\[0, \infty)\\ |
+| medoids.x | logical   | TRUE      | TRUE, FALSE                   | \-               |
+| keep.data | logical   | TRUE      | TRUE, FALSE                   | \-               |
+| rngR      | logical   | FALSE     | TRUE, FALSE                   | \-               |
+| pamLike   | logical   | FALSE     | TRUE, FALSE                   | \-               |
+| correct.d | logical   | TRUE      | TRUE, FALSE                   | \-               |
 
 ## References
 
 Kaufman, Leonard, Rousseeuw, J P (2009). *Finding groups in data: an
 introduction to cluster analysis*. John Wiley & Sons.
+
+Schubert, Erich, Rousseeuw, J P (2019). “Faster k-medoids clustering:
+improving the PAM, CLARA, and CLARANS algorithms.” In *Similarity Search
+and Applications: 12th International Conference, SISAP 2019, Newark, NJ,
+USA, October 2–4, 2019, Proceedings 12*, 171–187. Springer.
 
 ## See also
 
@@ -93,13 +104,13 @@ Other Learner:
 [`mlr_learners_clust.ap`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ap.md),
 [`mlr_learners_clust.bico`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.bico.md),
 [`mlr_learners_clust.birch`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.birch.md),
-[`mlr_learners_clust.clara`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.clara.md),
 [`mlr_learners_clust.cmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cmeans.md),
 [`mlr_learners_clust.cobweb`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cobweb.md),
 [`mlr_learners_clust.dbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan.md),
 [`mlr_learners_clust.dbscan_fpc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan_fpc.md),
 [`mlr_learners_clust.diana`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.diana.md),
 [`mlr_learners_clust.em`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.md),
+[`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
@@ -118,15 +129,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustFanny`
+-\> `LearnerClustCLARA`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustFanny$new()`](#method-LearnerClustFanny-new)
+- [`LearnerClustCLARA$new()`](#method-LearnerClustCLARA-new)
 
-- [`LearnerClustFanny$clone()`](#method-LearnerClustFanny-clone)
+- [`LearnerClustCLARA$clone()`](#method-LearnerClustCLARA-clone)
 
 Inherited methods
 
@@ -151,7 +162,7 @@ Creates a new instance of this
 
 #### Usage
 
-    LearnerClustFanny$new()
+    LearnerClustCLARA$new()
 
 ------------------------------------------------------------------------
 
@@ -161,7 +172,7 @@ The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustFanny$clone(deep = FALSE)
+    LearnerClustCLARA$clone(deep = FALSE)
 
 #### Arguments
 
@@ -173,17 +184,17 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.fanny")
+learner = lrn("clust.clara")
 print(learner)
 #> 
-#> ── <LearnerClustFanny> (clust.fanny): Fuzzy Analysis ───────────────────────────
+#> ── <LearnerClustCLARA> (clust.clara): CLARA ────────────────────────────────────
 #> • Model: -
 #> • Parameters: k=2
-#> • Packages: mlr3, mlr3cluster, and cluster
-#> • Predict Types: [partition] and prob
+#> • Packages: mlr3, mlr3cluster, cluster, and clue
+#> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, fuzzy, and partitional
+#> • Properties: complete, exclusive, and partitional
 #> • Other settings: use_weights = 'error'
 
 # Define a Task
@@ -194,87 +205,27 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> Fuzzy Clustering object of class 'fanny' :                      
-#> m.ship.expon.        2
-#> objective     1022.444
-#> tolerance        1e-15
-#> iterations          14
-#> converged            1
-#> maxit              500
-#> n                   50
-#> Membership coefficients (in %, rounded):
-#>       [,1] [,2]
-#>  [1,]   86   14
-#>  [2,]   86   14
-#>  [3,]   85   15
-#>  [4,]   59   41
-#>  [5,]   86   14
-#>  [6,]   70   30
-#>  [7,]   11   89
-#>  [8,]   87   13
-#>  [9,]   77   23
-#> [10,]   75   25
-#> [11,]   21   79
-#> [12,]   12   88
-#> [13,]   89   11
-#> [14,]    9   91
-#> [15,]   16   84
-#> [16,]   10   90
-#> [17,]   10   90
-#> [18,]   90   10
-#> [19,]   12   88
-#> [20,]   84   16
-#> [21,]   29   71
-#> [22,]   91    9
-#> [23,]   13   87
-#> [24,]   86   14
-#> [25,]   51   49
-#> [26,]   10   90
-#> [27,]    9   91
-#> [28,]   88   12
-#> [29,]   16   84
-#> [30,]   37   63
-#> [31,]   88   12
-#> [32,]   89   11
-#> [33,]   76   24
-#> [34,]   20   80
-#> [35,]   13   87
-#> [36,]   28   72
-#> [37,]   35   65
-#> [38,]    9   91
-#> [39,]   47   53
-#> [40,]   86   14
-#> [41,]   12   88
-#> [42,]   59   41
-#> [43,]   68   32
-#> [44,]   14   86
-#> [45,]   21   79
-#> [46,]   32   68
-#> [47,]   25   75
-#> [48,]   14   86
-#> [49,]   17   83
-#> [50,]   36   64
-#> Fuzzyness coefficients:
-#> dunn_coeff normalized 
-#>  0.7078300  0.4156599 
-#> Closest hard clustering:
-#>  [1] 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 2 1 2 1 1 2 2 1 2 2 1 1 1 2 2 2 2 2
-#> [39] 2 1 2 1 1 2 2 2 2 2 2 2
+#> Call:     cluster::clara(x = task$data(), k = 2L) 
+#> Medoids:
+#>      Assault Murder Rape UrbanPop
+#> [1,]     255   12.1 35.1       74
+#> [2,]     115    6.0 18.0       66
+#> Objective function:   38.4178
+#> Clustering vector:    int [1:50] 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 ...
+#> Cluster sizes:            21 29 
+#> Best sample:
+#>  [1]  2  3  4  5  6  8  9 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+#> [26] 29 30 32 33 34 35 36 37 38 39 40 41 43 45 46 47 48 49 50
 #> 
 #> Available components:
-#>  [1] "membership"  "coeff"       "memb.exp"    "clustering"  "k.crisp"    
-#>  [6] "objective"   "convergence" "diss"        "call"        "silinfo"    
-#> [11] "data"       
+#>  [1] "sample"     "medoids"    "i.med"      "clustering" "objective" 
+#>  [6] "clusinfo"   "diss"       "call"       "silinfo"    "data"      
 
 # Make predictions for the task
 prediction = learner$predict(task)
-#> Warning: 
-#> ✖ Learner 'clust.fanny' doesn't predict on new data and predictions may not
-#>   make sense on new data.
-#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1220028 
+#>  0.1033191 
 ```
