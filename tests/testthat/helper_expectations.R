@@ -1,10 +1,21 @@
-expect_prediction_clust = function(p) {
+expect_prediction_clust = function(p, learner = NULL) {
   expect_prediction(p)
   expect_r6(p, "PredictionClust", public = c("row_ids", "truth", "predict_types", "prob", "partition"))
   expect_numeric(p$truth, any.missing = TRUE, len = length(p$row_ids), null.ok = TRUE)
   expect_numeric(p$partition, any.missing = FALSE, len = length(p$row_ids), null.ok = TRUE)
   if ("prob" %chin% p$predict_types) {
     expect_matrix(p$prob, "numeric", any.missing = FALSE, nrows = length(p$row_ids))
+  }
+  if (!is.null(learner)) {
+    if ("complete" %chin% learner$properties) {
+      expect_prediction_complete(p, learner$predict_type)
+    }
+    if ("exclusive" %chin% learner$properties) {
+      expect_prediction_exclusive(p, "partition")
+    }
+    if ("fuzzy" %chin% learner$properties && learner$predict_type == "prob") {
+      expect_prediction_fuzzy(p)
+    }
   }
 }
 
@@ -19,7 +30,7 @@ expect_prediction_exclusive = function(p, predict_type) {
   expect_integer(p[[predict_type]])
 }
 
-expect_prediction_fuzzy = function(p, predict_type) {
+expect_prediction_fuzzy = function(p) {
   expect_numeric(p$prob, lower = 0, upper = 1)
   expect_numeric(round(rowSums(p$prob), 2), lower = 1, upper = 1)
 

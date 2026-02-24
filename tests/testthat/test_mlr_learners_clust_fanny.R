@@ -25,17 +25,7 @@ test_that("Learner properties are respected", {
       learner$param_set$values = parset
 
       p = suppressWarnings(learner$train(task)$predict(task))
-      expect_prediction_clust(p)
-
-      if ("complete" %chin% learner$properties) {
-        expect_prediction_complete(p, learner$predict_type)
-      }
-      if ("exclusive" %chin% learner$properties) {
-        expect_prediction_exclusive(p, "partition")
-      }
-      if (learner$predict_type == "prob") {
-        expect_prediction_fuzzy(p)
-      }
+      expect_prediction_clust(p, learner)
     }
   }
 })

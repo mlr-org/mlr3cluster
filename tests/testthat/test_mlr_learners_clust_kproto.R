@@ -20,9 +20,7 @@ test_that("Learner properties are respected", {
   for (parset in parset_list) {
     learner$param_set$values = insert_named(list(verbose = FALSE), parset)
     p = learner$train(task)$predict(task)
-    expect_prediction_clust(p)
-    expect_prediction_complete(p, learner$predict_type)
-    expect_prediction_exclusive(p, "partition")
+    expect_prediction_clust(p, learner)
   }
 })
 
@@ -35,8 +33,6 @@ test_that("train and predict on mixed-type data", {
 
   learner = lrn("clust.kproto", k = 2L)
   p = learner$train(task)$predict(task)
-  expect_prediction_clust(p)
-  expect_prediction_complete(p, learner$predict_type)
-  expect_prediction_exclusive(p, "partition")
+  expect_prediction_clust(p, learner)
   expect_integer(p$partition, len = 8L)
 })
