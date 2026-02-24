@@ -54,6 +54,7 @@ Collate:
     'LearnerClustAgnes.R'
     'LearnerClustBICO.R'
     'LearnerClustBIRCH.R'
+    'LearnerClustCLARA.R'
     'LearnerClustCMeans.R'
     'LearnerClustCobweb.R'
     'LearnerClustDBSCAN.R'
