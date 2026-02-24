@@ -374,6 +374,16 @@ bibentries = c(
     pages = "181",
     year = "1979"
   ),
+  huang1998extensions = bibentry("article",
+    title = "Extensions to the k-Means Algorithm for Clustering Large Data Sets with Categorical Values",
+    author = "Huang, Zhexue",
+    journal = "Data Mining and Knowledge Discovery",
+    volume = "2",
+    number = "3",
+    pages = "283--304",
+    year = "1998",
+    publisher = "Springer"
+  ),
   bien2011hierarchical = bibentry("article",
     title = "Hierarchical Clustering with Prototypes via Minimax Linkage",
     author = "Bien, Jacob and Tibshirani, Robert",
