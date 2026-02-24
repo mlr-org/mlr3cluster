@@ -1,12 +1,13 @@
-# Farthest First Clustering Learner
+# K-Prototypes Clustering Learner
 
-Farthest First clustering. Calls
-[`RWeka::FarthestFirst()`](https://rdrr.io/pkg/RWeka/man/Weka_clusterers.html)
-from package [RWeka](https://CRAN.R-project.org/package=RWeka).
+K-prototypes clustering for mixed-type data. Calls
+[`clustMixType::kproto()`](https://rdrr.io/pkg/clustMixType/man/kproto.html)
+from package
+[clustMixType](https://CRAN.R-project.org/package=clustMixType).
 
-The predict method uses
-[`RWeka::predict.Weka_clusterer()`](https://rdrr.io/pkg/RWeka/man/predict_Weka_clusterer.html)
-to compute the cluster memberships for new data.
+The `k` parameter is set to 2 by default since
+[`clustMixType::kproto()`](https://rdrr.io/pkg/clustMixType/man/kproto.html)
+doesn't have a default value for the number of clusters.
 
 ## Dictionary
 
@@ -17,8 +18,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.ff")
-    lrn("clust.ff")
+    mlr_learners$get("clust.kproto")
+    lrn("clust.kproto")
 
 ## Meta Information
 
@@ -26,30 +27,32 @@ or with the associated sugar function
 
 - Predict Types: “partition”
 
-- Feature Types: “logical”, “integer”, “numeric”
+- Feature Types: “logical”, “integer”, “numeric”, “factor”, “ordered”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [RWeka](https://CRAN.R-project.org/package=RWeka)
+  [clustMixType](https://CRAN.R-project.org/package=clustMixType)
 
 ## Parameters
 
-|                   |         |         |             |                  |
-|-------------------|---------|---------|-------------|------------------|
-| Id                | Type    | Default | Levels      | Range            |
-| N                 | integer | 2       |             | \\\[1, \infty)\\ |
-| S                 | integer | 1       |             | \\\[1, \infty)\\ |
-| output_debug_info | logical | FALSE   | TRUE, FALSE | \-               |
+|            |           |         |                                    |                  |
+|------------|-----------|---------|------------------------------------|------------------|
+| Id         | Type      | Default | Levels                             | Range            |
+| k          | untyped   | \-      |                                    | \-               |
+| lambda     | untyped   | NULL    |                                    | \-               |
+| type       | character | huang   | huang, gower                       | \-               |
+| iter.max   | integer   | 100     |                                    | \\\[1, \infty)\\ |
+| nstart     | integer   | 1       |                                    | \\\[1, \infty)\\ |
+| na.rm      | character | yes     | yes, no, imp.internal, imp.onestep | \-               |
+| verbose    | logical   | TRUE    | TRUE, FALSE                        | \-               |
+| init       | character | NULL    | nbh.dens, sel.cen, nstart.m        | \-               |
+| p_nstart.m | numeric   | 0.9     |                                    | \\\[0, 1\]\\     |
 
 ## References
 
-Witten, H I, Frank, Eibe (2002). “Data mining: practical machine
-learning tools and techniques with Java implementations.” *Acm Sigmod
-Record*, **31**(1), 76–77.
-
-Hochbaum, S D, Shmoys, B D (1985). “A best possible heuristic for the
-k-center problem.” *Mathematics of operations research*, **10**(2),
-180–184.
+Huang, Zhexue (1998). “Extensions to the k-Means Algorithm for
+Clustering Large Data Sets with Categorical Values.” *Data Mining and
+Knowledge Discovery*, **2**(3), 283–304.
 
 ## See also
 
@@ -100,11 +103,11 @@ Other Learner:
 [`mlr_learners_clust.em`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.md),
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.md),
+[`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md),
-[`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md),
@@ -117,15 +120,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustFarthestFirst`
+-\> `LearnerClustKProto`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustFarthestFirst$new()`](#method-LearnerClustFarthestFirst-new)
+- [`LearnerClustKProto$new()`](#method-LearnerClustKProto-new)
 
-- [`LearnerClustFarthestFirst$clone()`](#method-LearnerClustFarthestFirst-clone)
+- [`LearnerClustKProto$clone()`](#method-LearnerClustKProto-clone)
 
 Inherited methods
 
@@ -150,7 +153,7 @@ Creates a new instance of this
 
 #### Usage
 
-    LearnerClustFarthestFirst$new()
+    LearnerClustKProto$new()
 
 ------------------------------------------------------------------------
 
@@ -160,7 +163,7 @@ The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustFarthestFirst$clone(deep = FALSE)
+    LearnerClustKProto$clone(deep = FALSE)
 
 #### Arguments
 
@@ -172,45 +175,53 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.ff")
+learner = lrn("clust.kproto")
 print(learner)
 #> 
-#> ── <LearnerClustFarthestFirst> (clust.ff): Farthest First ──────────────────────
+#> ── <LearnerClustKProto> (clust.kproto): K-Prototypes ───────────────────────────
 #> • Model: -
-#> • Parameters: list()
-#> • Packages: mlr3, mlr3cluster, and RWeka
+#> • Parameters: k=2, verbose=FALSE
+#> • Packages: mlr3, mlr3cluster, and clustMixType
 #> • Predict Types: [partition]
-#> • Feature Types: logical, integer, and numeric
+#> • Feature Types: logical, integer, numeric, factor, and ordered
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, exclusive, and partitional
 #> • Other settings: use_weights = 'error'
 
-# Define a Task
-task = tsk("usarrests")
+# Define a mixed-type Task (kproto requires at least one factor variable)
+data = data.frame(
+  x1 = c(1, 2, 10, 11, 1, 2, 10, 11),
+  x2 = factor(c("a", "a", "b", "b", "a", "a", "b", "b"))
+)
+task = as_task_clust(data)
 
 # Train the learner on the task
 learner$train(task)
 
 # Print the model
 print(learner$model)
+#> Distance type: huang 
 #> 
-#> FarthestFirst
-#> ==============
+#> Numeric predictors: 1 
+#> Categorical predictors: 1 
+#> Lambda: 46.85714 
 #> 
-#> Cluster centroids:
+#> Number of Clusters: 2 
+#> Cluster sizes: 4 4 
+#> Within cluster error: 1 1 
 #> 
-#> Cluster 0
-#>   151.0 6.6 20.0 68.0
-#> Cluster 1
-#>   335.0 15.4 31.9 80.0
-#> 
-#> 
+#> Cluster prototypes:
+#>       x1     x2
+#>    <num> <fctr>
+#> 1:  10.5      b
+#> 2:   1.5      a
 
 # Make predictions for the task
 prediction = learner$predict(task)
 
 # Score the predictions
 prediction$score(task = task)
+#> Warning: NAs introduced by coercion
 #> clust.dunn 
-#> 0.07914308 
+#>          8 
 ```

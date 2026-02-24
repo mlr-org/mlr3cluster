@@ -31,6 +31,7 @@
 <url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.html</loc></url>

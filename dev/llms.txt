@@ -200,6 +200,9 @@ If you have any questions, feedback or ideas, feel free to open an issue
 - [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md)
   [`LearnerClustKMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md)
   : K-Means Clustering Learner
+- [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md)
+  [`LearnerClustKProto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md)
+  : K-Prototypes Clustering Learner
 - [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.md)
   [`LearnerClustMclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.md)
   : Gaussian Mixture Model Clustering Learner

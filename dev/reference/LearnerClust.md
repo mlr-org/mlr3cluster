@@ -194,9 +194,10 @@ ids
 #> [10] "clust.dbscan"       "clust.dbscan_fpc"   "clust.diana"       
 #> [13] "clust.em"           "clust.fanny"        "clust.featureless" 
 #> [16] "clust.ff"           "clust.hclust"       "clust.hdbscan"     
-#> [19] "clust.kkmeans"      "clust.kmeans"       "clust.mclust"      
-#> [22] "clust.meanshift"    "clust.optics"       "clust.pam"         
-#> [25] "clust.protoclust"   "clust.specc"        "clust.xmeans"      
+#> [19] "clust.kkmeans"      "clust.kmeans"       "clust.kproto"      
+#> [22] "clust.mclust"       "clust.meanshift"    "clust.optics"      
+#> [25] "clust.pam"          "clust.protoclust"   "clust.specc"       
+#> [28] "clust.xmeans"      
 
 # get a specific learner from mlr_learners:
 learner = lrn("clust.kmeans")

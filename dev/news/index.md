@@ -4,6 +4,8 @@
 
 - feat: Add CLARA clustering learner `clust.clara` from the cluster
   package.
+- feat: Add k-prototypes clustering learner `clust.kproto` from the
+  clustMixType package.
 - feat: Add spectral clustering learner `clust.specc` from the kernlab
   package.
 - fix: `LearnerClustDBSCANfpc` now correctly passes the `newdata`
