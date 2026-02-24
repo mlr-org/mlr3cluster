@@ -32,6 +32,7 @@ Suggests:
     apcluster,
     clue,
     ClusterR (>= 1.3.1),
+    clustMixType,
     dbscan,
     e1071,
     kernlab,
@@ -68,6 +69,7 @@ Collate:
     'LearnerClustHclust.R'
     'LearnerClustKKMeans.R'
     'LearnerClustKMeans.R'
+    'LearnerClustKProto.R'
     'LearnerClustMclust.R'
     'LearnerClustMeanShift.R'
     'LearnerClustMiniBatchKMeans.R'

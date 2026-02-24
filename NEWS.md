@@ -1,6 +1,7 @@
 # mlr3cluster (development version)
 
 * feat: Add CLARA clustering learner `clust.clara` from the cluster package.
+* feat: Add k-prototypes clustering learner `clust.kproto` from the clustMixType package.
 * feat: Add spectral clustering learner `clust.specc` from the kernlab package.
 * fix: `LearnerClustDBSCANfpc` now correctly passes the `newdata` argument in the predict method.
 * fix: `LearnerClustKKMeans` now correctly passes kernel parameters via the `kpar` list to `kernlab::kkmeans()`.
