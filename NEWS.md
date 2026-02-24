@@ -4,7 +4,6 @@
 * feat: Add spectral clustering learner `clust.specc` from the kernlab package.
 * fix: `LearnerClustDBSCANfpc` now correctly passes the `newdata` argument in the predict method.
 * fix: `LearnerClustKKMeans` now correctly passes kernel parameters via the `kpar` list to `kernlab::kkmeans()`.
-* fix: `LearnerClustPAM` now reports the number of observations instead of `k` in the error message.
 * fix: `clust.silhouette` measure now has the correct range of `[-1, 1]`.
 * docs: Fix typos in measure documentation.
 
