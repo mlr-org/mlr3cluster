@@ -36,11 +36,7 @@ test_that("empty predict set (#421)", {
   hout = resampling$instantiate(task)
   model = learner$train(task, hout$train_set(1L))
   pred = learner$predict(task, hout$test_set(1L))
-  if (packageVersion("mlr3") > "1.4.0") {
-    expect_match(conditionMessage(learner$log$condition[[1]]), "No data to predict on", fixed = TRUE)
-  } else {
-    expect_match(learner$log$msg, "No data to predict on", fixed = TRUE, all = FALSE)
-  }
+  expect_match(conditionMessage(learner$log$condition[[1L]]), "No data to predict on", fixed = TRUE)
 })
 
 test_that("assignment saving works", {
