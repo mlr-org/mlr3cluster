@@ -19,14 +19,14 @@ Depends:
     mlr3 (>= 1.5.0),
     R (>= 3.4.0)
 Imports:
-    backports (>= 1.1.10),
+    backports (>= 1.5.0),
     checkmate (>= 2.0.0),
     cluster,
     data.table (>= 1.15.0),
     fpc,
-    mlr3misc (>= 0.19.0),
+    mlr3misc (>= 0.21.0),
     paradox (>= 1.0.1),
-    R6,
+    R6 (>= 2.4.1),
     stats
 Suggests:
     apcluster,
@@ -38,7 +38,7 @@ Suggests:
     kernlab,
     LPCM,
     mclust,
-    mirai,
+    mirai (>= 2.4.1),
     mlbench,
     protoclust,
     RWeka,
