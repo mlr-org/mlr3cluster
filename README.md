@@ -41,7 +41,7 @@ pak::pak("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-- A selection of 25 clustering learners that represent a wide variety of
+- A selection of 28 clustering learners that represent a wide variety of
   clusterers: partitional, hierarchical, fuzzy, etc.
 - A selection of 4 performance measures
 - Two built-in tasks to get started with clustering
@@ -62,6 +62,7 @@ create great visualizations with just one line of code!
 | [clust.ap](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap) | Affinity Propagation | [apcluster](https://cran.r-project.org/package=apcluster) |
 | [clust.bico](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.bico) | BICO | [stream](https://cran.r-project.org/package=stream) |
 | [clust.birch](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch) | BIRCH | [stream](https://cran.r-project.org/package=stream) |
+| [clust.clara](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.clara) | CLARA | [cluster](https://cran.r-project.org/package=cluster), [clue](https://cran.r-project.org/package=clue) |
 | [clust.cmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans) | Fuzzy C-Means | [e1071](https://cran.r-project.org/package=e1071), [clue](https://cran.r-project.org/package=clue) |
 | [clust.cobweb](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb) | Cobweb | [RWeka](https://cran.r-project.org/package=RWeka) |
 | [clust.dbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan) | DBSCAN | [dbscan](https://cran.r-project.org/package=dbscan) |
@@ -75,11 +76,13 @@ create great visualizations with just one line of code!
 | [clust.hdbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan) | HDBSCAN | [dbscan](https://cran.r-project.org/package=dbscan) |
 | [clust.kkmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans) | Kernel K-Means | [kernlab](https://cran.r-project.org/package=kernlab) |
 | [clust.kmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans) | K-Means | stats, [clue](https://cran.r-project.org/package=clue) |
+| [clust.kproto](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto) | K-Prototypes | [clustMixType](https://cran.r-project.org/package=clustMixType) |
 | [clust.mclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust) | Gaussian Mixture Model | [mclust](https://cran.r-project.org/package=mclust) |
 | [clust.meanshift](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift) | Mean Shift | [LPCM](https://cran.r-project.org/package=LPCM) |
 | [clust.optics](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics) | OPTICS | [dbscan](https://cran.r-project.org/package=dbscan) |
 | [clust.pam](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam) | Partitioning Around Medoids | [cluster](https://cran.r-project.org/package=cluster), [clue](https://cran.r-project.org/package=clue) |
 | [clust.protoclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust) | Prototype Hierarchical Clustering | [protoclust](https://cran.r-project.org/package=protoclust) |
+| [clust.specc](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc) | Spectral Clustering | [kernlab](https://cran.r-project.org/package=kernlab) |
 | [clust.xmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans) | X-Means | [RWeka](https://cran.r-project.org/package=RWeka) |
 
 ### Cluster Measures
