@@ -1,9 +1,18 @@
-# OPTICS Clustering Learner
+# Spectral Clustering Learner
 
-OPTICS (ordering points to identify the clustering structure)
-clustering. Calls
-[`dbscan::optics()`](https://rdrr.io/pkg/dbscan/man/optics.html) from
-package [dbscan](https://CRAN.R-project.org/package=dbscan).
+Spectral clustering. Calls
+[`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html) from
+package [kernlab](https://CRAN.R-project.org/package=kernlab).
+
+The `centers` parameter is set to 2 by default since
+[`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html) doesn't
+have a default value for the number of clusters. Kernel parameters have
+to be passed directly and not by using the `kpar` list in
+[`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html).
+
+There is no predict method for
+[`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html), so the
+method returns cluster labels for the training data.
 
 ## Dictionary
 
@@ -14,8 +23,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.optics")
-    lrn("clust.optics")
+    mlr_learners$get("clust.specc")
+    lrn("clust.specc")
 
 ## Meta Information
 
@@ -27,30 +36,34 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [dbscan](https://CRAN.R-project.org/package=dbscan)
+  [kernlab](https://CRAN.R-project.org/package=kernlab)
 
 ## Parameters
 
-|            |           |         |                                              |                       |
-|------------|-----------|---------|----------------------------------------------|-----------------------|
-| Id         | Type      | Default | Levels                                       | Range                 |
-| eps        | numeric   | NULL    |                                              | \\\[0, \infty)\\      |
-| minPts     | integer   | 5       |                                              | \\\[0, \infty)\\      |
-| search     | character | kdtree  | kdtree, linear, dist                         | \-                    |
-| bucketSize | integer   | 10      |                                              | \\\[1, \infty)\\      |
-| splitRule  | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \-                    |
-| approx     | numeric   | 0       |                                              | \\(-\infty, \infty)\\ |
-| eps_cl     | numeric   | \-      |                                              | \\\[0, \infty)\\      |
+|                |           |         |                                                                                  |                       |
+|----------------|-----------|---------|----------------------------------------------------------------------------------|-----------------------|
+| Id             | Type      | Default | Levels                                                                           | Range                 |
+| centers        | integer   | \-      |                                                                                  | \\\[1, \infty)\\      |
+| kernel         | character | rbfdot  | rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \-                    |
+| sigma          | numeric   | \-      |                                                                                  | \\\[0, \infty)\\      |
+| degree         | integer   | 3       |                                                                                  | \\\[1, \infty)\\      |
+| scale          | numeric   | 1       |                                                                                  | \\\[0, \infty)\\      |
+| offset         | numeric   | 1       |                                                                                  | \\(-\infty, \infty)\\ |
+| order          | integer   | 1       |                                                                                  | \\(-\infty, \infty)\\ |
+| nystrom.red    | logical   | FALSE   | TRUE, FALSE                                                                      | \-                    |
+| nystrom.sample | integer   | \-      |                                                                                  | \\\[1, \infty)\\      |
+| iterations     | integer   | 200     |                                                                                  | \\\[1, \infty)\\      |
+| mod.sample     | numeric   | 0.75    |                                                                                  | \\\[0, 1\]\\          |
 
 ## References
 
-Hahsler M, Piekenbrock M, Doran D (2019). “dbscan: Fast Density-Based
-Clustering with R.” *Journal of Statistical Software*, **91**(1), 1–30.
-[doi:10.18637/jss.v091.i01](https://doi.org/10.18637/jss.v091.i01) .
+Karatzoglou, Alexandros, Smola, Alexandros, Hornik, Kurt, Zeileis, Achim
+(2004). “kernlab-an S4 package for kernel methods in R.” *Journal of
+statistical software*, **11**, 1–20.
 
-Ankerst, Mihael, Breunig, M M, Kriegel, Hans-Peter, Sander, Jörg (1999).
-“OPTICS: Ordering points to identify the clustering structure.” *ACM
-Sigmod record*, **28**(2), 49–60.
+Ng, Y A, Jordan, I M, Weiss, Yair (2001). “On Spectral Clustering:
+Analysis and an Algorithm.” In *Advances in Neural Information
+Processing Systems*, volume 14.
 
 ## See also
 
@@ -109,24 +122,24 @@ Other Learner:
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
+[`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
-[`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
--\> `LearnerClustOPTICS`
+-\> `LearnerClustSpectral`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustOPTICS$new()`](#method-LearnerClustOPTICS-new)
+- [`LearnerClustSpectral$new()`](#method-LearnerClustSpectral-new)
 
-- [`LearnerClustOPTICS$clone()`](#method-LearnerClustOPTICS-clone)
+- [`LearnerClustSpectral$clone()`](#method-LearnerClustSpectral-clone)
 
 Inherited methods
 
@@ -151,7 +164,7 @@ Creates a new instance of this
 
 #### Usage
 
-    LearnerClustOPTICS$new()
+    LearnerClustSpectral$new()
 
 ------------------------------------------------------------------------
 
@@ -161,7 +174,7 @@ The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustOPTICS$clone(deep = FALSE)
+    LearnerClustSpectral$clone(deep = FALSE)
 
 #### Arguments
 
@@ -173,16 +186,57 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.optics")
+learner = lrn("clust.specc")
 print(learner)
 #> 
-#> ── <LearnerClustOPTICS> (clust.optics): OPTICS ─────────────────────────────────
+#> ── <LearnerClustSpectral> (clust.specc): Spectral Clustering ───────────────────
 #> • Model: -
-#> • Parameters: list()
-#> • Packages: mlr3, mlr3cluster, and dbscan
+#> • Parameters: centers=2
+#> • Packages: mlr3, mlr3cluster, and kernlab
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, density, and exclusive
+#> • Properties: complete, exclusive, and partitional
 #> • Other settings: use_weights = 'error'
+
+# Define a Task
+task = tsk("usarrests")
+
+# Train the learner on the task
+learner$train(task)
+
+# Print the model
+print(learner$model)
+#> Spectral Clustering object of class "specc" 
+#> 
+#>  Cluster memberships: 
+#>  
+#> 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 2 2 1 2 2 1 1 2 1 2 2 2 2 1 1 2 2 1 2 2 1 2 2 1 1 2 2 1 1 2 
+#>  
+#> Gaussian Radial Basis kernel function. 
+#>  Hyperparameter : sigma =  0.0119047619047598 
+#> 
+#> Centers:  
+#>          [,1]     [,2]     [,3]  [,4]
+#> [1,]  87.5500  4.27000 14.39000 59.75
+#> [2,] 226.2333 10.13333 25.79333 69.40
+#> 
+#> Cluster size:  
+#> [1] 20 30
+#> 
+#> Within-cluster sum of squares:  
+#> [1]  213075.9 1799973.6
+#> 
+
+# Make predictions for the task
+prediction = learner$predict(task)
+#> Warning: 
+#> ✖ Learner 'clust.specc' doesn't predict on new data and predictions may not
+#>   make sense on new data.
+#> → Class: Mlr3WarningInput
+
+# Score the predictions
+prediction$score(task = task)
+#> clust.dunn 
+#>  0.1323762 
 ```

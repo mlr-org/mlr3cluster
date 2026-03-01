@@ -18,6 +18,7 @@
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.bico.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.clara.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan.html</loc></url>
@@ -31,11 +32,13 @@
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.html</loc></url>
+<url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch.html</loc></url>
 <url><loc>https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn.html</loc></url>

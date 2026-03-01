@@ -9,13 +9,13 @@
 Calls kernlab::kkmeans() from package kernlab.
 The centers parameter is set to 2 by default since kernlab::kkmeans()
 doesn't have a default value for the number of clusters.
-Kernel parameters have to be passed directly and not by using the kpar list in kkmeans.
+Kernel parameters have to be passed directly and not by using the kpar list in kernlab::kkmeans().
 The predict method finds the nearest center in kernel distance to
 assign clusters for new data points."><meta property="og:description" content="Kernel k-means clustering.
 Calls kernlab::kkmeans() from package kernlab.
 The centers parameter is set to 2 by default since kernlab::kkmeans()
 doesn't have a default value for the number of clusters.
-Kernel parameters have to be passed directly and not by using the kpar list in kkmeans.
+Kernel parameters have to be passed directly and not by using the kpar list in kernlab::kkmeans().
 The predict method finds the nearest center in kernel distance to
 assign clusters for new data points."></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -25,7 +25,7 @@ assign clusters for new data points."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,7 @@ assign clusters for new data points."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Kernel K-Means Clustering Learner</h1>
-      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.2.0/R/LearnerClustKKMeans.R" class="external-link"><code>R/LearnerClustKKMeans.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/R/LearnerClustKKMeans.R" class="external-link"><code>R/LearnerClustKKMeans.R</code></a></small>
       <div class="d-none name"><code>mlr_learners_clust.kkmeans.Rd</code></div>
     </div>
 
@@ -66,7 +66,7 @@ assign clusters for new data points."></head><body>
 Calls <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code> from package <a href="https://CRAN.R-project.org/package=kernlab" class="external-link"><span class="pkg">kernlab</span></a>.</p>
 <p>The <code>centers</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code>
 doesn't have a default value for the number of clusters.
-Kernel parameters have to be passed directly and not by using the <code>kpar</code> list in <code>kkmeans</code>.
+Kernel parameters have to be passed directly and not by using the <code>kpar</code> list in <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code>.
 The predict method finds the nearest center in kernel distance to
 assign clusters for new data points.</p>
     </div>
@@ -92,7 +92,7 @@ assign clusters for new data points.</p>
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>centers</td><td>untyped</td><td>-</td><td></td><td>-</td></tr><tr><td>kernel</td><td>character</td><td>rbfdot</td><td>vanilladot, polydot, rbfdot, tanhdot, laplacedot, besseldot, anovadot, splinedot</td><td>-</td></tr><tr><td>sigma</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>degree</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>scale</td><td>numeric</td><td>1</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>offset</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>order</td><td>integer</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>alg</td><td>character</td><td>kkmeans</td><td>kkmeans, kerninghan</td><td>-</td></tr><tr><td>p</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>centers</td><td>untyped</td><td>-</td><td></td><td>-</td></tr><tr><td>kernel</td><td>character</td><td>rbfdot</td><td>rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot</td><td>-</td></tr><tr><td>sigma</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>degree</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>scale</td><td>numeric</td><td>1</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>offset</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>order</td><td>integer</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>alg</td><td>character</td><td>kkmeans</td><td>kkmeans, kerninghan</td><td>-</td></tr><tr><td>p</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Karatzoglou, Alexandros, Smola, Alexandros, Hornik, Kurt, Zeileis, Achim (2004).
@@ -123,6 +123,7 @@ for established default tuning spaces.</p></li>
 <code><a href="mlr_learners_clust.ap.html">mlr_learners_clust.ap</a></code>,
 <code><a href="mlr_learners_clust.bico.html">mlr_learners_clust.bico</a></code>,
 <code><a href="mlr_learners_clust.birch.html">mlr_learners_clust.birch</a></code>,
+<code><a href="mlr_learners_clust.clara.html">mlr_learners_clust.clara</a></code>,
 <code><a href="mlr_learners_clust.cmeans.html">mlr_learners_clust.cmeans</a></code>,
 <code><a href="mlr_learners_clust.cobweb.html">mlr_learners_clust.cobweb</a></code>,
 <code><a href="mlr_learners_clust.dbscan.html">mlr_learners_clust.dbscan</a></code>,
@@ -135,11 +136,13 @@ for established default tuning spaces.</p></li>
 <code><a href="mlr_learners_clust.hclust.html">mlr_learners_clust.hclust</a></code>,
 <code><a href="mlr_learners_clust.hdbscan.html">mlr_learners_clust.hdbscan</a></code>,
 <code><a href="mlr_learners_clust.kmeans.html">mlr_learners_clust.kmeans</a></code>,
+<code><a href="mlr_learners_clust.kproto.html">mlr_learners_clust.kproto</a></code>,
 <code><a href="mlr_learners_clust.mclust.html">mlr_learners_clust.mclust</a></code>,
 <code><a href="mlr_learners_clust.meanshift.html">mlr_learners_clust.meanshift</a></code>,
 <code><a href="mlr_learners_clust.optics.html">mlr_learners_clust.optics</a></code>,
 <code><a href="mlr_learners_clust.pam.html">mlr_learners_clust.pam</a></code>,
 <code><a href="mlr_learners_clust.protoclust.html">mlr_learners_clust.protoclust</a></code>,
+<code><a href="mlr_learners_clust.specc.html">mlr_learners_clust.specc</a></code>,
 <code><a href="mlr_learners_clust.xmeans.html">mlr_learners_clust.xmeans</a></code></p></div>
     </div>
     <div class="section level2">

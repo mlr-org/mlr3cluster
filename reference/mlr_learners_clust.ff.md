@@ -91,6 +91,7 @@ Other Learner:
 [`mlr_learners_clust.ap`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap.md),
 [`mlr_learners_clust.bico`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.bico.md),
 [`mlr_learners_clust.birch`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch.md),
+[`mlr_learners_clust.clara`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.clara.md),
 [`mlr_learners_clust.cmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans.md),
 [`mlr_learners_clust.cobweb`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb.md),
 [`mlr_learners_clust.dbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan.md),
@@ -103,26 +104,28 @@ Other Learner:
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
+[`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
+[`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
--\> `LearnerClustFF`
+-\> `LearnerClustFarthestFirst`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustFarthestFirst$new()`](#method-LearnerClustFF-new)
+- [`LearnerClustFarthestFirst$new()`](#method-LearnerClustFarthestFirst-new)
 
-- [`LearnerClustFarthestFirst$clone()`](#method-LearnerClustFF-clone)
+- [`LearnerClustFarthestFirst$clone()`](#method-LearnerClustFarthestFirst-clone)
 
 Inherited methods
 
@@ -172,7 +175,7 @@ The objects of this class are cloneable with this method.
 learner = lrn("clust.ff")
 print(learner)
 #> 
-#> ── <LearnerClustFF> (clust.ff): Farthest First ─────────────────────────────────
+#> ── <LearnerClustFarthestFirst> (clust.ff): Farthest First ──────────────────────
 #> • Model: -
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and RWeka

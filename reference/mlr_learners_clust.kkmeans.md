@@ -8,8 +8,9 @@ The `centers` parameter is set to 2 by default since
 [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html)
 doesn't have a default value for the number of clusters. Kernel
 parameters have to be passed directly and not by using the `kpar` list
-in `kkmeans`. The predict method finds the nearest center in kernel
-distance to assign clusters for new data points.
+in [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html).
+The predict method finds the nearest center in kernel distance to assign
+clusters for new data points.
 
 ## Dictionary
 
@@ -41,7 +42,7 @@ or with the associated sugar function
 |---------|-----------|---------|----------------------------------------------------------------------------------|-----------------------|
 | Id      | Type      | Default | Levels                                                                           | Range                 |
 | centers | untyped   | \-      |                                                                                  | \-                    |
-| kernel  | character | rbfdot  | vanilladot, polydot, rbfdot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \-                    |
+| kernel  | character | rbfdot  | rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \-                    |
 | sigma   | numeric   | \-      |                                                                                  | \\\[0, \infty)\\      |
 | degree  | integer   | 3       |                                                                                  | \\\[1, \infty)\\      |
 | scale   | numeric   | 1       |                                                                                  | \\\[0, \infty)\\      |
@@ -99,6 +100,7 @@ Other Learner:
 [`mlr_learners_clust.ap`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap.md),
 [`mlr_learners_clust.bico`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.bico.md),
 [`mlr_learners_clust.birch`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch.md),
+[`mlr_learners_clust.clara`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.clara.md),
 [`mlr_learners_clust.cmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans.md),
 [`mlr_learners_clust.cobweb`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb.md),
 [`mlr_learners_clust.dbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan.md),
@@ -111,11 +113,13 @@ Other Learner:
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
+[`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
+[`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes

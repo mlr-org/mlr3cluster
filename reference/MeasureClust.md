@@ -81,7 +81,7 @@ Creates a new instance of this
 
 - `aggregator`:
 
-  (`function(x)`)  
+  (`function(x)` \| `NULL`)  
   Function to aggregate individual performance scores `x` where `x` is a
   numeric vector. If `NULL`, defaults to
   [`mean()`](https://rdrr.io/r/base/mean.html).

@@ -35,6 +35,9 @@
 - [`mlr_learners_clust.birch`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch.md)
   [`LearnerClustBIRCH`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch.md)
   : BIRCH Clustering Learner
+- [`mlr_learners_clust.clara`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.clara.md)
+  [`LearnerClustCLARA`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.clara.md)
+  : CLARA Clustering Learner
 - [`mlr_learners_clust.cmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans.md)
   [`LearnerClustCMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans.md)
   : Fuzzy C-Means Clustering Learner
@@ -74,6 +77,9 @@
 - [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md)
   [`LearnerClustKMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md)
   : K-Means Clustering Learner
+- [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md)
+  [`LearnerClustKProto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md)
+  : K-Prototypes Clustering Learner
 - [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md)
   [`LearnerClustMclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md)
   : Gaussian Mixture Model Clustering Learner
@@ -89,6 +95,9 @@
 - [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md)
   [`LearnerClustProtoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md)
   : Prototype Hierarchical Clustering Learner
+- [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md)
+  [`LearnerClustSpectral`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md)
+  : Spectral Clustering Learner
 - [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
   [`LearnerClustXMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
   : X-Means Clustering Learner

@@ -1,8 +1,23 @@
 # Changelog
 
-## mlr3cluster 0.2.0
+## mlr3cluster 0.3.0
 
-CRAN release: 2026-02-04
+- feat: Add CLARA clustering learner `clust.clara` from the cluster
+  package.
+- feat: Add k-prototypes clustering learner `clust.kproto` from the
+  clustMixType package.
+- feat: Add spectral clustering learner `clust.specc` from the kernlab
+  package.
+- fix: `LearnerClustDBSCANfpc` now correctly passes the `newdata`
+  argument in the predict method.
+- fix: `LearnerClustKKMeans` now correctly passes kernel parameters via
+  the `kpar` list to
+  [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html).
+- fix: `clust.silhouette` measure now has the correct range of
+  `[-1, 1]`.
+- docs: Fix typos in measure documentation.
+
+## mlr3cluster 0.2.0
 
 - feat: `Mlr3Error` and `Mlr3Warning` classes for errors and warnings.
 - feat: Add protoclust learner from the protoclust package.
@@ -16,29 +31,21 @@ CRAN release: 2026-02-04
 
 ## mlr3cluster 0.1.12
 
-CRAN release: 2025-11-19
-
 - feat: Add `cluster_selection_epsilon` parameter to HDBSCAN learner and
   initialize `minPts` to 5.
 - docs: Better learner example section.
 
 ## mlr3cluster 0.1.11
 
-CRAN release: 2025-02-18
-
 - fix: Mclust learner no longer sets the control default with a function
   not in import to stay compliant with paradox package conventions.
 
 ## mlr3cluster 0.1.10
 
-CRAN release: 2024-10-03
-
 - feat: Add BIRCH learner from the stream package.
 - feat: Add BICO learner from the stream package.
 
 ## mlr3cluster 0.1.9
-
-CRAN release: 2024-03-18
 
 - feat: Add DBSCAN learner from the fpc package.
 - feat: Add HDBSCAN learner from the dbscan package.
@@ -49,13 +56,9 @@ CRAN release: 2024-03-18
 
 ## mlr3cluster 0.1.8
 
-CRAN release: 2023-03-12
-
 - feat: Add new task based on `ruspini` dataset.
 
 ## mlr3cluster 0.1.7
-
-CRAN release: 2023-03-10
 
 - chore: Replace ‘clusterCrit’ measures with alternatives from cluster
   and fpc packages.
@@ -63,35 +66,25 @@ CRAN release: 2023-03-10
 
 ## mlr3cluster 0.1.6
 
-CRAN release: 2022-12-22
-
-- feat: Add states as row names to `usarrest` task.
+- feat: Add states as row names to `usarrests` task.
 - fix: Remove dictionary items after unloading package.
 
 ## mlr3cluster 0.1.5
-
-CRAN release: 2022-11-01
 
 - feat: Add Mclust learner.
 - fix: Fix error associated with new dbscan release.
 
 ## mlr3cluster 0.1.4
 
-CRAN release: 2022-08-14
-
 - refactor: General code refactoring.
 
 ## mlr3cluster 0.1.3
-
-CRAN release: 2022-04-06
 
 - feat: Add filter to `PredictionClust`.
 - fix: Small bug fixes.
 - refactor: General code refactoring.
 
 ## mlr3cluster 0.1.2
-
-CRAN release: 2021-09-02
 
 - feat: Add Hclust learner.
 - feat: Add within sum of squares measure.
@@ -101,14 +94,10 @@ CRAN release: 2021-09-02
 
 ## mlr3cluster 0.1.1
 
-CRAN release: 2020-11-15
-
 - feat: Add eight new learners.
 - feat: Add `assignments` and `save_assignments` fields to
   `LearnerClust` class.
 
 ## mlr3cluster 0.1.0
-
-CRAN release: 2020-10-01
 
 - Initial upload to CRAN.

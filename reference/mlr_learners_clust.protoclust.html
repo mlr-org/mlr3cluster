@@ -6,8 +6,12 @@
     }
   };
 </script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Prototype Hierarchical Clustering Learner — mlr_learners_clust.protoclust"><meta name="description" content="Hierarchical clustering using minimax linkage with prototypes.
-Calls protoclust::protoclust() from package protoclust."><meta property="og:description" content="Hierarchical clustering using minimax linkage with prototypes.
-Calls protoclust::protoclust() from package protoclust."></head><body>
+Calls protoclust::protoclust() from package protoclust.
+There is no predict method for protoclust::protoclust(), so the method
+returns cluster labels for the training data."><meta property="og:description" content="Hierarchical clustering using minimax linkage with prototypes.
+Calls protoclust::protoclust() from package protoclust.
+There is no predict method for protoclust::protoclust(), so the method
+returns cluster labels for the training data."></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -15,7 +19,7 @@ Calls protoclust::protoclust() from package protoclust."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,13 +51,15 @@ Calls protoclust::protoclust() from package protoclust."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Prototype Hierarchical Clustering Learner</h1>
-      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.2.0/R/LearnerClustProtoclust.R" class="external-link"><code>R/LearnerClustProtoclust.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/R/LearnerClustProtoclust.R" class="external-link"><code>R/LearnerClustProtoclust.R</code></a></small>
       <div class="d-none name"><code>mlr_learners_clust.protoclust.Rd</code></div>
     </div>
 
     <div class="ref-description section level2">
     <p>Hierarchical clustering using minimax linkage with prototypes.
 Calls <code><a href="https://rdrr.io/pkg/protoclust/man/protoclust.html" class="external-link">protoclust::protoclust()</a></code> from package <a href="https://CRAN.R-project.org/package=protoclust" class="external-link"><span class="pkg">protoclust</span></a>.</p>
+<p>There is no predict method for <code><a href="https://rdrr.io/pkg/protoclust/man/protoclust.html" class="external-link">protoclust::protoclust()</a></code>, so the method
+returns cluster labels for the training data.</p>
     </div>
 
 
@@ -105,6 +111,7 @@ for established default tuning spaces.</p></li>
 <code><a href="mlr_learners_clust.ap.html">mlr_learners_clust.ap</a></code>,
 <code><a href="mlr_learners_clust.bico.html">mlr_learners_clust.bico</a></code>,
 <code><a href="mlr_learners_clust.birch.html">mlr_learners_clust.birch</a></code>,
+<code><a href="mlr_learners_clust.clara.html">mlr_learners_clust.clara</a></code>,
 <code><a href="mlr_learners_clust.cmeans.html">mlr_learners_clust.cmeans</a></code>,
 <code><a href="mlr_learners_clust.cobweb.html">mlr_learners_clust.cobweb</a></code>,
 <code><a href="mlr_learners_clust.dbscan.html">mlr_learners_clust.dbscan</a></code>,
@@ -118,10 +125,12 @@ for established default tuning spaces.</p></li>
 <code><a href="mlr_learners_clust.hdbscan.html">mlr_learners_clust.hdbscan</a></code>,
 <code><a href="mlr_learners_clust.kkmeans.html">mlr_learners_clust.kkmeans</a></code>,
 <code><a href="mlr_learners_clust.kmeans.html">mlr_learners_clust.kmeans</a></code>,
+<code><a href="mlr_learners_clust.kproto.html">mlr_learners_clust.kproto</a></code>,
 <code><a href="mlr_learners_clust.mclust.html">mlr_learners_clust.mclust</a></code>,
 <code><a href="mlr_learners_clust.meanshift.html">mlr_learners_clust.meanshift</a></code>,
 <code><a href="mlr_learners_clust.optics.html">mlr_learners_clust.optics</a></code>,
 <code><a href="mlr_learners_clust.pam.html">mlr_learners_clust.pam</a></code>,
+<code><a href="mlr_learners_clust.specc.html">mlr_learners_clust.specc</a></code>,
 <code><a href="mlr_learners_clust.xmeans.html">mlr_learners_clust.xmeans</a></code></p></div>
     </div>
     <div class="section level2">

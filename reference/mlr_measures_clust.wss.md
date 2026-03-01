@@ -3,7 +3,7 @@
 The score function calls
 [`fpc::cluster.stats()`](https://rdrr.io/pkg/fpc/man/cluster.stats.html)
 from package [fpc](https://CRAN.R-project.org/package=fpc).
-"within.cluster.ss" is used subset output of the function call.
+"within.cluster.ss" is used to subset the output of the function call.
 
 ## Format
 
@@ -13,7 +13,7 @@ inheriting from
 
 ## Construction
 
-This measures can be retrieved from the dictionary
+This measure can be retrieved from the dictionary
 [mlr3::mlr_measures](https://mlr3.mlr-org.com/reference/mlr_measures.html):
 
     mlr_measures$get("clust.wss")

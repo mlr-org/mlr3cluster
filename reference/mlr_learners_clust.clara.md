@@ -1,9 +1,16 @@
-# OPTICS Clustering Learner
+# CLARA Clustering Learner
 
-OPTICS (ordering points to identify the clustering structure)
-clustering. Calls
-[`dbscan::optics()`](https://rdrr.io/pkg/dbscan/man/optics.html) from
-package [dbscan](https://CRAN.R-project.org/package=dbscan).
+Clustering Large Applications (CLARA) clustering. Calls
+[`cluster::clara()`](https://rdrr.io/pkg/cluster/man/clara.html) from
+package [cluster](https://CRAN.R-project.org/package=cluster).
+
+CLARA extends the PAM algorithm to handle larger datasets by working on
+sub-datasets of fixed size. The `k` parameter is set to 2 by default
+since [`cluster::clara()`](https://rdrr.io/pkg/cluster/man/clara.html)
+doesn't have a default value for the number of clusters. The predict
+method uses
+[`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
+compute the cluster memberships for new data.
 
 ## Dictionary
 
@@ -14,8 +21,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.optics")
-    lrn("clust.optics")
+    mlr_learners$get("clust.clara")
+    lrn("clust.clara")
 
 ## Meta Information
 
@@ -27,30 +34,35 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [dbscan](https://CRAN.R-project.org/package=dbscan)
+  [cluster](https://CRAN.R-project.org/package=cluster),
+  [clue](https://CRAN.R-project.org/package=clue)
 
 ## Parameters
 
-|            |           |         |                                              |                       |
-|------------|-----------|---------|----------------------------------------------|-----------------------|
-| Id         | Type      | Default | Levels                                       | Range                 |
-| eps        | numeric   | NULL    |                                              | \\\[0, \infty)\\      |
-| minPts     | integer   | 5       |                                              | \\\[0, \infty)\\      |
-| search     | character | kdtree  | kdtree, linear, dist                         | \-                    |
-| bucketSize | integer   | 10      |                                              | \\\[1, \infty)\\      |
-| splitRule  | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \-                    |
-| approx     | numeric   | 0       |                                              | \\(-\infty, \infty)\\ |
-| eps_cl     | numeric   | \-      |                                              | \\\[0, \infty)\\      |
+|           |           |           |                               |                  |
+|-----------|-----------|-----------|-------------------------------|------------------|
+| Id        | Type      | Default   | Levels                        | Range            |
+| k         | integer   | \-        |                               | \\\[1, \infty)\\ |
+| metric    | character | euclidean | euclidean, manhattan, jaccard | \-               |
+| stand     | logical   | FALSE     | TRUE, FALSE                   | \-               |
+| samples   | integer   | 5         |                               | \\\[1, \infty)\\ |
+| sampsize  | integer   | \-        |                               | \\\[1, \infty)\\ |
+| trace     | integer   | 0         |                               | \\\[0, \infty)\\ |
+| medoids.x | logical   | TRUE      | TRUE, FALSE                   | \-               |
+| keep.data | logical   | TRUE      | TRUE, FALSE                   | \-               |
+| rngR      | logical   | FALSE     | TRUE, FALSE                   | \-               |
+| pamLike   | logical   | FALSE     | TRUE, FALSE                   | \-               |
+| correct.d | logical   | TRUE      | TRUE, FALSE                   | \-               |
 
 ## References
 
-Hahsler M, Piekenbrock M, Doran D (2019). “dbscan: Fast Density-Based
-Clustering with R.” *Journal of Statistical Software*, **91**(1), 1–30.
-[doi:10.18637/jss.v091.i01](https://doi.org/10.18637/jss.v091.i01) .
+Kaufman, Leonard, Rousseeuw, J P (2009). *Finding groups in data: an
+introduction to cluster analysis*. John Wiley & Sons.
 
-Ankerst, Mihael, Breunig, M M, Kriegel, Hans-Peter, Sander, Jörg (1999).
-“OPTICS: Ordering points to identify the clustering structure.” *ACM
-Sigmod record*, **28**(2), 49–60.
+Schubert, Erich, Rousseeuw, J P (2019). “Faster k-medoids clustering:
+improving the PAM, CLARA, and CLARANS algorithms.” In *Similarity Search
+and Applications: 12th International Conference, SISAP 2019, Newark, NJ,
+USA, October 2–4, 2019, Proceedings 12*, 171–187. Springer.
 
 ## See also
 
@@ -92,7 +104,6 @@ Other Learner:
 [`mlr_learners_clust.ap`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ap.md),
 [`mlr_learners_clust.bico`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.bico.md),
 [`mlr_learners_clust.birch`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.birch.md),
-[`mlr_learners_clust.clara`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.clara.md),
 [`mlr_learners_clust.cmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cmeans.md),
 [`mlr_learners_clust.cobweb`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.cobweb.md),
 [`mlr_learners_clust.dbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.dbscan.md),
@@ -109,6 +120,7 @@ Other Learner:
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
+[`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md),
@@ -118,15 +130,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
--\> `LearnerClustOPTICS`
+-\> `LearnerClustCLARA`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustOPTICS$new()`](#method-LearnerClustOPTICS-new)
+- [`LearnerClustCLARA$new()`](#method-LearnerClustCLARA-new)
 
-- [`LearnerClustOPTICS$clone()`](#method-LearnerClustOPTICS-clone)
+- [`LearnerClustCLARA$clone()`](#method-LearnerClustCLARA-clone)
 
 Inherited methods
 
@@ -151,7 +163,7 @@ Creates a new instance of this
 
 #### Usage
 
-    LearnerClustOPTICS$new()
+    LearnerClustCLARA$new()
 
 ------------------------------------------------------------------------
 
@@ -161,7 +173,7 @@ The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustOPTICS$clone(deep = FALSE)
+    LearnerClustCLARA$clone(deep = FALSE)
 
 #### Arguments
 
@@ -173,16 +185,48 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.optics")
+learner = lrn("clust.clara")
 print(learner)
 #> 
-#> ── <LearnerClustOPTICS> (clust.optics): OPTICS ─────────────────────────────────
+#> ── <LearnerClustCLARA> (clust.clara): CLARA ────────────────────────────────────
 #> • Model: -
-#> • Parameters: list()
-#> • Packages: mlr3, mlr3cluster, and dbscan
+#> • Parameters: k=2
+#> • Packages: mlr3, mlr3cluster, cluster, and clue
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, density, and exclusive
+#> • Properties: complete, exclusive, and partitional
 #> • Other settings: use_weights = 'error'
+
+# Define a Task
+task = tsk("usarrests")
+
+# Train the learner on the task
+learner$train(task)
+
+# Print the model
+print(learner$model)
+#> Call:     cluster::clara(x = task$data(), k = 2L) 
+#> Medoids:
+#>      Assault Murder Rape UrbanPop
+#> [1,]     255   12.1 35.1       74
+#> [2,]     115    6.0 18.0       66
+#> Objective function:   38.4178
+#> Clustering vector:    int [1:50] 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 ...
+#> Cluster sizes:            21 29 
+#> Best sample:
+#>  [1]  2  3  4  5  6  8  9 10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+#> [26] 29 30 32 33 34 35 36 37 38 39 40 41 43 45 46 47 48 49 50
+#> 
+#> Available components:
+#>  [1] "sample"     "medoids"    "i.med"      "clustering" "objective" 
+#>  [6] "clusinfo"   "diss"       "call"       "silinfo"    "data"      
+
+# Make predictions for the task
+prediction = learner$predict(task)
+
+# Score the predictions
+prediction$score(task = task)
+#> clust.dunn 
+#>  0.1033191 
 ```
