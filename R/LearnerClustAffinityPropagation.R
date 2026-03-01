@@ -59,7 +59,7 @@ LearnerClustAP = R6Class("LearnerClustAP",
       pv = self$param_set$get_values(tags = "train")
       data = task$data()
       m = invoke(apcluster::apcluster, x = data, .args = pv)
-      # add data points corresponding to examplars
+      # add data points corresponding to exemplars
       setattr(m, "exemplar_data", data[m@exemplars])
 
       if (self$save_assignments) {
