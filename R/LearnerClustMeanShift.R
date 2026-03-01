@@ -57,14 +57,14 @@ LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
 
       m = invoke(LPCM::ms, X = task$data(), .args = pv)
       if (self$save_assignments) {
-        self$assignments = m$cluster.label
+        self$assignments = as.integer(m$cluster.label)
       }
       m
     },
 
     .predict = function(task) {
       warn_prediction_useless(self$id)
-      partition = as.integer(self$model$cluster.label)
+      partition = self$assignments %??% as.integer(self$model$cluster.label)
       PredictionClust$new(task = task, partition = partition)
     }
   )

@@ -85,7 +85,7 @@ LearnerClustSpectral = R6Class("LearnerClustSpectral",
 
     .predict = function(task) {
       warn_prediction_useless(self$id)
-      partition = as.integer(self$model)
+      partition = self$assignments %??% as.integer(self$model)
       PredictionClust$new(task = task, partition = partition)
     }
   )
