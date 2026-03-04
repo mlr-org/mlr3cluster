@@ -4,6 +4,8 @@
 
 ## mlr3cluster 0.3.0
 
+CRAN release: 2026-03-01
+
 - feat: Add CLARA clustering learner `clust.clara` from the cluster
   package.
 - feat: Add k-prototypes clustering learner `clust.kproto` from the
