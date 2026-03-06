@@ -15,7 +15,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustBICO = R6Class("LearnerClustBICO",
+LearnerClustBICO = R6Class(
+  "LearnerClustBICO",
   inherit = LearnerClust,
   public = list(
     #' @description

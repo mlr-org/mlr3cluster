@@ -21,7 +21,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustMiniBatchKMeans = R6Class("LearnerClustMiniBatchKMeans",
+LearnerClustMiniBatchKMeans = R6Class(
+  "LearnerClustMiniBatchKMeans",
   inherit = LearnerClust,
   public = list(
     #' @description

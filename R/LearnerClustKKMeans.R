@@ -21,7 +21,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustKKMeans = R6Class("LearnerClustKKMeans",
+LearnerClustKKMeans = R6Class(
+  "LearnerClustKKMeans",
   inherit = LearnerClust,
   public = list(
     #' @description

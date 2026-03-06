@@ -18,7 +18,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustCobweb = R6Class("LearnerClustCobweb",
+LearnerClustCobweb = R6Class(
+  "LearnerClustCobweb",
   inherit = LearnerClust,
   public = list(
     #' @description

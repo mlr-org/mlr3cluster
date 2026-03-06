@@ -15,7 +15,8 @@
 #' @export
 #' @template seealso_learner
 #' @template simple_example
-LearnerClustDBSCANfpc = R6Class("LearnerClustDBSCANfpc",
+LearnerClustDBSCANfpc = R6Class(
+  "LearnerClustDBSCANfpc",
   inherit = LearnerClust,
   public = list(
     #' @description

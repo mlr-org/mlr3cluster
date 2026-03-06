@@ -14,7 +14,8 @@
 #' p = learner$train(task)$predict(task)
 #' p$predict_types
 #' head(as.data.table(p))
-PredictionClust = R6Class("PredictionClust",
+PredictionClust = R6Class(
+  "PredictionClust",
   inherit = Prediction,
   public = list(
     #' @description

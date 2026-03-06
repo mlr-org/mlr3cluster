@@ -20,7 +20,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustCMeans = R6Class("LearnerClustCMeans",
+LearnerClustCMeans = R6Class(
+  "LearnerClustCMeans",
   inherit = LearnerClust,
   public = list(
     #' @description

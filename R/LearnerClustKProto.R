@@ -40,7 +40,8 @@
 #'
 #' # Score the predictions
 #' prediction$score(task = task)
-LearnerClustKProto = R6Class("LearnerClustKProto",
+LearnerClustKProto = R6Class(
+  "LearnerClustKProto",
   inherit = LearnerClust,
   public = list(
     #' @description

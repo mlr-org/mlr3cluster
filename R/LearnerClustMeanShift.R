@@ -18,7 +18,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustMeanShift = R6Class("LearnerClustMeanShift",
+LearnerClustMeanShift = R6Class(
+  "LearnerClustMeanShift",
   inherit = LearnerClust,
   public = list(
     #' @description

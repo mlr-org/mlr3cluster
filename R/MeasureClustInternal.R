@@ -1,6 +1,7 @@
 #' @include measures.R
 #' @include MeasureClust.R
-MeasureClustFPC = R6Class("MeasureClustFPC",
+MeasureClustFPC = R6Class(
+  "MeasureClustFPC",
   inherit = MeasureClust,
   cloneable = FALSE,
   public = list(
@@ -28,7 +29,8 @@ MeasureClustFPC = R6Class("MeasureClustFPC",
   )
 )
 
-MeasureClustSil = R6Class("MeasureClustSil",
+MeasureClustSil = R6Class(
+  "MeasureClustSil",
   inherit = MeasureClust,
   cloneable = FALSE,
   public = list(

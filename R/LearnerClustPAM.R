@@ -20,7 +20,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustPAM = R6Class("LearnerClustPAM",
+LearnerClustPAM = R6Class(
+  "LearnerClustPAM",
   inherit = LearnerClust,
   public = list(
     #' @description

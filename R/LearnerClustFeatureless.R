@@ -13,7 +13,8 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClustFeatureless = R6Class("LearnerClustFeatureless",
+LearnerClustFeatureless = R6Class(
+  "LearnerClustFeatureless",
   inherit = LearnerClust,
   public = list(
     #' @description

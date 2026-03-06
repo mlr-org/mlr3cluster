@@ -18,7 +18,8 @@
 #' @export
 #' @template seealso_learner
 #' @template simple_example
-LearnerClustXMeans = R6Class("LearnerClustXMeans",
+LearnerClustXMeans = R6Class(
+  "LearnerClustXMeans",
   inherit = LearnerClust,
   public = list(
     #' @description
