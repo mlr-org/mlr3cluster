@@ -214,7 +214,7 @@ print(learner$model)
 #> 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 2 2 1 2 2 1 1 2 1 2 2 2 2 1 1 2 2 1 2 2 1 2 2 1 1 2 2 1 1 2 
 #>  
 #> Gaussian Radial Basis kernel function. 
-#>  Hyperparameter : sigma =  0.0119047619047598 
+#>  Hyperparameter : sigma =  0.00850340136054485 
 #> 
 #> Centers:  
 #>          [,1]     [,2]     [,3]  [,4]

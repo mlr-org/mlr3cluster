@@ -206,19 +206,19 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> K-means clustering with 2 clusters of sizes 29, 21
+#> K-means clustering with 2 clusters of sizes 21, 29
 #> 
 #> Cluster means:
 #>    Assault    Murder     Rape UrbanPop
-#> 1 109.7586  4.841379 16.24828 64.03448
-#> 2 255.0000 11.857143 28.11429 67.61905
+#> 1 255.0000 11.857143 28.11429 67.61905
+#> 2 109.7586  4.841379 16.24828 64.03448
 #> 
 #> Clustering vector:
-#>  [1] 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 1 2 1 2 1 1 1 2 1 1 2 2 2 1 1 1 1 1
-#> [39] 1 2 1 2 2 1 1 1 1 1 1 1
+#>  [1] 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 2 1 2 1 2 2 2 1 2 2 1 1 1 2 2 2 2 2
+#> [39] 2 1 2 1 1 2 2 2 2 2 2 2
 #> 
 #> Within cluster sum of squares by cluster:
-#> [1] 54762.30 41636.73
+#> [1] 41636.73 54762.30
 #>  (between_SS / total_SS =  72.9 %)
 #> 
 #> Available components:
