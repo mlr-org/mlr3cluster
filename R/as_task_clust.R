@@ -21,7 +21,7 @@ as_task_clust = function(x, ...) {
 #' @param clone (`logical(1)`)\cr
 #'   If `TRUE`, ensures that the returned object is not the same as the input `x`.
 #' @export
-as_task_clust.TaskClust = function(x, clone = FALSE, ...) { # nolint
+as_task_clust.TaskClust = function(x, clone = FALSE, ...) {
   if (clone) x$clone() else x
 }
 
@@ -30,7 +30,7 @@ as_task_clust.TaskClust = function(x, clone = FALSE, ...) { # nolint
 #'   Id for the new task.
 #'   Defaults to the (deparsed and substituted) name of the data argument.
 #' @export
-as_task_clust.data.frame = function(x, id = deparse1(substitute(x)), ...) { # nolint
+as_task_clust.data.frame = function(x, id = deparse1(substitute(x)), ...) {
   force(id)
 
   ii = which(map_lgl(keep(x, is.double), anyInfinite))
@@ -43,7 +43,7 @@ as_task_clust.data.frame = function(x, id = deparse1(substitute(x)), ...) { # no
 
 #' @rdname as_task_clust
 #' @export
-as_task_clust.DataBackend = function(x, id = deparse1(substitute(x)), ...) { # nolint
+as_task_clust.DataBackend = function(x, id = deparse1(substitute(x)), ...) {
   force(id)
 
   TaskClust$new(id = id, backend = x)
@@ -53,7 +53,7 @@ as_task_clust.DataBackend = function(x, id = deparse1(substitute(x)), ...) { # n
 #' @param data (`data.frame()`)\cr
 #'   Data frame containing all columns specified in formula `x`.
 #' @export
-as_task_clust.formula = function(x, data, id = deparse1(substitute(data)), ...) { # nolint
+as_task_clust.formula = function(x, data, id = deparse1(substitute(data)), ...) {
   force(id)
 
   assert_data_frame(data)

@@ -34,10 +34,16 @@ LearnerClustMiniBatchKMeans = R6Class(
         num_init = p_int(1L, default = 1L, tags = "train"),
         max_iters = p_int(1L, default = 100L, tags = "train"),
         init_fraction = p_dbl(
-          0, 1, default = 1, tags = "train", depends = quote(initializer %in% c("kmeans++", "optimal_init"))
+          lower = 0,
+          upper = 1,
+          default = 1,
+          tags = "train",
+          depends = quote(initializer %in% c("kmeans++", "optimal_init"))
         ),
         initializer = p_fct(
-          c("optimal_init", "quantile_init", "kmeans++", "random"), default = "kmeans++", tags = "train"
+          c("optimal_init", "quantile_init", "kmeans++", "random"),
+          default = "kmeans++",
+          tags = "train"
         ),
         early_stop_iter = p_int(1L, default = 10L, tags = "train"),
         verbose = p_lgl(default = FALSE, tags = "train"),

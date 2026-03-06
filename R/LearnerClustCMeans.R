@@ -35,13 +35,17 @@ LearnerClustCMeans = R6Class(
         method = p_fct(c("cmeans", "ufcl"), default = "cmeans", tags = "train"),
         m = p_dbl(1, default = 2, tags = "train"),
         rate.par = p_dbl(0, 1, tags = "train", depends = quote(method == "ufcl")),
-        weights = p_uty(default = 1L, tags = "train", custom_check = crate(function(x) {
-          if (test_numeric(x) && all(x > 0) || check_count(x, positive = TRUE)) {
-            TRUE
-          } else {
-            "`weights` must be positive numeric vector or a single positive number"
-          }
-        })),
+        weights = p_uty(
+          default = 1L,
+          tags = "train",
+          custom_check = crate(function(x) {
+            if (test_numeric(x) && all(x > 0) || check_count(x, positive = TRUE)) {
+              TRUE
+            } else {
+              "`weights` must be positive numeric vector or a single positive number"
+            }
+          })
+        ),
         control = p_uty(tags = "train")
       )
 

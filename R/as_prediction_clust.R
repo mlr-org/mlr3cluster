@@ -35,13 +35,13 @@ as_prediction_clust = function(x, ...) {
 
 #' @rdname as_prediction_clust
 #' @export
-as_prediction_clust.PredictionClust = function(x, ...) { # nolint
+as_prediction_clust.PredictionClust = function(x, ...) {
   x
 }
 
 #' @rdname as_prediction_clust
 #' @export
-as_prediction_clust.data.frame = function(x, ...) { # nolint
+as_prediction_clust.data.frame = function(x, ...) {
   assert_names(names(x), must.include = c("row_ids", "partition"))
   prob_cols = setdiff(names(x), c("row_ids", "partition"))
 

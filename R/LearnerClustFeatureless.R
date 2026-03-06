@@ -71,11 +71,14 @@ LearnerClustFeatureless = R6Class(
 
         # reorder rows so that the max probability corresponds to
         # the selected partition in `partition`
-        prob = do.call(rbind, map(seq_along(partition), function(i) {
-          x = prob[i, , drop = TRUE]
-          pos = which_max(x)
-          if (pos == i) x else append(x[-pos], x[pos], after = partition[i] - 1L)
-        }))
+        prob = do.call(
+          rbind,
+          map(seq_along(partition), function(i) {
+            x = prob[i, , drop = TRUE]
+            pos = which_max(x)
+            if (pos == i) x else append(x[-pos], x[pos], after = partition[i] - 1L)
+          })
+        )
       }
 
       PredictionClust$new(task = task, partition = partition, prob = prob)

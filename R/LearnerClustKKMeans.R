@@ -36,10 +36,14 @@ LearnerClustKKMeans = R6Class(
           tags = "train"
         ),
         sigma = p_dbl(
-          0, tags = c("train", "kpar"), depends = quote(kernel %in% c("rbfdot", "anovadot", "besseldot", "laplacedot"))
+          0,
+          tags = c("train", "kpar"),
+          depends = quote(kernel %in% c("rbfdot", "anovadot", "besseldot", "laplacedot"))
         ),
         degree = p_int(
-          1L, default = 3L, tags = c("train", "kpar"),
+          1L,
+          default = 3L,
+          tags = c("train", "kpar"),
           depends = quote(kernel %in% c("polydot", "anovadot", "besseldot"))
         ),
         scale = p_dbl(0, default = 1, tags = c("train", "kpar"), depends = quote(kernel %in% c("polydot", "tanhdot"))),
@@ -94,11 +98,13 @@ LearnerClustKKMeans = R6Class(
       # kernel product between each new datapoint and itself: rows are identical
       d_xx = matrix(
         rep(diag(kernlab::kernelMatrix(K, as.matrix(data))), each = ncol(d_xc)),
-        ncol = ncol(d_xc), byrow = TRUE
+        ncol = ncol(d_xc),
+        byrow = TRUE
       )
       # kernel product between each center and itself: columns are identical
       d_cc = matrix(
-        rep(diag(kernlab::kernelMatrix(K, as.matrix(c))), each = nrow(d_xc)), nrow = nrow(d_xc)
+        rep(diag(kernlab::kernelMatrix(K, as.matrix(c))), each = nrow(d_xc)),
+        nrow = nrow(d_xc)
       )
       # this is the squared kernel distance to the centers
       d2 = d_xx + d_cc - 2 * d_xc

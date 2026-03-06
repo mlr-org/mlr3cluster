@@ -88,11 +88,12 @@ LearnerClustHclust = R6Class(
       }
 
       warn_prediction_useless(self$id)
-      partition = self$assignments %??% invoke(
-        stats::cutree,
-        tree = self$model,
-        .args = self$param_set$get_values(tags = c("train", "cutree"))
-      )
+      partition = self$assignments %??%
+        invoke(
+          stats::cutree,
+          tree = self$model,
+          .args = self$param_set$get_values(tags = c("train", "cutree"))
+        )
 
       PredictionClust$new(task = task, partition = partition)
     }

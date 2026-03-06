@@ -34,7 +34,9 @@ LearnerClustDBSCANfpc = R6Class(
           custom_check = crate(function(x) check_flag(x) %check||% check_int(x, lower = 0L, upper = 2L))
         ),
         countmode = p_uty(
-          default = NULL, tags = "train", custom_check = crate(function(x) check_integer(x, null.ok = TRUE))
+          default = NULL,
+          tags = "train",
+          custom_check = crate(function(x) check_integer(x, null.ok = TRUE))
         )
       )
 
