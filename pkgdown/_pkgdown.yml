@@ -37,3 +37,23 @@ navbar:
     rss:
       icon: fa-rss
       href: https://mlr-org.com/
+
+reference:
+  - title: Learners
+    contents:
+      - starts_with("mlr_learners_clust")
+  - title: Measures
+    contents:
+      - starts_with("mlr_measures_clust")
+  - title: Tasks
+    contents:
+      - starts_with("mlr_task")
+  - title: General
+    contents:
+      - MeasureClust
+      - PredictionClust
+      - TaskClust
+      - LearnerClust
+      - as_prediction_clust
+      - as_task_clust
+      - mlr3cluster-package
