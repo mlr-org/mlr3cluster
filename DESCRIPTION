@@ -23,7 +23,6 @@ Imports:
     checkmate (>= 2.0.0),
     cluster,
     data.table (>= 1.15.0),
-    fpc,
     mlr3misc (>= 0.21.0),
     paradox (>= 1.0.1),
     R6 (>= 2.4.1),
@@ -35,6 +34,7 @@ Suggests:
     clustMixType (>= 0.4.0),
     dbscan (>= 1.2.1),
     e1071,
+    fpc,
     kernlab,
     LPCM,
     mclust,
@@ -81,6 +81,7 @@ Collate:
     'LearnerClustXMeans.R'
     'MeasureClust.R'
     'measures.R'
+    'cluster_stats.R'
     'MeasureClustInternal.R'
     'PredictionClust.R'
     'PredictionDataClust.R'

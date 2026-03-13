@@ -1,5 +1,14 @@
 # mlr3cluster (development version)
 
+* feat: Add `clust.avg_between` measure for average between-cluster distance.
+* feat: Add `clust.avg_within` measure for average within-cluster distance.
+* feat: Add `clust.davies_bouldin` measure for the Davies-Bouldin index.
+* feat: Add `clust.dunn2` measure for the alternative Dunn index using average distances.
+* feat: Add `clust.entropy` measure for cluster size distribution entropy.
+* feat: Add `clust.pearsongamma` measure for the Pearson Gamma correlation between distances and cluster membership.
+* feat: Add `clust.wb_ratio` measure for the within/between distance ratio.
+* refactor: Clustering quality measures (`clust.ch`, `clust.dunn`, `clust.wss`) are now computed natively instead of relying on `fpc::cluster.stats()`. The `fpc` package is no longer a hard dependency.
+
 # mlr3cluster 0.3.0
 
 * feat: Add CLARA clustering learner `clust.clara` from the cluster package.

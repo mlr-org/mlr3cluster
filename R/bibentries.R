@@ -439,6 +439,49 @@ bibentries = c(
     pages = "1075--1084",
     year = "2011",
     publisher = "Taylor & Francis"
+  ),
+  calinski1974dendrite = bibentry(
+    "article",
+    title = "A dendrite method for cluster analysis",
+    author = "Cali\u0144ski, Tadeusz and Harabasz, Jerzy",
+    journal = "Communications in Statistics",
+    volume = "3",
+    number = "1",
+    pages = "1--27",
+    year = "1974",
+    doi = "10.1080/03610927408827101"
+  ),
+  dunn1974well = bibentry(
+    "article",
+    title = "Well-separated clusters and optimal fuzzy partitions",
+    author = "Dunn, Joseph C",
+    journal = "Journal of Cybernetics",
+    volume = "4",
+    number = "1",
+    pages = "95--104",
+    year = "1974",
+    doi = "10.1080/01969727408546059"
+  ),
+  rousseeuw1987silhouettes = bibentry(
+    "article",
+    title = "Silhouettes: A graphical aid to the interpretation and validation of cluster analysis",
+    author = "Rousseeuw, Peter J",
+    journal = "Journal of Computational and Applied Mathematics",
+    volume = "20",
+    pages = "53--65",
+    year = "1987",
+    doi = "10.1016/0377-0427(87)90125-7"
+  ),
+  davies1979cluster = bibentry(
+    "article",
+    title = "A cluster separation measure",
+    author = "Davies, David L and Bouldin, Donald W",
+    journal = "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+    volume = "PAMI-1",
+    number = "2",
+    pages = "224--227",
+    year = "1979",
+    doi = "10.1109/TPAMI.1979.4766909"
   )
 )
 # nolint end

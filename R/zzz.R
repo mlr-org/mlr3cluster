@@ -4,7 +4,6 @@
 #' @import mlr3misc
 #' @import paradox
 #' @importFrom cluster silhouette
-#' @importFrom fpc cluster.stats
 #' @importFrom R6 R6Class
 #' @importFrom stats model.frame terms predict runif
 "_PACKAGE"
@@ -64,9 +63,16 @@ register_mlr3 = function() {
   # measures
   mlr_measures = utils::getFromNamespace("mlr_measures", ns = "mlr3")
   mlr_measures$add("clust.silhouette", MeasureClustSil, name = "silhouette", label = "Silhouette")
-  mlr_measures$add("clust.dunn", MeasureClustFPC, name = "dunn", label = "Dunn")
-  mlr_measures$add("clust.ch", MeasureClustFPC, name = "ch", label = "Calinski Harabasz")
-  mlr_measures$add("clust.wss", MeasureClustFPC, name = "wss", label = "Within Sum of Squares")
+  mlr_measures$add("clust.ch", MeasureClustInternal, name = "ch", label = "Calinski Harabasz")
+  mlr_measures$add("clust.dunn", MeasureClustInternal, name = "dunn", label = "Dunn")
+  mlr_measures$add("clust.wss", MeasureClustInternal, name = "wss", label = "Within Sum of Squares")
+  mlr_measures$add("clust.dunn2", MeasureClustInternal, name = "dunn2", label = "Dunn2")
+  mlr_measures$add("clust.wb_ratio", MeasureClustInternal, name = "wb_ratio", label = "Within/Between Ratio")
+  mlr_measures$add("clust.entropy", MeasureClustInternal, name = "entropy", label = "Entropy")
+  mlr_measures$add("clust.pearsongamma", MeasureClustInternal, name = "pearsongamma", label = "Pearson Gamma")
+  mlr_measures$add("clust.davies_bouldin", MeasureClustInternal, name = "davies_bouldin", label = "Davies-Bouldin")
+  mlr_measures$add("clust.avg_between", MeasureClustInternal, name = "avg_between", label = "Average Between")
+  mlr_measures$add("clust.avg_within", MeasureClustInternal, name = "avg_within", label = "Average Within")
 }
 
 .onLoad = function(libname, pkgname) {
