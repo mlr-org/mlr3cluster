@@ -7,4 +7,3 @@
 #'
 #' @section Meta Information:
 #' `r mlr3misc::rd_info(mlr3::tsk("<%= id %>"))`
-#' @md

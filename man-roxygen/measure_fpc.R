@@ -1,24 +1,18 @@
-#' @usage NULL
 #' @name mlr_measures_clust.<%= id %>
-#' @format [R6::R6Class()] inheriting from [MeasureClust].
 #'
 #' @description
 #' The score function calls [fpc::cluster.stats()] from package \CRANpkg{fpc}.
-#' "<%= measures[[id]]$crit %>" is used to subset the output of the function call.
 #'
-#' @section Construction:
-#' This measure can be retrieved from the dictionary [mlr3::mlr_measures]:
+#' @section Dictionary:
+#' This [mlr3::Measure] can be instantiated via the [dictionary][mlr3misc::Dictionary] [mlr3::mlr_measures] or with the
+#' associated sugar function [mlr3::msr()]:
 #' ```
 #' mlr_measures$get("clust.<%= id %>")
 #' msr("clust.<%= id %>")
 #' ```
 #'
 #' @section Meta Information:
-#' <% item = measures[[id]] %>
-#' * Range: <%= rd_format_range(item$lower, item$upper) %>
-#' * Minimize: `<%= item$minimize %>`
-#' * Required predict type: `<%= item$predict_type %>`
-#'
+#' `r mlr3misc::rd_info(mlr3::msr("clust.<%= id %>"))`
 #'
 #' @family cluster measures
 #'

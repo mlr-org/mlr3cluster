@@ -3,16 +3,13 @@
 \name{mlr_measures_clust.ch}
 \alias{mlr_measures_clust.ch}
 \title{Calinski Harabasz Pseudo F-Statistic}
-\format{
-\code{\link[R6:R6Class]{R6::R6Class()}} inheriting from \link{MeasureClust}.
-}
 \description{
 The score function calls \code{\link[fpc:cluster.stats]{fpc::cluster.stats()}} from package \CRANpkg{fpc}.
-"ch" is used to subset the output of the function call.
 }
-\section{Construction}{
+\section{Dictionary}{
 
-This measure can be retrieved from the dictionary \link[mlr3:mlr_measures]{mlr3::mlr_measures}:
+This \link[mlr3:Measure]{mlr3::Measure} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_measures]{mlr3::mlr_measures} or with the
+associated sugar function \code{\link[mlr3:mlr_sugar]{mlr3::msr()}}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.ch")
 msr("clust.ch")
@@ -22,9 +19,12 @@ msr("clust.ch")
 \section{Meta Information}{
 
 \itemize{
+\item Task type: \dQuote{clust}
 \item Range: \eqn{[0, \infty)}{[0, Inf)}
-\item Minimize: \code{FALSE}
-\item Required predict type: \code{partition}
+\item Minimize: FALSE
+\item Average: macro
+\item Required Prediction: \dQuote{partition}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{fpc}
 }
 }
 

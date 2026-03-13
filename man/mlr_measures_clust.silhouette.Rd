@@ -3,16 +3,13 @@
 \name{mlr_measures_clust.silhouette}
 \alias{mlr_measures_clust.silhouette}
 \title{Rousseeuw's Silhouette Quality Index}
-\format{
-\code{\link[R6:R6Class]{R6::R6Class()}} inheriting from \link{MeasureClust}.
-}
 \description{
 The score function calls \code{\link[cluster:silhouette]{cluster::silhouette()}} from package \CRANpkg{cluster}.
-"sil_width" is used to subset the output of the function call.
 }
-\section{Construction}{
+\section{Dictionary}{
 
-This measure can be retrieved from the dictionary \link[mlr3:mlr_measures]{mlr3::mlr_measures}:
+This \link[mlr3:Measure]{mlr3::Measure} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_measures]{mlr3::mlr_measures} or with the
+associated sugar function \code{\link[mlr3:mlr_sugar]{mlr3::msr()}}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.silhouette")
 msr("clust.silhouette")
@@ -22,9 +19,12 @@ msr("clust.silhouette")
 \section{Meta Information}{
 
 \itemize{
+\item Task type: \dQuote{clust}
 \item Range: \eqn{[-1, 1]}{[-1, 1]}
-\item Minimize: \code{FALSE}
-\item Required predict type: \code{partition}
+\item Minimize: FALSE
+\item Average: macro
+\item Required Prediction: \dQuote{partition}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{cluster}
 }
 }
 
