@@ -71,9 +71,17 @@ Set to \code{TRUE} if good predictions correspond to small values,
 and to \code{FALSE} if good predictions correspond to large values.
 If set to \code{NA} (default), tuning this measure is not possible.}
 
-\item{\code{aggregator}}{(\verb{function(x)} | \code{NULL})\cr
-Function to aggregate individual performance scores \code{x} where \code{x} is a numeric vector.
-If \code{NULL}, defaults to \code{\link[=mean]{mean()}}.}
+\item{\code{aggregator}}{(\verb{function()} | \code{NULL})\cr
+Function to aggregate over multiple iterations. The role of this function depends on
+the value of field \code{"average"}:
+\itemize{
+\item \code{"macro"}: A numeric vector of scores (one per iteration) is passed.
+The aggregate function defaults to \code{\link[=mean]{mean()}} in this case.
+\item \code{"micro"}: The \code{aggregator} function is not used.
+Instead, predictions from multiple iterations are first combined and then
+scored in one go.
+\item \code{"custom"}: A \link[mlr3:ResampleResult]{mlr3::ResampleResult} is passed to the aggregate function.
+}}
 
 \item{\code{properties}}{(\code{character()})\cr
 Properties of the measure.
@@ -82,8 +90,14 @@ Supported by \code{mlr3}:
 \itemize{
 \item \code{"requires_task"} (requires the complete \link[mlr3:Task]{mlr3::Task}),
 \item \code{"requires_learner"} (requires the trained \link[mlr3:Learner]{mlr3::Learner}),
-\item \code{"requires_train_set"} (requires the training indices from the \link[mlr3:Resampling]{mlr3::Resampling}), and
-\item \code{"na_score"} (the measure is expected to occasionally return \code{NA} or \code{NaN}).
+\item \code{"requires_model"} (requires the trained \link[mlr3:Learner]{mlr3::Learner}, including the fitted model),
+\item \code{"requires_train_set"} (requires the training indices from the \link[mlr3:Resampling]{mlr3::Resampling}),
+\item \code{"na_score"} (the measure is expected to occasionally return \code{NA} or \code{NaN}),
+\item \code{"weights"} (support weighted scoring using sample weights from task, column role \code{weights_measure}),
+\item \code{"primary_iters"} (the measure explicitly handles resamplings
+that only use a subset of their iterations for the point estimate), and
+\item \code{"requires_no_prediction"} (No prediction is required;
+This usually means that the measure extracts some information from the learner state.).
 }}
 
 \item{\code{predict_type}}{(\code{character(1)})\cr
