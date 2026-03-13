@@ -126,9 +126,15 @@ If set to <code>NA</code> (default), tuning this measure is not possible.</p></d
 
 
 <dt><code>aggregator</code></dt>
-<dd><p>(<code>function(x)</code> | <code>NULL</code>)<br>
-Function to aggregate individual performance scores <code>x</code> where <code>x</code> is a numeric vector.
-If <code>NULL</code>, defaults to <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean()</a></code>.</p></dd>
+<dd><p>(<code>function()</code> | <code>NULL</code>)<br>
+Function to aggregate over multiple iterations. The role of this function depends on
+the value of field <code>"average"</code>:</p><ul><li><p><code>"macro"</code>: A numeric vector of scores (one per iteration) is passed.
+The aggregate function defaults to <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean()</a></code> in this case.</p></li>
+<li><p><code>"micro"</code>: The <code>aggregator</code> function is not used.
+Instead, predictions from multiple iterations are first combined and then
+scored in one go.</p></li>
+<li><p><code>"custom"</code>: A <a href="https://mlr3.mlr-org.com/reference/ResampleResult.html" class="external-link">mlr3::ResampleResult</a> is passed to the aggregate function.</p></li>
+</ul></dd>
 
 
 <dt><code>properties</code></dt>
@@ -137,8 +143,14 @@ Properties of the measure.
 Must be a subset of <a href="https://mlr3.mlr-org.com/reference/mlr_reflections.html" class="external-link">mlr_reflections$measure_properties</a>.
 Supported by <code>mlr3</code>:</p><ul><li><p><code>"requires_task"</code> (requires the complete <a href="https://mlr3.mlr-org.com/reference/Task.html" class="external-link">mlr3::Task</a>),</p></li>
 <li><p><code>"requires_learner"</code> (requires the trained <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>),</p></li>
-<li><p><code>"requires_train_set"</code> (requires the training indices from the <a href="https://mlr3.mlr-org.com/reference/Resampling.html" class="external-link">mlr3::Resampling</a>), and</p></li>
-<li><p><code>"na_score"</code> (the measure is expected to occasionally return <code>NA</code> or <code>NaN</code>).</p></li>
+<li><p><code>"requires_model"</code> (requires the trained <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>, including the fitted model),</p></li>
+<li><p><code>"requires_train_set"</code> (requires the training indices from the <a href="https://mlr3.mlr-org.com/reference/Resampling.html" class="external-link">mlr3::Resampling</a>),</p></li>
+<li><p><code>"na_score"</code> (the measure is expected to occasionally return <code>NA</code> or <code>NaN</code>),</p></li>
+<li><p><code>"weights"</code> (support weighted scoring using sample weights from task, column role <code>weights_measure</code>),</p></li>
+<li><p><code>"primary_iters"</code> (the measure explicitly handles resamplings
+that only use a subset of their iterations for the point estimate), and</p></li>
+<li><p><code>"requires_no_prediction"</code> (No prediction is required;
+This usually means that the measure extracts some information from the learner state.).</p></li>
 </ul></dd>
 
 

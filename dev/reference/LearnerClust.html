@@ -159,9 +159,17 @@ Set of properties of the <a href="https://mlr3.mlr-org.com/reference/Learner.htm
 Must be a subset of <code><a href="https://mlr3.mlr-org.com/reference/mlr_reflections.html" class="external-link">mlr_reflections$learner_properties</a></code>.
 The following properties are currently standardized and understood by learners in <a href="https://CRAN.R-project.org/package=mlr3" class="external-link"><span class="pkg">mlr3</span></a>:</p><ul><li><p><code>"missings"</code>: The learner can handle missing values in the data.</p></li>
 <li><p><code>"weights"</code>: The learner supports observation weights.</p></li>
+<li><p><code>"offset"</code>: The learner can incorporate offset values to adjust predictions.</p></li>
 <li><p><code>"importance"</code>: The learner supports extraction of importance scores, i.e. comes with an <code>$importance()</code> extractor function (see section on optional extractors in <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>).</p></li>
 <li><p><code>"selected_features"</code>: The learner supports extraction of the set of selected features, i.e. comes with a <code>$selected_features()</code> extractor function (see section on optional extractors in <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>).</p></li>
 <li><p><code>"oob_error"</code>: The learner supports extraction of estimated out of bag error, i.e. comes with a <code>oob_error()</code> extractor function (see section on optional extractors in <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>).</p></li>
+<li><p><code>"validation"</code>: The learner can use a validation task during training.</p></li>
+<li><p><code>"internal_tuning"</code>: The learner is able to internally optimize hyperparameters (those are also tagged with <code>"internal_tuning"</code>).</p></li>
+<li><p><code>"marshal"</code>: To save learners with this property, you need to call <code>$marshal()</code> first.
+If a learner is in a marshaled state, you call first need to call <code>$unmarshal()</code> to use its model, e.g. for prediction.</p></li>
+<li><p><code>"hotstart_forward"</code>: The learner supports to hotstart a model forward.</p></li>
+<li><p><code>"hotstart_backward"</code>: The learner supports hotstarting a model backward.</p></li>
+<li><p><code>"featureless"</code>: The learner does not use features.</p></li>
 </ul></dd>
 
 

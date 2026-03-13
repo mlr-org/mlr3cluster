@@ -81,10 +81,21 @@ Creates a new instance of this
 
 - `aggregator`:
 
-  (`function(x)` \| `NULL`)  
-  Function to aggregate individual performance scores `x` where `x` is a
-  numeric vector. If `NULL`, defaults to
-  [`mean()`](https://rdrr.io/r/base/mean.html).
+  (`function()` \| `NULL`)  
+  Function to aggregate over multiple iterations. The role of this
+  function depends on the value of field `"average"`:
+
+  - `"macro"`: A numeric vector of scores (one per iteration) is passed.
+    The aggregate function defaults to
+    [`mean()`](https://rdrr.io/r/base/mean.html) in this case.
+
+  - `"micro"`: The `aggregator` function is not used. Instead,
+    predictions from multiple iterations are first combined and then
+    scored in one go.
+
+  - `"custom"`: A
+    [mlr3::ResampleResult](https://mlr3.mlr-org.com/reference/ResampleResult.html)
+    is passed to the aggregate function.
 
 - `properties`:
 
@@ -99,12 +110,25 @@ Creates a new instance of this
   - `"requires_learner"` (requires the trained
     [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)),
 
+  - `"requires_model"` (requires the trained
+    [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html),
+    including the fitted model),
+
   - `"requires_train_set"` (requires the training indices from the
     [mlr3::Resampling](https://mlr3.mlr-org.com/reference/Resampling.html)),
-    and
 
   - `"na_score"` (the measure is expected to occasionally return `NA` or
-    `NaN`).
+    `NaN`),
+
+  - `"weights"` (support weighted scoring using sample weights from
+    task, column role `weights_measure`),
+
+  - `"primary_iters"` (the measure explicitly handles resamplings that
+    only use a subset of their iterations for the point estimate), and
+
+  - `"requires_no_prediction"` (No prediction is required; This usually
+    means that the measure extracts some information from the learner
+    state.).
 
 - `predict_type`:
 
