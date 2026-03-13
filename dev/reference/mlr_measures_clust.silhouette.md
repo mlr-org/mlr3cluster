@@ -3,29 +3,34 @@
 The score function calls
 [`cluster::silhouette()`](https://rdrr.io/pkg/cluster/man/silhouette.html)
 from package [cluster](https://CRAN.R-project.org/package=cluster).
-"sil_width" is used to subset the output of the function call.
 
-## Format
+## Dictionary
 
-[`R6::R6Class()`](https://r6.r-lib.org/reference/R6Class.html)
-inheriting from
-[MeasureClust](https://mlr3cluster.mlr-org.com/dev/reference/MeasureClust.md).
-
-## Construction
-
-This measure can be retrieved from the dictionary
-[mlr3::mlr_measures](https://mlr3.mlr-org.com/reference/mlr_measures.html):
+This [mlr3::Measure](https://mlr3.mlr-org.com/reference/Measure.html)
+can be instantiated via the
+[dictionary](https://mlr3misc.mlr-org.com/reference/Dictionary.html)
+[mlr3::mlr_measures](https://mlr3.mlr-org.com/reference/mlr_measures.html)
+or with the associated sugar function
+[`mlr3::msr()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
     mlr_measures$get("clust.silhouette")
     msr("clust.silhouette")
 
 ## Meta Information
 
+- Task type: “clust”
+
 - Range: \\\[-1, 1\]\\
 
-- Minimize: `FALSE`
+- Minimize: FALSE
 
-- Required predict type: `partition`
+- Average: macro
+
+- Required Prediction: “partition”
+
+- Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
+  [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
+  [cluster](https://CRAN.R-project.org/package=cluster)
 
 ## See also
 
