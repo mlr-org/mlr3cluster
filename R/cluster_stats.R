@@ -13,18 +13,10 @@ cluster_ch = function(x, clustering) {
   x = as.matrix(x)
   n = nrow(x)
   k = length(unique(clustering))
-  W = matrix(0, ncol(x), ncol(x))
-  for (cl in unique(clustering)) {
-    members = x[clustering == cl, , drop = FALSE]
-    ni = nrow(members)
-    if (ni < 2L) {
-      next
-    }
-    W = W + (ni - 1L) * stats::cov(members)
-  }
-  S = (n - 1L) * stats::cov(x)
-  B = S - W
-  (n - k) * sum(diag(B)) / ((k - 1L) * sum(diag(W)))
+  wss = cluster_wss(x, clustering)
+  tss = sum(sweep(x, 2L, colMeans(x))^2)
+  bss = tss - wss
+  (n - k) * bss / ((k - 1L) * wss)
 }
 
 cluster_dunn = function(d, clustering) {
@@ -82,63 +74,46 @@ cluster_dunn2 = function(d, clustering) {
 }
 
 cluster_wb_ratio = function(d, clustering) {
-  dmat = as.matrix(d)
-  clusters = sort(unique(clustering))
-  k = length(clusters)
-
-  between_dist = numeric()
-  cluster_avg = numeric(k)
-  cluster_size = numeric(k)
-
-  for (i in seq_along(clusters)) {
-    idx = which(clustering == clusters[i])
-    cluster_size[i] = length(idx)
-    if (length(idx) >= 2L) {
-      cluster_avg[i] = mean(stats::as.dist(dmat[idx, idx]))
-    } else {
-      cluster_avg[i] = NA
-    }
-  }
-
-  for (i in seq_len(k - 1L)) {
-    idx_i = which(clustering == clusters[i])
-    for (j in (i + 1L):k) {
-      idx_j = which(clustering == clusters[j])
-      between_dist = c(between_dist, dmat[idx_i, idx_j])
-    }
-  }
-
-  avg_within = stats::weighted.mean(cluster_avg, cluster_size, na.rm = TRUE)
-  avg_between = mean(between_dist)
-  avg_within / avg_between
+  cluster_avg_within(d, clustering) / cluster_avg_between(d, clustering)
 }
 
 cluster_pearsongamma = function(d, clustering) {
   dmat = as.matrix(d)
   clusters = sort(unique(clustering))
   k = length(clusters)
+  n = length(clustering)
+  sizes = tabulate(clustering)
 
-  within_dist = numeric()
-  between_dist = numeric()
+  n_within = sum(sizes * (sizes - 1L) / 2L)
+  n_between = n * (n - 1L) / 2L - n_within
 
+  within_dist = numeric(n_within)
+  between_dist = numeric(n_between)
+
+  iw = 1L
   for (i in seq_along(clusters)) {
     idx = which(clustering == clusters[i])
     if (length(idx) >= 2L) {
-      within_dist = c(within_dist, stats::as.dist(dmat[idx, idx]))
+      vals = stats::as.dist(dmat[idx, idx])
+      within_dist[iw:(iw + length(vals) - 1L)] = vals
+      iw = iw + length(vals)
     }
   }
 
+  ib = 1L
   for (i in seq_len(k - 1L)) {
     idx_i = which(clustering == clusters[i])
     for (j in (i + 1L):k) {
       idx_j = which(clustering == clusters[j])
-      between_dist = c(between_dist, dmat[idx_i, idx_j])
+      vals = dmat[idx_i, idx_j]
+      between_dist[ib:(ib + length(vals) - 1L)] = vals
+      ib = ib + length(vals)
     }
   }
 
   stats::cor(
     c(within_dist, between_dist),
-    c(rep(0, length(within_dist)), rep(1, length(between_dist)))
+    c(rep(0, n_within), rep(1, n_between))
   )
 }
 
@@ -154,15 +129,18 @@ cluster_avg_between = function(d, clustering) {
   clusters = sort(unique(clustering))
   k = length(clusters)
 
-  between_dist = numeric()
+  total = 0
+  count = 0L
   for (i in seq_len(k - 1L)) {
     idx_i = which(clustering == clusters[i])
     for (j in (i + 1L):k) {
       idx_j = which(clustering == clusters[j])
-      between_dist = c(between_dist, dmat[idx_i, idx_j])
+      vals = dmat[idx_i, idx_j]
+      total = total + sum(vals)
+      count = count + length(vals)
     }
   }
-  mean(between_dist)
+  total / count
 }
 
 cluster_avg_within = function(d, clustering) {
