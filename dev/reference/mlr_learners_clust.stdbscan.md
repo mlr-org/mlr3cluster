@@ -1,14 +1,9 @@
-# Fuzzy C-Means Clustering Learner
+# ST-DBSCAN Clustering Learner
 
-Fuzzy c-means clustering. Calls
-[`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html) from
-package [e1071](https://CRAN.R-project.org/package=e1071).
-
-The `centers` parameter is set to 2 by default since
-[`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html) doesn't
-have a default value for the number of clusters. The predict method uses
-[`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
-compute the cluster memberships for new data.
+ST-DBSCAN (spatio-temporal density-based spatial clustering of
+applications with noise) clustering. Calls
+[`stdbscan::st_dbscan()`](https://miboraminima.github.io/stdbscan/reference/st_dbscan.html)
+from package [stdbscan](https://CRAN.R-project.org/package=stdbscan).
 
 ## Dictionary
 
@@ -19,45 +14,42 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.cmeans")
-    lrn("clust.cmeans")
+    mlr_learners$get("clust.stdbscan")
+    lrn("clust.stdbscan")
 
 ## Meta Information
 
 - Task type: “clust”
 
-- Predict Types: “partition”, “prob”
+- Predict Types: “partition”
 
-- Feature Types: “logical”, “integer”, “numeric”
+- Feature Types: “integer”, “numeric”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [e1071](https://CRAN.R-project.org/package=e1071),
-  [clue](https://CRAN.R-project.org/package=clue)
+  [stdbscan](https://CRAN.R-project.org/package=stdbscan)
 
 ## Parameters
 
-|          |           |           |                      |                  |
-|----------|-----------|-----------|----------------------|------------------|
-| Id       | Type      | Default   | Levels               | Range            |
-| centers  | untyped   | \-        |                      | \-               |
-| iter.max | integer   | 100       |                      | \\\[1, \infty)\\ |
-| verbose  | logical   | FALSE     | TRUE, FALSE          | \-               |
-| dist     | character | euclidean | euclidean, manhattan | \-               |
-| method   | character | cmeans    | cmeans, ufcl         | \-               |
-| m        | numeric   | 2         |                      | \\\[1, \infty)\\ |
-| rate.par | numeric   | \-        |                      | \\\[0, 1\]\\     |
-| weights  | untyped   | 1L        |                      | \-               |
-| control  | untyped   | \-        |                      | \-               |
+|              |           |         |                                              |                       |
+|--------------|-----------|---------|----------------------------------------------|-----------------------|
+| Id           | Type      | Default | Levels                                       | Range                 |
+| eps_spatial  | numeric   | \-      |                                              | \\\[0, \infty)\\      |
+| eps_temporal | numeric   | \-      |                                              | \\\[0, \infty)\\      |
+| min_pts      | integer   | \-      |                                              | \\\[1, \infty)\\      |
+| borderPoints | logical   | TRUE    | TRUE, FALSE                                  | \-                    |
+| search       | character | kdtree  | kdtree, linear, dist                         | \-                    |
+| bucketSize   | integer   | 10      |                                              | \\\[1, \infty)\\      |
+| splitRule    | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \-                    |
+| approx       | numeric   | 0       |                                              | \\(-\infty, \infty)\\ |
 
 ## References
 
-Dimitriadou, Evgenia, Hornik, Kurt, Leisch, Friedrich, Meyer, David,
-Weingessel, Andreas (2008). “Misc functions of the Department of
-Statistics (e1071), TU Wien.” *R package*, **1**, 5–24.
-
-Bezdek, C J (2013). *Pattern recognition with fuzzy objective function
-algorithms*. Springer Science & Business Media.
+Birant, Derya, Kut, Alp (2007). “ST-DBSCAN: An algorithm for clustering
+spatial-temporal data.” *Data & Knowledge Engineering*, **60**(1),
+208–221.
+[doi:10.1016/j.datak.2006.01.013](https://doi.org/10.1016/j.datak.2006.01.013)
+.
 
 ## See also
 
@@ -100,6 +92,7 @@ Other Learner:
 [`mlr_learners_clust.bico`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.bico.md),
 [`mlr_learners_clust.birch`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.birch.md),
 [`mlr_learners_clust.clara`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.clara.md),
+[`mlr_learners_clust.cmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cmeans.md),
 [`mlr_learners_clust.cobweb`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cobweb.md),
 [`mlr_learners_clust.dbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan.md),
 [`mlr_learners_clust.dbscan_fpc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan_fpc.md),
@@ -119,22 +112,21 @@ Other Learner:
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.specc.md),
-[`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.stdbscan.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustCMeans`
+-\> `LearnerClustSTDBSCAN`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustCMeans$new()`](#method-LearnerClustCMeans-new)
+- [`LearnerClustSTDBSCAN$new()`](#method-LearnerClustSTDBSCAN-new)
 
-- [`LearnerClustCMeans$clone()`](#method-LearnerClustCMeans-clone)
+- [`LearnerClustSTDBSCAN$clone()`](#method-LearnerClustSTDBSCAN-clone)
 
 Inherited methods
 
@@ -159,7 +151,7 @@ Creates a new instance of this
 
 #### Usage
 
-    LearnerClustCMeans$new()
+    LearnerClustSTDBSCAN$new()
 
 ------------------------------------------------------------------------
 
@@ -169,7 +161,7 @@ The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustCMeans$clone(deep = FALSE)
+    LearnerClustSTDBSCAN$clone(deep = FALSE)
 
 #### Arguments
 
@@ -181,100 +173,16 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.cmeans")
+learner = lrn("clust.stdbscan")
 print(learner)
 #> 
-#> ── <LearnerClustCMeans> (clust.cmeans): Fuzzy C-Means ──────────────────────────
+#> ── <LearnerClustSTDBSCAN> (clust.stdbscan): ST-DBSCAN ──────────────────────────
 #> • Model: -
-#> • Parameters: centers=2
-#> • Packages: mlr3, mlr3cluster, e1071, and clue
-#> • Predict Types: [partition] and prob
-#> • Feature Types: logical, integer, and numeric
+#> • Parameters: list()
+#> • Packages: mlr3, mlr3cluster, and stdbscan
+#> • Predict Types: [partition]
+#> • Feature Types: integer and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, fuzzy, and partitional
+#> • Properties: complete, density, and exclusive
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
-
-# Define a Task
-task = tsk("usarrests")
-
-# Train the learner on the task
-learner$train(task)
-
-# Print the model
-print(learner$model)
-#> Fuzzy c-means clustering with 2 clusters
-#> 
-#> Cluster centers:
-#>    Assault    Murder     Rape UrbanPop
-#> 1 105.4636  4.832825 15.99935 62.71942
-#> 2 256.7305 11.647452 28.07174 68.53664
-#> 
-#> Memberships:
-#>                 1            2
-#>  [1,] 0.033263257 0.9667367429
-#>  [2,] 0.027574006 0.9724259944
-#>  [3,] 0.040975733 0.9590242673
-#>  [4,] 0.399379342 0.6006206579
-#>  [5,] 0.032965170 0.9670348302
-#>  [6,] 0.222586685 0.7774133151
-#>  [7,] 0.988704805 0.0112951949
-#>  [8,] 0.030025580 0.9699744198
-#>  [9,] 0.105409923 0.8945900766
-#> [10,] 0.161921160 0.8380788405
-#> [11,] 0.918554391 0.0814456089
-#> [12,] 0.984824813 0.0151751871
-#> [13,] 0.013417624 0.9865823758
-#> [14,] 0.995554815 0.0044451851
-#> [15,] 0.942076169 0.0579238307
-#> [16,] 0.994734547 0.0052654531
-#> [17,] 0.993247754 0.0067522463
-#> [18,] 0.005496326 0.9945036739
-#> [19,] 0.977398651 0.0226013494
-#> [20,] 0.046965697 0.9530343032
-#> [21,] 0.834571335 0.1654286649
-#> [22,] 0.003586330 0.9964136700
-#> [23,] 0.968010138 0.0319898621
-#> [24,] 0.030137886 0.9698621138
-#> [25,] 0.531095063 0.4689049368
-#> [26,] 0.995143926 0.0048560741
-#> [27,] 0.999460464 0.0005395359
-#> [28,] 0.021471316 0.9785286840
-#> [29,] 0.943078620 0.0569213802
-#> [30,] 0.738279158 0.2617208420
-#> [31,] 0.024474272 0.9755257280
-#> [32,] 0.013728165 0.9862718352
-#> [33,] 0.116834157 0.8831658434
-#> [34,] 0.918165449 0.0818345514
-#> [35,] 0.979301104 0.0206988964
-#> [36,] 0.841635073 0.1583649267
-#> [37,] 0.758223618 0.2417763822
-#> [38,] 0.996100598 0.0038994021
-#> [39,] 0.588362355 0.4116376454
-#> [40,] 0.030434605 0.9695653949
-#> [41,] 0.977066073 0.0229339272
-#> [42,] 0.407199768 0.5928002318
-#> [43,] 0.253062538 0.7469374621
-#> [44,] 0.971249098 0.0287509016
-#> [45,] 0.913714245 0.0862857551
-#> [46,] 0.798181632 0.2018183676
-#> [47,] 0.876313486 0.1236865144
-#> [48,] 0.963814632 0.0361853676
-#> [49,] 0.937450400 0.0625495995
-#> [50,] 0.752579588 0.2474204119
-#> 
-#> Closest hard clustering:
-#>  [1] 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 1 2 1 2 1 1 1 2 1 1 2 2 2 1 1 1 1 1
-#> [39] 1 2 1 2 2 1 1 1 1 1 1 1
-#> 
-#> Available components:
-#> [1] "centers"     "size"        "cluster"     "membership"  "iter"       
-#> [6] "withinerror" "call"       
-
-# Make predictions for the task
-prediction = learner$predict(task)
-
-# Score the predictions
-prediction$score(task = task)
-#> clust.dunn 
-#>  0.1033191 
 ```

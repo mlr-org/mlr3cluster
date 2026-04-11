@@ -219,7 +219,7 @@ ids
 #> [19] "clust.kkmeans"      "clust.kmeans"       "clust.kproto"      
 #> [22] "clust.mclust"       "clust.meanshift"    "clust.optics"      
 #> [25] "clust.pam"          "clust.protoclust"   "clust.specc"       
-#> [28] "clust.xmeans"      
+#> [28] "clust.stdbscan"     "clust.xmeans"      
 
 # get a specific learner from mlr_learners:
 learner = lrn("clust.kmeans")
@@ -233,5 +233,5 @@ print(learner)
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, exclusive, and partitional
-#> • Other settings: use_weights = 'error'
+#> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 ```

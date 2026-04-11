@@ -98,6 +98,9 @@
 - [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.specc.md)
   [`LearnerClustSpectral`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.specc.md)
   : Spectral Clustering Learner
+- [`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.stdbscan.md)
+  [`LearnerClustSTDBSCAN`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.stdbscan.md)
+  : ST-DBSCAN Clustering Learner
 - [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
   [`LearnerClustXMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
   : X-Means Clustering Learner
