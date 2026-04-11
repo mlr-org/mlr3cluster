@@ -2,6 +2,9 @@
 
 ## mlr3cluster (development version)
 
+- feat: Add ST-DBSCAN clustering learner `clust.stdbscan` from the
+  stdbscan package.
+
 ## mlr3cluster 0.3.0
 
 CRAN release: 2026-03-01
