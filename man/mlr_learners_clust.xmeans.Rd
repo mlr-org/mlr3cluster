@@ -112,7 +112,8 @@ Other Learner:
 \code{\link{mlr_learners_clust.optics}},
 \code{\link{mlr_learners_clust.pam}},
 \code{\link{mlr_learners_clust.protoclust}},
-\code{\link{mlr_learners_clust.specc}}
+\code{\link{mlr_learners_clust.specc}},
+\code{\link{mlr_learners_clust.stdbscan}}
 }
 \concept{Learner}
 \section{Super classes}{

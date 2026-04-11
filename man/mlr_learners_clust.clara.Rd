@@ -126,6 +126,7 @@ Other Learner:
 \code{\link{mlr_learners_clust.pam}},
 \code{\link{mlr_learners_clust.protoclust}},
 \code{\link{mlr_learners_clust.specc}},
+\code{\link{mlr_learners_clust.stdbscan}},
 \code{\link{mlr_learners_clust.xmeans}}
 }
 \concept{Learner}

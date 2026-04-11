@@ -429,6 +429,18 @@ bibentries = c(
     year = "1998",
     publisher = "Springer"
   ),
+  birant2007stdbscan = bibentry(
+    "article",
+    title = "ST-DBSCAN: An algorithm for clustering spatial-temporal data",
+    author = "Birant, Derya and Kut, Alp",
+    journal = "Data & Knowledge Engineering",
+    volume = "60",
+    number = "1",
+    pages = "208--221",
+    year = "2007",
+    doi = "10.1016/j.datak.2006.01.013",
+    publisher = "Elsevier"
+  ),
   bien2011hierarchical = bibentry(
     "article",
     title = "Hierarchical Clustering with Prototypes via Minimax Linkage",
