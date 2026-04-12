@@ -251,4 +251,11 @@ measures$avg_between = make_measure_info(cluster_avg_between, lower = 0, upper =
 #'
 #' @templateVar id avg_within
 #' @template measure_internal
-measures$avg_within = make_measure_info(cluster_avg_within, lower = 0, upper = Inf, minimize = TRUE, input = "dist")
+measures$avg_within = make_measure_info(
+  cluster_avg_within,
+  lower = 0,
+  upper = Inf,
+  minimize = TRUE,
+  input = "dist",
+  requires_k2 = FALSE
+)
