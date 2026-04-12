@@ -6,8 +6,6 @@ MeasureClustInternal = R6Class(
   inherit = MeasureClust,
   cloneable = FALSE,
   public = list(
-    fun = NULL,
-    input = NULL,
     initialize = function(name, label) {
       info = measures[[name]]
       super$initialize(
@@ -19,24 +17,26 @@ MeasureClustInternal = R6Class(
         label = label,
         man = paste0("mlr3cluster::mlr_measures_clust.", name)
       )
-      self$fun = info$fun
-      self$input = info$input
+      private$.fun = info$fun
+      private$.input = info$input
     }
   ),
   private = list(
+    .fun = NULL,
+    .input = NULL,
     .score = function(prediction, task, ...) {
       switch(
-        self$input,
+        private$.input,
         data = {
           x = as.matrix(task$data(rows = prediction$row_ids))
-          self$fun(x, prediction$partition)
+          private$.fun(x, prediction$partition)
         },
         dist = {
           d = stats::dist(task$data(rows = prediction$row_ids))
-          self$fun(d, prediction$partition)
+          private$.fun(d, prediction$partition)
         },
         none = {
-          self$fun(prediction$partition)
+          private$.fun(prediction$partition)
         }
       )
     }
