@@ -1,7 +1,7 @@
 skip_if_not_installed("stdbscan")
 
 test_that("autotest", {
-  learner = lrn("clust.stdbscan", eps_spatial = 25, eps_temporal = 25, min_pts = 2L)
+  learner = lrn("clust.stdbscan", eps_spatial = 1, eps_temporal = 10, min_pts = 2L)
   expect_learner(learner)
 
   generate_tasks.LearnerClustSTDBSCAN = function(learner, N = 20L) {

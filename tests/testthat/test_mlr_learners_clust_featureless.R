@@ -1,5 +1,5 @@
 test_that("autotest", {
-  learner = lrn("clust.featureless")
+  learner = lrn("clust.featureless", num_clusters = 2L)
   expect_learner(learner)
   result = run_autotest(learner)
   expect_true(result, info = result$error)
