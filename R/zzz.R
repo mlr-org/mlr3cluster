@@ -63,16 +63,16 @@ register_mlr3 = function() {
   # measures
   mlr_measures = utils::getFromNamespace("mlr_measures", ns = "mlr3")
   mlr_measures$add("clust.silhouette", MeasureClustSil, name = "silhouette", label = "Silhouette")
-  mlr_measures$add("clust.ch", MeasureClustInternal, name = "ch", label = "Calinski Harabasz")
-  mlr_measures$add("clust.dunn", MeasureClustInternal, name = "dunn", label = "Dunn")
-  mlr_measures$add("clust.wss", MeasureClustInternal, name = "wss", label = "Within Sum of Squares")
-  mlr_measures$add("clust.dunn2", MeasureClustInternal, name = "dunn2", label = "Dunn2")
-  mlr_measures$add("clust.wb_ratio", MeasureClustInternal, name = "wb_ratio", label = "Within/Between Ratio")
-  mlr_measures$add("clust.entropy", MeasureClustInternal, name = "entropy", label = "Entropy")
-  mlr_measures$add("clust.pearsongamma", MeasureClustInternal, name = "pearsongamma", label = "Pearson Gamma")
-  mlr_measures$add("clust.davies_bouldin", MeasureClustInternal, name = "davies_bouldin", label = "Davies-Bouldin")
-  mlr_measures$add("clust.avg_between", MeasureClustInternal, name = "avg_between", label = "Average Between")
-  mlr_measures$add("clust.avg_within", MeasureClustInternal, name = "avg_within", label = "Average Within")
+  mlr_measures$add("clust.ch", MeasureClustSimple, name = "ch", label = "Calinski Harabasz")
+  mlr_measures$add("clust.dunn", MeasureClustSimple, name = "dunn", label = "Dunn")
+  mlr_measures$add("clust.wss", MeasureClustSimple, name = "wss", label = "Within Sum of Squares")
+  mlr_measures$add("clust.dunn2", MeasureClustSimple, name = "dunn2", label = "Dunn2")
+  mlr_measures$add("clust.wb_ratio", MeasureClustSimple, name = "wb_ratio", label = "Within/Between Ratio")
+  mlr_measures$add("clust.entropy", MeasureClustSimple, name = "entropy", label = "Entropy")
+  mlr_measures$add("clust.pearsongamma", MeasureClustSimple, name = "pearsongamma", label = "Pearson Gamma")
+  mlr_measures$add("clust.davies_bouldin", MeasureClustSimple, name = "davies_bouldin", label = "Davies-Bouldin")
+  mlr_measures$add("clust.avg_between", MeasureClustSimple, name = "avg_between", label = "Average Between")
+  mlr_measures$add("clust.avg_within", MeasureClustSimple, name = "avg_within", label = "Average Within")
 }
 
 .onLoad = function(libname, pkgname) {

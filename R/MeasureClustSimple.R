@@ -1,8 +1,8 @@
 #' @include cluster_stats.R
 #' @include measures.R
 #' @include MeasureClust.R
-MeasureClustInternal = R6Class(
-  "MeasureClustInternal",
+MeasureClustSimple = R6Class(
+  "MeasureClustSimple",
   inherit = MeasureClust,
   cloneable = FALSE,
   public = list(

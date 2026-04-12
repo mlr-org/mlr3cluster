@@ -84,7 +84,7 @@ Collate:
     'MeasureClust.R'
     'measures.R'
     'cluster_stats.R'
-    'MeasureClustInternal.R'
+    'MeasureClustSimple.R'
     'PredictionClust.R'
     'PredictionDataClust.R'
     'TaskClust.R'
