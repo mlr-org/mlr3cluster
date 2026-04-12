@@ -38,7 +38,12 @@ MeasureClustSimple = R6Class(
           private$.fun(x, prediction$partition)
         },
         dist = {
-          d = as.matrix(stats::dist(task$data(rows = prediction$row_ids)))
+          data = task$data(rows = prediction$row_ids)
+          if (any(task$feature_types$type %in% c("factor", "ordered"))) {
+            d = as.matrix(cluster::daisy(data, metric = "gower"))
+          } else {
+            d = as.matrix(stats::dist(data))
+          }
           private$.fun(d, prediction$partition)
         },
         none = {
@@ -70,7 +75,12 @@ MeasureClustSil = R6Class(
   ),
   private = list(
     .score = function(prediction, task, ...) {
-      d = stats::dist(task$data(rows = prediction$row_ids))
+      data = task$data(rows = prediction$row_ids)
+      if (any(task$feature_types$type %in% c("factor", "ordered"))) {
+        d = cluster::daisy(data, metric = "gower")
+      } else {
+        d = stats::dist(data)
+      }
 
       if (length(unique(prediction$partition)) < 2L) {
         return(NaN)
