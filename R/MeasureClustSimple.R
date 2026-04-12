@@ -67,7 +67,7 @@ MeasureClustSil = R6Class(
       d = stats::dist(task$data(rows = prediction$row_ids))
 
       if (length(unique(prediction$partition)) == 1L) {
-        0L
+        0
       } else {
         mean(silhouette(prediction$partition, d)[, "sil_width"])
       }
