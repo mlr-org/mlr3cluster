@@ -19,12 +19,18 @@ MeasureClustSimple = R6Class(
       )
       private$.fun = info$fun
       private$.input = info$input
+      private$.requires_k2 = info$requires_k2
     }
   ),
   private = list(
     .fun = NULL,
     .input = NULL,
+    .requires_k2 = NULL,
+
     .score = function(prediction, task, ...) {
+      if (private$.requires_k2 && length(unique(prediction$partition)) < 2L) {
+        return(NaN)
+      }
       switch(
         private$.input,
         data = {
@@ -66,11 +72,10 @@ MeasureClustSil = R6Class(
     .score = function(prediction, task, ...) {
       d = stats::dist(task$data(rows = prediction$row_ids))
 
-      if (length(unique(prediction$partition)) == 1L) {
-        0
-      } else {
-        mean(silhouette(prediction$partition, d)[, "sil_width"])
+      if (length(unique(prediction$partition)) < 2L) {
+        return(NaN)
       }
+      mean(silhouette(prediction$partition, d)[, "sil_width"])
     }
   )
 )
@@ -135,7 +140,14 @@ measures$dunn = make_measure_info(cluster_dunn, lower = 0, upper = Inf, minimize
 #'
 #' @templateVar id wss
 #' @template measure_internal
-measures$wss = make_measure_info(cluster_wss, lower = 0, upper = Inf, minimize = TRUE, input = "data")
+measures$wss = make_measure_info(
+  cluster_wss,
+  lower = 0,
+  upper = Inf,
+  minimize = TRUE,
+  input = "data",
+  requires_k2 = FALSE
+)
 
 #' @title Dunn2 Index
 #'
@@ -175,7 +187,14 @@ measures$wb_ratio = make_measure_info(cluster_wb_ratio, lower = 0, upper = Inf, 
 #'
 #' @templateVar id entropy
 #' @template measure_internal
-measures$entropy = make_measure_info(cluster_entropy, lower = 0, upper = Inf, minimize = TRUE, input = "none")
+measures$entropy = make_measure_info(
+  cluster_entropy,
+  lower = 0,
+  upper = Inf,
+  minimize = TRUE,
+  input = "none",
+  requires_k2 = FALSE
+)
 
 #' @title Pearson Gamma
 #'
