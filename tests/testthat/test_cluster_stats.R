@@ -1,5 +1,6 @@
 test_that("cluster_wss matches fpc", {
   skip_if_not_installed("fpc")
+  withr::local_seed(1L)
   x = as.matrix(datasets::USArrests)
   d = stats::dist(x)
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
@@ -11,6 +12,7 @@ test_that("cluster_wss matches fpc", {
 
 test_that("cluster_ch matches fpc", {
   skip_if_not_installed("fpc")
+  withr::local_seed(1L)
   x = as.matrix(datasets::USArrests)
   d = stats::dist(x)
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
@@ -22,6 +24,7 @@ test_that("cluster_ch matches fpc", {
 
 test_that("cluster_dunn matches fpc", {
   skip_if_not_installed("fpc")
+  withr::local_seed(1L)
   x = as.matrix(datasets::USArrests)
   d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
@@ -33,6 +36,7 @@ test_that("cluster_dunn matches fpc", {
 
 test_that("cluster_dunn2 matches fpc", {
   skip_if_not_installed("fpc")
+  withr::local_seed(1L)
   x = as.matrix(datasets::USArrests)
   d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
@@ -44,6 +48,7 @@ test_that("cluster_dunn2 matches fpc", {
 
 test_that("cluster_wb_ratio matches fpc", {
   skip_if_not_installed("fpc")
+  withr::local_seed(1L)
   x = as.matrix(datasets::USArrests)
   d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
@@ -55,6 +60,7 @@ test_that("cluster_wb_ratio matches fpc", {
 
 test_that("cluster_pearsongamma matches fpc", {
   skip_if_not_installed("fpc")
+  withr::local_seed(1L)
   x = as.matrix(datasets::USArrests)
   d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
@@ -66,6 +72,7 @@ test_that("cluster_pearsongamma matches fpc", {
 
 test_that("cluster_entropy matches fpc", {
   skip_if_not_installed("fpc")
+  withr::local_seed(1L)
   x = as.matrix(datasets::USArrests)
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
 
@@ -76,6 +83,7 @@ test_that("cluster_entropy matches fpc", {
 
 test_that("cluster_avg_between matches fpc", {
   skip_if_not_installed("fpc")
+  withr::local_seed(1L)
   x = as.matrix(datasets::USArrests)
   d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
@@ -87,6 +95,7 @@ test_that("cluster_avg_between matches fpc", {
 
 test_that("cluster_avg_within matches fpc", {
   skip_if_not_installed("fpc")
+  withr::local_seed(1L)
   x = as.matrix(datasets::USArrests)
   d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
@@ -107,6 +116,7 @@ test_that("cluster_davies_bouldin returns correct value on known data", {
 
 test_that("cluster measures match fpc with different k", {
   skip_if_not_installed("fpc")
+  withr::local_seed(1L)
   x = as.matrix(iris[, 1:4])
   d = as.matrix(stats::dist(x))
 

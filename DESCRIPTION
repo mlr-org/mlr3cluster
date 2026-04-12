@@ -44,7 +44,8 @@ Suggests:
     RWeka,
     stdbscan (>= 0.2.0),
     stream (>= 2.0.0),
-    testthat (>= 3.3.0)
+    testthat (>= 3.3.0),
+    withr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
