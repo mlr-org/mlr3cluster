@@ -32,7 +32,7 @@ MeasureClustSimple = R6Class(
           private$.fun(x, prediction$partition)
         },
         dist = {
-          d = stats::dist(task$data(rows = prediction$row_ids))
+          d = as.matrix(stats::dist(task$data(rows = prediction$row_ids)))
           private$.fun(d, prediction$partition)
         },
         none = {

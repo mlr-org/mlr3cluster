@@ -1,7 +1,7 @@
 test_that("cluster_wss matches fpc", {
   skip_if_not_installed("fpc")
   x = as.matrix(datasets::USArrests)
-  d = dist(x)
+  d = stats::dist(x)
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
 
   expected = fpc::cluster.stats(d, clustering, silhouette = FALSE)$within.cluster.ss
@@ -12,7 +12,7 @@ test_that("cluster_wss matches fpc", {
 test_that("cluster_ch matches fpc", {
   skip_if_not_installed("fpc")
   x = as.matrix(datasets::USArrests)
-  d = dist(x)
+  d = stats::dist(x)
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
 
   expected = fpc::cluster.stats(d, clustering, silhouette = FALSE)$ch
@@ -23,10 +23,10 @@ test_that("cluster_ch matches fpc", {
 test_that("cluster_dunn matches fpc", {
   skip_if_not_installed("fpc")
   x = as.matrix(datasets::USArrests)
-  d = dist(x)
+  d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
 
-  expected = fpc::cluster.stats(d, clustering, silhouette = FALSE)$dunn
+  expected = fpc::cluster.stats(stats::dist(x), clustering, silhouette = FALSE)$dunn
   actual = cluster_dunn(d, clustering)
   expect_equal(actual, expected)
 })
@@ -34,10 +34,10 @@ test_that("cluster_dunn matches fpc", {
 test_that("cluster_dunn2 matches fpc", {
   skip_if_not_installed("fpc")
   x = as.matrix(datasets::USArrests)
-  d = dist(x)
+  d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
 
-  expected = fpc::cluster.stats(d, clustering, silhouette = FALSE)$dunn2
+  expected = fpc::cluster.stats(stats::dist(x), clustering, silhouette = FALSE)$dunn2
   actual = cluster_dunn2(d, clustering)
   expect_equal(actual, expected)
 })
@@ -45,10 +45,10 @@ test_that("cluster_dunn2 matches fpc", {
 test_that("cluster_wb_ratio matches fpc", {
   skip_if_not_installed("fpc")
   x = as.matrix(datasets::USArrests)
-  d = dist(x)
+  d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
 
-  expected = fpc::cluster.stats(d, clustering, silhouette = FALSE)$wb.ratio
+  expected = fpc::cluster.stats(stats::dist(x), clustering, silhouette = FALSE)$wb.ratio
   actual = cluster_wb_ratio(d, clustering)
   expect_equal(actual, expected)
 })
@@ -56,10 +56,10 @@ test_that("cluster_wb_ratio matches fpc", {
 test_that("cluster_pearsongamma matches fpc", {
   skip_if_not_installed("fpc")
   x = as.matrix(datasets::USArrests)
-  d = dist(x)
+  d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
 
-  expected = fpc::cluster.stats(d, clustering, silhouette = FALSE)$pearsongamma
+  expected = fpc::cluster.stats(stats::dist(x), clustering, silhouette = FALSE)$pearsongamma
   actual = cluster_pearsongamma(d, clustering)
   expect_equal(actual, expected)
 })
@@ -67,10 +67,9 @@ test_that("cluster_pearsongamma matches fpc", {
 test_that("cluster_entropy matches fpc", {
   skip_if_not_installed("fpc")
   x = as.matrix(datasets::USArrests)
-  d = dist(x)
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
 
-  expected = fpc::cluster.stats(d, clustering, silhouette = FALSE)$entropy
+  expected = fpc::cluster.stats(stats::dist(x), clustering, silhouette = FALSE)$entropy
   actual = cluster_entropy(clustering)
   expect_equal(actual, expected)
 })
@@ -78,10 +77,10 @@ test_that("cluster_entropy matches fpc", {
 test_that("cluster_avg_between matches fpc", {
   skip_if_not_installed("fpc")
   x = as.matrix(datasets::USArrests)
-  d = dist(x)
+  d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
 
-  expected = fpc::cluster.stats(d, clustering, silhouette = FALSE)$average.between
+  expected = fpc::cluster.stats(stats::dist(x), clustering, silhouette = FALSE)$average.between
   actual = cluster_avg_between(d, clustering)
   expect_equal(actual, expected)
 })
@@ -89,10 +88,10 @@ test_that("cluster_avg_between matches fpc", {
 test_that("cluster_avg_within matches fpc", {
   skip_if_not_installed("fpc")
   x = as.matrix(datasets::USArrests)
-  d = dist(x)
+  d = as.matrix(stats::dist(x))
   clustering = stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster
 
-  expected = fpc::cluster.stats(d, clustering, silhouette = FALSE)$average.within
+  expected = fpc::cluster.stats(stats::dist(x), clustering, silhouette = FALSE)$average.within
   actual = cluster_avg_within(d, clustering)
   expect_equal(actual, expected)
 })
@@ -109,11 +108,11 @@ test_that("cluster_davies_bouldin returns correct value on known data", {
 test_that("cluster measures match fpc with different k", {
   skip_if_not_installed("fpc")
   x = as.matrix(iris[, 1:4])
-  d = dist(x)
+  d = as.matrix(stats::dist(x))
 
   for (k in c(2L, 3L, 5L)) {
     clustering = stats::kmeans(x, centers = k, nstart = 10L)$cluster
-    fpc_stats = fpc::cluster.stats(d, clustering, silhouette = FALSE)
+    fpc_stats = fpc::cluster.stats(stats::dist(x), clustering, silhouette = FALSE)
 
     expect_equal(cluster_wss(x, clustering), fpc_stats$within.cluster.ss, info = sprintf("wss k=%d", k))
     expect_equal(cluster_ch(x, clustering), fpc_stats$ch, info = sprintf("ch k=%d", k))

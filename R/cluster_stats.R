@@ -1,5 +1,4 @@
 cluster_wss = function(x, clustering) {
-  x = as.matrix(x)
   wss = 0
   for (cl in unique(clustering)) {
     members = x[clustering == cl, , drop = FALSE]
@@ -10,7 +9,6 @@ cluster_wss = function(x, clustering) {
 }
 
 cluster_ch = function(x, clustering) {
-  x = as.matrix(x)
   n = nrow(x)
   k = length(unique(clustering))
   wss = cluster_wss(x, clustering)
@@ -20,7 +18,6 @@ cluster_ch = function(x, clustering) {
 }
 
 cluster_dunn = function(d, clustering) {
-  dmat = as.matrix(d)
   clusters = sort(unique(clustering))
   k = length(clusters)
 
@@ -30,7 +27,7 @@ cluster_dunn = function(d, clustering) {
     if (length(idx) < 2L) {
       diameter[i] = 0
     } else {
-      diameter[i] = max(dmat[idx, idx])
+      diameter[i] = max(d[idx, idx])
     }
   }
 
@@ -39,7 +36,7 @@ cluster_dunn = function(d, clustering) {
     idx_i = which(clustering == clusters[i])
     for (j in (i + 1L):k) {
       idx_j = which(clustering == clusters[j])
-      separation = min(separation, min(dmat[idx_i, idx_j]))
+      separation = min(separation, min(d[idx_i, idx_j]))
     }
   }
 
@@ -47,7 +44,6 @@ cluster_dunn = function(d, clustering) {
 }
 
 cluster_dunn2 = function(d, clustering) {
-  dmat = as.matrix(d)
   clusters = sort(unique(clustering))
   k = length(clusters)
 
@@ -57,7 +53,7 @@ cluster_dunn2 = function(d, clustering) {
     if (length(idx) < 2L) {
       avg_within[i] = 0
     } else {
-      avg_within[i] = mean(stats::as.dist(dmat[idx, idx]))
+      avg_within[i] = mean(stats::as.dist(d[idx, idx]))
     }
   }
 
@@ -66,7 +62,7 @@ cluster_dunn2 = function(d, clustering) {
     idx_i = which(clustering == clusters[i])
     for (j in (i + 1L):k) {
       idx_j = which(clustering == clusters[j])
-      min_avg_between = min(min_avg_between, mean(dmat[idx_i, idx_j]))
+      min_avg_between = min(min_avg_between, mean(d[idx_i, idx_j]))
     }
   }
 
@@ -78,7 +74,6 @@ cluster_wb_ratio = function(d, clustering) {
 }
 
 cluster_pearsongamma = function(d, clustering) {
-  dmat = as.matrix(d)
   clusters = sort(unique(clustering))
   k = length(clusters)
   n = length(clustering)
@@ -94,7 +89,7 @@ cluster_pearsongamma = function(d, clustering) {
   for (i in seq_along(clusters)) {
     idx = which(clustering == clusters[i])
     if (length(idx) >= 2L) {
-      vals = stats::as.dist(dmat[idx, idx])
+      vals = stats::as.dist(d[idx, idx])
       within_dist[iw:(iw + length(vals) - 1L)] = vals
       iw = iw + length(vals)
     }
@@ -105,7 +100,7 @@ cluster_pearsongamma = function(d, clustering) {
     idx_i = which(clustering == clusters[i])
     for (j in (i + 1L):k) {
       idx_j = which(clustering == clusters[j])
-      vals = dmat[idx_i, idx_j]
+      vals = d[idx_i, idx_j]
       between_dist[ib:(ib + length(vals) - 1L)] = vals
       ib = ib + length(vals)
     }
@@ -125,7 +120,6 @@ cluster_entropy = function(clustering) {
 }
 
 cluster_avg_between = function(d, clustering) {
-  dmat = as.matrix(d)
   clusters = sort(unique(clustering))
   k = length(clusters)
 
@@ -135,7 +129,7 @@ cluster_avg_between = function(d, clustering) {
     idx_i = which(clustering == clusters[i])
     for (j in (i + 1L):k) {
       idx_j = which(clustering == clusters[j])
-      vals = dmat[idx_i, idx_j]
+      vals = d[idx_i, idx_j]
       total = total + sum(vals)
       count = count + length(vals)
     }
@@ -144,7 +138,6 @@ cluster_avg_between = function(d, clustering) {
 }
 
 cluster_avg_within = function(d, clustering) {
-  dmat = as.matrix(d)
   clusters = sort(unique(clustering))
   k = length(clusters)
 
@@ -155,7 +148,7 @@ cluster_avg_within = function(d, clustering) {
     idx = which(clustering == clusters[i])
     cluster_size[i] = length(idx)
     if (length(idx) >= 2L) {
-      cluster_avg[i] = mean(stats::as.dist(dmat[idx, idx]))
+      cluster_avg[i] = mean(stats::as.dist(d[idx, idx]))
     } else {
       cluster_avg[i] = NA
     }
@@ -165,7 +158,6 @@ cluster_avg_within = function(d, clustering) {
 }
 
 cluster_davies_bouldin = function(x, clustering) {
-  x = as.matrix(x)
   clusters = sort(unique(clustering))
   k = length(clusters)
 
