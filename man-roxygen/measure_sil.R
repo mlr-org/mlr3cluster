@@ -1,8 +1,5 @@
 #' @name mlr_measures_clust.<%= id %>
 #'
-#' @description
-#' The score function calls [cluster::silhouette()] from package \CRANpkg{cluster}.
-#'
 #' @section Dictionary:
 #' This [mlr3::Measure] can be instantiated via the [dictionary][mlr3misc::Dictionary] [mlr3::mlr_measures] or with the
 #' associated sugar function [mlr3::msr()]:

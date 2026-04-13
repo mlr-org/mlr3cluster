@@ -11,8 +11,6 @@ where \eqn{a(i)} is the average distance to all other observations in the same c
 minimum average distance to observations in any other cluster. The score returned is the mean silhouette width
 across all observations. Values close to 1 indicate well-clustered observations, values near 0 indicate
 observations on cluster boundaries, and negative values indicate possible misclassification.
-
-The score function calls \code{\link[cluster:silhouette]{cluster::silhouette()}} from package \CRANpkg{cluster}.
 }
 \section{Dictionary}{
 
