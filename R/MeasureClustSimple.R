@@ -60,17 +60,16 @@ MeasureClustSil = R6Class(
   inherit = MeasureClust,
   cloneable = FALSE,
   public = list(
-    initialize = function(name, label) {
-      info = measures[[name]]
+    initialize = function() {
       super$initialize(
-        id = paste0("clust.", name),
-        range = c(info$lower, info$upper),
-        minimize = info$minimize,
-        predict_type = info$predict_type,
+        id = "clust.silhouette",
+        range = c(-1, 1),
+        minimize = FALSE,
+        predict_type = "partition",
         packages = "cluster",
         properties = "requires_task",
-        label = label,
-        man = paste0("mlr3cluster::mlr_measures_clust.", name)
+        label = "Silhouette",
+        man = "mlr3cluster::mlr_measures_clust.silhouette"
       )
     }
   ),
@@ -107,7 +106,7 @@ MeasureClustSil = R6Class(
 #'
 #' @references
 #' `r format_bib("rousseeuw1987silhouettes")`
-measures$silhouette = make_measure_info(NULL, lower = -1, upper = 1, minimize = FALSE)
+NULL
 
 #' @title Calinski Harabasz Pseudo F-Statistic
 #'
