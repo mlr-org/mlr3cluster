@@ -27,7 +27,7 @@ cluster_dunn = function(d, clustering) {
     if (length(idx) < 2L) {
       diameter[i] = 0
     } else {
-      diameter[i] = max(d[idx, idx])
+      diameter[i] = max(stats::as.dist(d[idx, idx]))
     }
   }
 
