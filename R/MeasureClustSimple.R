@@ -122,7 +122,7 @@ NULL
 #' the number of clusters, and \eqn{n} is the number of observations. Higher values indicate better-defined clusters.
 #'
 #' @templateVar id ch
-#' @template measure_internal
+#' @template measure_clust
 #'
 #' @references
 #' `r format_bib("calinski1974dendrite")`
@@ -142,7 +142,7 @@ measures$ch = make_measure_info(cluster_ch, lower = 0, upper = Inf, minimize = F
 #' Euclidean distances.
 #'
 #' @templateVar id dunn
-#' @template measure_internal
+#' @template measure_clust
 #'
 #' @references
 #' `r format_bib("dunn1974well")`
@@ -157,7 +157,7 @@ measures$dunn = make_measure_info(cluster_dunn, lower = 0, upper = Inf, minimize
 #' squared distances to centroid}. Lower values indicate tighter clusters.
 #'
 #' @templateVar id wss
-#' @template measure_internal
+#' @template measure_clust
 measures$wss = make_measure_info(
   cluster_wss,
   lower = 0,
@@ -180,7 +180,7 @@ measures$wss = make_measure_info(
 #' Euclidean distances.
 #'
 #' @templateVar id dunn2
-#' @template measure_internal
+#' @template measure_clust
 #'
 #' @references
 #' `r format_bib("dunn1974well")`
@@ -199,7 +199,7 @@ measures$dunn2 = make_measure_info(cluster_dunn2, lower = 0, upper = Inf, minimi
 #' Euclidean distances.
 #'
 #' @templateVar id wb_ratio
-#' @template measure_internal
+#' @template measure_clust
 measures$wb_ratio = make_measure_info(cluster_wb_ratio, lower = 0, upper = Inf, minimize = TRUE, input = "dist")
 
 #' @title Entropy
@@ -212,7 +212,7 @@ measures$wb_ratio = make_measure_info(cluster_wb_ratio, lower = 0, upper = Inf, 
 #' does not evaluate cluster quality directly but characterizes the balance of the partition.
 #'
 #' @templateVar id entropy
-#' @template measure_internal
+#' @template measure_clust
 measures$entropy = make_measure_info(
   cluster_entropy,
   lower = 0,
@@ -235,7 +235,7 @@ measures$entropy = make_measure_info(
 #' Euclidean distances.
 #'
 #' @templateVar id pearsongamma
-#' @template measure_internal
+#' @template measure_clust
 measures$pearsongamma = make_measure_info(cluster_pearsongamma, lower = -1, upper = 1, minimize = FALSE, input = "dist")
 
 #' @title Davies-Bouldin Index
@@ -249,7 +249,7 @@ measures$pearsongamma = make_measure_info(cluster_pearsongamma, lower = -1, uppe
 #' clustering.
 #'
 #' @templateVar id davies_bouldin
-#' @template measure_internal
+#' @template measure_clust
 #'
 #' @references
 #' `r format_bib("davies1979cluster")`
@@ -273,7 +273,7 @@ measures$davies_bouldin = make_measure_info(
 #' Euclidean distances.
 #'
 #' @templateVar id avg_between
-#' @template measure_internal
+#' @template measure_clust
 measures$avg_between = make_measure_info(cluster_avg_between, lower = 0, upper = Inf, minimize = FALSE, input = "dist")
 
 #' @title Average Within-Cluster Distance
@@ -288,7 +288,7 @@ measures$avg_between = make_measure_info(cluster_avg_between, lower = 0, upper =
 #' Euclidean distances.
 #'
 #' @templateVar id avg_within
-#' @template measure_internal
+#' @template measure_clust
 measures$avg_within = make_measure_info(
   cluster_avg_within,
   lower = 0,
