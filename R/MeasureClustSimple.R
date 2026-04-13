@@ -101,6 +101,10 @@ MeasureClustSil = R6Class(
 #' across all observations. Values close to 1 indicate well-clustered observations, values near 0 indicate
 #' observations on cluster boundaries, and negative values indicate possible misclassification.
 #'
+#' @details
+#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' Euclidean distances.
+#'
 #' @templateVar id silhouette
 #' @template measure_sil
 #'
@@ -132,6 +136,10 @@ measures$ch = make_measure_info(cluster_ch, lower = 0, upper = Inf, minimize = F
 #' where \eqn{\delta(C_i, C_j)}{separation} is the minimum distance between clusters \eqn{i} and \eqn{j}, and
 #' \eqn{\Delta(C_k)}{diameter} is the maximum distance between any two observations in cluster \eqn{k}. Higher
 #' values indicate compact, well-separated clusters.
+#'
+#' @details
+#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' Euclidean distances.
 #'
 #' @templateVar id dunn
 #' @template measure_internal
@@ -167,6 +175,10 @@ measures$wss = make_measure_info(
 #' \eqn{D_2 = \min_{i \neq j} \bar{d}(C_i, C_j) / \max_k \bar{d}(C_k)}{D2 = min(avg between) / max(avg within)}.
 #' This variant is more robust to outliers than the standard Dunn index. Higher values indicate better separation.
 #'
+#' @details
+#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' Euclidean distances.
+#'
 #' @templateVar id dunn2
 #' @template measure_internal
 #'
@@ -181,6 +193,10 @@ measures$dunn2 = make_measure_info(cluster_dunn2, lower = 0, upper = Inf, minimi
 #' within-cluster distance is the weighted mean of all pairwise distances within each cluster, and the average
 #' between-cluster distance is the mean of all pairwise distances between observations in different clusters. Lower
 #' values indicate compact clusters that are well separated from each other.
+#'
+#' @details
+#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' Euclidean distances.
 #'
 #' @templateVar id wb_ratio
 #' @template measure_internal
@@ -213,6 +229,10 @@ measures$entropy = make_measure_info(
 #' different clusters. All within-cluster distances are paired with indicator 0, and all between-cluster distances
 #' with indicator 1. Values close to 1 indicate that between-cluster distances tend to be larger than within-cluster
 #' distances, suggesting well-separated clusters.
+#'
+#' @details
+#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' Euclidean distances.
 #'
 #' @templateVar id pearsongamma
 #' @template measure_internal
@@ -248,6 +268,10 @@ measures$davies_bouldin = make_measure_info(
 #' greater separation between clusters. This measure is scale-dependent and is most useful for comparing clusterings
 #' of the same dataset.
 #'
+#' @details
+#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' Euclidean distances.
+#'
 #' @templateVar id avg_between
 #' @template measure_internal
 measures$avg_between = make_measure_info(cluster_avg_between, lower = 0, upper = Inf, minimize = FALSE, input = "dist")
@@ -258,6 +282,10 @@ measures$avg_between = make_measure_info(cluster_avg_between, lower = 0, upper =
 #' The weighted mean of average pairwise distances within each cluster, where weights are the cluster sizes. Lower
 #' values indicate more compact clusters. This measure is scale-dependent and is most useful for comparing
 #' clusterings of the same dataset.
+#'
+#' @details
+#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' Euclidean distances.
 #'
 #' @templateVar id avg_within
 #' @template measure_internal

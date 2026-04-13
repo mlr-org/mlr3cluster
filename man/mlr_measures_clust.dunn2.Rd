@@ -9,6 +9,10 @@ ratio of the minimum average between-cluster distance to the maximum average wit
 \eqn{D_2 = \min_{i \neq j} \bar{d}(C_i, C_j) / \max_k \bar{d}(C_k)}{D2 = min(avg between) / max(avg within)}.
 This variant is more robust to outliers than the standard Dunn index. Higher values indicate better separation.
 }
+\details{
+If the task contains factor or ordered features, Gower distances (\code{\link[cluster:daisy]{cluster::daisy()}}) are used instead of
+Euclidean distances.
+}
 \section{Dictionary}{
 
 This \link[mlr3:Measure]{mlr3::Measure} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_measures]{mlr3::mlr_measures} or with the

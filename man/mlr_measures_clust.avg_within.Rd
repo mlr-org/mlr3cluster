@@ -8,6 +8,10 @@ The weighted mean of average pairwise distances within each cluster, where weigh
 values indicate more compact clusters. This measure is scale-dependent and is most useful for comparing
 clusterings of the same dataset.
 }
+\details{
+If the task contains factor or ordered features, Gower distances (\code{\link[cluster:daisy]{cluster::daisy()}}) are used instead of
+Euclidean distances.
+}
 \section{Dictionary}{
 
 This \link[mlr3:Measure]{mlr3::Measure} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_measures]{mlr3::mlr_measures} or with the

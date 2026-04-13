@@ -9,6 +9,10 @@ different clusters. All within-cluster distances are paired with indicator 0, an
 with indicator 1. Values close to 1 indicate that between-cluster distances tend to be larger than within-cluster
 distances, suggesting well-separated clusters.
 }
+\details{
+If the task contains factor or ordered features, Gower distances (\code{\link[cluster:daisy]{cluster::daisy()}}) are used instead of
+Euclidean distances.
+}
 \section{Dictionary}{
 
 This \link[mlr3:Measure]{mlr3::Measure} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_measures]{mlr3::mlr_measures} or with the

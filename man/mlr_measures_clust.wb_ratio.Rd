@@ -9,6 +9,10 @@ within-cluster distance is the weighted mean of all pairwise distances within ea
 between-cluster distance is the mean of all pairwise distances between observations in different clusters. Lower
 values indicate compact clusters that are well separated from each other.
 }
+\details{
+If the task contains factor or ordered features, Gower distances (\code{\link[cluster:daisy]{cluster::daisy()}}) are used instead of
+Euclidean distances.
+}
 \section{Dictionary}{
 
 This \link[mlr3:Measure]{mlr3::Measure} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_measures]{mlr3::mlr_measures} or with the

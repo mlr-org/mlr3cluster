@@ -12,6 +12,10 @@ minimum average distance to observations in any other cluster. The score returne
 across all observations. Values close to 1 indicate well-clustered observations, values near 0 indicate
 observations on cluster boundaries, and negative values indicate possible misclassification.
 }
+\details{
+If the task contains factor or ordered features, Gower distances (\code{\link[cluster:daisy]{cluster::daisy()}}) are used instead of
+Euclidean distances.
+}
 \section{Dictionary}{
 
 This \link[mlr3:Measure]{mlr3::Measure} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_measures]{mlr3::mlr_measures} or with the
