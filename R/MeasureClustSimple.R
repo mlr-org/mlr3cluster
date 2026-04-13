@@ -13,6 +13,7 @@ MeasureClustSimple = R6Class(
         range = c(info$lower, info$upper),
         minimize = info$minimize,
         predict_type = info$predict_type,
+        packages = if (info$input == "dist") "cluster" else character(),
         properties = if (info$input != "none") "requires_task" else character(),
         label = label,
         man = paste0("mlr3cluster::mlr_measures_clust.", name)

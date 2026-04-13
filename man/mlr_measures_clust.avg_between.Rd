@@ -26,7 +26,7 @@ msr("clust.avg_between")
 \item Minimize: FALSE
 \item Average: macro
 \item Required Prediction: \dQuote{partition}
-\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{cluster}
 }
 }
 
