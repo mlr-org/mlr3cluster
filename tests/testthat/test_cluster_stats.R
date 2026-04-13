@@ -105,6 +105,11 @@ test_that("cluster_avg_within matches fpc", {
   expect_equal(actual, expected)
 })
 
+test_that("cluster_pearsongamma returns NaN for all-singleton clusters", {
+  d = as.matrix(stats::dist(matrix(c(0, 1, 2), ncol = 1)))
+  expect_true(is.nan(cluster_pearsongamma(d, c(1L, 2L, 3L))))
+})
+
 test_that("cluster_davies_bouldin returns correct value on known data", {
   x = matrix(c(0, 0, 1, 0, 0, 1, 10, 0, 11, 0, 10, 1), ncol = 2, byrow = TRUE)
   clustering = c(1L, 1L, 1L, 2L, 2L, 2L)

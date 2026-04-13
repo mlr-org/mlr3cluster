@@ -80,6 +80,9 @@ cluster_pearsongamma = function(d, clustering) {
   sizes = as.integer(table(clustering))
 
   n_within = sum(sizes * (sizes - 1L) / 2L)
+  if (n_within == 0L) {
+    return(NaN)
+  }
   n_between = n * (n - 1L) / 2L - n_within
 
   within_dist = numeric(n_within)
