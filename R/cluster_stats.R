@@ -77,7 +77,7 @@ cluster_pearsongamma = function(d, clustering) {
   clusters = sort(unique(clustering))
   k = length(clusters)
   n = length(clustering)
-  sizes = tabulate(clustering)
+  sizes = as.integer(table(clustering))
 
   n_within = sum(sizes * (sizes - 1L) / 2L)
   n_between = n * (n - 1L) / 2L - n_within
@@ -114,7 +114,7 @@ cluster_pearsongamma = function(d, clustering) {
 
 cluster_entropy = function(clustering) {
   n = length(clustering)
-  sizes = tabulate(clustering)
+  sizes = as.integer(table(clustering))
   p = sizes[sizes > 0L] / n
   -sum(p * log(p))
 }
