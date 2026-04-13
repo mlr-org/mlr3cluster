@@ -110,13 +110,26 @@ test_that("cluster_pearsongamma returns NaN for all-singleton clusters", {
   expect_true(is.nan(cluster_pearsongamma(d, c(1L, 2L, 3L))))
 })
 
-test_that("cluster_davies_bouldin returns correct value on known data", {
-  x = matrix(c(0, 0, 1, 0, 0, 1, 10, 0, 11, 0, 10, 1), ncol = 2, byrow = TRUE)
-  clustering = c(1L, 1L, 1L, 2L, 2L, 2L)
-  centroid = c(1 / 3, 1 / 3)
-  scatter = mean(sqrt(rowSums(sweep(x[1:3, ], 2, centroid)^2)))
-  expected = 2 * scatter / 10
+test_that("cluster_davies_bouldin matches clusterCrit", {
+  skip_if_not_installed("clusterCrit")
+  withr::local_seed(1L)
+  x = as.matrix(datasets::USArrests)
+  clustering = as.integer(stats::kmeans(scale(x), centers = 3L, nstart = 10L)$cluster)
+
+  expected = clusterCrit::intCriteria(x, clustering, "Davies_Bouldin")$davies_bouldin
   expect_equal(cluster_davies_bouldin(x, clustering), expected)
+})
+
+test_that("cluster_davies_bouldin matches clusterCrit with different k", {
+  skip_if_not_installed("clusterCrit")
+  withr::local_seed(1L)
+  x = as.matrix(iris[, 1:4])
+
+  for (k in c(2L, 3L, 5L)) {
+    clustering = as.integer(stats::kmeans(x, centers = k, nstart = 10L)$cluster)
+    expected = clusterCrit::intCriteria(x, clustering, "Davies_Bouldin")$davies_bouldin
+    expect_equal(cluster_davies_bouldin(x, clustering), expected, info = sprintf("k=%d", k))
+  }
 })
 
 test_that("cluster measures match fpc with different k", {
