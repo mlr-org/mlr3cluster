@@ -72,7 +72,7 @@ LearnerClustEM = R6Class(
       prob = NULL
       if (self$predict_type == "prob") {
         prob = invoke(predict, self$model, newdata = data, type = "memberships")
-        colnames(prob) = seq_len(ncol(prob))
+        colnames(prob) = seq_col(prob)
       }
       PredictionClust$new(task = task, partition = partition, prob = prob)
     }
