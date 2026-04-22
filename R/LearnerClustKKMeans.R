@@ -109,7 +109,7 @@ LearnerClustKKMeans = R6Class(
       # this is the squared kernel distance to the centers
       d2 = d_xx + d_cc - 2 * d_xc
       # the nearest center determines cluster assignment
-      partition = apply(d2, 1L, which_min)
+      partition = max.col(-d2, ties.method = "random")
 
       PredictionClust$new(task = task, partition = partition)
     }

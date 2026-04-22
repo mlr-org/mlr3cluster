@@ -21,3 +21,10 @@ check_centers = function(x) {
     "`centers` must be integer or data.frame with initial cluster centers"
   }
 }
+
+row_any_na = function(x) {
+  if (!anyNA(x)) {
+    return(logical(nrow(x)))
+  }
+  rowSums(is.na(x)) > 0L
+}

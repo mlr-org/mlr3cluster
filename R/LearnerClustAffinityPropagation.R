@@ -79,7 +79,7 @@ LearnerClustAP = R6Class(
         rbind(exemplar_data, data),
         sel = seq_row(data) + nrow(exemplar_data)
       )[seq_row(exemplar_data), ]
-      partition = unname(apply(sim_mat, 2L, which_max))
+      partition = max.col(t(sim_mat), ties.method = "random")
       PredictionClust$new(task = task, partition = partition)
     }
   )
