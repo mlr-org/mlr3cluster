@@ -28,3 +28,8 @@ row_any_na = function(x) {
   }
   rowSums(is.na(x)) > 0L
 }
+
+weka_control = function(pv) {
+  names(pv) = chartr("_", "-", names(pv))
+  invoke(RWeka::Weka_control, .args = pv)
+}
