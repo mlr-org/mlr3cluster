@@ -87,28 +87,15 @@ LearnerClustKKMeans = R6Class(
     },
 
     .predict = function(task) {
-      # all of predict is taken from mlr2
-
-      c = kernlab::centers(self$model)
+      centers = kernlab::centers(self$model)
       K = kernlab::kernelf(self$model)
-      data = task$data()
+      x = as.matrix(task$data())
 
-      # kernel product between each new datapoint and the centers
-      d_xc = matrix(kernlab::kernelMatrix(K, as.matrix(data), c), ncol = nrow(c))
-      # kernel product between each new datapoint and itself: rows are identical
-      d_xx = matrix(
-        rep(diag(kernlab::kernelMatrix(K, as.matrix(data))), each = ncol(d_xc)),
-        ncol = ncol(d_xc),
-        byrow = TRUE
-      )
-      # kernel product between each center and itself: columns are identical
-      d_cc = matrix(
-        rep(diag(kernlab::kernelMatrix(K, as.matrix(c))), each = nrow(d_xc)),
-        nrow = nrow(d_xc)
-      )
-      # this is the squared kernel distance to the centers
-      d2 = d_xx + d_cc - 2 * d_xc
-      # the nearest center determines cluster assignment
+      # squared kernel distance: ||phi(x) - phi(c)||^2 = K(x,x) + K(c,c) - 2 K(x,c)
+      kxc = kernlab::kernelMatrix(K, x, centers)
+      kxx = diag(kernlab::kernelMatrix(K, x))
+      kcc = diag(kernlab::kernelMatrix(K, centers))
+      d2 = outer(kxx, kcc, `+`) - 2 * kxc
       partition = max.col(-d2, ties.method = "random")
 
       PredictionClust$new(task = task, partition = partition)
