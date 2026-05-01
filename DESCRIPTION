@@ -23,7 +23,6 @@ Imports:
     checkmate (>= 2.0.0),
     cluster,
     data.table (>= 1.15.0),
-    fpc,
     mlr3misc (>= 0.21.0),
     paradox (>= 1.0.1),
     R6 (>= 2.4.1),
@@ -31,10 +30,12 @@ Imports:
 Suggests:
     apcluster,
     clue,
+    clusterCrit,
     ClusterR (>= 1.3.1),
     clustMixType (>= 0.4.0),
     dbscan (>= 1.2.1),
     e1071,
+    fpc,
     kernlab,
     LPCM,
     mclust,
@@ -44,7 +45,8 @@ Suggests:
     RWeka,
     stdbscan (>= 0.2.0),
     stream (>= 2.0.0),
-    testthat (>= 3.3.0)
+    testthat (>= 3.3.0),
+    withr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, r6 = TRUE)
@@ -83,7 +85,8 @@ Collate:
     'LearnerClustXMeans.R'
     'MeasureClust.R'
     'measures.R'
-    'MeasureClustInternal.R'
+    'cluster_stats.R'
+    'MeasureClustSimple.R'
     'PredictionClust.R'
     'PredictionDataClust.R'
     'TaskClust.R'

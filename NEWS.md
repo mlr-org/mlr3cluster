@@ -1,6 +1,15 @@
 # mlr3cluster (development version)
 
 * feat: Add ST-DBSCAN clustering learner `clust.stdbscan` from the stdbscan package.
+* feat: Add `clust.avg_between` measure for average between-cluster distance.
+* feat: Add `clust.avg_within` measure for average within-cluster distance.
+* feat: Add `clust.davies_bouldin` measure for the Davies-Bouldin index.
+* feat: Add `clust.dunn2` measure for the alternative Dunn index using average distances.
+* feat: Add `clust.entropy` measure for cluster size distribution entropy.
+* feat: Add `clust.pearsongamma` measure for the Pearson Gamma correlation between distances and cluster membership.
+* feat: Add `clust.wb_ratio` measure for the within/between distance ratio.
+* refactor: Clustering quality measures (`clust.ch`, `clust.dunn`, `clust.wss`) are now computed natively instead of relying on `fpc::cluster.stats()`. The `fpc` package is no longer a hard dependency.
+* fix: `clust.silhouette` now returns `NaN` instead of `0` when all observations belong to a single cluster, since the silhouette width is undefined for k < 2.
 
 # mlr3cluster 0.3.0
 
