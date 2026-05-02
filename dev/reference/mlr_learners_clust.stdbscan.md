@@ -31,17 +31,17 @@ or with the associated sugar function
 
 ## Parameters
 
-|              |           |         |                                              |                       |
-|--------------|-----------|---------|----------------------------------------------|-----------------------|
-| Id           | Type      | Default | Levels                                       | Range                 |
-| eps_spatial  | numeric   | \-      |                                              | \\\[0, \infty)\\      |
-| eps_temporal | numeric   | \-      |                                              | \\\[0, \infty)\\      |
-| min_pts      | integer   | \-      |                                              | \\\[1, \infty)\\      |
-| borderPoints | logical   | TRUE    | TRUE, FALSE                                  | \-                    |
-| search       | character | kdtree  | kdtree, linear, dist                         | \-                    |
-| bucketSize   | integer   | 10      |                                              | \\\[1, \infty)\\      |
-| splitRule    | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \-                    |
-| approx       | numeric   | 0       |                                              | \\(-\infty, \infty)\\ |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| Id | Type | Default | Levels | Range |
+| eps_spatial | numeric | \- |  | \\\[0, \infty)\\ |
+| eps_temporal | numeric | \- |  | \\\[0, \infty)\\ |
+| min_pts | integer | \- |  | \\\[1, \infty)\\ |
+| borderPoints | logical | TRUE | TRUE, FALSE | \- |
+| search | character | kdtree | kdtree, linear, dist | \- |
+| bucketSize | integer | 10 |  | \\\[1, \infty)\\ |
+| splitRule | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \- |
+| approx | numeric | 0 |  | \\(-\infty, \infty)\\ |
 
 ## References
 
@@ -117,14 +117,14 @@ Other Learner:
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustSTDBSCAN`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustSTDBSCAN$new()`](#method-LearnerClustSTDBSCAN-new)
+- [`LearnerClustSTDBSCAN$new()`](#method-LearnerClustSTDBSCAN-initialize)
 
 - [`LearnerClustSTDBSCAN$clone()`](#method-LearnerClustSTDBSCAN-clone)
 
@@ -140,11 +140,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustSTDBSCAN$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -155,7 +155,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustSTDBSCAN$clone()`
 
 The objects of this class are cloneable with this method.
 

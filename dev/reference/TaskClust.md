@@ -25,7 +25,7 @@ Other Task:
 
 ### Public methods
 
-- [`TaskClust$new()`](#method-TaskClust-new)
+- [`TaskClust$new()`](#method-TaskClust-initialize)
 
 - [`TaskClust$clone()`](#method-TaskClust-clone)
 
@@ -54,7 +54,7 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `TaskClust$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -90,7 +90,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `TaskClust$clone()`
 
 The objects of this class are cloneable with this method.
 

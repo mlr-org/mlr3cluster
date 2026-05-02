@@ -130,14 +130,14 @@ Other Learner:
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustCLARA`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustCLARA$new()`](#method-LearnerClustCLARA-new)
+- [`LearnerClustCLARA$new()`](#method-LearnerClustCLARA-initialize)
 
 - [`LearnerClustCLARA$clone()`](#method-LearnerClustCLARA-clone)
 
@@ -153,11 +153,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustCLARA$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -168,7 +168,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustCLARA$clone()`
 
 The objects of this class are cloneable with this method.
 

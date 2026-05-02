@@ -40,20 +40,20 @@ or with the associated sugar function
 
 ## Parameters
 
-|                |           |         |                                                                                  |                       |
-|----------------|-----------|---------|----------------------------------------------------------------------------------|-----------------------|
-| Id             | Type      | Default | Levels                                                                           | Range                 |
-| centers        | integer   | \-      |                                                                                  | \\\[1, \infty)\\      |
-| kernel         | character | rbfdot  | rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \-                    |
-| sigma          | numeric   | \-      |                                                                                  | \\\[0, \infty)\\      |
-| degree         | integer   | 3       |                                                                                  | \\\[1, \infty)\\      |
-| scale          | numeric   | 1       |                                                                                  | \\\[0, \infty)\\      |
-| offset         | numeric   | 1       |                                                                                  | \\(-\infty, \infty)\\ |
-| order          | integer   | 1       |                                                                                  | \\(-\infty, \infty)\\ |
-| nystrom.red    | logical   | FALSE   | TRUE, FALSE                                                                      | \-                    |
-| nystrom.sample | integer   | \-      |                                                                                  | \\\[1, \infty)\\      |
-| iterations     | integer   | 200     |                                                                                  | \\\[1, \infty)\\      |
-| mod.sample     | numeric   | 0.75    |                                                                                  | \\\[0, 1\]\\          |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| Id | Type | Default | Levels | Range |
+| centers | integer | \- |  | \\\[1, \infty)\\ |
+| kernel | character | rbfdot | rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \- |
+| sigma | numeric | \- |  | \\\[0, \infty)\\ |
+| degree | integer | 3 |  | \\\[1, \infty)\\ |
+| scale | numeric | 1 |  | \\\[0, \infty)\\ |
+| offset | numeric | 1 |  | \\(-\infty, \infty)\\ |
+| order | integer | 1 |  | \\(-\infty, \infty)\\ |
+| nystrom.red | logical | FALSE | TRUE, FALSE | \- |
+| nystrom.sample | integer | \- |  | \\\[1, \infty)\\ |
+| iterations | integer | 200 |  | \\\[1, \infty)\\ |
+| mod.sample | numeric | 0.75 |  | \\\[0, 1\]\\ |
 
 ## References
 
@@ -131,14 +131,14 @@ Other Learner:
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustSpectral`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustSpectral$new()`](#method-LearnerClustSpectral-new)
+- [`LearnerClustSpectral$new()`](#method-LearnerClustSpectral-initialize)
 
 - [`LearnerClustSpectral$clone()`](#method-LearnerClustSpectral-clone)
 
@@ -154,11 +154,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustSpectral$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -169,7 +169,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustSpectral$clone()`
 
 The objects of this class are cloneable with this method.
 

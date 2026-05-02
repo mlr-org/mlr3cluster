@@ -31,16 +31,16 @@ or with the associated sugar function
 
 ## Parameters
 
-|            |           |         |                                              |                       |
-|------------|-----------|---------|----------------------------------------------|-----------------------|
-| Id         | Type      | Default | Levels                                       | Range                 |
-| eps        | numeric   | NULL    |                                              | \\\[0, \infty)\\      |
-| minPts     | integer   | 5       |                                              | \\\[0, \infty)\\      |
-| search     | character | kdtree  | kdtree, linear, dist                         | \-                    |
-| bucketSize | integer   | 10      |                                              | \\\[1, \infty)\\      |
-| splitRule  | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \-                    |
-| approx     | numeric   | 0       |                                              | \\(-\infty, \infty)\\ |
-| eps_cl     | numeric   | \-      |                                              | \\\[0, \infty)\\      |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| Id | Type | Default | Levels | Range |
+| eps | numeric | NULL |  | \\\[0, \infty)\\ |
+| minPts | integer | 5 |  | \\\[0, \infty)\\ |
+| search | character | kdtree | kdtree, linear, dist | \- |
+| bucketSize | integer | 10 |  | \\\[1, \infty)\\ |
+| splitRule | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \- |
+| approx | numeric | 0 |  | \\(-\infty, \infty)\\ |
+| eps_cl | numeric | \- |  | \\\[0, \infty)\\ |
 
 ## References
 
@@ -118,14 +118,14 @@ Other Learner:
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustOPTICS`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustOPTICS$new()`](#method-LearnerClustOPTICS-new)
+- [`LearnerClustOPTICS$new()`](#method-LearnerClustOPTICS-initialize)
 
 - [`LearnerClustOPTICS$clone()`](#method-LearnerClustOPTICS-clone)
 
@@ -141,11 +141,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustOPTICS$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -156,7 +156,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustOPTICS$clone()`
 
 The objects of this class are cloneable with this method.
 

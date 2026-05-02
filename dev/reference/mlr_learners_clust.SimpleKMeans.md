@@ -34,26 +34,26 @@ or with the associated sugar function
 
 ## Parameters
 
-|                   |         |                               |             |                       |
-|-------------------|---------|-------------------------------|-------------|-----------------------|
-| Id                | Type    | Default                       | Levels      | Range                 |
-| A                 | untyped | "weka.core.EuclideanDistance" |             | \-                    |
-| C                 | logical | FALSE                         | TRUE, FALSE | \-                    |
-| fast              | logical | FALSE                         | TRUE, FALSE | \-                    |
-| I                 | integer | 100                           |             | \\\[1, \infty)\\      |
-| init              | integer | 0                             |             | \\\[0, 3\]\\          |
-| M                 | logical | FALSE                         | TRUE, FALSE | \-                    |
-| max_candidates    | integer | 100                           |             | \\\[1, \infty)\\      |
-| min_density       | integer | 2                             |             | \\\[1, \infty)\\      |
-| N                 | integer | 2                             |             | \\\[1, \infty)\\      |
-| num_slots         | integer | 1                             |             | \\\[1, \infty)\\      |
-| O                 | logical | FALSE                         | TRUE, FALSE | \-                    |
-| periodic_pruning  | integer | 10000                         |             | \\\[1, \infty)\\      |
-| S                 | integer | 10                            |             | \\\[0, \infty)\\      |
-| t2                | numeric | -1                            |             | \\(-\infty, \infty)\\ |
-| t1                | numeric | -1.5                          |             | \\(-\infty, \infty)\\ |
-| V                 | logical | FALSE                         | TRUE, FALSE | \-                    |
-| output_debug_info | logical | FALSE                         | TRUE, FALSE | \-                    |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| Id | Type | Default | Levels | Range |
+| A | untyped | "weka.core.EuclideanDistance" |  | \- |
+| C | logical | FALSE | TRUE, FALSE | \- |
+| fast | logical | FALSE | TRUE, FALSE | \- |
+| I | integer | 100 |  | \\\[1, \infty)\\ |
+| init | integer | 0 |  | \\\[0, 3\]\\ |
+| M | logical | FALSE | TRUE, FALSE | \- |
+| max_candidates | integer | 100 |  | \\\[1, \infty)\\ |
+| min_density | integer | 2 |  | \\\[1, \infty)\\ |
+| N | integer | 2 |  | \\\[1, \infty)\\ |
+| num_slots | integer | 1 |  | \\\[1, \infty)\\ |
+| O | logical | FALSE | TRUE, FALSE | \- |
+| periodic_pruning | integer | 10000 |  | \\\[1, \infty)\\ |
+| S | integer | 10 |  | \\\[0, \infty)\\ |
+| t2 | numeric | -1 |  | \\(-\infty, \infty)\\ |
+| t1 | numeric | -1.5 |  | \\(-\infty, \infty)\\ |
+| V | logical | FALSE | TRUE, FALSE | \- |
+| output_debug_info | logical | FALSE | TRUE, FALSE | \- |
 
 ## References
 
@@ -139,14 +139,14 @@ Other Learner:
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustSimpleKMeans`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustSimpleKMeans$new()`](#method-LearnerClustSimpleKMeans-new)
+- [`LearnerClustSimpleKMeans$new()`](#method-LearnerClustSimpleKMeans-initialize)
 
 - [`LearnerClustSimpleKMeans$clone()`](#method-LearnerClustSimpleKMeans-clone)
 
@@ -162,11 +162,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustSimpleKMeans$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -177,7 +177,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustSimpleKMeans$clone()`
 
 The objects of this class are cloneable with this method.
 

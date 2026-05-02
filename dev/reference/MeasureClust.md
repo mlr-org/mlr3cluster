@@ -26,7 +26,7 @@ Example cluster measures:
 
 ### Public methods
 
-- [`MeasureClust$new()`](#method-MeasureClust-new)
+- [`MeasureClust$new()`](#method-MeasureClust-initialize)
 
 Inherited methods
 
@@ -39,7 +39,7 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `MeasureClust$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -94,7 +94,7 @@ Creates a new instance of this
     scored in one go.
 
   - `"custom"`: A
-    [mlr3::ResampleResult](https://mlr3.mlr-org.com/reference/ResampleResult.html)
+    [ResampleResult](https://mlr3.mlr-org.com/reference/ResampleResult.html)
     is passed to the aggregate function.
 
 - `properties`:

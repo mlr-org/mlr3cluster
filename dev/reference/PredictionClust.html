@@ -68,7 +68,7 @@ the predicted partition and cluster probability.</p>
 Access the stored partition.</p></dd>
 
 
-<dt><code>prob</code></dt>
+    <dt><code>prob</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix()</a></code> | <code>NULL</code>)<br>
 Access to the stored probabilities.</p></dd>
 
@@ -80,17 +80,16 @@ Access to the stored probabilities.</p></dd>
 
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>
-
-<ul><li><p><a href="#method-PredictionClust-new"><code>PredictionClust$new()</code></a></p></li>
+<p></p><ul><li><p><a href="#method-PredictionClust-initialize"><code>PredictionClust$new()</code></a></p></li>
 <li><p><a href="#method-PredictionClust-clone"><code>PredictionClust$clone()</code></a></p></li>
 </ul></div><p><details><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="filter"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-filter"><code>mlr3::Prediction$filter()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="format"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-format"><code>mlr3::Prediction$format()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="help"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-help"><code>mlr3::Prediction$help()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="obs_loss"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-obs_loss"><code>mlr3::Prediction$obs_loss()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="print"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-print"><code>mlr3::Prediction$print()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="score"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-score"><code>mlr3::Prediction$score()</code></a></span></li>
-</ul></details></p><hr><a id="method-PredictionClust-new"></a><div class="section">
-<h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="format"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-format"><code>mlr3::Prediction$format()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="help"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-help"><code>mlr3::Prediction$help()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="obs_loss"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-obs_loss"><code>mlr3::Prediction$obs_loss()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="print"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-print"><code>mlr3::Prediction$print()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="score"><a href="https://mlr3.mlr-org.com/reference/Prediction.html#method-score"><code>mlr3::Prediction$score()</code></a></span></li>
+</ul></details></p><hr><a id="method-PredictionClust-initialize"></a><div class="section">
+<h3 id="predictionclust-new-"><code>PredictionClust$new()</code><a class="anchor" aria-label="anchor" href="#predictionclust-new-"></a></h3>
 <p>Creates a new instance of this <a href="https://r6.r-lib.org/reference/R6Class.html" class="external-link">R6</a> class.</p><div class="section">
 <h4 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va"><a href="../reference/PredictionClust.html">PredictionClust</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
@@ -100,26 +99,21 @@ Access to the stored probabilities.</p></dd>
 <span>  prob <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  check <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div><p></p></div>
-</div>
-
-<div class="section">
+</div><p></p><div class="section">
 <h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>task</code></dt>
 <dd><p>(<a href="TaskClust.html">TaskClust</a> | <code>NULL</code>)<br>
 Task, used to extract defaults for <code>row_ids</code>.</p></dd>
 
-
-<dt><code>row_ids</code></dt>
+      <dt><code>row_ids</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer()</a></code>)<br>
 Row ids of the predicted observations, i.e. the row ids of the test set.</p></dd>
 
-
-<dt><code>partition</code></dt>
+      <dt><code>partition</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer()</a></code> | <code>NULL</code>)<br>
 Vector of cluster partitions.</p></dd>
 
-
-<dt><code>prob</code></dt>
+      <dt><code>prob</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix()</a></code> | <code>NULL</code>)<br>
 Numeric matrix of cluster membership probabilities with one column for each cluster
 and one row for each observation.
@@ -127,8 +121,7 @@ Columns must be named with cluster numbers, row names are automatically removed.
 If <code>prob</code> is provided, but <code>partition</code> is not, the cluster memberships are calculated from
 the probabilities using <code><a href="https://rdrr.io/r/base/maxCol.html" class="external-link">max.col()</a></code> with <code>ties.method</code> set to <code>"first"</code>.</p></dd>
 
-
-<dt><code>check</code></dt>
+      <dt><code>check</code></dt>
 <dd><p>(<code>logical(1)</code>)<br>
 If <code>TRUE</code>, performs some argument checks and predict type conversions.</p></dd>
 
@@ -136,14 +129,14 @@ If <code>TRUE</code>, performs some argument checks and predict type conversions
 </dl><p></p></div>
 </div>
 
-</div><p></p><hr><a id="method-PredictionClust-clone"></a><div class="section">
-<h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
+</div>
+
+<p></p><hr><a id="method-PredictionClust-clone"></a><div class="section">
+<h3 id="predictionclust-clone-"><code>PredictionClust$clone()</code><a class="anchor" aria-label="anchor" href="#predictionclust-clone-"></a></h3>
 <p>The objects of this class are cloneable with this method.</p><div class="section">
 <h4 id="usage-1">Usage<a class="anchor" aria-label="anchor" href="#usage-1"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">PredictionClust</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
-</div>
-
-<div class="section">
+</div><p></p><div class="section">
 <h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>deep</code></dt>
 <dd><p>Whether to make a deep clone.</p></dd>
@@ -153,6 +146,7 @@ If <code>TRUE</code>, performs some argument checks and predict type conversions
 </div>
 
 </div>
+
 
     </div>
 

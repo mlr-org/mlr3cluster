@@ -32,16 +32,16 @@ or with the associated sugar function
 
 ## Parameters
 
-|            |           |           |                                                                        |                       |
-|------------|-----------|-----------|------------------------------------------------------------------------|-----------------------|
-| Id         | Type      | Default   | Levels                                                                 | Range                 |
-| method     | character | complete  | ward.D, ward.D2, single, complete, average, mcquitty, median, centroid | \-                    |
-| members    | untyped   | NULL      |                                                                        | \-                    |
-| distmethod | character | euclidean | euclidean, maximum, manhattan, canberra, binary, minkowski             | \-                    |
-| diag       | logical   | FALSE     | TRUE, FALSE                                                            | \-                    |
-| upper      | logical   | FALSE     | TRUE, FALSE                                                            | \-                    |
-| p          | numeric   | 2         |                                                                        | \\(-\infty, \infty)\\ |
-| k          | integer   | NULL      |                                                                        | \\\[1, \infty)\\      |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| Id | Type | Default | Levels | Range |
+| method | character | complete | ward.D, ward.D2, single, complete, average, mcquitty, median, centroid | \- |
+| members | untyped | NULL |  | \- |
+| distmethod | character | euclidean | euclidean, maximum, manhattan, canberra, binary, minkowski | \- |
+| diag | logical | FALSE | TRUE, FALSE | \- |
+| upper | logical | FALSE | TRUE, FALSE | \- |
+| p | numeric | 2 |  | \\(-\infty, \infty)\\ |
+| k | integer | NULL |  | \\\[1, \infty)\\ |
 
 ## References
 
@@ -144,14 +144,14 @@ Other Learner:
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustHclust`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustHclust$new()`](#method-LearnerClustHclust-new)
+- [`LearnerClustHclust$new()`](#method-LearnerClustHclust-initialize)
 
 - [`LearnerClustHclust$clone()`](#method-LearnerClustHclust-clone)
 
@@ -167,11 +167,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustHclust$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -182,7 +182,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustHclust$clone()`
 
 The objects of this class are cloneable with this method.
 

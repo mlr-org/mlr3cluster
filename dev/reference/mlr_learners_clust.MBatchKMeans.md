@@ -38,21 +38,21 @@ or with the associated sugar function
 
 ## Parameters
 
-|                  |           |          |                                               |                       |
-|------------------|-----------|----------|-----------------------------------------------|-----------------------|
-| Id               | Type      | Default  | Levels                                        | Range                 |
-| clusters         | integer   | 2        |                                               | \\\[1, \infty)\\      |
-| batch_size       | integer   | 10       |                                               | \\\[1, \infty)\\      |
-| num_init         | integer   | 1        |                                               | \\\[1, \infty)\\      |
-| max_iters        | integer   | 100      |                                               | \\\[1, \infty)\\      |
-| init_fraction    | numeric   | 1        |                                               | \\\[0, 1\]\\          |
-| initializer      | character | kmeans++ | optimal_init, quantile_init, kmeans++, random | \-                    |
-| early_stop_iter  | integer   | 10       |                                               | \\\[1, \infty)\\      |
-| verbose          | logical   | FALSE    | TRUE, FALSE                                   | \-                    |
-| CENTROIDS        | untyped   | NULL     |                                               | \-                    |
-| tol              | numeric   | 1e-04    |                                               | \\\[0, \infty)\\      |
-| tol_optimal_init | numeric   | 0.3      |                                               | \\\[0, \infty)\\      |
-| seed             | integer   | 1        |                                               | \\(-\infty, \infty)\\ |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| Id | Type | Default | Levels | Range |
+| clusters | integer | 2 |  | \\\[1, \infty)\\ |
+| batch_size | integer | 10 |  | \\\[1, \infty)\\ |
+| num_init | integer | 1 |  | \\\[1, \infty)\\ |
+| max_iters | integer | 100 |  | \\\[1, \infty)\\ |
+| init_fraction | numeric | 1 |  | \\\[0, 1\]\\ |
+| initializer | character | kmeans++ | optimal_init, quantile_init, kmeans++, random | \- |
+| early_stop_iter | integer | 10 |  | \\\[1, \infty)\\ |
+| verbose | logical | FALSE | TRUE, FALSE | \- |
+| CENTROIDS | untyped | NULL |  | \- |
+| tol | numeric | 1e-04 |  | \\\[0, \infty)\\ |
+| tol_optimal_init | numeric | 0.3 |  | \\\[0, \infty)\\ |
+| seed | integer | 1 |  | \\(-\infty, \infty)\\ |
 
 ## References
 
@@ -125,14 +125,14 @@ Other Learner:
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustMiniBatchKMeans`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustMiniBatchKMeans$new()`](#method-LearnerClustMiniBatchKMeans-new)
+- [`LearnerClustMiniBatchKMeans$new()`](#method-LearnerClustMiniBatchKMeans-initialize)
 
 - [`LearnerClustMiniBatchKMeans$clone()`](#method-LearnerClustMiniBatchKMeans-clone)
 
@@ -148,11 +148,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustMiniBatchKMeans$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -163,7 +163,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustMiniBatchKMeans$clone()`
 
 The objects of this class are cloneable with this method.
 

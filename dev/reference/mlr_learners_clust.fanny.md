@@ -36,17 +36,17 @@ or with the associated sugar function
 
 ## Parameters
 
-|           |           |           |                                   |                  |
-|-----------|-----------|-----------|-----------------------------------|------------------|
-| Id        | Type      | Default   | Levels                            | Range            |
-| k         | integer   | \-        |                                   | \\\[1, \infty)\\ |
-| memb.exp  | numeric   | 2         |                                   | \\\[1, \infty)\\ |
-| metric    | character | euclidean | euclidean, manhattan, SqEuclidean | \-               |
-| stand     | logical   | FALSE     | TRUE, FALSE                       | \-               |
-| iniMem.p  | untyped   | NULL      |                                   | \-               |
-| maxit     | integer   | 500       |                                   | \\\[0, \infty)\\ |
-| tol       | numeric   | 1e-15     |                                   | \\\[0, \infty)\\ |
-| trace.lev | integer   | 0         |                                   | \\\[0, \infty)\\ |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| Id | Type | Default | Levels | Range |
+| k | integer | \- |  | \\\[1, \infty)\\ |
+| memb.exp | numeric | 2 |  | \\\[1, \infty)\\ |
+| metric | character | euclidean | euclidean, manhattan, SqEuclidean | \- |
+| stand | logical | FALSE | TRUE, FALSE | \- |
+| iniMem.p | untyped | NULL |  | \- |
+| maxit | integer | 500 |  | \\\[0, \infty)\\ |
+| tol | numeric | 1e-15 |  | \\\[0, \infty)\\ |
+| trace.lev | integer | 0 |  | \\\[0, \infty)\\ |
 
 ## References
 
@@ -119,14 +119,14 @@ Other Learner:
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustFanny`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustFanny$new()`](#method-LearnerClustFanny-new)
+- [`LearnerClustFanny$new()`](#method-LearnerClustFanny-initialize)
 
 - [`LearnerClustFanny$clone()`](#method-LearnerClustFanny-clone)
 
@@ -142,11 +142,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustFanny$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -157,7 +157,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustFanny$clone()`
 
 The objects of this class are cloneable with this method.
 

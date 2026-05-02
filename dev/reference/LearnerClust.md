@@ -43,7 +43,7 @@ Predefined learners can be found in the
 
 ### Public methods
 
-- [`LearnerClust$new()`](#method-LearnerClust-new)
+- [`LearnerClust$new()`](#method-LearnerClust-initialize)
 
 - [`LearnerClust$reset()`](#method-LearnerClust-reset)
 
@@ -64,7 +64,7 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClust$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -179,7 +179,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `reset()`
+### `LearnerClust$reset()`
 
 Reset `assignments` field before calling parent's `reset()`.
 
@@ -189,7 +189,7 @@ Reset `assignments` field before calling parent's `reset()`.
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClust$clone()`
 
 The objects of this class are cloneable with this method.
 

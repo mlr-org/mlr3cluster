@@ -88,7 +88,7 @@ Predefined learners can be found in the mlr3misc::Dictionary mlr3::mlr_learners.
 Cluster assignments from learned model.</p></dd>
 
 
-<dt><code>save_assignments</code></dt>
+    <dt><code>save_assignments</code></dt>
 <dd><p>(<code>logical(1)</code>)<br>
 Should assignments for 'train' data be saved in the learner?
 Default is <code>TRUE</code>.</p></dd>
@@ -101,22 +101,21 @@ Default is <code>TRUE</code>.</p></dd>
 
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>
-
-<ul><li><p><a href="#method-LearnerClust-new"><code>LearnerClust$new()</code></a></p></li>
+<p></p><ul><li><p><a href="#method-LearnerClust-initialize"><code>LearnerClust$new()</code></a></p></li>
 <li><p><a href="#method-LearnerClust-reset"><code>LearnerClust$reset()</code></a></p></li>
 <li><p><a href="#method-LearnerClust-clone"><code>LearnerClust$clone()</code></a></p></li>
 </ul></div><p><details><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="base_learner"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-base_learner"><code>mlr3::Learner$base_learner()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="configure"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-configure"><code>mlr3::Learner$configure()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="encapsulate"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-encapsulate"><code>mlr3::Learner$encapsulate()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="format"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-format"><code>mlr3::Learner$format()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="help"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-help"><code>mlr3::Learner$help()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-predict"><code>mlr3::Learner$predict()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict_newdata"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-predict_newdata"><code>mlr3::Learner$predict_newdata()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="print"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-print"><code>mlr3::Learner$print()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="selected_features"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features"><code>mlr3::Learner$selected_features()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="train"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-train"><code>mlr3::Learner$train()</code></a></span></li>
-</ul></details></p><hr><a id="method-LearnerClust-new"></a><div class="section">
-<h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="configure"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-configure"><code>mlr3::Learner$configure()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="encapsulate"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-encapsulate"><code>mlr3::Learner$encapsulate()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="format"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-format"><code>mlr3::Learner$format()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="help"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-help"><code>mlr3::Learner$help()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-predict"><code>mlr3::Learner$predict()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict_newdata"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-predict_newdata"><code>mlr3::Learner$predict_newdata()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="print"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-print"><code>mlr3::Learner$print()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="selected_features"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features"><code>mlr3::Learner$selected_features()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="train"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-train"><code>mlr3::Learner$train()</code></a></span></li>
+</ul></details></p><hr><a id="method-LearnerClust-initialize"></a><div class="section">
+<h3 id="learnerclust-new-"><code>LearnerClust$new()</code><a class="anchor" aria-label="anchor" href="#learnerclust-new-"></a></h3>
 <p>Creates a new instance of this <a href="https://r6.r-lib.org/reference/R6Class.html" class="external-link">R6</a> class.</p><div class="section">
 <h4 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va"><a href="../reference/LearnerClust.html">LearnerClust</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
@@ -129,31 +128,25 @@ Default is <code>TRUE</code>.</p></dd>
 <span>  label <span class="op">=</span> <span class="cn">NA_character_</span>,</span>
 <span>  man <span class="op">=</span> <span class="cn">NA_character_</span></span>
 <span><span class="op">)</span></span></code></pre></div><p></p></div>
-</div>
-
-<div class="section">
+</div><p></p><div class="section">
 <h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>id</code></dt>
 <dd><p>(<code>character(1)</code>)<br>
 Identifier for the new instance.</p></dd>
 
-
-<dt><code>param_set</code></dt>
+      <dt><code>param_set</code></dt>
 <dd><p>(<a href="https://paradox.mlr-org.com/reference/ParamSet.html" class="external-link">paradox::ParamSet</a>)<br>
 Set of hyperparameters.</p></dd>
 
-
-<dt><code>predict_types</code></dt>
+      <dt><code>predict_types</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
 Supported predict types. Must be a subset of <code><a href="https://mlr3.mlr-org.com/reference/mlr_reflections.html" class="external-link">mlr_reflections$learner_predict_types</a></code>.</p></dd>
 
-
-<dt><code>feature_types</code></dt>
+      <dt><code>feature_types</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
 Feature types the learner operates on. Must be a subset of <code><a href="https://mlr3.mlr-org.com/reference/mlr_reflections.html" class="external-link">mlr_reflections$task_feature_types</a></code>.</p></dd>
 
-
-<dt><code>properties</code></dt>
+      <dt><code>properties</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
 Set of properties of the <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>.
 Must be a subset of <code><a href="https://mlr3.mlr-org.com/reference/mlr_reflections.html" class="external-link">mlr_reflections$learner_properties</a></code>.
@@ -172,20 +165,17 @@ If a learner is in a marshaled state, you call first need to call <code>$unmarsh
 <li><p><code>"featureless"</code>: The learner does not use features.</p></li>
 </ul></dd>
 
-
-<dt><code>packages</code></dt>
+      <dt><code>packages</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
 Set of required packages.
 A warning is signaled by the constructor if at least one of the packages is not installed,
 but loaded (not attached) later on-demand via <code><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace()</a></code>.</p></dd>
 
-
-<dt><code>label</code></dt>
+      <dt><code>label</code></dt>
 <dd><p>(<code>character(1)</code>)<br>
 Label for the new instance.</p></dd>
 
-
-<dt><code>man</code></dt>
+      <dt><code>man</code></dt>
 <dd><p>(<code>character(1)</code>)<br>
 String in the format <code>[pkg]::[topic]</code> pointing to a manual page for this object.
 The referenced help package can be opened via method <code>$help()</code>.</p></dd>
@@ -194,22 +184,23 @@ The referenced help package can be opened via method <code>$help()</code>.</p></
 </dl><p></p></div>
 </div>
 
-</div><p></p><hr><a id="method-LearnerClust-reset"></a><div class="section">
-<h3 id="method-reset-">Method <code>reset()</code><a class="anchor" aria-label="anchor" href="#method-reset-"></a></h3>
+</div>
+
+<p></p><hr><a id="method-LearnerClust-reset"></a><div class="section">
+<h3 id="learnerclust-reset-"><code>LearnerClust$reset()</code><a class="anchor" aria-label="anchor" href="#learnerclust-reset-"></a></h3>
 <p>Reset <code>assignments</code> field before calling parent's <code>reset()</code>.</p><div class="section">
 <h4 id="usage-1">Usage<a class="anchor" aria-label="anchor" href="#usage-1"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">LearnerClust</span><span class="op">$</span><span class="fu">reset</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
+</div>
 
-</div><p></p><hr><a id="method-LearnerClust-clone"></a><div class="section">
-<h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
+<p></p><hr><a id="method-LearnerClust-clone"></a><div class="section">
+<h3 id="learnerclust-clone-"><code>LearnerClust$clone()</code><a class="anchor" aria-label="anchor" href="#learnerclust-clone-"></a></h3>
 <p>The objects of this class are cloneable with this method.</p><div class="section">
 <h4 id="usage-2">Usage<a class="anchor" aria-label="anchor" href="#usage-2"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">LearnerClust</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
-</div>
-
-<div class="section">
+</div><p></p><div class="section">
 <h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>deep</code></dt>
 <dd><p>Whether to make a deep clone.</p></dd>
@@ -219,6 +210,7 @@ The referenced help package can be opened via method <code>$help()</code>.</p></
 </div>
 
 </div>
+
 
     </div>
 
