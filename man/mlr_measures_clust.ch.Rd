@@ -9,7 +9,7 @@ The score function calls \code{\link[fpc:cluster.stats]{fpc::cluster.stats()}} f
 \section{Dictionary}{
 
 This \link[mlr3:Measure]{mlr3::Measure} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_measures]{mlr3::mlr_measures} or with the
-associated sugar function \code{\link[mlr3:mlr_sugar]{mlr3::msr()}}:
+associated sugar function \code{\link[mlr3:msr]{mlr3::msr()}}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.ch")
 msr("clust.ch")
@@ -33,7 +33,7 @@ msr("clust.ch")
 
 \code{as.data.table(mlr_measures)} for a complete table of all (also dynamically created) \link[mlr3:Measure]{mlr3::Measure} implementations.
 
-Other cluster measures: 
+Other cluster measures:
 \code{\link{mlr_measures_clust.dunn}},
 \code{\link{mlr_measures_clust.silhouette}},
 \code{\link{mlr_measures_clust.wss}}

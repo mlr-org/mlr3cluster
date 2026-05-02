@@ -21,90 +21,88 @@ head(as.data.table(p))
 \code{\link[mlr3:Prediction]{mlr3::Prediction}} -> \code{PredictionClust}
 }
 \section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{partition}}{(\code{integer()})\cr
+  \if{html}{\out{<div class="r6-active-bindings">}}
+  \describe{
+    \item{\code{partition}}{(\code{integer()})\cr
 Access the stored partition.}
 
-\item{\code{prob}}{(\code{matrix()} | \code{NULL})\cr
+    \item{\code{prob}}{(\code{matrix()} | \code{NULL})\cr
 Access to the stored probabilities.}
-}
-\if{html}{\out{</div>}}
+  }
+  \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-PredictionClust-new}{\code{PredictionClust$new()}}
-\item \href{#method-PredictionClust-clone}{\code{PredictionClust$clone()}}
+  \itemize{
+    \item \href{#method-PredictionClust-initialize}{\code{PredictionClust$new()}}
+    \item \href{#method-PredictionClust-clone}{\code{PredictionClust$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details><summary>Inherited methods</summary>
+\if{html}{\out{<details><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="filter"><a href='../../mlr3/html/Prediction.html#method-Prediction-filter'><code>mlr3::Prediction$filter()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="format"><a href='../../mlr3/html/Prediction.html#method-Prediction-format'><code>mlr3::Prediction$format()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="help"><a href='../../mlr3/html/Prediction.html#method-Prediction-help'><code>mlr3::Prediction$help()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="obs_loss"><a href='../../mlr3/html/Prediction.html#method-Prediction-obs_loss'><code>mlr3::Prediction$obs_loss()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="print"><a href='../../mlr3/html/Prediction.html#method-Prediction-print'><code>mlr3::Prediction$print()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="score"><a href='../../mlr3/html/Prediction.html#method-Prediction-score'><code>mlr3::Prediction$score()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="filter"><a href='../../mlr3/html/Prediction.html#method-Prediction-filter'><code>mlr3::Prediction$filter()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="format"><a href='../../mlr3/html/Prediction.html#method-Prediction-format'><code>mlr3::Prediction$format()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="help"><a href='../../mlr3/html/Prediction.html#method-Prediction-help'><code>mlr3::Prediction$help()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="obs_loss"><a href='../../mlr3/html/Prediction.html#method-Prediction-obs_loss'><code>mlr3::Prediction$obs_loss()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="print"><a href='../../mlr3/html/Prediction.html#method-Prediction-print'><code>mlr3::Prediction$print()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Prediction" data-id="score"><a href='../../mlr3/html/Prediction.html#method-Prediction-score'><code>mlr3::Prediction$score()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-PredictionClust-new"></a>}}
-\if{latex}{\out{\hypertarget{method-PredictionClust-new}{}}}
-\subsection{Method \code{new()}}{
-Creates a new instance of this \link[R6:R6Class]{R6} class.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionClust$new(
+\if{html}{\out{<a id="method-PredictionClust-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionClust-initialize}{}}}
+\subsection{\code{PredictionClust$new()}}{
+  Creates a new instance of this \link[R6:R6Class]{R6} class.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{PredictionClust$new(
   task = NULL,
   row_ids = task$row_ids,
   partition = NULL,
   prob = NULL,
   check = TRUE
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{task}}{(\link{TaskClust} | \code{NULL})\cr
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{task}}{(\link{TaskClust} | \code{NULL})\cr
 Task, used to extract defaults for \code{row_ids}.}
-
-\item{\code{row_ids}}{(\code{integer()})\cr
+      \item{\code{row_ids}}{(\code{integer()})\cr
 Row ids of the predicted observations, i.e. the row ids of the test set.}
-
-\item{\code{partition}}{(\code{integer()} | \code{NULL})\cr
+      \item{\code{partition}}{(\code{integer()} | \code{NULL})\cr
 Vector of cluster partitions.}
-
-\item{\code{prob}}{(\code{matrix()} | \code{NULL})\cr
+      \item{\code{prob}}{(\code{matrix()} | \code{NULL})\cr
 Numeric matrix of cluster membership probabilities with one column for each cluster
 and one row for each observation.
 Columns must be named with cluster numbers, row names are automatically removed.
 If \code{prob} is provided, but \code{partition} is not, the cluster memberships are calculated from
 the probabilities using \code{\link[=max.col]{max.col()}} with \code{ties.method} set to \code{"first"}.}
-
-\item{\code{check}}{(\code{logical(1)})\cr
+      \item{\code{check}}{(\code{logical(1)})\cr
 If \code{TRUE}, performs some argument checks and predict type conversions.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-PredictionClust-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-PredictionClust-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionClust$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{PredictionClust$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{PredictionClust$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }
