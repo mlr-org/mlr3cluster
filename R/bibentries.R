@@ -500,7 +500,7 @@ bibentries = c(
   garcia2008general = bibentry(
     "article",
     title = "A general trimming approach to robust cluster analysis",
-    author = "García-Escudero, Luis A and Gordaliza, Alfonso and Matrán, Carlos and Mayo-Iscar, Agustín",
+    author = "Garc\u00eda-Escudero, Luis A and Gordaliza, Alfonso and Matr\u00e1n, Carlos and Mayo-Iscar, Agust\u00edn",
     journal = "The Annals of Statistics",
     volume = "36",
     number = "3",
@@ -512,7 +512,7 @@ bibentries = c(
   fritz2012tclust = bibentry(
     "article",
     title = "tclust: An R package for a trimming approach to cluster analysis",
-    author = "Fritz, Heinrich and García-Escudero, Luis A and Mayo-Iscar, Agustín",
+    author = "Fritz, Heinrich and Garc\u00eda-Escudero, Luis A and Mayo-Iscar, Agust\u00edn",
     journal = "Journal of Statistical Software",
     volume = "47",
     number = "12",
