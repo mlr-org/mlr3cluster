@@ -474,6 +474,28 @@ bibentries = c(
     pages = "1--18",
     year = "2018",
     doi = "10.18637/jss.v087.i07"
+  ),
+  gagolewski2016genie = bibentry(
+    "article",
+    title = "Genie: A new, fast, and outlier-resistant hierarchical clustering algorithm",
+    author = "Gagolewski, Marek and Bartoszuk, Maciej and Cena, Anna",
+    journal = "Information Sciences",
+    volume = "363",
+    pages = "8--23",
+    year = "2016",
+    doi = "10.1016/j.ins.2016.05.003",
+    publisher = "Elsevier"
+  ),
+  gagolewski2021genieclust = bibentry(
+    "article",
+    title = "genieclust: Fast and robust hierarchical clustering",
+    author = "Gagolewski, Marek",
+    journal = "SoftwareX",
+    volume = "15",
+    pages = "100722",
+    year = "2021",
+    doi = "10.1016/j.softx.2021.100722",
+    publisher = "Elsevier"
   )
 )
 # nolint end
