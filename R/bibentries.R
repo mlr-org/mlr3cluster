@@ -496,6 +496,29 @@ bibentries = c(
     year = "2021",
     doi = "10.1016/j.softx.2021.100722",
     publisher = "Elsevier"
+  ),
+  garcia2008general = bibentry(
+    "article",
+    title = "A general trimming approach to robust cluster analysis",
+    author = "García-Escudero, Luis A and Gordaliza, Alfonso and Matrán, Carlos and Mayo-Iscar, Agustín",
+    journal = "The Annals of Statistics",
+    volume = "36",
+    number = "3",
+    pages = "1324--1345",
+    year = "2008",
+    doi = "10.1214/07-AOS515",
+    publisher = "Institute of Mathematical Statistics"
+  ),
+  fritz2012tclust = bibentry(
+    "article",
+    title = "tclust: An R package for a trimming approach to cluster analysis",
+    author = "Fritz, Heinrich and García-Escudero, Luis A and Mayo-Iscar, Agustín",
+    journal = "Journal of Statistical Software",
+    volume = "47",
+    number = "12",
+    pages = "1--26",
+    year = "2012",
+    doi = "10.18637/jss.v047.i12"
   )
 )
 # nolint end

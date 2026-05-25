@@ -46,6 +46,7 @@ Suggests:
     RWeka,
     stdbscan (>= 0.2.0),
     stream (>= 2.0.0),
+    tclust,
     testthat (>= 3.3.0)
 Config/roxygen2/markdown: TRUE
 Config/roxygen2/r6: TRUE
@@ -85,6 +86,7 @@ Collate:
     'LearnerClustSTDBSCAN.R'
     'LearnerClustSimpleKMeans.R'
     'LearnerClustSpectral.R'
+    'LearnerClustTclust.R'
     'LearnerClustXMeans.R'
     'MeasureClust.R'
     'measures.R'

@@ -2,6 +2,7 @@
 
 * feat: Add Genie hierarchical clustering learner `clust.genie` from the genieclust package.
 * feat: Add self-organizing maps clustering learner `clust.som` from the kohonen package.
+* feat: Add robust trimmed clustering learner `clust.tclust` from the tclust package.
 * feat: Add ST-DBSCAN clustering learner `clust.stdbscan` from the stdbscan package.
 
 # mlr3cluster 0.3.0
