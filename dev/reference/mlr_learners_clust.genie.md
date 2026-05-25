@@ -1,9 +1,17 @@
-# OPTICS Clustering Learner
+# Genie Hierarchical Clustering Learner
 
-OPTICS (ordering points to identify the clustering structure)
-clustering. Calls
-[`dbscan::optics()`](https://rdrr.io/pkg/dbscan/man/optics.html) from
-package [dbscan](https://CRAN.R-project.org/package=dbscan).
+Genie hierarchical clustering, a fast and robust outlier-resistant
+algorithm based on the Gini inequality measure applied to cluster sizes
+during the linkage process. Calls
+[`genieclust::gclust()`](https://rdrr.io/pkg/genieclust/man/gclust.html)
+from package
+[genieclust](https://CRAN.R-project.org/package=genieclust).
+
+There is no predict method for
+[`genieclust::gclust()`](https://rdrr.io/pkg/genieclust/man/gclust.html),
+so the method returns cluster labels for the training data obtained via
+[`stats::cutree()`](https://rdrr.io/r/stats/cutree.html) at the
+requested `k`.
 
 ## Dictionary
 
@@ -14,8 +22,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.optics")
-    lrn("clust.optics")
+    mlr_learners$get("clust.genie")
+    lrn("clust.genie")
 
 ## Meta Information
 
@@ -27,30 +35,31 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [dbscan](https://CRAN.R-project.org/package=dbscan)
+  [genieclust](https://CRAN.R-project.org/package=genieclust)
 
 ## Parameters
 
 |  |  |  |  |  |
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
-| eps | numeric | NULL |  | \\\[0, \infty)\\ |
-| minPts | integer | 5 |  | \\\[0, \infty)\\ |
-| search | character | kdtree | kdtree, linear, dist | \- |
-| bucketSize | integer | 10 |  | \\\[1, \infty)\\ |
-| splitRule | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \- |
-| approx | numeric | 0 |  | \\(-\infty, \infty)\\ |
-| eps_cl | numeric | \- |  | \\\[0, \infty)\\ |
+| gini_threshold | numeric | 0.3 |  | \\\[0, 1\]\\ |
+| M | integer | 0 |  | \\\[0, \infty)\\ |
+| distance | character | euclidean | euclidean, l2, manhattan, cityblock, l1, cosine | \- |
+| verbose | logical | FALSE | TRUE, FALSE | \- |
+| k | integer | 2 |  | \\\[1, \infty)\\ |
 
 ## References
 
-Hahsler M, Piekenbrock M, Doran D (2019). “dbscan: Fast Density-Based
-Clustering with R.” *Journal of Statistical Software*, **91**(1), 1–30.
-[doi:10.18637/jss.v091.i01](https://doi.org/10.18637/jss.v091.i01) .
+Gagolewski, Marek, Bartoszuk, Maciej, Cena, Anna (2016). “Genie: A new,
+fast, and outlier-resistant hierarchical clustering algorithm.”
+*Information Sciences*, **363**, 8–23.
+[doi:10.1016/j.ins.2016.05.003](https://doi.org/10.1016/j.ins.2016.05.003)
+.
 
-Ankerst, Mihael, Breunig, M M, Kriegel, Hans-Peter, Sander, Jörg (1999).
-“OPTICS: Ordering points to identify the clustering structure.” *ACM
-Sigmod record*, **28**(2), 49–60.
+Gagolewski, Marek (2021). “genieclust: Fast and robust hierarchical
+clustering.” *SoftwareX*, **15**, 100722.
+[doi:10.1016/j.softx.2021.100722](https://doi.org/10.1016/j.softx.2021.100722)
+.
 
 ## See also
 
@@ -102,7 +111,6 @@ Other Learner:
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
-[`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md),
@@ -110,6 +118,7 @@ Other Learner:
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md),
+[`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.som.md),
@@ -121,15 +130,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustOPTICS`
+-\> `LearnerClustGenie`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustOPTICS$new()`](#method-LearnerClustOPTICS-initialize)
+- [`LearnerClustGenie$new()`](#method-LearnerClustGenie-initialize)
 
-- [`LearnerClustOPTICS$clone()`](#method-LearnerClustOPTICS-clone)
+- [`LearnerClustGenie$clone()`](#method-LearnerClustGenie-clone)
 
 Inherited methods
 
@@ -147,24 +156,24 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### `LearnerClustOPTICS$new()`
+### `LearnerClustGenie$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
 
 #### Usage
 
-    LearnerClustOPTICS$new()
+    LearnerClustGenie$new()
 
 ------------------------------------------------------------------------
 
-### `LearnerClustOPTICS$clone()`
+### `LearnerClustGenie$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustOPTICS$clone(deep = FALSE)
+    LearnerClustGenie$clone(deep = FALSE)
 
 #### Arguments
 
@@ -176,16 +185,45 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.optics")
+learner = lrn("clust.genie")
 print(learner)
 #> 
-#> ── <LearnerClustOPTICS> (clust.optics): OPTICS ─────────────────────────────────
+#> ── <LearnerClustGenie> (clust.genie): Genie Hierarchical Clustering ────────────
 #> • Model: -
-#> • Parameters: list()
-#> • Packages: mlr3, mlr3cluster, and dbscan
+#> • Parameters: k=2
+#> • Packages: mlr3, mlr3cluster, and genieclust
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, density, and exclusive
+#> • Properties: complete, exclusive, and hierarchical
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
+
+# Define a Task
+task = tsk("usarrests")
+
+# Train the learner on the task
+learner$train(task)
+
+# Print the model
+print(learner$model)
+#> 
+#> Call:
+#> gclust.mst(d = tree, gini_threshold = gini_threshold, verbose = verbose)
+#> 
+#> Cluster method   : Genie(0.3) 
+#> Distance         : euclidean 
+#> Number of objects: 50 
+#> 
+
+# Make predictions for the task
+prediction = learner$predict(task)
+#> Warning: 
+#> ✖ Learner 'clust.genie' doesn't predict on new data and predictions may not
+#>   make sense on new data.
+#> → Class: Mlr3WarningInput
+
+# Score the predictions
+prediction$score(task = task)
+#> clust.dunn 
+#>  0.1532626 
 ```

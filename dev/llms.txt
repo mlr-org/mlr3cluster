@@ -194,6 +194,9 @@ If you have any questions, feedback or ideas, feel free to open an issue
 - [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md)
   [`LearnerClustFarthestFirst`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md)
   : Farthest First Clustering Learner
+- [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md)
+  [`LearnerClustGenie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md)
+  : Genie Hierarchical Clustering Learner
 - [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md)
   [`LearnerClustHclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md)
   : Hierarchical Clustering Learner
