@@ -1,16 +1,16 @@
-# Mini Batch K-Means Clustering Learner
+# Self-Organizing Maps Clustering Learner
 
-Mini-batch k-means clustering. Calls
-[`ClusterR::MiniBatchKmeans()`](https://mlampros.github.io/ClusterR/reference/MiniBatchKmeans.html)
-from package [ClusterR](https://CRAN.R-project.org/package=ClusterR).
+Self-organizing map (Kohonen network) clustering. Calls
+[`kohonen::som()`](https://rdrr.io/pkg/kohonen/man/supersom.html) from
+package [kohonen](https://CRAN.R-project.org/package=kohonen).
 
-The `clusters` parameter is set to 2 by default since
-[`ClusterR::MiniBatchKmeans()`](https://mlampros.github.io/ClusterR/reference/MiniBatchKmeans.html)
-doesn't have a default value for the number of clusters. The predict
-method uses
-[`ClusterR::predict_MBatchKMeans()`](https://mlampros.github.io/ClusterR/reference/predict_MBatchKMeans.html)
-to compute the cluster memberships for new data. The learner supports
-both partitional and fuzzy clustering.
+Each map unit corresponds to a cluster, so the number of clusters is
+`xdim * ydim`. Grid dimensions, topology, and neighbourhood function are
+exposed directly as parameters and forwarded to
+[`kohonen::somgrid()`](https://rdrr.io/pkg/kohonen/man/unit.distances.html).
+The predict method uses
+[`kohonen::predict.kohonen()`](https://rdrr.io/pkg/kohonen/man/predict.kohonen.html)
+to assign new data to the closest unit.
 
 ## Dictionary
 
@@ -21,43 +21,53 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.MBatchKMeans")
-    lrn("clust.MBatchKMeans")
+    mlr_learners$get("clust.som")
+    lrn("clust.som")
 
 ## Meta Information
 
 - Task type: “clust”
 
-- Predict Types: “partition”, “prob”
+- Predict Types: “partition”
 
 - Feature Types: “logical”, “integer”, “numeric”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [ClusterR](https://CRAN.R-project.org/package=ClusterR)
+  [kohonen](https://CRAN.R-project.org/package=kohonen)
 
 ## Parameters
 
 |  |  |  |  |  |
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
-| clusters | integer | 2 |  | \\\[1, \infty)\\ |
-| batch_size | integer | 10 |  | \\\[1, \infty)\\ |
-| num_init | integer | 1 |  | \\\[1, \infty)\\ |
-| max_iters | integer | 100 |  | \\\[1, \infty)\\ |
-| init_fraction | numeric | 1 |  | \\\[0, 1\]\\ |
-| initializer | character | kmeans++ | optimal_init, quantile_init, kmeans++, random | \- |
-| early_stop_iter | integer | 10 |  | \\\[1, \infty)\\ |
-| verbose | logical | FALSE | TRUE, FALSE | \- |
-| CENTROIDS | untyped | NULL |  | \- |
-| tol | numeric | 1e-04 |  | \\\[0, \infty)\\ |
-| tol_optimal_init | numeric | 0.3 |  | \\\[0, \infty)\\ |
-| seed | integer | 1 |  | \\(-\infty, \infty)\\ |
+| xdim | integer | 8 |  | \\\[1, \infty)\\ |
+| ydim | integer | 6 |  | \\\[1, \infty)\\ |
+| topo | character | rectangular | rectangular, hexagonal | \- |
+| neighbourhood.fct | character | bubble | bubble, gaussian | \- |
+| toroidal | logical | FALSE | TRUE, FALSE | \- |
+| rlen | integer | 100 |  | \\\[1, \infty)\\ |
+| alpha | untyped | c(0.05, 0.01) |  | \- |
+| radius | untyped | \- |  | \- |
+| user.weights | untyped | 1 |  | \- |
+| maxNA.fraction | numeric | 0 |  | \\\[0, 1\]\\ |
+| keep.data | logical | TRUE | TRUE, FALSE | \- |
+| dist.fcts | untyped | NULL |  | \- |
+| mode | character | online | online, batch, pbatch | \- |
+| cores | integer | -1 |  | \\(-\infty, \infty)\\ |
+| init | untyped | \- |  | \- |
+| normalizeDataLayers | logical | TRUE | TRUE, FALSE | \- |
 
 ## References
 
-Sculley, David (2010). “Web-scale k-means clustering.” In *Proceedings
-of the 19th international conference on World wide web*, 1177–1178.
+Kohonen, Teuvo (1990). “The self-organizing map.” *Proceedings of the
+IEEE*, **78**(9), 1464–1480.
+[doi:10.1109/5.58325](https://doi.org/10.1109/5.58325) .
+
+Wehrens, Ron, Kruisselbrink, Johannes (2018). “Flexible self-organizing
+maps in kohonen 3.0.” *Journal of Statistical Software*, **87**(7),
+1–18. [doi:10.18637/jss.v087.i07](https://doi.org/10.18637/jss.v087.i07)
+.
 
 ## See also
 
@@ -93,6 +103,7 @@ of the 19th international conference on World wide web*, 1177–1178.
   for established default tuning spaces.
 
 Other Learner:
+[`mlr_learners_clust.MBatchKMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.MBatchKMeans.md),
 [`mlr_learners_clust.SimpleKMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.SimpleKMeans.md),
 [`mlr_learners_clust.agnes`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.agnes.md),
 [`mlr_learners_clust.ap`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ap.md),
@@ -118,7 +129,6 @@ Other Learner:
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md),
-[`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.som.md),
 [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.specc.md),
 [`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.stdbscan.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
@@ -127,15 +137,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustMiniBatchKMeans`
+-\> `LearnerClustSOM`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustMiniBatchKMeans$new()`](#method-LearnerClustMiniBatchKMeans-initialize)
+- [`LearnerClustSOM$new()`](#method-LearnerClustSOM-initialize)
 
-- [`LearnerClustMiniBatchKMeans$clone()`](#method-LearnerClustMiniBatchKMeans-clone)
+- [`LearnerClustSOM$clone()`](#method-LearnerClustSOM-clone)
 
 Inherited methods
 
@@ -153,24 +163,24 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### `LearnerClustMiniBatchKMeans$new()`
+### `LearnerClustSOM$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
 
 #### Usage
 
-    LearnerClustMiniBatchKMeans$new()
+    LearnerClustSOM$new()
 
 ------------------------------------------------------------------------
 
-### `LearnerClustMiniBatchKMeans$clone()`
+### `LearnerClustSOM$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustMiniBatchKMeans$clone(deep = FALSE)
+    LearnerClustSOM$clone(deep = FALSE)
 
 #### Arguments
 
@@ -182,17 +192,17 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.MBatchKMeans")
+learner = lrn("clust.som")
 print(learner)
 #> 
-#> ── <LearnerClustMiniBatchKMeans> (clust.MBatchKMeans): Mini Batch K-Means ──────
+#> ── <LearnerClustSOM> (clust.som): Self-Organizing Maps ─────────────────────────
 #> • Model: -
-#> • Parameters: clusters=2
-#> • Packages: mlr3, mlr3cluster, and ClusterR
-#> • Predict Types: [partition] and prob
+#> • Parameters: list()
+#> • Packages: mlr3, mlr3cluster, and kohonen
+#> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, fuzzy, and partitional
+#> • Properties: complete, exclusive, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
@@ -200,33 +210,11 @@ task = tsk("usarrests")
 
 # Train the learner on the task
 learner$train(task)
-#> Warning: `predict_MBatchKMeans()` was deprecated in ClusterR 1.3.0.
-#> ℹ Beginning from version 1.4.0, if the fuzzy parameter is TRUE the function
-#>   'predict_MBatchKMeans' will return only the probabilities, whereas currently
-#>   it also returns the hard clusters
-#> ℹ The deprecated feature was likely used in the ClusterR package.
-#>   Please report the issue at <https://github.com/mlampros/ClusterR/issues>.
 
 # Print the model
 print(learner$model)
-#> $centroids
-#>        [,1]     [,2]     [,3]     [,4]
-#> [1,] 235.50 12.08333 26.23333 71.16667
-#> [2,]  86.25  4.07500 14.22500 48.00000
-#> 
-#> $WCSS_per_cluster
-#>          [,1]     [,2]
-#> [1,] 7889.297 4086.948
-#> 
-#> $best_initialization
-#> [1] 1
-#> 
-#> $iters_per_initialization
-#>      [,1]
-#> [1,]   26
-#> 
-#> attr(,"class")
-#> [1] "MBatchKMeans"       "k-means clustering"
+#> SOM of size 8x6 with a rectangular topology.
+#> Training data included.
 
 # Make predictions for the task
 prediction = learner$predict(task)
@@ -234,5 +222,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#> 0.06244552 
+#> 0.04413175 
 ```

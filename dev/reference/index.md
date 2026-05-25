@@ -95,6 +95,9 @@
 - [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md)
   [`LearnerClustProtoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md)
   : Prototype Hierarchical Clustering Learner
+- [`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.som.md)
+  [`LearnerClustSOM`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.som.md)
+  : Self-Organizing Maps Clustering Learner
 - [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.specc.md)
   [`LearnerClustSpectral`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.specc.md)
   : Spectral Clustering Learner
