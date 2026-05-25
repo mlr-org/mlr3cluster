@@ -36,6 +36,7 @@ Suggests:
     dbscan (>= 1.2.1),
     e1071,
     kernlab,
+    kohonen,
     LPCM,
     mclust,
     mirai (>= 2.4.1),
@@ -78,6 +79,7 @@ Collate:
     'LearnerClustOPTICS.R'
     'LearnerClustPAM.R'
     'LearnerClustProtoclust.R'
+    'LearnerClustSOM.R'
     'LearnerClustSTDBSCAN.R'
     'LearnerClustSimpleKMeans.R'
     'LearnerClustSpectral.R'

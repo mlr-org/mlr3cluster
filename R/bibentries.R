@@ -451,6 +451,29 @@ bibentries = c(
     pages = "1075--1084",
     year = "2011",
     publisher = "Taylor & Francis"
+  ),
+  kohonen1990self = bibentry(
+    "article",
+    title = "The self-organizing map",
+    author = "Kohonen, Teuvo",
+    journal = "Proceedings of the IEEE",
+    volume = "78",
+    number = "9",
+    pages = "1464--1480",
+    year = "1990",
+    doi = "10.1109/5.58325",
+    publisher = "IEEE"
+  ),
+  wehrens2018kohonen = bibentry(
+    "article",
+    title = "Flexible self-organizing maps in kohonen 3.0",
+    author = "Wehrens, Ron and Kruisselbrink, Johannes",
+    journal = "Journal of Statistical Software",
+    volume = "87",
+    number = "7",
+    pages = "1--18",
+    year = "2018",
+    doi = "10.18637/jss.v087.i07"
   )
 )
 # nolint end

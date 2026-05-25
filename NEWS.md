@@ -1,5 +1,6 @@
 # mlr3cluster (development version)
 
+* feat: Add self-organizing maps clustering learner `clust.som` from the kohonen package.
 * feat: Add ST-DBSCAN clustering learner `clust.stdbscan` from the stdbscan package.
 
 # mlr3cluster 0.3.0
