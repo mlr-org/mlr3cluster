@@ -1,12 +1,17 @@
-# Expectation-Maximization Clustering Learner
+# Robust Trimmed Clustering Learner
 
-Expectation-Maximization clustering. Calls the EM Weka clusterer from
-package [RWeka](https://CRAN.R-project.org/package=RWeka).
+Robust trimmed clustering. Each cluster is modeled by a multivariate
+Gaussian; the most outlying `alpha` fraction of observations is trimmed
+and assigned to cluster `0`. Calls
+[`tclust::tclust()`](https://rdrr.io/pkg/tclust/man/tclust.html) from
+package [tclust](https://CRAN.R-project.org/package=tclust).
 
-The predict method uses
-[`RWeka::predict.Weka_clusterer()`](https://rdrr.io/pkg/RWeka/man/predict_Weka_clusterer.html)
-to compute the cluster memberships for new data. The learner supports
-both partitional and fuzzy clustering.
+The `k` parameter is set to 2 by default since
+[`tclust::tclust()`](https://rdrr.io/pkg/tclust/man/tclust.html) doesn't
+have a default value for the number of clusters. There is no predict
+method for
+[`tclust::tclust()`](https://rdrr.io/pkg/tclust/man/tclust.html), so the
+method returns cluster labels for the training data.
 
 ## Dictionary
 
@@ -17,48 +22,57 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.em")
-    lrn("clust.em")
+    mlr_learners$get("clust.tclust")
+    lrn("clust.tclust")
 
 ## Meta Information
 
 - Task type: “clust”
 
-- Predict Types: “partition”, “prob”
+- Predict Types: “partition”
 
 - Feature Types: “logical”, “integer”, “numeric”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [RWeka](https://CRAN.R-project.org/package=RWeka)
+  [tclust](https://CRAN.R-project.org/package=tclust)
 
 ## Parameters
 
-|                   |         |         |             |                      |
-|-------------------|---------|---------|-------------|----------------------|
-| Id                | Type    | Default | Levels      | Range                |
-| I                 | integer | 100     |             | \\\[1, \infty)\\     |
-| ll_cv             | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
-| ll_iter           | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
-| M                 | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
-| max               | integer | -1      |             | \\\[-1, \infty)\\    |
-| N                 | integer | -1      |             | \\\[-1, \infty)\\    |
-| num_slots         | integer | 1       |             | \\\[1, \infty)\\     |
-| S                 | integer | 100     |             | \\\[0, \infty)\\     |
-| X                 | integer | 10      |             | \\\[1, \infty)\\     |
-| K                 | integer | 10      |             | \\\[1, \infty)\\     |
-| V                 | logical | FALSE   | TRUE, FALSE | \-                   |
-| output_debug_info | logical | FALSE   | TRUE, FALSE | \-                   |
+|                  |           |         |              |                       |
+|------------------|-----------|---------|--------------|-----------------------|
+| Id               | Type      | Default | Levels       | Range                 |
+| k                | integer   | \-      |              | \\\[1, \infty)\\      |
+| alpha            | numeric   | 0.05    |              | \\\[0, 0.5\]\\        |
+| nstart           | integer   | 500     |              | \\\[1, \infty)\\      |
+| niter1           | integer   | 3       |              | \\\[1, \infty)\\      |
+| niter2           | integer   | 20      |              | \\\[1, \infty)\\      |
+| nkeep            | integer   | 5       |              | \\\[1, \infty)\\      |
+| iter.max         | integer   | \-      |              | \\\[1, \infty)\\      |
+| equal.weights    | logical   | FALSE   | TRUE, FALSE  | \-                    |
+| restr            | character | eigen   | eigen, deter | \-                    |
+| restr.fact       | numeric   | 12      |              | \\\[1, \infty)\\      |
+| cshape           | numeric   | 1e+10   |              | \\\[1, \infty)\\      |
+| opt              | character | HARD    | HARD, MIXT   | \-                    |
+| center           | logical   | FALSE   | TRUE, FALSE  | \-                    |
+| scale            | logical   | FALSE   | TRUE, FALSE  | \-                    |
+| parallel         | logical   | FALSE   | TRUE, FALSE  | \-                    |
+| n.cores          | integer   | -1      |              | \\(-\infty, \infty)\\ |
+| zero_tol         | numeric   | 1e-16   |              | \\\[0, \infty)\\      |
+| drop.empty.clust | logical   | TRUE    | TRUE, FALSE  | \-                    |
+| trace            | integer   | 0       |              | \\\[0, \infty)\\      |
 
 ## References
 
-Witten, H I, Frank, Eibe (2002). “Data mining: practical machine
-learning tools and techniques with Java implementations.” *Acm Sigmod
-Record*, **31**(1), 76–77.
+García-Escudero, A L, Gordaliza, Alfonso, Matrán, Carlos, Mayo-Iscar,
+Agustín (2008). “A general trimming approach to robust cluster
+analysis.” *The Annals of Statistics*, **36**(3), 1324–1345.
+[doi:10.1214/07-AOS515](https://doi.org/10.1214/07-AOS515) .
 
-Dempster, P A, Laird, M N, Rubin, B D (1977). “Maximum likelihood from
-incomplete data via the EM algorithm.” *Journal of the royal statistical
-society: series B (methodological)*, **39**(1), 1–22.
+Fritz, Heinrich, García-Escudero, A L, Mayo-Iscar, Agustín (2012).
+“tclust: An R package for a trimming approach to cluster analysis.”
+*Journal of Statistical Software*, **47**(12), 1–26.
+[doi:10.18637/jss.v047.i12](https://doi.org/10.18637/jss.v047.i12) .
 
 ## See also
 
@@ -106,6 +120,7 @@ Other Learner:
 [`mlr_learners_clust.dbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan.md),
 [`mlr_learners_clust.dbscan_fpc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan_fpc.md),
 [`mlr_learners_clust.diana`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.diana.md),
+[`mlr_learners_clust.em`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.md),
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
@@ -123,22 +138,21 @@ Other Learner:
 [`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.som.md),
 [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.specc.md),
 [`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.stdbscan.md),
-[`mlr_learners_clust.tclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.tclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustEM`
+-\> `LearnerClustTclust`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustEM$new()`](#method-LearnerClustEM-initialize)
+- [`LearnerClustTclust$new()`](#method-LearnerClustTclust-initialize)
 
-- [`LearnerClustEM$clone()`](#method-LearnerClustEM-clone)
+- [`LearnerClustTclust$clone()`](#method-LearnerClustTclust-clone)
 
 Inherited methods
 
@@ -156,24 +170,24 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### `LearnerClustEM$new()`
+### `LearnerClustTclust$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
 
 #### Usage
 
-    LearnerClustEM$new()
+    LearnerClustTclust$new()
 
 ------------------------------------------------------------------------
 
-### `LearnerClustEM$clone()`
+### `LearnerClustTclust$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustEM$clone(deep = FALSE)
+    LearnerClustTclust$clone(deep = FALSE)
 
 #### Arguments
 
@@ -185,17 +199,17 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.em")
+learner = lrn("clust.tclust")
 print(learner)
 #> 
-#> ── <LearnerClustEM> (clust.em): Expectation-Maximization ───────────────────────
+#> ── <LearnerClustTclust> (clust.tclust): Robust Trimmed Clustering ──────────────
 #> • Model: -
-#> • Parameters: list()
-#> • Packages: mlr3, mlr3cluster, and RWeka
-#> • Predict Types: [partition] and prob
+#> • Parameters: k=2
+#> • Packages: mlr3, mlr3cluster, and tclust
+#> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, fuzzy, and partitional
+#> • Properties: complete, exclusive, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
@@ -206,41 +220,32 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
+#> * Results for TCLUST algorithm: *
+#> opt=HARD, trim = 0.05, k = 2
+#> Restriction on: eigenvalues
 #> 
-#> EM
-#> ==
+#> Classification (trimmed points are indicated by 0 ):
+#>  [1] 2 2 2 2 2 2 1 2 0 2 0 1 2 1 1 1 1 2 1 2 1 2 1 2 2 1 1 2 1 1 2 2 0 1 1 1 1 1
+#> [39] 1 2 1 2 2 1 1 1 1 1 1 1
+#> Means:
+#>                C 1    C 2
+#> Assault  109.59259 243.05
+#> Murder     4.67037  11.48
+#> Rape      15.65926  28.53
+#> UrbanPop  63.11111  68.25
 #> 
-#> Number of clusters selected by cross validation: 2
-#> Number of iterations performed: 12
-#> 
-#> 
-#>              Cluster
-#> Attribute          0        1
-#>               (0.42)   (0.58)
-#> ==============================
-#> Assault
-#>   mean       252.4139 110.5952
-#>   std. dev.   43.9813  43.1685
-#> 
-#> Murder
-#>   mean        11.8783   4.7742
-#>   std. dev.    2.8171   2.2431
-#> 
-#> Rape
-#>   mean        28.5285  15.8558
-#>   std. dev.    8.3686   5.4395
-#> 
-#> UrbanPop
-#>   mean         68.058  63.6846
-#>   std. dev.     14.02  14.2715
-#> 
-#> 
+#> Trimmed objective function:  -752.9647 
+#> Selected restriction factor: 12 
 
 # Make predictions for the task
 prediction = learner$predict(task)
+#> Warning: 
+#> ✖ Learner 'clust.tclust' doesn't predict on new data and predictions may not
+#>   make sense on new data.
+#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1220028 
+#> 0.06709199 
 ```

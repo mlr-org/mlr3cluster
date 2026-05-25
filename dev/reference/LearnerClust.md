@@ -220,7 +220,7 @@ ids
 #> [22] "clust.kproto"       "clust.mclust"       "clust.meanshift"   
 #> [25] "clust.optics"       "clust.pam"          "clust.protoclust"  
 #> [28] "clust.som"          "clust.specc"        "clust.stdbscan"    
-#> [31] "clust.xmeans"      
+#> [31] "clust.tclust"       "clust.xmeans"      
 
 # get a specific learner from mlr_learners:
 learner = lrn("clust.kmeans")

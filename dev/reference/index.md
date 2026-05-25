@@ -107,6 +107,9 @@
 - [`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.stdbscan.md)
   [`LearnerClustSTDBSCAN`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.stdbscan.md)
   : ST-DBSCAN Clustering Learner
+- [`mlr_learners_clust.tclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.tclust.md)
+  [`LearnerClustTclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.tclust.md)
+  : Robust Trimmed Clustering Learner
 - [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
   [`LearnerClustXMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
   : X-Means Clustering Learner
