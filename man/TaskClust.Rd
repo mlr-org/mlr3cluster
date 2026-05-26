@@ -20,7 +20,7 @@ task$task_type
 mlr_reflections$task_properties$clust
 }
 \seealso{
-Other Task: 
+Other Task:
 \code{\link{mlr_tasks_ruspini}},
 \code{\link{mlr_tasks_usarrests}}
 }
@@ -30,77 +30,77 @@ Other Task:
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-TaskClust-new}{\code{TaskClust$new()}}
-\item \href{#method-TaskClust-clone}{\code{TaskClust$clone()}}
+  \itemize{
+    \item \href{#method-TaskClust-initialize}{\code{TaskClust$new()}}
+    \item \href{#method-TaskClust-clone}{\code{TaskClust$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details><summary>Inherited methods</summary>
+\if{html}{\out{<details><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="add_strata"><a href='../../mlr3/html/Task.html#method-Task-add_strata'><code>mlr3::Task$add_strata()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="cbind"><a href='../../mlr3/html/Task.html#method-Task-cbind'><code>mlr3::Task$cbind()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="data"><a href='../../mlr3/html/Task.html#method-Task-data'><code>mlr3::Task$data()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="divide"><a href='../../mlr3/html/Task.html#method-Task-divide'><code>mlr3::Task$divide()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="droplevels"><a href='../../mlr3/html/Task.html#method-Task-droplevels'><code>mlr3::Task$droplevels()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="filter"><a href='../../mlr3/html/Task.html#method-Task-filter'><code>mlr3::Task$filter()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="format"><a href='../../mlr3/html/Task.html#method-Task-format'><code>mlr3::Task$format()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="formula"><a href='../../mlr3/html/Task.html#method-Task-formula'><code>mlr3::Task$formula()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="head"><a href='../../mlr3/html/Task.html#method-Task-head'><code>mlr3::Task$head()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="help"><a href='../../mlr3/html/Task.html#method-Task-help'><code>mlr3::Task$help()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="levels"><a href='../../mlr3/html/Task.html#method-Task-levels'><code>mlr3::Task$levels()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="materialize_view"><a href='../../mlr3/html/Task.html#method-Task-materialize_view'><code>mlr3::Task$materialize_view()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="missings"><a href='../../mlr3/html/Task.html#method-Task-missings'><code>mlr3::Task$missings()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="print"><a href='../../mlr3/html/Task.html#method-Task-print'><code>mlr3::Task$print()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="rbind"><a href='../../mlr3/html/Task.html#method-Task-rbind'><code>mlr3::Task$rbind()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="rename"><a href='../../mlr3/html/Task.html#method-Task-rename'><code>mlr3::Task$rename()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="select"><a href='../../mlr3/html/Task.html#method-Task-select'><code>mlr3::Task$select()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="set_col_roles"><a href='../../mlr3/html/Task.html#method-Task-set_col_roles'><code>mlr3::Task$set_col_roles()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="set_levels"><a href='../../mlr3/html/Task.html#method-Task-set_levels'><code>mlr3::Task$set_levels()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="set_row_roles"><a href='../../mlr3/html/Task.html#method-Task-set_row_roles'><code>mlr3::Task$set_row_roles()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="add_strata"><a href='../../mlr3/html/Task.html#method-Task-add_strata'><code>mlr3::Task$add_strata()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="cbind"><a href='../../mlr3/html/Task.html#method-Task-cbind'><code>mlr3::Task$cbind()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="data"><a href='../../mlr3/html/Task.html#method-Task-data'><code>mlr3::Task$data()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="divide"><a href='../../mlr3/html/Task.html#method-Task-divide'><code>mlr3::Task$divide()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="droplevels"><a href='../../mlr3/html/Task.html#method-Task-droplevels'><code>mlr3::Task$droplevels()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="filter"><a href='../../mlr3/html/Task.html#method-Task-filter'><code>mlr3::Task$filter()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="format"><a href='../../mlr3/html/Task.html#method-Task-format'><code>mlr3::Task$format()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="formula"><a href='../../mlr3/html/Task.html#method-Task-formula'><code>mlr3::Task$formula()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="head"><a href='../../mlr3/html/Task.html#method-Task-head'><code>mlr3::Task$head()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="help"><a href='../../mlr3/html/Task.html#method-Task-help'><code>mlr3::Task$help()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="levels"><a href='../../mlr3/html/Task.html#method-Task-levels'><code>mlr3::Task$levels()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="materialize_view"><a href='../../mlr3/html/Task.html#method-Task-materialize_view'><code>mlr3::Task$materialize_view()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="missings"><a href='../../mlr3/html/Task.html#method-Task-missings'><code>mlr3::Task$missings()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="print"><a href='../../mlr3/html/Task.html#method-Task-print'><code>mlr3::Task$print()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="rbind"><a href='../../mlr3/html/Task.html#method-Task-rbind'><code>mlr3::Task$rbind()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="rename"><a href='../../mlr3/html/Task.html#method-Task-rename'><code>mlr3::Task$rename()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="select"><a href='../../mlr3/html/Task.html#method-Task-select'><code>mlr3::Task$select()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="set_col_roles"><a href='../../mlr3/html/Task.html#method-Task-set_col_roles'><code>mlr3::Task$set_col_roles()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="set_levels"><a href='../../mlr3/html/Task.html#method-Task-set_levels'><code>mlr3::Task$set_levels()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Task" data-id="set_row_roles"><a href='../../mlr3/html/Task.html#method-Task-set_row_roles'><code>mlr3::Task$set_row_roles()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TaskClust-new"></a>}}
-\if{latex}{\out{\hypertarget{method-TaskClust-new}{}}}
-\subsection{Method \code{new()}}{
-Creates a new instance of this \link[R6:R6Class]{R6} class.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TaskClust$new(id, backend, label = NA_character_)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{id}}{(\code{character(1)})\cr
+\if{html}{\out{<a id="method-TaskClust-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskClust-initialize}{}}}
+\subsection{\code{TaskClust$new()}}{
+  Creates a new instance of this \link[R6:R6Class]{R6} class.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{TaskClust$new(id, backend, label = NA_character_)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{id}}{(\code{character(1)})\cr
 Identifier for the new instance.}
-
-\item{\code{backend}}{(\link[mlr3:DataBackend]{mlr3::DataBackend})\cr
+      \item{\code{backend}}{(\link[mlr3:DataBackend]{mlr3::DataBackend})\cr
 Either a \link[mlr3:DataBackend]{mlr3::DataBackend}, or any object which is convertible to a \link[mlr3:DataBackend]{mlr3::DataBackend} with \code{as_data_backend()}.
 E.g., a \code{data.frame()} will be converted to a \link[mlr3:DataBackendDataTable]{mlr3::DataBackendDataTable}.}
-
-\item{\code{label}}{(\code{character(1)})\cr
+      \item{\code{label}}{(\code{character(1)})\cr
 Label for the new instance.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-TaskClust-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-TaskClust-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TaskClust$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{TaskClust$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{TaskClust$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

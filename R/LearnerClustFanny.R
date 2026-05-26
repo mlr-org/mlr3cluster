@@ -73,7 +73,7 @@ LearnerClustFanny = R6Class(
       prob = NULL
       if (self$predict_type == "prob") {
         prob = self$model$membership
-        colnames(prob) = seq_len(ncol(prob))
+        colnames(prob) = seq_col(prob)
       }
       PredictionClust$new(task = task, partition = partition, prob = prob)
     }

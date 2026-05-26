@@ -37,7 +37,7 @@ is_missing_prediction_data.PredictionDataClust = function(pdata, ...) {
   }
 
   if (!is.null(pdata$prob)) {
-    miss = miss | apply(pdata$prob, 1L, anyMissing)
+    miss = miss | row_any_na(pdata$prob)
   }
 
   pdata$row_ids[miss]

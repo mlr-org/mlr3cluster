@@ -494,6 +494,74 @@ bibentries = c(
     pages = "224--227",
     year = "1979",
     doi = "10.1109/TPAMI.1979.4766909"
+  ),
+  kohonen1990self = bibentry(
+    "article",
+    title = "The self-organizing map",
+    author = "Kohonen, Teuvo",
+    journal = "Proceedings of the IEEE",
+    volume = "78",
+    number = "9",
+    pages = "1464--1480",
+    year = "1990",
+    doi = "10.1109/5.58325",
+    publisher = "IEEE"
+  ),
+  wehrens2018kohonen = bibentry(
+    "article",
+    title = "Flexible self-organizing maps in kohonen 3.0",
+    author = "Wehrens, Ron and Kruisselbrink, Johannes",
+    journal = "Journal of Statistical Software",
+    volume = "87",
+    number = "7",
+    pages = "1--18",
+    year = "2018",
+    doi = "10.18637/jss.v087.i07"
+  ),
+  gagolewski2016genie = bibentry(
+    "article",
+    title = "Genie: A new, fast, and outlier-resistant hierarchical clustering algorithm",
+    author = "Gagolewski, Marek and Bartoszuk, Maciej and Cena, Anna",
+    journal = "Information Sciences",
+    volume = "363",
+    pages = "8--23",
+    year = "2016",
+    doi = "10.1016/j.ins.2016.05.003",
+    publisher = "Elsevier"
+  ),
+  gagolewski2021genieclust = bibentry(
+    "article",
+    title = "genieclust: Fast and robust hierarchical clustering",
+    author = "Gagolewski, Marek",
+    journal = "SoftwareX",
+    volume = "15",
+    pages = "100722",
+    year = "2021",
+    doi = "10.1016/j.softx.2021.100722",
+    publisher = "Elsevier"
+  ),
+  garcia2008general = bibentry(
+    "article",
+    title = "A general trimming approach to robust cluster analysis",
+    author = "Garc\u00eda-Escudero, Luis A and Gordaliza, Alfonso and Matr\u00e1n, Carlos and Mayo-Iscar, Agust\u00edn",
+    journal = "The Annals of Statistics",
+    volume = "36",
+    number = "3",
+    pages = "1324--1345",
+    year = "2008",
+    doi = "10.1214/07-AOS515",
+    publisher = "Institute of Mathematical Statistics"
+  ),
+  fritz2012tclust = bibentry(
+    "article",
+    title = "tclust: An R package for a trimming approach to cluster analysis",
+    author = "Fritz, Heinrich and Garc\u00eda-Escudero, Luis A and Mayo-Iscar, Agust\u00edn",
+    journal = "Journal of Statistical Software",
+    volume = "47",
+    number = "12",
+    pages = "1--26",
+    year = "2012",
+    doi = "10.18637/jss.v047.i12"
   )
 )
 # nolint end

@@ -37,6 +37,7 @@ Suggests:
     e1071,
     fpc,
     kernlab,
+    kohonen,
     LPCM,
     mclust,
     mirai (>= 2.4.1),
@@ -49,8 +50,6 @@ Suggests:
     withr
 Config/testthat/edition: 3
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE, r6 = TRUE)
-RoxygenNote: 7.3.3
 Collate:
     'LearnerClust.R'
     'zzz.R'
@@ -68,6 +67,7 @@ Collate:
     'LearnerClustFanny.R'
     'LearnerClustFarthestFirst.R'
     'LearnerClustFeatureless.R'
+    'LearnerClustGenie.R'
     'LearnerClustHDBSCAN.R'
     'LearnerClustHclust.R'
     'LearnerClustKKMeans.R'
@@ -79,9 +79,11 @@ Collate:
     'LearnerClustOPTICS.R'
     'LearnerClustPAM.R'
     'LearnerClustProtoclust.R'
+    'LearnerClustSOM.R'
     'LearnerClustSTDBSCAN.R'
     'LearnerClustSimpleKMeans.R'
     'LearnerClustSpectral.R'
+    'LearnerClustTclust.R'
     'LearnerClustXMeans.R'
     'MeasureClust.R'
     'measures.R'

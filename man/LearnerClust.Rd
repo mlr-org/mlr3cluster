@@ -31,48 +31,47 @@ print(learner)
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{LearnerClust}
 }
 \section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{assignments}}{(\code{NULL} | \code{vector()})\cr
+  \if{html}{\out{<div class="r6-fields">}}
+  \describe{
+    \item{\code{assignments}}{(\code{NULL} | \code{vector()})\cr
 Cluster assignments from learned model.}
 
-\item{\code{save_assignments}}{(\code{logical(1)})\cr
+    \item{\code{save_assignments}}{(\code{logical(1)})\cr
 Should assignments for 'train' data be saved in the learner?
 Default is \code{TRUE}.}
-}
-\if{html}{\out{</div>}}
+  }
+  \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-LearnerClust-new}{\code{LearnerClust$new()}}
-\item \href{#method-LearnerClust-reset}{\code{LearnerClust$reset()}}
-\item \href{#method-LearnerClust-clone}{\code{LearnerClust$clone()}}
+  \itemize{
+    \item \href{#method-LearnerClust-initialize}{\code{LearnerClust$new()}}
+    \item \href{#method-LearnerClust-reset}{\code{LearnerClust$reset()}}
+    \item \href{#method-LearnerClust-clone}{\code{LearnerClust$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details><summary>Inherited methods</summary>
+\if{html}{\out{<details><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="base_learner"><a href='../../mlr3/html/Learner.html#method-Learner-base_learner'><code>mlr3::Learner$base_learner()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="configure"><a href='../../mlr3/html/Learner.html#method-Learner-configure'><code>mlr3::Learner$configure()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="encapsulate"><a href='../../mlr3/html/Learner.html#method-Learner-encapsulate'><code>mlr3::Learner$encapsulate()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="format"><a href='../../mlr3/html/Learner.html#method-Learner-format'><code>mlr3::Learner$format()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="help"><a href='../../mlr3/html/Learner.html#method-Learner-help'><code>mlr3::Learner$help()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict"><a href='../../mlr3/html/Learner.html#method-Learner-predict'><code>mlr3::Learner$predict()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict_newdata"><a href='../../mlr3/html/Learner.html#method-Learner-predict_newdata'><code>mlr3::Learner$predict_newdata()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="print"><a href='../../mlr3/html/Learner.html#method-Learner-print'><code>mlr3::Learner$print()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="selected_features"><a href='../../mlr3/html/Learner.html#method-Learner-selected_features'><code>mlr3::Learner$selected_features()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="train"><a href='../../mlr3/html/Learner.html#method-Learner-train'><code>mlr3::Learner$train()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="base_learner"><a href='../../mlr3/html/Learner.html#method-Learner-base_learner'><code>mlr3::Learner$base_learner()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="configure"><a href='../../mlr3/html/Learner.html#method-Learner-configure'><code>mlr3::Learner$configure()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="encapsulate"><a href='../../mlr3/html/Learner.html#method-Learner-encapsulate'><code>mlr3::Learner$encapsulate()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="format"><a href='../../mlr3/html/Learner.html#method-Learner-format'><code>mlr3::Learner$format()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="help"><a href='../../mlr3/html/Learner.html#method-Learner-help'><code>mlr3::Learner$help()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict"><a href='../../mlr3/html/Learner.html#method-Learner-predict'><code>mlr3::Learner$predict()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict_newdata"><a href='../../mlr3/html/Learner.html#method-Learner-predict_newdata'><code>mlr3::Learner$predict_newdata()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="print"><a href='../../mlr3/html/Learner.html#method-Learner-print'><code>mlr3::Learner$print()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="selected_features"><a href='../../mlr3/html/Learner.html#method-Learner-selected_features'><code>mlr3::Learner$selected_features()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="train"><a href='../../mlr3/html/Learner.html#method-Learner-train'><code>mlr3::Learner$train()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-LearnerClust-new"></a>}}
-\if{latex}{\out{\hypertarget{method-LearnerClust-new}{}}}
-\subsection{Method \code{new()}}{
-Creates a new instance of this \link[R6:R6Class]{R6} class.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{LearnerClust$new(
+\if{html}{\out{<a id="method-LearnerClust-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-LearnerClust-initialize}{}}}
+\subsection{\code{LearnerClust$new()}}{
+  Creates a new instance of this \link[R6:R6Class]{R6} class.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{LearnerClust$new(
   id,
   param_set = ps(),
   predict_types = "partition",
@@ -81,25 +80,21 @@ Creates a new instance of this \link[R6:R6Class]{R6} class.
   packages = character(),
   label = NA_character_,
   man = NA_character_
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{id}}{(\code{character(1)})\cr
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{id}}{(\code{character(1)})\cr
 Identifier for the new instance.}
-
-\item{\code{param_set}}{(\link[paradox:ParamSet]{paradox::ParamSet})\cr
+      \item{\code{param_set}}{(\link[paradox:ParamSet]{paradox::ParamSet})\cr
 Set of hyperparameters.}
-
-\item{\code{predict_types}}{(\code{character()})\cr
+      \item{\code{predict_types}}{(\code{character()})\cr
 Supported predict types. Must be a subset of \code{\link[mlr3:mlr_reflections]{mlr_reflections$learner_predict_types}}.}
-
-\item{\code{feature_types}}{(\code{character()})\cr
+      \item{\code{feature_types}}{(\code{character()})\cr
 Feature types the learner operates on. Must be a subset of \code{\link[mlr3:mlr_reflections]{mlr_reflections$task_feature_types}}.}
-
-\item{\code{properties}}{(\code{character()})\cr
+      \item{\code{properties}}{(\code{character()})\cr
 Set of properties of the \link[mlr3:Learner]{mlr3::Learner}.
 Must be a subset of \code{\link[mlr3:mlr_reflections]{mlr_reflections$learner_properties}}.
 The following properties are currently standardized and understood by learners in \CRANpkg{mlr3}:
@@ -118,47 +113,49 @@ If a learner is in a marshaled state, you call first need to call \verb{$unmarsh
 \item \code{"hotstart_backward"}: The learner supports hotstarting a model backward.
 \item \code{"featureless"}: The learner does not use features.
 }}
-
-\item{\code{packages}}{(\code{character()})\cr
+      \item{\code{packages}}{(\code{character()})\cr
 Set of required packages.
 A warning is signaled by the constructor if at least one of the packages is not installed,
 but loaded (not attached) later on-demand via \code{\link[=requireNamespace]{requireNamespace()}}.}
-
-\item{\code{label}}{(\code{character(1)})\cr
+      \item{\code{label}}{(\code{character(1)})\cr
 Label for the new instance.}
-
-\item{\code{man}}{(\code{character(1)})\cr
+      \item{\code{man}}{(\code{character(1)})\cr
 String in the format \verb{[pkg]::[topic]} pointing to a manual page for this object.
 The referenced help package can be opened via method \verb{$help()}.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
-\if{html}{\out{</div>}}
-}
-}
+
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LearnerClust-reset"></a>}}
 \if{latex}{\out{\hypertarget{method-LearnerClust-reset}{}}}
-\subsection{Method \code{reset()}}{
-Reset \code{assignments} field before calling parent's \code{reset()}.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{LearnerClust$reset()}\if{html}{\out{</div>}}
+\subsection{\code{LearnerClust$reset()}}{
+  Reset \code{assignments} field before calling parent's \code{reset()}.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{LearnerClust$reset()}
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-LearnerClust-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-LearnerClust-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{LearnerClust$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{LearnerClust$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{LearnerClust$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }

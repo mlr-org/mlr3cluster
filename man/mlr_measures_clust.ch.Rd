@@ -13,7 +13,7 @@ the number of clusters, and \eqn{n} is the number of observations. Higher values
 \section{Dictionary}{
 
 This \link[mlr3:Measure]{mlr3::Measure} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_measures]{mlr3::mlr_measures} or with the
-associated sugar function \code{\link[mlr3:mlr_sugar]{mlr3::msr()}}:
+associated sugar function \code{\link[mlr3:msr]{mlr3::msr()}}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.ch")
 msr("clust.ch")

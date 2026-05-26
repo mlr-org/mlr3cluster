@@ -57,8 +57,7 @@ LearnerClustEM = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      names(pv) = chartr("_", "-", names(pv))
-      ctrl = invoke(RWeka::Weka_control, .args = pv)
+      ctrl = weka_control(pv)
       m = invoke(RWeka::make_Weka_clusterer("weka/clusterers/EM"), x = task$data(), control = ctrl)
       if (self$save_assignments) {
         self$assignments = unname(m$class_ids + 1L)
@@ -72,7 +71,7 @@ LearnerClustEM = R6Class(
       prob = NULL
       if (self$predict_type == "prob") {
         prob = invoke(predict, self$model, newdata = data, type = "memberships")
-        colnames(prob) = seq_len(ncol(prob))
+        colnames(prob) = seq_col(prob)
       }
       PredictionClust$new(task = task, partition = partition, prob = prob)
     }
