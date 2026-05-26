@@ -542,6 +542,27 @@ bibentries = c(
     pages = "1--22",
     year = "2012",
     doi = "10.18637/jss.v050.i10"
+  ),
+  banerjee2005clustering = bibentry(
+    "article",
+    title = "Clustering on the Unit Hypersphere using von Mises-Fisher Distributions",
+    author = "Banerjee, Arindam and Dhillon, Inderjit S and Ghosh, Joydeep and Sra, Suvrit",
+    journal = "Journal of Machine Learning Research",
+    volume = "6",
+    number = "46",
+    pages = "1345--1382",
+    year = "2005"
+  ),
+  hornik2014movmf = bibentry(
+    "article",
+    title = "movMF: An R Package for Fitting Mixtures of von Mises-Fisher Distributions",
+    author = "Hornik, Kurt and Grün, Bettina",
+    journal = "Journal of Statistical Software",
+    volume = "58",
+    number = "10",
+    pages = "1--31",
+    year = "2014",
+    doi = "10.18637/jss.v058.i10"
   )
 )
 # nolint end

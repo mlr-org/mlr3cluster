@@ -41,6 +41,7 @@ Suggests:
     LPCM,
     mclust,
     mirai (>= 2.4.1),
+    movMF,
     mlbench,
     protoclust,
     RWeka,
@@ -80,6 +81,7 @@ Collate:
     'LearnerClustMclust.R'
     'LearnerClustMeanShift.R'
     'LearnerClustMiniBatchKMeans.R'
+    'LearnerClustMovMF.R'
     'LearnerClustOPTICS.R'
     'LearnerClustPAM.R'
     'LearnerClustProtoclust.R'
