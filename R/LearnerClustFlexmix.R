@@ -86,7 +86,7 @@ LearnerClustFlexmix = R6Class(
 
       control = do.call(methods::new, c(list("FLXcontrol"), ctrl_pv))
 
-      data = as.data.frame(task$data())
+      data = setDF(task$data())
       # multivariate LHS via cbind() so that posterior() can rebuild the design matrix from newdata
       lhs = sprintf("cbind(%s)", paste0("`", colnames(data), "`", collapse = ", "))
       formula = formulate(lhs = lhs, rhs = "1")
@@ -105,7 +105,7 @@ LearnerClustFlexmix = R6Class(
     },
 
     .predict = function(task) {
-      data = as.data.frame(task$data())
+      data = setDF(task$data())
       partition = as.integer(flexmix::clusters(self$model, newdata = data))
       prob = NULL
       if (self$predict_type == "prob") {
