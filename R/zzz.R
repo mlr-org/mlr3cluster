@@ -52,6 +52,7 @@ register_mlr3 = function() {
   mlr_reflections$learner_predict_types$clust = list(partition = "partition", prob = c("partition", "prob"))
   mlr_reflections$measure_properties$clust = mlr_reflections$measure_properties$regr
   mlr_reflections$default_measures$clust = "clust.dunn"
+  mlr_reflections$loaded_packages = union(mlr_reflections$loaded_packages, "mlr3cluster")
 
   # tasks
   mlr_tasks = utils::getFromNamespace("mlr_tasks", ns = "mlr3")
@@ -90,6 +91,7 @@ register_mlr3 = function() {
     "task_col_roles"
   )
   walk(reflections, function(x) mlr_reflections[[x]] = remove_named(mlr_reflections[[x]], "clust"))
+  mlr_reflections$loaded_packages = setdiff(mlr_reflections$loaded_packages, "mlr3cluster")
 }
 
 leanify_package()
