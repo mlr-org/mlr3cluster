@@ -43,6 +43,8 @@ lrn("clust.ap")
    maxits \tab integer \tab 1000 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    convits \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    lam \tab numeric \tab 0.9 \tab  \tab \eqn{[0.5, 1]}{[0.5, 1]} \cr
+   includeSim \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   details \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    nonoise \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    seed \tab integer \tab NA \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
 }

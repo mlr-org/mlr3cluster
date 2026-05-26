@@ -36,9 +36,13 @@ LearnerClustAP = R6Class(
         maxits = p_int(1L, default = 1000L, tags = "train"),
         convits = p_int(1L, default = 100L, tags = "train"),
         lam = p_dbl(0.5, 1, default = 0.9, tags = "train"),
+        includeSim = p_lgl(default = FALSE, tags = "train"),
+        details = p_lgl(default = FALSE, tags = "train"),
         nonoise = p_lgl(default = FALSE, tags = "train"),
         seed = p_int(default = NA_integer_, special_vals = list(NA_integer_), tags = "train")
       )
+
+      param_set$set_values(includeSim = FALSE)
 
       super$initialize(
         id = "clust.ap",

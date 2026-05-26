@@ -42,6 +42,7 @@ lrn("clust.kcca")
    weights \tab untyped \tab - \tab  \tab - \cr
    group \tab untyped \tab - \tab  \tab - \cr
    simple \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   save.data \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    iter.max \tab integer \tab 200 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    tolerance \tab numeric \tab 1e-06 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    verbose \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr

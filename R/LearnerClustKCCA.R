@@ -35,6 +35,7 @@ LearnerClustKCCA = R6Class(
         weights = p_uty(tags = "train", custom_check = check_numeric),
         group = p_uty(tags = "train"),
         simple = p_lgl(default = FALSE, tags = "train"),
+        save.data = p_lgl(default = FALSE, tags = "train"),
         iter.max = p_int(1L, default = 200L, tags = c("train", "control")),
         tolerance = p_dbl(0, default = 1e-6, tags = c("train", "control")),
         verbose = p_int(0L, default = 0L, tags = c("train", "control")),
