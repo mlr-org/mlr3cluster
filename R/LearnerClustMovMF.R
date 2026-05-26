@@ -10,7 +10,7 @@
 #' The `k` parameter is set to 2 by default since [movMF::movMF()] has no default value for the
 #' number of mixture components.
 #' Rows of `x` are standardised to unit length internally by [movMF::movMF()].
-#' Predictions use [movMF::predict.movMF()]; `prob` returns the soft memberships.
+#' Predictions use the `predict()` method from \pkg{movMF}; `prob` returns the soft memberships.
 #'
 #' @templateVar id clust.movMF
 #' @template learner

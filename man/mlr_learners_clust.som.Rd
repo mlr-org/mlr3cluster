@@ -45,7 +45,6 @@ lrn("clust.som")
    radius \tab untyped \tab - \tab  \tab - \cr
    user.weights \tab untyped \tab 1 \tab  \tab - \cr
    maxNA.fraction \tab numeric \tab 0 \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
-   keep.data \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    dist.fcts \tab untyped \tab NULL \tab  \tab - \cr
    mode \tab character \tab online \tab online, batch, pbatch \tab - \cr
    cores \tab integer \tab -1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
@@ -124,6 +123,7 @@ Other Learner:
 \code{\link{mlr_learners_clust.genie}},
 \code{\link{mlr_learners_clust.hclust}},
 \code{\link{mlr_learners_clust.hdbscan}},
+\code{\link{mlr_learners_clust.kcca}},
 \code{\link{mlr_learners_clust.kkmeans}},
 \code{\link{mlr_learners_clust.kmeans}},
 \code{\link{mlr_learners_clust.kproto}},

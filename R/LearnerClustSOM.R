@@ -42,7 +42,6 @@ LearnerClustSOM = R6Class(
         radius = p_uty(tags = "train", custom_check = check_numeric),
         user.weights = p_uty(default = 1, tags = "train", custom_check = check_numeric),
         maxNA.fraction = p_dbl(0, 1, default = 0, tags = "train"),
-        keep.data = p_lgl(default = TRUE, tags = "train"),
         dist.fcts = p_uty(default = NULL, tags = "train"),
         mode = p_fct(c("online", "batch", "pbatch"), default = "online", tags = "train"),
         cores = p_int(default = -1L, tags = "train"),
@@ -70,7 +69,7 @@ LearnerClustSOM = R6Class(
       pv = remove_named(pv, names(grid_args))
       pv$grid = invoke(kohonen::somgrid, .args = grid_args)
 
-      m = invoke(kohonen::som, X = as.matrix(task$data()), .args = pv)
+      m = invoke(kohonen::som, X = as.matrix(task$data()), .args = pv, keep.data = TRUE)
       if (self$save_assignments) {
         self$assignments = as.integer(m$unit.classif)
       }

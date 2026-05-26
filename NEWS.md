@@ -1,6 +1,10 @@
 # mlr3cluster (development version)
 
+* breaking: `LearnerClustAP` no longer exposes the `includeSim` and `details` parameters; both are purely diagnostic and have no effect on prediction.
+* breaking: `LearnerClustCLARA` no longer exposes the `keep.data` parameter and now passes `keep.data = FALSE` internally; the predict path only needs the medoids.
+* fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix errors when using `mlr3cluster` in parallel.
 * feat: Add Genie hierarchical clustering learner `clust.genie` from the genieclust package.
+* feat: Add k-centroids cluster analysis learner `clust.kcca` from the flexclust package, supporting k-means, k-medians, spherical, Jaccard, and extended Jaccard families.
 * feat: Add self-organizing maps clustering learner `clust.som` from the kohonen package.
 * feat: Add spherical k-means clustering learner `clust.skmeans` from the skmeans package.
 * feat: Add von Mises-Fisher mixture clustering learner `clust.movMF` from the movMF package.

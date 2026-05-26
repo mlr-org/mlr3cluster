@@ -36,7 +36,6 @@ LearnerClustCLARA = R6Class(
         sampsize = p_int(1L, tags = "train"),
         trace = p_int(0L, default = 0L, tags = "train"),
         medoids.x = p_lgl(default = TRUE, tags = "train"),
-        keep.data = p_lgl(default = TRUE, tags = "train"),
         rngR = p_lgl(default = FALSE, tags = "train"),
         pamLike = p_lgl(default = FALSE, tags = "train"),
         correct.d = p_lgl(default = TRUE, tags = "train")
@@ -60,7 +59,7 @@ LearnerClustCLARA = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(cluster::clara, x = task$data(), .args = pv)
+      m = invoke(cluster::clara, x = task$data(), .args = pv, keep.data = FALSE)
       if (self$save_assignments) {
         self$assignments = m$clustering
       }

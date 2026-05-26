@@ -35,6 +35,7 @@ Suggests:
     clustMixType (>= 0.4.0),
     dbscan (>= 1.2.1),
     e1071,
+    flexclust,
     genieclust,
     kernlab,
     kohonen,
@@ -75,6 +76,7 @@ Collate:
     'LearnerClustGenie.R'
     'LearnerClustHDBSCAN.R'
     'LearnerClustHclust.R'
+    'LearnerClustKCCA.R'
     'LearnerClustKKMeans.R'
     'LearnerClustKMeans.R'
     'LearnerClustKProto.R'

@@ -563,6 +563,17 @@ bibentries = c(
     pages = "1--31",
     year = "2014",
     doi = "10.18637/jss.v058.i10"
+  ),
+  leisch2006toolbox = bibentry(
+    "article",
+    title = "A Toolbox for K-Centroids Cluster Analysis",
+    author = "Leisch, Friedrich",
+    journal = "Computational Statistics & Data Analysis",
+    volume = "51",
+    number = "2",
+    pages = "526--544",
+    year = "2006",
+    doi = "10.1016/j.csda.2005.10.006"
   )
 )
 # nolint end

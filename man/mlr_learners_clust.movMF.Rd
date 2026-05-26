@@ -12,7 +12,7 @@ Calls \code{\link[movMF:movMF]{movMF::movMF()}} from package \CRANpkg{movMF}.
 The \code{k} parameter is set to 2 by default since \code{\link[movMF:movMF]{movMF::movMF()}} has no default value for the
 number of mixture components.
 Rows of \code{x} are standardised to unit length internally by \code{\link[movMF:movMF]{movMF::movMF()}}.
-Predictions use \code{\link[movMF:predict.movMF]{movMF::predict.movMF()}}; \code{prob} returns the soft memberships.
+Predictions use the \code{predict()} method from \pkg{movMF}; \code{prob} returns the soft memberships.
 }
 \section{Dictionary}{
 
@@ -118,6 +118,7 @@ Other Learner:
 \code{\link{mlr_learners_clust.genie}},
 \code{\link{mlr_learners_clust.hclust}},
 \code{\link{mlr_learners_clust.hdbscan}},
+\code{\link{mlr_learners_clust.kcca}},
 \code{\link{mlr_learners_clust.kkmeans}},
 \code{\link{mlr_learners_clust.kmeans}},
 \code{\link{mlr_learners_clust.kproto}},

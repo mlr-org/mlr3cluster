@@ -43,7 +43,6 @@ lrn("clust.clara")
    sampsize \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    trace \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    medoids.x \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
-   keep.data \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    rngR \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    pamLike \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    correct.d \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
@@ -118,6 +117,7 @@ Other Learner:
 \code{\link{mlr_learners_clust.genie}},
 \code{\link{mlr_learners_clust.hclust}},
 \code{\link{mlr_learners_clust.hdbscan}},
+\code{\link{mlr_learners_clust.kcca}},
 \code{\link{mlr_learners_clust.kkmeans}},
 \code{\link{mlr_learners_clust.kmeans}},
 \code{\link{mlr_learners_clust.kproto}},
