@@ -556,7 +556,7 @@ bibentries = c(
   hornik2014movmf = bibentry(
     "article",
     title = "movMF: An R Package for Fitting Mixtures of von Mises-Fisher Distributions",
-    author = "Hornik, Kurt and Grün, Bettina",
+    author = "Hornik, Kurt and Gr\u00fcn, Bettina",
     journal = "Journal of Statistical Software",
     volume = "58",
     number = "10",
