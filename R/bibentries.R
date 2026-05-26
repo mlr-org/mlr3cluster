@@ -519,6 +519,29 @@ bibentries = c(
     pages = "1--26",
     year = "2012",
     doi = "10.18637/jss.v047.i12"
+  ),
+  dhillon2001concept = bibentry(
+    "article",
+    title = "Concept decompositions for large sparse text data using clustering",
+    author = "Dhillon, Inderjit S and Modha, Dharmendra S",
+    journal = "Machine Learning",
+    volume = "42",
+    number = "1",
+    pages = "143--175",
+    year = "2001",
+    doi = "10.1023/A:1007612920971",
+    publisher = "Springer"
+  ),
+  hornik2012spherical = bibentry(
+    "article",
+    title = "Spherical k-Means Clustering",
+    author = "Hornik, Kurt and Feinerer, Ingo and Kober, Martin and Buchta, Christian",
+    journal = "Journal of Statistical Software",
+    volume = "50",
+    number = "10",
+    pages = "1--22",
+    year = "2012",
+    doi = "10.18637/jss.v050.i10"
   )
 )
 # nolint end

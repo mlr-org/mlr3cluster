@@ -44,6 +44,7 @@ Suggests:
     mlbench,
     protoclust,
     RWeka,
+    skmeans,
     stdbscan (>= 0.2.0),
     stream (>= 2.0.0),
     tclust,
@@ -82,6 +83,7 @@ Collate:
     'LearnerClustOPTICS.R'
     'LearnerClustPAM.R'
     'LearnerClustProtoclust.R'
+    'LearnerClustSKMeans.R'
     'LearnerClustSOM.R'
     'LearnerClustSTDBSCAN.R'
     'LearnerClustSimpleKMeans.R'
