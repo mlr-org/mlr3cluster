@@ -578,7 +578,7 @@ bibentries = c(
   gruen2008flexmix = bibentry(
     "article",
     title = "FlexMix Version 2: Finite Mixtures with Concomitant Variables and Varying and Constant Parameters",
-    author = "Grün, Bettina and Leisch, Friedrich",
+    author = "Gr\u00fcn, Bettina and Leisch, Friedrich",
     journal = "Journal of Statistical Software",
     volume = "28",
     number = "4",
