@@ -214,19 +214,25 @@ task = tsk("usarrests")
 
 # Train the learner on the task
 learner$train(task)
-#> Error in loadNamespace(x): there is no package called ‘mvtnorm’
 
 # Print the model
 print(learner$model)
-#> NULL
+#> 
+#> Call:
+#> flexmix::flexmix(formula = formula, data = data, k = 2L, model = driver, 
+#>     control = control)
+#> 
+#> Cluster sizes:
+#>  1  2 
+#> 28 22 
+#> 
+#> convergence after 13 iterations
 
 # Make predictions for the task
 prediction = learner$predict(task)
-#> Error: 
-#> ✖ Cannot predict, Learner 'clust.flexmix' has not been trained yet
-#> → Class: Mlr3ErrorInput
 
 # Score the predictions
 prediction$score(task = task)
-#> Error: object 'prediction' not found
+#> clust.dunn 
+#>  0.1220028 
 ```

@@ -231,21 +231,27 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Train the learner on the task</span></span></span>
 <span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in loadNamespace(x):</span> there is no package called ‘mvtnorm’</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print the model</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> flexmix::flexmix(formula = formula, data = data, k = 2L, model = driver, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     control = control)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Cluster sizes:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1  2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28 22 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> convergence after 13 iterations</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> </span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Cannot predict, Learner 'clust.flexmix' has not been trained yet</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> → Class: Mlr3ErrorInput</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'prediction' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  0.1220028 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
