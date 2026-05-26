@@ -8,10 +8,9 @@
 #' Calls [flexclust::kcca()] from package \CRANpkg{flexclust}.
 #'
 #' The `k` parameter is set to 2 by default since [flexclust::kcca()] has no default value for the number of clusters.
-#' Predictions reproduce the upstream `predict()` logic directly via slot access (preprocess new data with the
-#' family's `preproc`, then assign each row with the family's `cluster` function). This avoids an S4 dispatch
-#' conflict triggered when both \pkg{flexclust} and \pkg{kernlab} are loaded, since both packages define an
-#' S4 class named `"kcca"`.
+#' Predictions dispatch to flexclust's S4 `predict` method via `methods::getMethod("predict", "kccasimple")`
+#' rather than calling `predict()` directly, since both \pkg{flexclust} and \pkg{kernlab} define an S4 class
+#' named `"kcca"` and the resulting class-cache collision can break S4 dispatch when both packages are loaded.
 #'
 #' @templateVar id clust.kcca
 #' @template learner
@@ -81,8 +80,11 @@ LearnerClustKCCA = R6Class(
     },
 
     .predict = function(task) {
-      newdata = self$model@family@preproc(as.matrix(task$data()))
-      partition = as.integer(self$model@family@cluster(newdata, self$model@centers))
+      partition = as.integer(invoke(
+        methods::getMethod("predict", "kccasimple"),
+        self$model,
+        newdata = as.matrix(task$data())
+      ))
       PredictionClust$new(task = task, partition = partition)
     }
   )
