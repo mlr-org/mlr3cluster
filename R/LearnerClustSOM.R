@@ -69,7 +69,7 @@ LearnerClustSOM = R6Class(
       pv = remove_named(pv, names(grid_args))
       pv$grid = invoke(kohonen::somgrid, .args = grid_args)
 
-      m = invoke(kohonen::som, X = as.matrix(task$data()), .args = pv, keep.data = TRUE)
+      m = invoke(kohonen::som, X = as.matrix(task$data()), .args = pv)
       if (self$save_assignments) {
         self$assignments = as.integer(m$unit.classif)
       }
