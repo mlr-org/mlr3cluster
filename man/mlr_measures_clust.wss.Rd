@@ -37,6 +37,8 @@ msr("clust.wss")
 \code{as.data.table(mlr_measures)} for a complete table of all (also dynamically created) \link[mlr3:Measure]{mlr3::Measure} implementations.
 
 Other cluster measures:
+\code{\link{mlr_measures_clust.avg_between}},
+\code{\link{mlr_measures_clust.avg_within}},
 \code{\link{mlr_measures_clust.ch}},
 \code{\link{mlr_measures_clust.davies_bouldin}},
 \code{\link{mlr_measures_clust.dunn}},

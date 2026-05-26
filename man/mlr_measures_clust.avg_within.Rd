@@ -15,7 +15,7 @@ Euclidean distances.
 \section{Dictionary}{
 
 This \link[mlr3:Measure]{mlr3::Measure} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_measures]{mlr3::mlr_measures} or with the
-associated sugar function \code{\link[mlr3:mlr_sugar]{mlr3::msr()}}:
+associated sugar function \code{\link[mlr3:msr]{mlr3::msr()}}:
 
 \if{html}{\out{<div class="sourceCode">}}\preformatted{mlr_measures$get("clust.avg_within")
 msr("clust.avg_within")
@@ -39,7 +39,7 @@ msr("clust.avg_within")
 
 \code{as.data.table(mlr_measures)} for a complete table of all (also dynamically created) \link[mlr3:Measure]{mlr3::Measure} implementations.
 
-Other cluster measures: 
+Other cluster measures:
 \code{\link{mlr_measures_clust.avg_between}},
 \code{\link{mlr_measures_clust.ch}},
 \code{\link{mlr_measures_clust.davies_bouldin}},

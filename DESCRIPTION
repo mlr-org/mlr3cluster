@@ -36,6 +36,7 @@ Suggests:
     dbscan (>= 1.2.1),
     e1071,
     fpc,
+    genieclust,
     kernlab,
     kohonen,
     LPCM,
@@ -46,8 +47,12 @@ Suggests:
     RWeka,
     stdbscan (>= 0.2.0),
     stream (>= 2.0.0),
+    tclust,
     testthat (>= 3.3.0),
     withr
+Config/roxygen2/markdown: TRUE
+Config/roxygen2/r6: TRUE
+Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3
 Encoding: UTF-8
 Collate:
