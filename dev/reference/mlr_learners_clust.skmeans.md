@@ -118,6 +118,7 @@ Other Learner:
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md),
+[`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
@@ -214,7 +215,7 @@ learner$train(task)
 # Print the model
 print(learner$model)
 #> A hard spherical k-means partition of 50 objects into 2 classes.
-#> Class sizes: 17, 33
+#> Class sizes: 33, 17
 #> Call: skmeans::skmeans(x = as.matrix(task$data()), k = 2L, control = structure(list(), names = character(0)))
 
 # Make predictions for the task

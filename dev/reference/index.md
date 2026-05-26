@@ -74,6 +74,9 @@
 - [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md)
   [`LearnerClustHDBSCAN`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md)
   : HDBSCAN Clustering Learner
+- [`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kcca.md)
+  [`LearnerClustKCCA`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kcca.md)
+  : K-Centroids Cluster Analysis Learner
 - [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md)
   [`LearnerClustKKMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md)
   : Kernel K-Means Clustering Learner

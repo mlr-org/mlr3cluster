@@ -116,6 +116,7 @@ Other Learner:
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md),
+[`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
@@ -196,7 +197,7 @@ print(learner)
 #> 
 #> ── <LearnerClustCLARA> (clust.clara): CLARA ────────────────────────────────────
 #> • Model: -
-#> • Parameters: k=2
+#> • Parameters: k=2, keep.data=FALSE
 #> • Packages: mlr3, mlr3cluster, cluster, and clue
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
@@ -212,7 +213,7 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> Call:     cluster::clara(x = task$data(), k = 2L) 
+#> Call:     cluster::clara(x = task$data(), k = 2L, keep.data = FALSE) 
 #> Medoids:
 #>      Assault Murder Rape UrbanPop
 #> [1,]     255   12.1 35.1       74
@@ -225,8 +226,8 @@ print(learner$model)
 #> [26] 29 30 32 33 34 35 36 37 38 39 40 41 43 45 46 47 48 49 50
 #> 
 #> Available components:
-#>  [1] "sample"     "medoids"    "i.med"      "clustering" "objective" 
-#>  [6] "clusinfo"   "diss"       "call"       "silinfo"    "data"      
+#> [1] "sample"     "medoids"    "i.med"      "clustering" "objective" 
+#> [6] "clusinfo"   "diss"       "call"       "silinfo"   
 
 # Make predictions for the task
 prediction = learner$predict(task)

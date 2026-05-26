@@ -11,8 +11,8 @@ The `k` parameter is set to 2 by default since
 default value for the number of mixture components. Rows of `x` are
 standardised to unit length internally by
 [`movMF::movMF()`](https://rdrr.io/pkg/movMF/man/movMF.html).
-Predictions use `movMF::predict.movMF()`; `prob` returns the soft
-memberships.
+Predictions use the [`predict()`](https://rdrr.io/r/stats/predict.html)
+method from movMF; `prob` returns the soft memberships.
 
 ## Dictionary
 
@@ -119,6 +119,7 @@ Other Learner:
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md),
+[`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
@@ -215,11 +216,11 @@ learner$train(task)
 # Print the model
 print(learner$model)
 #> theta:
-#>     Assault   Murder     Rape  UrbanPop
-#> 1  92.85874  4.18401 14.70388  62.06855
-#> 2 418.98640 19.71047 48.58524 122.62916
+#>     Assault    Murder     Rape  UrbanPop
+#> 1  92.85878  4.184013 14.70390  62.06872
+#> 2 418.98197 19.710248 48.58479 122.62821
 #> alpha:
-#> [1] 0.496332 0.503668
+#> [1] 0.4963289 0.5036711
 #> L:
 #> [1] 311.7197
 

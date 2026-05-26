@@ -118,6 +118,7 @@ Other Learner:
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md),
+[`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
@@ -217,21 +218,21 @@ print(learner$model)
 #> 
 #>  Cluster memberships: 
 #>  
-#> 2 2 2 1 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 1 2 1 2 1 1 1 2 1 1 2 2 2 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 
+#> 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 2 2 1 2 2 1 1 2 1 2 2 2 2 1 1 2 2 1 2 2 1 2 2 1 1 2 2 1 1 2 
 #>  
 #> Gaussian Radial Basis kernel function. 
-#>  Hyperparameter : sigma =  0.00148809523809498 
+#>  Hyperparameter : sigma =  0.00850340136054485 
 #> 
 #> Centers:  
-#>          [,1]     [,2]     [,3]     [,4]
-#> [1,] 114.8710  5.23871 16.69677 63.41935
-#> [2,] 261.9474 11.94737 28.63158 69.00000
+#>          [,1]     [,2]     [,3]  [,4]
+#> [1,]  87.5500  4.27000 14.39000 59.75
+#> [2,] 226.2333 10.13333 25.79333 69.40
 #> 
 #> Cluster size:  
-#> [1] 31 19
+#> [1] 20 30
 #> 
 #> Within-cluster sum of squares:  
-#> [1]  530662.2 1542536.0
+#> [1]  213075.9 1799973.6
 #> 
 
 # Make predictions for the task
@@ -244,5 +245,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1585342 
+#>  0.1323762 
 ```

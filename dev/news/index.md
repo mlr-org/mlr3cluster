@@ -2,8 +2,16 @@
 
 ## mlr3cluster (development version)
 
+- breaking: `LearnerClustAP` now defaults `includeSim` to `FALSE` to
+  avoid storing the n x n similarity matrix in the model.
+- breaking: `LearnerClustCLARA` now defaults `keep.data` to `FALSE`.
+- fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix
+  errors when using `mlr3cluster` in parallel.
 - feat: Add Genie hierarchical clustering learner `clust.genie` from the
   genieclust package.
+- feat: Add k-centroids cluster analysis learner `clust.kcca` from the
+  flexclust package, supporting k-means, k-medians, spherical, Jaccard,
+  and extended Jaccard families.
 - feat: Add self-organizing maps clustering learner `clust.som` from the
   kohonen package.
 - feat: Add spherical k-means clustering learner `clust.skmeans` from
