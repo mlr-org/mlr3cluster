@@ -8,9 +8,8 @@
 Affinity Propagation clustering.
 Calls \code{\link[apcluster:apcluster]{apcluster::apcluster()}} from package \CRANpkg{apcluster}.
 
-Note that \code{\link[apcluster:apcluster]{apcluster::apcluster()}} doesn't have a default for the similarity function.
-The predict method computes the closest cluster exemplar to find the
-cluster memberships for new data.
+Note that \code{\link[apcluster:apcluster]{apcluster::apcluster()}} doesn't have a default for the similarity function. The predict method computes
+the closest cluster exemplar to find the cluster memberships for new data.
 The code is taken from
 \href{https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi}{StackOverflow}
 answer by the \code{apcluster} package maintainer.

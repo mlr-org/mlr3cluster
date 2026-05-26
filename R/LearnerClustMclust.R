@@ -6,8 +6,7 @@
 #' Gaussian mixture model-based clustering.
 #' Calls [mclust::Mclust()] from package \CRANpkg{mclust}.
 #'
-#' The predict method uses [mclust::predict.Mclust()] to compute the
-#' cluster memberships for new data.
+#' The predict method uses [mclust::predict.Mclust()] to compute the cluster memberships for new data.
 #'
 #' @templateVar id clust.mclust
 #' @template learner

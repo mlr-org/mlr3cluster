@@ -6,9 +6,8 @@
 #' Divisive hierarchical clustering.
 #' Calls [cluster::diana()] from package \CRANpkg{cluster}.
 #'
-#' The predict method uses [stats::cutree()] which cuts the tree resulting from
-#' hierarchical clustering into specified number of groups (see parameter `k`).
-#' The default value for `k` is 2.
+#' The predict method uses [stats::cutree()] which cuts the tree resulting from hierarchical clustering into specified
+#' number of groups (see parameter `k`). The default value for `k` is 2.
 #'
 #' @templateVar id clust.diana
 #' @template learner

@@ -8,8 +8,7 @@
 Gaussian mixture model-based clustering.
 Calls \code{\link[mclust:Mclust]{mclust::Mclust()}} from package \CRANpkg{mclust}.
 
-The predict method uses \code{\link[mclust:predict.Mclust]{mclust::predict.Mclust()}} to compute the
-cluster memberships for new data.
+The predict method uses \code{\link[mclust:predict.Mclust]{mclust::predict.Mclust()}} to compute the cluster memberships for new data.
 }
 \section{Dictionary}{
 

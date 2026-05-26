@@ -3,14 +3,13 @@
 #' @name mlr_learners_clust.movMF
 #'
 #' @description
-#' Fits a mixture of von Mises-Fisher distributions via EM, the directional-data analogue of a
-#' Gaussian mixture for points on the unit hypersphere.
+#' Fits a mixture of von Mises-Fisher distributions via EM, the directional-data analogue of a Gaussian mixture for
+#' points on the unit hypersphere.
 #' Calls [movMF::movMF()] from package \CRANpkg{movMF}.
 #'
-#' The `k` parameter is set to 2 by default since [movMF::movMF()] has no default value for the
-#' number of mixture components.
-#' Rows of `x` are standardised to unit length internally by [movMF::movMF()].
-#' Predictions use the `predict()` method from \pkg{movMF}; `prob` returns the soft memberships.
+#' The `k` parameter is set to 2 by default since [movMF::movMF()] has no default value for the number of mixture
+#' components. Rows of `x` are standardised to unit length internally by [movMF::movMF()]. Predictions use the
+#' `predict()` method from \pkg{movMF}; `prob` returns the soft memberships.
 #'
 #' @templateVar id clust.movMF
 #' @template learner

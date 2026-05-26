@@ -8,8 +8,8 @@
 K-prototypes clustering for mixed-type data.
 Calls \code{\link[clustMixType:kproto]{clustMixType::kproto()}} from package \CRANpkg{clustMixType}.
 
-The \code{k} parameter is set to 2 by default since \code{\link[clustMixType:kproto]{clustMixType::kproto()}}
-doesn't have a default value for the number of clusters.
+The \code{k} parameter is set to 2 by default since \code{\link[clustMixType:kproto]{clustMixType::kproto()}} doesn't have a default value for the number
+of clusters.
 }
 \section{Dictionary}{
 

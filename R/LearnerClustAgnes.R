@@ -6,9 +6,8 @@
 #' Agglomerative hierarchical clustering.
 #' Calls [cluster::agnes()] from package \CRANpkg{cluster}.
 #'
-#' The predict method uses [stats::cutree()] which cuts the tree resulting from
-#' hierarchical clustering into specified number of groups (see parameter `k`).
-#' The default number for `k` is 2.
+#' The predict method uses [stats::cutree()] which cuts the tree resulting from hierarchical clustering into specified
+#' number of groups (see parameter `k`). The default number for `k` is 2.
 #'
 #' @templateVar id clust.agnes
 #' @template learner

@@ -8,10 +8,9 @@
 Fuzzy Analysis (FANNY) clustering.
 Calls \code{\link[cluster:fanny]{cluster::fanny()}} from package \CRANpkg{cluster}.
 
-The \code{k} parameter is set to 2 by default since \code{\link[cluster:fanny]{cluster::fanny()}}
-doesn't have a default value for the number of clusters.
-The predict method copies cluster assignments and memberships
-generated for train data. The predict does not work for new data.
+The \code{k} parameter is set to 2 by default since \code{\link[cluster:fanny]{cluster::fanny()}} doesn't have a default value for the number of
+clusters. The predict method copies cluster assignments and memberships generated for train data. The predict does
+not work for new data.
 }
 \section{Dictionary}{
 

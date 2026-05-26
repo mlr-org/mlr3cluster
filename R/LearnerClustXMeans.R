@@ -6,8 +6,7 @@
 #' X-means clustering.
 #' Calls [RWeka::XMeans()] from package \CRANpkg{RWeka}.
 #'
-#' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the
-#' cluster memberships for new data.
+#' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the cluster memberships for new data.
 #'
 #' @templateVar id clust.xmeans
 #' @template learner

@@ -8,8 +8,7 @@
 Mean shift clustering.
 Calls \code{\link[LPCM:ms]{LPCM::ms()}} from package \CRANpkg{LPCM}.
 
-There is no predict method for \code{\link[LPCM:ms]{LPCM::ms()}}, so the method
-returns cluster labels for the training data.
+There is no predict method for \code{\link[LPCM:ms]{LPCM::ms()}}, so the method returns cluster labels for the training data.
 }
 \section{Dictionary}{
 

@@ -6,8 +6,8 @@
 #' K-prototypes clustering for mixed-type data.
 #' Calls [clustMixType::kproto()] from package \CRANpkg{clustMixType}.
 #'
-#' The `k` parameter is set to 2 by default since [clustMixType::kproto()]
-#' doesn't have a default value for the number of clusters.
+#' The `k` parameter is set to 2 by default since [clustMixType::kproto()] doesn't have a default value for the number
+#' of clusters.
 #'
 #' @templateVar id clust.kproto
 #' @template learner

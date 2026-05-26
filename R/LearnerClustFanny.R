@@ -6,10 +6,9 @@
 #' Fuzzy Analysis (FANNY) clustering.
 #' Calls [cluster::fanny()] from package \CRANpkg{cluster}.
 #'
-#' The `k` parameter is set to 2 by default since [cluster::fanny()]
-#' doesn't have a default value for the number of clusters.
-#' The predict method copies cluster assignments and memberships
-#' generated for train data. The predict does not work for new data.
+#' The `k` parameter is set to 2 by default since [cluster::fanny()] doesn't have a default value for the number of
+#' clusters. The predict method copies cluster assignments and memberships generated for train data. The predict does
+#' not work for new data.
 #'
 #' @templateVar id clust.fanny
 #' @template learner

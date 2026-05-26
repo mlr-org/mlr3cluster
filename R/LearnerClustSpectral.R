@@ -6,12 +6,10 @@
 #' Spectral clustering.
 #' Calls [kernlab::specc()] from package \CRANpkg{kernlab}.
 #'
-#' The `centers` parameter is set to 2 by default since [kernlab::specc()]
-#' doesn't have a default value for the number of clusters.
-#' Kernel parameters have to be passed directly and not by using the `kpar` list in [kernlab::specc()].
+#' The `centers` parameter is set to 2 by default since [kernlab::specc()] doesn't have a default value for the number
+#' of clusters. Kernel parameters have to be passed directly and not by using the `kpar` list in [kernlab::specc()].
 #'
-#' There is no predict method for [kernlab::specc()], so the method
-#' returns cluster labels for the training data.
+#' There is no predict method for [kernlab::specc()], so the method returns cluster labels for the training data.
 #'
 #' @templateVar id clust.specc
 #' @template learner

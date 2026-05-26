@@ -7,10 +7,9 @@
 #' outlying `alpha` fraction of observations is trimmed and assigned to cluster `0`.
 #' Calls [tclust::tclust()] from package \CRANpkg{tclust}.
 #'
-#' The `k` parameter is set to 2 by default since [tclust::tclust()] doesn't have a default value
-#' for the number of clusters.
-#' There is no predict method for [tclust::tclust()], so the method returns cluster labels for the
-#' training data.
+#' The `k` parameter is set to 2 by default since [tclust::tclust()] doesn't have a default value for the number of
+#' clusters. There is no predict method for [tclust::tclust()], so the method returns cluster labels for the training
+#' data.
 #'
 #' @templateVar id clust.tclust
 #' @template learner

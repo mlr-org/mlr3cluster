@@ -8,8 +8,7 @@
 Cobweb clustering.
 Calls \code{\link[RWeka:Cobweb]{RWeka::Cobweb()}} from package \CRANpkg{RWeka}.
 
-The predict method uses \code{\link[RWeka:predict.Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
-cluster memberships for new data.
+The predict method uses \code{\link[RWeka:predict.Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the cluster memberships for new data.
 }
 \section{Dictionary}{
 

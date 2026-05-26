@@ -8,8 +8,7 @@
 K-means clustering (Weka).
 Calls \code{\link[RWeka:SimpleKMeans]{RWeka::SimpleKMeans()}} from package \CRANpkg{RWeka}.
 
-The predict method uses \code{\link[RWeka:predict.Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the
-cluster memberships for new data.
+The predict method uses \code{\link[RWeka:predict.Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the cluster memberships for new data.
 }
 \section{Dictionary}{
 

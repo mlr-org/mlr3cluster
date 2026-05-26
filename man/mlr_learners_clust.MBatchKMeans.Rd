@@ -8,11 +8,9 @@
 Mini-batch k-means clustering.
 Calls \code{\link[ClusterR:MiniBatchKmeans]{ClusterR::MiniBatchKmeans()}} from package \CRANpkg{ClusterR}.
 
-The \code{clusters} parameter is set to 2 by default since \code{\link[ClusterR:MiniBatchKmeans]{ClusterR::MiniBatchKmeans()}}
-doesn't have a default value for the number of clusters.
-The predict method uses \code{\link[ClusterR:predict_MBatchKMeans]{ClusterR::predict_MBatchKMeans()}} to compute the
-cluster memberships for new data.
-The learner supports both partitional and fuzzy clustering.
+The \code{clusters} parameter is set to 2 by default since \code{\link[ClusterR:MiniBatchKmeans]{ClusterR::MiniBatchKmeans()}} doesn't have a default value for
+the number of clusters. The predict method uses \code{\link[ClusterR:predict_MBatchKMeans]{ClusterR::predict_MBatchKMeans()}} to compute the cluster memberships
+for new data. The learner supports both partitional and fuzzy clustering.
 }
 \section{Dictionary}{
 

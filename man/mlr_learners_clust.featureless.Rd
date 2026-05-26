@@ -6,8 +6,7 @@
 \title{Featureless Clustering Learner}
 \description{
 Featureless clustering.
-Randomly (but evenly) assigns observations to \code{num_clusters} partitions
-(default: 1 partition).
+Randomly (but evenly) assigns observations to \code{num_clusters} partitions (default: 1 partition).
 }
 \section{Dictionary}{
 

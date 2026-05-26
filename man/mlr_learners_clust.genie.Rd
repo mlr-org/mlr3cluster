@@ -5,12 +5,12 @@
 \alias{LearnerClustGenie}
 \title{Genie Hierarchical Clustering Learner}
 \description{
-Genie hierarchical clustering, a fast and robust outlier-resistant algorithm based on the
-Gini inequality measure applied to cluster sizes during the linkage process.
+Genie hierarchical clustering, a fast and robust outlier-resistant algorithm based on the Gini inequality measure
+applied to cluster sizes during the linkage process.
 Calls \code{\link[genieclust:gclust]{genieclust::gclust()}} from package \CRANpkg{genieclust}.
 
-There is no predict method for \code{\link[genieclust:gclust]{genieclust::gclust()}}, so the method returns cluster labels
-for the training data obtained via \code{\link[stats:cutree]{stats::cutree()}} at the requested \code{k}.
+There is no predict method for \code{\link[genieclust:gclust]{genieclust::gclust()}}, so the method returns cluster labels for the training data
+obtained via \code{\link[stats:cutree]{stats::cutree()}} at the requested \code{k}.
 }
 \section{Dictionary}{
 

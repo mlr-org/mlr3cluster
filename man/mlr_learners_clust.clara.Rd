@@ -8,11 +8,9 @@
 Clustering Large Applications (CLARA) clustering.
 Calls \code{\link[cluster:clara]{cluster::clara()}} from package \CRANpkg{cluster}.
 
-CLARA extends the PAM algorithm to handle larger datasets by working on sub-datasets of fixed size.
-The \code{k} parameter is set to 2 by default since \code{\link[cluster:clara]{cluster::clara()}}
-doesn't have a default value for the number of clusters.
-The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the
-cluster memberships for new data.
+CLARA extends the PAM algorithm to handle larger datasets by working on sub-datasets of fixed size. The \code{k} parameter
+is set to 2 by default since \code{\link[cluster:clara]{cluster::clara()}} doesn't have a default value for the number of clusters. The predict
+method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the cluster memberships for new data.
 }
 \section{Dictionary}{
 

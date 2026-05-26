@@ -8,10 +8,8 @@
 Partitioning Around Medoids (PAM) clustering.
 Calls \code{\link[cluster:pam]{cluster::pam()}} from package \CRANpkg{cluster}.
 
-The \code{k} parameter is set to 2 by default since \code{\link[cluster:pam]{cluster::pam()}}
-doesn't have a default value for the number of clusters.
-The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the
-cluster memberships for new data.
+The \code{k} parameter is set to 2 by default since \code{\link[cluster:pam]{cluster::pam()}} doesn't have a default value for the number of
+clusters. The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the cluster memberships for new data.
 }
 \section{Dictionary}{
 

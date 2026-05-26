@@ -9,10 +9,9 @@ Robust trimmed clustering. Each cluster is modeled by a multivariate Gaussian; t
 outlying \code{alpha} fraction of observations is trimmed and assigned to cluster \code{0}.
 Calls \code{\link[tclust:tclust]{tclust::tclust()}} from package \CRANpkg{tclust}.
 
-The \code{k} parameter is set to 2 by default since \code{\link[tclust:tclust]{tclust::tclust()}} doesn't have a default value
-for the number of clusters.
-There is no predict method for \code{\link[tclust:tclust]{tclust::tclust()}}, so the method returns cluster labels for the
-training data.
+The \code{k} parameter is set to 2 by default since \code{\link[tclust:tclust]{tclust::tclust()}} doesn't have a default value for the number of
+clusters. There is no predict method for \code{\link[tclust:tclust]{tclust::tclust()}}, so the method returns cluster labels for the training
+data.
 }
 \section{Dictionary}{
 

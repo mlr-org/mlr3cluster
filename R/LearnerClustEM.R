@@ -6,8 +6,7 @@
 #' Expectation-Maximization clustering.
 #' Calls the EM Weka clusterer from package \CRANpkg{RWeka}.
 #'
-#' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the
-#' cluster memberships for new data.
+#' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the cluster memberships for new data.
 #' The learner supports both partitional and fuzzy clustering.
 #'
 #' @templateVar id clust.em

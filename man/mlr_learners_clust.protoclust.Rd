@@ -8,8 +8,8 @@
 Hierarchical clustering using minimax linkage with prototypes.
 Calls \code{\link[protoclust:protoclust]{protoclust::protoclust()}} from package \CRANpkg{protoclust}.
 
-There is no predict method for \code{\link[protoclust:protoclust]{protoclust::protoclust()}}, so the method
-returns cluster labels for the training data.
+There is no predict method for \code{\link[protoclust:protoclust]{protoclust::protoclust()}}, so the method returns cluster labels for the training
+data.
 }
 \section{Dictionary}{
 

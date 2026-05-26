@@ -3,12 +3,12 @@
 #' @name mlr_learners_clust.genie
 #'
 #' @description
-#' Genie hierarchical clustering, a fast and robust outlier-resistant algorithm based on the
-#' Gini inequality measure applied to cluster sizes during the linkage process.
+#' Genie hierarchical clustering, a fast and robust outlier-resistant algorithm based on the Gini inequality measure
+#' applied to cluster sizes during the linkage process.
 #' Calls [genieclust::gclust()] from package \CRANpkg{genieclust}.
 #'
-#' There is no predict method for [genieclust::gclust()], so the method returns cluster labels
-#' for the training data obtained via [stats::cutree()] at the requested `k`.
+#' There is no predict method for [genieclust::gclust()], so the method returns cluster labels for the training data
+#' obtained via [stats::cutree()] at the requested `k`.
 #'
 #' @templateVar id clust.genie
 #' @template learner

@@ -8,11 +8,9 @@
 Kernel k-means clustering.
 Calls \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} from package \CRANpkg{kernlab}.
 
-The \code{centers} parameter is set to 2 by default since \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}}
-doesn't have a default value for the number of clusters.
-Kernel parameters have to be passed directly and not by using the \code{kpar} list in \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}}.
-The predict method finds the nearest center in kernel distance to
-assign clusters for new data points.
+The \code{centers} parameter is set to 2 by default since \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} doesn't have a default value for the number
+of clusters. Kernel parameters have to be passed directly and not by using the \code{kpar} list in \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}}.
+The predict method finds the nearest center in kernel distance to assign clusters for new data points.
 }
 \section{Dictionary}{
 

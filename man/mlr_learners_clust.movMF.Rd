@@ -5,14 +5,13 @@
 \alias{LearnerClustMovMF}
 \title{von Mises-Fisher Mixture Clustering Learner}
 \description{
-Fits a mixture of von Mises-Fisher distributions via EM, the directional-data analogue of a
-Gaussian mixture for points on the unit hypersphere.
+Fits a mixture of von Mises-Fisher distributions via EM, the directional-data analogue of a Gaussian mixture for
+points on the unit hypersphere.
 Calls \code{\link[movMF:movMF]{movMF::movMF()}} from package \CRANpkg{movMF}.
 
-The \code{k} parameter is set to 2 by default since \code{\link[movMF:movMF]{movMF::movMF()}} has no default value for the
-number of mixture components.
-Rows of \code{x} are standardised to unit length internally by \code{\link[movMF:movMF]{movMF::movMF()}}.
-Predictions use the \code{predict()} method from \pkg{movMF}; \code{prob} returns the soft memberships.
+The \code{k} parameter is set to 2 by default since \code{\link[movMF:movMF]{movMF::movMF()}} has no default value for the number of mixture
+components. Rows of \code{x} are standardised to unit length internally by \code{\link[movMF:movMF]{movMF::movMF()}}. Predictions use the
+\code{predict()} method from \pkg{movMF}; \code{prob} returns the soft memberships.
 }
 \section{Dictionary}{
 
