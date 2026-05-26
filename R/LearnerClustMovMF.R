@@ -59,8 +59,8 @@ LearnerClustMovMF = R6Class(
     .train = function(task) {
       ps = self$param_set
       pv = ps$get_values(tags = "train")
-      pv = pv[setdiff(names(pv), ps$ids(tags = "control"))]
       pv$control = ps$get_values(tags = "control")
+      pv = remove_named(pv, names(pv$control))
 
       m = invoke(movMF::movMF, x = as.matrix(task$data()), .args = pv)
       if (self$save_assignments) {

@@ -69,9 +69,10 @@ LearnerClustFlexmix = R6Class(
 
   private = list(
     .train = function(task) {
-      pv = self$param_set$get_values(tags = "train")
-      ctrl_pv = self$param_set$get_values(tags = "control")
-      pv = remove_named(pv, names(ctrl_pv))
+      ps = self$param_set
+      pv = ps$get_values(tags = "train")
+      control_args = ps$get_values(tags = "control")
+      pv = remove_named(pv, names(control_args))
 
       model_name = pv$model %??% "FLXMCmvnorm"
       driver_args = list()
@@ -84,7 +85,7 @@ LearnerClustFlexmix = R6Class(
       pv = remove_named(pv, c("model", "diagonal", "truncated"))
       driver = do.call(getExportedValue("flexmix", model_name), driver_args)
 
-      control = do.call(methods::new, c(list("FLXcontrol"), ctrl_pv))
+      control = do.call(methods::new, c(list("FLXcontrol"), control_args))
 
       data = setDF(task$data())
       # multivariate LHS via cbind() so that posterior() can rebuild the design matrix from newdata

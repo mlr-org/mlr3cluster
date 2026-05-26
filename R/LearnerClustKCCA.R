@@ -64,9 +64,8 @@ LearnerClustKCCA = R6Class(
     .train = function(task) {
       ps = self$param_set
       pv = ps$get_values(tags = "train")
-      pv = pv[setdiff(names(pv), ps$ids(tags = "control"))]
-
       control_args = ps$get_values(tags = "control")
+      pv = remove_named(pv, names(control_args))
       if (length(control_args) > 0L) {
         pv$control = invoke(methods::new, "flexclustControl", .args = control_args)
       }
