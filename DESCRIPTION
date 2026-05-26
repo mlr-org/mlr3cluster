@@ -36,14 +36,15 @@ Suggests:
     dbscan (>= 1.2.1),
     e1071,
     flexclust,
+    flexmix,
     genieclust,
     kernlab,
     kohonen,
     LPCM,
     mclust,
     mirai (>= 2.4.1),
-    movMF,
     mlbench,
+    movMF,
     protoclust,
     RWeka,
     skmeans,
@@ -73,6 +74,7 @@ Collate:
     'LearnerClustFanny.R'
     'LearnerClustFarthestFirst.R'
     'LearnerClustFeatureless.R'
+    'LearnerClustFlexmix.R'
     'LearnerClustGenie.R'
     'LearnerClustHDBSCAN.R'
     'LearnerClustHclust.R'

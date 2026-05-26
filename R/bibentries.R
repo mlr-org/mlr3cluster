@@ -564,6 +564,28 @@ bibentries = c(
     year = "2014",
     doi = "10.18637/jss.v058.i10"
   ),
+  leisch2004flexmix = bibentry(
+    "article",
+    title = "FlexMix: A General Framework for Finite Mixture Models and Latent Class Regression in R",
+    author = "Leisch, Friedrich",
+    journal = "Journal of Statistical Software",
+    volume = "11",
+    number = "8",
+    pages = "1--18",
+    year = "2004",
+    doi = "10.18637/jss.v011.i08"
+  ),
+  gruen2008flexmix = bibentry(
+    "article",
+    title = "FlexMix Version 2: Finite Mixtures with Concomitant Variables and Varying and Constant Parameters",
+    author = "Grün, Bettina and Leisch, Friedrich",
+    journal = "Journal of Statistical Software",
+    volume = "28",
+    number = "4",
+    pages = "1--35",
+    year = "2008",
+    doi = "10.18637/jss.v028.i04"
+  ),
   leisch2006toolbox = bibentry(
     "article",
     title = "A Toolbox for K-Centroids Cluster Analysis",
