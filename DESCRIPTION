@@ -45,6 +45,7 @@ Suggests:
     mirai (>= 2.4.1),
     mlbench,
     movMF,
+    mvtnorm,
     protoclust,
     RWeka,
     skmeans,
