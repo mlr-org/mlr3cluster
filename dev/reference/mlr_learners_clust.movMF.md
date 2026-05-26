@@ -1,14 +1,18 @@
-# Fuzzy Analysis Clustering Learner
+# von Mises-Fisher Mixture Clustering Learner
 
-Fuzzy Analysis (FANNY) clustering. Calls
-[`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html) from
-package [cluster](https://CRAN.R-project.org/package=cluster).
+Fits a mixture of von Mises-Fisher distributions via EM, the
+directional-data analogue of a Gaussian mixture for points on the unit
+hypersphere. Calls
+[`movMF::movMF()`](https://rdrr.io/pkg/movMF/man/movMF.html) from
+package [movMF](https://CRAN.R-project.org/package=movMF).
 
 The `k` parameter is set to 2 by default since
-[`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html) doesn't
-have a default value for the number of clusters. The predict method
-copies cluster assignments and memberships generated for train data. The
-predict does not work for new data.
+[`movMF::movMF()`](https://rdrr.io/pkg/movMF/man/movMF.html) has no
+default value for the number of mixture components. Rows of `x` are
+standardised to unit length internally by
+[`movMF::movMF()`](https://rdrr.io/pkg/movMF/man/movMF.html).
+Predictions use `movMF::predict.movMF()`; `prob` returns the soft
+memberships.
 
 ## Dictionary
 
@@ -19,8 +23,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.fanny")
-    lrn("clust.fanny")
+    mlr_learners$get("clust.movMF")
+    lrn("clust.movMF")
 
 ## Meta Information
 
@@ -32,26 +36,35 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [cluster](https://CRAN.R-project.org/package=cluster)
+  [movMF](https://CRAN.R-project.org/package=movMF)
 
 ## Parameters
 
-|  |  |  |  |  |
-|----|----|----|----|----|
-| Id | Type | Default | Levels | Range |
-| k | integer | \- |  | \\\[1, \infty)\\ |
-| memb.exp | numeric | 2 |  | \\\[1, \infty)\\ |
-| metric | character | euclidean | euclidean, manhattan, SqEuclidean | \- |
-| stand | logical | FALSE | TRUE, FALSE | \- |
-| iniMem.p | untyped | NULL |  | \- |
-| maxit | integer | 500 |  | \\\[0, \infty)\\ |
-| tol | numeric | 1e-15 |  | \\\[0, \infty)\\ |
-| trace.lev | integer | 0 |  | \\\[0, \infty)\\ |
+|          |           |         |                            |                  |
+|----------|-----------|---------|----------------------------|------------------|
+| Id       | Type      | Default | Levels                     | Range            |
+| k        | integer   | \-      |                            | \\\[1, \infty)\\ |
+| E        | character | softmax | softmax, hardmax, stochmax | \-               |
+| kappa    | untyped   | \-      |                            | \-               |
+| start    | untyped   | "p"     |                            | \-               |
+| nruns    | integer   | 1       |                            | \\\[1, \infty)\\ |
+| maxiter  | integer   | 100     |                            | \\\[1, \infty)\\ |
+| reltol   | numeric   | \-      |                            | \\\[0, \infty)\\ |
+| minalpha | numeric   | 0       |                            | \\\[0, \infty)\\ |
+| converge | logical   | TRUE    | TRUE, FALSE                | \-               |
+| verbose  | logical   | FALSE   | TRUE, FALSE                | \-               |
 
 ## References
 
-Kaufman, Leonard, Rousseeuw, J P (2009). *Finding groups in data: an
-introduction to cluster analysis*. John Wiley & Sons.
+Banerjee, Arindam, Dhillon, S I, Ghosh, Joydeep, Sra, Suvrit (2005).
+“Clustering on the Unit Hypersphere using von Mises-Fisher
+Distributions.” *Journal of Machine Learning Research*, **6**(46),
+1345–1382.
+
+Hornik, Kurt, Grün, Bettina (2014). “movMF: An R Package for Fitting
+Mixtures of von Mises-Fisher Distributions.” *Journal of Statistical
+Software*, **58**(10), 1–31.
+[doi:10.18637/jss.v058.i10](https://doi.org/10.18637/jss.v058.i10) .
 
 ## See also
 
@@ -100,6 +113,7 @@ Other Learner:
 [`mlr_learners_clust.dbscan_fpc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan_fpc.md),
 [`mlr_learners_clust.diana`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.diana.md),
 [`mlr_learners_clust.em`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.md),
+[`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
@@ -110,7 +124,6 @@ Other Learner:
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md),
-[`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.movMF.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md),
@@ -125,15 +138,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustFanny`
+-\> `LearnerClustMovMF`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustFanny$new()`](#method-LearnerClustFanny-initialize)
+- [`LearnerClustMovMF$new()`](#method-LearnerClustMovMF-initialize)
 
-- [`LearnerClustFanny$clone()`](#method-LearnerClustFanny-clone)
+- [`LearnerClustMovMF$clone()`](#method-LearnerClustMovMF-clone)
 
 Inherited methods
 
@@ -151,24 +164,24 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### `LearnerClustFanny$new()`
+### `LearnerClustMovMF$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
 
 #### Usage
 
-    LearnerClustFanny$new()
+    LearnerClustMovMF$new()
 
 ------------------------------------------------------------------------
 
-### `LearnerClustFanny$clone()`
+### `LearnerClustMovMF$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustFanny$clone(deep = FALSE)
+    LearnerClustMovMF$clone(deep = FALSE)
 
 #### Arguments
 
@@ -180,13 +193,13 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.fanny")
+learner = lrn("clust.movMF")
 print(learner)
 #> 
-#> ── <LearnerClustFanny> (clust.fanny): Fuzzy Analysis ───────────────────────────
+#> ── <LearnerClustMovMF> (clust.movMF): von Mises-Fisher Mixture ─────────────────
 #> • Model: -
 #> • Parameters: k=2
-#> • Packages: mlr3, mlr3cluster, and cluster
+#> • Packages: mlr3, mlr3cluster, and movMF
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
@@ -201,87 +214,20 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> Fuzzy Clustering object of class 'fanny' :                      
-#> m.ship.expon.        2
-#> objective     1022.444
-#> tolerance        1e-15
-#> iterations          14
-#> converged            1
-#> maxit              500
-#> n                   50
-#> Membership coefficients (in %, rounded):
-#>       [,1] [,2]
-#>  [1,]   86   14
-#>  [2,]   86   14
-#>  [3,]   85   15
-#>  [4,]   59   41
-#>  [5,]   86   14
-#>  [6,]   70   30
-#>  [7,]   11   89
-#>  [8,]   87   13
-#>  [9,]   77   23
-#> [10,]   75   25
-#> [11,]   21   79
-#> [12,]   12   88
-#> [13,]   89   11
-#> [14,]    9   91
-#> [15,]   16   84
-#> [16,]   10   90
-#> [17,]   10   90
-#> [18,]   90   10
-#> [19,]   12   88
-#> [20,]   84   16
-#> [21,]   29   71
-#> [22,]   91    9
-#> [23,]   13   87
-#> [24,]   86   14
-#> [25,]   51   49
-#> [26,]   10   90
-#> [27,]    9   91
-#> [28,]   88   12
-#> [29,]   16   84
-#> [30,]   37   63
-#> [31,]   88   12
-#> [32,]   89   11
-#> [33,]   76   24
-#> [34,]   20   80
-#> [35,]   13   87
-#> [36,]   28   72
-#> [37,]   35   65
-#> [38,]    9   91
-#> [39,]   47   53
-#> [40,]   86   14
-#> [41,]   12   88
-#> [42,]   59   41
-#> [43,]   68   32
-#> [44,]   14   86
-#> [45,]   21   79
-#> [46,]   32   68
-#> [47,]   25   75
-#> [48,]   14   86
-#> [49,]   17   83
-#> [50,]   36   64
-#> Fuzzyness coefficients:
-#> dunn_coeff normalized 
-#>  0.7078300  0.4156599 
-#> Closest hard clustering:
-#>  [1] 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 2 1 2 1 1 2 2 1 2 2 1 1 1 2 2 2 2 2
-#> [39] 2 1 2 1 1 2 2 2 2 2 2 2
-#> 
-#> Available components:
-#>  [1] "membership"  "coeff"       "memb.exp"    "clustering"  "k.crisp"    
-#>  [6] "objective"   "convergence" "diss"        "call"        "silinfo"    
-#> [11] "data"       
+#> theta:
+#>     Assault   Murder     Rape  UrbanPop
+#> 1  92.85874  4.18401 14.70388  62.06855
+#> 2 418.98640 19.71047 48.58524 122.62916
+#> alpha:
+#> [1] 0.496332 0.503668
+#> L:
+#> [1] 311.7197
 
 # Make predictions for the task
 prediction = learner$predict(task)
-#> Warning: 
-#> ✖ Learner 'clust.fanny' doesn't predict on new data and predictions may not
-#>   make sense on new data.
-#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1220028 
+#>  0.0404121 
 ```

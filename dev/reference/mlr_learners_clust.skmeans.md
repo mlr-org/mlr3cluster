@@ -1,14 +1,16 @@
-# Fuzzy Analysis Clustering Learner
+# Spherical K-Means Clustering Learner
 
-Fuzzy Analysis (FANNY) clustering. Calls
-[`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html) from
-package [cluster](https://CRAN.R-project.org/package=cluster).
+Spherical k-means clustering for data on the unit hypersphere. Calls
+[`skmeans::skmeans()`](https://rdrr.io/pkg/skmeans/man/skmeans.html)
+from package [skmeans](https://CRAN.R-project.org/package=skmeans).
 
 The `k` parameter is set to 2 by default since
-[`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html) doesn't
-have a default value for the number of clusters. The predict method
-copies cluster assignments and memberships generated for train data. The
-predict does not work for new data.
+[`skmeans::skmeans()`](https://rdrr.io/pkg/skmeans/man/skmeans.html)
+doesn't have a default value for the number of clusters. Observations
+are partitioned by maximising cosine similarity to cluster prototypes.
+Predictions on new data assign each observation to the prototype with
+the highest cosine similarity. Rows with zero norm are not allowed by
+[`skmeans::skmeans()`](https://rdrr.io/pkg/skmeans/man/skmeans.html).
 
 ## Dictionary
 
@@ -19,20 +21,20 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.fanny")
-    lrn("clust.fanny")
+    mlr_learners$get("clust.skmeans")
+    lrn("clust.skmeans")
 
 ## Meta Information
 
 - Task type: “clust”
 
-- Predict Types: “partition”, “prob”
+- Predict Types: “partition”
 
 - Feature Types: “logical”, “integer”, “numeric”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [cluster](https://CRAN.R-project.org/package=cluster)
+  [skmeans](https://CRAN.R-project.org/package=skmeans)
 
 ## Parameters
 
@@ -40,18 +42,28 @@ or with the associated sugar function
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
 | k | integer | \- |  | \\\[1, \infty)\\ |
-| memb.exp | numeric | 2 |  | \\\[1, \infty)\\ |
-| metric | character | euclidean | euclidean, manhattan, SqEuclidean | \- |
-| stand | logical | FALSE | TRUE, FALSE | \- |
-| iniMem.p | untyped | NULL |  | \- |
-| maxit | integer | 500 |  | \\\[0, \infty)\\ |
-| tol | numeric | 1e-15 |  | \\\[0, \infty)\\ |
-| trace.lev | integer | 0 |  | \\\[0, \infty)\\ |
+| method | character | \- | genetic, pclust, CLUTO, gmeans, kmndirs, LIH, LIHC | \- |
+| m | numeric | 1 |  | \\\[1, \infty)\\ |
+| weights | untyped | 1L |  | \- |
+| maxiter | integer | \- |  | \\\[1, \infty)\\ |
+| nruns | integer | \- |  | \\\[1, \infty)\\ |
+| popsize | integer | \- |  | \\\[1, \infty)\\ |
+| mutations | numeric | \- |  | \\\[0, 1\]\\ |
+| reltol | numeric | \- |  | \\\[0, \infty)\\ |
+| verbose | logical | \- | TRUE, FALSE | \- |
 
 ## References
 
-Kaufman, Leonard, Rousseeuw, J P (2009). *Finding groups in data: an
-introduction to cluster analysis*. John Wiley & Sons.
+Dhillon, S I, Modha, S D (2001). “Concept decompositions for large
+sparse text data using clustering.” *Machine Learning*, **42**(1),
+143–175.
+[doi:10.1023/A:1007612920971](https://doi.org/10.1023/A%3A1007612920971)
+.
+
+Hornik, Kurt, Feinerer, Ingo, Kober, Martin, Buchta, Christian (2012).
+“Spherical k-Means Clustering.” *Journal of Statistical Software*,
+**50**(10), 1–22.
+[doi:10.18637/jss.v050.i10](https://doi.org/10.18637/jss.v050.i10) .
 
 ## See also
 
@@ -100,6 +112,7 @@ Other Learner:
 [`mlr_learners_clust.dbscan_fpc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan_fpc.md),
 [`mlr_learners_clust.diana`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.diana.md),
 [`mlr_learners_clust.em`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.md),
+[`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
@@ -114,7 +127,6 @@ Other Learner:
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md),
-[`mlr_learners_clust.skmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.skmeans.md),
 [`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.som.md),
 [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.specc.md),
 [`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.stdbscan.md),
@@ -125,15 +137,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustFanny`
+-\> `LearnerClustSKMeans`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustFanny$new()`](#method-LearnerClustFanny-initialize)
+- [`LearnerClustSKMeans$new()`](#method-LearnerClustSKMeans-initialize)
 
-- [`LearnerClustFanny$clone()`](#method-LearnerClustFanny-clone)
+- [`LearnerClustSKMeans$clone()`](#method-LearnerClustSKMeans-clone)
 
 Inherited methods
 
@@ -151,24 +163,24 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### `LearnerClustFanny$new()`
+### `LearnerClustSKMeans$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
 
 #### Usage
 
-    LearnerClustFanny$new()
+    LearnerClustSKMeans$new()
 
 ------------------------------------------------------------------------
 
-### `LearnerClustFanny$clone()`
+### `LearnerClustSKMeans$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustFanny$clone(deep = FALSE)
+    LearnerClustSKMeans$clone(deep = FALSE)
 
 #### Arguments
 
@@ -180,17 +192,17 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.fanny")
+learner = lrn("clust.skmeans")
 print(learner)
 #> 
-#> ── <LearnerClustFanny> (clust.fanny): Fuzzy Analysis ───────────────────────────
+#> ── <LearnerClustSKMeans> (clust.skmeans): Spherical K-Means ────────────────────
 #> • Model: -
 #> • Parameters: k=2
-#> • Packages: mlr3, mlr3cluster, and cluster
-#> • Predict Types: [partition] and prob
+#> • Packages: mlr3, mlr3cluster, and skmeans
+#> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, fuzzy, and partitional
+#> • Properties: complete, exclusive, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
@@ -201,87 +213,15 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> Fuzzy Clustering object of class 'fanny' :                      
-#> m.ship.expon.        2
-#> objective     1022.444
-#> tolerance        1e-15
-#> iterations          14
-#> converged            1
-#> maxit              500
-#> n                   50
-#> Membership coefficients (in %, rounded):
-#>       [,1] [,2]
-#>  [1,]   86   14
-#>  [2,]   86   14
-#>  [3,]   85   15
-#>  [4,]   59   41
-#>  [5,]   86   14
-#>  [6,]   70   30
-#>  [7,]   11   89
-#>  [8,]   87   13
-#>  [9,]   77   23
-#> [10,]   75   25
-#> [11,]   21   79
-#> [12,]   12   88
-#> [13,]   89   11
-#> [14,]    9   91
-#> [15,]   16   84
-#> [16,]   10   90
-#> [17,]   10   90
-#> [18,]   90   10
-#> [19,]   12   88
-#> [20,]   84   16
-#> [21,]   29   71
-#> [22,]   91    9
-#> [23,]   13   87
-#> [24,]   86   14
-#> [25,]   51   49
-#> [26,]   10   90
-#> [27,]    9   91
-#> [28,]   88   12
-#> [29,]   16   84
-#> [30,]   37   63
-#> [31,]   88   12
-#> [32,]   89   11
-#> [33,]   76   24
-#> [34,]   20   80
-#> [35,]   13   87
-#> [36,]   28   72
-#> [37,]   35   65
-#> [38,]    9   91
-#> [39,]   47   53
-#> [40,]   86   14
-#> [41,]   12   88
-#> [42,]   59   41
-#> [43,]   68   32
-#> [44,]   14   86
-#> [45,]   21   79
-#> [46,]   32   68
-#> [47,]   25   75
-#> [48,]   14   86
-#> [49,]   17   83
-#> [50,]   36   64
-#> Fuzzyness coefficients:
-#> dunn_coeff normalized 
-#>  0.7078300  0.4156599 
-#> Closest hard clustering:
-#>  [1] 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 2 1 2 1 1 2 2 1 2 2 1 1 1 2 2 2 2 2
-#> [39] 2 1 2 1 1 2 2 2 2 2 2 2
-#> 
-#> Available components:
-#>  [1] "membership"  "coeff"       "memb.exp"    "clustering"  "k.crisp"    
-#>  [6] "objective"   "convergence" "diss"        "call"        "silinfo"    
-#> [11] "data"       
+#> A hard spherical k-means partition of 50 objects into 2 classes.
+#> Class sizes: 17, 33
+#> Call: skmeans::skmeans(x = as.matrix(task$data()), k = 2L, control = structure(list(), names = character(0)))
 
 # Make predictions for the task
 prediction = learner$predict(task)
-#> Warning: 
-#> ✖ Learner 'clust.fanny' doesn't predict on new data and predictions may not
-#>   make sense on new data.
-#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1220028 
+#> 0.03303237 
 ```

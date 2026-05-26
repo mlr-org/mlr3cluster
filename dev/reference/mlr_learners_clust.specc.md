@@ -123,9 +123,11 @@ Other Learner:
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md),
+[`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.movMF.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md),
+[`mlr_learners_clust.skmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.skmeans.md),
 [`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.som.md),
 [`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.stdbscan.md),
 [`mlr_learners_clust.tclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.tclust.md),
@@ -215,21 +217,21 @@ print(learner$model)
 #> 
 #>  Cluster memberships: 
 #>  
-#> 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 1 1 2 1 1 2 2 1 2 1 1 1 1 2 2 1 1 2 1 1 2 1 1 2 2 1 1 2 2 1 
+#> 2 2 2 1 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 1 2 1 2 1 1 1 2 1 1 2 2 2 1 1 1 1 1 1 2 1 1 2 1 1 1 1 1 1 1 
 #>  
 #> Gaussian Radial Basis kernel function. 
-#>  Hyperparameter : sigma =  0.00850340136054485 
+#>  Hyperparameter : sigma =  0.00148809523809498 
 #> 
 #> Centers:  
-#>          [,1]     [,2]     [,3]  [,4]
-#> [1,] 226.2333 10.13333 25.79333 69.40
-#> [2,]  87.5500  4.27000 14.39000 59.75
+#>          [,1]     [,2]     [,3]     [,4]
+#> [1,] 114.8710  5.23871 16.69677 63.41935
+#> [2,] 261.9474 11.94737 28.63158 69.00000
 #> 
 #> Cluster size:  
-#> [1] 30 20
+#> [1] 31 19
 #> 
 #> Within-cluster sum of squares:  
-#> [1] 1799973.6  213075.9
+#> [1]  530662.2 1542536.0
 #> 
 
 # Make predictions for the task
@@ -242,5 +244,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1323762 
+#>  0.1585342 
 ```

@@ -89,6 +89,9 @@
 - [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md)
   [`LearnerClustMeanShift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md)
   : Mean Shift Clustering Learner
+- [`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.movMF.md)
+  [`LearnerClustMovMF`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.movMF.md)
+  : von Mises-Fisher Mixture Clustering Learner
 - [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md)
   [`LearnerClustOPTICS`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md)
   : OPTICS Clustering Learner
@@ -98,6 +101,9 @@
 - [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md)
   [`LearnerClustProtoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md)
   : Prototype Hierarchical Clustering Learner
+- [`mlr_learners_clust.skmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.skmeans.md)
+  [`LearnerClustSKMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.skmeans.md)
+  : Spherical K-Means Clustering Learner
 - [`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.som.md)
   [`LearnerClustSOM`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.som.md)
   : Self-Organizing Maps Clustering Learner

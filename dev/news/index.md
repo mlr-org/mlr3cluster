@@ -6,6 +6,10 @@
   genieclust package.
 - feat: Add self-organizing maps clustering learner `clust.som` from the
   kohonen package.
+- feat: Add spherical k-means clustering learner `clust.skmeans` from
+  the skmeans package.
+- feat: Add von Mises-Fisher mixture clustering learner `clust.movMF`
+  from the movMF package.
 - feat: Add robust trimmed clustering learner `clust.tclust` from the
   tclust package.
 - feat: Add ST-DBSCAN clustering learner `clust.stdbscan` from the
