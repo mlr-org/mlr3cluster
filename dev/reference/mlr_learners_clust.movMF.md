@@ -116,6 +116,7 @@ Other Learner:
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
+[`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.flexmix.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md),
@@ -217,10 +218,10 @@ learner$train(task)
 print(learner$model)
 #> theta:
 #>     Assault    Murder     Rape  UrbanPop
-#> 1  92.85878  4.184013 14.70390  62.06872
-#> 2 418.98197 19.710248 48.58479 122.62821
+#> 1  92.85884  4.184017 14.70392  62.06895
+#> 2 418.97623 19.709966 48.58421 122.62699
 #> alpha:
-#> [1] 0.4963289 0.5036711
+#> [1] 0.496325 0.503675
 #> L:
 #> [1] 311.7197
 

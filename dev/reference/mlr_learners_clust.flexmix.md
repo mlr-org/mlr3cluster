@@ -1,21 +1,18 @@
-# K-Centroids Cluster Analysis Learner
+# Finite Mixture Model Clustering Learner
 
-K-Centroids Cluster Analysis - a unified framework for partitional
-clustering with selectable distance / centroid families: standard
-k-means, k-medians, spherical k-means (`"angle"`), Jaccard, and extended
-Jaccard. Calls
-[`flexclust::kcca()`](https://rdrr.io/pkg/flexclust/man/kcca.html) from
-package [flexclust](https://CRAN.R-project.org/package=flexclust).
+Finite mixture model clustering via the EM algorithm. Calls
+[`flexmix::flexmix()`](https://rdrr.io/pkg/flexmix/man/flexmix.html)
+from package [flexmix](https://CRAN.R-project.org/package=flexmix).
 
-The `k` parameter is set to 2 by default since
-[`flexclust::kcca()`](https://rdrr.io/pkg/flexclust/man/kcca.html) has
-no default value for the number of clusters. Predictions dispatch to
-flexclust's S4 `predict` method via
-`methods::getMethod("predict", "kccasimple")` rather than calling
-[`predict()`](https://rdrr.io/r/stats/predict.html) directly, since both
-flexclust and kernlab define an S4 class named `"kcca"` and the
-resulting class-cache collision can break S4 dispatch when both packages
-are loaded.
+The component model is selected through the `model` parameter, exposing
+the multivariate normal, univariate normal, multivariate binary, and
+multivariate Poisson drivers shipped with flexmix. The predict method
+calls `flexmix::clusters()` for cluster assignments and
+`flexmix::posterior()` for component probabilities on new data.
+
+Note that EM can prune components whose prior falls below `minprior`
+during fitting, so the final number of components may be smaller than
+`k`.
 
 ## Dictionary
 
@@ -26,20 +23,20 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.kcca")
-    lrn("clust.kcca")
+    mlr_learners$get("clust.flexmix")
+    lrn("clust.flexmix")
 
 ## Meta Information
 
 - Task type: “clust”
 
-- Predict Types: “partition”
+- Predict Types: “partition”, “prob”
 
 - Feature Types: “logical”, “integer”, “numeric”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [flexclust](https://CRAN.R-project.org/package=flexclust)
+  [flexmix](https://CRAN.R-project.org/package=flexmix)
 
 ## Parameters
 
@@ -47,26 +44,28 @@ or with the associated sugar function
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
 | k | integer | \- |  | \\\[1, \infty)\\ |
-| family | character | kmeans | kmeans, kmedians, angle, jaccard, ejaccard | \- |
-| weights | untyped | \- |  | \- |
-| group | untyped | \- |  | \- |
-| simple | logical | FALSE | TRUE, FALSE | \- |
-| save.data | logical | FALSE | TRUE, FALSE | \- |
+| model | character | FLXMCmvnorm | FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois | \- |
+| diagonal | logical | TRUE | TRUE, FALSE | \- |
+| truncated | logical | FALSE | TRUE, FALSE | \- |
+| cluster | untyped | \- |  | \- |
 | iter.max | integer | 200 |  | \\\[1, \infty)\\ |
+| minprior | numeric | 0.05 |  | \\\[0, 1\]\\ |
 | tolerance | numeric | 1e-06 |  | \\\[0, \infty)\\ |
 | verbose | integer | 0 |  | \\\[0, \infty)\\ |
-| classify | character | auto | auto, weighted, hard | \- |
-| initcent | untyped | \- |  | \- |
-| gamma | numeric | 1 |  | \\\[0, \infty)\\ |
-| ntry | integer | 5 |  | \\\[1, \infty)\\ |
-| min.size | integer | 2 |  | \\\[1, \infty)\\ |
+| classify | character | auto | auto, weighted, CEM, SEM, hard, random | \- |
+| nrep | integer | 1 |  | \\\[1, \infty)\\ |
 
 ## References
 
-Leisch, Friedrich (2006). “A Toolbox for K-Centroids Cluster Analysis.”
-*Computational Statistics & Data Analysis*, **51**(2), 526–544.
-[doi:10.1016/j.csda.2005.10.006](https://doi.org/10.1016/j.csda.2005.10.006)
-.
+Leisch, Friedrich (2004). “FlexMix: A General Framework for Finite
+Mixture Models and Latent Class Regression in R.” *Journal of
+Statistical Software*, **11**(8), 1–18.
+[doi:10.18637/jss.v011.i08](https://doi.org/10.18637/jss.v011.i08) .
+
+Grün, Bettina, Leisch, Friedrich (2008). “FlexMix Version 2: Finite
+Mixtures with Concomitant Variables and Varying and Constant
+Parameters.” *Journal of Statistical Software*, **28**(4), 1–35.
+[doi:10.18637/jss.v028.i04](https://doi.org/10.18637/jss.v028.i04) .
 
 ## See also
 
@@ -118,10 +117,10 @@ Other Learner:
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
-[`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.flexmix.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md),
+[`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
@@ -142,15 +141,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustKCCA`
+-\> `LearnerClustFlexmix`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustKCCA$new()`](#method-LearnerClustKCCA-initialize)
+- [`LearnerClustFlexmix$new()`](#method-LearnerClustFlexmix-initialize)
 
-- [`LearnerClustKCCA$clone()`](#method-LearnerClustKCCA-clone)
+- [`LearnerClustFlexmix$clone()`](#method-LearnerClustFlexmix-clone)
 
 Inherited methods
 
@@ -168,24 +167,24 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### `LearnerClustKCCA$new()`
+### `LearnerClustFlexmix$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
 
 #### Usage
 
-    LearnerClustKCCA$new()
+    LearnerClustFlexmix$new()
 
 ------------------------------------------------------------------------
 
-### `LearnerClustKCCA$clone()`
+### `LearnerClustFlexmix$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustKCCA$clone(deep = FALSE)
+    LearnerClustFlexmix$clone(deep = FALSE)
 
 #### Arguments
 
@@ -197,17 +196,17 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.kcca")
+learner = lrn("clust.flexmix")
 print(learner)
 #> 
-#> ── <LearnerClustKCCA> (clust.kcca): K-Centroids Cluster Analysis ───────────────
+#> ── <LearnerClustFlexmix> (clust.flexmix): Finite Mixture Model ─────────────────
 #> • Model: -
-#> • Parameters: k=2
-#> • Packages: mlr3, mlr3cluster, and flexclust
-#> • Predict Types: [partition]
+#> • Parameters: k=2, model=FLXMCmvnorm
+#> • Packages: mlr3, mlr3cluster, and flexmix
+#> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, and partitional
+#> • Properties: complete, exclusive, fuzzy, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
@@ -215,89 +214,19 @@ task = tsk("usarrests")
 
 # Train the learner on the task
 learner$train(task)
-#> Found more than one class "kcca" in cache; using the first, from namespace 'kernlab'
-#> Also defined by ‘flexclust’
-#> Found more than one class "kcca" in cache; using the first, from namespace 'kernlab'
-#> Also defined by ‘flexclust’
+#> Error in loadNamespace(x): there is no package called ‘mvtnorm’
 
 # Print the model
 print(learner$model)
-#> kcca object of family ‘kmeans’ 
-#> 
-#> call:
-#> flexclust::kcca(x = as.matrix(task$data()), k = 2L, family = new("kccaFamily", 
-#>     name = "kmeans", dist = function (x, centers) 
-#>     {
-#>         if (ncol(x) != ncol(centers)) 
-#>             stop(sQuote("x"), " and ", sQuote("centers"), " must have the same number of columns")
-#>         z <- matrix(0, nrow = nrow(x), ncol = nrow(centers))
-#>         for (k in 1:nrow(centers)) {
-#>             z[, k] <- sqrt(colSums((t(x) - centers[k, ])^2))
-#>         }
-#>         z
-#>     }, cent = function (x) 
-#>     colMeans(x), allcent = function (x, cluster, k = max(cluster, 
-#>         na.rm = TRUE)) 
-#>     {
-#>         centers <- matrix(NA, nrow = k, ncol = ncol(x))
-#>         for (n in 1:k) {
-#>             if (sum(cluster == n, na.rm = TRUE) > 0) {
-#>                 centers[n, ] <- z@cent(x[cluster == n, , drop = FALSE])
-#>             }
-#>         }
-#>         centers
-#>     }, wcent = function (x, weights) 
-#>     colMeans(x * normWeights(weights)), weighted = TRUE, cluster = function (x, 
-#>         centers, n = 1, distmat = NULL) 
-#>     {
-#>         if (is.null(distmat)) 
-#>             distmat <- z@dist(x, centers)
-#>         if (n == 1) {
-#>             return(max.col(-distmat))
-#>         }
-#>         else {
-#>             r <- t(matrix(apply(distmat, 1, rank, ties.method = "random"), 
-#>                 nrow = ncol(distmat)))
-#>             z <- list()
-#>             for (k in 1:n) z[[k]] <- apply(r, 1, function(x) which(x == 
-#>                 k))
-#>         }
-#>         return(z)
-#>     }, preproc = function (x) 
-#>     x, groupFun = function (cluster, group, distmat) 
-#>     {
-#>         G <- levels(group)
-#>         x <- matrix(0, ncol = ncol(distmat), nrow = length(G))
-#>         for (n in 1:length(G)) {
-#>             x[n, ] <- colSums(distmat[group == G[n], , drop = FALSE])
-#>         }
-#>         m <- max.col(-x)
-#>         names(m) <- G
-#>         z <- m[group]
-#>         names(z) <- NULL
-#>         if (is.list(cluster)) {
-#>             x[cbind(1:nrow(x), m)] <- Inf
-#>             m <- max.col(-x)
-#>             names(m) <- G
-#>             z1 <- m[group]
-#>             names(z1) <- NULL
-#>             z <- list(z, z1)
-#>         }
-#>         z
-#>     }, genDist = function () 
-#>     NULL))
-#> 
-#> cluster sizes:
-#> 
-#>  1  2 
-#> 21 29 
-#> 
+#> NULL
 
 # Make predictions for the task
 prediction = learner$predict(task)
+#> Error: 
+#> ✖ Cannot predict, Learner 'clust.flexmix' has not been trained yet
+#> → Class: Mlr3ErrorInput
 
 # Score the predictions
 prediction$score(task = task)
-#> clust.dunn 
-#>  0.1033191 
+#> Error: object 'prediction' not found
 ```

@@ -127,6 +127,7 @@ for established default tuning spaces.</p></li>
 <code><a href="mlr_learners_clust.fanny.html">mlr_learners_clust.fanny</a></code>,
 <code><a href="mlr_learners_clust.featureless.html">mlr_learners_clust.featureless</a></code>,
 <code><a href="mlr_learners_clust.ff.html">mlr_learners_clust.ff</a></code>,
+<code><a href="mlr_learners_clust.flexmix.html">mlr_learners_clust.flexmix</a></code>,
 <code><a href="mlr_learners_clust.genie.html">mlr_learners_clust.genie</a></code>,
 <code><a href="mlr_learners_clust.hclust.html">mlr_learners_clust.hclust</a></code>,
 <code><a href="mlr_learners_clust.hdbscan.html">mlr_learners_clust.hdbscan</a></code>,
@@ -224,21 +225,21 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Cluster memberships: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 2 2 1 2 2 1 1 2 1 2 2 2 2 1 1 2 2 1 2 2 1 2 2 1 1 2 2 1 1 2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 1 2 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 2 1 2 1 2 2 2 1 2 2 1 1 1 2 2 2 2 2 2 1 2 2 1 2 2 2 2 2 2 2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian Radial Basis kernel function. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Hyperparameter : sigma =  0.00850340136054485 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Hyperparameter : sigma =  0.00074404761904749 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Centers:  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]     [,2]     [,3]  [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,]  87.5500  4.27000 14.39000 59.75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 226.2333 10.13333 25.79333 69.40</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]     [,2]     [,3]     [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 261.9474 11.94737 28.63158 69.00000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 114.8710  5.23871 16.69677 63.41935</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Cluster size:  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 20 30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 19 31</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Within-cluster sum of squares:  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1]  213075.9 1799973.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1542536.0  530662.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
@@ -251,7 +252,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  0.1323762 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  0.1585342 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
