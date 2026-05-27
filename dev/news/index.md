@@ -7,6 +7,10 @@
 - breaking: `LearnerClustCLARA` now defaults `keep.data` to `FALSE`.
 - fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix
   errors when using `mlr3cluster` in parallel.
+- fix:
+  [`as_prediction_clust.data.frame()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
+  no longer errors with `unused argument (with = FALSE)` when given a
+  plain `data.frame`.
 - feat: Add finite mixture model clustering learner `clust.flexmix` from
   the flexmix package.
 - feat: Add Genie hierarchical clustering learner `clust.genie` from the
