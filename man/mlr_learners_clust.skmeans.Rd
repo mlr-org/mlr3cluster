@@ -39,7 +39,7 @@ lrn("clust.skmeans")
    k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    method \tab character \tab - \tab genetic, pclust, CLUTO, gmeans, kmndirs, LIH, LIHC \tab - \cr
    m \tab numeric \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   weights \tab untyped \tab 1L \tab  \tab - \cr
+   weights \tab untyped \tab 1 \tab  \tab - \cr
    maxiter \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    nruns \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    popsize \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
