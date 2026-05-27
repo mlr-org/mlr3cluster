@@ -44,7 +44,7 @@ or with the associated sugar function
 | k | integer | \- |  | \\\[1, \infty)\\ |
 | method | character | \- | genetic, pclust, CLUTO, gmeans, kmndirs, LIH, LIHC | \- |
 | m | numeric | 1 |  | \\\[1, \infty)\\ |
-| weights | untyped | 1L |  | \- |
+| weights | untyped | 1 |  | \- |
 | maxiter | integer | \- |  | \\\[1, \infty)\\ |
 | nruns | integer | \- |  | \\\[1, \infty)\\ |
 | popsize | integer | \- |  | \\\[1, \infty)\\ |
