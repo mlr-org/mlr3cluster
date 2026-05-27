@@ -2,7 +2,7 @@
 
 Robust trimmed clustering. Each cluster is modeled by a multivariate
 Gaussian; the most outlying `alpha` fraction of observations is trimmed
-and assigned to cluster `0`. Calls
+and labeled with cluster `0` in the returned partition. Calls
 [`tclust::tclust()`](https://rdrr.io/pkg/tclust/man/tclust.html) from
 package [tclust](https://CRAN.R-project.org/package=tclust).
 
@@ -213,7 +213,7 @@ print(learner)
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, and partitional
+#> • Properties: exclusive and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
