@@ -6,7 +6,7 @@
 \title{Robust Trimmed Clustering Learner}
 \description{
 Robust trimmed clustering. Each cluster is modeled by a multivariate Gaussian; the most
-outlying \code{alpha} fraction of observations is trimmed and assigned to cluster \code{0}.
+outlying \code{alpha} fraction of observations is trimmed and labeled with cluster \code{0} in the returned partition.
 Calls \code{\link[tclust:tclust]{tclust::tclust()}} from package \CRANpkg{tclust}.
 
 The \code{k} parameter is set to 2 by default since \code{\link[tclust:tclust]{tclust::tclust()}} doesn't have a default value for the number of
