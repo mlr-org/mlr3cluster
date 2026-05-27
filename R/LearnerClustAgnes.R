@@ -34,7 +34,7 @@ LearnerClustAgnes = R6Class(
           tags = "train"
         ),
         trace.lev = p_int(0L, default = 0L, tags = "train"),
-        k = p_int(1L, default = 2L, tags = c("train", "predict")),
+        k = p_int(1L, default = 2L, tags = c("train", "cutree", "predict")),
         par.method = p_uty(
           tags = "train",
           depends = quote(method %in% c("flexible", "gaverage")),
@@ -64,15 +64,15 @@ LearnerClustAgnes = R6Class(
 
   private = list(
     .train = function(task) {
-      pv = self$param_set$get_values(tags = "train")
+      ps = self$param_set
       m = invoke(
         cluster::agnes,
         x = task$data(),
         diss = FALSE,
-        .args = remove_named(pv, "k")
+        .args = remove_named(ps$get_values(tags = "train"), "k")
       )
       if (self$save_assignments) {
-        self$assignments = stats::cutree(m, pv$k)
+        self$assignments = invoke(stats::cutree, tree = m, .args = ps$get_values(tags = c("train", "cutree")))
       }
       m
     },
@@ -84,7 +84,8 @@ LearnerClustAgnes = R6Class(
       }
 
       warn_prediction_useless(self$id)
-      partition = self$assignments %??% stats::cutree(self$model, pv$k)
+      partition = self$assignments %??%
+        invoke(stats::cutree, tree = self$model, .args = self$param_set$get_values(tags = c("train", "cutree")))
 
       PredictionClust$new(task = task, partition = partition)
     }
