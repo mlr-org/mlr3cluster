@@ -1,7 +1,7 @@
 skip_if_not_installed("clustMixType")
 
 test_that("Learner properties are respected", {
-  set.seed(1L)
+  withr::local_seed(1L)
   data = data.frame(
     x1 = rnorm(20L),
     x2 = rnorm(20L),
