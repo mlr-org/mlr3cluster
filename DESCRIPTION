@@ -35,9 +35,9 @@ Suggests:
     clustMixType (>= 0.4.0),
     dbscan (>= 1.2.1),
     e1071,
-    fpc,
     flexclust,
     flexmix,
+    fpc,
     genieclust,
     kernlab,
     kohonen,
@@ -52,9 +52,9 @@ Suggests:
     skmeans,
     stdbscan (>= 0.2.0),
     stream (>= 2.0.0),
+    testthat (>= 3.3.0),
     withr
-    tclust (>= 2.0-3),
-    testthat (>= 3.3.0)
+    tclust (>= 2.0-3)
 Config/roxygen2/markdown: TRUE
 Config/roxygen2/r6: TRUE
 Config/roxygen2/version: 8.0.0
