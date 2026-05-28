@@ -6,8 +6,7 @@
 #' Farthest First clustering.
 #' Calls [RWeka::FarthestFirst()] from package \CRANpkg{RWeka}.
 #'
-#' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the
-#' cluster memberships for new data.
+#' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the cluster memberships for new data.
 #'
 #' @templateVar id clust.ff
 #' @template learner

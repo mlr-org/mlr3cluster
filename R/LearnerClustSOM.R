@@ -6,10 +6,9 @@
 #' Self-organizing map (Kohonen network) clustering.
 #' Calls [kohonen::som()] from package \CRANpkg{kohonen}.
 #'
-#' Each map unit corresponds to a cluster, so the number of clusters is `xdim * ydim`.
-#' Grid dimensions, topology, and neighbourhood function are exposed directly as parameters and
-#' forwarded to [kohonen::somgrid()].
-#' The predict method uses [kohonen::predict.kohonen()] to assign new data to the closest unit.
+#' Each map unit corresponds to a cluster, so the number of clusters is `xdim * ydim`. Grid dimensions, topology, and
+#' neighbourhood function are exposed directly as parameters and forwarded to [kohonen::somgrid()]. The predict method
+#' uses [kohonen::predict.kohonen()] to assign new data to the closest unit.
 #'
 #' @templateVar id clust.som
 #' @template learner

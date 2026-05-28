@@ -4,13 +4,12 @@
 #'
 #' @description
 #' Robust trimmed clustering. Each cluster is modeled by a multivariate Gaussian; the most
-#' outlying `alpha` fraction of observations is trimmed and assigned to cluster `0`.
+#' outlying `alpha` fraction of observations is trimmed and labeled with cluster `0` in the returned partition.
 #' Calls [tclust::tclust()] from package \CRANpkg{tclust}.
 #'
-#' The `k` parameter is set to 2 by default since [tclust::tclust()] doesn't have a default value
-#' for the number of clusters.
-#' There is no predict method for [tclust::tclust()], so the method returns cluster labels for the
-#' training data.
+#' The `k` parameter is set to 2 by default since [tclust::tclust()] doesn't have a default value for the number of
+#' clusters. There is no predict method for [tclust::tclust()], so the method returns cluster labels for the training
+#' data.
 #'
 #' @templateVar id clust.tclust
 #' @template learner
@@ -57,7 +56,7 @@ LearnerClustTclust = R6Class(
         feature_types = c("logical", "integer", "numeric"),
         predict_types = "partition",
         param_set = param_set,
-        properties = c("partitional", "exclusive", "complete"),
+        properties = c("partitional", "exclusive"),
         packages = "tclust",
         man = "mlr3cluster::mlr_learners_clust.tclust",
         label = "Robust Trimmed Clustering"

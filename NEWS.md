@@ -1,7 +1,15 @@
 # mlr3cluster (development version)
 
+* breaking: `LearnerClustAP` now defaults `includeSim` to `FALSE` to avoid storing the n x n similarity matrix in the model.
+* breaking: `LearnerClustCLARA` now defaults `keep.data` to `FALSE`.
+* fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix errors when using `mlr3cluster` in parallel.
+* fix: `as_prediction_clust.data.frame()` no longer errors with `unused argument (with = FALSE)` when given a plain `data.frame`.
+* feat: Add finite mixture model clustering learner `clust.flexmix` from the flexmix package.
 * feat: Add Genie hierarchical clustering learner `clust.genie` from the genieclust package.
+* feat: Add k-centroids cluster analysis learner `clust.kcca` from the flexclust package, supporting k-means, k-medians, spherical, Jaccard, and extended Jaccard families.
 * feat: Add self-organizing maps clustering learner `clust.som` from the kohonen package.
+* feat: Add spherical k-means clustering learner `clust.skmeans` from the skmeans package.
+* feat: Add von Mises-Fisher mixture clustering learner `clust.movMF` from the movMF package.
 * feat: Add robust trimmed clustering learner `clust.tclust` from the tclust package.
 * feat: Add ST-DBSCAN clustering learner `clust.stdbscan` from the stdbscan package.
 * feat: Add `clust.avg_between` measure for average between-cluster distance.

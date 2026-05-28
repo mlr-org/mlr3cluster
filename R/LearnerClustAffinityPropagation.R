@@ -6,9 +6,8 @@
 #' Affinity Propagation clustering.
 #' Calls [apcluster::apcluster()] from package \CRANpkg{apcluster}.
 #'
-#' Note that [apcluster::apcluster()] doesn't have a default for the similarity function.
-#' The predict method computes the closest cluster exemplar to find the
-#' cluster memberships for new data.
+#' Note that [apcluster::apcluster()] doesn't have a default for the similarity function. The predict method computes
+#' the closest cluster exemplar to find the cluster memberships for new data.
 #' The code is taken from
 #' [StackOverflow](https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi)
 #' answer by the `apcluster` package maintainer.
@@ -41,6 +40,8 @@ LearnerClustAP = R6Class(
         nonoise = p_lgl(default = FALSE, tags = "train"),
         seed = p_int(default = NA_integer_, special_vals = list(NA_integer_), tags = "train")
       )
+
+      param_set$set_values(includeSim = FALSE)
 
       super$initialize(
         id = "clust.ap",

@@ -6,10 +6,8 @@
 #' K-means clustering.
 #' Calls [stats::kmeans()] from package \pkg{stats}.
 #'
-#' The `centers` parameter is set to 2 by default since [stats::kmeans()]
-#' doesn't have a default value for the number of clusters.
-#' The predict method uses [clue::cl_predict()] to compute the
-#' cluster memberships for new data.
+#' The `centers` parameter is set to 2 by default since [stats::kmeans()] doesn't have a default value for the number of
+#' clusters. The predict method uses [clue::cl_predict()] to compute the cluster memberships for new data.
 #'
 #' @templateVar id clust.kmeans
 #' @template learner

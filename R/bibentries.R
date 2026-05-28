@@ -562,6 +562,83 @@ bibentries = c(
     pages = "1--26",
     year = "2012",
     doi = "10.18637/jss.v047.i12"
+  ),
+  dhillon2001concept = bibentry(
+    "article",
+    title = "Concept decompositions for large sparse text data using clustering",
+    author = "Dhillon, Inderjit S and Modha, Dharmendra S",
+    journal = "Machine Learning",
+    volume = "42",
+    number = "1",
+    pages = "143--175",
+    year = "2001",
+    doi = "10.1023/A:1007612920971",
+    publisher = "Springer"
+  ),
+  hornik2012spherical = bibentry(
+    "article",
+    title = "Spherical k-Means Clustering",
+    author = "Hornik, Kurt and Feinerer, Ingo and Kober, Martin and Buchta, Christian",
+    journal = "Journal of Statistical Software",
+    volume = "50",
+    number = "10",
+    pages = "1--22",
+    year = "2012",
+    doi = "10.18637/jss.v050.i10"
+  ),
+  banerjee2005clustering = bibentry(
+    "article",
+    title = "Clustering on the Unit Hypersphere using von Mises-Fisher Distributions",
+    author = "Banerjee, Arindam and Dhillon, Inderjit S and Ghosh, Joydeep and Sra, Suvrit",
+    journal = "Journal of Machine Learning Research",
+    volume = "6",
+    number = "46",
+    pages = "1345--1382",
+    year = "2005"
+  ),
+  hornik2014movmf = bibentry(
+    "article",
+    title = "movMF: An R Package for Fitting Mixtures of von Mises-Fisher Distributions",
+    author = "Hornik, Kurt and Gr\u00fcn, Bettina",
+    journal = "Journal of Statistical Software",
+    volume = "58",
+    number = "10",
+    pages = "1--31",
+    year = "2014",
+    doi = "10.18637/jss.v058.i10"
+  ),
+  leisch2004flexmix = bibentry(
+    "article",
+    title = "FlexMix: A General Framework for Finite Mixture Models and Latent Class Regression in R",
+    author = "Leisch, Friedrich",
+    journal = "Journal of Statistical Software",
+    volume = "11",
+    number = "8",
+    pages = "1--18",
+    year = "2004",
+    doi = "10.18637/jss.v011.i08"
+  ),
+  gruen2008flexmix = bibentry(
+    "article",
+    title = "FlexMix Version 2: Finite Mixtures with Concomitant Variables and Varying and Constant Parameters",
+    author = "Gr\u00fcn, Bettina and Leisch, Friedrich",
+    journal = "Journal of Statistical Software",
+    volume = "28",
+    number = "4",
+    pages = "1--35",
+    year = "2008",
+    doi = "10.18637/jss.v028.i04"
+  ),
+  leisch2006toolbox = bibentry(
+    "article",
+    title = "A Toolbox for K-Centroids Cluster Analysis",
+    author = "Leisch, Friedrich",
+    journal = "Computational Statistics & Data Analysis",
+    volume = "51",
+    number = "2",
+    pages = "526--544",
+    year = "2006",
+    doi = "10.1016/j.csda.2005.10.006"
   )
 )
 # nolint end

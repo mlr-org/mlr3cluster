@@ -26,6 +26,34 @@ test_that("filter works", {
   expect_integer(pdata$partition, len = 3L)
 })
 
+test_that("as_prediction_clust", {
+  task = tsk("usarrests")
+  learner = lrn("clust.featureless", num_clusters = 3L, predict_type = "prob")
+  p = learner$train(task)$predict(task)
+
+  tab = as.data.table(p)
+  p2 = as_prediction_clust(tab)
+  expect_equal(tab, as.data.table(p2))
+
+  # data.frame input must also work (would previously error on `with = FALSE`)
+  df = data.frame(row_ids = 1:3, partition = c(1L, 2L, 1L))
+  expect_class(as_prediction_clust(df), "PredictionClust")
+
+  df = data.frame(
+    row_ids = 1:3,
+    partition = c(1L, 2L, 1L),
+    prob.1 = c(0.7, 0.2, 0.6),
+    prob.2 = c(0.3, 0.8, 0.4)
+  )
+  p3 = as_prediction_clust(df)
+  expect_class(p3, "PredictionClust")
+  expect_matrix(p3$prob, nrows = 3L, ncols = 2L)
+
+  # extra columns not prefixed with 'prob.' are rejected
+  bad = data.frame(row_ids = 1L, partition = 1L, garbage = 0.5)
+  expect_error(as_prediction_clust(bad), "prob")
+})
+
 test_that("construction of empty PredictionDataClust", {
   task = tsk("usarrests")
 

@@ -6,8 +6,7 @@
 #' Mean shift clustering.
 #' Calls [LPCM::ms()] from package \CRANpkg{LPCM}.
 #'
-#' There is no predict method for [LPCM::ms()], so the method
-#' returns cluster labels for the training data.
+#' There is no predict method for [LPCM::ms()], so the method returns cluster labels for the training data.
 #'
 #' @templateVar id clust.meanshift
 #' @template learner

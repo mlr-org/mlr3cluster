@@ -8,12 +8,10 @@
 Spectral clustering.
 Calls \code{\link[kernlab:specc]{kernlab::specc()}} from package \CRANpkg{kernlab}.
 
-The \code{centers} parameter is set to 2 by default since \code{\link[kernlab:specc]{kernlab::specc()}}
-doesn't have a default value for the number of clusters.
-Kernel parameters have to be passed directly and not by using the \code{kpar} list in \code{\link[kernlab:specc]{kernlab::specc()}}.
+The \code{centers} parameter is set to 2 by default since \code{\link[kernlab:specc]{kernlab::specc()}} doesn't have a default value for the number
+of clusters. Kernel parameters have to be passed directly and not by using the \code{kpar} list in \code{\link[kernlab:specc]{kernlab::specc()}}.
 
-There is no predict method for \code{\link[kernlab:specc]{kernlab::specc()}}, so the method
-returns cluster labels for the training data.
+There is no predict method for \code{\link[kernlab:specc]{kernlab::specc()}}, so the method returns cluster labels for the training data.
 }
 \section{Dictionary}{
 
@@ -116,17 +114,21 @@ Other Learner:
 \code{\link{mlr_learners_clust.fanny}},
 \code{\link{mlr_learners_clust.featureless}},
 \code{\link{mlr_learners_clust.ff}},
+\code{\link{mlr_learners_clust.flexmix}},
 \code{\link{mlr_learners_clust.genie}},
 \code{\link{mlr_learners_clust.hclust}},
 \code{\link{mlr_learners_clust.hdbscan}},
+\code{\link{mlr_learners_clust.kcca}},
 \code{\link{mlr_learners_clust.kkmeans}},
 \code{\link{mlr_learners_clust.kmeans}},
 \code{\link{mlr_learners_clust.kproto}},
 \code{\link{mlr_learners_clust.mclust}},
 \code{\link{mlr_learners_clust.meanshift}},
+\code{\link{mlr_learners_clust.movMF}},
 \code{\link{mlr_learners_clust.optics}},
 \code{\link{mlr_learners_clust.pam}},
 \code{\link{mlr_learners_clust.protoclust}},
+\code{\link{mlr_learners_clust.skmeans}},
 \code{\link{mlr_learners_clust.som}},
 \code{\link{mlr_learners_clust.stdbscan}},
 \code{\link{mlr_learners_clust.tclust}},

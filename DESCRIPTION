@@ -36,6 +36,8 @@ Suggests:
     dbscan (>= 1.2.1),
     e1071,
     fpc,
+    flexclust,
+    flexmix,
     genieclust,
     kernlab,
     kohonen,
@@ -43,13 +45,16 @@ Suggests:
     mclust,
     mirai (>= 2.4.1),
     mlbench,
+    movMF,
+    mvtnorm,
     protoclust,
     RWeka,
+    skmeans,
     stdbscan (>= 0.2.0),
     stream (>= 2.0.0),
-    tclust,
-    testthat (>= 3.3.0),
     withr
+    tclust (>= 2.0-3),
+    testthat (>= 3.3.0)
 Config/roxygen2/markdown: TRUE
 Config/roxygen2/r6: TRUE
 Config/roxygen2/version: 8.0.0
@@ -72,18 +77,22 @@ Collate:
     'LearnerClustFanny.R'
     'LearnerClustFarthestFirst.R'
     'LearnerClustFeatureless.R'
+    'LearnerClustFlexmix.R'
     'LearnerClustGenie.R'
     'LearnerClustHDBSCAN.R'
     'LearnerClustHclust.R'
+    'LearnerClustKCCA.R'
     'LearnerClustKKMeans.R'
     'LearnerClustKMeans.R'
     'LearnerClustKProto.R'
     'LearnerClustMclust.R'
     'LearnerClustMeanShift.R'
     'LearnerClustMiniBatchKMeans.R'
+    'LearnerClustMovMF.R'
     'LearnerClustOPTICS.R'
     'LearnerClustPAM.R'
     'LearnerClustProtoclust.R'
+    'LearnerClustSKMeans.R'
     'LearnerClustSOM.R'
     'LearnerClustSTDBSCAN.R'
     'LearnerClustSimpleKMeans.R'

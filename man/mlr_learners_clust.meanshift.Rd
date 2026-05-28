@@ -8,8 +8,7 @@
 Mean shift clustering.
 Calls \code{\link[LPCM:ms]{LPCM::ms()}} from package \CRANpkg{LPCM}.
 
-There is no predict method for \code{\link[LPCM:ms]{LPCM::ms()}}, so the method
-returns cluster labels for the training data.
+There is no predict method for \code{\link[LPCM:ms]{LPCM::ms()}}, so the method returns cluster labels for the training data.
 }
 \section{Dictionary}{
 
@@ -103,16 +102,20 @@ Other Learner:
 \code{\link{mlr_learners_clust.fanny}},
 \code{\link{mlr_learners_clust.featureless}},
 \code{\link{mlr_learners_clust.ff}},
+\code{\link{mlr_learners_clust.flexmix}},
 \code{\link{mlr_learners_clust.genie}},
 \code{\link{mlr_learners_clust.hclust}},
 \code{\link{mlr_learners_clust.hdbscan}},
+\code{\link{mlr_learners_clust.kcca}},
 \code{\link{mlr_learners_clust.kkmeans}},
 \code{\link{mlr_learners_clust.kmeans}},
 \code{\link{mlr_learners_clust.kproto}},
 \code{\link{mlr_learners_clust.mclust}},
+\code{\link{mlr_learners_clust.movMF}},
 \code{\link{mlr_learners_clust.optics}},
 \code{\link{mlr_learners_clust.pam}},
 \code{\link{mlr_learners_clust.protoclust}},
+\code{\link{mlr_learners_clust.skmeans}},
 \code{\link{mlr_learners_clust.som}},
 \code{\link{mlr_learners_clust.specc}},
 \code{\link{mlr_learners_clust.stdbscan}},

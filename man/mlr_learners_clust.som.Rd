@@ -8,10 +8,9 @@
 Self-organizing map (Kohonen network) clustering.
 Calls \code{\link[kohonen:som]{kohonen::som()}} from package \CRANpkg{kohonen}.
 
-Each map unit corresponds to a cluster, so the number of clusters is \code{xdim * ydim}.
-Grid dimensions, topology, and neighbourhood function are exposed directly as parameters and
-forwarded to \code{\link[kohonen:somgrid]{kohonen::somgrid()}}.
-The predict method uses \code{\link[kohonen:predict.kohonen]{kohonen::predict.kohonen()}} to assign new data to the closest unit.
+Each map unit corresponds to a cluster, so the number of clusters is \code{xdim * ydim}. Grid dimensions, topology, and
+neighbourhood function are exposed directly as parameters and forwarded to \code{\link[kohonen:somgrid]{kohonen::somgrid()}}. The predict method
+uses \code{\link[kohonen:predict.kohonen]{kohonen::predict.kohonen()}} to assign new data to the closest unit.
 }
 \section{Dictionary}{
 
@@ -121,17 +120,21 @@ Other Learner:
 \code{\link{mlr_learners_clust.fanny}},
 \code{\link{mlr_learners_clust.featureless}},
 \code{\link{mlr_learners_clust.ff}},
+\code{\link{mlr_learners_clust.flexmix}},
 \code{\link{mlr_learners_clust.genie}},
 \code{\link{mlr_learners_clust.hclust}},
 \code{\link{mlr_learners_clust.hdbscan}},
+\code{\link{mlr_learners_clust.kcca}},
 \code{\link{mlr_learners_clust.kkmeans}},
 \code{\link{mlr_learners_clust.kmeans}},
 \code{\link{mlr_learners_clust.kproto}},
 \code{\link{mlr_learners_clust.mclust}},
 \code{\link{mlr_learners_clust.meanshift}},
+\code{\link{mlr_learners_clust.movMF}},
 \code{\link{mlr_learners_clust.optics}},
 \code{\link{mlr_learners_clust.pam}},
 \code{\link{mlr_learners_clust.protoclust}},
+\code{\link{mlr_learners_clust.skmeans}},
 \code{\link{mlr_learners_clust.specc}},
 \code{\link{mlr_learners_clust.stdbscan}},
 \code{\link{mlr_learners_clust.tclust}},

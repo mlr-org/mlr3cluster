@@ -6,8 +6,7 @@
 \title{Featureless Clustering Learner}
 \description{
 Featureless clustering.
-Randomly (but evenly) assigns observations to \code{num_clusters} partitions
-(default: 1 partition).
+Randomly (but evenly) assigns observations to \code{num_clusters} partitions (default: 1 partition).
 }
 \section{Dictionary}{
 
@@ -90,17 +89,21 @@ Other Learner:
 \code{\link{mlr_learners_clust.em}},
 \code{\link{mlr_learners_clust.fanny}},
 \code{\link{mlr_learners_clust.ff}},
+\code{\link{mlr_learners_clust.flexmix}},
 \code{\link{mlr_learners_clust.genie}},
 \code{\link{mlr_learners_clust.hclust}},
 \code{\link{mlr_learners_clust.hdbscan}},
+\code{\link{mlr_learners_clust.kcca}},
 \code{\link{mlr_learners_clust.kkmeans}},
 \code{\link{mlr_learners_clust.kmeans}},
 \code{\link{mlr_learners_clust.kproto}},
 \code{\link{mlr_learners_clust.mclust}},
 \code{\link{mlr_learners_clust.meanshift}},
+\code{\link{mlr_learners_clust.movMF}},
 \code{\link{mlr_learners_clust.optics}},
 \code{\link{mlr_learners_clust.pam}},
 \code{\link{mlr_learners_clust.protoclust}},
+\code{\link{mlr_learners_clust.skmeans}},
 \code{\link{mlr_learners_clust.som}},
 \code{\link{mlr_learners_clust.specc}},
 \code{\link{mlr_learners_clust.stdbscan}},

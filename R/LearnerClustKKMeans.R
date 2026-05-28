@@ -6,11 +6,9 @@
 #' Kernel k-means clustering.
 #' Calls [kernlab::kkmeans()] from package \CRANpkg{kernlab}.
 #'
-#' The `centers` parameter is set to 2 by default since [kernlab::kkmeans()]
-#' doesn't have a default value for the number of clusters.
-#' Kernel parameters have to be passed directly and not by using the `kpar` list in [kernlab::kkmeans()].
-#' The predict method finds the nearest center in kernel distance to
-#' assign clusters for new data points.
+#' The `centers` parameter is set to 2 by default since [kernlab::kkmeans()] doesn't have a default value for the number
+#' of clusters. Kernel parameters have to be passed directly and not by using the `kpar` list in [kernlab::kkmeans()].
+#' The predict method finds the nearest center in kernel distance to assign clusters for new data points.
 #'
 #' @templateVar id clust.kkmeans
 #' @template learner

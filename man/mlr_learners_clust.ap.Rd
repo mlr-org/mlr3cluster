@@ -8,9 +8,8 @@
 Affinity Propagation clustering.
 Calls \code{\link[apcluster:apcluster]{apcluster::apcluster()}} from package \CRANpkg{apcluster}.
 
-Note that \code{\link[apcluster:apcluster]{apcluster::apcluster()}} doesn't have a default for the similarity function.
-The predict method computes the closest cluster exemplar to find the
-cluster memberships for new data.
+Note that \code{\link[apcluster:apcluster]{apcluster::apcluster()}} doesn't have a default for the similarity function. The predict method computes
+the closest cluster exemplar to find the cluster memberships for new data.
 The code is taken from
 \href{https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi}{StackOverflow}
 answer by the \code{apcluster} package maintainer.
@@ -99,17 +98,21 @@ Other Learner:
 \code{\link{mlr_learners_clust.fanny}},
 \code{\link{mlr_learners_clust.featureless}},
 \code{\link{mlr_learners_clust.ff}},
+\code{\link{mlr_learners_clust.flexmix}},
 \code{\link{mlr_learners_clust.genie}},
 \code{\link{mlr_learners_clust.hclust}},
 \code{\link{mlr_learners_clust.hdbscan}},
+\code{\link{mlr_learners_clust.kcca}},
 \code{\link{mlr_learners_clust.kkmeans}},
 \code{\link{mlr_learners_clust.kmeans}},
 \code{\link{mlr_learners_clust.kproto}},
 \code{\link{mlr_learners_clust.mclust}},
 \code{\link{mlr_learners_clust.meanshift}},
+\code{\link{mlr_learners_clust.movMF}},
 \code{\link{mlr_learners_clust.optics}},
 \code{\link{mlr_learners_clust.pam}},
 \code{\link{mlr_learners_clust.protoclust}},
+\code{\link{mlr_learners_clust.skmeans}},
 \code{\link{mlr_learners_clust.som}},
 \code{\link{mlr_learners_clust.specc}},
 \code{\link{mlr_learners_clust.stdbscan}},

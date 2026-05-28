@@ -44,13 +44,14 @@ as_prediction_clust.PredictionClust = function(x, ...) {
 as_prediction_clust.data.frame = function(x, ...) {
   assert_names(names(x), must.include = c("row_ids", "partition"))
   prob_cols = setdiff(names(x), c("row_ids", "partition"))
+  if (length(prob_cols) > 0L && !all(startsWith(prob_cols, "prob."))) {
+    error_input(
+      "Table may only contain columns 'row_ids', 'partition' as well as columns prefixed with 'prob.' for class probabilities." # nolint
+    )
+  }
 
+  x = as.data.table(x)
   if (length(prob_cols) > 0L) {
-    if (!all(startsWith(prob_cols, "prob."))) {
-      error_input(
-        "Table may only contain columns 'row_ids', 'partition' as well as columns prefixed with 'prob.' for class probabilities." # nolint
-      )
-    }
     prob = as.matrix(x[, prob_cols, with = FALSE])
     cn = colnames(prob)
     colnames(prob) = substr(cn, 6L, nchar(cn))
