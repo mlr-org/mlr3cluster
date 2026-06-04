@@ -11,6 +11,8 @@
   [`as_prediction_clust.data.frame()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
   no longer errors with `unused argument (with = FALSE)` when given a
   plain `data.frame`.
+- fix: `LearnerClustFeatureless` now returns `prob` predictions whose
+  most probable cluster matches the predicted `partition`.
 - feat: Add finite mixture model clustering learner `clust.flexmix` from
   the flexmix package.
 - feat: Add Genie hierarchical clustering learner `clust.genie` from the

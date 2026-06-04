@@ -54,6 +54,7 @@
 <li>breaking: <code>LearnerClustCLARA</code> now defaults <code>keep.data</code> to <code>FALSE</code>.</li>
 <li>fix: Add <code>mlr3cluster</code> to <code>mlr_reflections$loaded_packages</code> to fix errors when using <code>mlr3cluster</code> in parallel.</li>
 <li>fix: <code><a href="../reference/as_prediction_clust.html">as_prediction_clust.data.frame()</a></code> no longer errors with <code>unused argument (with = FALSE)</code> when given a plain <code>data.frame</code>.</li>
+<li>fix: <code>LearnerClustFeatureless</code> now returns <code>prob</code> predictions whose most probable cluster matches the predicted <code>partition</code>.</li>
 <li>feat: Add finite mixture model clustering learner <code>clust.flexmix</code> from the flexmix package.</li>
 <li>feat: Add Genie hierarchical clustering learner <code>clust.genie</code> from the genieclust package.</li>
 <li>feat: Add k-centroids cluster analysis learner <code>clust.kcca</code> from the flexclust package, supporting k-means, k-medians, spherical, Jaccard, and extended Jaccard families.</li>
