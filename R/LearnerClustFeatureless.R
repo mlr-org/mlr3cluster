@@ -50,10 +50,7 @@ LearnerClustFeatureless = R6Class(
         self$assignments = partition
       }
 
-      set_class(
-        list(clustering = partition, features = task$feature_names),
-        "clust.featureless_model"
-      )
+      set_class(list(clustering = partition, features = task$feature_names), "clust.featureless_model")
     },
 
     .predict = function(task) {
@@ -75,7 +72,7 @@ LearnerClustFeatureless = R6Class(
           map(seq_along(partition), function(i) {
             x = prob[i, , drop = TRUE]
             pos = which_max(x)
-            if (pos == i) x else append(x[-pos], x[pos], after = partition[i] - 1L)
+            if (pos == partition[i]) x else append(x[-pos], x[pos], after = partition[i] - 1L)
           })
         )
       }

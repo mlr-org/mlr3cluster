@@ -4,6 +4,7 @@
 * breaking: `LearnerClustCLARA` now defaults `keep.data` to `FALSE`.
 * fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix errors when using `mlr3cluster` in parallel.
 * fix: `as_prediction_clust.data.frame()` no longer errors with `unused argument (with = FALSE)` when given a plain `data.frame`.
+* fix: `LearnerClustFeatureless` now returns `prob` predictions whose most probable cluster matches the predicted `partition`.
 * feat: Add finite mixture model clustering learner `clust.flexmix` from the flexmix package.
 * feat: Add Genie hierarchical clustering learner `clust.genie` from the genieclust package.
 * feat: Add k-centroids cluster analysis learner `clust.kcca` from the flexclust package, supporting k-means, k-medians, spherical, Jaccard, and extended Jaccard families.

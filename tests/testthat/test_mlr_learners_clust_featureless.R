@@ -24,3 +24,10 @@ test_that("Learner properties are respected", {
     expect_prediction_clust(p, learner)
   }
 })
+
+test_that("prob predictions are consistent with the partition", {
+  task = tsk("usarrests")
+  learner = lrn("clust.featureless", predict_type = "prob", num_clusters = 3L)
+  p = learner$train(task)$predict(task)
+  expect_equal(max.col(p$prob, ties.method = "first"), p$partition)
+})
