@@ -26,7 +26,7 @@ register_learner = function(name, constructor) {
   mlr3cluster_learners[[name]] = constructor
 }
 
-register_mlr3 = function() {
+register_mlr3 = function(...) {
   # reflections
   mlr_reflections = utils::getFromNamespace("mlr_reflections", ns = "mlr3")
   mlr_reflections$task_types = mlr_reflections$task_types[!"clust"]

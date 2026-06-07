@@ -1,7 +1,7 @@
 # mlr3cluster (development version)
 
-* breaking: `LearnerClustAP` now defaults `includeSim` to `FALSE` to avoid storing the n x n similarity matrix in the model.
-* breaking: `LearnerClustCLARA` now defaults `keep.data` to `FALSE`.
+* BREAKING CHANGE: `LearnerClustAP` now defaults `includeSim` to `FALSE` to avoid storing the n x n similarity matrix in the model.
+* BREAKING CHANGE: `LearnerClustCLARA` now defaults `keep.data` to `FALSE`.
 * fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix errors when using `mlr3cluster` in parallel.
 * fix: `as_prediction_clust.data.frame()` no longer errors with `unused argument (with = FALSE)` when given a plain `data.frame`.
 * fix: `LearnerClustFeatureless` now returns `prob` predictions whose most probable cluster matches the predicted `partition`.
