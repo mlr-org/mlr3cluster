@@ -1,27 +1,27 @@
 # mlr3cluster (development version)
 
-* perf: `LearnerClustAP` now defaults `includeSim` to `FALSE` to avoid storing the n x n similarity matrix in the model. Set `includeSim = TRUE` to restore the previous behavior.
-* perf: `LearnerClustCLARA` now defaults `keep.data` to `FALSE` to avoid storing the training data in the model. Set `keep.data = TRUE` to restore the previous behavior.
-* fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix errors when using `mlr3cluster` in parallel.
-* fix: `as_prediction_clust.data.frame()` no longer errors with `unused argument (with = FALSE)` when given a plain `data.frame`.
-* fix: `LearnerClustFeatureless` now returns `prob` predictions whose most probable cluster matches the predicted `partition`.
-* feat: Add finite mixture model clustering learner `clust.flexmix` from the flexmix package.
-* feat: Add Genie hierarchical clustering learner `clust.genie` from the genieclust package.
-* feat: Add k-centroids cluster analysis learner `clust.kcca` from the flexclust package, supporting k-means, k-medians, spherical, Jaccard, and extended Jaccard families.
-* feat: Add self-organizing maps clustering learner `clust.som` from the kohonen package.
-* feat: Add spherical k-means clustering learner `clust.skmeans` from the skmeans package.
-* feat: Add von Mises-Fisher mixture clustering learner `clust.movMF` from the movMF package.
-* feat: Add robust trimmed clustering learner `clust.tclust` from the tclust package.
-* feat: Add ST-DBSCAN clustering learner `clust.stdbscan` from the stdbscan package.
 * feat: Add `clust.avg_between` measure for average between-cluster distance.
 * feat: Add `clust.avg_within` measure for average within-cluster distance.
 * feat: Add `clust.davies_bouldin` measure for the Davies-Bouldin index.
 * feat: Add `clust.dunn2` measure for the alternative Dunn index using average distances.
 * feat: Add `clust.entropy` measure for cluster size distribution entropy.
+* feat: Add finite mixture model clustering learner `clust.flexmix` from the flexmix package.
+* feat: Add Genie hierarchical clustering learner `clust.genie` from the genieclust package.
+* feat: Add k-centroids cluster analysis learner `clust.kcca` from the flexclust package, supporting k-means, k-medians, spherical, Jaccard, and extended Jaccard families.
+* feat: Add von Mises-Fisher mixture clustering learner `clust.movMF` from the movMF package.
 * feat: Add `clust.pearsongamma` measure for the Pearson Gamma correlation between distances and cluster membership.
+* feat: Add spherical k-means clustering learner `clust.skmeans` from the skmeans package.
+* feat: Add self-organizing maps clustering learner `clust.som` from the kohonen package.
+* feat: Add ST-DBSCAN clustering learner `clust.stdbscan` from the stdbscan package.
+* feat: Add robust trimmed clustering learner `clust.tclust` from the tclust package.
 * feat: Add `clust.wb_ratio` measure for the within/between distance ratio.
-* refactor: Clustering quality measures (`clust.ch`, `clust.dunn`, `clust.wss`) are now computed natively instead of relying on `fpc::cluster.stats()`. The `fpc` package is no longer a hard dependency.
+* fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix errors when using `mlr3cluster` in parallel.
+* fix: `as_prediction_clust.data.frame()` no longer errors with `unused argument (with = FALSE)` when given a plain `data.frame`.
 * fix: `clust.silhouette` now returns `NaN` instead of `0` when all observations belong to a single cluster, since the silhouette width is undefined for k < 2.
+* fix: `LearnerClustFeatureless` now returns `prob` predictions whose most probable cluster matches the predicted `partition`.
+* perf: `LearnerClustAP` now defaults `includeSim` to `FALSE` to avoid storing the n x n similarity matrix in the model. Set `includeSim = TRUE` to restore the previous behavior.
+* perf: `LearnerClustCLARA` now defaults `keep.data` to `FALSE` to avoid storing the training data in the model. Set `keep.data = TRUE` to restore the previous behavior.
+* refactor: Clustering quality measures (`clust.ch`, `clust.dunn`, `clust.wss`) are now computed natively instead of relying on `fpc::cluster.stats()`. The `fpc` package is no longer a hard dependency.
 
 # mlr3cluster 0.3.0
 
