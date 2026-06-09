@@ -10,6 +10,10 @@
 #' of clusters.
 #'
 #' @section Initial parameter values:
+#' - `keep.data`:
+#'   - Actual default: `TRUE`.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Avoid storing the training data in the model to save memory.
 #' - `verbose`:
 #'   - Actual default: `TRUE`.
 #'   - Adjusted default: `FALSE`.
@@ -66,12 +70,13 @@ LearnerClustKProto = R6Class(
         iter.max = p_int(1L, default = 100L, tags = "train"),
         nstart = p_int(1L, default = 1L, tags = "train"),
         na.rm = p_fct(c("yes", "no", "imp.internal", "imp.onestep"), default = "yes", tags = "train"),
+        keep.data = p_lgl(default = TRUE, tags = "train"),
         verbose = p_lgl(default = TRUE, tags = "train"),
         init = p_fct(c("nbh.dens", "sel.cen", "nstart.m"), default = NULL, special_vals = list(NULL), tags = "train"),
         p_nstart.m = p_dbl(0, 1, default = 0.9, tags = "train", depends = quote(init == "nstart.m"))
       )
 
-      param_set$set_values(k = 2L, verbose = FALSE)
+      param_set$set_values(k = 2L, keep.data = FALSE, verbose = FALSE)
 
       super$initialize(
         id = "clust.kproto",

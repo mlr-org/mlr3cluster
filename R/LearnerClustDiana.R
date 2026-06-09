@@ -9,6 +9,16 @@
 #' The predict method uses [stats::cutree()] which cuts the tree resulting from hierarchical clustering into specified
 #' number of groups (see parameter `k`). The default value for `k` is 2.
 #'
+#' @section Initial parameter values:
+#' - `keep.diss`:
+#'   - Actual default: `n < 100`, where `n` is the number of observations.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Avoid storing the dissimilarity matrix in the model to save memory.
+#' - `keep.data`:
+#'   - Actual default: `TRUE`.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Avoid storing the training data in the model to save memory.
+#'
 #' @templateVar id clust.diana
 #' @template learner
 #'
@@ -28,11 +38,18 @@ LearnerClustDiana = R6Class(
       param_set = ps(
         metric = p_fct(c("euclidean", "manhattan"), default = "euclidean", tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
+        stop.at.k = p_uty(
+          default = FALSE,
+          tags = "train",
+          custom_check = crate(function(x) check_false(x) %check||% check_int(x, lower = 1L))
+        ),
+        keep.diss = p_lgl(tags = "train"),
+        keep.data = p_lgl(default = TRUE, tags = "train"),
         trace.lev = p_int(0L, default = 0L, tags = "train"),
         k = p_int(1L, default = 2L, tags = c("train", "cutree", "predict"))
       )
 
-      param_set$set_values(k = 2L)
+      param_set$set_values(k = 2L, keep.diss = FALSE, keep.data = FALSE)
 
       super$initialize(
         id = "clust.diana",

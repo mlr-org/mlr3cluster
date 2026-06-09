@@ -9,6 +9,16 @@
 #' The `k` parameter is set to 2 by default since [cluster::pam()] doesn't have a default value for the number of
 #' clusters. The predict method uses [clue::cl_predict()] to compute the cluster memberships for new data.
 #'
+#' @section Initial parameter values:
+#' - `keep.diss`:
+#'   - Actual default: `n < 100`, where `n` is the number of observations.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Avoid storing the dissimilarity matrix in the model to save memory.
+#' - `keep.data`:
+#'   - Actual default: `TRUE`.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Avoid storing the training data in the model to save memory.
+#'
 #' @templateVar id clust.pam
 #' @template learner
 #'
@@ -36,6 +46,8 @@ LearnerClustPAM = R6Class(
         nstart = p_int(1L, default = 1L, tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
         do.swap = p_lgl(default = TRUE, tags = "train"),
+        keep.diss = p_lgl(tags = "train"),
+        keep.data = p_lgl(default = TRUE, tags = "train"),
         pamonce = p_uty(
           default = FALSE,
           tags = "train",
@@ -49,7 +61,7 @@ LearnerClustPAM = R6Class(
         trace.lev = p_int(0L, default = 0L, tags = "train")
       )
 
-      param_set$set_values(k = 2L)
+      param_set$set_values(k = 2L, keep.diss = FALSE, keep.data = FALSE)
 
       super$initialize(
         id = "clust.pam",

@@ -13,6 +13,18 @@ The \code{k} parameter is set to 2 by default since \code{\link[tclust:tclust]{t
 clusters. There is no predict method for \code{\link[tclust:tclust]{tclust::tclust()}}, so the method returns cluster labels for the training
 data.
 }
+\section{Initial parameter values}{
+
+\itemize{
+\item \code{store_x}:
+\itemize{
+\item Actual default: \code{TRUE}.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Avoid storing the training data in the model to save memory.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:
@@ -49,6 +61,7 @@ lrn("clust.tclust")
    opt \tab character \tab HARD \tab HARD, MIXT \tab - \cr
    center \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    scale \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   store_x \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    parallel \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    n.cores \tab integer \tab -1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
    zero_tol \tab numeric \tab 1e-16 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr

@@ -11,6 +11,24 @@ Calls \code{\link[cluster:pam]{cluster::pam()}} from package \CRANpkg{cluster}.
 The \code{k} parameter is set to 2 by default since \code{\link[cluster:pam]{cluster::pam()}} doesn't have a default value for the number of
 clusters. The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the cluster memberships for new data.
 }
+\section{Initial parameter values}{
+
+\itemize{
+\item \code{keep.diss}:
+\itemize{
+\item Actual default: \code{n < 100}, where \code{n} is the number of observations.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Avoid storing the dissimilarity matrix in the model to save memory.
+}
+\item \code{keep.data}:
+\itemize{
+\item Actual default: \code{TRUE}.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Avoid storing the training data in the model to save memory.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:
@@ -39,6 +57,8 @@ lrn("clust.pam")
    nstart \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    stand \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    do.swap \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
+   keep.diss \tab logical \tab - \tab TRUE, FALSE \tab - \cr
+   keep.data \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    pamonce \tab untyped \tab FALSE \tab  \tab - \cr
    variant \tab character \tab original \tab original, o_1, o_2, f_3, f_4, f_5, faster \tab - \cr
    trace.lev \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr

@@ -11,6 +11,24 @@ Calls \code{\link[cluster:agnes]{cluster::agnes()}} from package \CRANpkg{cluste
 The predict method uses \code{\link[stats:cutree]{stats::cutree()}} which cuts the tree resulting from hierarchical clustering into specified
 number of groups (see parameter \code{k}). The default number for \code{k} is 2.
 }
+\section{Initial parameter values}{
+
+\itemize{
+\item \code{keep.diss}:
+\itemize{
+\item Actual default: \code{n < 100}, where \code{n} is the number of observations.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Avoid storing the dissimilarity matrix in the model to save memory.
+}
+\item \code{keep.data}:
+\itemize{
+\item Actual default: \code{TRUE}.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Avoid storing the training data in the model to save memory.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:
@@ -36,6 +54,8 @@ lrn("clust.agnes")
    metric \tab character \tab euclidean \tab euclidean, manhattan \tab - \cr
    stand \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    method \tab character \tab average \tab average, single, complete, ward, weighted, flexible, gaverage \tab - \cr
+   keep.diss \tab logical \tab - \tab TRUE, FALSE \tab - \cr
+   keep.data \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    trace.lev \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    par.method \tab untyped \tab - \tab  \tab - \cr

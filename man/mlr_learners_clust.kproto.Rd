@@ -14,6 +14,12 @@ of clusters.
 \section{Initial parameter values}{
 
 \itemize{
+\item \code{keep.data}:
+\itemize{
+\item Actual default: \code{TRUE}.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Avoid storing the training data in the model to save memory.
+}
 \item \code{verbose}:
 \itemize{
 \item Actual default: \code{TRUE}.
@@ -51,6 +57,7 @@ lrn("clust.kproto")
    iter.max \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    nstart \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    na.rm \tab character \tab yes \tab yes, no, imp.internal, imp.onestep \tab - \cr
+   keep.data \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    verbose \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    init \tab character \tab NULL \tab nbh.dens, sel.cen, nstart.m \tab - \cr
    p_nstart.m \tab numeric \tab 0.9 \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
