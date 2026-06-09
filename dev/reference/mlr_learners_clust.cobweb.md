@@ -330,5 +330,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>          0 
+#>        Inf 
 ```

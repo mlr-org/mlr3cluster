@@ -1,12 +1,11 @@
-# Calinski Harabasz Pseudo F-Statistic
+# Entropy
 
-The Calinski-Harabasz index (also known as the Variance Ratio Criterion)
-is the ratio of between-cluster variance to within-cluster variance,
-adjusted for the number of clusters and observations. It is defined as
-\\CH = \frac{\mathrm{tr}(B) / (k - 1)}{\mathrm{tr}(W) / (n - k)}\\ where
-\\B\\ is the between-cluster scatter matrix, \\W\\ is the within-cluster
-scatter matrix, \\k\\ is the number of clusters, and \\n\\ is the number
-of observations. Higher values indicate better-defined clusters.
+The Shannon entropy of the cluster size distribution, defined as \\H =
+-\sum\_{k=1}^{K} p_k \log(p_k)\\ where \\p_k = n_k / n\\ is the
+proportion of observations in cluster \\k\\. Lower values indicate more
+uneven cluster sizes (with 0 for a single cluster), while higher values
+indicate more uniform sizes. This measure does not evaluate cluster
+quality directly but characterizes the balance of the partition.
 
 ## Dictionary
 
@@ -17,8 +16,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::msr()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_measures$get("clust.ch")
-    msr("clust.ch")
+    mlr_measures$get("clust.entropy")
+    msr("clust.entropy")
 
 ## Meta Information
 
@@ -26,7 +25,7 @@ or with the associated sugar function
 
 - Range: \\\[0, \infty)\\
 
-- Minimize: FALSE
+- Minimize: TRUE
 
 - Average: macro
 
@@ -34,13 +33,6 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster)
-
-## References
-
-Caliński, Tadeusz, Harabasz, Jerzy (1974). “A dendrite method for
-cluster analysis.” *Communications in Statistics*, **3**(1), 1–27.
-[doi:10.1080/03610927408827101](https://doi.org/10.1080/03610927408827101)
-.
 
 ## See also
 
@@ -56,10 +48,10 @@ implementations.
 Other cluster measures:
 [`mlr_measures_clust.avg_between`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.avg_between.md),
 [`mlr_measures_clust.avg_within`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.avg_within.md),
+[`mlr_measures_clust.ch`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.ch.md),
 [`mlr_measures_clust.davies_bouldin`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.davies_bouldin.md),
 [`mlr_measures_clust.dunn`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn.md),
 [`mlr_measures_clust.dunn2`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn2.md),
-[`mlr_measures_clust.entropy`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.entropy.md),
 [`mlr_measures_clust.pearsongamma`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.pearsongamma.md),
 [`mlr_measures_clust.silhouette`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.silhouette.md),
 [`mlr_measures_clust.wb_ratio`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wb_ratio.md),

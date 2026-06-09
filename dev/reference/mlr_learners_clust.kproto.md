@@ -229,7 +229,6 @@ prediction = learner$predict(task)
 
 # Score the predictions
 prediction$score(task = task)
-#> Warning: NAs introduced by coercion
 #> clust.dunn 
-#>          8 
+#>         18 
 ```

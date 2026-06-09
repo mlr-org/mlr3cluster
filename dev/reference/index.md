@@ -1,22 +1,7 @@
 # Package index
 
-## All functions
+## Learners
 
-- [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-  : Cluster Learner
-- [`MeasureClust`](https://mlr3cluster.mlr-org.com/dev/reference/MeasureClust.md)
-  : Cluster Measure
-- [`PredictionClust`](https://mlr3cluster.mlr-org.com/dev/reference/PredictionClust.md)
-  : Prediction Object for Cluster Analysis
-- [`TaskClust`](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)
-  : Cluster Task
-- [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
-  : Convert to a Cluster Prediction
-- [`as_task_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
-  : Convert to a Cluster Task
-- [`mlr3cluster`](https://mlr3cluster.mlr-org.com/dev/reference/mlr3cluster-package.md)
-  [`mlr3cluster-package`](https://mlr3cluster.mlr-org.com/dev/reference/mlr3cluster-package.md)
-  : mlr3cluster: Cluster Extension for 'mlr3'
 - [`mlr_learners_clust.MBatchKMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.MBatchKMeans.md)
   [`LearnerClustMiniBatchKMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.MBatchKMeans.md)
   : Mini Batch K-Means Clustering Learner
@@ -125,15 +110,53 @@
 - [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
   [`LearnerClustXMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.xmeans.md)
   : X-Means Clustering Learner
+
+## Measures
+
+- [`mlr_measures_clust.avg_between`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.avg_between.md)
+  : Average Between-Cluster Distance
+- [`mlr_measures_clust.avg_within`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.avg_within.md)
+  : Average Within-Cluster Distance
 - [`mlr_measures_clust.ch`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.ch.md)
   : Calinski Harabasz Pseudo F-Statistic
+- [`mlr_measures_clust.davies_bouldin`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.davies_bouldin.md)
+  : Davies-Bouldin Index
 - [`mlr_measures_clust.dunn`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn.md)
   : Dunn Index
+- [`mlr_measures_clust.dunn2`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn2.md)
+  : Dunn2 Index
+- [`mlr_measures_clust.entropy`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.entropy.md)
+  : Entropy
+- [`mlr_measures_clust.pearsongamma`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.pearsongamma.md)
+  : Pearson Gamma
 - [`mlr_measures_clust.silhouette`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.silhouette.md)
   : Rousseeuw's Silhouette Quality Index
+- [`mlr_measures_clust.wb_ratio`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wb_ratio.md)
+  : Within/Between Ratio
 - [`mlr_measures_clust.wss`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wss.md)
   : Within Sum of Squares
+
+## Tasks
+
 - [`mlr_tasks_ruspini`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_ruspini.md)
   : Ruspini Cluster Task
 - [`mlr_tasks_usarrests`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_usarrests.md)
   : US Arrests Cluster Task
+
+## General
+
+- [`MeasureClust`](https://mlr3cluster.mlr-org.com/dev/reference/MeasureClust.md)
+  : Cluster Measure
+- [`PredictionClust`](https://mlr3cluster.mlr-org.com/dev/reference/PredictionClust.md)
+  : Prediction Object for Cluster Analysis
+- [`TaskClust`](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)
+  : Cluster Task
+- [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
+  : Cluster Learner
+- [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
+  : Convert to a Cluster Prediction
+- [`as_task_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
+  : Convert to a Cluster Task
+- [`mlr3cluster`](https://mlr3cluster.mlr-org.com/dev/reference/mlr3cluster-package.md)
+  [`mlr3cluster-package`](https://mlr3cluster.mlr-org.com/dev/reference/mlr3cluster-package.md)
+  : mlr3cluster: Cluster Extension for 'mlr3'

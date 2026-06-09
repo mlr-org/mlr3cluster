@@ -63,6 +63,15 @@
 <li>feat: Add von Mises-Fisher mixture clustering learner <code>clust.movMF</code> from the movMF package.</li>
 <li>feat: Add robust trimmed clustering learner <code>clust.tclust</code> from the tclust package.</li>
 <li>feat: Add ST-DBSCAN clustering learner <code>clust.stdbscan</code> from the stdbscan package.</li>
+<li>feat: Add <code>clust.avg_between</code> measure for average between-cluster distance.</li>
+<li>feat: Add <code>clust.avg_within</code> measure for average within-cluster distance.</li>
+<li>feat: Add <code>clust.davies_bouldin</code> measure for the Davies-Bouldin index.</li>
+<li>feat: Add <code>clust.dunn2</code> measure for the alternative Dunn index using average distances.</li>
+<li>feat: Add <code>clust.entropy</code> measure for cluster size distribution entropy.</li>
+<li>feat: Add <code>clust.pearsongamma</code> measure for the Pearson Gamma correlation between distances and cluster membership.</li>
+<li>feat: Add <code>clust.wb_ratio</code> measure for the within/between distance ratio.</li>
+<li>refactor: Clustering quality measures (<code>clust.ch</code>, <code>clust.dunn</code>, <code>clust.wss</code>) are now computed natively instead of relying on <code><a href="https://rdrr.io/pkg/fpc/man/cluster.stats.html" class="external-link">fpc::cluster.stats()</a></code>. The <code>fpc</code> package is no longer a hard dependency.</li>
+<li>fix: <code>clust.silhouette</code> now returns <code>NaN</code> instead of <code>0</code> when all observations belong to a single cluster, since the silhouette width is undefined for k &lt; 2.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="mlr3cluster-030">mlr3cluster 0.3.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-030"></a></h2><p class="text-muted">CRAN release: 2026-03-01</p>

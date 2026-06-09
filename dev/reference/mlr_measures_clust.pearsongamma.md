@@ -1,12 +1,17 @@
-# Calinski Harabasz Pseudo F-Statistic
+# Pearson Gamma
 
-The Calinski-Harabasz index (also known as the Variance Ratio Criterion)
-is the ratio of between-cluster variance to within-cluster variance,
-adjusted for the number of clusters and observations. It is defined as
-\\CH = \frac{\mathrm{tr}(B) / (k - 1)}{\mathrm{tr}(W) / (n - k)}\\ where
-\\B\\ is the between-cluster scatter matrix, \\W\\ is the within-cluster
-scatter matrix, \\k\\ is the number of clusters, and \\n\\ is the number
-of observations. Higher values indicate better-defined clusters.
+The Pearson correlation between pairwise distances and a binary
+indicator of whether two observations belong to different clusters. All
+within-cluster distances are paired with indicator 0, and all
+between-cluster distances with indicator 1. Values close to 1 indicate
+that between-cluster distances tend to be larger than within-cluster
+distances, suggesting well-separated clusters.
+
+## Details
+
+If the task contains factor or ordered features, Gower distances
+([`cluster::daisy()`](https://rdrr.io/pkg/cluster/man/daisy.html)) are
+used instead of Euclidean distances.
 
 ## Dictionary
 
@@ -17,14 +22,14 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::msr()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_measures$get("clust.ch")
-    msr("clust.ch")
+    mlr_measures$get("clust.pearsongamma")
+    msr("clust.pearsongamma")
 
 ## Meta Information
 
 - Task type: “clust”
 
-- Range: \\\[0, \infty)\\
+- Range: \\\[-1, 1\]\\
 
 - Minimize: FALSE
 
@@ -33,14 +38,8 @@ or with the associated sugar function
 - Required Prediction: “partition”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
-  [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster)
-
-## References
-
-Caliński, Tadeusz, Harabasz, Jerzy (1974). “A dendrite method for
-cluster analysis.” *Communications in Statistics*, **3**(1), 1–27.
-[doi:10.1080/03610927408827101](https://doi.org/10.1080/03610927408827101)
-.
+  [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
+  [cluster](https://CRAN.R-project.org/package=cluster)
 
 ## See also
 
@@ -56,11 +55,11 @@ implementations.
 Other cluster measures:
 [`mlr_measures_clust.avg_between`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.avg_between.md),
 [`mlr_measures_clust.avg_within`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.avg_within.md),
+[`mlr_measures_clust.ch`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.ch.md),
 [`mlr_measures_clust.davies_bouldin`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.davies_bouldin.md),
 [`mlr_measures_clust.dunn`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn.md),
 [`mlr_measures_clust.dunn2`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn2.md),
 [`mlr_measures_clust.entropy`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.entropy.md),
-[`mlr_measures_clust.pearsongamma`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.pearsongamma.md),
 [`mlr_measures_clust.silhouette`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.silhouette.md),
 [`mlr_measures_clust.wb_ratio`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wb_ratio.md),
 [`mlr_measures_clust.wss`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wss.md)

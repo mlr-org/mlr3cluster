@@ -1,12 +1,13 @@
-# Calinski Harabasz Pseudo F-Statistic
+# Davies-Bouldin Index
 
-The Calinski-Harabasz index (also known as the Variance Ratio Criterion)
-is the ratio of between-cluster variance to within-cluster variance,
-adjusted for the number of clusters and observations. It is defined as
-\\CH = \frac{\mathrm{tr}(B) / (k - 1)}{\mathrm{tr}(W) / (n - k)}\\ where
-\\B\\ is the between-cluster scatter matrix, \\W\\ is the within-cluster
-scatter matrix, \\k\\ is the number of clusters, and \\n\\ is the number
-of observations. Higher values indicate better-defined clusters.
+The Davies-Bouldin index measures the average similarity between each
+cluster and the cluster most similar to it, where similarity is the
+ratio of within-cluster scatter to between-cluster separation. It is
+defined as \\DB = \frac{1}{k} \sum\_{i=1}^{k} \max\_{j \neq i}
+\frac{s_i + s_j}{d\_{ij}}\\ where \\s_i\\ is the average distance of
+observations in cluster \\i\\ to its centroid and \\d\_{ij}\\ is the
+Euclidean distance between centroids \\i\\ and \\j\\. Lower values
+indicate better clustering.
 
 ## Dictionary
 
@@ -17,8 +18,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::msr()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_measures$get("clust.ch")
-    msr("clust.ch")
+    mlr_measures$get("clust.davies_bouldin")
+    msr("clust.davies_bouldin")
 
 ## Meta Information
 
@@ -26,7 +27,7 @@ or with the associated sugar function
 
 - Range: \\\[0, \infty)\\
 
-- Minimize: FALSE
+- Minimize: TRUE
 
 - Average: macro
 
@@ -37,9 +38,10 @@ or with the associated sugar function
 
 ## References
 
-Caliński, Tadeusz, Harabasz, Jerzy (1974). “A dendrite method for
-cluster analysis.” *Communications in Statistics*, **3**(1), 1–27.
-[doi:10.1080/03610927408827101](https://doi.org/10.1080/03610927408827101)
+Davies, L D, Bouldin, W D (1979). “A cluster separation measure.” *IEEE
+Transactions on Pattern Analysis and Machine Intelligence*,
+**PAMI-1**(2), 224–227.
+[doi:10.1109/TPAMI.1979.4766909](https://doi.org/10.1109/TPAMI.1979.4766909)
 .
 
 ## See also
@@ -56,7 +58,7 @@ implementations.
 Other cluster measures:
 [`mlr_measures_clust.avg_between`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.avg_between.md),
 [`mlr_measures_clust.avg_within`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.avg_within.md),
-[`mlr_measures_clust.davies_bouldin`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.davies_bouldin.md),
+[`mlr_measures_clust.ch`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.ch.md),
 [`mlr_measures_clust.dunn`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn.md),
 [`mlr_measures_clust.dunn2`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn2.md),
 [`mlr_measures_clust.entropy`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.entropy.md),
