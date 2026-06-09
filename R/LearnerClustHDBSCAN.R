@@ -6,6 +6,9 @@
 #' HDBSCAN (hierarchical DBSCAN) clustering.
 #' Calls [dbscan::hdbscan()] from package \CRANpkg{dbscan}.
 #'
+#' The `minPts` parameter is set to 5 by default since [dbscan::hdbscan()] doesn't have a default value for the minimum
+#' size of clusters.
+#'
 #' @templateVar id clust.hdbscan
 #' @template learner
 #'

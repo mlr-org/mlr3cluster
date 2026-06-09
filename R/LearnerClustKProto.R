@@ -9,6 +9,12 @@
 #' The `k` parameter is set to 2 by default since [clustMixType::kproto()] doesn't have a default value for the number
 #' of clusters.
 #'
+#' @section Initial parameter values:
+#' - `verbose`:
+#'   - Actual default: `TRUE`.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Suppress verbose output during training.
+#'
 #' @templateVar id clust.kproto
 #' @template learner
 #'

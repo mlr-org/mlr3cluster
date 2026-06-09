@@ -12,6 +12,18 @@ CLARA extends the PAM algorithm to handle larger datasets by working on sub-data
 is set to 2 by default since \code{\link[cluster:clara]{cluster::clara()}} doesn't have a default value for the number of clusters. The predict
 method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the cluster memberships for new data.
 }
+\section{Initial parameter values}{
+
+\itemize{
+\item \code{keep.data}:
+\itemize{
+\item Actual default: \code{TRUE}.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Avoid storing the training data in the model to save memory.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:

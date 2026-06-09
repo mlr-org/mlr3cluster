@@ -8,6 +8,16 @@
 #'
 #' The predict method uses [mclust::predict.Mclust()] to compute the cluster memberships for new data.
 #'
+#' @section Initial parameter values:
+#' - `verbose`:
+#'   - Actual default: `interactive()`.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Suppress progress output during training.
+#' - `warn`:
+#'   - Actual default: `mclust.options("warn")`, which is `FALSE` by default.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Suppress warnings during training independently of the `mclust` global options.
+#'
 #' @templateVar id clust.mclust
 #' @template learner
 #'

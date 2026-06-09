@@ -14,6 +14,18 @@ The code is taken from
 \href{https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi}{StackOverflow}
 answer by the \code{apcluster} package maintainer.
 }
+\section{Initial parameter values}{
+
+\itemize{
+\item \code{includeSim}:
+\itemize{
+\item Actual default: \code{TRUE}.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Avoid storing the n x n similarity matrix in the model.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:
@@ -42,7 +54,7 @@ lrn("clust.ap")
    maxits \tab integer \tab 1000 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    convits \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    lam \tab numeric \tab 0.9 \tab  \tab \eqn{[0.5, 1]}{[0.5, 1]} \cr
-   includeSim \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   includeSim \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    details \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    nonoise \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    seed \tab integer \tab NA \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr

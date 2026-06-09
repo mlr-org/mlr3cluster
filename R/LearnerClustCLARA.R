@@ -10,6 +10,12 @@
 #' is set to 2 by default since [cluster::clara()] doesn't have a default value for the number of clusters. The predict
 #' method uses [clue::cl_predict()] to compute the cluster memberships for new data.
 #'
+#' @section Initial parameter values:
+#' - `keep.data`:
+#'   - Actual default: `TRUE`.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Avoid storing the training data in the model to save memory.
+#'
 #' @templateVar id clust.clara
 #' @template learner
 #'

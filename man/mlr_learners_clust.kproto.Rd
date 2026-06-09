@@ -11,6 +11,18 @@ Calls \code{\link[clustMixType:kproto]{clustMixType::kproto()}} from package \CR
 The \code{k} parameter is set to 2 by default since \code{\link[clustMixType:kproto]{clustMixType::kproto()}} doesn't have a default value for the number
 of clusters.
 }
+\section{Initial parameter values}{
+
+\itemize{
+\item \code{verbose}:
+\itemize{
+\item Actual default: \code{TRUE}.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Suppress verbose output during training.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:

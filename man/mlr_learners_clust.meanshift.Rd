@@ -10,6 +10,18 @@ Calls \code{\link[LPCM:ms]{LPCM::ms()}} from package \CRANpkg{LPCM}.
 
 There is no predict method for \code{\link[LPCM:ms]{LPCM::ms()}}, so the method returns cluster labels for the training data.
 }
+\section{Initial parameter values}{
+
+\itemize{
+\item \code{plot}:
+\itemize{
+\item Actual default: \code{TRUE}.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Suppress plotting during training.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:

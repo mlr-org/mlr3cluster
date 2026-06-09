@@ -7,6 +7,9 @@
 \description{
 HDBSCAN (hierarchical DBSCAN) clustering.
 Calls \code{\link[dbscan:hdbscan]{dbscan::hdbscan()}} from package \CRANpkg{dbscan}.
+
+The \code{minPts} parameter is set to 5 by default since \code{\link[dbscan:hdbscan]{dbscan::hdbscan()}} doesn't have a default value for the minimum
+size of clusters.
 }
 \section{Dictionary}{
 

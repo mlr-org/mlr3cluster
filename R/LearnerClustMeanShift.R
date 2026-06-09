@@ -8,6 +8,12 @@
 #'
 #' There is no predict method for [LPCM::ms()], so the method returns cluster labels for the training data.
 #'
+#' @section Initial parameter values:
+#' - `plot`:
+#'   - Actual default: `TRUE`.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Suppress plotting during training.
+#'
 #' @templateVar id clust.meanshift
 #' @template learner
 #'

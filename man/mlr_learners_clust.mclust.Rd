@@ -10,6 +10,24 @@ Calls \code{\link[mclust:Mclust]{mclust::Mclust()}} from package \CRANpkg{mclust
 
 The predict method uses \code{\link[mclust:predict.Mclust]{mclust::predict.Mclust()}} to compute the cluster memberships for new data.
 }
+\section{Initial parameter values}{
+
+\itemize{
+\item \code{verbose}:
+\itemize{
+\item Actual default: \code{interactive()}.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Suppress progress output during training.
+}
+\item \code{warn}:
+\itemize{
+\item Actual default: \code{mclust.options("warn")}, which is \code{FALSE} by default.
+\item Adjusted default: \code{FALSE}.
+\item Reason for change: Suppress warnings during training independently of the \code{mclust} global options.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:

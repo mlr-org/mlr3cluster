@@ -12,6 +12,12 @@
 #' [StackOverflow](https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi)
 #' answer by the `apcluster` package maintainer.
 #'
+#' @section Initial parameter values:
+#' - `includeSim`:
+#'   - Actual default: `TRUE`.
+#'   - Adjusted default: `FALSE`.
+#'   - Reason for change: Avoid storing the n x n similarity matrix in the model.
+#'
 #' @templateVar id clust.ap
 #' @template learner
 #'
@@ -35,7 +41,7 @@ LearnerClustAP = R6Class(
         maxits = p_int(1L, default = 1000L, tags = "train"),
         convits = p_int(1L, default = 100L, tags = "train"),
         lam = p_dbl(0.5, 1, default = 0.9, tags = "train"),
-        includeSim = p_lgl(default = FALSE, tags = "train"),
+        includeSim = p_lgl(default = TRUE, tags = "train"),
         details = p_lgl(default = FALSE, tags = "train"),
         nonoise = p_lgl(default = FALSE, tags = "train"),
         seed = p_int(default = NA_integer_, special_vals = list(NA_integer_), tags = "train")
