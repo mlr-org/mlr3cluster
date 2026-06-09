@@ -34,7 +34,7 @@ lrn("clust.MBatchKMeans")
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   clusters \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   clusters \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    batch_size \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    num_init \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    max_iters \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

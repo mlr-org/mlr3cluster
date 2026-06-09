@@ -27,7 +27,7 @@ LearnerClustMiniBatchKMeans = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        clusters = p_int(1L, default = 2L, tags = "train"),
+        clusters = p_int(1L, tags = c("train", "required")),
         batch_size = p_int(1L, default = 10L, tags = "train"),
         num_init = p_int(1L, default = 1L, tags = "train"),
         max_iters = p_int(1L, default = 100L, tags = "train"),
