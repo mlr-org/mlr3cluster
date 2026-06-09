@@ -8,20 +8,19 @@ allow_partial_matching = list(
   warnPartialMatchDollar = FALSE
 )
 
-assert_centers_param = function(centers, task, test_class, name) {
-  if (test_class(centers) && ncol(centers) != task$ncol) {
+assert_centers_param = function(centers, task, name) {
+  if ((test_data_frame(centers) || test_matrix(centers)) && ncol(centers) != task$ncol) {
     error_input("`%s` must have same number of columns as data.", name)
   }
 }
 
 check_centers = function(x) {
-  if (test_data_frame(x) || test_int(x, lower = 1L)) {
+  if (test_data_frame(x) || test_matrix(x) || test_int(x, lower = 1L)) {
     TRUE
   } else {
-    "`centers` must be integer or data.frame with initial cluster centers"
+    "`centers` must be integer, matrix, or data.frame with initial cluster centers"
   }
 }
-
 row_any_na = function(x) {
   if (!anyNA(x)) {
     return(logical(nrow(x)))

@@ -59,7 +59,7 @@ LearnerClustKMeans = R6Class(
         warning_config("`nstart` parameter is only relevant when `centers` is integer.")
       }
 
-      assert_centers_param(pv$centers, task, test_data_frame, "centers")
+      assert_centers_param(pv$centers, task, "centers")
 
       m = invoke(stats::kmeans, x = task$data(), .args = pv)
       if (self$save_assignments) {

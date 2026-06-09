@@ -69,7 +69,7 @@ LearnerClustKKMeans = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      assert_centers_param(pv$centers, task, test_data_frame, "centers")
+      assert_centers_param(pv$centers, task, "centers")
 
       kpar = self$param_set$get_values(tags = c("train", "kpar"))
       if (length(kpar) > 0L) {

@@ -23,6 +23,7 @@ test_that("Learner properties are respected", {
   parset_list = list(
     list(centers = 2L),
     list(centers = centers),
+    list(centers = as.matrix(centers)),
     list(centers = 2L, dist = "manhattan", m = 3)
   )
 
