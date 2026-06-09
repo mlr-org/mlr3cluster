@@ -57,7 +57,7 @@ lrn("clust.agnes")
    keep.diss \tab logical \tab - \tab TRUE, FALSE \tab - \cr
    keep.data \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    trace.lev \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    par.method \tab untyped \tab - \tab  \tab - \cr
 }
 }

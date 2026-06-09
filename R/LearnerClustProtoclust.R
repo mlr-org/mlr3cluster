@@ -35,7 +35,7 @@ LearnerClustProtoclust = R6Class(
         upper = p_lgl(default = FALSE, tags = c("train", "dist")),
         p = p_dbl(default = 2, tags = c("train", "dist"), depends = quote(method == "minkowski")),
         verb = p_lgl(default = FALSE, tags = c("train", "protoclust")),
-        k = p_int(1L, default = NULL, special_vals = list(NULL), tags = c("train", "protocut", "predict"))
+        k = p_int(1L, tags = c("train", "protocut", "predict"))
       )
 
       param_set$set_values(k = 2L)

@@ -38,7 +38,7 @@ lrn("clust.genie")
    M \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    distance \tab character \tab euclidean \tab euclidean, l2, manhattan, cityblock, l1, cosine \tab - \cr
    verbose \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   k \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
 }
 }
 

@@ -38,7 +38,7 @@ lrn("clust.protoclust")
    upper \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    p \tab numeric \tab 2 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
    verb \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   k \tab integer \tab NULL \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
 }
 }
 

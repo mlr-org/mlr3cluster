@@ -35,7 +35,7 @@ LearnerClustGenie = R6Class(
           tags = c("train", "gclust")
         ),
         verbose = p_lgl(default = FALSE, tags = c("train", "gclust")),
-        k = p_int(1L, default = 2L, tags = c("train", "cutree", "predict"))
+        k = p_int(1L, tags = c("train", "cutree", "predict"))
       )
 
       param_set$set_values(k = 2L)
