@@ -192,6 +192,6 @@ print(learner)
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, density, and exclusive
+#> • Properties: density, exclusive, and partial
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 ```
