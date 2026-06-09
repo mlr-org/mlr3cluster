@@ -225,7 +225,7 @@ measures$entropy = make_measure_info(
   cluster_entropy,
   lower = 0,
   upper = Inf,
-  minimize = TRUE,
+  minimize = NA,
   input = "none",
   requires_k2 = FALSE
 )

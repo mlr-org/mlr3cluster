@@ -25,7 +25,7 @@ msr("clust.entropy")
 \itemize{
 \item Task type: \dQuote{clust}
 \item Range: \eqn{[0, \infty)}{[0, Inf)}
-\item Minimize: TRUE
+\item Minimize: NA
 \item Average: macro
 \item Required Prediction: \dQuote{partition}
 \item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}
