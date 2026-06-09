@@ -32,6 +32,8 @@
   tclust package.
 - feat: Add `clust.wb_ratio` measure for the within/between distance
   ratio.
+- feat: `LearnerClustDiana` gains the `stop.at.k` parameter from
+  [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html).
 - fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix
   errors when using `mlr3cluster` in parallel.
 - fix:
@@ -43,12 +45,36 @@
   undefined for k \< 2.
 - fix: `LearnerClustFeatureless` now returns `prob` predictions whose
   most probable cluster matches the predicted `partition`.
+- perf: `LearnerClustAgnes` now exposes `keep.diss` and `keep.data` from
+  [`cluster::agnes()`](https://rdrr.io/pkg/cluster/man/agnes.html), both
+  initialized to `FALSE` to avoid storing the dissimilarity matrix and
+  training data in the model.
 - perf: `LearnerClustAP` now defaults `includeSim` to `FALSE` to avoid
   storing the n x n similarity matrix in the model. Set
   `includeSim = TRUE` to restore the previous behavior.
 - perf: `LearnerClustCLARA` now defaults `keep.data` to `FALSE` to avoid
   storing the training data in the model. Set `keep.data = TRUE` to
   restore the previous behavior.
+- perf: `LearnerClustDiana` now exposes `keep.diss` and `keep.data` from
+  [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html), both
+  initialized to `FALSE` to avoid storing the dissimilarity matrix and
+  training data in the model.
+- perf: `LearnerClustFanny` now exposes `keep.diss` and `keep.data` from
+  [`cluster::fanny()`](https://rdrr.io/pkg/cluster/man/fanny.html), both
+  initialized to `FALSE` to avoid storing the dissimilarity matrix and
+  training data in the model.
+- perf: `LearnerClustKProto` now exposes `keep.data` from
+  [`clustMixType::kproto()`](https://rdrr.io/pkg/clustMixType/man/kproto.html),
+  initialized to `FALSE` to avoid storing the training data in the
+  model.
+- perf: `LearnerClustPAM` now exposes `keep.diss` and `keep.data` from
+  [`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html), both
+  initialized to `FALSE` to avoid storing the dissimilarity matrix and
+  training data in the model.
+- perf: `LearnerClustTclust` now exposes `store_x` from
+  [`tclust::tclust()`](https://rdrr.io/pkg/tclust/man/tclust.html),
+  initialized to `FALSE` to avoid storing the training data in the
+  model.
 - refactor: Clustering quality measures (`clust.ch`, `clust.dunn`,
   `clust.wss`) are now computed natively instead of relying on
   [`fpc::cluster.stats()`](https://rdrr.io/pkg/fpc/man/cluster.stats.html).

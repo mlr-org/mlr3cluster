@@ -64,6 +64,19 @@ number of groups (see parameter <code>k</code>). The default number for <code>k<
 
 
     <div class="section level2">
+    <h2 id="initial-parameter-values">Initial parameter values<a class="anchor" aria-label="anchor" href="#initial-parameter-values"></a></h2>
+
+
+<ul><li><p><code>keep.diss</code>:</p><ul><li><p>Actual default: <code>n &lt; 100</code>, where <code>n</code> is the number of observations.</p></li>
+<li><p>Adjusted default: <code>FALSE</code>.</p></li>
+<li><p>Reason for change: Avoid storing the dissimilarity matrix in the model to save memory.</p></li>
+</ul></li>
+<li><p><code>keep.data</code>:</p><ul><li><p>Actual default: <code>TRUE</code>.</p></li>
+<li><p>Adjusted default: <code>FALSE</code>.</p></li>
+<li><p>Reason for change: Avoid storing the training data in the model to save memory.</p></li>
+</ul></li>
+</ul></div>
+    <div class="section level2">
     <h2 id="dictionary">Dictionary<a class="anchor" aria-label="anchor" href="#dictionary"></a></h2>
 
 
@@ -83,7 +96,7 @@ number of groups (see parameter <code>k</code>). The default number for <code>k<
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>metric</td><td>character</td><td>euclidean</td><td>euclidean, manhattan</td><td>-</td></tr><tr><td>stand</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>method</td><td>character</td><td>average</td><td>average, single, complete, ward, weighted, flexible, gaverage</td><td>-</td></tr><tr><td>trace.lev</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>k</td><td>integer</td><td>2</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>par.method</td><td>untyped</td><td>-</td><td></td><td>-</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>metric</td><td>character</td><td>euclidean</td><td>euclidean, manhattan</td><td>-</td></tr><tr><td>stand</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>method</td><td>character</td><td>average</td><td>average, single, complete, ward, weighted, flexible, gaverage</td><td>-</td></tr><tr><td>keep.diss</td><td>logical</td><td>-</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>keep.data</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>trace.lev</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>k</td><td>integer</td><td>2</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>par.method</td><td>untyped</td><td>-</td><td></td><td>-</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Kaufman, Leonard, Rousseeuw, J P (2009).
@@ -199,7 +212,7 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;LearnerClustAgnes&gt;</span><span style="font-weight: bold;"> (clust.agnes): Agglomerative Nesting</span> <span style="color: #00BBBB;">────────────────────</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Model: -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> • Parameters: k=2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Parameters: keep.diss=FALSE, keep.data=FALSE, k=2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Packages: <span style="color: #0000BB;">mlr3</span>, <span style="color: #0000BB;">mlr3cluster</span>, and <span style="color: #0000BB;">cluster</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Predict Types: [partition]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Feature Types: logical, integer, and numeric</span>
@@ -215,7 +228,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print the model</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Call:	 cluster::agnes(x = task$data(), diss = FALSE) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:	 cluster::agnes(x = task$data(), diss = FALSE, keep.diss = FALSE, keep.data = FALSE) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Agglomerative coefficient:  0.9073773 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Order of objects:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1]  1 18  8 13 32 22 28  2 24 40  3 31 20  5  9 33  4 42 25  6 43 10 21 30 39</span>
@@ -225,7 +238,7 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   2.291  12.439  16.425  24.847  28.012 152.314 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Available components:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "order"  "height" "ac"     "merge"  "diss"   "call"   "method" "data"  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "order"  "height" "ac"     "merge"  "diss"   "call"   "method"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>

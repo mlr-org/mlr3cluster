@@ -9,6 +9,26 @@ The predict method uses
 tree resulting from hierarchical clustering into specified number of
 groups (see parameter `k`). The default value for `k` is 2.
 
+## Initial parameter values
+
+- `keep.diss`:
+
+  - Actual default: `n < 100`, where `n` is the number of observations.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the dissimilarity matrix in the
+    model to save memory.
+
+- `keep.data`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the training data in the model to
+    save memory.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -40,6 +60,9 @@ or with the associated sugar function
 | Id        | Type      | Default   | Levels               | Range            |
 | metric    | character | euclidean | euclidean, manhattan | \-               |
 | stand     | logical   | FALSE     | TRUE, FALSE          | \-               |
+| stop.at.k | untyped   | FALSE     |                      | \-               |
+| keep.diss | logical   | \-        | TRUE, FALSE          | \-               |
+| keep.data | logical   | TRUE      | TRUE, FALSE          | \-               |
 | trace.lev | integer   | 0         |                      | \\\[0, \infty)\\ |
 | k         | integer   | 2         |                      | \\\[1, \infty)\\ |
 
@@ -182,7 +205,7 @@ print(learner)
 #> 
 #> ── <LearnerClustDiana> (clust.diana): Divisive Analysis ────────────────────────
 #> • Model: -
-#> • Parameters: k=2
+#> • Parameters: keep.diss=FALSE, keep.data=FALSE, k=2
 #> • Packages: mlr3, mlr3cluster, and cluster
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
@@ -266,7 +289,7 @@ print(learner$model)
 #> [1] 0.9464692
 #> 
 #> Available components:
-#> [1] "order"  "height" "dc"     "merge"  "diss"   "call"   "data"  
+#> [1] "order"  "height" "dc"     "merge"  "diss"   "call"  
 
 # Make predictions for the task
 prediction = learner$predict(task)

@@ -10,6 +10,26 @@ have a default value for the number of clusters. The predict method
 copies cluster assignments and memberships generated for train data. The
 predict does not work for new data.
 
+## Initial parameter values
+
+- `keep.diss`:
+
+  - Actual default: `n < 100`, where `n` is the number of observations.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the dissimilarity matrix in the
+    model to save memory.
+
+- `keep.data`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the training data in the model to
+    save memory.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -44,6 +64,8 @@ or with the associated sugar function
 | metric | character | euclidean | euclidean, manhattan, SqEuclidean | \- |
 | stand | logical | FALSE | TRUE, FALSE | \- |
 | iniMem.p | untyped | NULL |  | \- |
+| keep.diss | logical | \- | TRUE, FALSE | \- |
+| keep.data | logical | TRUE | TRUE, FALSE | \- |
 | maxit | integer | 500 |  | \\\[0, \infty)\\ |
 | tol | numeric | 1e-15 |  | \\\[0, \infty)\\ |
 | trace.lev | integer | 0 |  | \\\[0, \infty)\\ |
@@ -187,7 +209,7 @@ print(learner)
 #> 
 #> ── <LearnerClustFanny> (clust.fanny): Fuzzy Analysis ───────────────────────────
 #> • Model: -
-#> • Parameters: k=2
+#> • Parameters: k=2, keep.diss=FALSE, keep.data=FALSE
 #> • Packages: mlr3, mlr3cluster, and cluster
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
@@ -273,7 +295,6 @@ print(learner$model)
 #> Available components:
 #>  [1] "membership"  "coeff"       "memb.exp"    "clustering"  "k.crisp"    
 #>  [6] "objective"   "convergence" "diss"        "call"        "silinfo"    
-#> [11] "data"       
 
 # Make predictions for the task
 prediction = learner$predict(task)

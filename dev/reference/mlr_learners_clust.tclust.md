@@ -13,6 +13,17 @@ method for
 [`tclust::tclust()`](https://rdrr.io/pkg/tclust/man/tclust.html), so the
 method returns cluster labels for the training data.
 
+## Initial parameter values
+
+- `store_x`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the training data in the model to
+    save memory.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -56,6 +67,7 @@ or with the associated sugar function
 | opt              | character | HARD    | HARD, MIXT   | \-                    |
 | center           | logical   | FALSE   | TRUE, FALSE  | \-                    |
 | scale            | logical   | FALSE   | TRUE, FALSE  | \-                    |
+| store_x          | logical   | TRUE    | TRUE, FALSE  | \-                    |
 | parallel         | logical   | FALSE   | TRUE, FALSE  | \-                    |
 | n.cores          | integer   | -1      |              | \\(-\infty, \infty)\\ |
 | zero_tol         | numeric   | 1e-16   |              | \\\[0, \infty)\\      |
@@ -208,7 +220,7 @@ print(learner)
 #> 
 #> ── <LearnerClustTclust> (clust.tclust): Robust Trimmed Clustering ──────────────
 #> • Model: -
-#> • Parameters: k=2
+#> • Parameters: k=2, store_x=FALSE
 #> • Packages: mlr3, mlr3cluster, and tclust
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric

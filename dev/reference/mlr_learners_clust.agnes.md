@@ -9,6 +9,26 @@ The predict method uses
 tree resulting from hierarchical clustering into specified number of
 groups (see parameter `k`). The default number for `k` is 2.
 
+## Initial parameter values
+
+- `keep.diss`:
+
+  - Actual default: `n < 100`, where `n` is the number of observations.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the dissimilarity matrix in the
+    model to save memory.
+
+- `keep.data`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the training data in the model to
+    save memory.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -41,6 +61,8 @@ or with the associated sugar function
 | metric | character | euclidean | euclidean, manhattan | \- |
 | stand | logical | FALSE | TRUE, FALSE | \- |
 | method | character | average | average, single, complete, ward, weighted, flexible, gaverage | \- |
+| keep.diss | logical | \- | TRUE, FALSE | \- |
+| keep.data | logical | TRUE | TRUE, FALSE | \- |
 | trace.lev | integer | 0 |  | \\\[0, \infty)\\ |
 | k | integer | 2 |  | \\\[1, \infty)\\ |
 | par.method | untyped | \- |  | \- |
@@ -184,7 +206,7 @@ print(learner)
 #> 
 #> ── <LearnerClustAgnes> (clust.agnes): Agglomerative Nesting ────────────────────
 #> • Model: -
-#> • Parameters: k=2
+#> • Parameters: keep.diss=FALSE, keep.data=FALSE, k=2
 #> • Packages: mlr3, mlr3cluster, and cluster
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
@@ -200,7 +222,7 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> Call:     cluster::agnes(x = task$data(), diss = FALSE) 
+#> Call:     cluster::agnes(x = task$data(), diss = FALSE, keep.diss = FALSE, keep.data = FALSE) 
 #> Agglomerative coefficient:  0.9073773 
 #> Order of objects:
 #>  [1]  1 18  8 13 32 22 28  2 24 40  3 31 20  5  9 33  4 42 25  6 43 10 21 30 39
@@ -210,7 +232,7 @@ print(learner$model)
 #>   2.291  12.439  16.425  24.847  28.012 152.314 
 #> 
 #> Available components:
-#> [1] "order"  "height" "ac"     "merge"  "diss"   "call"   "method" "data"  
+#> [1] "order"  "height" "ac"     "merge"  "diss"   "call"   "method"
 
 # Make predictions for the task
 prediction = learner$predict(task)

@@ -11,6 +11,15 @@ doesn't have a default value for the number of clusters.
 
 ## Initial parameter values
 
+- `keep.data`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the training data in the model to
+    save memory.
+
 - `verbose`:
 
   - Actual default: `TRUE`.
@@ -54,6 +63,7 @@ or with the associated sugar function
 | iter.max | integer | 100 |  | \\\[1, \infty)\\ |
 | nstart | integer | 1 |  | \\\[1, \infty)\\ |
 | na.rm | character | yes | yes, no, imp.internal, imp.onestep | \- |
+| keep.data | logical | TRUE | TRUE, FALSE | \- |
 | verbose | logical | TRUE | TRUE, FALSE | \- |
 | init | character | NULL | nbh.dens, sel.cen, nstart.m | \- |
 | p_nstart.m | numeric | 0.9 |  | \\\[0, 1\]\\ |
@@ -198,7 +208,7 @@ print(learner)
 #> 
 #> ── <LearnerClustKProto> (clust.kproto): K-Prototypes ───────────────────────────
 #> • Model: -
-#> • Parameters: k=2, verbose=FALSE
+#> • Parameters: k=2, keep.data=FALSE, verbose=FALSE
 #> • Packages: mlr3, mlr3cluster, and clustMixType
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, numeric, factor, and ordered
