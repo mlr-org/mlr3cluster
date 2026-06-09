@@ -37,7 +37,7 @@ LearnerClustCMeans = R6Class(
           default = 1L,
           tags = "train",
           custom_check = crate(function(x) {
-            if (test_numeric(x) && all(x > 0) || check_count(x, positive = TRUE)) {
+            if (test_numeric(x, any.missing = FALSE, min.len = 1L) && all(x > 0)) {
               TRUE
             } else {
               "`weights` must be positive numeric vector or a single positive number"
