@@ -8,6 +8,16 @@ There is no predict method for
 [`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html), so the method
 returns cluster labels for the training data.
 
+## Initial parameter values
+
+- `plot`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Suppress plotting during training.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)

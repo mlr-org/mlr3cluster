@@ -12,6 +12,17 @@ method uses
 [`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
 compute the cluster memberships for new data.
 
+## Initial parameter values
+
+- `keep.data`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the training data in the model to
+    save memory.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)

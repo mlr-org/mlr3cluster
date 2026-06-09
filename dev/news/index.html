@@ -50,28 +50,28 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
-<ul><li>BREAKING CHANGE: <code>LearnerClustAP</code> now defaults <code>includeSim</code> to <code>FALSE</code> to avoid storing the n x n similarity matrix in the model.</li>
-<li>BREAKING CHANGE: <code>LearnerClustCLARA</code> now defaults <code>keep.data</code> to <code>FALSE</code>.</li>
-<li>fix: Add <code>mlr3cluster</code> to <code>mlr_reflections$loaded_packages</code> to fix errors when using <code>mlr3cluster</code> in parallel.</li>
-<li>fix: <code><a href="../reference/as_prediction_clust.html">as_prediction_clust.data.frame()</a></code> no longer errors with <code>unused argument (with = FALSE)</code> when given a plain <code>data.frame</code>.</li>
-<li>fix: <code>LearnerClustFeatureless</code> now returns <code>prob</code> predictions whose most probable cluster matches the predicted <code>partition</code>.</li>
-<li>feat: Add finite mixture model clustering learner <code>clust.flexmix</code> from the flexmix package.</li>
-<li>feat: Add Genie hierarchical clustering learner <code>clust.genie</code> from the genieclust package.</li>
-<li>feat: Add k-centroids cluster analysis learner <code>clust.kcca</code> from the flexclust package, supporting k-means, k-medians, spherical, Jaccard, and extended Jaccard families.</li>
-<li>feat: Add self-organizing maps clustering learner <code>clust.som</code> from the kohonen package.</li>
-<li>feat: Add spherical k-means clustering learner <code>clust.skmeans</code> from the skmeans package.</li>
-<li>feat: Add von Mises-Fisher mixture clustering learner <code>clust.movMF</code> from the movMF package.</li>
-<li>feat: Add robust trimmed clustering learner <code>clust.tclust</code> from the tclust package.</li>
-<li>feat: Add ST-DBSCAN clustering learner <code>clust.stdbscan</code> from the stdbscan package.</li>
-<li>feat: Add <code>clust.avg_between</code> measure for average between-cluster distance.</li>
+<ul><li>feat: Add <code>clust.avg_between</code> measure for average between-cluster distance.</li>
 <li>feat: Add <code>clust.avg_within</code> measure for average within-cluster distance.</li>
 <li>feat: Add <code>clust.davies_bouldin</code> measure for the Davies-Bouldin index.</li>
 <li>feat: Add <code>clust.dunn2</code> measure for the alternative Dunn index using average distances.</li>
 <li>feat: Add <code>clust.entropy</code> measure for cluster size distribution entropy.</li>
+<li>feat: Add finite mixture model clustering learner <code>clust.flexmix</code> from the flexmix package.</li>
+<li>feat: Add Genie hierarchical clustering learner <code>clust.genie</code> from the genieclust package.</li>
+<li>feat: Add k-centroids cluster analysis learner <code>clust.kcca</code> from the flexclust package, supporting k-means, k-medians, spherical, Jaccard, and extended Jaccard families.</li>
+<li>feat: Add von Mises-Fisher mixture clustering learner <code>clust.movMF</code> from the movMF package.</li>
 <li>feat: Add <code>clust.pearsongamma</code> measure for the Pearson Gamma correlation between distances and cluster membership.</li>
+<li>feat: Add spherical k-means clustering learner <code>clust.skmeans</code> from the skmeans package.</li>
+<li>feat: Add self-organizing maps clustering learner <code>clust.som</code> from the kohonen package.</li>
+<li>feat: Add ST-DBSCAN clustering learner <code>clust.stdbscan</code> from the stdbscan package.</li>
+<li>feat: Add robust trimmed clustering learner <code>clust.tclust</code> from the tclust package.</li>
 <li>feat: Add <code>clust.wb_ratio</code> measure for the within/between distance ratio.</li>
-<li>refactor: Clustering quality measures (<code>clust.ch</code>, <code>clust.dunn</code>, <code>clust.wss</code>) are now computed natively instead of relying on <code><a href="https://rdrr.io/pkg/fpc/man/cluster.stats.html" class="external-link">fpc::cluster.stats()</a></code>. The <code>fpc</code> package is no longer a hard dependency.</li>
+<li>fix: Add <code>mlr3cluster</code> to <code>mlr_reflections$loaded_packages</code> to fix errors when using <code>mlr3cluster</code> in parallel.</li>
+<li>fix: <code><a href="../reference/as_prediction_clust.html">as_prediction_clust.data.frame()</a></code> no longer errors with <code>unused argument (with = FALSE)</code> when given a plain <code>data.frame</code>.</li>
 <li>fix: <code>clust.silhouette</code> now returns <code>NaN</code> instead of <code>0</code> when all observations belong to a single cluster, since the silhouette width is undefined for k &lt; 2.</li>
+<li>fix: <code>LearnerClustFeatureless</code> now returns <code>prob</code> predictions whose most probable cluster matches the predicted <code>partition</code>.</li>
+<li>perf: <code>LearnerClustAP</code> now defaults <code>includeSim</code> to <code>FALSE</code> to avoid storing the n x n similarity matrix in the model. Set <code>includeSim = TRUE</code> to restore the previous behavior.</li>
+<li>perf: <code>LearnerClustCLARA</code> now defaults <code>keep.data</code> to <code>FALSE</code> to avoid storing the training data in the model. Set <code>keep.data = TRUE</code> to restore the previous behavior.</li>
+<li>refactor: Clustering quality measures (<code>clust.ch</code>, <code>clust.dunn</code>, <code>clust.wss</code>) are now computed natively instead of relying on <code><a href="https://rdrr.io/pkg/fpc/man/cluster.stats.html" class="external-link">fpc::cluster.stats()</a></code>. The <code>fpc</code> package is no longer a hard dependency.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="mlr3cluster-030">mlr3cluster 0.3.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-030"></a></h2><p class="text-muted">CRAN release: 2026-03-01</p>

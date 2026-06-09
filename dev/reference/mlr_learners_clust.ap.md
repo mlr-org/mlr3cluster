@@ -12,6 +12,17 @@ for new data. The code is taken from
 [StackOverflow](https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi)
 answer by the `apcluster` package maintainer.
 
+## Initial parameter values
+
+- `includeSim`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the n x n similarity matrix in the
+    model.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -47,7 +58,7 @@ or with the associated sugar function
 | maxits     | integer | 1000      |             | \\\[1, \infty)\\      |
 | convits    | integer | 100       |             | \\\[1, \infty)\\      |
 | lam        | numeric | 0.9       |             | \\\[0.5, 1\]\\        |
-| includeSim | logical | FALSE     | TRUE, FALSE | \-                    |
+| includeSim | logical | TRUE      | TRUE, FALSE | \-                    |
 | details    | logical | FALSE     | TRUE, FALSE | \-                    |
 | nonoise    | logical | FALSE     | TRUE, FALSE | \-                    |
 | seed       | integer | NA        |             | \\(-\infty, \infty)\\ |

@@ -8,6 +8,27 @@ The predict method uses
 [`mclust::predict.Mclust()`](https://mclust-org.github.io/mclust/reference/predict.Mclust.html)
 to compute the cluster memberships for new data.
 
+## Initial parameter values
+
+- `verbose`:
+
+  - Actual default:
+    [`interactive()`](https://rdrr.io/r/base/interactive.html).
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Suppress progress output during training.
+
+- `warn`:
+
+  - Actual default: `mclust.options("warn")`, which is `FALSE` by
+    default.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Suppress warnings during training independently
+    of the `mclust` global options.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)

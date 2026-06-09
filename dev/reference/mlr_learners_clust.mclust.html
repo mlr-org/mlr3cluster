@@ -61,6 +61,19 @@ Calls <code><a href="https://mclust-org.github.io/mclust/reference/Mclust.html" 
 
 
     <div class="section level2">
+    <h2 id="initial-parameter-values">Initial parameter values<a class="anchor" aria-label="anchor" href="#initial-parameter-values"></a></h2>
+
+
+<ul><li><p><code>verbose</code>:</p><ul><li><p>Actual default: <code><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive()</a></code>.</p></li>
+<li><p>Adjusted default: <code>FALSE</code>.</p></li>
+<li><p>Reason for change: Suppress progress output during training.</p></li>
+</ul></li>
+<li><p><code>warn</code>:</p><ul><li><p>Actual default: <code>mclust.options("warn")</code>, which is <code>FALSE</code> by default.</p></li>
+<li><p>Adjusted default: <code>FALSE</code>.</p></li>
+<li><p>Reason for change: Suppress warnings during training independently of the <code>mclust</code> global options.</p></li>
+</ul></li>
+</ul></div>
+    <div class="section level2">
     <h2 id="dictionary">Dictionary<a class="anchor" aria-label="anchor" href="#dictionary"></a></h2>
 
 

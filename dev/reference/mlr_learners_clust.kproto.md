@@ -9,6 +9,16 @@ The `k` parameter is set to 2 by default since
 [`clustMixType::kproto()`](https://rdrr.io/pkg/clustMixType/man/kproto.html)
 doesn't have a default value for the number of clusters.
 
+## Initial parameter values
+
+- `verbose`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Suppress verbose output during training.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
