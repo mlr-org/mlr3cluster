@@ -75,6 +75,10 @@ MeasureClustSil = R6Class(
   ),
   private = list(
     .score = function(prediction, task, ...) {
+      if (length(unique(prediction$partition)) < 2L) {
+        return(NaN)
+      }
+
       data = task$data(rows = prediction$row_ids)
       if (any(task$feature_types$type %in% c("factor", "ordered"))) {
         d = cluster::daisy(data, metric = "gower")
@@ -82,9 +86,6 @@ MeasureClustSil = R6Class(
         d = stats::dist(data)
       }
 
-      if (length(unique(prediction$partition)) < 2L) {
-        return(NaN)
-      }
       mean(silhouette(prediction$partition, d)[, "sil_width"])
     }
   )
