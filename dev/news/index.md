@@ -43,6 +43,11 @@
 - fix: `clust.silhouette` now returns `NaN` instead of `0` when all
   observations belong to a single cluster, since the silhouette width is
   undefined for k \< 2.
+- fix: `LearnerClustCMeans` now reports a proper error message when an
+  invalid `weights` value is given instead of failing with a type error.
+- fix: `LearnerClustCMeans`, `LearnerClustKKMeans`, and
+  `LearnerClustKMeans` now accept a matrix of initial cluster centers
+  for the `centers` parameter, matching the upstream functions.
 - fix: `LearnerClustFeatureless` now returns `prob` predictions whose
   most probable cluster matches the predicted `partition`.
 - perf: `LearnerClustAgnes` now exposes `keep.diss` and `keep.data` from
