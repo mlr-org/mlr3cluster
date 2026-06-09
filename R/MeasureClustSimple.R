@@ -35,6 +35,13 @@ MeasureClustSimple = R6Class(
       switch(
         private$.input,
         data = {
+          if (any(task$feature_types$type %in% c("factor", "ordered"))) {
+            error_input(
+              "Measure '%s' requires numeric features, but task '%s' has factor or ordered features.",
+              self$id,
+              task$id
+            )
+          }
           x = as.matrix(task$data(rows = prediction$row_ids))
           private$.fun(x, prediction$partition)
         },

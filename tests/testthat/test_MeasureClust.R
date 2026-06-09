@@ -38,6 +38,19 @@ test_that("Measures work with factor features via Gower distance", {
   }
 })
 
+test_that("Data measures error on factor features", {
+  data = data.frame(
+    x1 = c(1, 2, 10, 11, 1, 2, 10, 11),
+    x2 = factor(c("a", "a", "b", "b", "a", "a", "b", "b"))
+  )
+  task = TaskClust$new("mixed", mlr3::as_data_backend(data))
+  p = PredictionClust$new(task = task, partition = rep(1:2, each = 4L))
+
+  expect_snapshot(msr("clust.ch")$score(prediction = p, task = task), error = TRUE)
+  expect_snapshot(msr("clust.wss")$score(prediction = p, task = task), error = TRUE)
+  expect_snapshot(msr("clust.davies_bouldin")$score(prediction = p, task = task), error = TRUE)
+})
+
 test_that("Single-cluster edge cases are handled consistently", {
   task = tsk("usarrests")
   p = PredictionClust$new(task = task, partition = rep.int(1L, task$nrow))
