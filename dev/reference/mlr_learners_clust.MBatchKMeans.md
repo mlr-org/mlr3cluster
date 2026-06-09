@@ -41,7 +41,7 @@ or with the associated sugar function
 |  |  |  |  |  |
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
-| clusters | integer | 2 |  | \\\[1, \infty)\\ |
+| clusters | integer | \- |  | \\\[1, \infty)\\ |
 | batch_size | integer | 10 |  | \\\[1, \infty)\\ |
 | num_init | integer | 1 |  | \\\[1, \infty)\\ |
 | max_iters | integer | 100 |  | \\\[1, \infty)\\ |

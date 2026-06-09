@@ -43,7 +43,7 @@ or with the associated sugar function
 | upper | logical | FALSE | TRUE, FALSE | \- |
 | p | numeric | 2 |  | \\(-\infty, \infty)\\ |
 | verb | logical | FALSE | TRUE, FALSE | \- |
-| k | integer | NULL |  | \\\[1, \infty)\\ |
+| k | integer | \- |  | \\\[1, \infty)\\ |
 
 ## References
 

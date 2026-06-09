@@ -46,7 +46,7 @@ or with the associated sugar function
 | M | integer | 0 |  | \\\[0, \infty)\\ |
 | distance | character | euclidean | euclidean, l2, manhattan, cityblock, l1, cosine | \- |
 | verbose | logical | FALSE | TRUE, FALSE | \- |
-| k | integer | 2 |  | \\\[1, \infty)\\ |
+| k | integer | \- |  | \\\[1, \infty)\\ |
 
 ## References
 

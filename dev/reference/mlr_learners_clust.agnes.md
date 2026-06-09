@@ -64,7 +64,7 @@ or with the associated sugar function
 | keep.diss | logical | \- | TRUE, FALSE | \- |
 | keep.data | logical | TRUE | TRUE, FALSE | \- |
 | trace.lev | integer | 0 |  | \\\[0, \infty)\\ |
-| k | integer | 2 |  | \\\[1, \infty)\\ |
+| k | integer | \- |  | \\\[1, \infty)\\ |
 | par.method | untyped | \- |  | \- |
 
 ## References
