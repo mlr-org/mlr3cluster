@@ -26,7 +26,8 @@
   package.
 - `clust.som`: Self-organizing maps from the kohonen package.
 - `clust.stdbscan`: ST-DBSCAN spatio-temporal clustering from the
-  stdbscan package.
+  stdbscan package
+  ([\#83](https://github.com/mlr-org/mlr3cluster/issues/83)).
 - `clust.tclust`: Robust trimmed clustering from the tclust package.
 
 ### New measures
@@ -42,52 +43,47 @@
 
 ### Other improvements
 
+- Learners no longer store the training data or dissimilarity matrix in
+  the model by default: `clust.agnes`, `clust.diana`, `clust.fanny`, and
+  `clust.pam` now expose `keep.diss` and `keep.data`, `clust.clara` and
+  `clust.kproto` expose `keep.data`, and `clust.ap` exposes
+  `includeSim`, all initialized to `FALSE`. Set the respective parameter
+  to `TRUE` to restore the previous behavior.
 - Clustering quality measures `clust.ch`, `clust.dunn`, and `clust.wss`
   are now computed natively instead of relying on
   [`fpc::cluster.stats()`](https://rdrr.io/pkg/fpc/man/cluster.stats.html).
   The fpc package is no longer a hard dependency.
-- `LearnerClustCobweb`, `LearnerClustEM`, `LearnerClustFarthestFirst`,
-  `LearnerClustSimpleKMeans`, and `LearnerClustXMeans` now declare the
-  `missings` property, since Weka handles missing attribute values
-  natively.
-- Learners no longer store the training data or dissimilarity matrix in
-  the model by default: `LearnerClustAgnes`, `LearnerClustDiana`,
-  `LearnerClustFanny`, and `LearnerClustPAM` now expose `keep.diss` and
-  `keep.data`, `LearnerClustCLARA` and `LearnerClustKProto` expose
-  `keep.data`, `LearnerClustTclust` exposes `store_x`, and
-  `LearnerClustAP` exposes `includeSim`, all initialized to `FALSE`. Set
-  the respective parameter to `TRUE` to restore the previous behavior.
-- `LearnerClustDiana` gains the `stop.at.k` parameter from
+- `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and
+  `clust.xmeans` now declare the `missings` property, since Weka handles
+  missing attribute values natively.
+- `clust.diana` gains the `stop.at.k` parameter from
   [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html).
 
 ### Bug fixes
 
-- Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix errors
-  when using `mlr3cluster` in parallel.
+- `mlr3cluster` is now added to `mlr_reflections$loaded_packages` to fix
+  errors when using the package in parallel.
 - [`as_prediction_clust.data.frame()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
   no longer errors with `unused argument (with = FALSE)` when given a
   plain `data.frame`.
+- `clust.cmeans` now reports a proper error message when an invalid
+  `weights` value is given instead of failing with a type error.
+- `clust.cmeans`, `clust.kkmeans`, and `clust.kmeans` now accept a
+  matrix of initial cluster centers for the `centers` parameter,
+  matching the upstream functions.
+- `clust.cobweb` now declares the `hierarchical` property instead of
+  `partitional`, and `clust.meanshift` declares `density` instead of
+  `partitional`.
+- `clust.dbscan`, `clust.dbscan_fpc`, `clust.hdbscan`, and
+  `clust.optics` now declare the `partial` property instead of
+  `complete`, since these algorithms can leave observations unassigned
+  (noise points labeled 0).
+- `clust.featureless` now returns `prob` predictions whose most probable
+  cluster matches the predicted `partition`, with cluster column names
+  consistent with the other learners supporting the `prob` predict type.
 - `clust.silhouette` now returns `NaN` instead of `0` when all
   observations belong to a single cluster, since the silhouette width is
   undefined for k \< 2.
-- `LearnerClustCMeans` now reports a proper error message when an
-  invalid `weights` value is given instead of failing with a type error.
-- `LearnerClustCMeans`, `LearnerClustKKMeans`, and `LearnerClustKMeans`
-  now accept a matrix of initial cluster centers for the `centers`
-  parameter, matching the upstream functions.
-- `LearnerClustCobweb` now declares the `hierarchical` property instead
-  of `partitional`.
-- `LearnerClustDBSCAN`, `LearnerClustDBSCANfpc`, `LearnerClustHDBSCAN`,
-  `LearnerClustOPTICS`, `LearnerClustSTDBSCAN`, and `LearnerClustTclust`
-  now declare the `partial` property instead of `complete`, since these
-  algorithms can leave observations unassigned (noise or trimmed points
-  labeled 0).
-- `LearnerClustFeatureless` now returns `prob` predictions whose most
-  probable cluster matches the predicted `partition`, with cluster
-  column names consistent with the other learners supporting the `prob`
-  predict type.
-- `LearnerClustMeanShift` now declares the `density` property instead of
-  `partitional`.
 
 ## mlr3cluster 0.3.0
 

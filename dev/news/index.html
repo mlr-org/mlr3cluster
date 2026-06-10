@@ -69,7 +69,7 @@
 <li>
 <code>clust.som</code>: Self-organizing maps from the kohonen package.</li>
 <li>
-<code>clust.stdbscan</code>: ST-DBSCAN spatio-temporal clustering from the stdbscan package.</li>
+<code>clust.stdbscan</code>: ST-DBSCAN spatio-temporal clustering from the stdbscan package (<a href="https://github.com/mlr-org/mlr3cluster/issues/83" class="external-link">#83</a>).</li>
 <li>
 <code>clust.tclust</code>: Robust trimmed clustering from the tclust package.</li>
 </ul></div>
@@ -92,32 +92,31 @@
 </ul></div>
 <div class="section level3">
 <h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
-<ul><li>Clustering quality measures <code>clust.ch</code>, <code>clust.dunn</code>, and <code>clust.wss</code> are now computed natively instead of relying on <code><a href="https://rdrr.io/pkg/fpc/man/cluster.stats.html" class="external-link">fpc::cluster.stats()</a></code>. The fpc package is no longer a hard dependency.</li>
+<ul><li>Learners no longer store the training data or dissimilarity matrix in the model by default: <code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.fanny</code>, and <code>clust.pam</code> now expose <code>keep.diss</code> and <code>keep.data</code>, <code>clust.clara</code> and <code>clust.kproto</code> expose <code>keep.data</code>, and <code>clust.ap</code> exposes <code>includeSim</code>, all initialized to <code>FALSE</code>. Set the respective parameter to <code>TRUE</code> to restore the previous behavior.</li>
+<li>Clustering quality measures <code>clust.ch</code>, <code>clust.dunn</code>, and <code>clust.wss</code> are now computed natively instead of relying on <code><a href="https://rdrr.io/pkg/fpc/man/cluster.stats.html" class="external-link">fpc::cluster.stats()</a></code>. The fpc package is no longer a hard dependency.</li>
 <li>
-<code>LearnerClustCobweb</code>, <code>LearnerClustEM</code>, <code>LearnerClustFarthestFirst</code>, <code>LearnerClustSimpleKMeans</code>, and <code>LearnerClustXMeans</code> now declare the <code>missings</code> property, since Weka handles missing attribute values natively.</li>
-<li>Learners no longer store the training data or dissimilarity matrix in the model by default: <code>LearnerClustAgnes</code>, <code>LearnerClustDiana</code>, <code>LearnerClustFanny</code>, and <code>LearnerClustPAM</code> now expose <code>keep.diss</code> and <code>keep.data</code>, <code>LearnerClustCLARA</code> and <code>LearnerClustKProto</code> expose <code>keep.data</code>, <code>LearnerClustTclust</code> exposes <code>store_x</code>, and <code>LearnerClustAP</code> exposes <code>includeSim</code>, all initialized to <code>FALSE</code>. Set the respective parameter to <code>TRUE</code> to restore the previous behavior.</li>
+<code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.SimpleKMeans</code>, and <code>clust.xmeans</code> now declare the <code>missings</code> property, since Weka handles missing attribute values natively.</li>
 <li>
-<code>LearnerClustDiana</code> gains the <code>stop.at.k</code> parameter from <code><a href="https://rdrr.io/pkg/cluster/man/diana.html" class="external-link">cluster::diana()</a></code>.</li>
+<code>clust.diana</code> gains the <code>stop.at.k</code> parameter from <code><a href="https://rdrr.io/pkg/cluster/man/diana.html" class="external-link">cluster::diana()</a></code>.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
-<ul><li>Add <code>mlr3cluster</code> to <code>mlr_reflections$loaded_packages</code> to fix errors when using <code>mlr3cluster</code> in parallel.</li>
+<ul><li>
+<code>mlr3cluster</code> is now added to <code>mlr_reflections$loaded_packages</code> to fix errors when using the package in parallel.</li>
 <li>
 <code><a href="../reference/as_prediction_clust.html">as_prediction_clust.data.frame()</a></code> no longer errors with <code>unused argument (with = FALSE)</code> when given a plain <code>data.frame</code>.</li>
 <li>
+<code>clust.cmeans</code> now reports a proper error message when an invalid <code>weights</code> value is given instead of failing with a type error.</li>
+<li>
+<code>clust.cmeans</code>, <code>clust.kkmeans</code>, and <code>clust.kmeans</code> now accept a matrix of initial cluster centers for the <code>centers</code> parameter, matching the upstream functions.</li>
+<li>
+<code>clust.cobweb</code> now declares the <code>hierarchical</code> property instead of <code>partitional</code>, and <code>clust.meanshift</code> declares <code>density</code> instead of <code>partitional</code>.</li>
+<li>
+<code>clust.dbscan</code>, <code>clust.dbscan_fpc</code>, <code>clust.hdbscan</code>, and <code>clust.optics</code> now declare the <code>partial</code> property instead of <code>complete</code>, since these algorithms can leave observations unassigned (noise points labeled 0).</li>
+<li>
+<code>clust.featureless</code> now returns <code>prob</code> predictions whose most probable cluster matches the predicted <code>partition</code>, with cluster column names consistent with the other learners supporting the <code>prob</code> predict type.</li>
+<li>
 <code>clust.silhouette</code> now returns <code>NaN</code> instead of <code>0</code> when all observations belong to a single cluster, since the silhouette width is undefined for k &lt; 2.</li>
-<li>
-<code>LearnerClustCMeans</code> now reports a proper error message when an invalid <code>weights</code> value is given instead of failing with a type error.</li>
-<li>
-<code>LearnerClustCMeans</code>, <code>LearnerClustKKMeans</code>, and <code>LearnerClustKMeans</code> now accept a matrix of initial cluster centers for the <code>centers</code> parameter, matching the upstream functions.</li>
-<li>
-<code>LearnerClustCobweb</code> now declares the <code>hierarchical</code> property instead of <code>partitional</code>.</li>
-<li>
-<code>LearnerClustDBSCAN</code>, <code>LearnerClustDBSCANfpc</code>, <code>LearnerClustHDBSCAN</code>, <code>LearnerClustOPTICS</code>, <code>LearnerClustSTDBSCAN</code>, and <code>LearnerClustTclust</code> now declare the <code>partial</code> property instead of <code>complete</code>, since these algorithms can leave observations unassigned (noise or trimmed points labeled 0).</li>
-<li>
-<code>LearnerClustFeatureless</code> now returns <code>prob</code> predictions whose most probable cluster matches the predicted <code>partition</code>, with cluster column names consistent with the other learners supporting the <code>prob</code> predict type.</li>
-<li>
-<code>LearnerClustMeanShift</code> now declares the <code>density</code> property instead of <code>partitional</code>.</li>
 </ul></div>
 </div>
     <div class="section level2">
