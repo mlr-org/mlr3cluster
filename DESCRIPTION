@@ -40,7 +40,7 @@ Suggests:
     fpc,
     genieclust,
     kernlab,
-    kohonen,
+    kohonen (>= 3.0.0),
     LPCM,
     mclust,
     mirai (>= 2.4.1),
