@@ -46,6 +46,10 @@
   are now computed natively instead of relying on
   [`fpc::cluster.stats()`](https://rdrr.io/pkg/fpc/man/cluster.stats.html).
   The fpc package is no longer a hard dependency.
+- `LearnerClustCobweb`, `LearnerClustEM`, `LearnerClustFarthestFirst`,
+  `LearnerClustSimpleKMeans`, and `LearnerClustXMeans` now declare the
+  `missings` property, since Weka handles missing attribute values
+  natively.
 - Learners no longer store the training data or dissimilarity matrix in
   the model by default: `LearnerClustAgnes`, `LearnerClustDiana`,
   `LearnerClustFanny`, and `LearnerClustPAM` now expose `keep.diss` and
