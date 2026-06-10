@@ -2,6 +2,15 @@
 
 ## mlr3cluster (development version)
 
+- breaking: Learner properties now follow the clustering taxonomy of
+  Tan, Steinbach, and Kumar (2005): every learner declares exactly one
+  membership property (`exclusive`, `overlapping`, or `fuzzy`)
+  describing the native form of the method rather than its output
+  capabilities. Natively soft learners (`clust.cmeans`, `clust.em`,
+  `clust.fanny`, `clust.flexmix`, `clust.mclust`, `clust.movMF`) no
+  longer declare `exclusive`, and `clust.featureless` and
+  `clust.MBatchKMeans` no longer declare `fuzzy`. Use the `prob` predict
+  type to select learners that can return soft memberships.
 - feat: Add `clust.avg_between` measure for average between-cluster
   distance.
 - feat: Add `clust.avg_within` measure for average within-cluster
@@ -34,6 +43,9 @@
   ratio.
 - feat: `LearnerClustDiana` gains the `stop.at.k` parameter from
   [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html).
+- feat: `LearnerClustKProto` now declares the `missings` property, since
+  [`clustMixType::kproto()`](https://rdrr.io/pkg/clustMixType/man/kproto.html)
+  supports missing values via the `na.rm` parameter.
 - fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix
   errors when using `mlr3cluster` in parallel.
 - fix:
@@ -45,9 +57,6 @@
   undefined for k \< 2.
 - fix: `LearnerClustCMeans` now reports a proper error message when an
   invalid `weights` value is given instead of failing with a type error.
-- fix: `LearnerClustCMeans`, `LearnerClustFanny`, and
-  `LearnerClustMclust` now declare the `exclusive` property, consistent
-  with the other learners supporting the `prob` predict type.
 - fix: `LearnerClustCMeans`, `LearnerClustKKMeans`, and
   `LearnerClustKMeans` now accept a matrix of initial cluster centers
   for the `centers` parameter, matching the upstream functions.
@@ -58,10 +67,11 @@
   and `LearnerClustTclust` now declare the `partial` property instead of
   `complete`, since these algorithms can leave observations unassigned
   (noise or trimmed points labeled 0).
-- fix: `LearnerClustFeatureless` now declares the `fuzzy` property,
-  since it supports the `prob` predict type.
 - fix: `LearnerClustFeatureless` now returns `prob` predictions whose
   most probable cluster matches the predicted `partition`.
+- fix: `LearnerClustFeatureless` now returns `prob` matrices with
+  cluster column names, consistent with the other learners supporting
+  the `prob` predict type.
 - fix: `LearnerClustMeanShift` now declares the `density` property
   instead of `partitional`.
 - perf: `LearnerClustAgnes` now exposes `keep.diss` and `keep.data` from

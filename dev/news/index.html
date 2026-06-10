@@ -50,7 +50,8 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
-<ul><li>feat: Add <code>clust.avg_between</code> measure for average between-cluster distance.</li>
+<ul><li>breaking: Learner properties now follow the clustering taxonomy of Tan, Steinbach, and Kumar (2005): every learner declares exactly one membership property (<code>exclusive</code>, <code>overlapping</code>, or <code>fuzzy</code>) describing the native form of the method rather than its output capabilities. Natively soft learners (<code>clust.cmeans</code>, <code>clust.em</code>, <code>clust.fanny</code>, <code>clust.flexmix</code>, <code>clust.mclust</code>, <code>clust.movMF</code>) no longer declare <code>exclusive</code>, and <code>clust.featureless</code> and <code>clust.MBatchKMeans</code> no longer declare <code>fuzzy</code>. Use the <code>prob</code> predict type to select learners that can return soft memberships.</li>
+<li>feat: Add <code>clust.avg_between</code> measure for average between-cluster distance.</li>
 <li>feat: Add <code>clust.avg_within</code> measure for average within-cluster distance.</li>
 <li>feat: Add <code>clust.davies_bouldin</code> measure for the Davies-Bouldin index.</li>
 <li>feat: Add <code>clust.dunn2</code> measure for the alternative Dunn index using average distances.</li>
@@ -66,16 +67,16 @@
 <li>feat: Add robust trimmed clustering learner <code>clust.tclust</code> from the tclust package.</li>
 <li>feat: Add <code>clust.wb_ratio</code> measure for the within/between distance ratio.</li>
 <li>feat: <code>LearnerClustDiana</code> gains the <code>stop.at.k</code> parameter from <code><a href="https://rdrr.io/pkg/cluster/man/diana.html" class="external-link">cluster::diana()</a></code>.</li>
+<li>feat: <code>LearnerClustKProto</code> now declares the <code>missings</code> property, since <code><a href="https://rdrr.io/pkg/clustMixType/man/kproto.html" class="external-link">clustMixType::kproto()</a></code> supports missing values via the <code>na.rm</code> parameter.</li>
 <li>fix: Add <code>mlr3cluster</code> to <code>mlr_reflections$loaded_packages</code> to fix errors when using <code>mlr3cluster</code> in parallel.</li>
 <li>fix: <code><a href="../reference/as_prediction_clust.html">as_prediction_clust.data.frame()</a></code> no longer errors with <code>unused argument (with = FALSE)</code> when given a plain <code>data.frame</code>.</li>
 <li>fix: <code>clust.silhouette</code> now returns <code>NaN</code> instead of <code>0</code> when all observations belong to a single cluster, since the silhouette width is undefined for k &lt; 2.</li>
 <li>fix: <code>LearnerClustCMeans</code> now reports a proper error message when an invalid <code>weights</code> value is given instead of failing with a type error.</li>
-<li>fix: <code>LearnerClustCMeans</code>, <code>LearnerClustFanny</code>, and <code>LearnerClustMclust</code> now declare the <code>exclusive</code> property, consistent with the other learners supporting the <code>prob</code> predict type.</li>
 <li>fix: <code>LearnerClustCMeans</code>, <code>LearnerClustKKMeans</code>, and <code>LearnerClustKMeans</code> now accept a matrix of initial cluster centers for the <code>centers</code> parameter, matching the upstream functions.</li>
 <li>fix: <code>LearnerClustCobweb</code> now declares the <code>hierarchical</code> property instead of <code>partitional</code>.</li>
 <li>fix: <code>LearnerClustDBSCAN</code>, <code>LearnerClustDBSCANfpc</code>, <code>LearnerClustHDBSCAN</code>, <code>LearnerClustOPTICS</code>, <code>LearnerClustSTDBSCAN</code>, and <code>LearnerClustTclust</code> now declare the <code>partial</code> property instead of <code>complete</code>, since these algorithms can leave observations unassigned (noise or trimmed points labeled 0).</li>
-<li>fix: <code>LearnerClustFeatureless</code> now declares the <code>fuzzy</code> property, since it supports the <code>prob</code> predict type.</li>
 <li>fix: <code>LearnerClustFeatureless</code> now returns <code>prob</code> predictions whose most probable cluster matches the predicted <code>partition</code>.</li>
+<li>fix: <code>LearnerClustFeatureless</code> now returns <code>prob</code> matrices with cluster column names, consistent with the other learners supporting the <code>prob</code> predict type.</li>
 <li>fix: <code>LearnerClustMeanShift</code> now declares the <code>density</code> property instead of <code>partitional</code>.</li>
 <li>perf: <code>LearnerClustAgnes</code> now exposes <code>keep.diss</code> and <code>keep.data</code> from <code><a href="https://rdrr.io/pkg/cluster/man/agnes.html" class="external-link">cluster::agnes()</a></code>, both initialized to <code>FALSE</code> to avoid storing the dissimilarity matrix and training data in the model.</li>
 <li>perf: <code>LearnerClustAP</code> now defaults <code>includeSim</code> to <code>FALSE</code> to avoid storing the n x n similarity matrix in the model. Set <code>includeSim = TRUE</code> to restore the previous behavior.</li>
