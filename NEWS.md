@@ -1,42 +1,48 @@
 # mlr3cluster (development version)
 
-* breaking: Learner properties now follow the clustering taxonomy of Tan, Steinbach, and Kumar (2005): every learner declares exactly one membership property (`exclusive`, `overlapping`, or `fuzzy`) describing the native form of the method rather than its output capabilities. Natively soft learners (`clust.cmeans`, `clust.em`, `clust.fanny`, `clust.flexmix`, `clust.mclust`, `clust.movMF`) no longer declare `exclusive`, and `clust.featureless` and `clust.MBatchKMeans` no longer declare `fuzzy`. Use the `prob` predict type to select learners that can return soft memberships.
-* feat: Add `clust.avg_between` measure for average between-cluster distance.
-* feat: Add `clust.avg_within` measure for average within-cluster distance.
-* feat: Add `clust.davies_bouldin` measure for the Davies-Bouldin index.
-* feat: Add `clust.dunn2` measure for the alternative Dunn index using average distances.
-* feat: Add `clust.entropy` measure for cluster size distribution entropy.
-* feat: Add finite mixture model clustering learner `clust.flexmix` from the flexmix package.
-* feat: Add Genie hierarchical clustering learner `clust.genie` from the genieclust package.
-* feat: Add k-centroids cluster analysis learner `clust.kcca` from the flexclust package, supporting k-means, k-medians, spherical, Jaccard, and extended Jaccard families.
-* feat: Add von Mises-Fisher mixture clustering learner `clust.movMF` from the movMF package.
-* feat: Add `clust.pearsongamma` measure for the Pearson Gamma correlation between distances and cluster membership.
-* feat: Add spherical k-means clustering learner `clust.skmeans` from the skmeans package.
-* feat: Add self-organizing maps clustering learner `clust.som` from the kohonen package.
-* feat: Add ST-DBSCAN clustering learner `clust.stdbscan` from the stdbscan package.
-* feat: Add robust trimmed clustering learner `clust.tclust` from the tclust package.
-* feat: Add `clust.wb_ratio` measure for the within/between distance ratio.
-* feat: `LearnerClustDiana` gains the `stop.at.k` parameter from `cluster::diana()`.
-* feat: `LearnerClustKProto` now declares the `missings` property, since `clustMixType::kproto()` supports missing values via the `na.rm` parameter.
-* fix: Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix errors when using `mlr3cluster` in parallel.
-* fix: `as_prediction_clust.data.frame()` no longer errors with `unused argument (with = FALSE)` when given a plain `data.frame`.
-* fix: `clust.silhouette` now returns `NaN` instead of `0` when all observations belong to a single cluster, since the silhouette width is undefined for k < 2.
-* fix: `LearnerClustCMeans` now reports a proper error message when an invalid `weights` value is given instead of failing with a type error.
-* fix: `LearnerClustCMeans`, `LearnerClustKKMeans`, and `LearnerClustKMeans` now accept a matrix of initial cluster centers for the `centers` parameter, matching the upstream functions.
-* fix: `LearnerClustCobweb` now declares the `hierarchical` property instead of `partitional`.
-* fix: `LearnerClustDBSCAN`, `LearnerClustDBSCANfpc`, `LearnerClustHDBSCAN`, `LearnerClustOPTICS`, `LearnerClustSTDBSCAN`, and `LearnerClustTclust` now declare the `partial` property instead of `complete`, since these algorithms can leave observations unassigned (noise or trimmed points labeled 0).
-* fix: `LearnerClustFeatureless` now returns `prob` predictions whose most probable cluster matches the predicted `partition`.
-* fix: `LearnerClustFeatureless` now returns `prob` matrices with cluster column names, consistent with the other learners supporting the `prob` predict type.
-* fix: `LearnerClustMeanShift` now declares the `density` property instead of `partitional`.
-* perf: `LearnerClustAgnes` now exposes `keep.diss` and `keep.data` from `cluster::agnes()`, both initialized to `FALSE` to avoid storing the dissimilarity matrix and training data in the model.
-* perf: `LearnerClustAP` now defaults `includeSim` to `FALSE` to avoid storing the n x n similarity matrix in the model. Set `includeSim = TRUE` to restore the previous behavior.
-* perf: `LearnerClustCLARA` now defaults `keep.data` to `FALSE` to avoid storing the training data in the model. Set `keep.data = TRUE` to restore the previous behavior.
-* perf: `LearnerClustDiana` now exposes `keep.diss` and `keep.data` from `cluster::diana()`, both initialized to `FALSE` to avoid storing the dissimilarity matrix and training data in the model.
-* perf: `LearnerClustFanny` now exposes `keep.diss` and `keep.data` from `cluster::fanny()`, both initialized to `FALSE` to avoid storing the dissimilarity matrix and training data in the model.
-* perf: `LearnerClustKProto` now exposes `keep.data` from `clustMixType::kproto()`, initialized to `FALSE` to avoid storing the training data in the model.
-* perf: `LearnerClustPAM` now exposes `keep.diss` and `keep.data` from `cluster::pam()`, both initialized to `FALSE` to avoid storing the dissimilarity matrix and training data in the model.
-* perf: `LearnerClustTclust` now exposes `store_x` from `tclust::tclust()`, initialized to `FALSE` to avoid storing the training data in the model.
-* refactor: Clustering quality measures (`clust.ch`, `clust.dunn`, `clust.wss`) are now computed natively instead of relying on `fpc::cluster.stats()`. The `fpc` package is no longer a hard dependency.
+## Breaking changes
+
+* Learner properties now follow the clustering taxonomy of Tan, Steinbach, and Kumar (2005): every learner declares exactly one membership property (`exclusive`, `overlapping`, or `fuzzy`) describing the native form of the method rather than its output capabilities. Natively soft learners (`clust.cmeans`, `clust.em`, `clust.fanny`, `clust.flexmix`, `clust.mclust`, `clust.movMF`) no longer declare `exclusive`, and `clust.featureless` and `clust.MBatchKMeans` no longer declare `fuzzy`. Use the `prob` predict type to select learners that can return soft memberships.
+
+## New learners
+
+* `clust.flexmix`: Finite mixture model clustering from the flexmix package.
+* `clust.genie`: Genie hierarchical clustering from the genieclust package.
+* `clust.kcca`: K-centroids cluster analysis from the flexclust package, supporting k-means, k-medians, spherical, Jaccard, and extended Jaccard families.
+* `clust.movMF`: Von Mises-Fisher mixture clustering from the movMF package.
+* `clust.skmeans`: Spherical k-means clustering from the skmeans package.
+* `clust.som`: Self-organizing maps from the kohonen package.
+* `clust.stdbscan`: ST-DBSCAN spatio-temporal clustering from the stdbscan package.
+* `clust.tclust`: Robust trimmed clustering from the tclust package.
+
+## New measures
+
+* `clust.avg_between`: Average between-cluster distance.
+* `clust.avg_within`: Average within-cluster distance.
+* `clust.davies_bouldin`: Davies-Bouldin index.
+* `clust.dunn2`: Alternative Dunn index using average distances.
+* `clust.entropy`: Cluster size distribution entropy.
+* `clust.pearsongamma`: Pearson Gamma correlation between distances and cluster membership.
+* `clust.wb_ratio`: Within/between distance ratio.
+
+## Other improvements
+
+* Clustering quality measures `clust.ch`, `clust.dunn`, and `clust.wss` are now computed natively instead of relying on `fpc::cluster.stats()`. The fpc package is no longer a hard dependency.
+* Learners no longer store the training data or dissimilarity matrix in the model by default: `LearnerClustAgnes`, `LearnerClustDiana`, `LearnerClustFanny`, and `LearnerClustPAM` now expose `keep.diss` and `keep.data`, `LearnerClustCLARA` and `LearnerClustKProto` expose `keep.data`, `LearnerClustTclust` exposes `store_x`, and `LearnerClustAP` exposes `includeSim`, all initialized to `FALSE`. Set the respective parameter to `TRUE` to restore the previous behavior.
+* `LearnerClustDiana` gains the `stop.at.k` parameter from `cluster::diana()`.
+* `LearnerClustKProto` now declares the `missings` property, since `clustMixType::kproto()` supports missing values via the `na.rm` parameter.
+
+## Bug fixes
+
+* Add `mlr3cluster` to `mlr_reflections$loaded_packages` to fix errors when using `mlr3cluster` in parallel.
+* `as_prediction_clust.data.frame()` no longer errors with `unused argument (with = FALSE)` when given a plain `data.frame`.
+* `clust.silhouette` now returns `NaN` instead of `0` when all observations belong to a single cluster, since the silhouette width is undefined for k < 2.
+* `LearnerClustCMeans` now reports a proper error message when an invalid `weights` value is given instead of failing with a type error.
+* `LearnerClustCMeans`, `LearnerClustKKMeans`, and `LearnerClustKMeans` now accept a matrix of initial cluster centers for the `centers` parameter, matching the upstream functions.
+* `LearnerClustCobweb` now declares the `hierarchical` property instead of `partitional`.
+* `LearnerClustDBSCAN`, `LearnerClustDBSCANfpc`, `LearnerClustHDBSCAN`, `LearnerClustOPTICS`, `LearnerClustSTDBSCAN`, and `LearnerClustTclust` now declare the `partial` property instead of `complete`, since these algorithms can leave observations unassigned (noise or trimmed points labeled 0).
+* `LearnerClustFeatureless` now returns `prob` predictions whose most probable cluster matches the predicted `partition`, with cluster column names consistent with the other learners supporting the `prob` predict type.
+* `LearnerClustMeanShift` now declares the `density` property instead of `partitional`.
 
 # mlr3cluster 0.3.0
 
