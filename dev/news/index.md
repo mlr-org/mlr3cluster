@@ -59,9 +59,6 @@
   the respective parameter to `TRUE` to restore the previous behavior.
 - `LearnerClustDiana` gains the `stop.at.k` parameter from
   [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html).
-- `LearnerClustKProto` now declares the `missings` property, since
-  [`clustMixType::kproto()`](https://rdrr.io/pkg/clustMixType/man/kproto.html)
-  supports missing values via the `na.rm` parameter.
 
 ### Bug fixes
 

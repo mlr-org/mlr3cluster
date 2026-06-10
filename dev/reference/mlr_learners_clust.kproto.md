@@ -213,7 +213,7 @@ print(learner)
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, numeric, factor, and ordered
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, missings, and partitional
+#> • Properties: complete, exclusive, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a mixed-type Task (kproto requires at least one factor variable)

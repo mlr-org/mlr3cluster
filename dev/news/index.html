@@ -98,8 +98,6 @@
 <li>Learners no longer store the training data or dissimilarity matrix in the model by default: <code>LearnerClustAgnes</code>, <code>LearnerClustDiana</code>, <code>LearnerClustFanny</code>, and <code>LearnerClustPAM</code> now expose <code>keep.diss</code> and <code>keep.data</code>, <code>LearnerClustCLARA</code> and <code>LearnerClustKProto</code> expose <code>keep.data</code>, <code>LearnerClustTclust</code> exposes <code>store_x</code>, and <code>LearnerClustAP</code> exposes <code>includeSim</code>, all initialized to <code>FALSE</code>. Set the respective parameter to <code>TRUE</code> to restore the previous behavior.</li>
 <li>
 <code>LearnerClustDiana</code> gains the <code>stop.at.k</code> parameter from <code><a href="https://rdrr.io/pkg/cluster/man/diana.html" class="external-link">cluster::diana()</a></code>.</li>
-<li>
-<code>LearnerClustKProto</code> now declares the <code>missings</code> property, since <code><a href="https://rdrr.io/pkg/clustMixType/man/kproto.html" class="external-link">clustMixType::kproto()</a></code> supports missing values via the <code>na.rm</code> parameter.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
