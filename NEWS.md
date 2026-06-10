@@ -22,6 +22,7 @@
 * fix: `LearnerClustCMeans` now reports a proper error message when an invalid `weights` value is given instead of failing with a type error.
 * fix: `LearnerClustCMeans`, `LearnerClustKKMeans`, and `LearnerClustKMeans` now accept a matrix of initial cluster centers for the `centers` parameter, matching the upstream functions.
 * fix: `LearnerClustDBSCAN`, `LearnerClustDBSCANfpc`, `LearnerClustHDBSCAN`, `LearnerClustOPTICS`, `LearnerClustSTDBSCAN`, and `LearnerClustTclust` now declare the `partial` property instead of `complete`, since these algorithms can leave observations unassigned (noise or trimmed points labeled 0).
+* fix: `LearnerClustFeatureless` now declares the `fuzzy` property, since it supports the `prob` predict type.
 * fix: `LearnerClustFeatureless` now returns `prob` predictions whose most probable cluster matches the predicted `partition`.
 * perf: `LearnerClustAgnes` now exposes `keep.diss` and `keep.data` from `cluster::agnes()`, both initialized to `FALSE` to avoid storing the dissimilarity matrix and training data in the model.
 * perf: `LearnerClustAP` now defaults `includeSim` to `FALSE` to avoid storing the n x n similarity matrix in the model. Set `includeSim = TRUE` to restore the previous behavior.
