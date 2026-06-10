@@ -28,6 +28,7 @@
 ## Other improvements
 
 * Clustering quality measures `clust.ch`, `clust.dunn`, and `clust.wss` are now computed natively instead of relying on `fpc::cluster.stats()`. The fpc package is no longer a hard dependency.
+* `LearnerClustCobweb`, `LearnerClustEM`, `LearnerClustFarthestFirst`, `LearnerClustSimpleKMeans`, and `LearnerClustXMeans` now declare the `missings` property, since Weka handles missing attribute values natively.
 * Learners no longer store the training data or dissimilarity matrix in the model by default: `LearnerClustAgnes`, `LearnerClustDiana`, `LearnerClustFanny`, and `LearnerClustPAM` now expose `keep.diss` and `keep.data`, `LearnerClustCLARA` and `LearnerClustKProto` expose `keep.data`, `LearnerClustTclust` exposes `store_x`, and `LearnerClustAP` exposes `includeSim`, all initialized to `FALSE`. Set the respective parameter to `TRUE` to restore the previous behavior.
 * `LearnerClustDiana` gains the `stop.at.k` parameter from `cluster::diana()`.
 * `LearnerClustKProto` now declares the `missings` property, since `clustMixType::kproto()` supports missing values via the `na.rm` parameter.
