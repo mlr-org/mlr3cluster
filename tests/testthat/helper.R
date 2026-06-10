@@ -1,5 +1,8 @@
-walk(list.files(system.file("testthat", package = "mlr3"), pattern = "^helper.*\\.[rR]", full.names = TRUE), source)
-
+walk(
+  list.files(system.file("testthat", package = "mlr3"), pattern = "^helper.*\\.[rR]", full.names = TRUE),
+  source,
+  local = environment()
+)
 generate_tasks.LearnerClust = function(learner, N = 20L) {
   set.seed(1L)
   data = mlbench::mlbench.2dnormals(N, cl = 2L, r = 2, sd = 0.1)
