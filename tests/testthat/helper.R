@@ -10,10 +10,10 @@ generate_tasks.LearnerClust = function(learner, N = 20L) {
   list(task)
 }
 
-registerS3method("generate_tasks", "LearnerClust", generate_tasks.LearnerClust, envir = parent.frame())
+registerS3method("generate_tasks", "LearnerClust", generate_tasks.LearnerClust)
 
 sanity_check.PredictionClust = function(prediction, task, ...) {
   prediction$score(measures = msr("clust.silhouette"), task = task) > -1L
 }
 
-registerS3method("sanity_check", "PredictionClust", sanity_check.PredictionClust, envir = parent.frame())
+registerS3method("sanity_check", "PredictionClust", sanity_check.PredictionClust)

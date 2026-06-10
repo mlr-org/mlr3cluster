@@ -13,12 +13,7 @@ test_that("autotest", {
     task = TaskClust$new("sanity", mlr3::as_data_backend(dt))
     list(task)
   }
-  registerS3method(
-    "generate_tasks",
-    "LearnerClustSTDBSCAN",
-    generate_tasks.LearnerClustSTDBSCAN,
-    envir = parent.frame()
-  )
+  registerS3method("generate_tasks", "LearnerClustSTDBSCAN", generate_tasks.LearnerClustSTDBSCAN)
 
   result = run_autotest(learner)
   expect_true(result, info = result$error)
