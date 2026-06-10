@@ -2,7 +2,7 @@
 
 ## Breaking changes
 
-* Learner properties now follow the clustering taxonomy of Tan, Steinbach, and Kumar (2005): every learner declares exactly one membership property (`exclusive`, `overlapping`, or `fuzzy`) describing the native form of the method rather than its output capabilities. Natively soft learners (`clust.cmeans`, `clust.em`, `clust.fanny`, `clust.flexmix`, `clust.mclust`, `clust.movMF`) no longer declare `exclusive`, and `clust.featureless` and `clust.MBatchKMeans` no longer declare `fuzzy`. Use the `prob` predict type to select learners that can return soft memberships.
+* Learner properties now describe the native form of the clustering method rather than its output capabilities: every learner declares exactly one membership property (`exclusive`, `overlapping`, or `fuzzy`). As a result, `clust.em` no longer declares `exclusive` and `clust.MBatchKMeans` no longer declares `fuzzy`. Use the `prob` predict type to select learners that can return soft memberships.
 
 ## New learners
 

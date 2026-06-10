@@ -13,8 +13,7 @@ This Learner specializes \link[mlr3:Learner]{mlr3::Learner} for cluster problems
 \item \code{"partition"}: Integer indicating the cluster membership.
 \item \code{"prob"}: Probability for belonging to each cluster.
 }
-\item Additional learner properties classify the learner along the clustering taxonomy of Tan, Steinbach, and Kumar
-(2005), with exactly one membership, one coverage, and one algorithm family property:
+\item Additional learner properties include:
 \itemize{
 \item \code{"exclusive"}: The method natively assigns each observation to exactly one cluster.
 \item \code{"overlapping"}: The method natively assigns observations to multiple clusters.

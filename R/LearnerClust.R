@@ -8,8 +8,7 @@
 #' * Possible values for `predict_types` are:
 #'   - `"partition"`: Integer indicating the cluster membership.
 #'   - `"prob"`: Probability for belonging to each cluster.
-#' * Additional learner properties classify the learner along the clustering taxonomy of Tan, Steinbach, and Kumar
-#'   (2005), with exactly one membership, one coverage, and one algorithm family property:
+#' * Additional learner properties include:
 #'   - `"exclusive"`: The method natively assigns each observation to exactly one cluster.
 #'   - `"overlapping"`: The method natively assigns observations to multiple clusters.
 #'   - `"fuzzy"`: The method natively produces soft cluster memberships, e.g. fuzzy or probabilistic model-based
