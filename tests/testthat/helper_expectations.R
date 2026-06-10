@@ -10,10 +10,8 @@ expect_prediction_clust = function(p, learner = NULL) {
     if ("complete" %chin% learner$properties) {
       expect_prediction_complete(p, learner$predict_type)
     }
-    if ("exclusive" %chin% learner$properties) {
-      expect_prediction_exclusive(p, "partition")
-    }
-    if ("fuzzy" %chin% learner$properties && learner$predict_type == "prob") {
+    expect_prediction_exclusive(p, "partition")
+    if (learner$predict_type == "prob") {
       expect_prediction_fuzzy(p)
     }
   }

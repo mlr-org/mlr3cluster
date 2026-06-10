@@ -13,6 +13,23 @@ This Learner specializes \link[mlr3:Learner]{mlr3::Learner} for cluster problems
 \item \code{"partition"}: Integer indicating the cluster membership.
 \item \code{"prob"}: Probability for belonging to each cluster.
 }
+\item Additional learner properties classify the learner along the clustering taxonomy of Tan, Steinbach, and Kumar
+(2005), with exactly one membership, one coverage, and one algorithm family property:
+\itemize{
+\item \code{"exclusive"}: The method natively assigns each observation to exactly one cluster.
+\item \code{"overlapping"}: The method natively assigns observations to multiple clusters.
+\item \code{"fuzzy"}: The method natively produces soft cluster memberships, e.g. fuzzy or probabilistic model-based
+methods. The hard partition is derived from the memberships.
+\item \code{"complete"}: Every observation is assigned to a cluster.
+\item \code{"partial"}: Observations may be left unassigned, e.g. as noise points.
+\item \code{"partitional"}: The method divides the data into non-nested clusters.
+\item \code{"hierarchical"}: The method produces a nested hierarchy of clusters.
+\item \code{"density"}: The method finds clusters as dense regions in the feature space.
+}
+
+These properties describe the nature of the underlying method, not its interface capabilities: whether a learner
+can return soft memberships is encoded by the \code{"prob"} predict type, which \code{"exclusive"} learners may also
+support via derived scores.
 }
 
 Predefined learners can be found in the \link[mlr3misc:Dictionary]{mlr3misc::Dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners}.

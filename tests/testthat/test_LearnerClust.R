@@ -39,6 +39,15 @@ test_that("empty predict set (#421)", {
   expect_match(conditionMessage(learner$log$condition[[1L]]), "No data to predict on", fixed = TRUE)
 })
 
+test_that("properties follow the clustering taxonomy", {
+  for (key in mlr_learners$keys("^clust\\.")) {
+    properties = lrn(key)$properties
+    expect_length(intersect(properties, c("exclusive", "overlapping", "fuzzy")), 1)
+    expect_length(intersect(properties, c("complete", "partial")), 1)
+    expect_length(intersect(properties, c("partitional", "hierarchical", "density")), 1)
+  }
+})
+
 test_that("assignment saving works", {
   task = tsk("usarrests")
   learner = lrn("clust.featureless")

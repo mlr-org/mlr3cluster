@@ -27,7 +27,7 @@ LearnerClustFeatureless = R6Class(
         feature_types = c("logical", "integer", "numeric"),
         predict_types = c("partition", "prob"),
         param_set = param_set,
-        properties = c("partitional", "exclusive", "fuzzy", "complete", "missings"),
+        properties = c("partitional", "exclusive", "complete", "missings"),
         man = "mlr3cluster::mlr_learners_clust.featureless",
         label = "Featureless Clustering Learner"
       )
@@ -75,6 +75,7 @@ LearnerClustFeatureless = R6Class(
             if (pos == partition[i]) x else append(x[-pos], x[pos], after = partition[i] - 1L)
           })
         )
+        colnames(prob) = seq_col(prob)
       }
 
       PredictionClust$new(task = task, partition = partition, prob = prob)
