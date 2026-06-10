@@ -2,15 +2,6 @@
 
 ## mlr3cluster (development version)
 
-### Breaking changes
-
-- Learner properties now describe the native form of the clustering
-  method rather than its output capabilities: every learner declares
-  exactly one membership property (`exclusive`, `overlapping`, or
-  `fuzzy`). As a result, `clust.em` no longer declares `exclusive` and
-  `clust.MBatchKMeans` no longer declares `fuzzy`. Use the `prob`
-  predict type to select learners that can return soft memberships.
-
 ### New learners
 
 - `clust.flexmix`: Finite mixture model clustering from the flexmix
@@ -43,6 +34,11 @@
 
 ### Other improvements
 
+- Learner properties now describe the clustering method itself rather
+  than its outputs: each learner declares exactly one membership
+  property, so `clust.em` drops `exclusive` and `clust.MBatchKMeans`
+  drops `fuzzy`. Use the `prob` predict type to select learners with
+  soft memberships.
 - Learners no longer store the training data or dissimilarity matrix in
   the model by default: `clust.agnes`, `clust.diana`, `clust.fanny`, and
   `clust.pam` now expose `keep.diss` and `keep.data`, `clust.clara` and

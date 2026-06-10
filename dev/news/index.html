@@ -51,10 +51,6 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
 <div class="section level3">
-<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
-<ul><li>Learner properties now describe the native form of the clustering method rather than its output capabilities: every learner declares exactly one membership property (<code>exclusive</code>, <code>overlapping</code>, or <code>fuzzy</code>). As a result, <code>clust.em</code> no longer declares <code>exclusive</code> and <code>clust.MBatchKMeans</code> no longer declares <code>fuzzy</code>. Use the <code>prob</code> predict type to select learners that can return soft memberships.</li>
-</ul></div>
-<div class="section level3">
 <h3 id="new-learners-development-version">New learners<a class="anchor" aria-label="anchor" href="#new-learners-development-version"></a></h3>
 <ul><li>
 <code>clust.flexmix</code>: Finite mixture model clustering from the flexmix package.</li>
@@ -92,7 +88,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
-<ul><li>Learners no longer store the training data or dissimilarity matrix in the model by default: <code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.fanny</code>, and <code>clust.pam</code> now expose <code>keep.diss</code> and <code>keep.data</code>, <code>clust.clara</code> and <code>clust.kproto</code> expose <code>keep.data</code>, and <code>clust.ap</code> exposes <code>includeSim</code>, all initialized to <code>FALSE</code>. Set the respective parameter to <code>TRUE</code> to restore the previous behavior.</li>
+<ul><li>Learner properties now describe the clustering method itself rather than its outputs: each learner declares exactly one membership property, so <code>clust.em</code> drops <code>exclusive</code> and <code>clust.MBatchKMeans</code> drops <code>fuzzy</code>. Use the <code>prob</code> predict type to select learners with soft memberships.</li>
+<li>Learners no longer store the training data or dissimilarity matrix in the model by default: <code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.fanny</code>, and <code>clust.pam</code> now expose <code>keep.diss</code> and <code>keep.data</code>, <code>clust.clara</code> and <code>clust.kproto</code> expose <code>keep.data</code>, and <code>clust.ap</code> exposes <code>includeSim</code>, all initialized to <code>FALSE</code>. Set the respective parameter to <code>TRUE</code> to restore the previous behavior.</li>
 <li>Clustering quality measures <code>clust.ch</code>, <code>clust.dunn</code>, and <code>clust.wss</code> are now computed natively instead of relying on <code><a href="https://rdrr.io/pkg/fpc/man/cluster.stats.html" class="external-link">fpc::cluster.stats()</a></code>. The fpc package is no longer a hard dependency.</li>
 <li>
 <code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.SimpleKMeans</code>, and <code>clust.xmeans</code> now declare the <code>missings</code> property, since Weka handles missing attribute values natively.</li>
