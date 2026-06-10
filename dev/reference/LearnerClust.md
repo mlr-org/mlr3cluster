@@ -17,9 +17,7 @@ cluster problems:
 
   - `"prob"`: Probability for belonging to each cluster.
 
-- Additional learner properties classify the learner along the
-  clustering taxonomy of Tan, Steinbach, and Kumar (2005), with exactly
-  one membership, one coverage, and one algorithm family property:
+- Additional learner properties include:
 
   - `"exclusive"`: The method natively assigns each observation to
     exactly one cluster.
