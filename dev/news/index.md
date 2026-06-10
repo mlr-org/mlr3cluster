@@ -45,6 +45,9 @@
   undefined for k \< 2.
 - fix: `LearnerClustCMeans` now reports a proper error message when an
   invalid `weights` value is given instead of failing with a type error.
+- fix: `LearnerClustCMeans`, `LearnerClustFanny`, and
+  `LearnerClustMclust` now declare the `exclusive` property, consistent
+  with the other learners supporting the `prob` predict type.
 - fix: `LearnerClustCMeans`, `LearnerClustKKMeans`, and
   `LearnerClustKMeans` now accept a matrix of initial cluster centers
   for the `centers` parameter, matching the upstream functions.
@@ -59,6 +62,8 @@
   since it supports the `prob` predict type.
 - fix: `LearnerClustFeatureless` now returns `prob` predictions whose
   most probable cluster matches the predicted `partition`.
+- fix: `LearnerClustMeanShift` now declares the `density` property
+  instead of `partitional`.
 - perf: `LearnerClustAgnes` now exposes `keep.diss` and `keep.data` from
   [`cluster::agnes()`](https://rdrr.io/pkg/cluster/man/agnes.html), both
   initialized to `FALSE` to avoid storing the dissimilarity matrix and
