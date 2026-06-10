@@ -192,7 +192,7 @@ print(learner)
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, and partitional
+#> • Properties: complete, exclusive, and hierarchical
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task

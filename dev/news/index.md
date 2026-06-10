@@ -48,11 +48,15 @@
 - fix: `LearnerClustCMeans`, `LearnerClustKKMeans`, and
   `LearnerClustKMeans` now accept a matrix of initial cluster centers
   for the `centers` parameter, matching the upstream functions.
+- fix: `LearnerClustCobweb` now declares the `hierarchical` property
+  instead of `partitional`.
 - fix: `LearnerClustDBSCAN`, `LearnerClustDBSCANfpc`,
   `LearnerClustHDBSCAN`, `LearnerClustOPTICS`, `LearnerClustSTDBSCAN`,
   and `LearnerClustTclust` now declare the `partial` property instead of
   `complete`, since these algorithms can leave observations unassigned
   (noise or trimmed points labeled 0).
+- fix: `LearnerClustFeatureless` now declares the `fuzzy` property,
+  since it supports the `prob` predict type.
 - fix: `LearnerClustFeatureless` now returns `prob` predictions whose
   most probable cluster matches the predicted `partition`.
 - perf: `LearnerClustAgnes` now exposes `keep.diss` and `keep.data` from

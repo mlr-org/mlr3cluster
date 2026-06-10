@@ -172,7 +172,7 @@ print(learner)
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, missings, and partitional
+#> • Properties: complete, exclusive, fuzzy, missings, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
