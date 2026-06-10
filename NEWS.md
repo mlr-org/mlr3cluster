@@ -20,6 +20,7 @@
 * fix: `as_prediction_clust.data.frame()` no longer errors with `unused argument (with = FALSE)` when given a plain `data.frame`.
 * fix: `clust.silhouette` now returns `NaN` instead of `0` when all observations belong to a single cluster, since the silhouette width is undefined for k < 2.
 * fix: `LearnerClustCMeans` now reports a proper error message when an invalid `weights` value is given instead of failing with a type error.
+* fix: `LearnerClustCMeans`, `LearnerClustFanny`, and `LearnerClustMclust` now declare the `exclusive` property, consistent with the other learners supporting the `prob` predict type.
 * fix: `LearnerClustCMeans`, `LearnerClustKKMeans`, and `LearnerClustKMeans` now accept a matrix of initial cluster centers for the `centers` parameter, matching the upstream functions.
 * fix: `LearnerClustCobweb` now declares the `hierarchical` property instead of `partitional`.
 * fix: `LearnerClustDBSCAN`, `LearnerClustDBSCANfpc`, `LearnerClustHDBSCAN`, `LearnerClustOPTICS`, `LearnerClustSTDBSCAN`, and `LearnerClustTclust` now declare the `partial` property instead of `complete`, since these algorithms can leave observations unassigned (noise or trimmed points labeled 0).
