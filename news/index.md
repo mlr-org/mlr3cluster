@@ -2,6 +2,8 @@
 
 ## mlr3cluster 0.4.0
 
+CRAN release: 2026-06-11
+
 ### New learners
 
 - `clust.flexmix`: Finite mixture model clustering from the flexmix
