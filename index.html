@@ -96,8 +96,8 @@
 </h2>
 <p>The current version of <strong>mlr3cluster</strong> contains:</p>
 <ul>
-<li>A selection of 28 clustering learners that represent a wide variety of clusterers: partitional, hierarchical, fuzzy, etc.</li>
-<li>A selection of 4 performance measures</li>
+<li>A selection of 36 clustering learners that represent a wide variety of clusterers: partitional, hierarchical, fuzzy, etc.</li>
+<li>A selection of 11 performance measures</li>
 <li>Two built-in tasks to get started with clustering</li>
 </ul>
 <p>Also, the package is integrated with <strong><a href="https://github.com/mlr-org/mlr3viz" class="external-link">mlr3viz</a></strong> which enables you to create great visualizations with just one line of code!</p>
@@ -205,6 +205,16 @@
 <td align="left"><a href="https://cran.r-project.org/package=RWeka" class="external-link">RWeka</a></td>
 </tr>
 <tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix">clust.flexmix</a></td>
+<td align="left">Finite Mixture Model</td>
+<td align="left"><a href="https://cran.r-project.org/package=flexmix" class="external-link">flexmix</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie">clust.genie</a></td>
+<td align="left">Genie Hierarchical Clustering</td>
+<td align="left"><a href="https://cran.r-project.org/package=genieclust" class="external-link">genieclust</a></td>
+</tr>
+<tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust">clust.hclust</a></td>
 <td align="left">Hierarchical Clustering</td>
 <td align="left">stats</td>
@@ -213,6 +223,11 @@
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan">clust.hdbscan</a></td>
 <td align="left">HDBSCAN</td>
 <td align="left"><a href="https://cran.r-project.org/package=dbscan" class="external-link">dbscan</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca">clust.kcca</a></td>
+<td align="left">K-Centroids Cluster Analysis</td>
+<td align="left"><a href="https://cran.r-project.org/package=flexclust" class="external-link">flexclust</a></td>
 </tr>
 <tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans">clust.kkmeans</a></td>
@@ -241,6 +256,11 @@
 <td align="left"><a href="https://cran.r-project.org/package=LPCM" class="external-link">LPCM</a></td>
 </tr>
 <tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.movMF">clust.movMF</a></td>
+<td align="left">von Mises-Fisher Mixture</td>
+<td align="left"><a href="https://cran.r-project.org/package=movMF" class="external-link">movMF</a></td>
+</tr>
+<tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics">clust.optics</a></td>
 <td align="left">OPTICS</td>
 <td align="left"><a href="https://cran.r-project.org/package=dbscan" class="external-link">dbscan</a></td>
@@ -258,9 +278,29 @@
 <td align="left"><a href="https://cran.r-project.org/package=protoclust" class="external-link">protoclust</a></td>
 </tr>
 <tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.skmeans">clust.skmeans</a></td>
+<td align="left">Spherical K-Means</td>
+<td align="left"><a href="https://cran.r-project.org/package=skmeans" class="external-link">skmeans</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.som">clust.som</a></td>
+<td align="left">Self-Organizing Maps</td>
+<td align="left"><a href="https://cran.r-project.org/package=kohonen" class="external-link">kohonen</a></td>
+</tr>
+<tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc">clust.specc</a></td>
 <td align="left">Spectral Clustering</td>
 <td align="left"><a href="https://cran.r-project.org/package=kernlab" class="external-link">kernlab</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.stdbscan">clust.stdbscan</a></td>
+<td align="left">ST-DBSCAN</td>
+<td align="left"><a href="https://cran.r-project.org/package=stdbscan" class="external-link">stdbscan</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.tclust">clust.tclust</a></td>
+<td align="left">Robust Trimmed Clustering</td>
+<td align="left"><a href="https://cran.r-project.org/package=tclust" class="external-link">tclust</a></td>
 </tr>
 <tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans">clust.xmeans</a></td>
@@ -286,14 +326,44 @@
 </tr></thead>
 <tbody>
 <tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.avg_between">clust.avg_between</a></td>
+<td align="left">Average Between</td>
+<td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.avg_within">clust.avg_within</a></td>
+<td align="left">Average Within</td>
+<td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
+</tr>
+<tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch">clust.ch</a></td>
 <td align="left">Calinski Harabasz</td>
-<td align="left"><a href="https://cran.r-project.org/package=fpc" class="external-link">fpc</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.davies_bouldin">clust.davies_bouldin</a></td>
+<td align="left">Davies-Bouldin</td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn">clust.dunn</a></td>
 <td align="left">Dunn</td>
-<td align="left"><a href="https://cran.r-project.org/package=fpc" class="external-link">fpc</a></td>
+<td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn2">clust.dunn2</a></td>
+<td align="left">Dunn2</td>
+<td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.entropy">clust.entropy</a></td>
+<td align="left">Entropy</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.pearsongamma">clust.pearsongamma</a></td>
+<td align="left">Pearson Gamma</td>
+<td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
 </tr>
 <tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette">clust.silhouette</a></td>
@@ -301,9 +371,14 @@
 <td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
 </tr>
 <tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wb_ratio">clust.wb_ratio</a></td>
+<td align="left">Within/Between Ratio</td>
+<td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
+</tr>
+<tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss">clust.wss</a></td>
 <td align="left">Within Sum of Squares</td>
-<td align="left"><a href="https://cran.r-project.org/package=fpc" class="external-link">fpc</a></td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
