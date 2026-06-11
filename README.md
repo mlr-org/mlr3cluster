@@ -41,9 +41,9 @@ pak::pak("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-- A selection of 28 clustering learners that represent a wide variety of
+- A selection of 36 clustering learners that represent a wide variety of
   clusterers: partitional, hierarchical, fuzzy, etc.
-- A selection of 4 performance measures
+- A selection of 11 performance measures
 - Two built-in tasks to get started with clustering
 
 Also, the package is integrated with
@@ -72,27 +72,42 @@ create great visualizations with just one line of code!
 | [clust.fanny](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny) | Fuzzy Analysis | [cluster](https://cran.r-project.org/package=cluster) |
 | [clust.featureless](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless) | Featureless Clustering Learner |  |
 | [clust.ff](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff) | Farthest First | [RWeka](https://cran.r-project.org/package=RWeka) |
+| [clust.flexmix](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix) | Finite Mixture Model | [flexmix](https://cran.r-project.org/package=flexmix) |
+| [clust.genie](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie) | Genie Hierarchical Clustering | [genieclust](https://cran.r-project.org/package=genieclust) |
 | [clust.hclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust) | Hierarchical Clustering | stats |
 | [clust.hdbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan) | HDBSCAN | [dbscan](https://cran.r-project.org/package=dbscan) |
+| [clust.kcca](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca) | K-Centroids Cluster Analysis | [flexclust](https://cran.r-project.org/package=flexclust) |
 | [clust.kkmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans) | Kernel K-Means | [kernlab](https://cran.r-project.org/package=kernlab) |
 | [clust.kmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans) | K-Means | stats, [clue](https://cran.r-project.org/package=clue) |
 | [clust.kproto](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto) | K-Prototypes | [clustMixType](https://cran.r-project.org/package=clustMixType) |
 | [clust.mclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust) | Gaussian Mixture Model | [mclust](https://cran.r-project.org/package=mclust) |
 | [clust.meanshift](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift) | Mean Shift | [LPCM](https://cran.r-project.org/package=LPCM) |
+| [clust.movMF](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.movMF) | von Mises-Fisher Mixture | [movMF](https://cran.r-project.org/package=movMF) |
 | [clust.optics](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics) | OPTICS | [dbscan](https://cran.r-project.org/package=dbscan) |
 | [clust.pam](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam) | Partitioning Around Medoids | [cluster](https://cran.r-project.org/package=cluster), [clue](https://cran.r-project.org/package=clue) |
 | [clust.protoclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust) | Prototype Hierarchical Clustering | [protoclust](https://cran.r-project.org/package=protoclust) |
+| [clust.skmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.skmeans) | Spherical K-Means | [skmeans](https://cran.r-project.org/package=skmeans) |
+| [clust.som](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.som) | Self-Organizing Maps | [kohonen](https://cran.r-project.org/package=kohonen) |
 | [clust.specc](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc) | Spectral Clustering | [kernlab](https://cran.r-project.org/package=kernlab) |
+| [clust.stdbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.stdbscan) | ST-DBSCAN | [stdbscan](https://cran.r-project.org/package=stdbscan) |
+| [clust.tclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.tclust) | Robust Trimmed Clustering | [tclust](https://cran.r-project.org/package=tclust) |
 | [clust.xmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans) | X-Means | [RWeka](https://cran.r-project.org/package=RWeka) |
 
 ### Cluster Measures
 
 | Key | Label | Packages |
 |:---|:---|:---|
-| [clust.ch](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch) | Calinski Harabasz | [fpc](https://cran.r-project.org/package=fpc) |
-| [clust.dunn](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn) | Dunn | [fpc](https://cran.r-project.org/package=fpc) |
+| [clust.avg_between](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.avg_between) | Average Between | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.avg_within](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.avg_within) | Average Within | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.ch](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch) | Calinski Harabasz |  |
+| [clust.davies_bouldin](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.davies_bouldin) | Davies-Bouldin |  |
+| [clust.dunn](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn) | Dunn | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.dunn2](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn2) | Dunn2 | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.entropy](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.entropy) | Entropy |  |
+| [clust.pearsongamma](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.pearsongamma) | Pearson Gamma | [cluster](https://cran.r-project.org/package=cluster) |
 | [clust.silhouette](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette) | Silhouette | [cluster](https://cran.r-project.org/package=cluster) |
-| [clust.wss](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss) | Within Sum of Squares | [fpc](https://cran.r-project.org/package=fpc) |
+| [clust.wb_ratio](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wb_ratio) | Within/Between Ratio | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.wss](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss) | Within Sum of Squares |  |
 
 ## Example
 
