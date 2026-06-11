@@ -12,6 +12,17 @@ for new data. The code is taken from
 [StackOverflow](https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi)
 answer by the `apcluster` package maintainer.
 
+## Initial parameter values
+
+- `includeSim`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the n x n similarity matrix in the
+    model.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -47,7 +58,7 @@ or with the associated sugar function
 | maxits     | integer | 1000      |             | \\\[1, \infty)\\      |
 | convits    | integer | 100       |             | \\\[1, \infty)\\      |
 | lam        | numeric | 0.9       |             | \\\[0.5, 1\]\\        |
-| includeSim | logical | FALSE     | TRUE, FALSE | \-                    |
+| includeSim | logical | TRUE      | TRUE, FALSE | \-                    |
 | details    | logical | FALSE     | TRUE, FALSE | \-                    |
 | nonoise    | logical | FALSE     | TRUE, FALSE | \-                    |
 | seed       | integer | NA        |             | \\(-\infty, \infty)\\ |
@@ -81,6 +92,9 @@ between data points.” *science*, **315**(5814), 972–976.
 - [mlr3pipelines](https://CRAN.R-project.org/package=mlr3pipelines) to
   combine learners with pre- and postprocessing steps.
 
+- Package [mlr3viz](https://CRAN.R-project.org/package=mlr3viz) for some
+  generic visualizations.
+
 - Extension packages for additional task types:
 
   - [mlr3proba](https://CRAN.R-project.org/package=mlr3proba) for
@@ -110,30 +124,38 @@ Other Learner:
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md),
+[`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
+[`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
+[`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
+[`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.movMF.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
+[`mlr_learners_clust.skmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.skmeans.md),
+[`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.som.md),
 [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md),
+[`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.stdbscan.md),
+[`mlr_learners_clust.tclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.tclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustAP`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustAP$new()`](#method-LearnerClustAP-new)
+- [`LearnerClustAP$new()`](#method-LearnerClustAP-initialize)
 
 - [`LearnerClustAP$clone()`](#method-LearnerClustAP-clone)
 
@@ -149,11 +171,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustAP$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -164,7 +186,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustAP$clone()`
 
 The objects of this class are cloneable with this method.
 
@@ -187,11 +209,11 @@ print(learner)
 #> 
 #> ── <LearnerClustAP> (clust.ap): Affinity Propagation ───────────────────────────
 #> • Model: -
-#> • Parameters: list()
+#> • Parameters: includeSim=FALSE
 #> • Packages: mlr3, mlr3cluster, and apcluster
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, exclusive, and partitional
-#> • Other settings: use_weights = 'error'
+#> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 ```

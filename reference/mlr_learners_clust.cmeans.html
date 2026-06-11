@@ -5,17 +5,13 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Fuzzy C-Means Clustering Learner — mlr_learners_clust.cmeans"><meta name="description" content="Fuzzy c-means clustering.
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Fuzzy C-Means Clustering Learner — mlr_learners_clust.cmeans"><meta name="description" content="Fuzzy c-means clustering.
 Calls e1071::cmeans() from package e1071.
-The centers parameter is set to 2 by default since e1071::cmeans()
-doesn't have a default value for the number of clusters.
-The predict method uses clue::cl_predict() to compute the
-cluster memberships for new data."><meta property="og:description" content="Fuzzy c-means clustering.
+The centers parameter is set to 2 by default since e1071::cmeans() doesn't have a default value for the number of
+clusters. The predict method uses clue::cl_predict() to compute the cluster memberships for new data."><meta property="og:description" content="Fuzzy c-means clustering.
 Calls e1071::cmeans() from package e1071.
-The centers parameter is set to 2 by default since e1071::cmeans()
-doesn't have a default value for the number of clusters.
-The predict method uses clue::cl_predict() to compute the
-cluster memberships for new data."></head><body>
+The centers parameter is set to 2 by default since e1071::cmeans() doesn't have a default value for the number of
+clusters. The predict method uses clue::cl_predict() to compute the cluster memberships for new data."></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -23,7 +19,7 @@ cluster memberships for new data."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,10 +58,8 @@ cluster memberships for new data."></head><body>
     <div class="ref-description section level2">
     <p>Fuzzy c-means clustering.
 Calls <code><a href="https://rdrr.io/pkg/e1071/man/cmeans.html" class="external-link">e1071::cmeans()</a></code> from package <a href="https://CRAN.R-project.org/package=e1071" class="external-link"><span class="pkg">e1071</span></a>.</p>
-<p>The <code>centers</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/e1071/man/cmeans.html" class="external-link">e1071::cmeans()</a></code>
-doesn't have a default value for the number of clusters.
-The predict method uses <code><a href="https://rdrr.io/pkg/clue/man/cl_predict.html" class="external-link">clue::cl_predict()</a></code> to compute the
-cluster memberships for new data.</p>
+<p>The <code>centers</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/e1071/man/cmeans.html" class="external-link">e1071::cmeans()</a></code> doesn't have a default value for the number of
+clusters. The predict method uses <code><a href="https://rdrr.io/pkg/clue/man/cl_predict.html" class="external-link">clue::cl_predict()</a></code> to compute the cluster memberships for new data.</p>
     </div>
 
 
@@ -108,6 +102,7 @@ Springer Science &amp; Business Media.</p>
 <li><p><a href="https://mlr3misc.mlr-org.com/reference/Dictionary.html" class="external-link">Dictionary</a> of <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">Learners</a>: <a href="https://mlr3.mlr-org.com/reference/mlr_learners.html" class="external-link">mlr3::mlr_learners</a></p></li>
 <li><p><code>as.data.table(mlr_learners)</code> for a table of available <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">Learners</a> in the running session (depending on the loaded packages).</p></li>
 <li><p><a href="https://CRAN.R-project.org/package=mlr3pipelines" class="external-link"><span class="pkg">mlr3pipelines</span></a> to combine learners with pre- and postprocessing steps.</p></li>
+<li><p>Package <a href="https://CRAN.R-project.org/package=mlr3viz" class="external-link"><span class="pkg">mlr3viz</span></a> for some generic visualizations.</p></li>
 <li><p>Extension packages for additional task types:</p><ul><li><p><a href="https://CRAN.R-project.org/package=mlr3proba" class="external-link"><span class="pkg">mlr3proba</span></a> for probabilistic supervised regression and survival analysis.</p></li>
 <li><p><a href="https://CRAN.R-project.org/package=mlr3cluster" class="external-link"><span class="pkg">mlr3cluster</span></a> for unsupervised clustering.</p></li>
 </ul></li>
@@ -129,58 +124,64 @@ for established default tuning spaces.</p></li>
 <code><a href="mlr_learners_clust.fanny.html">mlr_learners_clust.fanny</a></code>,
 <code><a href="mlr_learners_clust.featureless.html">mlr_learners_clust.featureless</a></code>,
 <code><a href="mlr_learners_clust.ff.html">mlr_learners_clust.ff</a></code>,
+<code><a href="mlr_learners_clust.flexmix.html">mlr_learners_clust.flexmix</a></code>,
+<code><a href="mlr_learners_clust.genie.html">mlr_learners_clust.genie</a></code>,
 <code><a href="mlr_learners_clust.hclust.html">mlr_learners_clust.hclust</a></code>,
 <code><a href="mlr_learners_clust.hdbscan.html">mlr_learners_clust.hdbscan</a></code>,
+<code><a href="mlr_learners_clust.kcca.html">mlr_learners_clust.kcca</a></code>,
 <code><a href="mlr_learners_clust.kkmeans.html">mlr_learners_clust.kkmeans</a></code>,
 <code><a href="mlr_learners_clust.kmeans.html">mlr_learners_clust.kmeans</a></code>,
 <code><a href="mlr_learners_clust.kproto.html">mlr_learners_clust.kproto</a></code>,
 <code><a href="mlr_learners_clust.mclust.html">mlr_learners_clust.mclust</a></code>,
 <code><a href="mlr_learners_clust.meanshift.html">mlr_learners_clust.meanshift</a></code>,
+<code><a href="mlr_learners_clust.movMF.html">mlr_learners_clust.movMF</a></code>,
 <code><a href="mlr_learners_clust.optics.html">mlr_learners_clust.optics</a></code>,
 <code><a href="mlr_learners_clust.pam.html">mlr_learners_clust.pam</a></code>,
 <code><a href="mlr_learners_clust.protoclust.html">mlr_learners_clust.protoclust</a></code>,
+<code><a href="mlr_learners_clust.skmeans.html">mlr_learners_clust.skmeans</a></code>,
+<code><a href="mlr_learners_clust.som.html">mlr_learners_clust.som</a></code>,
 <code><a href="mlr_learners_clust.specc.html">mlr_learners_clust.specc</a></code>,
+<code><a href="mlr_learners_clust.stdbscan.html">mlr_learners_clust.stdbscan</a></code>,
+<code><a href="mlr_learners_clust.tclust.html">mlr_learners_clust.tclust</a></code>,
 <code><a href="mlr_learners_clust.xmeans.html">mlr_learners_clust.xmeans</a></code></p></div>
     </div>
     <div class="section level2">
     <h2 id="super-classes">Super classes<a class="anchor" aria-label="anchor" href="#super-classes"></a></h2>
-    <p><code><a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a></code> -&gt; <code><a href="LearnerClust.html">mlr3cluster::LearnerClust</a></code> -&gt; <code>LearnerClustCMeans</code></p>
+    <p><code><a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a></code> -&gt; <code><a href="LearnerClust.html">LearnerClust</a></code> -&gt; <code>LearnerClustCMeans</code></p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
 
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>
-
-<ul><li><p><a href="#method-LearnerClustCMeans-new"><code>LearnerClustCMeans$new()</code></a></p></li>
+<p></p><ul><li><p><a href="#method-LearnerClustCMeans-initialize"><code>LearnerClustCMeans$new()</code></a></p></li>
 <li><p><a href="#method-LearnerClustCMeans-clone"><code>LearnerClustCMeans$clone()</code></a></p></li>
 </ul></div><p><details><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="base_learner"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-base_learner"><code>mlr3::Learner$base_learner()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="configure"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-configure"><code>mlr3::Learner$configure()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="encapsulate"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-encapsulate"><code>mlr3::Learner$encapsulate()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="format"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-format"><code>mlr3::Learner$format()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="help"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-help"><code>mlr3::Learner$help()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-predict"><code>mlr3::Learner$predict()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict_newdata"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-predict_newdata"><code>mlr3::Learner$predict_newdata()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="print"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-print"><code>mlr3::Learner$print()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="selected_features"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features"><code>mlr3::Learner$selected_features()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="train"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-train"><code>mlr3::Learner$train()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3cluster" data-topic="LearnerClust" data-id="reset"><a href="LearnerClust.html#method-reset"><code>mlr3cluster::LearnerClust$reset()</code></a></span></li>
-</ul></details></p><hr><a id="method-LearnerClustCMeans-new"></a><div class="section">
-<h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="configure"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-configure"><code>mlr3::Learner$configure()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="encapsulate"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-encapsulate"><code>mlr3::Learner$encapsulate()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="format"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-format"><code>mlr3::Learner$format()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="help"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-help"><code>mlr3::Learner$help()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-predict"><code>mlr3::Learner$predict()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="predict_newdata"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-predict_newdata"><code>mlr3::Learner$predict_newdata()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="print"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-print"><code>mlr3::Learner$print()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="selected_features"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features"><code>mlr3::Learner$selected_features()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Learner" data-id="train"><a href="https://mlr3.mlr-org.com/reference/Learner.html#method-train"><code>mlr3::Learner$train()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3cluster" data-topic="LearnerClust" data-id="reset"><a href="LearnerClust.html#method-reset"><code>LearnerClust$reset()</code></a></span></li>
+</ul></details></p><hr><a id="method-LearnerClustCMeans-initialize"></a><div class="section">
+<h3 id="learnerclustcmeans-new-"><code>LearnerClustCMeans$new()</code><a class="anchor" aria-label="anchor" href="#learnerclustcmeans-new-"></a></h3>
 <p>Creates a new instance of this <a href="https://r6.r-lib.org/reference/R6Class.html" class="external-link">R6</a> class.</p><div class="section">
 <h4 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va"><a href="../reference/mlr_learners_clust.cmeans.html">LearnerClustCMeans</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
+</div>
 
-</div><p></p><hr><a id="method-LearnerClustCMeans-clone"></a><div class="section">
-<h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
+<p></p><hr><a id="method-LearnerClustCMeans-clone"></a><div class="section">
+<h3 id="learnerclustcmeans-clone-"><code>LearnerClustCMeans$clone()</code><a class="anchor" aria-label="anchor" href="#learnerclustcmeans-clone-"></a></h3>
 <p>The objects of this class are cloneable with this method.</p><div class="section">
 <h4 id="usage-1">Usage<a class="anchor" aria-label="anchor" href="#usage-1"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">LearnerClustCMeans</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
-</div>
-
-<div class="section">
+</div><p></p><div class="section">
 <h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>deep</code></dt>
 <dd><p>Whether to make a deep clone.</p></dd>
@@ -190,6 +191,7 @@ for established default tuning spaces.</p></li>
 </div>
 
 </div>
+
 
     </div>
 
@@ -207,7 +209,7 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Feature Types: logical, integer, and numeric</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Encapsulation: none (fallback: -)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Properties: complete, fuzzy, and partitional</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> • Other settings: use_weights = 'error'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Other settings: use_weights = 'error', predict_raw = 'FALSE'</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Define a Task</span></span></span>
 <span class="r-in"><span><span class="va">task</span> <span class="op">=</span> <span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">tsk</a></span><span class="op">(</span><span class="st">"usarrests"</span><span class="op">)</span></span></span>
@@ -221,65 +223,65 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Cluster centers:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Assault    Murder     Rape UrbanPop</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 256.7369 11.647605 28.07208 68.53657</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 105.4689  4.833035 15.99985 62.72022</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 105.4636  4.832825 15.99935 62.71942</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 256.7305 11.647452 28.07174 68.53664</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Memberships:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  1           2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] 0.9667196532 0.033280347</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] 0.9724276916 0.027572308</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] 0.9590341205 0.040965880</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,] 0.6005501286 0.399449871</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] 0.9670405328 0.032959467</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] 0.7773569306 0.222643069</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] 0.0112913433 0.988708657</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,] 0.9699588189 0.030041181</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,] 0.8946006839 0.105399316</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10,] 0.8380297405 0.161970259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11,] 0.0814522229 0.918547777</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [12,] 0.0151669346 0.984833065</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13,] 0.9865766200 0.013423380</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [14,] 0.0044405434 0.995559457</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [15,] 0.0579320510 0.942067949</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16,] 0.0052596968 0.994740303</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [17,] 0.0067506852 0.993249315</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [18,] 0.9944984642 0.005501536</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19,] 0.0226079200 0.977392080</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [20,] 0.9530450037 0.046954996</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21,] 0.1653843355 0.834615665</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [22,] 0.9964126463 0.003587354</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [23,] 0.0319972461 0.968002754</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [24,] 0.9698612008 0.030138799</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25,] 0.4688288801 0.531171120</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [26,] 0.0048546611 0.995145339</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [27,] 0.0005410356 0.999458964</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28,] 0.9785251264 0.021474874</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [29,] 0.0569296046 0.943070395</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [30,] 0.2616638263 0.738336174</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [31,] 0.9755348920 0.024465108</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [32,] 0.9862692125 0.013730787</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [33,] 0.8831759151 0.116824085</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [34,] 0.0818425370 0.918157463</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [35,] 0.0206878795 0.979312121</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [36,] 0.1583179904 0.841682010</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37,] 0.2417176835 0.758282317</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [38,] 0.0038982106 0.996101789</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [39,] 0.4115696602 0.588430340</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [40,] 0.9695723749 0.030427625</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [41,] 0.0229398372 0.977060163</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [42,] 0.5927263139 0.407273686</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [43,] 0.7468753489 0.253124651</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [44,] 0.0287390105 0.971260990</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [45,] 0.0862932857 0.913706714</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [46,] 0.2017646347 0.798235365</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [47,] 0.1236471848 0.876352815</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [48,] 0.0361916547 0.963808345</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [49,] 0.0625575558 0.937442444</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [50,] 0.2473612426 0.752638757</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 1            2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1,] 0.033263257 0.9667367429</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [2,] 0.027574006 0.9724259944</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3,] 0.040975733 0.9590242673</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [4,] 0.399379342 0.6006206579</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5,] 0.032965170 0.9670348302</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6,] 0.222586685 0.7774133151</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7,] 0.988704805 0.0112951949</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8,] 0.030025580 0.9699744198</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9,] 0.105409923 0.8945900766</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10,] 0.161921160 0.8380788405</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11,] 0.918554391 0.0814456089</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [12,] 0.984824813 0.0151751871</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13,] 0.013417624 0.9865823758</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [14,] 0.995554815 0.0044451851</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15,] 0.942076169 0.0579238307</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16,] 0.994734547 0.0052654531</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17,] 0.993247754 0.0067522463</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [18,] 0.005496326 0.9945036739</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19,] 0.977398651 0.0226013494</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [20,] 0.046965697 0.9530343032</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21,] 0.834571335 0.1654286649</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [22,] 0.003586330 0.9964136700</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23,] 0.968010138 0.0319898621</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [24,] 0.030137886 0.9698621138</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25,] 0.531095063 0.4689049368</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26,] 0.995143926 0.0048560741</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27,] 0.999460464 0.0005395359</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28,] 0.021471316 0.9785286840</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [29,] 0.943078620 0.0569213802</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [30,] 0.738279158 0.2617208420</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31,] 0.024474272 0.9755257280</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [32,] 0.013728165 0.9862718352</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [33,] 0.116834157 0.8831658434</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [34,] 0.918165449 0.0818345514</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [35,] 0.979301104 0.0206988964</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [36,] 0.841635073 0.1583649267</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37,] 0.758223618 0.2417763822</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [38,] 0.996100598 0.0038994021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [39,] 0.588362355 0.4116376454</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [40,] 0.030434605 0.9695653949</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41,] 0.977066073 0.0229339272</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [42,] 0.407199768 0.5928002318</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43,] 0.253062538 0.7469374621</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [44,] 0.971249098 0.0287509016</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [45,] 0.913714245 0.0862857551</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46,] 0.798181632 0.2018183676</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [47,] 0.876313486 0.1236865144</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [48,] 0.963814632 0.0361853676</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49,] 0.937450400 0.0625495995</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [50,] 0.752579588 0.2474204119</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Closest hard clustering:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 2 1 2 1 2 2 2 1 2 2 1 1 1 2 2 2 2 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [39] 2 1 2 1 1 2 2 2 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 1 2 1 2 1 1 1 2 1 1 2 2 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [39] 1 2 1 2 2 1 1 1 1 1 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Available components:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "centers"     "size"        "cluster"     "membership"  "iter"       </span>

@@ -5,7 +5,7 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Cluster Measure — MeasureClust"><meta name="description" content='This measure specializes mlr3::Measure for cluster analysis:
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Cluster Measure — MeasureClust"><meta name="description" content='This measure specializes mlr3::Measure for cluster analysis:
 task_type is set to "clust".
 Possible values for predict_type are "partition" and "prob".
 
@@ -23,7 +23,7 @@ Predefined measures can be found in the mlr3misc::Dictionary mlr3::mlr_measures.
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,16 +79,15 @@ Predefined measures can be found in the mlr3misc::Dictionary mlr3::mlr_measures.
 
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>
-
-<ul><li><p><a href="#method-MeasureClust-new"><code>MeasureClust$new()</code></a></p></li>
+<p></p><ul><li><p><a href="#method-MeasureClust-initialize"><code>MeasureClust$new()</code></a></p></li>
 </ul></div><p><details><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="aggregate"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-aggregate"><code>mlr3::Measure$aggregate()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="format"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-format"><code>mlr3::Measure$format()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="help"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-help"><code>mlr3::Measure$help()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="obs_loss"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-obs_loss"><code>mlr3::Measure$obs_loss()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="print"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-print"><code>mlr3::Measure$print()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="score"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-score"><code>mlr3::Measure$score()</code></a></span></li>
-</ul></details></p><hr><a id="method-MeasureClust-new"></a><div class="section">
-<h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="format"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-format"><code>mlr3::Measure$format()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="help"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-help"><code>mlr3::Measure$help()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="obs_loss"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-obs_loss"><code>mlr3::Measure$obs_loss()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="print"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-print"><code>mlr3::Measure$print()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="score"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-score"><code>mlr3::Measure$score()</code></a></span></li>
+</ul></details></p><hr><a id="method-MeasureClust-initialize"></a><div class="section">
+<h3 id="measureclust-new-"><code>MeasureClust$new()</code><a class="anchor" aria-label="anchor" href="#measureclust-new-"></a></h3>
 <p>Creates a new instance of this <a href="https://r6.r-lib.org/reference/R6Class.html" class="external-link">R6</a> class.</p><div class="section">
 <h4 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va"><a href="../reference/MeasureClust.html">MeasureClust</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
@@ -103,69 +102,70 @@ Predefined measures can be found in the mlr3misc::Dictionary mlr3::mlr_measures.
 <span>  label <span class="op">=</span> <span class="cn">NA_character_</span>,</span>
 <span>  man <span class="op">=</span> <span class="cn">NA_character_</span></span>
 <span><span class="op">)</span></span></code></pre></div><p></p></div>
-</div>
-
-<div class="section">
+</div><p></p><div class="section">
 <h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>id</code></dt>
 <dd><p>(<code>character(1)</code>)<br>
 Identifier for the new instance.</p></dd>
 
-
-<dt><code>range</code></dt>
+      <dt><code>range</code></dt>
 <dd><p>(<code>numeric(2)</code>)<br>
 Feasible range for this measure as <code>c(lower_bound, upper_bound)</code>.
 Both bounds may be infinite.</p></dd>
 
-
-<dt><code>minimize</code></dt>
+      <dt><code>minimize</code></dt>
 <dd><p>(<code>logical(1)</code>)<br>
 Set to <code>TRUE</code> if good predictions correspond to small values,
 and to <code>FALSE</code> if good predictions correspond to large values.
 If set to <code>NA</code> (default), tuning this measure is not possible.</p></dd>
 
+      <dt><code>aggregator</code></dt>
+<dd><p>(<code>function()</code> | <code>NULL</code>)<br>
+Function to aggregate over multiple iterations. The role of this function depends on
+the value of field <code>"average"</code>:</p><ul><li><p><code>"macro"</code>: A numeric vector of scores (one per iteration) is passed.
+The aggregate function defaults to <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean()</a></code> in this case.</p></li>
+<li><p><code>"micro"</code>: The <code>aggregator</code> function is not used.
+Instead, predictions from multiple iterations are first combined and then
+scored in one go.</p></li>
+<li><p><code>"custom"</code>: A <a href="https://mlr3.mlr-org.com/reference/ResampleResult.html" class="external-link">ResampleResult</a> is passed to the aggregate function.</p></li>
+</ul></dd>
 
-<dt><code>aggregator</code></dt>
-<dd><p>(<code>function(x)</code> | <code>NULL</code>)<br>
-Function to aggregate individual performance scores <code>x</code> where <code>x</code> is a numeric vector.
-If <code>NULL</code>, defaults to <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean()</a></code>.</p></dd>
-
-
-<dt><code>properties</code></dt>
+      <dt><code>properties</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
 Properties of the measure.
 Must be a subset of <a href="https://mlr3.mlr-org.com/reference/mlr_reflections.html" class="external-link">mlr_reflections$measure_properties</a>.
 Supported by <code>mlr3</code>:</p><ul><li><p><code>"requires_task"</code> (requires the complete <a href="https://mlr3.mlr-org.com/reference/Task.html" class="external-link">mlr3::Task</a>),</p></li>
 <li><p><code>"requires_learner"</code> (requires the trained <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>),</p></li>
-<li><p><code>"requires_train_set"</code> (requires the training indices from the <a href="https://mlr3.mlr-org.com/reference/Resampling.html" class="external-link">mlr3::Resampling</a>), and</p></li>
-<li><p><code>"na_score"</code> (the measure is expected to occasionally return <code>NA</code> or <code>NaN</code>).</p></li>
+<li><p><code>"requires_model"</code> (requires the trained <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>, including the fitted model),</p></li>
+<li><p><code>"requires_train_set"</code> (requires the training indices from the <a href="https://mlr3.mlr-org.com/reference/Resampling.html" class="external-link">mlr3::Resampling</a>),</p></li>
+<li><p><code>"na_score"</code> (the measure is expected to occasionally return <code>NA</code> or <code>NaN</code>),</p></li>
+<li><p><code>"weights"</code> (support weighted scoring using sample weights from task, column role <code>weights_measure</code>),</p></li>
+<li><p><code>"primary_iters"</code> (the measure explicitly handles resamplings
+that only use a subset of their iterations for the point estimate), and</p></li>
+<li><p><code>"requires_no_prediction"</code> (No prediction is required;
+This usually means that the measure extracts some information from the learner state.).</p></li>
 </ul></dd>
 
-
-<dt><code>predict_type</code></dt>
+      <dt><code>predict_type</code></dt>
 <dd><p>(<code>character(1)</code>)<br>
 Required predict type of the <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>.
 Possible values are stored in <a href="https://mlr3.mlr-org.com/reference/mlr_reflections.html" class="external-link">mlr_reflections$learner_predict_types</a>.</p></dd>
 
-
-<dt><code>task_properties</code></dt>
+      <dt><code>task_properties</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
 Required task properties, see <a href="https://mlr3.mlr-org.com/reference/Task.html" class="external-link">mlr3::Task</a>.</p></dd>
 
-
-<dt><code>packages</code></dt>
+      <dt><code>packages</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
 Set of required packages.
 A warning is signaled by the constructor if at least one of the packages is not installed,
 but loaded (not attached) later on-demand via <code><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace()</a></code>.</p></dd>
 
-
-<dt><code>label</code></dt>
+      <dt><code>label</code></dt>
 <dd><p>(<code>character(1)</code>)<br>
 Label for the new instance.</p></dd>
 
-
-<dt><code>man</code></dt>
+      <dt><code>man</code></dt>
 <dd><p>(<code>character(1)</code>)<br>
 String in the format <code>[pkg]::[topic]</code> pointing to a manual page for this object.
 The referenced help package can be opened via method <code>$help()</code>.</p></dd>
@@ -175,6 +175,7 @@ The referenced help package can be opened via method <code>$help()</code>.</p></
 </div>
 
 </div>
+
 
     </div>
 

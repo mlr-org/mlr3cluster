@@ -25,7 +25,7 @@ Other Task:
 
 ### Public methods
 
-- [`TaskClust$new()`](#method-TaskClust-new)
+- [`TaskClust$new()`](#method-TaskClust-initialize)
 
 - [`TaskClust$clone()`](#method-TaskClust-clone)
 
@@ -34,7 +34,6 @@ Inherited methods
 - [`mlr3::Task$add_strata()`](https://mlr3.mlr-org.com/reference/Task.html#method-add_strata)
 - [`mlr3::Task$cbind()`](https://mlr3.mlr-org.com/reference/Task.html#method-cbind)
 - [`mlr3::Task$data()`](https://mlr3.mlr-org.com/reference/Task.html#method-data)
-- [`mlr3::Task$divide()`](https://mlr3.mlr-org.com/reference/Task.html#method-divide)
 - [`mlr3::Task$droplevels()`](https://mlr3.mlr-org.com/reference/Task.html#method-droplevels)
 - [`mlr3::Task$filter()`](https://mlr3.mlr-org.com/reference/Task.html#method-filter)
 - [`mlr3::Task$format()`](https://mlr3.mlr-org.com/reference/Task.html#method-format)
@@ -54,7 +53,7 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `TaskClust$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -90,7 +89,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `TaskClust$clone()`
 
 The objects of this class are cloneable with this method.
 

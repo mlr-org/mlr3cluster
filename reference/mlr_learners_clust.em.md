@@ -80,6 +80,9 @@ society: series B (methodological)*, **39**(1), 1–22.
 - [mlr3pipelines](https://CRAN.R-project.org/package=mlr3pipelines) to
   combine learners with pre- and postprocessing steps.
 
+- Package [mlr3viz](https://CRAN.R-project.org/package=mlr3viz) for some
+  generic visualizations.
+
 - Extension packages for additional task types:
 
   - [mlr3proba](https://CRAN.R-project.org/package=mlr3proba) for
@@ -109,30 +112,38 @@ Other Learner:
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md),
+[`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
+[`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
+[`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
+[`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.movMF.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
+[`mlr_learners_clust.skmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.skmeans.md),
+[`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.som.md),
 [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md),
+[`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.stdbscan.md),
+[`mlr_learners_clust.tclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.tclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustEM`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustEM$new()`](#method-LearnerClustEM-new)
+- [`LearnerClustEM$new()`](#method-LearnerClustEM-initialize)
 
 - [`LearnerClustEM$clone()`](#method-LearnerClustEM-clone)
 
@@ -148,11 +159,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustEM$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -163,7 +174,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustEM$clone()`
 
 The objects of this class are cloneable with this method.
 
@@ -191,8 +202,8 @@ print(learner)
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, fuzzy, and partitional
-#> • Other settings: use_weights = 'error'
+#> • Properties: complete, fuzzy, missings, and partitional
+#> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
 task = tsk("usarrests")

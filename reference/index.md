@@ -1,22 +1,7 @@
 # Package index
 
-## All functions
+## Learners
 
-- [`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
-  : Cluster Learner
-- [`MeasureClust`](https://mlr3cluster.mlr-org.com/reference/MeasureClust.md)
-  : Cluster Measure
-- [`PredictionClust`](https://mlr3cluster.mlr-org.com/reference/PredictionClust.md)
-  : Prediction Object for Cluster Analysis
-- [`TaskClust`](https://mlr3cluster.mlr-org.com/reference/TaskClust.md)
-  : Cluster Task
-- [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/reference/as_prediction_clust.md)
-  : Convert to a Cluster Prediction
-- [`as_task_clust()`](https://mlr3cluster.mlr-org.com/reference/as_task_clust.md)
-  : Convert to a Cluster Task
-- [`mlr3cluster`](https://mlr3cluster.mlr-org.com/reference/mlr3cluster-package.md)
-  [`mlr3cluster-package`](https://mlr3cluster.mlr-org.com/reference/mlr3cluster-package.md)
-  : mlr3cluster: Cluster Extension for 'mlr3'
 - [`mlr_learners_clust.MBatchKMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.MBatchKMeans.md)
   [`LearnerClustMiniBatchKMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.MBatchKMeans.md)
   : Mini Batch K-Means Clustering Learner
@@ -65,12 +50,21 @@
 - [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md)
   [`LearnerClustFarthestFirst`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md)
   : Farthest First Clustering Learner
+- [`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md)
+  [`LearnerClustFlexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md)
+  : Finite Mixture Model Clustering Learner
+- [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md)
+  [`LearnerClustGenie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md)
+  : Genie Hierarchical Clustering Learner
 - [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md)
   [`LearnerClustHclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md)
   : Hierarchical Clustering Learner
 - [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md)
   [`LearnerClustHDBSCAN`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md)
   : HDBSCAN Clustering Learner
+- [`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md)
+  [`LearnerClustKCCA`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md)
+  : K-Centroids Cluster Analysis Learner
 - [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md)
   [`LearnerClustKKMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md)
   : Kernel K-Means Clustering Learner
@@ -86,6 +80,9 @@
 - [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md)
   [`LearnerClustMeanShift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md)
   : Mean Shift Clustering Learner
+- [`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.movMF.md)
+  [`LearnerClustMovMF`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.movMF.md)
+  : von Mises-Fisher Mixture Clustering Learner
 - [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md)
   [`LearnerClustOPTICS`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md)
   : OPTICS Clustering Learner
@@ -95,21 +92,71 @@
 - [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md)
   [`LearnerClustProtoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md)
   : Prototype Hierarchical Clustering Learner
+- [`mlr_learners_clust.skmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.skmeans.md)
+  [`LearnerClustSKMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.skmeans.md)
+  : Spherical K-Means Clustering Learner
+- [`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.som.md)
+  [`LearnerClustSOM`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.som.md)
+  : Self-Organizing Maps Clustering Learner
 - [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md)
   [`LearnerClustSpectral`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md)
   : Spectral Clustering Learner
+- [`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.stdbscan.md)
+  [`LearnerClustSTDBSCAN`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.stdbscan.md)
+  : ST-DBSCAN Clustering Learner
+- [`mlr_learners_clust.tclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.tclust.md)
+  [`LearnerClustTclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.tclust.md)
+  : Robust Trimmed Clustering Learner
 - [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
   [`LearnerClustXMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
   : X-Means Clustering Learner
+
+## Measures
+
+- [`mlr_measures_clust.avg_between`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.avg_between.md)
+  : Average Between-Cluster Distance
+- [`mlr_measures_clust.avg_within`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.avg_within.md)
+  : Average Within-Cluster Distance
 - [`mlr_measures_clust.ch`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.ch.md)
   : Calinski Harabasz Pseudo F-Statistic
+- [`mlr_measures_clust.davies_bouldin`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.davies_bouldin.md)
+  : Davies-Bouldin Index
 - [`mlr_measures_clust.dunn`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn.md)
   : Dunn Index
+- [`mlr_measures_clust.dunn2`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn2.md)
+  : Dunn2 Index
+- [`mlr_measures_clust.entropy`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.entropy.md)
+  : Entropy
+- [`mlr_measures_clust.pearsongamma`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.pearsongamma.md)
+  : Pearson Gamma
 - [`mlr_measures_clust.silhouette`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette.md)
   : Rousseeuw's Silhouette Quality Index
+- [`mlr_measures_clust.wb_ratio`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wb_ratio.md)
+  : Within/Between Ratio
 - [`mlr_measures_clust.wss`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss.md)
   : Within Sum of Squares
+
+## Tasks
+
 - [`mlr_tasks_ruspini`](https://mlr3cluster.mlr-org.com/reference/mlr_tasks_ruspini.md)
   : Ruspini Cluster Task
 - [`mlr_tasks_usarrests`](https://mlr3cluster.mlr-org.com/reference/mlr_tasks_usarrests.md)
   : US Arrests Cluster Task
+
+## General
+
+- [`MeasureClust`](https://mlr3cluster.mlr-org.com/reference/MeasureClust.md)
+  : Cluster Measure
+- [`PredictionClust`](https://mlr3cluster.mlr-org.com/reference/PredictionClust.md)
+  : Prediction Object for Cluster Analysis
+- [`TaskClust`](https://mlr3cluster.mlr-org.com/reference/TaskClust.md)
+  : Cluster Task
+- [`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
+  : Cluster Learner
+- [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/reference/as_prediction_clust.md)
+  : Convert to a Cluster Prediction
+- [`as_task_clust()`](https://mlr3cluster.mlr-org.com/reference/as_task_clust.md)
+  : Convert to a Cluster Task
+- [`mlr3cluster`](https://mlr3cluster.mlr-org.com/reference/mlr3cluster-package.md)
+  [`mlr3cluster-package`](https://mlr3cluster.mlr-org.com/reference/mlr3cluster-package.md)
+  : mlr3cluster: Cluster Extension for 'mlr3'

@@ -12,6 +12,17 @@ method uses
 [`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
 compute the cluster memberships for new data.
 
+## Initial parameter values
+
+- `keep.data`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the training data in the model to
+    save memory.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -84,6 +95,9 @@ USA, October 2–4, 2019, Proceedings 12*, 171–187. Springer.
 - [mlr3pipelines](https://CRAN.R-project.org/package=mlr3pipelines) to
   combine learners with pre- and postprocessing steps.
 
+- Package [mlr3viz](https://CRAN.R-project.org/package=mlr3viz) for some
+  generic visualizations.
+
 - Extension packages for additional task types:
 
   - [mlr3proba](https://CRAN.R-project.org/package=mlr3proba) for
@@ -113,30 +127,38 @@ Other Learner:
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md),
+[`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
+[`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
+[`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
+[`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.movMF.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
+[`mlr_learners_clust.skmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.skmeans.md),
+[`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.som.md),
 [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md),
+[`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.stdbscan.md),
+[`mlr_learners_clust.tclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.tclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustCLARA`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustCLARA$new()`](#method-LearnerClustCLARA-new)
+- [`LearnerClustCLARA$new()`](#method-LearnerClustCLARA-initialize)
 
 - [`LearnerClustCLARA$clone()`](#method-LearnerClustCLARA-clone)
 
@@ -152,11 +174,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustCLARA$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -167,7 +189,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustCLARA$clone()`
 
 The objects of this class are cloneable with this method.
 
@@ -190,13 +212,13 @@ print(learner)
 #> 
 #> ── <LearnerClustCLARA> (clust.clara): CLARA ────────────────────────────────────
 #> • Model: -
-#> • Parameters: k=2
+#> • Parameters: k=2, keep.data=FALSE
 #> • Packages: mlr3, mlr3cluster, cluster, and clue
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, exclusive, and partitional
-#> • Other settings: use_weights = 'error'
+#> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
 task = tsk("usarrests")
@@ -206,7 +228,7 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> Call:     cluster::clara(x = task$data(), k = 2L) 
+#> Call:     cluster::clara(x = task$data(), k = 2L, keep.data = FALSE) 
 #> Medoids:
 #>      Assault Murder Rape UrbanPop
 #> [1,]     255   12.1 35.1       74
@@ -219,8 +241,8 @@ print(learner$model)
 #> [26] 29 30 32 33 34 35 36 37 38 39 40 41 43 45 46 47 48 49 50
 #> 
 #> Available components:
-#>  [1] "sample"     "medoids"    "i.med"      "clustering" "objective" 
-#>  [6] "clusinfo"   "diss"       "call"       "silinfo"    "data"      
+#> [1] "sample"     "medoids"    "i.med"      "clustering" "objective" 
+#> [6] "clusinfo"   "diss"       "call"       "silinfo"   
 
 # Make predictions for the task
 prediction = learner$predict(task)

@@ -9,6 +9,25 @@ The `k` parameter is set to 2 by default since
 [`clustMixType::kproto()`](https://rdrr.io/pkg/clustMixType/man/kproto.html)
 doesn't have a default value for the number of clusters.
 
+## Initial parameter values
+
+- `keep.data`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Avoid storing the training data in the model to
+    save memory.
+
+- `verbose`:
+
+  - Actual default: `TRUE`.
+
+  - Adjusted default: `FALSE`.
+
+  - Reason for change: Suppress verbose output during training.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -35,18 +54,19 @@ or with the associated sugar function
 
 ## Parameters
 
-|            |           |         |                                    |                  |
-|------------|-----------|---------|------------------------------------|------------------|
-| Id         | Type      | Default | Levels                             | Range            |
-| k          | untyped   | \-      |                                    | \-               |
-| lambda     | untyped   | NULL    |                                    | \-               |
-| type       | character | huang   | huang, gower                       | \-               |
-| iter.max   | integer   | 100     |                                    | \\\[1, \infty)\\ |
-| nstart     | integer   | 1       |                                    | \\\[1, \infty)\\ |
-| na.rm      | character | yes     | yes, no, imp.internal, imp.onestep | \-               |
-| verbose    | logical   | TRUE    | TRUE, FALSE                        | \-               |
-| init       | character | NULL    | nbh.dens, sel.cen, nstart.m        | \-               |
-| p_nstart.m | numeric   | 0.9     |                                    | \\\[0, 1\]\\     |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| Id | Type | Default | Levels | Range |
+| k | untyped | \- |  | \- |
+| lambda | untyped | NULL |  | \- |
+| type | character | huang | huang, gower | \- |
+| iter.max | integer | 100 |  | \\\[1, \infty)\\ |
+| nstart | integer | 1 |  | \\\[1, \infty)\\ |
+| na.rm | character | yes | yes, no, imp.internal, imp.onestep | \- |
+| keep.data | logical | TRUE | TRUE, FALSE | \- |
+| verbose | logical | TRUE | TRUE, FALSE | \- |
+| init | character | NULL | nbh.dens, sel.cen, nstart.m | \- |
+| p_nstart.m | numeric | 0.9 |  | \\\[0, 1\]\\ |
 
 ## References
 
@@ -73,6 +93,9 @@ Knowledge Discovery*, **2**(3), 283–304.
 
 - [mlr3pipelines](https://CRAN.R-project.org/package=mlr3pipelines) to
   combine learners with pre- and postprocessing steps.
+
+- Package [mlr3viz](https://CRAN.R-project.org/package=mlr3viz) for some
+  generic visualizations.
 
 - Extension packages for additional task types:
 
@@ -104,29 +127,37 @@ Other Learner:
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md),
+[`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
+[`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
+[`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
+[`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.movMF.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
+[`mlr_learners_clust.skmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.skmeans.md),
+[`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.som.md),
 [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md),
+[`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.stdbscan.md),
+[`mlr_learners_clust.tclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.tclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustKProto`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustKProto$new()`](#method-LearnerClustKProto-new)
+- [`LearnerClustKProto$new()`](#method-LearnerClustKProto-initialize)
 
 - [`LearnerClustKProto$clone()`](#method-LearnerClustKProto-clone)
 
@@ -142,11 +173,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustKProto$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -157,7 +188,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustKProto$clone()`
 
 The objects of this class are cloneable with this method.
 
@@ -180,13 +211,13 @@ print(learner)
 #> 
 #> ── <LearnerClustKProto> (clust.kproto): K-Prototypes ───────────────────────────
 #> • Model: -
-#> • Parameters: k=2, verbose=FALSE
+#> • Parameters: k=2, keep.data=FALSE, verbose=FALSE
 #> • Packages: mlr3, mlr3cluster, and clustMixType
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, numeric, factor, and ordered
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, exclusive, and partitional
-#> • Other settings: use_weights = 'error'
+#> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a mixed-type Task (kproto requires at least one factor variable)
 data = data.frame(
@@ -221,7 +252,6 @@ prediction = learner$predict(task)
 
 # Score the predictions
 prediction$score(task = task)
-#> Warning: NAs introduced by coercion
 #> clust.dunn 
-#>          8 
+#>         18 
 ```

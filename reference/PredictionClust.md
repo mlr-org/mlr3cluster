@@ -25,7 +25,7 @@ i.e. the predicted partition and cluster probability.
 
 ### Public methods
 
-- [`PredictionClust$new()`](#method-PredictionClust-new)
+- [`PredictionClust$new()`](#method-PredictionClust-initialize)
 
 - [`PredictionClust$clone()`](#method-PredictionClust-clone)
 
@@ -40,7 +40,7 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `PredictionClust$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -92,7 +92,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `PredictionClust$clone()`
 
 The objects of this class are cloneable with this method.
 
@@ -119,10 +119,10 @@ p$predict_types
 head(as.data.table(p))
 #>    row_ids partition
 #>      <int>     <int>
-#> 1:       1         1
-#> 2:       2         1
-#> 3:       3         1
-#> 4:       4         1
-#> 5:       5         1
-#> 6:       6         1
+#> 1:       1         2
+#> 2:       2         2
+#> 3:       3         2
+#> 4:       4         2
+#> 5:       5         2
+#> 6:       6         2
 ```

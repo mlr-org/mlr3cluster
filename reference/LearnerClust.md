@@ -17,6 +17,37 @@ cluster problems:
 
   - `"prob"`: Probability for belonging to each cluster.
 
+- Additional learner properties include:
+
+  - `"exclusive"`: The method natively assigns each observation to
+    exactly one cluster.
+
+  - `"overlapping"`: The method natively assigns observations to
+    multiple clusters.
+
+  - `"fuzzy"`: The method natively produces soft cluster memberships,
+    e.g. fuzzy or probabilistic model-based methods. The hard partition
+    is derived from the memberships.
+
+  - `"complete"`: Every observation is assigned to a cluster.
+
+  - `"partial"`: Observations may be left unassigned, e.g. as noise
+    points.
+
+  - `"partitional"`: The method divides the data into non-nested
+    clusters.
+
+  - `"hierarchical"`: The method produces a nested hierarchy of
+    clusters.
+
+  - `"density"`: The method finds clusters as dense regions in the
+    feature space.
+
+  These properties describe the nature of the underlying method, not its
+  interface capabilities: whether a learner can return soft memberships
+  is encoded by the `"prob"` predict type, which `"exclusive"` learners
+  may also support via derived scores.
+
 Predefined learners can be found in the
 [mlr3misc::Dictionary](https://mlr3misc.mlr-org.com/reference/Dictionary.html)
 [mlr3::mlr_learners](https://mlr3.mlr-org.com/reference/mlr_learners.html).
@@ -43,7 +74,7 @@ Predefined learners can be found in the
 
 ### Public methods
 
-- [`LearnerClust$new()`](#method-LearnerClust-new)
+- [`LearnerClust$new()`](#method-LearnerClust-initialize)
 
 - [`LearnerClust$reset()`](#method-LearnerClust-reset)
 
@@ -64,7 +95,7 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClust$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -120,6 +151,9 @@ Creates a new instance of this
 
   - `"weights"`: The learner supports observation weights.
 
+  - `"offset"`: The learner can incorporate offset values to adjust
+    predictions.
+
   - `"importance"`: The learner supports extraction of importance
     scores, i.e. comes with an `$importance()` extractor function (see
     section on optional extractors in
@@ -134,6 +168,25 @@ Creates a new instance of this
     bag error, i.e. comes with a `oob_error()` extractor function (see
     section on optional extractors in
     [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)).
+
+  - `"validation"`: The learner can use a validation task during
+    training.
+
+  - `"internal_tuning"`: The learner is able to internally optimize
+    hyperparameters (those are also tagged with `"internal_tuning"`).
+
+  - `"marshal"`: To save learners with this property, you need to call
+    `$marshal()` first. If a learner is in a marshaled state, you call
+    first need to call `$unmarshal()` to use its model, e.g. for
+    prediction.
+
+  - `"hotstart_forward"`: The learner supports to hotstart a model
+    forward.
+
+  - `"hotstart_backward"`: The learner supports hotstarting a model
+    backward.
+
+  - `"featureless"`: The learner does not use features.
 
 - `packages`:
 
@@ -157,7 +210,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `reset()`
+### `LearnerClust$reset()`
 
 Reset `assignments` field before calling parent's `reset()`.
 
@@ -167,7 +220,7 @@ Reset `assignments` field before calling parent's `reset()`.
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClust$clone()`
 
 The objects of this class are cloneable with this method.
 
@@ -193,11 +246,13 @@ ids
 #>  [7] "clust.clara"        "clust.cmeans"       "clust.cobweb"      
 #> [10] "clust.dbscan"       "clust.dbscan_fpc"   "clust.diana"       
 #> [13] "clust.em"           "clust.fanny"        "clust.featureless" 
-#> [16] "clust.ff"           "clust.hclust"       "clust.hdbscan"     
-#> [19] "clust.kkmeans"      "clust.kmeans"       "clust.kproto"      
-#> [22] "clust.mclust"       "clust.meanshift"    "clust.optics"      
-#> [25] "clust.pam"          "clust.protoclust"   "clust.specc"       
-#> [28] "clust.xmeans"      
+#> [16] "clust.ff"           "clust.flexmix"      "clust.genie"       
+#> [19] "clust.hclust"       "clust.hdbscan"      "clust.kcca"        
+#> [22] "clust.kkmeans"      "clust.kmeans"       "clust.kproto"      
+#> [25] "clust.mclust"       "clust.meanshift"    "clust.movMF"       
+#> [28] "clust.optics"       "clust.pam"          "clust.protoclust"  
+#> [31] "clust.skmeans"      "clust.som"          "clust.specc"       
+#> [34] "clust.stdbscan"     "clust.tclust"       "clust.xmeans"      
 
 # get a specific learner from mlr_learners:
 learner = lrn("clust.kmeans")
@@ -211,5 +266,5 @@ print(learner)
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, exclusive, and partitional
-#> • Other settings: use_weights = 'error'
+#> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 ```

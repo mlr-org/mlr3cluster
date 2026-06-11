@@ -34,26 +34,26 @@ or with the associated sugar function
 
 ## Parameters
 
-|                   |         |                               |             |                       |
-|-------------------|---------|-------------------------------|-------------|-----------------------|
-| Id                | Type    | Default                       | Levels      | Range                 |
-| A                 | untyped | "weka.core.EuclideanDistance" |             | \-                    |
-| C                 | logical | FALSE                         | TRUE, FALSE | \-                    |
-| fast              | logical | FALSE                         | TRUE, FALSE | \-                    |
-| I                 | integer | 100                           |             | \\\[1, \infty)\\      |
-| init              | integer | 0                             |             | \\\[0, 3\]\\          |
-| M                 | logical | FALSE                         | TRUE, FALSE | \-                    |
-| max_candidates    | integer | 100                           |             | \\\[1, \infty)\\      |
-| min_density       | integer | 2                             |             | \\\[1, \infty)\\      |
-| N                 | integer | 2                             |             | \\\[1, \infty)\\      |
-| num_slots         | integer | 1                             |             | \\\[1, \infty)\\      |
-| O                 | logical | FALSE                         | TRUE, FALSE | \-                    |
-| periodic_pruning  | integer | 10000                         |             | \\\[1, \infty)\\      |
-| S                 | integer | 10                            |             | \\\[0, \infty)\\      |
-| t2                | numeric | -1                            |             | \\(-\infty, \infty)\\ |
-| t1                | numeric | -1.5                          |             | \\(-\infty, \infty)\\ |
-| V                 | logical | FALSE                         | TRUE, FALSE | \-                    |
-| output_debug_info | logical | FALSE                         | TRUE, FALSE | \-                    |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| Id | Type | Default | Levels | Range |
+| A | untyped | "weka.core.EuclideanDistance" |  | \- |
+| C | logical | FALSE | TRUE, FALSE | \- |
+| fast | logical | FALSE | TRUE, FALSE | \- |
+| I | integer | 100 |  | \\\[1, \infty)\\ |
+| init | integer | 0 |  | \\\[0, 3\]\\ |
+| M | logical | FALSE | TRUE, FALSE | \- |
+| max_candidates | integer | 100 |  | \\\[1, \infty)\\ |
+| min_density | integer | 2 |  | \\\[1, \infty)\\ |
+| N | integer | 2 |  | \\\[1, \infty)\\ |
+| num_slots | integer | 1 |  | \\\[1, \infty)\\ |
+| O | logical | FALSE | TRUE, FALSE | \- |
+| periodic_pruning | integer | 10000 |  | \\\[1, \infty)\\ |
+| S | integer | 10 |  | \\\[0, \infty)\\ |
+| t2 | numeric | -1 |  | \\(-\infty, \infty)\\ |
+| t1 | numeric | -1.5 |  | \\(-\infty, \infty)\\ |
+| V | logical | FALSE | TRUE, FALSE | \- |
+| output_debug_info | logical | FALSE | TRUE, FALSE | \- |
 
 ## References
 
@@ -93,6 +93,9 @@ Symposium on Mathematical Statistics and Probability*, volume 1,
 - [mlr3pipelines](https://CRAN.R-project.org/package=mlr3pipelines) to
   combine learners with pre- and postprocessing steps.
 
+- Package [mlr3viz](https://CRAN.R-project.org/package=mlr3viz) for some
+  generic visualizations.
+
 - Extension packages for additional task types:
 
   - [mlr3proba](https://CRAN.R-project.org/package=mlr3proba) for
@@ -122,30 +125,38 @@ Other Learner:
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny.md),
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md),
+[`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
+[`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
+[`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
+[`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.movMF.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.optics.md),
 [`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.protoclust.md),
+[`mlr_learners_clust.skmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.skmeans.md),
+[`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.som.md),
 [`mlr_learners_clust.specc`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.specc.md),
+[`mlr_learners_clust.stdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.stdbscan.md),
+[`mlr_learners_clust.tclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.tclust.md),
 [`mlr_learners_clust.xmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.xmeans.md)
 
 ## Super classes
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
-[`mlr3cluster::LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
+[`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustSimpleKMeans`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustSimpleKMeans$new()`](#method-LearnerClustSimpleKMeans-new)
+- [`LearnerClustSimpleKMeans$new()`](#method-LearnerClustSimpleKMeans-initialize)
 
 - [`LearnerClustSimpleKMeans$clone()`](#method-LearnerClustSimpleKMeans-clone)
 
@@ -161,11 +172,11 @@ Inherited methods
 - [`mlr3::Learner$print()`](https://mlr3.mlr-org.com/reference/Learner.html#method-print)
 - [`mlr3::Learner$selected_features()`](https://mlr3.mlr-org.com/reference/Learner.html#method-selected_features)
 - [`mlr3::Learner$train()`](https://mlr3.mlr-org.com/reference/Learner.html#method-train)
-- [`mlr3cluster::LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.html#method-reset)
+- [`LearnerClust$reset()`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.html#method-reset)
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `LearnerClustSimpleKMeans$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
@@ -176,7 +187,7 @@ Creates a new instance of this
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `LearnerClustSimpleKMeans$clone()`
 
 The objects of this class are cloneable with this method.
 
@@ -204,8 +215,8 @@ print(learner)
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, and partitional
-#> • Other settings: use_weights = 'error'
+#> • Properties: complete, exclusive, missings, and partitional
+#> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
 task = tsk("usarrests")

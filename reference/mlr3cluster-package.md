@@ -19,6 +19,9 @@ Useful links:
 
 Authors:
 
+- Maximilian Mücke <muecke.maximilian@gmail.com>
+  ([ORCID](https://orcid.org/0009-0000-9432-9795))
+
 - Damir Pulatov <damirpolat@protonmail.com>
 
 - Michel Lang <michellang@gmail.com>
