@@ -85,6 +85,7 @@ Frey, J B, Dueck, Delbert (2007).
 \item \link[mlr3misc:Dictionary]{Dictionary} of \link[mlr3:Learner]{Learners}: \link[mlr3:mlr_learners]{mlr3::mlr_learners}
 \item \code{as.data.table(mlr_learners)} for a table of available \link[mlr3:Learner]{Learners} in the running session (depending on the loaded packages).
 \item \CRANpkg{mlr3pipelines} to combine learners with pre- and postprocessing steps.
+\item Package \CRANpkg{mlr3viz} for some generic visualizations.
 \item Extension packages for additional task types:
 \itemize{
 \item \CRANpkg{mlr3proba} for probabilistic supervised regression and survival analysis.
