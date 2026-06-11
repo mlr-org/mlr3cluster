@@ -2,6 +2,10 @@
 
 ## mlr3cluster (development version)
 
+## mlr3cluster 0.4.0
+
+CRAN release: 2026-06-11
+
 ### New learners
 
 - `clust.flexmix`: Finite mixture model clustering from the flexmix
@@ -34,11 +38,6 @@
 
 ### Other improvements
 
-- Learner properties now describe the clustering method itself rather
-  than its outputs: each learner declares exactly one membership
-  property, so `clust.em` drops `exclusive` and `clust.MBatchKMeans`
-  drops `fuzzy`. Use the `prob` predict type to select learners with
-  soft memberships.
 - Learners no longer store the training data or dissimilarity matrix in
   the model by default: `clust.agnes`, `clust.diana`, `clust.fanny`, and
   `clust.pam` now expose `keep.diss` and `keep.data`, `clust.clara` and
@@ -54,6 +53,9 @@
   missing attribute values natively.
 - `clust.diana` gains the `stop.at.k` parameter from
   [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html).
+- `clust.em` drops the `exclusive` property and `clust.MBatchKMeans`
+  drops `fuzzy`. Use the `prob` predict type to select learners with
+  soft memberships.
 
 ### Bug fixes
 

@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.0.9000</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.4.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,8 +50,11 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.0" id="mlr3cluster-040">mlr3cluster 0.4.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-040"></a></h2><p class="text-muted">CRAN release: 2026-06-11</p>
 <div class="section level3">
-<h3 id="new-learners-development-version">New learners<a class="anchor" aria-label="anchor" href="#new-learners-development-version"></a></h3>
+<h3 id="new-learners-0-4-0">New learners<a class="anchor" aria-label="anchor" href="#new-learners-0-4-0"></a></h3>
 <ul><li>
 <code>clust.flexmix</code>: Finite mixture model clustering from the flexmix package.</li>
 <li>
@@ -70,7 +73,7 @@
 <code>clust.tclust</code>: Robust trimmed clustering from the tclust package.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="new-measures-development-version">New measures<a class="anchor" aria-label="anchor" href="#new-measures-development-version"></a></h3>
+<h3 id="new-measures-0-4-0">New measures<a class="anchor" aria-label="anchor" href="#new-measures-0-4-0"></a></h3>
 <ul><li>
 <code>clust.avg_between</code>: Average between-cluster distance.</li>
 <li>
@@ -87,17 +90,18 @@
 <code>clust.wb_ratio</code>: Within/between distance ratio.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
-<ul><li>Learner properties now describe the clustering method itself rather than its outputs: each learner declares exactly one membership property, so <code>clust.em</code> drops <code>exclusive</code> and <code>clust.MBatchKMeans</code> drops <code>fuzzy</code>. Use the <code>prob</code> predict type to select learners with soft memberships.</li>
-<li>Learners no longer store the training data or dissimilarity matrix in the model by default: <code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.fanny</code>, and <code>clust.pam</code> now expose <code>keep.diss</code> and <code>keep.data</code>, <code>clust.clara</code> and <code>clust.kproto</code> expose <code>keep.data</code>, and <code>clust.ap</code> exposes <code>includeSim</code>, all initialized to <code>FALSE</code>. Set the respective parameter to <code>TRUE</code> to restore the previous behavior.</li>
+<h3 id="other-improvements-0-4-0">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-0-4-0"></a></h3>
+<ul><li>Learners no longer store the training data or dissimilarity matrix in the model by default: <code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.fanny</code>, and <code>clust.pam</code> now expose <code>keep.diss</code> and <code>keep.data</code>, <code>clust.clara</code> and <code>clust.kproto</code> expose <code>keep.data</code>, and <code>clust.ap</code> exposes <code>includeSim</code>, all initialized to <code>FALSE</code>. Set the respective parameter to <code>TRUE</code> to restore the previous behavior.</li>
 <li>Clustering quality measures <code>clust.ch</code>, <code>clust.dunn</code>, and <code>clust.wss</code> are now computed natively instead of relying on <code><a href="https://rdrr.io/pkg/fpc/man/cluster.stats.html" class="external-link">fpc::cluster.stats()</a></code>. The fpc package is no longer a hard dependency.</li>
 <li>
 <code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.SimpleKMeans</code>, and <code>clust.xmeans</code> now declare the <code>missings</code> property, since Weka handles missing attribute values natively.</li>
 <li>
 <code>clust.diana</code> gains the <code>stop.at.k</code> parameter from <code><a href="https://rdrr.io/pkg/cluster/man/diana.html" class="external-link">cluster::diana()</a></code>.</li>
+<li>
+<code>clust.em</code> drops the <code>exclusive</code> property and <code>clust.MBatchKMeans</code> drops <code>fuzzy</code>. Use the <code>prob</code> predict type to select learners with soft memberships.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<h3 id="bug-fixes-0-4-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-4-0"></a></h3>
 <ul><li>
 <code>mlr3cluster</code> is now added to <code>mlr_reflections$loaded_packages</code> to fix errors when using the package in parallel.</li>
 <li>

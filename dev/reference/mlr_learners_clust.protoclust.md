@@ -71,6 +71,9 @@ Association*, **106**(495), 1075–1084.
 - [mlr3pipelines](https://CRAN.R-project.org/package=mlr3pipelines) to
   combine learners with pre- and postprocessing steps.
 
+- Package [mlr3viz](https://CRAN.R-project.org/package=mlr3viz) for some
+  generic visualizations.
+
 - Extension packages for additional task types:
 
   - [mlr3proba](https://CRAN.R-project.org/package=mlr3proba) for

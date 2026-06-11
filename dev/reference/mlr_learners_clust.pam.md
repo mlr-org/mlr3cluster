@@ -104,6 +104,9 @@ USA, October 2–4, 2019, Proceedings 12*, 171–187. Springer.
 - [mlr3pipelines](https://CRAN.R-project.org/package=mlr3pipelines) to
   combine learners with pre- and postprocessing steps.
 
+- Package [mlr3viz](https://CRAN.R-project.org/package=mlr3viz) for some
+  generic visualizations.
+
 - Extension packages for additional task types:
 
   - [mlr3proba](https://CRAN.R-project.org/package=mlr3proba) for
