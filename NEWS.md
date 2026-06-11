@@ -23,11 +23,11 @@
 
 ## Other improvements
 
-* Learner properties now describe the clustering method itself rather than its outputs: each learner declares exactly one membership property, so `clust.em` drops `exclusive` and `clust.MBatchKMeans` drops `fuzzy`. Use the `prob` predict type to select learners with soft memberships.
 * Learners no longer store the training data or dissimilarity matrix in the model by default: `clust.agnes`, `clust.diana`, `clust.fanny`, and `clust.pam` now expose `keep.diss` and `keep.data`, `clust.clara` and `clust.kproto` expose `keep.data`, and `clust.ap` exposes `includeSim`, all initialized to `FALSE`. Set the respective parameter to `TRUE` to restore the previous behavior.
 * Clustering quality measures `clust.ch`, `clust.dunn`, and `clust.wss` are now computed natively instead of relying on `fpc::cluster.stats()`. The fpc package is no longer a hard dependency.
 * `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and `clust.xmeans` now declare the `missings` property, since Weka handles missing attribute values natively.
 * `clust.diana` gains the `stop.at.k` parameter from `cluster::diana()`.
+* `clust.em` drops the `exclusive` property and `clust.MBatchKMeans` drops `fuzzy`. Use the `prob` predict type to select learners with soft memberships.
 
 ## Bug fixes
 
