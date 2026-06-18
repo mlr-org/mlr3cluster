@@ -21,6 +21,7 @@ check_centers = function(x) {
     "`centers` must be integer, matrix, or data.frame with initial cluster centers"
   }
 }
+
 row_any_na = function(x) {
   if (!anyNA(x)) {
     return(logical(nrow(x)))
