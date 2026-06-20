@@ -1,5 +1,7 @@
 ^.*\.Rproj$
+^AGENTS\.md$
 ^CITATION\.cff$
+^CLAUDE\.md$
 ^CONTRIBUTING\.md$
 ^CRAN-RELEASE$
 ^CRAN-SUBMISSION$
@@ -12,6 +14,7 @@
 ^\.?air\.toml$
 ^\.Renviron$
 ^\.Rproj\.user$
+^\.agents$
 ^\.ccache$
 ^\.claude$
 ^\.cspell$
@@ -34,6 +37,7 @@
 ^cspell\.json$
 ^data-raw$
 ^docs?$
+^extra-rules$
 ^inst/extdata/.+\.R$
 ^jarl\.toml$
 ^man-roxygen$
