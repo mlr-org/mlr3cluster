@@ -2,6 +2,7 @@
 
 ## Bug fixes
 
+* `clust.agnes`, `clust.diana`, `clust.genie`, `clust.hclust`, and `clust.protoclust` now cut the tree at the current `k` when predicting, so changing `k` between training and prediction takes effect instead of being silently ignored.
 * `clust.ap` no longer errors when affinity propagation finds a single cluster.
 
 # mlr3cluster 0.4.0
