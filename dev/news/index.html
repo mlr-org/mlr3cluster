@@ -50,6 +50,13 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
+<div class="section level3">
+<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<ul><li>
+<code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.genie</code>, <code>clust.hclust</code>, and <code>clust.protoclust</code> now cut the tree at the current <code>k</code> when predicting, so changing <code>k</code> between training and prediction takes effect instead of being silently ignored.</li>
+<li>
+<code>clust.ap</code> no longer errors when affinity propagation finds a single cluster.</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="mlr3cluster-040">mlr3cluster 0.4.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-040"></a></h2><p class="text-muted">CRAN release: 2026-06-11</p>
