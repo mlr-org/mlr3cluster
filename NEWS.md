@@ -1,5 +1,9 @@
 # mlr3cluster (development version)
 
+## Bug fixes
+
+* `clust.ap` no longer errors when affinity propagation finds a single cluster.
+
 # mlr3cluster 0.4.0
 
 ## New learners
