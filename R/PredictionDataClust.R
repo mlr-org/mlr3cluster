@@ -65,7 +65,14 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
   probs = map(dots, "prob")
   # empty predictions carry a 0-column prob placeholder (k is unknown), so drop 0-row matrices before rbind
   non_empty = compact(probs)
-  prob = if (length(non_empty)) do.call(rbind, non_empty) else do.call(rbind, probs)
+  prob = if (length(non_empty)) {
+    do.call(rbind, non_empty)
+  } else if (every(probs, is.null)) {
+    NULL
+  } else {
+    # all prob matrices are 0-row and may disagree in columns (placeholders have none), so keep the widest one
+    probs[[which.max(map_int(probs, ncol))]]
+  }
 
   if (!keep_duplicates) {
     keep = !duplicated(tab, by = "row_ids", fromLast = TRUE)

@@ -83,6 +83,12 @@ test_that("combining empty and non-empty prob predictions works", {
   combined = c(p_empty, p_empty)
   expect_prediction(combined)
   expect_matrix(combined$prob, nrows = 0L)
+
+  # a prediction filtered to zero rows keeps its k columns, unlike the empty placeholder
+  p_filtered = learner$predict(task, row_ids = 1:10)$filter(integer())
+  combined = c(p_empty, p_filtered)
+  expect_prediction(combined)
+  expect_matrix(combined$prob, nrows = 0L, ncols = 3L)
 })
 
 test_that("as.data.table works for unchecked prob-only predictions", {
