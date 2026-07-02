@@ -99,4 +99,5 @@ test_that("construction of empty PredictionDataClust", {
   expect_numeric(pred$partition, len = 0L)
   expect_numeric(pred$prob, len = 0L)
   expect_data_table(as.data.table(pred), nrows = 0L, ncols = 3L)
+  expect_named(as.data.table(pred), c("row_ids", "partition", "prob.1"))
 })

@@ -10,6 +10,7 @@
 * `clust.stdbscan` now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.
 * `PredictionClust`: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.
 * `PredictionClust`: combining an empty prediction with non-empty ones (e.g. when a resampling iteration has an empty test set) no longer errors for learners with the `prob` predict type.
+* `PredictionClust`: serializing an empty prediction with the `prob` predict type via `as.data.table()` now yields a `prob.1` column instead of `prob.V1`.
 
 # mlr3cluster 0.4.0
 

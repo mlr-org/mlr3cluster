@@ -104,7 +104,8 @@ create_empty_prediction_data.TaskClust = function(task, learner) {
   )
 
   if ("prob" %chin% predict_types) {
-    pdata$prob = matrix(integer())
+    # the number of clusters is unknown here, so use a single placeholder column with a valid cluster label
+    pdata$prob = matrix(numeric(), nrow = 0L, ncol = 1L, dimnames = list(NULL, "1"))
   }
 
   set_class(pdata, "PredictionDataClust")
