@@ -29,6 +29,7 @@ test_that("Learner properties are respected", {
 })
 
 test_that("k determines the number of clusters", {
+  set.seed(42L)
   task = tsk("usarrests")
   for (k in c(2L, 3L)) {
     learner = lrn("clust.bico", k = k)
