@@ -8,6 +8,7 @@
 * `clust.pam` with `stand = TRUE` now standardizes new data at predict time, so predictions are consistent with the trained model instead of computing distances on the unstandardized data.
 * `clust.stdbscan` now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.
 * `PredictionClust`: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.
+* `PredictionClust`: combining an empty prediction with non-empty ones (e.g. when a resampling iteration has an empty test set) no longer errors for learners with the `prob` predict type.
 
 # mlr3cluster 0.4.0
 

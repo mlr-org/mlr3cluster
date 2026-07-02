@@ -60,6 +60,23 @@ test_that("as_prediction_clust", {
   expect_error(as_prediction_clust(bad), "prob")
 })
 
+test_that("combining empty and non-empty prob predictions works", {
+  task = tsk("usarrests")
+  learner = lrn("clust.featureless", num_clusters = 3L, predict_type = "prob")
+  learner$train(task)
+  p_full = learner$predict(task, row_ids = 1:10)
+  p_empty = learner$predict(task, row_ids = integer())
+
+  combined = c(p_empty, p_full)
+  expect_prediction(combined)
+  expect_identical(combined$row_ids, 1:10)
+  expect_matrix(combined$prob, nrows = 10L, ncols = 3L)
+
+  combined = c(p_empty, p_empty)
+  expect_prediction(combined)
+  expect_matrix(combined$prob, nrows = 0L)
+})
+
 test_that("construction of empty PredictionDataClust", {
   task = tsk("usarrests")
 

@@ -61,7 +61,10 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
 
   elems = c("row_ids", "partition")
   tab = map_dtr(dots, function(x) x[elems], .fill = FALSE)
-  prob = do.call(rbind, map(dots, "prob"))
+  probs = map(dots, "prob")
+  # empty predictions carry a 0x1 prob placeholder (k is unknown), so drop 0-row matrices before rbind
+  non_empty = compact(probs)
+  prob = if (length(non_empty)) do.call(rbind, non_empty) else do.call(rbind, probs)
 
   if (!keep_duplicates) {
     keep = !duplicated(tab, by = "row_ids", fromLast = TRUE)
