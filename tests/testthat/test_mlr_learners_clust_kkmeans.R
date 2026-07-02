@@ -36,7 +36,7 @@ test_that("Learner properties are respected", {
 })
 
 test_that("predict aligns features by name", {
-  set.seed(42L)
+  withr::local_seed(42L)
   task = tsk("usarrests")
   learner = lrn("clust.kkmeans", centers = 2L)
   learner$train(task)
@@ -49,7 +49,7 @@ test_that("predict aligns features by name", {
 })
 
 test_that("predict matches training assignments for nonlinear kernels", {
-  set.seed(42L)
+  withr::local_seed(42L)
   task = tsk("usarrests")
   learner = lrn("clust.kkmeans", centers = 3L, kernel = "rbfdot")
   learner$train(task)
