@@ -2,16 +2,15 @@
 
 ## Bug fixes
 
-* `clust.agnes`, `clust.diana`, `clust.genie`, `clust.hclust`, and `clust.protoclust` now cut the tree at the current `k` when predicting, so changing `k` between training and prediction takes effect instead of being silently ignored.
+* `clust.agnes`, `clust.diana`, `clust.genie`, `clust.hclust`, and `clust.protoclust` now cut the tree at the current `k` when predicting, so changing `k` between training and prediction takes effect.
 * `clust.ap` no longer errors when affinity propagation finds a single cluster.
-* `clust.bico` now reclusters the BICO coreset with k-means via `stream::DSC_TwoStage()`, so `k` actually determines the number of predicted clusters. Previously the raw micro-clusters were returned and `k` had no effect on the partition. Training warns when the coreset is too small to produce `k` clusters.
-* `clust.kkmeans` now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since the previous input-space centroid distance produced wrong assignments for nonlinear kernels. The model is now a list containing the fitted object, the training data, and per-cluster kernel statistics.
-* `clust.movMF` now derives the stored `$assignments` from the predict method instead of the fitted responsibility matrix, so predicting on the training data yields the same partition as the training assignments.
-* `clust.pam` with `stand = TRUE` now standardizes new data at predict time, so predictions are consistent with the trained model instead of computing distances on the unstandardized data.
+* `clust.bico` now reclusters the BICO coreset with k-means via `stream::DSC_TwoStage()`, so `k` determines the number of predicted clusters instead of the raw micro-clusters being returned regardless of `k`. Training warns when the coreset is too small to produce `k` clusters.
+* `clust.kkmeans` now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since input-space distances produced wrong assignments for nonlinear kernels. The model is now a list of the fitted object, the training data, and per-cluster kernel statistics.
+* `clust.movMF` now derives the stored `$assignments` from the predict method, so predicting on the training data yields the training assignments.
+* `clust.pam` with `stand = TRUE` now standardizes new data at predict time, so predictions are consistent with the trained model.
 * `clust.stdbscan` now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.
 * `PredictionClust`: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.
-* `PredictionClust`: combining an empty prediction with non-empty ones (e.g. when a resampling iteration has an empty test set) no longer errors for learners with the `prob` predict type.
-* `PredictionClust`: serializing an empty prediction with the `prob` predict type via `as.data.table()` no longer yields a probability column for a nonexistent cluster (previously a `prob.V1` column).
+* `PredictionClust`: empty predictions with the `prob` predict type (e.g. from a resampling iteration with an empty test set) now combine with non-empty ones without error and serialize via `as.data.table()` without a probability column for a nonexistent cluster (previously `prob.V1`).
 * `PredictionClust`: `as.data.table()` no longer drops the partition column for prob-only predictions constructed with `check = FALSE`, returning `NA` partitions instead.
 
 # mlr3cluster 0.4.0
