@@ -88,8 +88,10 @@ LearnerClustKKMeans = R6Class(
       # predict needs the training data and per-cluster kernel means to compute feature-space centroid distances
       cl = as.integer(m)
       clusters = sort(unique(cl))
-      ktt = kernlab::kernelMatrix(kernlab::kernelf(m), data)
-      within = map_dbl(clusters, function(cc) mean(ktt[cl == cc, cl == cc]))
+      # per-cluster kernel blocks avoid materializing the full n x n training kernel matrix
+      within = map_dbl(clusters, function(cc) {
+        mean(kernlab::kernelMatrix(kernlab::kernelf(m), data[cl == cc, , drop = FALSE]))
+      })
       list(model = m, data = data, clusters = clusters, within = within)
     },
 
@@ -97,16 +99,15 @@ LearnerClustKKMeans = R6Class(
       m = self$model
       K = kernlab::kernelf(m$model)
       cl = as.integer(m$model)
-      x = as.matrix(task$data())
+      # align columns with the training data since the kernel pairs features positionally
+      x = as.matrix(task$data())[, colnames(m$data), drop = FALSE]
 
       # squared feature-space distance to each cluster centroid, dropping the K(x, x) term that is constant per row
       kxt = kernlab::kernelMatrix(K, x, m$data)
-      d2 = do.call(
-        cbind,
-        map(seq_along(m$clusters), function(i) {
-          m$within[i] - 2 * rowMeans(kxt[, cl == m$clusters[i], drop = FALSE])
-        })
-      )
+      # count-normalized cluster indicator, so one matrix product yields the per-cluster kernel row means
+      w = outer(cl, m$clusters, "==")
+      w = w / rep(colSums(w), each = length(cl))
+      d2 = rep(m$within, each = nrow(kxt)) - 2 * kxt %*% w
       partition = m$clusters[max.col(-d2, ties.method = "random")]
 
       PredictionClust$new(task = task, partition = partition)

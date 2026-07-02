@@ -35,6 +35,19 @@ test_that("Learner properties are respected", {
   }
 })
 
+test_that("predict aligns features by name", {
+  set.seed(42L)
+  task = tsk("usarrests")
+  learner = lrn("clust.kkmeans", centers = 2L)
+  learner$train(task)
+  p = learner$predict(task)
+
+  data = task$data()
+  setcolorder(data, rev(names(data)))
+  p_reordered = learner$predict(as_task_clust(data))
+  expect_identical(p_reordered$partition, p$partition)
+})
+
 test_that("predict matches training assignments for nonlinear kernels", {
   set.seed(42L)
   task = tsk("usarrests")
