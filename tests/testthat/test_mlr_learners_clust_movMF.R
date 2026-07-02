@@ -30,3 +30,11 @@ test_that("Learner properties are respected", {
     }
   }
 })
+
+test_that("assignments match predictions on training data", {
+  task = tsk("usarrests")
+  learner = lrn("clust.movMF", k = 2L)
+  learner$train(task)
+  p = learner$predict(task)
+  expect_identical(p$partition, learner$assignments)
+})

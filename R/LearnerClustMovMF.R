@@ -62,9 +62,10 @@ LearnerClustMovMF = R6Class(
       pv$control = ps$get_values(tags = "control")
       pv = remove_named(pv, names(pv$control))
 
-      m = invoke(movMF::movMF, x = as.matrix(task$data()), .args = pv)
+      data = as.matrix(task$data())
+      m = invoke(movMF::movMF, x = data, .args = pv)
       if (self$save_assignments) {
-        self$assignments = max.col(m$P)
+        self$assignments = as.integer(invoke(predict, m, newdata = data, type = "class_ids"))
       }
       m
     },

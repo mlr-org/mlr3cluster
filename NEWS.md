@@ -6,6 +6,7 @@
 * `clust.ap` no longer errors when affinity propagation finds a single cluster.
 * `clust.bico` now reclusters the BICO coreset with k-means via `stream::DSC_TwoStage()`, so `k` actually determines the number of predicted clusters. Previously the raw micro-clusters were returned and `k` had no effect on the partition.
 * `clust.kkmeans` now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since the previous input-space centroid distance produced wrong assignments for nonlinear kernels. The model is now a list containing the fitted object, the training data, and per-cluster kernel statistics.
+* `clust.movMF` now derives the stored `$assignments` from the predict method instead of the fitted responsibility matrix, so predicting on the training data yields the same partition as the training assignments.
 * `clust.pam` with `stand = TRUE` now standardizes new data at predict time, so predictions are consistent with the trained model instead of computing distances on the unstandardized data.
 * `clust.stdbscan` now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.
 * `PredictionClust`: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.
