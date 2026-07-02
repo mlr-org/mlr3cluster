@@ -91,6 +91,15 @@ test_that("combining empty and non-empty prob predictions works", {
   expect_matrix(combined$prob, nrows = 0L, ncols = 3L)
 })
 
+test_that("combining empty prob predictions with conflicting clusters errors", {
+  task = tsk("usarrests")
+  learner3 = lrn("clust.featureless", num_clusters = 3L, predict_type = "prob")$train(task)
+  learner4 = lrn("clust.featureless", num_clusters = 4L, predict_type = "prob")$train(task)
+  p3 = learner3$predict(task, row_ids = 1:5)$filter(integer())
+  p4 = learner4$predict(task, row_ids = 1:5)$filter(integer())
+  expect_snapshot(error = TRUE, c(p3, p4))
+})
+
 test_that("as.data.table works for unchecked prob-only predictions", {
   prob = matrix(c(0.7, 0.3, 0.2, 0.8), nrow = 2L, byrow = TRUE, dimnames = list(NULL, c("1", "2")))
   p = PredictionClust$new(row_ids = 1:2, prob = prob, check = FALSE)

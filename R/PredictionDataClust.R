@@ -67,11 +67,10 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
   non_empty = compact(probs)
   prob = if (length(non_empty)) {
     do.call(rbind, non_empty)
-  } else if (every(probs, is.null)) {
-    NULL
   } else {
-    # all prob matrices are 0-row and may disagree in columns (placeholders have none), so keep the widest one
-    probs[[which.max(map_int(probs, ncol))]]
+    # only the 0-column placeholder means unknown k, real 0-row matrices must still agree on their columns
+    known = discard(probs, function(p) is.null(p) || ncol(p) == 0L)
+    if (length(known)) do.call(rbind, known) else probs[[1L]]
   }
 
   if (!keep_duplicates) {
