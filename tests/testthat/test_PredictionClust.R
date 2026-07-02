@@ -77,6 +77,14 @@ test_that("combining empty and non-empty prob predictions works", {
   expect_matrix(combined$prob, nrows = 0L)
 })
 
+test_that("as.data.table works for unchecked prob-only predictions", {
+  prob = matrix(c(0.7, 0.3, 0.2, 0.8), nrow = 2L, byrow = TRUE, dimnames = list(NULL, c("1", "2")))
+  p = PredictionClust$new(row_ids = 1:2, prob = prob, check = FALSE)
+  tab = as.data.table(p)
+  expect_named(tab, c("row_ids", "partition", "prob.1", "prob.2"))
+  expect_identical(tab$partition, c(NA_integer_, NA_integer_))
+})
+
 test_that("construction of empty PredictionDataClust", {
   task = tsk("usarrests")
 
