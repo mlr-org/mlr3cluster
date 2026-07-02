@@ -35,7 +35,8 @@ PredictionClust = R6Class(
     #'   and one row for each observation.
     #'   Columns must be named with cluster numbers, row names are automatically removed.
     #'   If `prob` is provided, but `partition` is not, the cluster memberships are calculated from
-    #'   the probabilities using [max.col()] with `ties.method` set to `"first"`.
+    #'   the probabilities: each observation is assigned the cluster label (column name) of its most
+    #'   probable cluster, with ties broken by the first maximum.
     #'
     #' @param check (`logical(1)`)\cr
     #'   If `TRUE`, performs some argument checks and predict type conversions.

@@ -20,8 +20,9 @@ check_prediction_data.PredictionDataClust = function(pdata, ...) {
     }
 
     if (is.null(pdata$partition)) {
-      # calculate partition from prob
-      pdata$partition = max.col(prob, ties.method = "first")
+      # calculate partition from prob, mapping the winning column to its cluster label
+      ids = max.col(prob, ties.method = "first")
+      pdata$partition = if (is.null(colnames(prob))) ids else as.integer(colnames(prob)[ids])
     }
   }
 

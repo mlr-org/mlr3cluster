@@ -6,6 +6,9 @@
 #' ST-DBSCAN (spatio-temporal density-based spatial clustering of applications with noise) clustering.
 #' Calls [stdbscan::st_dbscan()] from package \CRANpkg{stdbscan}.
 #'
+#' The task must have exactly 3 features: the first two features (in the task's feature order, which is alphabetical
+#' for newly created tasks) are used as the spatial coordinates and the third feature as the temporal coordinate.
+#'
 #' @templateVar id clust.stdbscan
 #' @template learner
 #'
@@ -53,6 +56,12 @@ LearnerClustSTDBSCAN = R6Class(
 
   private = list(
     .train = function(task) {
+      if (task$n_features != 3L) {
+        error_input(
+          "Task must have exactly 3 features (2 spatial coordinates and 1 temporal coordinate), but has %i.",
+          task$n_features
+        )
+      }
       pv = self$param_set$get_values(tags = "train")
       data = task$data()
       m = invoke(stdbscan::st_dbscan, data = as.matrix(data), .args = pv)

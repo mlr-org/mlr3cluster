@@ -4,6 +4,9 @@
 
 * `clust.agnes`, `clust.diana`, `clust.genie`, `clust.hclust`, and `clust.protoclust` now cut the tree at the current `k` when predicting, so changing `k` between training and prediction takes effect instead of being silently ignored.
 * `clust.ap` no longer errors when affinity propagation finds a single cluster.
+* `clust.pam` with `stand = TRUE` now standardizes new data at predict time, so predictions are consistent with the trained model instead of computing distances on the unstandardized data.
+* `clust.stdbscan` now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.
+* `PredictionClust`: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.
 
 # mlr3cluster 0.4.0
 

@@ -8,6 +8,9 @@
 #'
 #' The `k` parameter is set to 2 by default since [cluster::pam()] doesn't have a default value for the number of
 #' clusters. The predict method uses [clue::cl_predict()] to compute the cluster memberships for new data.
+#' Since [clue::cl_predict()] does not support standardization, `stand = TRUE` is handled by the learner itself: the
+#' data is standardized before training (as [cluster::pam()] would do internally) and the same scaling is applied to
+#' new data at predict time.
 #'
 #' @section Initial parameter values:
 #' - `keep.diss`:
@@ -88,7 +91,22 @@ LearnerClustPAM = R6Class(
         }
       }
 
-      m = invoke(cluster::pam, x = task$data(), diss = FALSE, .args = pv)
+      data = task$data()
+      scaling = NULL
+      if (isTRUE(pv$stand)) {
+        # clue::cl_predict() ignores pam's internal standardization, so standardize the data upfront
+        # like cluster::pam() does and reuse the scaling at predict time
+        center = map_dbl(data, mean)
+        scale = map_dbl(data, function(col) mean(abs(col - mean(col))))
+        data = as.data.table(scale(data.matrix(data), center = center, scale = scale))
+        scaling = list(center = center, scale = scale)
+        pv$stand = NULL
+      }
+
+      m = invoke(cluster::pam, x = data, diss = FALSE, .args = pv)
+      if (!is.null(scaling)) {
+        m$scaling = scaling
+      }
       if (self$save_assignments) {
         self$assignments = m$clustering
       }
@@ -96,7 +114,15 @@ LearnerClustPAM = R6Class(
     },
 
     .predict = function(task) {
-      partition = unclass(invoke(clue::cl_predict, self$model, newdata = task$data(), type = "class_ids"))
+      newdata = task$data()
+      scaling = self$model$scaling
+      if (!is.null(scaling)) {
+        cols = colnames(newdata)
+        newdata = as.data.table(
+          scale(data.matrix(newdata), center = scaling$center[cols], scale = scaling$scale[cols])
+        )
+      }
+      partition = unclass(invoke(clue::cl_predict, self$model, newdata = newdata, type = "class_ids"))
       PredictionClust$new(task = task, partition = partition)
     }
   )

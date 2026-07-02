@@ -44,3 +44,8 @@ test_that("Learner properties are respected", {
     expect_prediction_clust(p, learner)
   }
 })
+
+test_that("task without exactly 3 features errors", {
+  learner = lrn("clust.stdbscan", eps_spatial = 1, eps_temporal = 10, min_pts = 2L)
+  expect_snapshot(learner$train(tsk("usarrests")), error = TRUE)
+})

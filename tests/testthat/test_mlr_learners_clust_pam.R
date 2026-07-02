@@ -26,3 +26,11 @@ test_that("Learner properties are respected", {
     expect_prediction_clust(p, learner)
   }
 })
+
+test_that("stand is applied at predict time", {
+  task = tsk("usarrests")
+  learner = lrn("clust.pam", k = 3L, stand = TRUE)
+  learner$train(task)
+  p = learner$predict(task)
+  expect_identical(p$partition, unname(learner$assignments))
+})

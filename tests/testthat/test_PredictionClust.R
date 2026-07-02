@@ -7,6 +7,12 @@ test_that("Construction", {
   expect_prediction(c(p, p))
 })
 
+test_that("partition derived from prob uses cluster labels", {
+  prob = matrix(c(0.1, 0.9, 0.8, 0.2), nrow = 2L, byrow = TRUE, dimnames = list(NULL, c("3", "7")))
+  p = PredictionClust$new(row_ids = 1:2, prob = prob)
+  expect_identical(p$partition, c(7L, 3L))
+})
+
 test_that("Internally constructed Prediction", {
   task = tsk("usarrests")
   learner = lrn("clust.featureless", num_clusters = 1L)

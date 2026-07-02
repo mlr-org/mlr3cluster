@@ -7,6 +7,9 @@
 \description{
 ST-DBSCAN (spatio-temporal density-based spatial clustering of applications with noise) clustering.
 Calls \code{\link[stdbscan:st_dbscan]{stdbscan::st_dbscan()}} from package \CRANpkg{stdbscan}.
+
+The task must have exactly 3 features: the first two features (in the task's feature order, which is alphabetical
+for newly created tasks) are used as the spatial coordinates and the third feature as the temporal coordinate.
 }
 \section{Dictionary}{
 
