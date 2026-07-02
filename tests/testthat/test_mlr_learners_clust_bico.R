@@ -27,3 +27,12 @@ test_that("Learner properties are respected", {
     expect_prediction_clust(p, learner)
   }
 })
+
+test_that("k determines the number of clusters", {
+  task = tsk("usarrests")
+  for (k in c(2L, 3L)) {
+    learner = lrn("clust.bico", k = k)
+    p = learner$train(task)$predict(task)
+    expect_set_equal(unique(p$partition), seq_len(k))
+  }
+})

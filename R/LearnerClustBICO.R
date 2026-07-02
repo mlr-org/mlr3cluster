@@ -6,6 +6,9 @@
 #' BICO (fast computation of k-means coresets in a data stream) clustering.
 #' Calls [stream::DSC_BICO()] from package \CRANpkg{stream}.
 #'
+#' [stream::DSC_BICO()] only computes the coreset (micro-clusters), so the coreset is reclustered with k-means via
+#' [stream::DSC_TwoStage()] and [stream::DSC_Kmeans()] to obtain the final partition with `k` clusters.
+#'
 #' @templateVar id clust.bico
 #' @template learner
 #'
@@ -46,7 +49,11 @@ LearnerClustBICO = R6Class(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       data = task$data()
-      m = invoke(stream::DSC_BICO, .args = pv)
+      # DSC_BICO only builds the coreset, so the k-means macro stage is needed for `k` to determine the partition
+      m = stream::DSC_TwoStage(
+        micro = invoke(stream::DSC_BICO, .args = pv),
+        macro = stream::DSC_Kmeans(k = pv$k %??% 5L)
+      )
       x = stream::DSD_Memory(data)
       stats::update(m, x, n = nrow(data))
 

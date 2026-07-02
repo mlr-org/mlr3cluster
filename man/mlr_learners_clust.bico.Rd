@@ -7,6 +7,9 @@
 \description{
 BICO (fast computation of k-means coresets in a data stream) clustering.
 Calls \code{\link[stream:DSC_BICO]{stream::DSC_BICO()}} from package \CRANpkg{stream}.
+
+\code{\link[stream:DSC_BICO]{stream::DSC_BICO()}} only computes the coreset (micro-clusters), so the coreset is reclustered with k-means via
+\code{\link[stream:DSC_TwoStage]{stream::DSC_TwoStage()}} and \code{\link[stream:DSC_Kmeans]{stream::DSC_Kmeans()}} to obtain the final partition with \code{k} clusters.
 }
 \section{Dictionary}{
 
