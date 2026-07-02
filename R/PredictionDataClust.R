@@ -63,7 +63,7 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
   elems = c("row_ids", "partition")
   tab = map_dtr(dots, function(x) x[elems], .fill = FALSE)
   probs = map(dots, "prob")
-  # empty predictions carry a 0x1 prob placeholder (k is unknown), so drop 0-row matrices before rbind
+  # empty predictions carry a 0-column prob placeholder (k is unknown), so drop 0-row matrices before rbind
   non_empty = compact(probs)
   prob = if (length(non_empty)) do.call(rbind, non_empty) else do.call(rbind, probs)
 
@@ -105,8 +105,8 @@ create_empty_prediction_data.TaskClust = function(task, learner) {
   )
 
   if ("prob" %chin% predict_types) {
-    # the number of clusters is unknown here, so use a single placeholder column with a valid cluster label
-    pdata$prob = matrix(numeric(), nrow = 0L, ncol = 1L, dimnames = list(NULL, "1"))
+    # the number of clusters is unknown here, so use a prob matrix without columns
+    pdata$prob = matrix(numeric(), nrow = 0L, ncol = 0L)
   }
 
   set_class(pdata, "PredictionDataClust")

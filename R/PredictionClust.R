@@ -73,7 +73,7 @@ PredictionClust = R6Class(
 #' @export
 as.data.table.PredictionClust = function(x, ...) {
   tab = data.table(row_ids = x$data$row_ids, partition = x$partition)
-  if ("prob" %chin% x$predict_types) {
+  if ("prob" %chin% x$predict_types && ncol(x$data$prob) > 0L) {
     prob = as.data.table(x$data$prob)
     setnames(prob, new = paste0("prob.", names(prob)))
     tab = rcbind(tab, prob)
