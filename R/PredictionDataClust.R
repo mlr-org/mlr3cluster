@@ -20,9 +20,10 @@ check_prediction_data.PredictionDataClust = function(pdata, ...) {
     }
 
     if (is.null(pdata$partition)) {
-      # calculate partition from prob, mapping the winning column to its cluster label
+      # fall back to the column position if the names are not integer labels
       ids = max.col(prob, ties.method = "first")
-      pdata$partition = if (is.null(colnames(prob))) ids else as.integer(colnames(prob)[ids])
+      labels = suppressWarnings(as.integer(colnames(prob)))
+      pdata$partition = if (length(labels) && !anyNA(labels)) labels[ids] else ids
     }
   }
 

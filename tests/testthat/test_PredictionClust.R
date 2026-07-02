@@ -13,6 +13,14 @@ test_that("partition derived from prob uses cluster labels", {
   expect_identical(p$partition, c(7L, 3L))
 })
 
+test_that("partition derived from prob falls back to positions for non-integer labels", {
+  prob = matrix(c(0.1, 0.9, 0.8, 0.2), nrow = 2L, byrow = TRUE, dimnames = list(NULL, c("a", "b")))
+  expect_no_warning({
+    p = PredictionClust$new(row_ids = 1:2, prob = prob)
+  })
+  expect_identical(p$partition, c(2L, 1L))
+})
+
 test_that("Internally constructed Prediction", {
   task = tsk("usarrests")
   learner = lrn("clust.featureless", num_clusters = 1L)
