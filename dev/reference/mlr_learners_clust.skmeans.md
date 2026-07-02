@@ -219,7 +219,7 @@ learner$train(task)
 # Print the model
 print(learner$model)
 #> A hard spherical k-means partition of 50 objects into 2 classes.
-#> Class sizes: 33, 17
+#> Class sizes: 17, 33
 #> Call: skmeans::skmeans(x = as.matrix(task$data()), k = 2L, control = structure(list(), names = character(0)))
 
 # Make predictions for the task

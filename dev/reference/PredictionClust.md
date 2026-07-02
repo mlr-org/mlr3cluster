@@ -81,9 +81,9 @@ Creates a new instance of this
   each cluster and one row for each observation. Columns must be named
   with cluster numbers, row names are automatically removed. If `prob`
   is provided, but `partition` is not, the cluster memberships are
-  calculated from the probabilities using
-  [`max.col()`](https://rdrr.io/r/base/maxCol.html) with `ties.method`
-  set to `"first"`.
+  calculated from the probabilities: each observation is assigned the
+  cluster label (column name) of its most probable cluster, with ties
+  broken by the first maximum.
 
 - `check`:
 

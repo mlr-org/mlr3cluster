@@ -5,6 +5,14 @@ Calls
 [`stream::DSC_BICO()`](https://rdrr.io/pkg/stream/man/DSC_BICO.html)
 from package [stream](https://CRAN.R-project.org/package=stream).
 
+[`stream::DSC_BICO()`](https://rdrr.io/pkg/stream/man/DSC_BICO.html)
+only computes the coreset (micro-clusters), so the coreset is
+reclustered with k-means via
+[`stream::DSC_TwoStage()`](https://rdrr.io/pkg/stream/man/DSC_TwoStage.html)
+and
+[`stream::DSC_Kmeans()`](https://rdrr.io/pkg/stream/man/DSC_Kmeans.html)
+to obtain the final partition with `k` clusters.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -205,8 +213,8 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> BICO - Fast computation of k-means coresets 
-#> Class: DSC_BICO, DSC_Micro, DSC_R, DSC 
+#> BICO - Fast computation of k-means coresets + k-Means (weighted) 
+#> Class: DSC_TwoStage, DSC_Macro, DSC 
 #> Number of micro-clusters: 7 
 #> Number of macro-clusters: 5 
 
@@ -216,5 +224,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#> 0.06695554 
+#>  0.1612002 
 ```

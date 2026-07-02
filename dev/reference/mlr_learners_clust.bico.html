@@ -6,8 +6,12 @@
     }
   };
 </script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="BICO Clustering Learner — mlr_learners_clust.bico"><meta name="description" content="BICO (fast computation of k-means coresets in a data stream) clustering.
-Calls stream::DSC_BICO() from package stream."><meta property="og:description" content="BICO (fast computation of k-means coresets in a data stream) clustering.
-Calls stream::DSC_BICO() from package stream."><meta name="robots" content="noindex"></head><body>
+Calls stream::DSC_BICO() from package stream.
+stream::DSC_BICO() only computes the coreset (micro-clusters), so the coreset is reclustered with k-means via
+stream::DSC_TwoStage() and stream::DSC_Kmeans() to obtain the final partition with k clusters."><meta property="og:description" content="BICO (fast computation of k-means coresets in a data stream) clustering.
+Calls stream::DSC_BICO() from package stream.
+stream::DSC_BICO() only computes the coreset (micro-clusters), so the coreset is reclustered with k-means via
+stream::DSC_TwoStage() and stream::DSC_Kmeans() to obtain the final partition with k clusters."><meta name="robots" content="noindex"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -54,6 +58,8 @@ Calls stream::DSC_BICO() from package stream."><meta name="robots" content="noin
     <div class="ref-description section level2">
     <p>BICO (fast computation of k-means coresets in a data stream) clustering.
 Calls <code><a href="https://rdrr.io/pkg/stream/man/DSC_BICO.html" class="external-link">stream::DSC_BICO()</a></code> from package <a href="https://CRAN.R-project.org/package=stream" class="external-link"><span class="pkg">stream</span></a>.</p>
+<p><code><a href="https://rdrr.io/pkg/stream/man/DSC_BICO.html" class="external-link">stream::DSC_BICO()</a></code> only computes the coreset (micro-clusters), so the coreset is reclustered with k-means via
+<code><a href="https://rdrr.io/pkg/stream/man/DSC_TwoStage.html" class="external-link">stream::DSC_TwoStage()</a></code> and <code><a href="https://rdrr.io/pkg/stream/man/DSC_Kmeans.html" class="external-link">stream::DSC_Kmeans()</a></code> to obtain the final partition with <code>k</code> clusters.</p>
     </div>
 
 
@@ -216,8 +222,8 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print the model</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> BICO - Fast computation of k-means coresets </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Class: DSC_BICO, DSC_Micro, DSC_R, DSC </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> BICO - Fast computation of k-means coresets + k-Means (weighted) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Class: DSC_TwoStage, DSC_Macro, DSC </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Number of micro-clusters: 7 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Number of macro-clusters: 5 </span>
 <span class="r-in"><span></span></span>
@@ -227,7 +233,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0.06695554 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  0.1612002 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

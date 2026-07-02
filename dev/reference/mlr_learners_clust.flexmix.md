@@ -229,7 +229,7 @@ print(learner$model)
 #>  1  2 
 #> 28 22 
 #> 
-#> convergence after 13 iterations
+#> convergence after 14 iterations
 
 # Make predictions for the task
 prediction = learner$predict(task)
