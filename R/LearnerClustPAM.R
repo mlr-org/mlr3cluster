@@ -10,7 +10,7 @@
 #' clusters. The predict method uses [clue::cl_predict()] to compute the cluster memberships for new data.
 #' Since [clue::cl_predict()] does not support standardization, `stand = TRUE` is handled by the learner itself: the
 #' data is standardized before training (as [cluster::pam()] would do internally) and the same scaling is applied to
-#' new data at predict time.
+#' new data at predict time. The fitted medoids are reported in the original data units, like [cluster::pam()] does.
 #'
 #' @section Initial parameter values:
 #' - `keep.diss`:
@@ -92,19 +92,24 @@ LearnerClustPAM = R6Class(
       }
 
       data = task$data()
+      x = data
       scaling = NULL
       if (isTRUE(pv$stand)) {
         # clue::cl_predict() ignores pam's internal standardization, so standardize the data upfront
         # like cluster::pam() does and reuse the scaling at predict time
         center = map_dbl(data, mean)
         scale = map_dbl(data, function(col) mean(abs(col - mean(col))))
-        data = as.data.table(scale(data.matrix(data), center = center, scale = scale))
+        # a constant feature has zero mean absolute deviation, so leave it centered instead of dividing by zero
+        scale[scale == 0] = 1
+        x = as.data.table(scale(data.matrix(data), center = center, scale = scale))
         scaling = list(center = center, scale = scale)
         pv$stand = NULL
       }
 
-      m = invoke(cluster::pam, x = data, diss = FALSE, .args = pv)
+      m = invoke(cluster::pam, x = x, diss = FALSE, .args = pv)
       if (!is.null(scaling)) {
+        # report medoids in the original data units like cluster::pam(stand = TRUE) does
+        m$medoids = data.matrix(data)[m$id.med, , drop = FALSE]
         m$scaling = scaling
       }
       if (self$save_assignments) {
@@ -114,15 +119,19 @@ LearnerClustPAM = R6Class(
     },
 
     .predict = function(task) {
+      model = self$model
       newdata = task$data()
-      scaling = self$model$scaling
+      scaling = model$scaling
       if (!is.null(scaling)) {
         cols = colnames(newdata)
         newdata = as.data.table(
           scale(data.matrix(newdata), center = scaling$center[cols], scale = scaling$scale[cols])
         )
+        # medoids are stored in the original units, so standardize them for the distance computation
+        cols = colnames(model$medoids)
+        model$medoids = scale(model$medoids, center = scaling$center[cols], scale = scaling$scale[cols])
       }
-      partition = unclass(invoke(clue::cl_predict, self$model, newdata = newdata, type = "class_ids"))
+      partition = unclass(invoke(clue::cl_predict, model, newdata = newdata, type = "class_ids"))
       PredictionClust$new(task = task, partition = partition)
     }
   )
