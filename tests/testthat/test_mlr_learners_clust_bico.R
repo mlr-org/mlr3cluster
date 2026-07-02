@@ -28,6 +28,13 @@ test_that("Learner properties are respected", {
   }
 })
 
+test_that("small coreset warns when k clusters cannot be found", {
+  withr::local_seed(42L)
+  task = tsk("usarrests")
+  learner = lrn("clust.bico", k = 5L, space = 1L)
+  expect_snapshot(learner$train(task))
+})
+
 test_that("k determines the number of clusters", {
   withr::local_seed(42L)
   task = tsk("usarrests")
