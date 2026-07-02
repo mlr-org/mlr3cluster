@@ -34,3 +34,13 @@ test_that("Learner properties are respected", {
     expect_prediction_clust(p, learner)
   }
 })
+
+test_that("predict matches training assignments for nonlinear kernels", {
+  set.seed(42L)
+  task = tsk("usarrests")
+  learner = lrn("clust.kkmeans", centers = 3L, kernel = "rbfdot")
+  learner$train(task)
+  p = learner$predict(task)
+  # kkmeans terminates on stale bound estimates, so a perfect match is not guaranteed
+  expect_gte(mean(p$partition == learner$assignments), 0.95)
+})

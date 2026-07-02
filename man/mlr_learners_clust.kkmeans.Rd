@@ -10,7 +10,9 @@ Calls \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} from package \CRANpkg{ke
 
 The \code{centers} parameter is set to 2 by default since \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} doesn't have a default value for the number
 of clusters. Kernel parameters have to be passed directly and not by using the \code{kpar} list in \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}}.
-The predict method finds the nearest center in kernel distance to assign clusters for new data points.
+The predict method assigns each new observation to the cluster whose centroid is nearest in the kernel-induced
+feature space, computed from the stored training data. The model is therefore a list containing the fitted
+\code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} object along with the training data and per-cluster kernel statistics.
 }
 \section{Dictionary}{
 
