@@ -10,9 +10,6 @@ Calls \code{\link[cluster:pam]{cluster::pam()}} from package \CRANpkg{cluster}.
 
 The \code{k} parameter is set to 2 by default since \code{\link[cluster:pam]{cluster::pam()}} doesn't have a default value for the number of
 clusters. The predict method uses \code{\link[clue:cl_predict]{clue::cl_predict()}} to compute the cluster memberships for new data.
-Since \code{\link[clue:cl_predict]{clue::cl_predict()}} does not support standardization, \code{stand = TRUE} is handled by the learner itself: the
-data is standardized before training (as \code{\link[cluster:pam]{cluster::pam()}} would do internally) and the same scaling is applied to
-new data at predict time. The fitted medoids are reported in the original data units, like \code{\link[cluster:pam]{cluster::pam()}} does.
 }
 \section{Initial parameter values}{
 
