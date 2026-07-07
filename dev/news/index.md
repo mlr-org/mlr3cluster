@@ -23,8 +23,6 @@
 - `clust.movMF` now derives the stored `$assignments` from the predict
   method, so predicting on the training data yields the training
   assignments.
-- `clust.pam` with `stand = TRUE` now standardizes new data at predict
-  time, so predictions are consistent with the trained model.
 - `clust.stdbscan` now errors during training when the task does not
   have exactly 3 features (two spatial coordinates and one temporal
   coordinate) instead of silently using the wrong columns.

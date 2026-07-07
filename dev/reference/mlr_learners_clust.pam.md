@@ -8,14 +8,7 @@ The `k` parameter is set to 2 by default since
 [`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html) doesn't
 have a default value for the number of clusters. The predict method uses
 [`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
-compute the cluster memberships for new data. Since
-[`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html)
-does not support standardization, `stand = TRUE` is handled by the
-learner itself: the data is standardized before training (as
-[`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html) would do
-internally) and the same scaling is applied to new data at predict time.
-The fitted medoids are reported in the original data units, like
-[`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html) does.
+compute the cluster memberships for new data.
 
 ## Initial parameter values
 

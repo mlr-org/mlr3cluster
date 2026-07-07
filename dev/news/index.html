@@ -63,8 +63,6 @@
 <li>
 <code>clust.movMF</code> now derives the stored <code>$assignments</code> from the predict method, so predicting on the training data yields the training assignments.</li>
 <li>
-<code>clust.pam</code> with <code>stand = TRUE</code> now standardizes new data at predict time, so predictions are consistent with the trained model.</li>
-<li>
 <code>clust.stdbscan</code> now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.</li>
 <li>
 <code>PredictionClust</code>: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.</li>
