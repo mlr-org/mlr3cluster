@@ -35,7 +35,7 @@ lrn("clust.SimpleKMeans")
    A \tab untyped \tab "weka.core.EuclideanDistance" \tab  \tab - \cr
    C \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    fast \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   I \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   I \tab integer \tab 500 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    init \tab integer \tab 0 \tab  \tab \eqn{[0, 3]}{[0, 3]} \cr
    M \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    max_candidates \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

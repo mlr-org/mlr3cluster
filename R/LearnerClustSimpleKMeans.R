@@ -28,7 +28,7 @@ LearnerClustSimpleKMeans = R6Class(
         A = p_uty(default = "weka.core.EuclideanDistance", tags = "train"),
         C = p_lgl(default = FALSE, tags = "train"),
         fast = p_lgl(default = FALSE, tags = "train"),
-        I = p_int(1L, default = 100L, tags = "train"),
+        I = p_int(1L, default = 500L, tags = "train"),
         init = p_int(0L, 3L, default = 0L, tags = "train"),
         M = p_lgl(default = FALSE, tags = "train"),
         max_candidates = p_int(1L, default = 100L, tags = "train"),
