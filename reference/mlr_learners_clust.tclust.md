@@ -59,7 +59,6 @@ or with the associated sugar function
 | niter1           | integer   | 3       |              | \\\[1, \infty)\\      |
 | niter2           | integer   | 20      |              | \\\[1, \infty)\\      |
 | nkeep            | integer   | 5       |              | \\\[1, \infty)\\      |
-| iter.max         | integer   | \-      |              | \\\[1, \infty)\\      |
 | equal.weights    | logical   | FALSE   | TRUE, FALSE  | \-                    |
 | restr            | character | eigen   | eigen, deter | \-                    |
 | restr.fact       | numeric   | 12      |              | \\\[1, \infty)\\      |

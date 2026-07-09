@@ -51,7 +51,7 @@ or with the associated sugar function
 | maxiter  | integer   | 100     |                            | \\\[1, \infty)\\ |
 | reltol   | numeric   | \-      |                            | \\\[0, \infty)\\ |
 | minalpha | numeric   | 0       |                            | \\\[0, \infty)\\ |
-| converge | logical   | TRUE    | TRUE, FALSE                | \-               |
+| converge | logical   | \-      | TRUE, FALSE                | \-               |
 | verbose  | logical   | FALSE   | TRUE, FALSE                | \-               |
 
 ## References
@@ -220,11 +220,11 @@ learner$train(task)
 # Print the model
 print(learner$model)
 #> theta:
-#>     Assault    Murder     Rape  UrbanPop
-#> 1  92.85884  4.184017 14.70392  62.06895
-#> 2 418.97623 19.709966 48.58421 122.62699
+#>     Assault    Murder     Rape UrbanPop
+#> 1  92.85901  4.184029 14.70399  62.0696
+#> 2 418.95980 19.709158 48.58254 122.6235
 #> alpha:
-#> [1] 0.496325 0.503675
+#> [1] 0.4963137 0.5036863
 #> L:
 #> [1] 311.7197
 

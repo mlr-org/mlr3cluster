@@ -293,7 +293,7 @@ print(learner$model)
 #> cluster sizes:
 #> 
 #>  1  2 
-#> 21 29 
+#> 29 21 
 #> 
 
 # Make predictions for the task

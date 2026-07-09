@@ -9,8 +9,12 @@ The `centers` parameter is set to 2 by default since
 doesn't have a default value for the number of clusters. Kernel
 parameters have to be passed directly and not by using the `kpar` list
 in [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html).
-The predict method finds the nearest center in kernel distance to assign
-clusters for new data points.
+The predict method assigns each new observation to the cluster whose
+centroid is nearest in the kernel-induced feature space, computed from
+the stored training data. The model is therefore a list containing the
+fitted
+[`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html)
+object along with the training data and per-cluster kernel statistics.
 
 ## Dictionary
 
@@ -44,7 +48,7 @@ or with the associated sugar function
 | centers | untyped | \- |  | \- |
 | kernel | character | rbfdot | rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \- |
 | sigma | numeric | \- |  | \\\[0, \infty)\\ |
-| degree | integer | 3 |  | \\\[1, \infty)\\ |
+| degree | integer | 1 |  | \\\[1, \infty)\\ |
 | scale | numeric | 1 |  | \\\[0, \infty)\\ |
 | offset | numeric | 1 |  | \\(-\infty, \infty)\\ |
 | order | integer | 1 |  | \\(-\infty, \infty)\\ |
@@ -214,25 +218,86 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
+#> $model
 #> Spectral Clustering object of class "specc" 
 #> 
 #>  Cluster memberships: 
 #>  
-#> 2 2 2 2 2 2 2 2 2 2 1 2 2 2 1 2 2 2 1 2 1 2 1 2 1 2 2 2 1 1 2 2 2 1 2 1 1 2 1 2 1 2 2 2 1 1 1 1 1 1 
+#> 1 1 1 2 1 2 2 1 1 2 2 2 1 2 2 2 2 1 2 1 2 1 2 1 2 2 2 1 2 2 1 1 1 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 
 #>  
 #> Gaussian Radial Basis kernel function. 
-#>  Hyperparameter : sigma =  0.000679375846270649 
+#>  Hyperparameter : sigma =  0.000499499921223448 
 #> 
 #> Centers:  
-#>          [,1]     [,2]     [,3]     [,4]
-#> [1,] 108.3684 4.447368 15.71053 63.21053
-#> [2,] 209.0000 9.835484 24.61613 66.96774
+#>          [,1]      [,2]     [,3]     [,4]
+#> [1,] 272.5625 11.812500 28.37500 68.31250
+#> [2,] 122.8529  5.894118 17.87059 64.23529
 #> 
 #> Cluster size:  
-#> [1] 19 31
+#> [1] 16 34
 #> 
 #> Within-cluster sum of squares:  
-#> [1]  326314 1645919
+#> [1] 1445710.9  733848.1
+#> 
+#> 
+#> $data
+#>       Assault Murder Rape UrbanPop
+#>  [1,]     236   13.2 21.2       58
+#>  [2,]     263   10.0 44.5       48
+#>  [3,]     294    8.1 31.0       80
+#>  [4,]     190    8.8 19.5       50
+#>  [5,]     276    9.0 40.6       91
+#>  [6,]     204    7.9 38.7       78
+#>  [7,]     110    3.3 11.1       77
+#>  [8,]     238    5.9 15.8       72
+#>  [9,]     335   15.4 31.9       80
+#> [10,]     211   17.4 25.8       60
+#> [11,]      46    5.3 20.2       83
+#> [12,]     120    2.6 14.2       54
+#> [13,]     249   10.4 24.0       83
+#> [14,]     113    7.2 21.0       65
+#> [15,]      56    2.2 11.3       57
+#> [16,]     115    6.0 18.0       66
+#> [17,]     109    9.7 16.3       52
+#> [18,]     249   15.4 22.2       66
+#> [19,]      83    2.1  7.8       51
+#> [20,]     300   11.3 27.8       67
+#> [21,]     149    4.4 16.3       85
+#> [22,]     255   12.1 35.1       74
+#> [23,]      72    2.7 14.9       66
+#> [24,]     259   16.1 17.1       44
+#> [25,]     178    9.0 28.2       70
+#> [26,]     109    6.0 16.4       53
+#> [27,]     102    4.3 16.5       62
+#> [28,]     252   12.2 46.0       81
+#> [29,]      57    2.1  9.5       56
+#> [30,]     159    7.4 18.8       89
+#> [31,]     285   11.4 32.1       70
+#> [32,]     254   11.1 26.1       86
+#> [33,]     337   13.0 16.1       45
+#> [34,]      45    0.8  7.3       44
+#> [35,]     120    7.3 21.4       75
+#> [36,]     151    6.6 20.0       68
+#> [37,]     159    4.9 29.3       67
+#> [38,]     106    6.3 14.9       72
+#> [39,]     174    3.4  8.3       87
+#> [40,]     279   14.4 22.5       48
+#> [41,]      86    3.8 12.8       45
+#> [42,]     188   13.2 26.9       59
+#> [43,]     201   12.7 25.5       80
+#> [44,]     120    3.2 22.9       80
+#> [45,]      48    2.2 11.2       32
+#> [46,]     156    8.5 20.7       63
+#> [47,]     145    4.0 26.2       73
+#> [48,]      81    5.7  9.3       39
+#> [49,]      53    2.6 10.8       66
+#> [50,]     161    6.8 15.6       60
+#> 
+#> $clusters
+#> [1] 1 2
+#> 
+#> $within
+#> [1] 0.4682575 0.3366644
 #> 
 
 # Make predictions for the task
@@ -241,5 +306,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#> 0.04322918 
+#>  0.1532626 
 ```

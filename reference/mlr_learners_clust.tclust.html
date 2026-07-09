@@ -23,7 +23,7 @@ data."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@ data."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Robust Trimmed Clustering Learner</h1>
-      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.4.0/R/LearnerClustTclust.R" class="external-link"><code>R/LearnerClustTclust.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/R/LearnerClustTclust.R" class="external-link"><code>R/LearnerClustTclust.R</code></a></small>
       <div class="d-none name"><code>mlr_learners_clust.tclust.Rd</code></div>
     </div>
 
@@ -98,7 +98,7 @@ data.</p>
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>alpha</td><td>numeric</td><td>0.05</td><td></td><td>\([0, 0.5]\)</td></tr><tr><td>nstart</td><td>integer</td><td>500</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>niter1</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>niter2</td><td>integer</td><td>20</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>nkeep</td><td>integer</td><td>5</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>iter.max</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>equal.weights</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>restr</td><td>character</td><td>eigen</td><td>eigen, deter</td><td>-</td></tr><tr><td>restr.fact</td><td>numeric</td><td>12</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>cshape</td><td>numeric</td><td>1e+10</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>opt</td><td>character</td><td>HARD</td><td>HARD, MIXT</td><td>-</td></tr><tr><td>center</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>scale</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>store_x</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>parallel</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>n.cores</td><td>integer</td><td>-1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>zero_tol</td><td>numeric</td><td>1e-16</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>drop.empty.clust</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>trace</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>alpha</td><td>numeric</td><td>0.05</td><td></td><td>\([0, 0.5]\)</td></tr><tr><td>nstart</td><td>integer</td><td>500</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>niter1</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>niter2</td><td>integer</td><td>20</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>nkeep</td><td>integer</td><td>5</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>equal.weights</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>restr</td><td>character</td><td>eigen</td><td>eigen, deter</td><td>-</td></tr><tr><td>restr.fact</td><td>numeric</td><td>12</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>cshape</td><td>numeric</td><td>1e+10</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>opt</td><td>character</td><td>HARD</td><td>HARD, MIXT</td><td>-</td></tr><tr><td>center</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>scale</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>store_x</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>parallel</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>n.cores</td><td>integer</td><td>-1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>zero_tol</td><td>numeric</td><td>1e-16</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>drop.empty.clust</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>trace</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>García-Escudero, A L, Gordaliza, Alfonso, Matrán, Carlos, Mayo-Iscar, Agustín (2008).
@@ -277,7 +277,7 @@ for established default tuning spaces.</p></li>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

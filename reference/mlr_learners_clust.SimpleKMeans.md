@@ -40,7 +40,7 @@ or with the associated sugar function
 | A | untyped | "weka.core.EuclideanDistance" |  | \- |
 | C | logical | FALSE | TRUE, FALSE | \- |
 | fast | logical | FALSE | TRUE, FALSE | \- |
-| I | integer | 100 |  | \\\[1, \infty)\\ |
+| I | integer | 500 |  | \\\[1, \infty)\\ |
 | init | integer | 0 |  | \\\[0, 3\]\\ |
 | M | logical | FALSE | TRUE, FALSE | \- |
 | max_candidates | integer | 100 |  | \\\[1, \infty)\\ |
@@ -51,7 +51,7 @@ or with the associated sugar function
 | periodic_pruning | integer | 10000 |  | \\\[1, \infty)\\ |
 | S | integer | 10 |  | \\\[0, \infty)\\ |
 | t2 | numeric | -1 |  | \\(-\infty, \infty)\\ |
-| t1 | numeric | -1.5 |  | \\(-\infty, \infty)\\ |
+| t1 | numeric | -1.25 |  | \\(-\infty, \infty)\\ |
 | V | logical | FALSE | TRUE, FALSE | \- |
 | output_debug_info | logical | FALSE | TRUE, FALSE | \- |
 

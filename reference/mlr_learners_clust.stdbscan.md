@@ -5,6 +5,11 @@ applications with noise) clustering. Calls
 [`stdbscan::st_dbscan()`](https://miboraminima.github.io/stdbscan/reference/st_dbscan.html)
 from package [stdbscan](https://CRAN.R-project.org/package=stdbscan).
 
+The task must have exactly 3 features: the first two features (in the
+task's feature order, which is alphabetical for newly created tasks) are
+used as the spatial coordinates and the third feature as the temporal
+coordinate.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)

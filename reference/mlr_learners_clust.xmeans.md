@@ -38,7 +38,7 @@ or with the associated sugar function
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
 | B | numeric | 1 |  | \\\[0, \infty)\\ |
-| C | numeric | 0 |  | \\\[0, \infty)\\ |
+| C | numeric | 0.5 |  | \\\[0, \infty)\\ |
 | D | untyped | "weka.core.EuclideanDistance" |  | \- |
 | H | integer | 4 |  | \\\[1, \infty)\\ |
 | I | integer | 1 |  | \\\[1, \infty)\\ |

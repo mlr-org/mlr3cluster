@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,9 +45,37 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.4.0/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.1" id="mlr3cluster-041">mlr3cluster 0.4.1<a class="anchor" aria-label="anchor" href="#mlr3cluster-041"></a></h2>
+<div class="section level3">
+<h3 id="bug-fixes-0-4-1">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-4-1"></a></h3>
+<ul><li>
+<code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.genie</code>, <code>clust.hclust</code>, and <code>clust.protoclust</code> now cut the tree at the current <code>k</code> when predicting, so changing <code>k</code> between training and prediction takes effect.</li>
+<li>
+<code>clust.ap</code> no longer errors when affinity propagation finds a single cluster.</li>
+<li>
+<code>clust.bico</code> now reclusters the BICO coreset with k-means via <code><a href="https://rdrr.io/pkg/stream/man/DSC_TwoStage.html" class="external-link">stream::DSC_TwoStage()</a></code>, so <code>k</code> determines the number of predicted clusters instead of the raw micro-clusters being returned regardless of <code>k</code>. Training warns when the coreset is too small to produce <code>k</code> clusters.</li>
+<li>
+<code>clust.kkmeans</code> now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since input-space distances produced wrong assignments for nonlinear kernels. The model is now a list of the fitted object, the training data, and per-cluster kernel statistics.</li>
+<li>
+<code>clust.movMF</code> now derives the stored <code>$assignments</code> from the predict method, so predicting on the training data yields the training assignments.</li>
+<li>
+<code>clust.stdbscan</code> now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.</li>
+<li>
+<code>clust.tclust</code> no longer exposes the <code>iter.max</code> parameter, which is deprecated in tclust 2.0; use <code>niter1</code>, <code>niter2</code>, and <code>nkeep</code> instead.</li>
+<li>
+<code>PredictionClust</code>: combined and empty prediction data now retain the <code>PredictionData</code> class, so <code><a href="https://mlr3.mlr-org.com/reference/resample.html" class="external-link">resample()</a></code> no longer errors on resampling iterations with an empty test set.</li>
+<li>
+<code>PredictionClust</code>: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.</li>
+<li>
+<code>PredictionClust</code>: empty predictions with the <code>prob</code> predict type (e.g. from a resampling iteration with an empty test set) now combine with non-empty ones without error and serialize via <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> without a probability column for a nonexistent cluster (previously <code>prob.V1</code>).</li>
+<li>
+<code>PredictionClust</code>: <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> no longer drops the partition column for prob-only predictions constructed with <code>check = FALSE</code>, returning <code>NA</code> partitions instead.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="mlr3cluster-040">mlr3cluster 0.4.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-040"></a></h2><p class="text-muted">CRAN release: 2026-06-11</p>
 <div class="section level3">
@@ -215,7 +243,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>
