@@ -40,7 +40,6 @@ LearnerClustTclust = R6Class(
         niter1 = p_int(1L, default = 3L, tags = "train"),
         niter2 = p_int(1L, default = 20L, tags = "train"),
         nkeep = p_int(1L, default = 5L, tags = "train"),
-        iter.max = p_int(1L, tags = "train"),
         equal.weights = p_lgl(default = FALSE, tags = "train"),
         restr = p_fct(c("eigen", "deter"), default = "eigen", tags = "train"),
         restr.fact = p_dbl(1, default = 12, tags = "train"),

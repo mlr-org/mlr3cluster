@@ -39,7 +39,7 @@ LearnerClustSimpleKMeans = R6Class(
         periodic_pruning = p_int(1L, default = 10000L, tags = "train"),
         S = p_int(0L, default = 10L, tags = "train"),
         t2 = p_dbl(default = -1, tags = "train"),
-        t1 = p_dbl(default = -1.5, tags = "train"),
+        t1 = p_dbl(default = -1.25, tags = "train"),
         V = p_lgl(default = FALSE, tags = "train"),
         output_debug_info = p_lgl(default = FALSE, tags = "train")
       )

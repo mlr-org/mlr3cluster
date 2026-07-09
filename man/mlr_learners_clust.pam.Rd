@@ -54,7 +54,7 @@ lrn("clust.pam")
    k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    metric \tab character \tab euclidean \tab euclidean, manhattan \tab - \cr
    medoids \tab untyped \tab NULL \tab  \tab - \cr
-   nstart \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   nstart \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    stand \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    do.swap \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    keep.diss \tab logical \tab - \tab TRUE, FALSE \tab - \cr

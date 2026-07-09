@@ -43,7 +43,7 @@ lrn("clust.movMF")
    maxiter \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    reltol \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    minalpha \tab numeric \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   converge \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
+   converge \tab logical \tab - \tab TRUE, FALSE \tab - \cr
    verbose \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
 }
 }

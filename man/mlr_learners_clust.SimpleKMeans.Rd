@@ -46,7 +46,7 @@ lrn("clust.SimpleKMeans")
    periodic_pruning \tab integer \tab 10000 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    S \tab integer \tab 10 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    t2 \tab numeric \tab -1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
-   t1 \tab numeric \tab -1.5 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   t1 \tab numeric \tab -1.25 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
    V \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
 }

@@ -36,7 +36,7 @@ LearnerClustMovMF = R6Class(
         maxiter = p_int(1L, default = 100L, tags = c("train", "control")),
         reltol = p_dbl(0, tags = c("train", "control")),
         minalpha = p_dbl(0, default = 0, tags = c("train", "control")),
-        converge = p_lgl(default = TRUE, tags = c("train", "control")),
+        converge = p_lgl(tags = c("train", "control")),
         verbose = p_lgl(default = FALSE, tags = c("train", "control"))
       )
 

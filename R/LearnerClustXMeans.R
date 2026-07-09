@@ -26,7 +26,7 @@ LearnerClustXMeans = R6Class(
     initialize = function() {
       param_set = ps(
         B = p_dbl(0, default = 1, tags = "train"),
-        C = p_dbl(0, default = 0, tags = "train"),
+        C = p_dbl(0, default = 0.5, tags = "train"),
         D = p_uty(default = "weka.core.EuclideanDistance", tags = "train"),
         H = p_int(1L, default = 4L, tags = "train"),
         I = p_int(1L, default = 1L, tags = "train"),

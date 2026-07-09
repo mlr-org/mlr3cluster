@@ -33,7 +33,7 @@ lrn("clust.cobweb")
 \tabular{llll}{
    Id \tab Type \tab Default \tab Range \cr
    A \tab numeric \tab 1 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   C \tab numeric \tab 0.002 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   C \tab numeric \tab 0.002820948 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    S \tab integer \tab 42 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
 }
 }

@@ -53,7 +53,6 @@ lrn("clust.tclust")
    niter1 \tab integer \tab 3 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    niter2 \tab integer \tab 20 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    nkeep \tab integer \tab 5 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   iter.max \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    equal.weights \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    restr \tab character \tab eigen \tab eigen, deter \tab - \cr
    restr.fact \tab numeric \tab 12 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

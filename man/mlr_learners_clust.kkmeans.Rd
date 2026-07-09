@@ -39,7 +39,7 @@ lrn("clust.kkmeans")
    centers \tab untyped \tab - \tab  \tab - \cr
    kernel \tab character \tab rbfdot \tab rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot \tab - \cr
    sigma \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   degree \tab integer \tab 3 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   degree \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    scale \tab numeric \tab 1 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    offset \tab numeric \tab 1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
    order \tab integer \tab 1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
