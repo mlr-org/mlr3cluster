@@ -82,7 +82,7 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
   result = as.list(tab)
   result$prob = prob
 
-  set_class(result, "PredictionDataClust")
+  set_class(result, c("PredictionDataClust", "PredictionData"))
 }
 
 #' @export
@@ -115,5 +115,5 @@ create_empty_prediction_data.TaskClust = function(task, learner) {
     pdata$prob = matrix(numeric(), nrow = 0L, ncol = 0L)
   }
 
-  set_class(pdata, "PredictionDataClust")
+  set_class(pdata, c("PredictionDataClust", "PredictionData"))
 }

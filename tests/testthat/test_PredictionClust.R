@@ -91,6 +91,25 @@ test_that("combining empty and non-empty prob predictions works", {
   expect_matrix(combined$prob, nrows = 0L, ncols = 3L)
 })
 
+test_that("combined and empty prediction data keep the PredictionData class", {
+  task = tsk("usarrests")
+  learner = lrn("clust.featureless")$train(task)
+  p1 = learner$predict(task, row_ids = 1:5)
+  p2 = learner$predict(task, row_ids = 6:10)
+  expect_class(c(p1$data, p2$data), c("PredictionDataClust", "PredictionData"))
+
+  pdata = mlr3::create_empty_prediction_data(task, learner)
+  expect_class(pdata, c("PredictionDataClust", "PredictionData"))
+})
+
+test_that("resampling with an empty test set works", {
+  rr = resample(tsk("usarrests"), lrn("clust.featureless"), rsmp("holdout", ratio = 1))
+  expect_r6_class(rr, "ResampleResult")
+  pred = rr$prediction()
+  expect_prediction(pred)
+  expect_integer(pred$row_ids, len = 0L)
+})
+
 test_that("combining empty prob predictions with conflicting clusters errors", {
   task = tsk("usarrests")
   learner3 = lrn("clust.featureless", num_clusters = 3L, predict_type = "prob")$train(task)

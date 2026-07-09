@@ -8,6 +8,7 @@
 * `clust.kkmeans` now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since input-space distances produced wrong assignments for nonlinear kernels. The model is now a list of the fitted object, the training data, and per-cluster kernel statistics.
 * `clust.movMF` now derives the stored `$assignments` from the predict method, so predicting on the training data yields the training assignments.
 * `clust.stdbscan` now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.
+* `PredictionClust`: combined and empty prediction data now retain the `PredictionData` class, so `resample()` no longer errors on resampling iterations with an empty test set.
 * `PredictionClust`: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.
 * `PredictionClust`: empty predictions with the `prob` predict type (e.g. from a resampling iteration with an empty test set) now combine with non-empty ones without error and serialize via `as.data.table()` without a probability column for a nonexistent cluster (previously `prob.V1`).
 * `PredictionClust`: `as.data.table()` no longer drops the partition column for prob-only predictions constructed with `check = FALSE`, returning `NA` partitions instead.
