@@ -4,7 +4,9 @@
 #'
 #' @description
 #' Finite mixture model clustering via the EM algorithm.
-#' Calls [flexmix::flexmix()] from package \CRANpkg{flexmix}.
+#' Calls [flexmix::stepFlexmix()] from package \CRANpkg{flexmix}, which runs `nrep` EM repetitions and keeps the
+#' best fit. When `cluster` provides fixed initial assignments, [flexmix::flexmix()] is called instead and `nrep`
+#' must not be larger than 1.
 #'
 #' The component model is selected through the `model` parameter, exposing the multivariate normal, univariate normal,
 #' multivariate binary, and multivariate Poisson drivers shipped with flexmix.
@@ -49,7 +51,7 @@ LearnerClustFlexmix = R6Class(
           default = "auto",
           tags = c("train", "control")
         ),
-        nrep = p_int(1L, default = 1L, tags = c("train", "control"))
+        nrep = p_int(1L, default = 1L, tags = "train")
       )
 
       param_set$set_values(k = 2L, model = "FLXMCmvnorm")
@@ -74,6 +76,12 @@ LearnerClustFlexmix = R6Class(
       control_args = ps$get_values(tags = "control")
       pv = remove_named(pv, names(control_args))
 
+      nrep = pv$nrep %??% 1L
+      pv = remove_named(pv, "nrep")
+      if (!is.null(pv$cluster) && nrep > 1L) {
+        error_config("`nrep` requires random initialization and cannot be combined with `cluster`.")
+      }
+
       model_name = pv$model %??% "FLXMCmvnorm"
       driver_args = list()
       if (model_name == "FLXMCmvnorm" && !is.null(pv$diagonal)) {
@@ -85,20 +93,32 @@ LearnerClustFlexmix = R6Class(
       pv = remove_named(pv, c("model", "diagonal", "truncated"))
       driver = do.call(getExportedValue("flexmix", model_name), driver_args)
 
-      control = do.call(methods::new, c(list("FLXcontrol"), control_args))
-
       data = setDF(task$data())
       # multivariate LHS via cbind() so that posterior() can rebuild the design matrix from newdata
       lhs = sprintf("cbind(%s)", paste0("`", colnames(data), "`", collapse = ", "))
       formula = formulate(lhs = lhs, rhs = "1")
-      m = invoke(
-        flexmix::flexmix,
-        formula = formula,
-        data = data,
-        model = driver,
-        control = control,
-        .args = pv
-      )
+      # only stepFlexmix() runs repeated EM initializations, but it cannot take fixed initial assignments
+      m = if (is.null(pv$cluster)) {
+        invoke(
+          flexmix::stepFlexmix,
+          formula = formula,
+          data = data,
+          model = driver,
+          control = control_args,
+          k = pv$k,
+          nrep = nrep,
+          verbose = FALSE
+        )
+      } else {
+        invoke(
+          flexmix::flexmix,
+          formula = formula,
+          data = data,
+          model = driver,
+          control = control_args,
+          .args = pv
+        )
+      }
       if (self$save_assignments) {
         self$assignments = as.integer(flexmix::clusters(m))
       }

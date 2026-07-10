@@ -6,7 +6,9 @@
 \title{Finite Mixture Model Clustering Learner}
 \description{
 Finite mixture model clustering via the EM algorithm.
-Calls \code{\link[flexmix:flexmix]{flexmix::flexmix()}} from package \CRANpkg{flexmix}.
+Calls \code{\link[flexmix:stepFlexmix]{flexmix::stepFlexmix()}} from package \CRANpkg{flexmix}, which runs \code{nrep} EM repetitions and keeps the
+best fit. When \code{cluster} provides fixed initial assignments, \code{\link[flexmix:flexmix]{flexmix::flexmix()}} is called instead and \code{nrep}
+must not be larger than 1.
 
 The component model is selected through the \code{model} parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
