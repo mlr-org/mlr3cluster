@@ -51,7 +51,7 @@ or with the associated sugar function
 | maxiter  | integer   | 100     |                            | \\\[1, \infty)\\ |
 | reltol   | numeric   | \-      |                            | \\\[0, \infty)\\ |
 | minalpha | numeric   | 0       |                            | \\\[0, \infty)\\ |
-| converge | logical   | TRUE    | TRUE, FALSE                | \-               |
+| converge | logical   | \-      | TRUE, FALSE                | \-               |
 | verbose  | logical   | FALSE   | TRUE, FALSE                | \-               |
 
 ## References

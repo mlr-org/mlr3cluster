@@ -51,7 +51,7 @@ or with the associated sugar function
 | periodic_pruning | integer | 10000 |  | \\\[1, \infty)\\ |
 | S | integer | 10 |  | \\\[0, \infty)\\ |
 | t2 | numeric | -1 |  | \\(-\infty, \infty)\\ |
-| t1 | numeric | -1.5 |  | \\(-\infty, \infty)\\ |
+| t1 | numeric | -1.25 |  | \\(-\infty, \infty)\\ |
 | V | logical | FALSE | TRUE, FALSE | \- |
 | output_debug_info | logical | FALSE | TRUE, FALSE | \- |
 

@@ -63,7 +63,7 @@ or with the associated sugar function
 | k | integer | \- |  | \\\[1, \infty)\\ |
 | metric | character | euclidean | euclidean, manhattan | \- |
 | medoids | untyped | NULL |  | \- |
-| nstart | integer | 1 |  | \\\[1, \infty)\\ |
+| nstart | integer | \- |  | \\\[1, \infty)\\ |
 | stand | logical | FALSE | TRUE, FALSE | \- |
 | do.swap | logical | TRUE | TRUE, FALSE | \- |
 | keep.diss | logical | \- | TRUE, FALSE | \- |

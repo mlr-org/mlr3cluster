@@ -7,7 +7,8 @@ from package
 
 The `k` parameter is set to 2 by default since
 [`clustMixType::kproto()`](https://rdrr.io/pkg/clustMixType/man/kproto.html)
-doesn't have a default value for the number of clusters.
+doesn't have a default value for the number of clusters. The task must
+have at least 2 features.
 
 ## Initial parameter values
 

@@ -43,7 +43,7 @@ or with the associated sugar function
 |  |  |  |  |  |
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
-| centers | integer | \- |  | \\\[1, \infty)\\ |
+| centers | integer | \- |  | \\\[2, \infty)\\ |
 | kernel | character | rbfdot | rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \- |
 | sigma | numeric | \- |  | \\\[0, \infty)\\ |
 | degree | integer | 3 |  | \\\[1, \infty)\\ |

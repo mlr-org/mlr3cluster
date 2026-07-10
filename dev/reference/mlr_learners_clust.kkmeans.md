@@ -15,6 +15,7 @@ the stored training data. The model is therefore a list containing the
 fitted
 [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html)
 object along with the training data and per-cluster kernel statistics.
+The task must have at least 2 features.
 
 ## Dictionary
 
@@ -48,7 +49,7 @@ or with the associated sugar function
 | centers | untyped | \- |  | \- |
 | kernel | character | rbfdot | rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \- |
 | sigma | numeric | \- |  | \\\[0, \infty)\\ |
-| degree | integer | 3 |  | \\\[1, \infty)\\ |
+| degree | integer | 1 |  | \\\[1, \infty)\\ |
 | scale | numeric | 1 |  | \\\[0, \infty)\\ |
 | offset | numeric | 1 |  | \\(-\infty, \infty)\\ |
 | order | integer | 1 |  | \\(-\infty, \infty)\\ |
@@ -142,6 +143,13 @@ Other Learner:
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustKKMeans`
+
+## Active bindings
+
+- `native_model`:
+
+  (any)  
+  The fitted model.
 
 ## Methods
 

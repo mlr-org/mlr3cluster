@@ -11,13 +11,15 @@ The centers parameter is set to 2 by default since kernlab::kkmeans() doesn't ha
 of clusters. Kernel parameters have to be passed directly and not by using the kpar list in kernlab::kkmeans().
 The predict method assigns each new observation to the cluster whose centroid is nearest in the kernel-induced
 feature space, computed from the stored training data. The model is therefore a list containing the fitted
-kernlab::kkmeans() object along with the training data and per-cluster kernel statistics."><meta property="og:description" content="Kernel k-means clustering.
+kernlab::kkmeans() object along with the training data and per-cluster kernel statistics.
+The task must have at least 2 features."><meta property="og:description" content="Kernel k-means clustering.
 Calls kernlab::kkmeans() from package kernlab.
 The centers parameter is set to 2 by default since kernlab::kkmeans() doesn't have a default value for the number
 of clusters. Kernel parameters have to be passed directly and not by using the kpar list in kernlab::kkmeans().
 The predict method assigns each new observation to the cluster whose centroid is nearest in the kernel-induced
 feature space, computed from the stored training data. The model is therefore a list containing the fitted
-kernlab::kkmeans() object along with the training data and per-cluster kernel statistics."><meta name="robots" content="noindex"></head><body>
+kernlab::kkmeans() object along with the training data and per-cluster kernel statistics.
+The task must have at least 2 features."><meta name="robots" content="noindex"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -25,7 +27,7 @@ kernlab::kkmeans() object along with the training data and per-cluster kernel st
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.4.0.9000</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.4.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +70,8 @@ Calls <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="extern
 of clusters. Kernel parameters have to be passed directly and not by using the <code>kpar</code> list in <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code>.
 The predict method assigns each new observation to the cluster whose centroid is nearest in the kernel-induced
 feature space, computed from the stored training data. The model is therefore a list containing the fitted
-<code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code> object along with the training data and per-cluster kernel statistics.</p>
+<code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code> object along with the training data and per-cluster kernel statistics.
+The task must have at least 2 features.</p>
     </div>
 
 
@@ -92,7 +95,7 @@ feature space, computed from the stored training data. The model is therefore a 
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>centers</td><td>untyped</td><td>-</td><td></td><td>-</td></tr><tr><td>kernel</td><td>character</td><td>rbfdot</td><td>rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot</td><td>-</td></tr><tr><td>sigma</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>degree</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>scale</td><td>numeric</td><td>1</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>offset</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>order</td><td>integer</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>alg</td><td>character</td><td>kkmeans</td><td>kkmeans, kerninghan</td><td>-</td></tr><tr><td>p</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>centers</td><td>untyped</td><td>-</td><td></td><td>-</td></tr><tr><td>kernel</td><td>character</td><td>rbfdot</td><td>rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot</td><td>-</td></tr><tr><td>sigma</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>degree</td><td>integer</td><td>1</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>scale</td><td>numeric</td><td>1</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>offset</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>order</td><td>integer</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>alg</td><td>character</td><td>kkmeans</td><td>kkmeans, kerninghan</td><td>-</td></tr><tr><td>p</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Karatzoglou, Alexandros, Smola, Alexandros, Hornik, Kurt, Zeileis, Achim (2004).
@@ -157,6 +160,15 @@ for established default tuning spaces.</p></li>
     <div class="section level2">
     <h2 id="super-classes">Super classes<a class="anchor" aria-label="anchor" href="#super-classes"></a></h2>
     <p><code><a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a></code> -&gt; <code><a href="LearnerClust.html">LearnerClust</a></code> -&gt; <code>LearnerClustKKMeans</code></p>
+    </div>
+    <div class="section level2">
+    <h2 id="active-bindings">Active bindings<a class="anchor" aria-label="anchor" href="#active-bindings"></a></h2>
+    <p></p><div class="r6-active-bindings"><dl><dt><code>native_model</code></dt>
+<dd><p>(any)<br>
+The fitted model.</p></dd>
+
+
+</dl><p></p></div>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>

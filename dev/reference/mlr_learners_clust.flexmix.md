@@ -1,8 +1,12 @@
 # Finite Mixture Model Clustering Learner
 
 Finite mixture model clustering via the EM algorithm. Calls
-[`flexmix::flexmix()`](https://rdrr.io/pkg/flexmix/man/flexmix.html)
-from package [flexmix](https://CRAN.R-project.org/package=flexmix).
+[`flexmix::stepFlexmix()`](https://rdrr.io/pkg/flexmix/man/stepFlexmix.html)
+from package [flexmix](https://CRAN.R-project.org/package=flexmix),
+which runs `nrep` EM repetitions and keeps the best fit. When `cluster`
+provides fixed initial assignments,
+[`flexmix::flexmix()`](https://rdrr.io/pkg/flexmix/man/flexmix.html) is
+called instead and `nrep` must not be larger than 1.
 
 The component model is selected through the `model` parameter, exposing
 the multivariate normal, univariate normal, multivariate binary, and
@@ -222,8 +226,8 @@ learner$train(task)
 print(learner$model)
 #> 
 #> Call:
-#> flexmix::flexmix(formula = formula, data = data, k = 2L, model = driver, 
-#>     control = control)
+#> flexmix::stepFlexmix(formula = formula, data = data, model = driver, 
+#>     control = control_args, k = 2, nrep = nrep, verbose = FALSE)
 #> 
 #> Cluster sizes:
 #>  1  2 

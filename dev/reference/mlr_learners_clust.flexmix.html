@@ -6,14 +6,18 @@
     }
   };
 </script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Finite Mixture Model Clustering Learner — mlr_learners_clust.flexmix"><meta name="description" content="Finite mixture model clustering via the EM algorithm.
-Calls flexmix::flexmix() from package flexmix.
+Calls flexmix::stepFlexmix() from package flexmix, which runs nrep EM repetitions and keeps the
+best fit. When cluster provides fixed initial assignments, flexmix::flexmix() is called instead and nrep
+must not be larger than 1.
 The component model is selected through the model parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 The predict method calls flexmix::clusters() for cluster assignments and flexmix::posterior() for component
 probabilities on new data.
 Note that EM can prune components whose prior falls below minprior during fitting, so the final number of
 components may be smaller than k."><meta property="og:description" content="Finite mixture model clustering via the EM algorithm.
-Calls flexmix::flexmix() from package flexmix.
+Calls flexmix::stepFlexmix() from package flexmix, which runs nrep EM repetitions and keeps the
+best fit. When cluster provides fixed initial assignments, flexmix::flexmix() is called instead and nrep
+must not be larger than 1.
 The component model is selected through the model parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 The predict method calls flexmix::clusters() for cluster assignments and flexmix::posterior() for component
@@ -27,7 +31,7 @@ components may be smaller than k."><meta name="robots" content="noindex"></head>
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.4.0.9000</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.4.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +69,9 @@ components may be smaller than k."><meta name="robots" content="noindex"></head>
 
     <div class="ref-description section level2">
     <p>Finite mixture model clustering via the EM algorithm.
-Calls <code><a href="https://rdrr.io/pkg/flexmix/man/flexmix.html" class="external-link">flexmix::flexmix()</a></code> from package <a href="https://CRAN.R-project.org/package=flexmix" class="external-link"><span class="pkg">flexmix</span></a>.</p>
+Calls <code><a href="https://rdrr.io/pkg/flexmix/man/stepFlexmix.html" class="external-link">flexmix::stepFlexmix()</a></code> from package <a href="https://CRAN.R-project.org/package=flexmix" class="external-link"><span class="pkg">flexmix</span></a>, which runs <code>nrep</code> EM repetitions and keeps the
+best fit. When <code>cluster</code> provides fixed initial assignments, <code><a href="https://rdrr.io/pkg/flexmix/man/flexmix.html" class="external-link">flexmix::flexmix()</a></code> is called instead and <code>nrep</code>
+must not be larger than 1.</p>
 <p>The component model is selected through the <code>model</code> parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 The predict method calls <code>flexmix::clusters()</code> for cluster assignments and <code>flexmix::posterior()</code> for component
@@ -237,8 +243,8 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> flexmix::flexmix(formula = formula, data = data, k = 2L, model = driver, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     control = control)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> flexmix::stepFlexmix(formula = formula, data = data, model = driver, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     control = control_args, k = 2, nrep = nrep, verbose = FALSE)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Cluster sizes:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1  2 </span>

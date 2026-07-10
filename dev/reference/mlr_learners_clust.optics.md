@@ -34,7 +34,7 @@ or with the associated sugar function
 |  |  |  |  |  |
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
-| eps | numeric | NULL |  | \\\[0, \infty)\\ |
+| eps | numeric | Inf |  | \\\[0, \infty)\\ |
 | minPts | integer | 5 |  | \\\[0, \infty)\\ |
 | search | character | kdtree | kdtree, linear, dist | \- |
 | bucketSize | integer | 10 |  | \\\[1, \infty)\\ |
