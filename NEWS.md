@@ -4,18 +4,18 @@
 
 * `clust.agnes`, `clust.diana`, `clust.genie`, `clust.hclust`, and `clust.protoclust` now cut the tree at the current `k` when predicting, so changing `k` between training and prediction takes effect.
 * `clust.ap` no longer errors when affinity propagation finds a single cluster.
-* `clust.bico` now reclusters the BICO coreset with k-means via `stream::DSC_TwoStage()`, so `k` determines the number of predicted clusters instead of the raw micro-clusters being returned regardless of `k`. Training warns when the coreset is too small to produce `k` clusters.
-* `clust.clara` now errors informatively when predicting with `metric = "jaccard"` or with a model trained with `medoids.x = FALSE`, neither of which supports prediction, instead of failing with an obscure upstream error.
-* `clust.dbscan_fpc` now errors informatively when predicting with a model trained with `seeds = FALSE` instead of failing with an obscure upstream error.
-* `clust.kkmeans` now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since input-space distances produced wrong assignments for nonlinear kernels. The model is now a list of the fitted object, the training data, and per-cluster kernel statistics.
+* `clust.bico` now reclusters the BICO coreset with k-means via `stream::DSC_TwoStage()`, so `k` determines the number of predicted clusters instead of returning the raw micro-clusters. Training warns when the coreset is too small to produce `k` clusters.
+* `clust.clara` now errors informatively when predicting with `metric = "jaccard"` or `medoids.x = FALSE` instead of failing with an obscure upstream error.
+* `clust.dbscan_fpc` now errors informatively when predicting after training with `seeds = FALSE` instead of failing with an obscure upstream error.
+* `clust.kkmeans` now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since input-space distances produced wrong assignments for nonlinear kernels. The model is now a list with the fitted object, training data, and per-cluster kernel statistics.
 * `clust.movMF` now derives the stored `$assignments` from the predict method, so predicting on the training data yields the training assignments.
-* `clust.som` now predicts with `kohonen::map()` and derives the stored `$assignments` the same way, so both work for models trained with `keep.data = FALSE`, which previously failed at predict and silently stored empty assignments.
+* `clust.som` now predicts and derives the stored `$assignments` via `kohonen::map()`, so models trained with `keep.data = FALSE` no longer fail at predict or store empty assignments.
 * `clust.stdbscan` now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.
-* `clust.tclust` no longer exposes the `iter.max` parameter, which is deprecated in tclust 2.0; use `niter1`, `niter2`, and `nkeep` instead.
+* `clust.tclust` no longer exposes the `iter.max` parameter, which is deprecated in tclust 2.0 in favor of `niter1`, `niter2`, and `nkeep`.
 * `clust.wss` and `clust.entropy` now return `NaN` instead of 0 for empty predictions, which for `clust.wss` silently skewed aggregated resampling scores.
 * `PredictionClust`: combined and empty prediction data now retain the `PredictionData` class, so `resample()` no longer errors on resampling iterations with an empty test set.
 * `PredictionClust`: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.
-* `PredictionClust`: empty predictions with the `prob` predict type (e.g. from a resampling iteration with an empty test set) now combine with non-empty ones without error and serialize via `as.data.table()` without a probability column for a nonexistent cluster (previously `prob.V1`).
+* `PredictionClust`: empty prob predictions now combine with non-empty ones without error and no longer serialize a spurious `prob.V1` column via `as.data.table()`.
 * `PredictionClust`: `as.data.table()` no longer drops the partition column for prob-only predictions constructed with `check = FALSE`, returning `NA` partitions instead.
 
 # mlr3cluster 0.4.0
