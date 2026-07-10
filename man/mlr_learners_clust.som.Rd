@@ -10,7 +10,7 @@ Calls \code{\link[kohonen:som]{kohonen::som()}} from package \CRANpkg{kohonen}.
 
 Each map unit corresponds to a cluster, so the number of clusters is \code{xdim * ydim}. Grid dimensions, topology, and
 neighbourhood function are exposed directly as parameters and forwarded to \code{\link[kohonen:somgrid]{kohonen::somgrid()}}. The predict method
-uses \code{\link[kohonen:predict.kohonen]{kohonen::predict.kohonen()}} to assign new data to the closest unit.
+uses \code{\link[kohonen:map]{kohonen::map()}} to assign new data to the closest unit.
 }
 \section{Dictionary}{
 
