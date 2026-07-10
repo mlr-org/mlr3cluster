@@ -12,6 +12,7 @@
 * `clust.som` now predicts with `kohonen::map()` and derives the stored `$assignments` the same way, so both work for models trained with `keep.data = FALSE`, which previously failed at predict and silently stored empty assignments.
 * `clust.stdbscan` now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.
 * `clust.tclust` no longer exposes the `iter.max` parameter, which is deprecated in tclust 2.0; use `niter1`, `niter2`, and `nkeep` instead.
+* `clust.wss` and `clust.entropy` now return `NaN` instead of 0 for empty predictions, which for `clust.wss` silently skewed aggregated resampling scores.
 * `PredictionClust`: combined and empty prediction data now retain the `PredictionData` class, so `resample()` no longer errors on resampling iterations with an empty test set.
 * `PredictionClust`: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.
 * `PredictionClust`: empty predictions with the `prob` predict type (e.g. from a resampling iteration with an empty test set) now combine with non-empty ones without error and serialize via `as.data.table()` without a probability column for a nonexistent cluster (previously `prob.V1`).

@@ -51,6 +51,16 @@ test_that("Data measures error on factor features", {
   expect_snapshot(msr("clust.davies_bouldin")$score(prediction = p, task = task), error = TRUE)
 })
 
+test_that("empty predictions score as NaN", {
+  task = tsk("usarrests")
+  learner = lrn("clust.featureless")$train(task)
+  p = learner$predict(task, row_ids = integer())
+
+  for (key in mlr_measures$keys("clust")) {
+    expect_true(is.nan(msr(key)$score(prediction = p, task = task)), info = key)
+  }
+})
+
 test_that("Single-cluster edge cases are handled consistently", {
   task = tsk("usarrests")
   p = PredictionClust$new(task = task, partition = rep.int(1L, task$nrow))
