@@ -112,8 +112,7 @@ LearnerClustKKMeans = R6Class(
       m = self$model
       K = kernlab::kernelf(m$model)
       cl = as.integer(m$model)
-      # align columns with the training data since the kernel pairs features positionally
-      x = as.matrix(task$data())[, colnames(m$data), drop = FALSE]
+      x = as.matrix(ordered_features(task, self))
 
       # squared feature-space distance to each cluster centroid, dropping the K(x, x) term that is constant per row
       kxt = kernlab::kernelMatrix(K, x, m$data)
