@@ -35,7 +35,7 @@ lrn("clust.specc")
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   centers \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   centers \tab integer \tab - \tab  \tab \eqn{[2, \infty)}{[2, Inf)} \cr
    kernel \tab character \tab rbfdot \tab rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot \tab - \cr
    sigma \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    degree \tab integer \tab 3 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

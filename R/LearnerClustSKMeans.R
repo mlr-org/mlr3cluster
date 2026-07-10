@@ -29,7 +29,7 @@ LearnerClustSKMeans = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(1L, tags = c("train", "required")),
+        k = p_int(2L, tags = c("train", "required")),
         method = p_fct(c("genetic", "pclust", "CLUTO", "gmeans", "kmndirs", "LIH", "LIHC"), tags = "train"),
         m = p_dbl(1, default = 1, tags = "train"),
         weights = p_uty(default = 1, tags = "train"),

@@ -28,7 +28,7 @@ LearnerClustSpectral = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        centers = p_int(1L, tags = c("train", "required")),
+        centers = p_int(2L, tags = c("train", "required")),
         kernel = p_fct(
           levels = c("rbfdot", "polydot", "vanilladot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
           default = "rbfdot",
