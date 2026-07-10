@@ -63,6 +63,10 @@
 <li>
 <code>clust.dbscan_fpc</code> now errors informatively when predicting after training with <code>seeds = FALSE</code> instead of failing with an obscure upstream error.</li>
 <li>
+<code>clust.flexmix</code> now trains via <code><a href="https://rdrr.io/pkg/flexmix/man/stepFlexmix.html" class="external-link">flexmix::stepFlexmix()</a></code>, so <code>nrep</code> actually runs repeated EM initializations and keeps the best fit instead of being silently ignored. Setting <code>nrep</code> together with <code>cluster</code> now errors.</li>
+<li>
+<code>clust.genie</code>, <code>clust.kkmeans</code>, and <code>clust.kproto</code> now error informatively during training when the task has fewer than 2 features, which the upstream implementations cannot handle.</li>
+<li>
 <code>clust.kkmeans</code> now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since input-space distances produced wrong assignments for nonlinear kernels. The model is now a list with the fitted object, training data, and per-cluster kernel statistics.</li>
 <li>
 <code>clust.movMF</code> now derives the stored <code>$assignments</code> from the predict method, so predicting on the training data yields the training assignments.</li>

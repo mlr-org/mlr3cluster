@@ -15,6 +15,7 @@ the stored training data. The model is therefore a list containing the
 fitted
 [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html)
 object along with the training data and per-cluster kernel statistics.
+The task must have at least 2 features.
 
 ## Dictionary
 

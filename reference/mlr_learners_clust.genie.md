@@ -11,7 +11,7 @@ There is no predict method for
 [`genieclust::gclust()`](https://rdrr.io/pkg/genieclust/man/gclust.html),
 so the method returns cluster labels for the training data obtained via
 [`stats::cutree()`](https://rdrr.io/r/stats/cutree.html) at the
-requested `k`.
+requested `k`. The task must have at least 2 features.
 
 ## Dictionary
 

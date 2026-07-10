@@ -21,6 +21,14 @@
 - `clust.dbscan_fpc` now errors informatively when predicting after
   training with `seeds = FALSE` instead of failing with an obscure
   upstream error.
+- `clust.flexmix` now trains via
+  [`flexmix::stepFlexmix()`](https://rdrr.io/pkg/flexmix/man/stepFlexmix.html),
+  so `nrep` actually runs repeated EM initializations and keeps the best
+  fit instead of being silently ignored. Setting `nrep` together with
+  `cluster` now errors.
+- `clust.genie`, `clust.kkmeans`, and `clust.kproto` now error
+  informatively during training when the task has fewer than 2 features,
+  which the upstream implementations cannot handle.
 - `clust.kkmeans` now predicts by assigning observations to the nearest
   cluster centroid in the kernel-induced feature space, since
   input-space distances produced wrong assignments for nonlinear
