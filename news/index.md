@@ -12,22 +12,35 @@
   cluster.
 - `clust.bico` now reclusters the BICO coreset with k-means via
   [`stream::DSC_TwoStage()`](https://rdrr.io/pkg/stream/man/DSC_TwoStage.html),
-  so `k` determines the number of predicted clusters instead of the raw
-  micro-clusters being returned regardless of `k`. Training warns when
-  the coreset is too small to produce `k` clusters.
+  so `k` determines the number of predicted clusters instead of
+  returning the raw micro-clusters. Training warns when the coreset is
+  too small to produce `k` clusters.
+- `clust.clara` now errors informatively when predicting with
+  `metric = "jaccard"` or `medoids.x = FALSE` instead of failing with an
+  obscure upstream error.
+- `clust.dbscan_fpc` now errors informatively when predicting after
+  training with `seeds = FALSE` instead of failing with an obscure
+  upstream error.
 - `clust.kkmeans` now predicts by assigning observations to the nearest
   cluster centroid in the kernel-induced feature space, since
   input-space distances produced wrong assignments for nonlinear
-  kernels. The model is now a list of the fitted object, the training
+  kernels. The model is now a list with the fitted object, training
   data, and per-cluster kernel statistics.
 - `clust.movMF` now derives the stored `$assignments` from the predict
   method, so predicting on the training data yields the training
   assignments.
+- `clust.som` now predicts and derives the stored `$assignments` via
+  [`kohonen::map()`](https://rdrr.io/pkg/kohonen/man/map.kohonen.html),
+  so models trained with `keep.data = FALSE` no longer fail at predict
+  or store empty assignments.
 - `clust.stdbscan` now errors during training when the task does not
   have exactly 3 features (two spatial coordinates and one temporal
   coordinate) instead of silently using the wrong columns.
 - `clust.tclust` no longer exposes the `iter.max` parameter, which is
-  deprecated in tclust 2.0; use `niter1`, `niter2`, and `nkeep` instead.
+  deprecated in tclust 2.0 in favor of `niter1`, `niter2`, and `nkeep`.
+- `clust.wss` and `clust.entropy` now return `NaN` instead of 0 for
+  empty predictions, which for `clust.wss` silently skewed aggregated
+  resampling scores.
 - `PredictionClust`: combined and empty prediction data now retain the
   `PredictionData` class, so
   [`resample()`](https://mlr3.mlr-org.com/reference/resample.html) no
@@ -35,12 +48,10 @@
 - `PredictionClust`: when the partition is derived from a probability
   matrix, it now uses the cluster labels from the column names instead
   of the column positions.
-- `PredictionClust`: empty predictions with the `prob` predict type
-  (e.g. from a resampling iteration with an empty test set) now combine
-  with non-empty ones without error and serialize via
-  [`as.data.table()`](https://rdrr.io/pkg/data.table/man/as.data.table.html)
-  without a probability column for a nonexistent cluster (previously
-  `prob.V1`).
+- `PredictionClust`: empty prob predictions now combine with non-empty
+  ones without error and no longer serialize a spurious `prob.V1` column
+  via
+  [`as.data.table()`](https://rdrr.io/pkg/data.table/man/as.data.table.html).
 - `PredictionClust`:
   [`as.data.table()`](https://rdrr.io/pkg/data.table/man/as.data.table.html)
   no longer drops the partition column for prob-only predictions

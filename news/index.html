@@ -57,21 +57,29 @@
 <li>
 <code>clust.ap</code> no longer errors when affinity propagation finds a single cluster.</li>
 <li>
-<code>clust.bico</code> now reclusters the BICO coreset with k-means via <code><a href="https://rdrr.io/pkg/stream/man/DSC_TwoStage.html" class="external-link">stream::DSC_TwoStage()</a></code>, so <code>k</code> determines the number of predicted clusters instead of the raw micro-clusters being returned regardless of <code>k</code>. Training warns when the coreset is too small to produce <code>k</code> clusters.</li>
+<code>clust.bico</code> now reclusters the BICO coreset with k-means via <code><a href="https://rdrr.io/pkg/stream/man/DSC_TwoStage.html" class="external-link">stream::DSC_TwoStage()</a></code>, so <code>k</code> determines the number of predicted clusters instead of returning the raw micro-clusters. Training warns when the coreset is too small to produce <code>k</code> clusters.</li>
 <li>
-<code>clust.kkmeans</code> now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since input-space distances produced wrong assignments for nonlinear kernels. The model is now a list of the fitted object, the training data, and per-cluster kernel statistics.</li>
+<code>clust.clara</code> now errors informatively when predicting with <code>metric = "jaccard"</code> or <code>medoids.x = FALSE</code> instead of failing with an obscure upstream error.</li>
+<li>
+<code>clust.dbscan_fpc</code> now errors informatively when predicting after training with <code>seeds = FALSE</code> instead of failing with an obscure upstream error.</li>
+<li>
+<code>clust.kkmeans</code> now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since input-space distances produced wrong assignments for nonlinear kernels. The model is now a list with the fitted object, training data, and per-cluster kernel statistics.</li>
 <li>
 <code>clust.movMF</code> now derives the stored <code>$assignments</code> from the predict method, so predicting on the training data yields the training assignments.</li>
 <li>
+<code>clust.som</code> now predicts and derives the stored <code>$assignments</code> via <code><a href="https://rdrr.io/pkg/kohonen/man/map.kohonen.html" class="external-link">kohonen::map()</a></code>, so models trained with <code>keep.data = FALSE</code> no longer fail at predict or store empty assignments.</li>
+<li>
 <code>clust.stdbscan</code> now errors during training when the task does not have exactly 3 features (two spatial coordinates and one temporal coordinate) instead of silently using the wrong columns.</li>
 <li>
-<code>clust.tclust</code> no longer exposes the <code>iter.max</code> parameter, which is deprecated in tclust 2.0; use <code>niter1</code>, <code>niter2</code>, and <code>nkeep</code> instead.</li>
+<code>clust.tclust</code> no longer exposes the <code>iter.max</code> parameter, which is deprecated in tclust 2.0 in favor of <code>niter1</code>, <code>niter2</code>, and <code>nkeep</code>.</li>
+<li>
+<code>clust.wss</code> and <code>clust.entropy</code> now return <code>NaN</code> instead of 0 for empty predictions, which for <code>clust.wss</code> silently skewed aggregated resampling scores.</li>
 <li>
 <code>PredictionClust</code>: combined and empty prediction data now retain the <code>PredictionData</code> class, so <code><a href="https://mlr3.mlr-org.com/reference/resample.html" class="external-link">resample()</a></code> no longer errors on resampling iterations with an empty test set.</li>
 <li>
 <code>PredictionClust</code>: when the partition is derived from a probability matrix, it now uses the cluster labels from the column names instead of the column positions.</li>
 <li>
-<code>PredictionClust</code>: empty predictions with the <code>prob</code> predict type (e.g. from a resampling iteration with an empty test set) now combine with non-empty ones without error and serialize via <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> without a probability column for a nonexistent cluster (previously <code>prob.V1</code>).</li>
+<code>PredictionClust</code>: empty prob predictions now combine with non-empty ones without error and no longer serialize a spurious <code>prob.V1</code> column via <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code>.</li>
 <li>
 <code>PredictionClust</code>: <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> no longer drops the partition column for prob-only predictions constructed with <code>check = FALSE</code>, returning <code>NA</code> partitions instead.</li>
 </ul></div>

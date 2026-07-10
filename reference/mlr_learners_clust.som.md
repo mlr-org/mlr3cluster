@@ -9,8 +9,8 @@ Each map unit corresponds to a cluster, so the number of clusters is
 exposed directly as parameters and forwarded to
 [`kohonen::somgrid()`](https://rdrr.io/pkg/kohonen/man/unit.distances.html).
 The predict method uses
-[`kohonen::predict.kohonen()`](https://rdrr.io/pkg/kohonen/man/predict.kohonen.html)
-to assign new data to the closest unit.
+[`kohonen::map()`](https://rdrr.io/pkg/kohonen/man/map.kohonen.html) to
+assign new data to the closest unit.
 
 ## Dictionary
 
