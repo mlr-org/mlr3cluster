@@ -11,6 +11,7 @@ Calls \code{\link[genieclust:gclust]{genieclust::gclust()}} from package \CRANpk
 
 There is no predict method for \code{\link[genieclust:gclust]{genieclust::gclust()}}, so the method returns cluster labels for the training data
 obtained via \code{\link[stats:cutree]{stats::cutree()}} at the requested \code{k}.
+The task must have at least 2 features.
 }
 \section{Dictionary}{
 

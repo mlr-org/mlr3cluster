@@ -9,6 +9,12 @@ test_that("autotest", {
   expect_warning(learner$predict(task[[1L]]), "doesn't predict on new data")
 })
 
+test_that("single-feature task errors", {
+  task = as_task_clust(data.frame(x = rnorm(20L)))
+  learner = lrn("clust.genie")
+  expect_snapshot(learner$train(task), error = TRUE)
+})
+
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
   learner = lrn("clust.genie")

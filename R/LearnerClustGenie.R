@@ -9,6 +9,7 @@
 #'
 #' There is no predict method for [genieclust::gclust()], so the method returns cluster labels for the training data
 #' obtained via [stats::cutree()] at the requested `k`.
+#' The task must have at least 2 features.
 #'
 #' @templateVar id clust.genie
 #' @template learner
@@ -55,6 +56,9 @@ LearnerClustGenie = R6Class(
 
   private = list(
     .train = function(task) {
+      if (task$n_features < 2L) {
+        error_input("Task must have at least 2 features, but has %i.", task$n_features)
+      }
       ps = self$param_set
       m = invoke(
         genieclust::gclust,

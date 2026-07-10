@@ -24,6 +24,12 @@ test_that("Learner properties are respected", {
   }
 })
 
+test_that("single-feature task errors", {
+  task = as_task_clust(data.frame(x = rnorm(20L)))
+  learner = lrn("clust.kproto")
+  expect_snapshot(learner$train(task), error = TRUE)
+})
+
 test_that("train and predict on mixed-type data", {
   data = data.frame(
     x1 = c(1, 2, 10, 11, 1, 2, 10, 11),

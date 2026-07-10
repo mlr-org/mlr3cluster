@@ -8,6 +8,7 @@
 * `clust.clara` now errors informatively when predicting with `metric = "jaccard"` or `medoids.x = FALSE` instead of failing with an obscure upstream error.
 * `clust.dbscan_fpc` now errors informatively when predicting after training with `seeds = FALSE` instead of failing with an obscure upstream error.
 * `clust.flexmix` now trains via `flexmix::stepFlexmix()`, so `nrep` actually runs repeated EM initializations and keeps the best fit instead of being silently ignored. Setting `nrep` together with `cluster` now errors.
+* `clust.genie`, `clust.kkmeans`, and `clust.kproto` now error informatively during training when the task has fewer than 2 features, which the upstream implementations cannot handle.
 * `clust.kkmeans` now predicts by assigning observations to the nearest cluster centroid in the kernel-induced feature space, since input-space distances produced wrong assignments for nonlinear kernels. The model is now a list with the fitted object, training data, and per-cluster kernel statistics.
 * `clust.movMF` now derives the stored `$assignments` from the predict method, so predicting on the training data yields the training assignments.
 * `clust.som` now predicts and derives the stored `$assignments` via `kohonen::map()`, so models trained with `keep.data = FALSE` no longer fail at predict or store empty assignments.

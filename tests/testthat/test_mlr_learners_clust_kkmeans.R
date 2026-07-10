@@ -7,6 +7,12 @@ test_that("autotest", {
   expect_true(result, info = result$error)
 })
 
+test_that("single-feature task errors", {
+  task = as_task_clust(data.frame(x = rnorm(20L)))
+  learner = lrn("clust.kkmeans")
+  expect_snapshot(learner$train(task), error = TRUE)
+})
+
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
   learner = lrn("clust.kkmeans")

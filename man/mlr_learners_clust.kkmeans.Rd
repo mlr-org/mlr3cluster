@@ -13,6 +13,7 @@ of clusters. Kernel parameters have to be passed directly and not by using the \
 The predict method assigns each new observation to the cluster whose centroid is nearest in the kernel-induced
 feature space, computed from the stored training data. The model is therefore a list containing the fitted
 \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} object along with the training data and per-cluster kernel statistics.
+The task must have at least 2 features.
 }
 \section{Dictionary}{
 

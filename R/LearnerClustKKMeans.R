@@ -11,6 +11,7 @@
 #' The predict method assigns each new observation to the cluster whose centroid is nearest in the kernel-induced
 #' feature space, computed from the stored training data. The model is therefore a list containing the fitted
 #' [kernlab::kkmeans()] object along with the training data and per-cluster kernel statistics.
+#' The task must have at least 2 features.
 #'
 #' @templateVar id clust.kkmeans
 #' @template learner
@@ -70,6 +71,9 @@ LearnerClustKKMeans = R6Class(
 
   private = list(
     .train = function(task) {
+      if (task$n_features < 2L) {
+        error_input("Task must have at least 2 features, but has %i.", task$n_features)
+      }
       pv = self$param_set$get_values(tags = "train")
       assert_centers_param(pv$centers, task, "centers")
 

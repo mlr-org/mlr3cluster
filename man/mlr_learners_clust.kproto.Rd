@@ -10,6 +10,7 @@ Calls \code{\link[clustMixType:kproto]{clustMixType::kproto()}} from package \CR
 
 The \code{k} parameter is set to 2 by default since \code{\link[clustMixType:kproto]{clustMixType::kproto()}} doesn't have a default value for the number
 of clusters.
+The task must have at least 2 features.
 }
 \section{Initial parameter values}{
 

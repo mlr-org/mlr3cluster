@@ -8,6 +8,7 @@
 #'
 #' The `k` parameter is set to 2 by default since [clustMixType::kproto()] doesn't have a default value for the number
 #' of clusters.
+#' The task must have at least 2 features.
 #'
 #' @section Initial parameter values:
 #' - `keep.data`:
@@ -93,6 +94,9 @@ LearnerClustKProto = R6Class(
 
   private = list(
     .train = function(task) {
+      if (task$n_features < 2L) {
+        error_input("Task must have at least 2 features, but has %i.", task$n_features)
+      }
       pv = self$param_set$get_values(tags = "train")
       m = invoke(clustMixType::kproto, x = task$data(), .args = pv)
       if (self$save_assignments) {
