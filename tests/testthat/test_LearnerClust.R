@@ -48,6 +48,63 @@ test_that("properties follow the clustering taxonomy", {
   }
 })
 
+test_that("predict aligns features with the training task's column order", {
+  withr::local_seed(42)
+  n = 30L
+  # clusters at (0, 10) and (10, 0): swapping coordinates maps each cluster onto the other
+  d = data.frame(
+    a = c(rnorm(n, 0, 0.5), rnorm(n, 10, 0.5)),
+    z = c(rnorm(n, 10, 0.5), rnorm(n, 0, 0.5))
+  )
+  task = as_task_clust(d)
+  task_rev = as_task_clust(d)
+  task_rev$col_roles$feature = c("z", "a")
+
+  learners = list(
+    lrn("clust.bico"),
+    lrn("clust.birch", threshold = 2, branching = 50L, maxLeaf = 20L),
+    lrn("clust.cobweb"),
+    lrn("clust.dbscan", eps = 3),
+    lrn("clust.dbscan_fpc", eps = 3, MinPts = 5L),
+    lrn("clust.em"),
+    lrn("clust.ff"),
+    lrn("clust.hdbscan"),
+    lrn("clust.kcca"),
+    lrn("clust.MBatchKMeans"),
+    lrn("clust.mclust"),
+    lrn("clust.movMF"),
+    lrn("clust.optics", eps_cl = 3),
+    lrn("clust.SimpleKMeans"),
+    lrn("clust.skmeans"),
+    lrn("clust.som", xdim = 2L, ydim = 2L),
+    lrn("clust.xmeans")
+  )
+  for (learner in learners) {
+    learner$train(task)
+    p1 = learner$predict(task)
+    p2 = learner$predict(task_rev)
+    expect_identical(p2$partition, p1$partition, info = learner$id)
+  }
+
+  # kproto needs a mixed numeric/factor task
+  dk = data.frame(d, f = factor(rep(c("u", "v"), n)))
+  task_mixed = as_task_clust(dk)
+  task_mixed_rev = as_task_clust(dk)
+  task_mixed_rev$col_roles$feature = c("z", "f", "a")
+  learner = lrn("clust.kproto")
+  learner$train(task_mixed)
+  expect_identical(learner$predict(task_mixed_rev)$partition, learner$predict(task_mixed)$partition)
+
+  # stdbscan needs two spatial features and cumulative time as the third
+  dst = data.frame(a = d$a, b = d$z, c = as.numeric(seq_len(2 * n)))
+  task_st = as_task_clust(dst)
+  task_st_rev = as_task_clust(dst)
+  task_st_rev$col_roles$feature = c("c", "b", "a")
+  learner = lrn("clust.stdbscan", eps_spatial = 3, eps_temporal = 100, min_pts = 5L)
+  learner$train(task_st)
+  expect_identical(learner$predict(task_st_rev)$partition, learner$predict(task_st)$partition)
+})
+
 test_that("assignment saving works", {
   task = tsk("usarrests")
   learner = lrn("clust.featureless")

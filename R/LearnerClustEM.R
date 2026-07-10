@@ -65,7 +65,7 @@ LearnerClustEM = R6Class(
     },
 
     .predict = function(task) {
-      data = task$data()
+      data = ordered_features(task, self)
       partition = invoke(predict, self$model, newdata = data, type = "class") + 1L
       prob = NULL
       if (self$predict_type == "prob") {

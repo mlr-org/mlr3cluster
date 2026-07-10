@@ -2,6 +2,11 @@ warn_prediction_useless = function(id) {
   warning_input("Learner '%s' doesn't predict on new data and predictions may not make sense on new data.", id)
 }
 
+ordered_features = function(task, learner) {
+  cols = names(learner$state$data_prototype) %??% learner$state$feature_names
+  task$data(cols = intersect(cols, task$feature_names))
+}
+
 allow_partial_matching = list(
   warnPartialMatchArgs = FALSE,
   warnPartialMatchAttr = FALSE,

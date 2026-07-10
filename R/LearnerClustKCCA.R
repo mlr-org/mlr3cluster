@@ -82,7 +82,7 @@ LearnerClustKCCA = R6Class(
       partition = as.integer(invoke(
         methods::getMethod("predict", "kccasimple"),
         self$model,
-        newdata = as.matrix(task$data())
+        newdata = as.matrix(ordered_features(task, self))
       ))
       PredictionClust$new(task = task, partition = partition)
     }

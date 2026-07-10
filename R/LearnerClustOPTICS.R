@@ -65,7 +65,7 @@ LearnerClustOPTICS = R6Class(
     },
 
     .predict = function(task) {
-      partition = invoke(predict, self$model, newdata = task$data(), data = self$model$data)
+      partition = invoke(predict, self$model, newdata = ordered_features(task, self), data = self$model$data)
       PredictionClust$new(task = task, partition = partition)
     }
   )

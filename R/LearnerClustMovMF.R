@@ -71,7 +71,7 @@ LearnerClustMovMF = R6Class(
     },
 
     .predict = function(task) {
-      newdata = as.matrix(task$data())
+      newdata = as.matrix(ordered_features(task, self))
       partition = as.integer(invoke(predict, self$model, newdata = newdata, type = "class_ids"))
       prob = NULL
       if (self$predict_type == "prob") {

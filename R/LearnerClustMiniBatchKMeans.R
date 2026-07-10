@@ -83,7 +83,7 @@ LearnerClustMiniBatchKMeans = R6Class(
     },
 
     .predict = function(task) {
-      data = task$data()
+      data = ordered_features(task, self)
       partition = as.integer(invoke(predict, self$model, newdata = data))
       prob = NULL
       if (self$predict_type == "prob") {

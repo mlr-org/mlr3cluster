@@ -73,7 +73,12 @@ LearnerClustSTDBSCAN = R6Class(
     },
 
     .predict = function(task) {
-      partition = invoke(predict, self$model, data = as.matrix(self$model$data), newdata = as.matrix(task$data()))
+      partition = invoke(
+        predict,
+        self$model,
+        data = as.matrix(self$model$data),
+        newdata = as.matrix(ordered_features(task, self))
+      )
       PredictionClust$new(task = task, partition = partition)
     }
   )

@@ -68,7 +68,7 @@ LearnerClustXMeans = R6Class(
     },
 
     .predict = function(task) {
-      partition = invoke(predict, self$model, newdata = task$data(), type = "class") + 1L
+      partition = invoke(predict, self$model, newdata = ordered_features(task, self), type = "class") + 1L
       PredictionClust$new(task = task, partition = partition)
     }
   )
