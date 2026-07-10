@@ -139,6 +139,14 @@ Other Learner:
 \section{Super classes}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{\link[mlr3cluster:LearnerClust]{LearnerClust}} -> \code{LearnerClustKKMeans}
 }
+\section{Active bindings}{
+  \if{html}{\out{<div class="r6-active-bindings">}}
+  \describe{
+    \item{\code{native_model}}{(any)\cr
+The fitted model.}
+  }
+  \if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
   \itemize{

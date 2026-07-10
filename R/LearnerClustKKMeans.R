@@ -69,6 +69,15 @@ LearnerClustKKMeans = R6Class(
     }
   ),
 
+  active = list(
+    #' @field native_model (any)\cr
+    #' The fitted model.
+    native_model = function(rhs) {
+      assert_ro_binding(rhs)
+      self$model$model
+    }
+  ),
+
   private = list(
     .train = function(task) {
       if (task$n_features < 2L) {
