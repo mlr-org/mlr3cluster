@@ -7,6 +7,17 @@ test_that("autotest", {
   expect_true(result, info = result$error)
 })
 
+test_that("predicting errors informatively for unsupported training options", {
+  task = tsk("usarrests")
+  learner = lrn("clust.clara", metric = "jaccard")
+  learner$train(task)
+  expect_snapshot(error = TRUE, learner$predict(task))
+
+  learner = lrn("clust.clara", medoids.x = FALSE)
+  learner$train(task)
+  expect_snapshot(error = TRUE, learner$predict(task))
+})
+
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
   learner = lrn("clust.clara")

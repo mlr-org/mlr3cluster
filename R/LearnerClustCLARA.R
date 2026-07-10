@@ -72,6 +72,15 @@ LearnerClustCLARA = R6Class(
     },
 
     .predict = function(task) {
+      pv = self$param_set$values
+      if (!is.null(pv$metric) && pv$metric == "jaccard") {
+        error_config(
+          "Predicting is not supported for `metric = \"jaccard\"` since `clue::cl_predict()` cannot handle it."
+        )
+      }
+      if (isFALSE(pv$medoids.x)) {
+        error_config("Predicting requires the medoids, train with `medoids.x = TRUE`.")
+      }
       partition = unclass(invoke(clue::cl_predict, self$model, newdata = task$data(), type = "class_ids"))
       PredictionClust$new(task = task, partition = partition)
     }

@@ -66,6 +66,9 @@ LearnerClustDBSCANfpc = R6Class(
     },
 
     .predict = function(task) {
+      if (isFALSE(self$param_set$values$seeds)) {
+        error_config("Predicting requires seed points, train with `seeds = TRUE`.")
+      }
       partition = as.integer(invoke(
         predict,
         self$model,

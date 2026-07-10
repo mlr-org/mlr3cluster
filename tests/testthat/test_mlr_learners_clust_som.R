@@ -11,6 +11,15 @@ test_that("autotest", {
   expect_true(result, info = result$error)
 })
 
+test_that("predict works with keep.data = FALSE", {
+  task = tsk("usarrests")
+  learner = lrn("clust.som", xdim = 2L, ydim = 2L, keep.data = FALSE)
+  learner$train(task)
+  p = learner$predict(task)
+  expect_prediction_clust(p, learner)
+  expect_identical(p$partition, learner$assignments)
+})
+
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
   learner = lrn("clust.som")
