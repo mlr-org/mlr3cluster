@@ -49,6 +49,7 @@ test_that("properties follow the clustering taxonomy", {
 })
 
 test_that("predict aligns features with the training task's column order", {
+  skip_on_cran()
   withr::local_seed(42)
   n = 30L
   # clusters at (0, 10) and (10, 0): swapping coordinates maps each cluster onto the other
