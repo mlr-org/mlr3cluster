@@ -1,5 +1,9 @@
 # mlr3cluster (development version)
 
+## New learners
+
+* `clust.kmodes`: K-modes clustering for categorical data from the klaR package.
+
 # mlr3cluster 0.4.1
 
 ## Bug fixes

@@ -40,6 +40,7 @@ Suggests:
     fpc,
     genieclust,
     kernlab,
+    klaR,
     kohonen (>= 3.0.0),
     LPCM,
     mclust,
@@ -84,6 +85,7 @@ Collate:
     'LearnerClustKCCA.R'
     'LearnerClustKKMeans.R'
     'LearnerClustKMeans.R'
+    'LearnerClustKModes.R'
     'LearnerClustKProto.R'
     'LearnerClustMclust.R'
     'LearnerClustMeanShift.R'

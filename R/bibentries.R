@@ -429,6 +429,15 @@ bibentries = c(
     year = "1998",
     publisher = "Springer"
   ),
+  huang1997fast = bibentry(
+    "inproceedings",
+    title = "A Fast Clustering Algorithm to Cluster Very Large Categorical Data Sets in Data Mining",
+    author = "Huang, Zhexue",
+    booktitle = "Data Mining: Techniques and Applications",
+    pages = "21--34",
+    year = "1997",
+    publisher = "World Scientific"
+  ),
   birant2007stdbscan = bibentry(
     "article",
     title = "ST-DBSCAN: An algorithm for clustering spatial-temporal data",
