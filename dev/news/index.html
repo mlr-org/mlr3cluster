@@ -55,6 +55,13 @@
 <ul><li>
 <code>clust.kmodes</code>: K-modes clustering for categorical data from the klaR package.</li>
 </ul></div>
+<div class="section level3">
+<h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
+<ul><li>
+<code>clust.meanshift</code> now predicts on new data by running the mean-shift iteration from each observation with the trained bandwidth and assigning it to the mode it converges to, instead of warning and returning the training partition.</li>
+<li>
+<code>clust.protoclust</code> now predicts on new data by assigning each observation to the cluster of the nearest prototype, instead of warning and returning the training partition. The model is now a list with the fitted object and the training data.</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.1" id="mlr3cluster-041">mlr3cluster 0.4.1<a class="anchor" aria-label="anchor" href="#mlr3cluster-041"></a></h2><p class="text-muted">CRAN release: 2026-07-10</p>
