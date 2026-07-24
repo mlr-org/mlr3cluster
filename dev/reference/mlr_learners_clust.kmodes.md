@@ -1,14 +1,21 @@
-# Fuzzy C-Means Clustering Learner
+# K-Modes Clustering Learner
 
-Fuzzy c-means clustering. Calls
-[`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html) from
-package [e1071](https://CRAN.R-project.org/package=e1071).
+K-modes clustering for categorical data. Calls
+[`klaR::kmodes()`](https://rdrr.io/pkg/klaR/man/kmodes.html) from
+package [klaR](https://CRAN.R-project.org/package=klaR).
 
-The `centers` parameter is set to 2 by default since
-[`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html) doesn't
-have a default value for the number of clusters. The predict method uses
-[`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
-compute the cluster memberships for new data.
+All feature values are treated as categories. Numeric features are
+accepted, but
+[`klaR::kmodes()`](https://rdrr.io/pkg/klaR/man/kmodes.html) warns when
+they contain more than 30 distinct values.
+
+The `modes` parameter is set to 2 by default since
+[`klaR::kmodes()`](https://rdrr.io/pkg/klaR/man/kmodes.html) does not
+have a default value for the number of clusters. Since
+[`klaR::kmodes()`](https://rdrr.io/pkg/klaR/man/kmodes.html) does not
+provide a predict method, new observations are assigned to their closest
+learned mode. Prediction always uses unweighted simple matching
+distance, including for models trained with `weighted = TRUE`.
 
 ## Dictionary
 
@@ -19,45 +26,37 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.cmeans")
-    lrn("clust.cmeans")
+    mlr_learners$get("clust.kmodes")
+    lrn("clust.kmodes")
 
 ## Meta Information
 
 - Task type: “clust”
 
-- Predict Types: “partition”, “prob”
+- Predict Types: “partition”
 
-- Feature Types: “logical”, “integer”, “numeric”
+- Feature Types: “logical”, “integer”, “numeric”, “factor”, “ordered”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [e1071](https://CRAN.R-project.org/package=e1071),
-  [clue](https://CRAN.R-project.org/package=clue)
+  [klaR](https://CRAN.R-project.org/package=klaR)
 
 ## Parameters
 
-|          |           |           |                      |                  |
-|----------|-----------|-----------|----------------------|------------------|
-| Id       | Type      | Default   | Levels               | Range            |
-| centers  | untyped   | \-        |                      | \-               |
-| iter.max | integer   | 100       |                      | \\\[1, \infty)\\ |
-| verbose  | logical   | FALSE     | TRUE, FALSE          | \-               |
-| dist     | character | euclidean | euclidean, manhattan | \-               |
-| method   | character | cmeans    | cmeans, ufcl         | \-               |
-| m        | numeric   | 2         |                      | \\\[1, \infty)\\ |
-| rate.par | numeric   | \-        |                      | \\\[0, 1\]\\     |
-| weights  | untyped   | 1L        |                      | \-               |
-| control  | untyped   | \-        |                      | \-               |
+|          |           |         |                     |                  |
+|----------|-----------|---------|---------------------|------------------|
+| Id       | Type      | Default | Levels              | Range            |
+| modes    | untyped   | \-      |                     | \-               |
+| iter.max | integer   | 10      |                     | \\\[1, \infty)\\ |
+| weighted | logical   | FALSE   | TRUE, FALSE         | \-               |
+| fast     | logical   | TRUE    | TRUE, FALSE         | \-               |
+| ties     | character | first   | first, last, random | \-               |
 
 ## References
 
-Dimitriadou, Evgenia, Hornik, Kurt, Leisch, Friedrich, Meyer, David,
-Weingessel, Andreas (2008). “Misc functions of the Department of
-Statistics (e1071), TU Wien.” *R package*, **1**, 5–24.
-
-Bezdek, C J (2013). *Pattern recognition with fuzzy objective function
-algorithms*. Springer Science & Business Media.
+Huang, Zhexue (1997). “A Fast Clustering Algorithm to Cluster Very Large
+Categorical Data Sets in Data Mining.” In *Data Mining: Techniques and
+Applications*, 21–34.
 
 ## See also
 
@@ -103,6 +102,7 @@ Other Learner:
 [`mlr_learners_clust.bico`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.bico.md),
 [`mlr_learners_clust.birch`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.birch.md),
 [`mlr_learners_clust.clara`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.clara.md),
+[`mlr_learners_clust.cmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cmeans.md),
 [`mlr_learners_clust.cobweb`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.cobweb.md),
 [`mlr_learners_clust.dbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan.md),
 [`mlr_learners_clust.dbscan_fpc`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.dbscan_fpc.md),
@@ -118,7 +118,6 @@ Other Learner:
 [`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md),
-[`mlr_learners_clust.kmodes`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmodes.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md),
@@ -137,15 +136,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustCMeans`
+-\> `LearnerClustKModes`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustCMeans$new()`](#method-LearnerClustCMeans-initialize)
+- [`LearnerClustKModes$new()`](#method-LearnerClustKModes-initialize)
 
-- [`LearnerClustCMeans$clone()`](#method-LearnerClustCMeans-clone)
+- [`LearnerClustKModes$clone()`](#method-LearnerClustKModes-clone)
 
 Inherited methods
 
@@ -163,24 +162,24 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### `LearnerClustCMeans$new()`
+### `LearnerClustKModes$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
 
 #### Usage
 
-    LearnerClustCMeans$new()
+    LearnerClustKModes$new()
 
 ------------------------------------------------------------------------
 
-### `LearnerClustCMeans$clone()`
+### `LearnerClustKModes$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustCMeans$clone(deep = FALSE)
+    LearnerClustKModes$clone(deep = FALSE)
 
 #### Arguments
 
@@ -191,101 +190,17 @@ The objects of this class are cloneable with this method.
 ## Examples
 
 ``` r
-# Define the Learner and set parameter values
-learner = lrn("clust.cmeans")
-print(learner)
-#> 
-#> ── <LearnerClustCMeans> (clust.cmeans): Fuzzy C-Means ──────────────────────────
-#> • Model: -
-#> • Parameters: centers=2
-#> • Packages: mlr3, mlr3cluster, e1071, and clue
-#> • Predict Types: [partition] and prob
-#> • Feature Types: logical, integer, and numeric
-#> • Encapsulation: none (fallback: -)
-#> • Properties: complete, fuzzy, and partitional
-#> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
+# Define the learner
+learner = lrn("clust.kmodes", modes = 2L)
 
-# Define a Task
-task = tsk("usarrests")
+# Define a categorical task
+data = data.frame(
+  color = factor(c("red", "red", "blue", "blue")),
+  shape = factor(c("round", "round", "square", "square"))
+)
+task = as_task_clust(data)
 
-# Train the learner on the task
+# Train and predict
 learner$train(task)
-
-# Print the model
-print(learner$model)
-#> Fuzzy c-means clustering with 2 clusters
-#> 
-#> Cluster centers:
-#>    Assault    Murder     Rape UrbanPop
-#> 1 256.7300 11.647440 28.07171 68.53665
-#> 2 105.4632  4.832808 15.99931 62.71935
-#> 
-#> Memberships:
-#>                  1           2
-#>  [1,] 0.9667380980 0.033261902
-#>  [2,] 0.9724258595 0.027574140
-#>  [3,] 0.9590234854 0.040976515
-#>  [4,] 0.6006262497 0.399373750
-#>  [5,] 0.9670343776 0.032965622
-#>  [6,] 0.7774177857 0.222582214
-#>  [7,] 0.0112955002 0.988704500
-#>  [8,] 0.9699756568 0.030024343
-#>  [9,] 0.8945892347 0.105410765
-#> [10,] 0.8380827337 0.161917266
-#> [11,] 0.0814450853 0.918554915
-#> [12,] 0.0151758412 0.984824159
-#> [13,] 0.9865828320 0.013417168
-#> [14,] 0.0044455530 0.995554447
-#> [15,] 0.0579231799 0.942076820
-#> [16,] 0.0052659093 0.994734091
-#> [17,] 0.0067523701 0.993247630
-#> [18,] 0.9945040869 0.005495913
-#> [19,] 0.0226008290 0.977399171
-#> [20,] 0.9530334541 0.046966546
-#> [21,] 0.1654321787 0.834567821
-#> [22,] 0.9964137511 0.003586249
-#> [23,] 0.0319892774 0.968010723
-#> [24,] 0.9698621859 0.030137814
-#> [25,] 0.4689109665 0.531089034
-#> [26,] 0.0048561862 0.995143814
-#> [27,] 0.0005394172 0.999460583
-#> [28,] 0.9785289659 0.021471034
-#> [29,] 0.0569207290 0.943079271
-#> [30,] 0.2617253617 0.738274638
-#> [31,] 0.9755250008 0.024474999
-#> [32,] 0.9862720430 0.013727957
-#> [33,] 0.8831650439 0.116834956
-#> [34,] 0.0818339193 0.918166081
-#> [35,] 0.0206997695 0.979300230
-#> [36,] 0.1583686472 0.841631353
-#> [37,] 0.2417810352 0.758218965
-#> [38,] 0.0038994967 0.996100503
-#> [39,] 0.4116430350 0.588356965
-#> [40,] 0.9695648410 0.030435159
-#> [41,] 0.0229334592 0.977066541
-#> [42,] 0.5928060923 0.407193908
-#> [43,] 0.7469423869 0.253057613
-#> [44,] 0.0287518441 0.971248156
-#> [45,] 0.0862851590 0.913714841
-#> [46,] 0.2018226269 0.798177373
-#> [47,] 0.1236896318 0.876310368
-#> [48,] 0.0361848698 0.963815130
-#> [49,] 0.0625489696 0.937451030
-#> [50,] 0.2474251023 0.752574898
-#> 
-#> Closest hard clustering:
-#>  [1] 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 2 1 2 1 2 2 2 1 2 2 1 1 1 2 2 2 2 2
-#> [39] 2 1 2 1 1 2 2 2 2 2 2 2
-#> 
-#> Available components:
-#> [1] "centers"     "size"        "cluster"     "membership"  "iter"       
-#> [6] "withinerror" "call"       
-
-# Make predictions for the task
 prediction = learner$predict(task)
-
-# Score the predictions
-prediction$score(task = task)
-#> clust.dunn 
-#>  0.1033191 
 ```

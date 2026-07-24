@@ -71,6 +71,9 @@
 - [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md)
   [`LearnerClustKMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md)
   : K-Means Clustering Learner
+- [`mlr_learners_clust.kmodes`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmodes.md)
+  [`LearnerClustKModes`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmodes.md)
+  : K-Modes Clustering Learner
 - [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md)
   [`LearnerClustKProto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md)
   : K-Prototypes Clustering Learner
