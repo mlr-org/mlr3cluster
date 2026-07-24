@@ -3,10 +3,8 @@ skip_if_not_installed("LPCM")
 test_that("autotest", {
   learner = lrn("clust.meanshift")
   expect_learner(learner)
-  task = generate_tasks(learner)
-  learner$train(task[[1L]])
-  expect_class(learner$model, "ms")
-  expect_warning(learner$predict(task[[1L]]), "doesn't predict on new data")
+  result = run_autotest(learner, exclude = "sanity")
+  expect_true(result, info = result$error)
 })
 
 test_that("Learner properties are respected", {
@@ -22,9 +20,39 @@ test_that("Learner properties are respected", {
   )
 
   for (parset in parset_list) {
-    learner$param_set$values = parset
+    # keep the adjusted default, otherwise LPCM::ms plots during training
+    learner$param_set$values = insert_named(list(plot = FALSE), parset)
 
-    p = suppressWarnings(learner$train(task)$predict(task))
+    p = learner$train(task)$predict(task)
     expect_prediction_clust(p, learner)
   }
+})
+
+test_that("predict on training data matches assignments", {
+  task = tsk("usarrests")
+  learner = lrn("clust.meanshift", h = 0.2)
+  learner$train(task)
+  expect_class(learner$model, "ms")
+  p = learner$predict(task)
+  expect_identical(p$partition, learner$assignments)
+})
+
+test_that("predict assigns new data to fitted modes", {
+  task = tsk("usarrests")
+  learner = lrn("clust.meanshift", h = 0.2)
+  learner$train(task, row_ids = 1:40)
+  p = learner$predict(task, row_ids = 41:50)
+  expect_integer(p$partition, len = 10L, lower = 1L, upper = nrow(learner$model$cluster.center))
+})
+
+test_that("predict aligns features by name", {
+  task = tsk("usarrests")
+  learner = lrn("clust.meanshift", h = 0.2)
+  learner$train(task)
+  p = learner$predict(task)
+
+  data = task$data()
+  setcolorder(data, rev(names(data)))
+  p_reordered = learner$predict(as_task_clust(data))
+  expect_identical(p_reordered$partition, p$partition)
 })

@@ -6,7 +6,8 @@
 #' Mean shift clustering.
 #' Calls [LPCM::ms()] from package \CRANpkg{LPCM}.
 #'
-#' There is no predict method for [LPCM::ms()], so the method returns cluster labels for the training data.
+#' The predict method runs the mean-shift iteration from each new observation with the trained bandwidth via
+#' [LPCM::ms.rep()] and assigns it to the mode it converges to, i.e. the basin of attraction of the fitted modes.
 #'
 #' @section Initial parameter values:
 #' - `plot`:
@@ -69,8 +70,20 @@ LearnerClustMeanShift = R6Class(
     },
 
     .predict = function(task) {
-      warn_prediction_useless(self$id)
-      partition = self$assignments %??% as.integer(self$model$cluster.label)
+      m = self$model
+      x = as.matrix(ordered_features(task, self))
+      x = sweep(x, 2L, m$scaled.by, "/")
+
+      args = list(X = as.matrix(m$data), h = m$h)
+      iter = self$param_set$values$iter
+      if (!is.null(iter)) {
+        args$iter = iter
+      }
+      partition = map_int(seq_len(nrow(x)), function(i) {
+        final = invoke(LPCM::ms.rep, x = x[i, ], .args = args)$final
+        which.min(rowSums(sweep(m$cluster.center, 2L, final, "-")^2))
+      })
+
       PredictionClust$new(task = task, partition = partition)
     }
   )

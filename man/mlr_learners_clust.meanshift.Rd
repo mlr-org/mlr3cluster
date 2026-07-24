@@ -8,7 +8,8 @@
 Mean shift clustering.
 Calls \code{\link[LPCM:ms]{LPCM::ms()}} from package \CRANpkg{LPCM}.
 
-There is no predict method for \code{\link[LPCM:ms]{LPCM::ms()}}, so the method returns cluster labels for the training data.
+The predict method runs the mean-shift iteration from each new observation with the trained bandwidth via
+\code{\link[LPCM:ms.rep]{LPCM::ms.rep()}} and assigns it to the mode it converges to, i.e. the basin of attraction of the fitted modes.
 }
 \section{Initial parameter values}{
 

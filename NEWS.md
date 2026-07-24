@@ -4,6 +4,10 @@
 
 * `clust.kmodes`: K-modes clustering for categorical data from the klaR package.
 
+## Other improvements
+
+* `clust.meanshift` now predicts on new data by running the mean-shift iteration from each observation with the trained bandwidth and assigning it to the mode it converges to, instead of warning and returning the training partition.
+
 # mlr3cluster 0.4.1
 
 ## Bug fixes
