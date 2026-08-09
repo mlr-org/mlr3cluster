@@ -56,7 +56,7 @@ or with the associated sugar function
 | tolerance | numeric | 1e-06 |  | \\\[0, \infty)\\ |
 | verbose | integer | 0 |  | \\\[0, \infty)\\ |
 | classify | character | auto | auto, weighted, hard | \- |
-| initcent | untyped | \- |  | \- |
+| initcent | untyped | "randomcent" |  | \- |
 | gamma | numeric | 1 |  | \\\[0, \infty)\\ |
 | ntry | integer | 5 |  | \\\[1, \infty)\\ |
 | min.size | integer | 2 |  | \\\[1, \infty)\\ |
