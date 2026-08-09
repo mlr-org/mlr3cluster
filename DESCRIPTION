@@ -85,6 +85,7 @@ Collate:
     'LearnerClustKCCA.R'
     'LearnerClustKKMeans.R'
     'LearnerClustKMeans.R'
+    'LearnerClustKMeansRcpp.R'
     'LearnerClustKModes.R'
     'LearnerClustKProto.R'
     'LearnerClustMclust.R'

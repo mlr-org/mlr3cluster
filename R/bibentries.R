@@ -181,6 +181,14 @@ bibentries = c(
     pages = "1--30",
     doi = "10.18637/jss.v091.i01",
   ),
+  arthur2007kmeans = bibentry(
+    "inproceedings",
+    title = "k-means++: the advantages of careful seeding",
+    author = "Arthur, David and Vassilvitskii, Sergei",
+    booktitle = "Proceedings of the Eighteenth Annual ACM-SIAM Symposium on Discrete Algorithms",
+    pages = "1027--1035",
+    year = "2007"
+  ),
   sculley2010web = bibentry(
     "inproceedings",
     title = "Web-scale k-means clustering",

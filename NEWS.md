@@ -2,6 +2,7 @@
 
 ## New learners
 
+* `clust.kmeans_rcpp`: K-means clustering via `ClusterR::KMeans_rcpp()` from the ClusterR package.
 * `clust.kmodes`: K-modes clustering for categorical data from the klaR package.
 
 ## Other improvements
