@@ -181,6 +181,15 @@ bibentries = c(
     pages = "1--30",
     doi = "10.18637/jss.v091.i01",
   ),
+  hamerly2003learning = bibentry(
+    "inproceedings",
+    title = "Learning the k in k-means",
+    author = "Hamerly, Greg and Elkan, Charles",
+    booktitle = "Advances in Neural Information Processing Systems",
+    volume = "16",
+    year = "2003",
+    publisher = "MIT Press"
+  ),
   arthur2007kmeans = bibentry(
     "inproceedings",
     title = "k-means++: the advantages of careful seeding",
