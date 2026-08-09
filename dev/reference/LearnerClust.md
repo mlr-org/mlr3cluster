@@ -248,12 +248,12 @@ ids
 #> [13] "clust.em"           "clust.fanny"        "clust.featureless" 
 #> [16] "clust.ff"           "clust.flexmix"      "clust.genie"       
 #> [19] "clust.hclust"       "clust.hdbscan"      "clust.kcca"        
-#> [22] "clust.kkmeans"      "clust.kmeans"       "clust.kmodes"      
-#> [25] "clust.kproto"       "clust.mclust"       "clust.meanshift"   
-#> [28] "clust.movMF"        "clust.optics"       "clust.pam"         
-#> [31] "clust.protoclust"   "clust.skmeans"      "clust.som"         
-#> [34] "clust.specc"        "clust.stdbscan"     "clust.tclust"      
-#> [37] "clust.xmeans"      
+#> [22] "clust.kkmeans"      "clust.kmeans"       "clust.kmeans_rcpp" 
+#> [25] "clust.kmodes"       "clust.kproto"       "clust.mclust"      
+#> [28] "clust.meanshift"    "clust.movMF"        "clust.optics"      
+#> [31] "clust.pam"          "clust.protoclust"   "clust.skmeans"     
+#> [34] "clust.som"          "clust.specc"        "clust.stdbscan"    
+#> [37] "clust.tclust"       "clust.xmeans"      
 
 # get a specific learner from mlr_learners:
 learner = lrn("clust.kmeans")

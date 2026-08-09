@@ -1,7 +1,14 @@
-# Featureless Clustering Learner
+# K-Means Clustering Learner from ClusterR
 
-Featureless clustering. Randomly (but evenly) assigns observations to
-`num_clusters` partitions (default: 1 partition).
+K-means clustering. Calls
+[`ClusterR::KMeans_rcpp()`](https://mlampros.github.io/ClusterR/reference/KMeans_rcpp.html)
+from package [ClusterR](https://CRAN.R-project.org/package=ClusterR).
+
+The `clusters` parameter is set to 2 by default since
+[`ClusterR::KMeans_rcpp()`](https://mlampros.github.io/ClusterR/reference/KMeans_rcpp.html)
+doesn't have a default value for the number of clusters. The predict
+method computes the cluster memberships for new data via the fitted
+centroids.
 
 ## Dictionary
 
@@ -12,8 +19,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.featureless")
-    lrn("clust.featureless")
+    mlr_learners$get("clust.kmeans_rcpp")
+    lrn("clust.kmeans_rcpp")
 
 ## Meta Information
 
@@ -24,14 +31,38 @@ or with the associated sugar function
 - Feature Types: “logical”, “integer”, “numeric”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
-  [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster)
+  [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
+  [ClusterR](https://CRAN.R-project.org/package=ClusterR)
 
 ## Parameters
 
-|              |         |         |                  |
-|--------------|---------|---------|------------------|
-| Id           | Type    | Default | Range            |
-| num_clusters | integer | \-      | \\\[1, \infty)\\ |
+|  |  |  |  |  |
+|----|----|----|----|----|
+| Id | Type | Default | Levels | Range |
+| clusters | integer | \- |  | \\\[1, \infty)\\ |
+| num_init | integer | 1 |  | \\\[1, \infty)\\ |
+| max_iters | integer | 100 |  | \\\[1, \infty)\\ |
+| initializer | character | kmeans++ | optimal_init, quantile_init, kmeans++, random | \- |
+| verbose | logical | FALSE | TRUE, FALSE | \- |
+| CENTROIDS | untyped | NULL |  | \- |
+| tol | numeric | 1e-04 |  | \\\[0, \infty)\\ |
+| tol_optimal_init | numeric | 0.3 |  | \\\[0, \infty)\\ |
+| seed | integer | 1 |  | \\(-\infty, \infty)\\ |
+| threads | integer | 1 |  | \\\[1, \infty)\\ |
+
+## References
+
+Hartigan, A J, Wong, A M (1979). “Algorithm AS 136: A K-means clustering
+algorithm.” *Journal of the Royal Statistical Society. Series C (Applied
+Statistics)*, **28**(1), 100–108.
+[doi:10.2307/2346830](https://doi.org/10.2307/2346830) .
+
+Lloyd, P S (1982). “Least squares quantization in PCM.” *IEEE
+Transactions on Information Theory*, **28**(2), 129–137.
+
+Arthur, David, Vassilvitskii, Sergei (2007). “k-means++: the advantages
+of careful seeding.” In *Proceedings of the Eighteenth Annual ACM-SIAM
+Symposium on Discrete Algorithms*, 1027–1035.
 
 ## See also
 
@@ -84,6 +115,7 @@ Other Learner:
 [`mlr_learners_clust.diana`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.diana.md),
 [`mlr_learners_clust.em`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.em.md),
 [`mlr_learners_clust.fanny`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.fanny.md),
+[`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.flexmix.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
@@ -92,7 +124,6 @@ Other Learner:
 [`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans.md),
-[`mlr_learners_clust.kmeans_rcpp`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmeans_rcpp.md),
 [`mlr_learners_clust.kmodes`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kmodes.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.mclust.md),
@@ -112,15 +143,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustFeatureless`
+-\> `LearnerClustKMeansRcpp`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustFeatureless$new()`](#method-LearnerClustFeatureless-initialize)
+- [`LearnerClustKMeansRcpp$new()`](#method-LearnerClustKMeansRcpp-initialize)
 
-- [`LearnerClustFeatureless$clone()`](#method-LearnerClustFeatureless-clone)
+- [`LearnerClustKMeansRcpp$clone()`](#method-LearnerClustKMeansRcpp-clone)
 
 Inherited methods
 
@@ -138,24 +169,24 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### `LearnerClustFeatureless$new()`
+### `LearnerClustKMeansRcpp$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
 
 #### Usage
 
-    LearnerClustFeatureless$new()
+    LearnerClustKMeansRcpp$new()
 
 ------------------------------------------------------------------------
 
-### `LearnerClustFeatureless$clone()`
+### `LearnerClustKMeansRcpp$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustFeatureless$clone(deep = FALSE)
+    LearnerClustKMeansRcpp$clone(deep = FALSE)
 
 #### Arguments
 
@@ -167,17 +198,17 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.featureless")
+learner = lrn("clust.kmeans_rcpp")
 print(learner)
 #> 
-#> ── <LearnerClustFeatureless> (clust.featureless): Featureless Clustering Learner
+#> ── <LearnerClustKMeansRcpp> (clust.kmeans_rcpp): K-Means (ClusterR) ────────────
 #> • Model: -
-#> • Parameters: num_clusters=1
-#> • Packages: mlr3 and mlr3cluster
+#> • Parameters: clusters=2
+#> • Packages: mlr3, mlr3cluster, and ClusterR
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, missings, and partitional
+#> • Properties: complete, exclusive, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
@@ -188,15 +219,12 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> $clustering
-#>  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#> [39] 1 1 1 1 1 1 1 1 1 1 1 1
-#> 
-#> $features
-#> [1] "Assault"  "Murder"   "Rape"     "UrbanPop"
-#> 
-#> attr(,"class")
-#> [1] "clust.featureless_model"
+#> KMeans Cluster
+#>  Call: ClusterR::KMeans_rcpp(data = data, clusters = 2L) 
+#>  Data cols: 4 
+#>  Centroids: 2 
+#>  BSS/SS: 0.72907 
+#>  SS: 355807.8 = 96399.03 (WSS) + 259408.8 (BSS)
 
 # Make predictions for the task
 prediction = learner$predict(task)
@@ -204,5 +232,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>        NaN 
+#>  0.1033191 
 ```
