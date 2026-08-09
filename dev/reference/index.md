@@ -56,6 +56,9 @@
 - [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md)
   [`LearnerClustGenie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md)
   : Genie Hierarchical Clustering Learner
+- [`mlr_learners_clust.gmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.gmeans.md)
+  [`LearnerClustGMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.gmeans.md)
+  : G-Means Clustering Learner
 - [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md)
   [`LearnerClustHclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md)
   : Hierarchical Clustering Learner

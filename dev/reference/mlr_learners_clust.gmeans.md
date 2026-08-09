@@ -1,34 +1,15 @@
-# Partitioning Around Medoids Clustering Learner
+# G-Means Clustering Learner
 
-Partitioning Around Medoids (PAM) clustering. Calls
-[`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html) from
-package [cluster](https://CRAN.R-project.org/package=cluster).
+G-means clustering. Calls
+[`gmeans::gmeans()`](https://m-muecke.github.io/gmeans/reference/gmeans.html)
+from package [gmeans](https://CRAN.R-project.org/package=gmeans).
 
-The `k` parameter is set to 2 by default since
-[`cluster::pam()`](https://rdrr.io/pkg/cluster/man/pam.html) doesn't
-have a default value for the number of clusters. The predict method uses
-[`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html) to
-compute the cluster memberships for new data.
-
-## Initial parameter values
-
-- `keep.diss`:
-
-  - Actual default: `n < 100`, where `n` is the number of observations.
-
-  - Adjusted default: `FALSE`.
-
-  - Reason for change: Avoid storing the dissimilarity matrix in the
-    model to save memory.
-
-- `keep.data`:
-
-  - Actual default: `TRUE`.
-
-  - Adjusted default: `FALSE`.
-
-  - Reason for change: Avoid storing the training data in the model to
-    save memory.
+G-means extends k-means by automatically determining the number of
+clusters: starting from `k_init` centers, each cluster is repeatedly
+split in two unless an Anderson-Darling test suggests its points already
+follow a Gaussian distribution, until no more centers are added or
+`k_max` is reached. The predict method assigns new observations to the
+nearest cluster center.
 
 ## Dictionary
 
@@ -39,8 +20,8 @@ can be instantiated via the
 or with the associated sugar function
 [`mlr3::lrn()`](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_learners$get("clust.pam")
-    lrn("clust.pam")
+    mlr_learners$get("clust.gmeans")
+    lrn("clust.gmeans")
 
 ## Meta Information
 
@@ -52,37 +33,26 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [cluster](https://CRAN.R-project.org/package=cluster),
-  [clue](https://CRAN.R-project.org/package=clue)
+  [gmeans](https://CRAN.R-project.org/package=gmeans)
 
 ## Parameters
 
 |  |  |  |  |  |
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
-| k | integer | \- |  | \\\[1, \infty)\\ |
-| metric | character | euclidean | euclidean, manhattan | \- |
-| medoids | untyped | NULL |  | \- |
-| nstart | integer | \- |  | \\\[1, \infty)\\ |
-| stand | logical | FALSE | TRUE, FALSE | \- |
-| do.swap | logical | TRUE | TRUE, FALSE | \- |
-| keep.diss | logical | \- | TRUE, FALSE | \- |
-| keep.data | logical | TRUE | TRUE, FALSE | \- |
-| pamonce | untyped | FALSE |  | \- |
-| variant | character | original | original, o_1, o_2, f_3, f_4, f_5, faster | \- |
-| trace.lev | integer | 0 |  | \\\[0, \infty)\\ |
+| k_init | integer | 2 |  | \\\[1, \infty)\\ |
+| k_max | integer | 10 |  | \\\[1, \infty)\\ |
+| level | numeric | 0.05 |  | \\\[0, 1\]\\ |
+| iter.max | integer | 10 |  | \\\[1, \infty)\\ |
+| algorithm | character | Hartigan-Wong | Hartigan-Wong, Lloyd, Forgy, MacQueen | \- |
+| trace | logical | FALSE | TRUE, FALSE | \- |
+| method | character | euclidean | euclidean, manhattan, minkowski | \- |
+| p | numeric | 2 |  | \\(-\infty, \infty)\\ |
 
 ## References
 
-Reynolds, P A, Richards, Graeme, de la Iglesia, Beatriz, Rayward-Smith,
-J V (2006). “Clustering rules: a comparison of partitioning and
-hierarchical clustering algorithms.” *Journal of Mathematical Modelling
-and Algorithms*, **5**, 475–504.
-
-Schubert, Erich, Rousseeuw, J P (2019). “Faster k-medoids clustering:
-improving the PAM, CLARA, and CLARANS algorithms.” In *Similarity Search
-and Applications: 12th International Conference, SISAP 2019, Newark, NJ,
-USA, October 2–4, 2019, Proceedings 12*, 171–187. Springer.
+Hamerly, Greg, Elkan, Charles (2003). “Learning the k in k-means.” In
+*Advances in Neural Information Processing Systems*, volume 16.
 
 ## See also
 
@@ -139,7 +109,6 @@ Other Learner:
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.flexmix.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.genie.md),
-[`mlr_learners_clust.gmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.gmeans.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.kcca.md),
@@ -152,6 +121,7 @@ Other Learner:
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.meanshift.md),
 [`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.movMF.md),
 [`mlr_learners_clust.optics`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.optics.md),
+[`mlr_learners_clust.pam`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.pam.md),
 [`mlr_learners_clust.protoclust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.protoclust.md),
 [`mlr_learners_clust.skmeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.skmeans.md),
 [`mlr_learners_clust.som`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.som.md),
@@ -164,15 +134,15 @@ Other Learner:
 
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
--\> `LearnerClustPAM`
+-\> `LearnerClustGMeans`
 
 ## Methods
 
 ### Public methods
 
-- [`LearnerClustPAM$new()`](#method-LearnerClustPAM-initialize)
+- [`LearnerClustGMeans$new()`](#method-LearnerClustGMeans-initialize)
 
-- [`LearnerClustPAM$clone()`](#method-LearnerClustPAM-clone)
+- [`LearnerClustGMeans$clone()`](#method-LearnerClustGMeans-clone)
 
 Inherited methods
 
@@ -190,24 +160,24 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### `LearnerClustPAM$new()`
+### `LearnerClustGMeans$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
 
 #### Usage
 
-    LearnerClustPAM$new()
+    LearnerClustGMeans$new()
 
 ------------------------------------------------------------------------
 
-### `LearnerClustPAM$clone()`
+### `LearnerClustGMeans$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    LearnerClustPAM$clone(deep = FALSE)
+    LearnerClustGMeans$clone(deep = FALSE)
 
 #### Arguments
 
@@ -219,13 +189,13 @@ The objects of this class are cloneable with this method.
 
 ``` r
 # Define the Learner and set parameter values
-learner = lrn("clust.pam")
+learner = lrn("clust.gmeans")
 print(learner)
 #> 
-#> ── <LearnerClustPAM> (clust.pam): Partitioning Around Medoids ──────────────────
+#> ── <LearnerClustGMeans> (clust.gmeans): G-Means ────────────────────────────────
 #> • Model: -
-#> • Parameters: k=2, keep.diss=FALSE, keep.data=FALSE
-#> • Packages: mlr3, mlr3cluster, cluster, and clue
+#> • Parameters: list()
+#> • Packages: mlr3, mlr3cluster, and gmeans
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
@@ -240,20 +210,25 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> Medoids:
-#>      ID Assault Murder Rape UrbanPop
-#> [1,] 22     255   12.1 35.1       74
-#> [2,] 16     115    6.0 18.0       66
+#> K-means clustering with 2 clusters of sizes 29, 21
+#> 
+#> Cluster means:
+#>    Assault    Murder     Rape UrbanPop
+#> 1 109.7586  4.841379 16.24828 64.03448
+#> 2 255.0000 11.857143 28.11429 67.61905
+#> 
 #> Clustering vector:
-#>  [1] 1 1 1 1 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 2 1 2 1 2 2 2 1 2 2 1 1 1 2 2 2 2 2
-#> [39] 2 1 2 1 1 2 2 2 2 2 2 2
-#> Objective function:
-#>    build     swap 
-#> 46.10633 38.41780 
+#>  [1] 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 1 2 1 2 1 1 1 2 1 1 2 2 2 1 1 1 1 1
+#> [39] 1 2 1 2 2 1 1 1 1 1 1 1
+#> 
+#> Within cluster sum of squares by cluster:
+#> [1] 54762.30 41636.73
+#>  (between_SS / total_SS =  72.9 %)
 #> 
 #> Available components:
-#> [1] "medoids"    "id.med"     "clustering" "objective"  "isolation" 
-#> [6] "clusinfo"   "silinfo"    "diss"       "call"      
+#> 
+#> [1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
+#> [6] "betweenss"    "size"         "iter"         "ifault"      
 
 # Make predictions for the task
 prediction = learner$predict(task)

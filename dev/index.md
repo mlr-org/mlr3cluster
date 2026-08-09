@@ -31,7 +31,7 @@ pak::pak("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-- A selection of 38 clustering learners that represent a wide variety of
+- A selection of 39 clustering learners that represent a wide variety of
   clusterers: partitional, hierarchical, fuzzy, etc.
 - A selection of 11 performance measures
 - Two built-in tasks to get started with clustering
@@ -64,6 +64,7 @@ create great visualizations with just one line of code!
 | [clust.ff](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff) | Farthest First | [RWeka](https://cran.r-project.org/package=RWeka) |
 | [clust.flexmix](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix) | Finite Mixture Model | [flexmix](https://cran.r-project.org/package=flexmix) |
 | [clust.genie](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie) | Genie Hierarchical Clustering | [genieclust](https://cran.r-project.org/package=genieclust) |
+| [clust.gmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans) | G-Means | [gmeans](https://cran.r-project.org/package=gmeans) |
 | [clust.hclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust) | Hierarchical Clustering | stats |
 | [clust.hdbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan) | HDBSCAN | [dbscan](https://cran.r-project.org/package=dbscan) |
 | [clust.kcca](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca) | K-Centroids Cluster Analysis | [flexclust](https://cran.r-project.org/package=flexclust) |

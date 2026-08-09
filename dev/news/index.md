@@ -4,6 +4,8 @@
 
 ### New learners
 
+- `clust.gmeans`: G-means clustering from the gmeans package, which
+  extends k-means by automatically determining the number of clusters.
 - `clust.kmeans_rcpp`: K-means clustering via
   [`ClusterR::KMeans_rcpp()`](https://mlampros.github.io/ClusterR/reference/KMeans_rcpp.html)
   from the ClusterR package.
