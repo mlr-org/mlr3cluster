@@ -45,7 +45,7 @@ or with the associated sugar function
 | method | character | euclidean | euclidean, maximum, manhattan, canberra, binary, minkowski | \- |
 | diag | logical | FALSE | TRUE, FALSE | \- |
 | upper | logical | FALSE | TRUE, FALSE | \- |
-| p | numeric | 2 |  | \\(-\infty, \infty)\\ |
+| p | numeric | 2 |  | \\\[0, \infty)\\ |
 | verb | logical | FALSE | TRUE, FALSE | \- |
 | k | integer | \- |  | \\\[1, \infty)\\ |
 

@@ -46,7 +46,7 @@ or with the associated sugar function
 |  |  |  |  |  |
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
-| k | integer | \- |  | \\\[1, \infty)\\ |
+| k | integer | \- |  | \\\[2, \infty)\\ |
 | family | character | kmeans | kmeans, kmedians, angle, jaccard, ejaccard | \- |
 | weights | untyped | \- |  | \- |
 | group | untyped | \- |  | \- |

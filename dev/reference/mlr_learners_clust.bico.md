@@ -42,7 +42,7 @@ or with the associated sugar function
 |            |         |         |                  |
 |------------|---------|---------|------------------|
 | Id         | Type    | Default | Range            |
-| k          | integer | 5       | \\\[1, \infty)\\ |
+| k          | integer | 5       | \\\[2, \infty)\\ |
 | space      | integer | 10      | \\\[1, \infty)\\ |
 | p          | integer | 10      | \\\[1, \infty)\\ |
 | iterations | integer | 10      | \\\[1, \infty)\\ |

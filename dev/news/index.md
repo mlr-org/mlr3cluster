@@ -9,8 +9,15 @@
 
 ### Other improvements
 
+- `clust.bico` and `clust.kcca` now require `k >= 2`, which both already
+  needed but advertised as `k >= 1`, so setting `k = 1` errors when set
+  instead of failing during training.
 - `clust.cobweb` now exposes the `output_debug_info` parameter, which
   the other RWeka-based learners already had.
+- `clust.hclust` and `clust.protoclust` now bound the Minkowski power
+  `p` below at 0, which was previously unbounded even though
+  [`stats::dist()`](https://rdrr.io/r/stats/dist.html) rejects
+  non-positive values.
 - `clust.meanshift` now predicts on new data by running the mean-shift
   iteration from each observation with the trained bandwidth and
   assigning it to the mode it converges to, instead of warning and
