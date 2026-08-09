@@ -39,7 +39,7 @@ LearnerClustKCCA = R6Class(
         tolerance = p_dbl(0, default = 1e-6, tags = c("train", "control")),
         verbose = p_int(0L, default = 0L, tags = c("train", "control")),
         classify = p_fct(c("auto", "weighted", "hard"), default = "auto", tags = c("train", "control")),
-        initcent = p_uty(tags = c("train", "control")),
+        initcent = p_uty(default = "randomcent", tags = c("train", "control"), custom_check = check_string),
         gamma = p_dbl(0, default = 1, tags = c("train", "control")),
         ntry = p_int(1L, default = 5L, tags = c("train", "control")),
         min.size = p_int(1L, default = 2L, tags = c("train", "control"))

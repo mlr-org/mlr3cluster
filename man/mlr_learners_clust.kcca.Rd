@@ -46,7 +46,7 @@ lrn("clust.kcca")
    tolerance \tab numeric \tab 1e-06 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    verbose \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    classify \tab character \tab auto \tab auto, weighted, hard \tab - \cr
-   initcent \tab untyped \tab - \tab  \tab - \cr
+   initcent \tab untyped \tab "randomcent" \tab  \tab - \cr
    gamma \tab numeric \tab 1 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    ntry \tab integer \tab 5 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    min.size \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
