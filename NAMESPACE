@@ -63,8 +63,10 @@ import(mlr3misc)
 import(paradox)
 importFrom(R6,R6Class)
 importFrom(cluster,silhouette)
-importFrom(stats,model.frame)
-importFrom(stats,predict)
-importFrom(stats,runif)
-importFrom(stats,terms)
+importFrom(stats,
+  model.frame,
+  predict,
+  runif,
+  terms
+)
 importFrom(utils,bibentry)
