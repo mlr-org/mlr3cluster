@@ -36,7 +36,7 @@ lrn("clust.kcca")
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   k \tab integer \tab - \tab  \tab \eqn{[2, \infty)}{[2, Inf)} \cr
    family \tab character \tab kmeans \tab kmeans, kmedians, angle, jaccard, ejaccard \tab - \cr
    weights \tab untyped \tab - \tab  \tab - \cr
    group \tab untyped \tab - \tab  \tab - \cr

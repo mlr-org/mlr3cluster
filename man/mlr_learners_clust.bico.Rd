@@ -33,7 +33,7 @@ lrn("clust.bico")
 \section{Parameters}{
 \tabular{llll}{
    Id \tab Type \tab Default \tab Range \cr
-   k \tab integer \tab 5 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   k \tab integer \tab 5 \tab \eqn{[2, \infty)}{[2, Inf)} \cr
    space \tab integer \tab 10 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    p \tab integer \tab 10 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    iterations \tab integer \tab 10 \tab \eqn{[1, \infty)}{[1, Inf)} \cr

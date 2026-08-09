@@ -26,7 +26,7 @@ LearnerClustBICO = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(1L, default = 5L, tags = "train"),
+        k = p_int(2L, default = 5L, tags = "train"),
         space = p_int(1L, default = 10L, tags = "train"),
         p = p_int(1L, default = 10L, tags = "train"),
         iterations = p_int(1L, default = 10L, tags = "train")

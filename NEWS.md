@@ -6,6 +6,7 @@
 
 ## Other improvements
 
+* `clust.bico` and `clust.kcca` now require `k >= 2`, which both already needed but advertised as `k >= 1`, so setting `k = 1` errors when set instead of failing during training.
 * `clust.cobweb` now exposes the `output_debug_info` parameter, which the other RWeka-based learners already had.
 * `clust.meanshift` now predicts on new data by running the mean-shift iteration from each observation with the trained bandwidth and assigning it to the mode it converges to, instead of warning and returning the training partition.
 * `clust.protoclust` now predicts on new data by assigning each observation to the cluster of the nearest prototype, instead of warning and returning the training partition. The model is now a list with the fitted object and the training data.
