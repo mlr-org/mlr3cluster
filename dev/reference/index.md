@@ -140,6 +140,8 @@
   : Pearson Gamma
 - [`mlr_measures_clust.silhouette`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.silhouette.md)
   : Rousseeuw's Silhouette Quality Index
+- [`mlr_measures_clust.sse_ratio`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.sse_ratio.md)
+  : Within/Total Sum of Squares Ratio
 - [`mlr_measures_clust.wb_ratio`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wb_ratio.md)
   : Within/Between Ratio
 - [`mlr_measures_clust.wss`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wss.md)

@@ -12,6 +12,11 @@
 - `clust.kmodes`: K-modes clustering for categorical data from the klaR
   package.
 
+### New measures
+
+- `clust.sse_ratio`: Ratio of the within-cluster sum of squares to the
+  total sum of squares, the standard quantity for elbow plots.
+
 ### Other improvements
 
 - `clust.bico` and `clust.kcca` now require `k >= 2`, which both already

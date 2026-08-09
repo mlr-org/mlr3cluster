@@ -61,5 +61,6 @@ Other cluster measures:
 [`mlr_measures_clust.dunn2`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.dunn2.md),
 [`mlr_measures_clust.entropy`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.entropy.md),
 [`mlr_measures_clust.silhouette`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.silhouette.md),
+[`mlr_measures_clust.sse_ratio`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.sse_ratio.md),
 [`mlr_measures_clust.wb_ratio`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wb_ratio.md),
 [`mlr_measures_clust.wss`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wss.md)
