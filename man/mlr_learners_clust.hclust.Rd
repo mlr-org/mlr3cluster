@@ -37,7 +37,7 @@ lrn("clust.hclust")
    distmethod \tab character \tab euclidean \tab euclidean, maximum, manhattan, canberra, binary, minkowski \tab - \cr
    diag \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    upper \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   p \tab numeric \tab 2 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   p \tab numeric \tab 2 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
 }
 }
