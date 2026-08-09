@@ -178,6 +178,27 @@ measures$wss = make_measure_info(
   requires_k2 = FALSE
 )
 
+#' @title Within/Total Sum of Squares Ratio
+#'
+#' @description
+#' The ratio of the within-cluster sum of squares to the total sum of squares,
+#' \eqn{WSS/TSS = \sum_{k=1}^{K} \sum_{i \in C_k} \| x_i - \mu_k \|^2 / \sum_{i=1}^{n} \| x_i - \mu \|^2}{WSS/TSS}
+#' where \eqn{\mu_k} is the centroid of cluster \eqn{k} and \eqn{\mu} is the centroid of all observations. The ratio
+#' lies in \eqn{[0, 1]}, with lower values indicating more compact clusters. Unlike the raw within sum of squares, it
+#' is comparable across datasets and feature scalings. It decreases monotonically with the number of clusters, which
+#' makes it the standard quantity for elbow plots.
+#'
+#' @templateVar id sse_ratio
+#' @template measure_clust
+measures$sse_ratio = make_measure_info(
+  cluster_sse_ratio,
+  lower = 0,
+  upper = 1,
+  minimize = TRUE,
+  input = "data",
+  requires_k2 = FALSE
+)
+
 #' @title Dunn2 Index
 #'
 #' @description

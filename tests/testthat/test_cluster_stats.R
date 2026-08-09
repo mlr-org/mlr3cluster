@@ -10,6 +10,16 @@ test_that("cluster_wss matches fpc", {
   expect_equal(actual, expected)
 })
 
+test_that("cluster_sse_ratio matches kmeans", {
+  withr::local_seed(1L)
+  x = as.matrix(datasets::USArrests)
+  km = stats::kmeans(x, centers = 3L, nstart = 10L)
+
+  expected = km$tot.withinss / km$totss
+  actual = cluster_sse_ratio(x, km$cluster)
+  expect_equal(actual, expected)
+})
+
 test_that("cluster_ch matches fpc", {
   skip_if_not_installed("fpc")
   withr::local_seed(1L)

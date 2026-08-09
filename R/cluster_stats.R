@@ -8,6 +8,11 @@ cluster_wss = function(x, clustering) {
   wss
 }
 
+cluster_sse_ratio = function(x, clustering) {
+  tss = sum(sweep(x, 2L, colMeans(x))^2)
+  cluster_wss(x, clustering) / tss
+}
+
 cluster_ch = function(x, clustering) {
   n = nrow(x)
   k = length(unique(clustering))

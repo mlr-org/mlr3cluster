@@ -67,6 +67,7 @@ register_mlr3 = function(...) {
   mlr_measures$add("clust.ch", MeasureClustSimple, name = "ch", label = "Calinski Harabasz")
   mlr_measures$add("clust.dunn", MeasureClustSimple, name = "dunn", label = "Dunn")
   mlr_measures$add("clust.wss", MeasureClustSimple, name = "wss", label = "Within Sum of Squares")
+  mlr_measures$add("clust.sse_ratio", MeasureClustSimple, name = "sse_ratio", label = "Within/Total Ratio")
   mlr_measures$add("clust.dunn2", MeasureClustSimple, name = "dunn2", label = "Dunn2")
   mlr_measures$add("clust.wb_ratio", MeasureClustSimple, name = "wb_ratio", label = "Within/Between Ratio")
   mlr_measures$add("clust.entropy", MeasureClustSimple, name = "entropy", label = "Entropy")

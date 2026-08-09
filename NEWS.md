@@ -6,6 +6,10 @@
 * `clust.kmeans_rcpp`: K-means clustering via `ClusterR::KMeans_rcpp()` from the ClusterR package.
 * `clust.kmodes`: K-modes clustering for categorical data from the klaR package.
 
+## New measures
+
+* `clust.sse_ratio`: Ratio of the within-cluster sum of squares to the total sum of squares, the standard quantity for elbow plots.
+
 ## Other improvements
 
 * `clust.bico` and `clust.kcca` now require `k >= 2`, which both already needed but advertised as `k >= 1`, so setting `k = 1` errors when set instead of failing during training.

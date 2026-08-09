@@ -43,7 +43,7 @@ The current version of **mlr3cluster** contains:
 
 - A selection of 39 clustering learners that represent a wide variety of
   clusterers: partitional, hierarchical, fuzzy, etc.
-- A selection of 11 performance measures
+- A selection of 12 performance measures
 - Two built-in tasks to get started with clustering
 
 Also, the package is integrated with
@@ -109,6 +109,7 @@ create great visualizations with just one line of code!
 | [clust.entropy](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.entropy) | Entropy |  |
 | [clust.pearsongamma](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.pearsongamma) | Pearson Gamma | [cluster](https://cran.r-project.org/package=cluster) |
 | [clust.silhouette](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette) | Silhouette | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.sse_ratio](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.sse_ratio) | Within/Total Ratio |  |
 | [clust.wb_ratio](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wb_ratio) | Within/Between Ratio | [cluster](https://cran.r-project.org/package=cluster) |
 | [clust.wss](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss) | Within Sum of Squares |  |
 

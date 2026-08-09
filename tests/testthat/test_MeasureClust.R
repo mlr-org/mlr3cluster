@@ -48,6 +48,7 @@ test_that("Data measures error on factor features", {
 
   expect_snapshot(msr("clust.ch")$score(prediction = p, task = task), error = TRUE)
   expect_snapshot(msr("clust.wss")$score(prediction = p, task = task), error = TRUE)
+  expect_snapshot(msr("clust.sse_ratio")$score(prediction = p, task = task), error = TRUE)
   expect_snapshot(msr("clust.davies_bouldin")$score(prediction = p, task = task), error = TRUE)
 })
 

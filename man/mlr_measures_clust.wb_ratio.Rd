@@ -50,6 +50,7 @@ Other cluster measures:
 \code{\link{mlr_measures_clust.entropy}},
 \code{\link{mlr_measures_clust.pearsongamma}},
 \code{\link{mlr_measures_clust.silhouette}},
+\code{\link{mlr_measures_clust.sse_ratio}},
 \code{\link{mlr_measures_clust.wss}}
 }
 \concept{cluster measures}

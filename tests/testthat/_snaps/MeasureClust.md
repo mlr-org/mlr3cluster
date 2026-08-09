@@ -23,6 +23,17 @@
 ---
 
     Code
+      msr("clust.sse_ratio")$score(prediction = p, task = task)
+    Condition
+      Error:
+      ! 
+      x Measure 'clust.sse_ratio' requires numeric features, but task 'mixed' has
+        factor or ordered features.
+      > Class: Mlr3ErrorInput
+
+---
+
+    Code
       msr("clust.davies_bouldin")$score(prediction = p, task = task)
     Condition
       Error:
