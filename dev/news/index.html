@@ -67,6 +67,8 @@
 <div class="section level3">
 <h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
 <ul><li>
+<code>clust.ap</code> now breaks similarity ties deterministically when predicting, matching the assignment rule of the apcluster package.</li>
+<li>
 <code>clust.bico</code> and <code>clust.kcca</code> now require <code>k &gt;= 2</code>, which both already needed but advertised as <code>k &gt;= 1</code>, so setting <code>k = 1</code> errors when set instead of failing during training.</li>
 <li>
 <code>clust.cobweb</code> now exposes the <code>output_debug_info</code> parameter, which the other RWeka-based learners already had.</li>

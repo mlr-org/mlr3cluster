@@ -19,6 +19,8 @@
 
 ### Other improvements
 
+- `clust.ap` now breaks similarity ties deterministically when
+  predicting, matching the assignment rule of the apcluster package.
 - `clust.bico` and `clust.kcca` now require `k >= 2`, which both already
   needed but advertised as `k >= 1`, so setting `k = 1` errors when set
   instead of failing during training.
