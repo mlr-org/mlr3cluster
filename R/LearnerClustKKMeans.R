@@ -120,7 +120,7 @@ LearnerClustKKMeans = R6Class(
       w = outer(cl, m$clusters, "==")
       w = w / rep(colSums(w), each = length(cl))
       d2 = rep(m$within, each = nrow(kxt)) - 2 * kxt %*% w
-      partition = m$clusters[max.col(-d2, ties.method = "random")]
+      partition = m$clusters[max.col(-d2, ties.method = "first")]
 
       PredictionClust$new(task = task, partition = partition)
     }
