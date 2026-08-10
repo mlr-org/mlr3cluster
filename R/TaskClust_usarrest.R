@@ -5,7 +5,7 @@
 #'
 #' @description
 #' A cluster task for the [datasets::USArrests] data set.
-#' Rownames are stored as variable `"states"` with column role `"name"`.
+#' Rownames are stored as variable `"state"` with column role `"name"`.
 #'
 #' @templateVar id usarrests
 #' @template task
