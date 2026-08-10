@@ -46,7 +46,7 @@ or with the associated sugar function
 | centers | integer | \- |  | \\\[2, \infty)\\ |
 | kernel | character | rbfdot | rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \- |
 | sigma | numeric | \- |  | \\\[0, \infty)\\ |
-| degree | integer | 3 |  | \\\[1, \infty)\\ |
+| degree | integer | 1 |  | \\\[1, \infty)\\ |
 | scale | numeric | 1 |  | \\\[0, \infty)\\ |
 | offset | numeric | 1 |  | \\(-\infty, \infty)\\ |
 | order | integer | 1 |  | \\(-\infty, \infty)\\ |
