@@ -41,7 +41,7 @@ LearnerClustSpectral = R6Class(
         ),
         degree = p_int(
           1L,
-          default = 3L,
+          default = 1L,
           tags = c("train", "kpar"),
           depends = quote(kernel %in% c("polydot", "anovadot", "besseldot"))
         ),
