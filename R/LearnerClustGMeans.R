@@ -39,7 +39,7 @@ LearnerClustGMeans = R6Class(
         ),
         trace = p_lgl(default = FALSE, tags = "train"),
         method = p_fct(c("euclidean", "manhattan", "minkowski"), default = "euclidean", tags = "predict"),
-        p = p_dbl(default = 2, tags = "predict", depends = quote(method == "minkowski"))
+        p = p_dbl(0, default = 2, tags = "predict", depends = quote(method == "minkowski"))
       )
 
       super$initialize(

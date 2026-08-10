@@ -42,7 +42,7 @@ lrn("clust.gmeans")
    algorithm \tab character \tab Hartigan-Wong \tab Hartigan-Wong, Lloyd, Forgy, MacQueen \tab - \cr
    trace \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    method \tab character \tab euclidean \tab euclidean, manhattan, minkowski \tab - \cr
-   p \tab numeric \tab 2 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   p \tab numeric \tab 2 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
 }
 }
 
