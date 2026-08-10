@@ -2,7 +2,7 @@
 
 A cluster task for the
 [datasets::USArrests](https://rdrr.io/r/datasets/USArrests.html) data
-set. Rownames are stored as variable `"states"` with column role
+set. Rownames are stored as variable `"state"` with column role
 `"name"`.
 
 ## Format

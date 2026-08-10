@@ -47,7 +47,7 @@ or with the associated sugar function
 | algorithm | character | Hartigan-Wong | Hartigan-Wong, Lloyd, Forgy, MacQueen | \- |
 | trace | logical | FALSE | TRUE, FALSE | \- |
 | method | character | euclidean | euclidean, manhattan, minkowski | \- |
-| p | numeric | 2 |  | \\(-\infty, \infty)\\ |
+| p | numeric | 2 |  | \\\[0, \infty)\\ |
 
 ## References
 

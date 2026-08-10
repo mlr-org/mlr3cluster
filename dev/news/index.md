@@ -30,6 +30,9 @@
   `p` below at 0, which was previously unbounded even though
   [`stats::dist()`](https://rdrr.io/r/stats/dist.html) rejects
   non-positive values.
+- `clust.kkmeans` now breaks distance ties when predicting with
+  `"first"` instead of `"random"`, so predictions are reproducible
+  without setting a seed.
 - `clust.meanshift` now predicts on new data by running the mean-shift
   iteration from each observation with the trained bandwidth and
   assigning it to the mode it converges to, instead of warning and
