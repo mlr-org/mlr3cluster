@@ -39,7 +39,7 @@ lrn("clust.SimpleKMeans")
    init \tab integer \tab 0 \tab  \tab \eqn{[0, 3]}{[0, 3]} \cr
    M \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    max_candidates \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   min_density \tab numeric \tab 2 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   min_density \tab numeric \tab 2 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    N \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    num_slots \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    O \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
