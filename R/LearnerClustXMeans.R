@@ -34,7 +34,7 @@ LearnerClustXMeans = R6Class(
         K = p_uty(default = "", tags = "train"),
         L = p_int(1L, default = 2L, tags = "train"),
         M = p_int(1L, default = 1000L, tags = "train"),
-        S = p_int(1L, default = 10L, tags = "train"),
+        S = p_int(0L, default = 10L, tags = "train"),
         U = p_int(0L, default = 0L, tags = "train"),
         use_kdtree = p_lgl(default = FALSE, tags = "train"),
         N = p_uty(tags = "train"),

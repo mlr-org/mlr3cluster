@@ -32,7 +32,7 @@ LearnerClustSimpleKMeans = R6Class(
         init = p_int(0L, 3L, default = 0L, tags = "train"),
         M = p_lgl(default = FALSE, tags = "train"),
         max_candidates = p_int(1L, default = 100L, tags = "train"),
-        min_density = p_int(1L, default = 2L, tags = "train"),
+        min_density = p_dbl(default = 2, tags = "train"),
         N = p_int(1L, default = 2L, tags = "train"),
         num_slots = p_int(1L, default = 1L, tags = "train"),
         O = p_lgl(default = FALSE, tags = "train"),
