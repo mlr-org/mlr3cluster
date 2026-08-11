@@ -65,10 +65,9 @@ LearnerClustKMeansRcpp = R6Class(
         error_config("`CENTROIDS` must have same number of rows as `clusters`.")
       }
 
-      data = task$data()
-      m = invoke(ClusterR::KMeans_rcpp, data = data, .args = pv)
+      m = invoke(ClusterR::KMeans_rcpp, data = task$data(), .args = pv)
       if (self$save_assignments) {
-        self$assignments = as.integer(invoke(predict, m, newdata = data))
+        self$assignments = as.integer(m$clusters)
       }
       m
     },
