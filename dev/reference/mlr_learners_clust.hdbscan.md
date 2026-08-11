@@ -37,7 +37,7 @@ or with the associated sugar function
 |                           |         |         |             |                       |
 |---------------------------|---------|---------|-------------|-----------------------|
 | Id                        | Type    | Default | Levels      | Range                 |
-| minPts                    | integer | \-      |             | \\\[0, \infty)\\      |
+| minPts                    | integer | \-      |             | \\\[2, \infty)\\      |
 | cluster_selection_epsilon | numeric | 0       |             | \\(-\infty, \infty)\\ |
 | gen_hdbscan_tree          | logical | FALSE   | TRUE, FALSE | \-                    |
 | gen_simplified_tree       | logical | FALSE   | TRUE, FALSE | \-                    |

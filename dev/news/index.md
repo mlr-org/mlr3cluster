@@ -30,9 +30,14 @@
   `p` below at 0, which was previously unbounded even though
   [`stats::dist()`](https://rdrr.io/r/stats/dist.html) rejects
   non-positive values.
+- `clust.hdbscan` now requires `minPts >= 2` as needed by
+  [`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html), so
+  smaller values error when set instead of during training.
 - `clust.kkmeans` now breaks distance ties when predicting with
   `"first"` instead of `"random"`, so predictions are reproducible
   without setting a seed.
+- `clust.mclust` now stores `$assignments` as an integer vector like all
+  other learners, instead of the double vector returned by mclust.
 - `clust.meanshift` now predicts on new data by running the mean-shift
   iteration from each observation with the trained bandwidth and
   assigning it to the mode it converges to, instead of warning and
@@ -43,6 +48,9 @@
   with the fitted object and the training data.
 - `clust.specc` now documents the default of `degree` as 1 instead of 3,
   matching the kernlab kernel functions.
+- `PredictionClust` now errors during construction when a partition
+  label has no matching `prob` column, instead of silently accepting
+  inconsistent predictions.
 
 ## mlr3cluster 0.4.1
 
