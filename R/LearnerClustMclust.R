@@ -67,7 +67,7 @@ LearnerClustMclust = R6Class(
         m = invoke(mclust::Mclust, data = task$data(), .args = pv)
       })
       if (self$save_assignments) {
-        self$assignments = m$classification
+        self$assignments = as.integer(m$classification)
       }
       m
     },
