@@ -221,7 +221,7 @@ learner$train(task)
 # Print the model
 print(learner$model)
 #> KMeans Cluster
-#>  Call: ClusterR::KMeans_rcpp(data = data, clusters = 2L) 
+#>  Call: ClusterR::KMeans_rcpp(data = task$data(), clusters = 2L) 
 #>  Data cols: 4 
 #>  Centroids: 2 
 #>  BSS/SS: 0.72907 

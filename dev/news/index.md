@@ -36,6 +36,9 @@
 - `clust.hdbscan` now requires `minPts >= 2` as needed by
   [`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html), so
   smaller values error when set instead of during training.
+- `clust.kcca` now validates `initcent` as a single string and documents
+  its default as `"randomcent"`, so invalid values error when set
+  instead of failing during training with an obscure S4 validity error.
 - `clust.kkmeans` now breaks distance ties when predicting with
   `"first"` instead of `"random"`, so predictions are reproducible
   without setting a seed.
