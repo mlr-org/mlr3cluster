@@ -18,6 +18,7 @@ test_that("Learner properties are respected", {
     list(A = 0.5),
     list(C = 1L),
     list(S = 100L),
+    list(S = 0L),
     list(output_debug_info = TRUE)
   )
 

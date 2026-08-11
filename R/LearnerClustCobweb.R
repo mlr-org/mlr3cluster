@@ -27,7 +27,7 @@ LearnerClustCobweb = R6Class(
       param_set = ps(
         A = p_dbl(0, default = 1, tags = "train"),
         C = p_dbl(0, default = 0.0028209479177387815, tags = "train"),
-        S = p_int(1L, default = 42L, tags = "train"),
+        S = p_int(0L, default = 42L, tags = "train"),
         output_debug_info = p_lgl(default = FALSE, tags = "train")
       )
 
