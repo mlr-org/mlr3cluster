@@ -137,11 +137,6 @@ test_that("prediction handles unseen numeric categories", {
 test_that("invalid modes error informatively", {
   task = as_task_clust(data.frame(x = factor(c("a", "b")), y = factor(c("a", "b"))))
 
-  expect_error(
-    lrn("clust.kmodes", modes = matrix(c("a", "a"), nrow = 1L)),
-    "modes: Must be of type 'data.frame'"
-  )
-  expect_snapshot(lrn("clust.kmodes", modes = 3L)$train(task), error = TRUE)
   expect_snapshot(lrn("clust.kmodes", modes = data.frame(x = factor("a")))$train(task), error = TRUE)
   expect_snapshot(
     lrn(

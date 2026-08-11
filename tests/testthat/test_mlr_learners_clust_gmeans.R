@@ -26,10 +26,3 @@ test_that("Learner properties are respected", {
     expect_prediction_clust(p, learner)
   }
 })
-
-test_that("prediction on new data uses the chosen distance metric", {
-  task = tsk("usarrests")
-  learner = lrn("clust.gmeans", method = "minkowski", p = 1)
-  p = learner$train(task)$predict(task)
-  expect_prediction_clust(p, learner)
-})

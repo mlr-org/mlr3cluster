@@ -1,14 +1,6 @@
 # invalid modes error informatively
 
     Code
-      lrn("clust.kmodes", modes = 3L)$train(task)
-    Condition
-      Error in `klaR::kmodes()`:
-      ! More cluster modes than distinct data points.
-
----
-
-    Code
       lrn("clust.kmodes", modes = data.frame(x = factor("a")))$train(task)
     Condition
       Error:

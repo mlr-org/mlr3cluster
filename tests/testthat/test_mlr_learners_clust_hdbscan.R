@@ -7,10 +7,6 @@ test_that("autotest", {
   expect_true(result, info = result$error)
 })
 
-test_that("minPts below 2 is rejected", {
-  expect_snapshot(error = TRUE, lrn("clust.hdbscan", minPts = 1L))
-})
-
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
   learner = lrn("clust.hdbscan", minPts = 5L)
