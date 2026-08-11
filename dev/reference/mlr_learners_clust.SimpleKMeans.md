@@ -44,7 +44,7 @@ or with the associated sugar function
 | init | integer | 0 |  | \\\[0, 3\]\\ |
 | M | logical | FALSE | TRUE, FALSE | \- |
 | max_candidates | integer | 100 |  | \\\[1, \infty)\\ |
-| min_density | integer | 2 |  | \\\[1, \infty)\\ |
+| min_density | numeric | 2 |  | \\(-\infty, \infty)\\ |
 | N | integer | 2 |  | \\\[1, \infty)\\ |
 | num_slots | integer | 1 |  | \\\[1, \infty)\\ |
 | O | logical | FALSE | TRUE, FALSE | \- |

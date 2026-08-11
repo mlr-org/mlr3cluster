@@ -46,7 +46,7 @@ or with the associated sugar function
 | K | untyped | "" |  | \- |
 | L | integer | 2 |  | \\\[1, \infty)\\ |
 | M | integer | 1000 |  | \\\[1, \infty)\\ |
-| S | integer | 10 |  | \\\[1, \infty)\\ |
+| S | integer | 10 |  | \\\[0, \infty)\\ |
 | U | integer | 0 |  | \\\[0, \infty)\\ |
 | use_kdtree | logical | FALSE | TRUE, FALSE | \- |
 | N | untyped | \- |  | \- |

@@ -85,7 +85,11 @@
 <li>
 <code>clust.protoclust</code> now predicts on new data by assigning each observation to the cluster of the nearest prototype, instead of warning and returning the training partition. The model is now a list with the fitted object and the training data.</li>
 <li>
+<code>clust.SimpleKMeans</code> now declares <code>min_density</code> as a double instead of an integer with a minimum of 1, since Weka accepts fractional canopy densities.</li>
+<li>
 <code>clust.specc</code> now documents the default of <code>degree</code> as 1 instead of 3, matching the kernlab kernel functions.</li>
+<li>
+<code>clust.xmeans</code> now allows <code>S = 0</code>, which Weka accepts, matching the seed bound of <code>clust.SimpleKMeans</code>.</li>
 <li>
 <code>PredictionClust</code> now errors during construction when a partition label has no matching <code>prob</code> column, instead of silently accepting inconsistent predictions.</li>
 </ul></div>
