@@ -126,7 +126,7 @@ LearnerClustFlexmix = R6Class(
     },
 
     .predict = function(task) {
-      data = setDF(task$data())
+      data = setDF(ordered_features(task, self))
       partition = as.integer(flexmix::clusters(self$model, newdata = data))
       prob = NULL
       if (self$predict_type == "prob") {

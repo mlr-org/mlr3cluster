@@ -81,7 +81,12 @@ LearnerClustCLARA = R6Class(
       if (isFALSE(pv$medoids.x)) {
         error_config("Predicting requires the medoids, train with `medoids.x = TRUE`.")
       }
-      partition = unclass(invoke(clue::cl_predict, self$model, newdata = task$data(), type = "class_ids"))
+      partition = unclass(invoke(
+        clue::cl_predict,
+        self$model,
+        newdata = ordered_features(task, self),
+        type = "class_ids"
+      ))
       PredictionClust$new(task = task, partition = partition)
     }
   )

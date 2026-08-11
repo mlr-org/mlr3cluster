@@ -81,7 +81,7 @@ LearnerClustAP = R6Class(
       sim_func = pv$s
       exemplar_data = attr(self$model, "exemplar_data")
 
-      data = task$data()
+      data = ordered_features(task, self)
       sim_mat = sim_func(
         rbind(exemplar_data, data),
         sel = seq_row(data) + nrow(exemplar_data)
