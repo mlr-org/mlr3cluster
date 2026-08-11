@@ -55,7 +55,7 @@ LearnerClustKModes = R6Class(
         ties = p_fct(c("first", "last", "random"), default = "first", tags = "predict")
       )
 
-      param_set$set_values(modes = 2L, ties = "first")
+      param_set$set_values(modes = 2L)
 
       super$initialize(
         id = "clust.kmodes",

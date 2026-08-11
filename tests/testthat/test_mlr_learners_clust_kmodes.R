@@ -37,7 +37,7 @@ test_that("Learner properties are respected", {
   )
 
   for (parset in parset_list) {
-    learner$param_set$values = insert_named(list(ties = "first"), parset)
+    learner$param_set$values = parset
     p = learner$train(task)$predict(task)
     expect_prediction_clust(p, learner)
   }
