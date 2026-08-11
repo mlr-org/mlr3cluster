@@ -21,6 +21,26 @@ test_that("partition derived from prob falls back to positions for non-integer l
   expect_identical(p$partition, c(2L, 1L))
 })
 
+test_that("partition labels must appear among the prob column labels", {
+  prob = matrix(c(0.1, 0.9, 0.8, 0.2), nrow = 2L, byrow = TRUE, dimnames = list(NULL, c("3", "7")))
+  p = PredictionClust$new(row_ids = 1:2, partition = c(7L, 3L), prob = prob)
+  expect_prediction_clust(p)
+
+  expect_snapshot(error = TRUE, {
+    PredictionClust$new(row_ids = 1:2, partition = c(1L, 2L), prob = prob)
+  })
+})
+
+test_that("partition check falls back to positions for non-integer prob labels", {
+  prob = matrix(c(0.1, 0.9, 0.8, 0.2), nrow = 2L, byrow = TRUE, dimnames = list(NULL, c("a", "b")))
+  p = PredictionClust$new(row_ids = 1:2, partition = c(2L, 1L), prob = prob)
+  expect_prediction_clust(p)
+
+  expect_snapshot(error = TRUE, {
+    PredictionClust$new(row_ids = 1:2, partition = c(2L, 3L), prob = prob)
+  })
+})
+
 test_that("Internally constructed Prediction", {
   task = tsk("usarrests")
   learner = lrn("clust.featureless", num_clusters = 1L)

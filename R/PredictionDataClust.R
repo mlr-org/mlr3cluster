@@ -19,11 +19,15 @@ check_prediction_data.PredictionDataClust = function(pdata, ...) {
       pdata$prob = prob
     }
 
+    labels = suppressWarnings(as.integer(colnames(prob)))
+    if (!length(labels) || anyNA(labels)) {
+      labels = seq_col(prob)
+    }
+
     if (is.null(pdata$partition)) {
-      # fall back to the column position if the names are not integer labels
-      ids = max.col(prob, ties.method = "first")
-      labels = suppressWarnings(as.integer(colnames(prob)))
-      pdata$partition = if (length(labels) && !anyNA(labels)) labels[ids] else ids
+      pdata$partition = labels[max.col(prob, ties.method = "first")]
+    } else if (ncol(prob) > 0L) {
+      assert_subset(pdata$partition, labels, .var.name = "partition")
     }
   }
 
