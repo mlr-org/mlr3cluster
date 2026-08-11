@@ -85,7 +85,7 @@ LearnerClustMeanShift = R6Class(
       }
       partition = map_int(seq_len(nrow(x)), function(i) {
         final = invoke(LPCM::ms.rep, x = x[i, ], .args = args)$final
-        which.min(rowSums(sweep(m$cluster.center, 2L, final, "-")^2))
+        which_min(rowSums(sweep(m$cluster.center, 2L, final, "-")^2), ties_method = "first")
       })
 
       PredictionClust$new(task = task, partition = partition)
