@@ -74,10 +74,14 @@ LearnerClustMeanShift = R6Class(
       x = as.matrix(ordered_features(task, self))
       x = sweep(x, 2L, m$scaled.by, "/")
 
+      # mirror the convergence criterion LPCM::ms() applies during training
+      pv = self$param_set$get_values(tags = "train")
       args = list(X = as.matrix(m$data), h = m$h)
-      iter = self$param_set$values$iter
-      if (!is.null(iter)) {
-        args$iter = iter
+      if (!is.null(pv$thr)) {
+        args$thresh = pv$thr^2
+      }
+      if (!is.null(pv$iter)) {
+        args$iter = pv$iter
       }
       partition = map_int(seq_len(nrow(x)), function(i) {
         final = invoke(LPCM::ms.rep, x = x[i, ], .args = args)$final

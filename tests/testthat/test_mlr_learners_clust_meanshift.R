@@ -37,6 +37,13 @@ test_that("predict on training data matches assignments", {
   expect_identical(p$partition, learner$assignments)
 })
 
+test_that("predict uses the trained convergence threshold", {
+  task = tsk("usarrests")
+  learner = lrn("clust.meanshift", h = 0.2, thr = 0.2)
+  learner$train(task)
+  expect_identical(learner$predict(task)$partition, learner$assignments)
+})
+
 test_that("predict assigns new data to fitted modes", {
   task = tsk("usarrests")
   learner = lrn("clust.meanshift", h = 0.2)
