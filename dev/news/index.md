@@ -26,6 +26,9 @@
   instead of failing during training.
 - `clust.cobweb` now exposes the `output_debug_info` parameter, which
   the other RWeka-based learners already had.
+- `clust.cobweb`, `clust.ff`, and `clust.xmeans` now allow the seed
+  `S = 0`, which Weka accepts, matching the seed bound of `clust.em` and
+  `clust.SimpleKMeans`.
 - `clust.hclust` and `clust.protoclust` now bound the Minkowski power
   `p` below at 0, which was previously unbounded even though
   [`stats::dist()`](https://rdrr.io/r/stats/dist.html) rejects
@@ -46,13 +49,11 @@
   observation to the cluster of the nearest prototype, instead of
   warning and returning the training partition. The model is now a list
   with the fitted object and the training data.
-- `clust.SimpleKMeans` now declares `min_density` as a double instead of
-  an integer with a minimum of 1, since Weka accepts fractional canopy
-  densities.
+- `clust.SimpleKMeans` now declares `min_density` as a double bounded
+  below at 0 instead of an integer with a minimum of 1, since Weka
+  accepts fractional canopy densities.
 - `clust.specc` now documents the default of `degree` as 1 instead of 3,
   matching the kernlab kernel functions.
-- `clust.xmeans` now allows `S = 0`, which Weka accepts, matching the
-  seed bound of `clust.SimpleKMeans`.
 - `PredictionClust` now errors during construction when a partition
   label has no matching `prob` column, instead of silently accepting
   inconsistent predictions.

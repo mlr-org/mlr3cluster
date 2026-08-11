@@ -39,7 +39,7 @@ or with the associated sugar function
 | Id                | Type    | Default     | Levels      | Range            |
 | A                 | numeric | 1           |             | \\\[0, \infty)\\ |
 | C                 | numeric | 0.002820948 |             | \\\[0, \infty)\\ |
-| S                 | integer | 42          |             | \\\[1, \infty)\\ |
+| S                 | integer | 42          |             | \\\[0, \infty)\\ |
 | output_debug_info | logical | FALSE       | TRUE, FALSE | \-               |
 
 ## References
