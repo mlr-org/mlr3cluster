@@ -26,6 +26,7 @@
 * `clust.movMF` now exposes the `ids` parameter, which initializes the EM algorithm from fixed component memberships.
 * `clust.protoclust` now predicts on new data by assigning each observation to the cluster of the nearest prototype, instead of warning and returning the training partition. The model is now a list with the fitted object and the training data.
 * `clust.SimpleKMeans` now declares `min_density` as a double bounded below at 0 instead of an integer with a minimum of 1, since Weka accepts fractional canopy densities.
+* `clust.skmeans` now exposes `start`, which selects the initialization, and `maxchains` for the `"pclust"` method.
 * `clust.specc` now documents the default of `degree` as 1 instead of 3, matching the kernlab kernel functions.
 * `PredictionClust` now errors during construction when a partition label has no matching `prob` column, instead of silently accepting inconsistent predictions.
 
