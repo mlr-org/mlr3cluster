@@ -89,13 +89,22 @@
 <li>
 <code>clust.meanshift</code> now predicts on new data by running the mean-shift iteration from each observation with the trained bandwidth and assigning it to the mode it converges to, instead of warning and returning the training partition.</li>
 <li>
+<code>clust.movMF</code> now exposes the <code>ids</code> parameter, which initializes the EM algorithm from fixed component memberships.</li>
+<li>
 <code>clust.protoclust</code> now predicts on new data by assigning each observation to the cluster of the nearest prototype, instead of warning and returning the training partition. The model is now a list with the fitted object and the training data.</li>
 <li>
 <code>clust.SimpleKMeans</code> now declares <code>min_density</code> as a double bounded below at 0 instead of an integer with a minimum of 1, since Weka accepts fractional canopy densities.</li>
 <li>
+<code>clust.skmeans</code> now exposes <code>start</code>, which selects the initialization, and <code>maxchains</code> for the <code>"pclust"</code> method.</li>
+<li>
 <code>clust.specc</code> now documents the default of <code>degree</code> as 1 instead of 3, matching the kernlab kernel functions.</li>
 <li>
 <code>PredictionClust</code> now errors during construction when a partition label has no matching <code>prob</code> column, instead of silently accepting inconsistent predictions.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<ul><li>
+<code>clust.kcca</code> no longer exposes the <code>ntry</code> and <code>min.size</code> parameters, which are <code><a href="https://rdrr.io/pkg/flexclust/man/qtclust.html" class="external-link">flexclust::qtclust()</a></code> control options that <code><a href="https://rdrr.io/pkg/flexclust/man/kcca.html" class="external-link">flexclust::kcca()</a></code> ignores.</li>
 </ul></div>
 </div>
     <div class="section level2">

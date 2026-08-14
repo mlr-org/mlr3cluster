@@ -14,6 +14,11 @@ standardised to unit length internally by
 Predictions use the [`predict()`](https://rdrr.io/r/stats/predict.html)
 method from movMF; `prob` returns the soft memberships.
 
+Setting `ids` initializes the EM algorithm from fixed component
+memberships and stops it after a single iteration, in which case
+[`movMF::movMF()`](https://rdrr.io/pkg/movMF/man/movMF.html) ignores
+`start` and `nruns`.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -46,6 +51,7 @@ or with the associated sugar function
 | k        | integer   | \-      |                            | \\\[1, \infty)\\ |
 | E        | character | softmax | softmax, hardmax, stochmax | \-               |
 | kappa    | untyped   | \-      |                            | \-               |
+| ids      | untyped   | \-      |                            | \-               |
 | start    | untyped   | "p"     |                            | \-               |
 | nruns    | integer   | 1       |                            | \\\[1, \infty)\\ |
 | maxiter  | integer   | 100     |                            | \\\[1, \infty)\\ |

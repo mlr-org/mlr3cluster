@@ -10,12 +10,16 @@ points on the unit hypersphere.
 Calls movMF::movMF() from package movMF.
 The k parameter is set to 2 by default since movMF::movMF() has no default value for the number of mixture
 components. Rows of x are standardised to unit length internally by movMF::movMF(). Predictions use the
-predict() method from movMF; prob returns the soft memberships."><meta property="og:description" content="Fits a mixture of von Mises-Fisher distributions via EM, the directional-data analogue of a Gaussian mixture for
+predict() method from movMF; prob returns the soft memberships.
+Setting ids initializes the EM algorithm from fixed component memberships and stops it after a single iteration,
+in which case movMF::movMF() ignores start and nruns."><meta property="og:description" content="Fits a mixture of von Mises-Fisher distributions via EM, the directional-data analogue of a Gaussian mixture for
 points on the unit hypersphere.
 Calls movMF::movMF() from package movMF.
 The k parameter is set to 2 by default since movMF::movMF() has no default value for the number of mixture
 components. Rows of x are standardised to unit length internally by movMF::movMF(). Predictions use the
-predict() method from movMF; prob returns the soft memberships."><meta name="robots" content="noindex"></head><body>
+predict() method from movMF; prob returns the soft memberships.
+Setting ids initializes the EM algorithm from fixed component memberships and stops it after a single iteration,
+in which case movMF::movMF() ignores start and nruns."><meta name="robots" content="noindex"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -66,6 +70,8 @@ Calls <code><a href="https://rdrr.io/pkg/movMF/man/movMF.html" class="external-l
 <p>The <code>k</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/movMF/man/movMF.html" class="external-link">movMF::movMF()</a></code> has no default value for the number of mixture
 components. Rows of <code>x</code> are standardised to unit length internally by <code><a href="https://rdrr.io/pkg/movMF/man/movMF.html" class="external-link">movMF::movMF()</a></code>. Predictions use the
 <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> method from <span class="pkg">movMF</span>; <code>prob</code> returns the soft memberships.</p>
+<p>Setting <code>ids</code> initializes the EM algorithm from fixed component memberships and stops it after a single iteration,
+in which case <code><a href="https://rdrr.io/pkg/movMF/man/movMF.html" class="external-link">movMF::movMF()</a></code> ignores <code>start</code> and <code>nruns</code>.</p>
     </div>
 
 
@@ -89,7 +95,7 @@ components. Rows of <code>x</code> are standardised to unit length internally by
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>E</td><td>character</td><td>softmax</td><td>softmax, hardmax, stochmax</td><td>-</td></tr><tr><td>kappa</td><td>untyped</td><td>-</td><td></td><td>-</td></tr><tr><td>start</td><td>untyped</td><td>"p"</td><td></td><td>-</td></tr><tr><td>nruns</td><td>integer</td><td>1</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>maxiter</td><td>integer</td><td>100</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>reltol</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>minalpha</td><td>numeric</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>converge</td><td>logical</td><td>-</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>verbose</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>E</td><td>character</td><td>softmax</td><td>softmax, hardmax, stochmax</td><td>-</td></tr><tr><td>kappa</td><td>untyped</td><td>-</td><td></td><td>-</td></tr><tr><td>ids</td><td>untyped</td><td>-</td><td></td><td>-</td></tr><tr><td>start</td><td>untyped</td><td>"p"</td><td></td><td>-</td></tr><tr><td>nruns</td><td>integer</td><td>1</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>maxiter</td><td>integer</td><td>100</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>reltol</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>minalpha</td><td>numeric</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>converge</td><td>logical</td><td>-</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>verbose</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Banerjee, Arindam, Dhillon, S I, Ghosh, Joydeep, Sra, Suvrit (2005).
