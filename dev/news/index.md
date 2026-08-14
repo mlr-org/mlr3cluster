@@ -36,6 +36,10 @@
 - `clust.hdbscan` now requires `minPts >= 2` as needed by
   [`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html), so
   smaller values error when set instead of during training.
+- `clust.kcca` now offers `classify = "simann"` and the corresponding
+  `simann` parameter, so the simulated annealing variant of
+  [`flexclust::kcca()`](https://rdrr.io/pkg/flexclust/man/kcca.html) can
+  be used.
 - `clust.kcca` now validates `initcent` as a single string and documents
   its default as `"randomcent"`, so invalid values error when set
   instead of failing during training with an obscure S4 validity error.

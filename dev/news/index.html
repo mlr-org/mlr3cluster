@@ -79,6 +79,8 @@
 <li>
 <code>clust.hdbscan</code> now requires <code>minPts &gt;= 2</code> as needed by <code><a href="https://rdrr.io/pkg/dbscan/man/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code>, so smaller values error when set instead of during training.</li>
 <li>
+<code>clust.kcca</code> now offers <code>classify = "simann"</code> and the corresponding <code>simann</code> parameter, so the simulated annealing variant of <code><a href="https://rdrr.io/pkg/flexclust/man/kcca.html" class="external-link">flexclust::kcca()</a></code> can be used.</li>
+<li>
 <code>clust.kcca</code> now validates <code>initcent</code> as a single string and documents its default as <code>"randomcent"</code>, so invalid values error when set instead of failing during training with an obscure S4 validity error.</li>
 <li>
 <code>clust.kkmeans</code> now breaks distance ties when predicting with <code>"first"</code> instead of <code>"random"</code>, so predictions are reproducible without setting a seed.</li>

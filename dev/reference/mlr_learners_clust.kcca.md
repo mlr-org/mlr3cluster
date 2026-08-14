@@ -55,9 +55,10 @@ or with the associated sugar function
 | iter.max | integer | 200 |  | \\\[1, \infty)\\ |
 | tolerance | numeric | 1e-06 |  | \\\[0, \infty)\\ |
 | verbose | integer | 0 |  | \\\[0, \infty)\\ |
-| classify | character | auto | auto, weighted, hard | \- |
+| classify | character | auto | auto, weighted, hard, simann | \- |
 | initcent | untyped | "randomcent" |  | \- |
 | gamma | numeric | 1 |  | \\\[0, \infty)\\ |
+| simann | untyped | c(0.3, 0.95, 10) |  | \- |
 | ntry | integer | 5 |  | \\\[1, \infty)\\ |
 | min.size | integer | 2 |  | \\\[1, \infty)\\ |
 
