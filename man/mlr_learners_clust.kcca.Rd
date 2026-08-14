@@ -45,9 +45,10 @@ lrn("clust.kcca")
    iter.max \tab integer \tab 200 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    tolerance \tab numeric \tab 1e-06 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    verbose \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   classify \tab character \tab auto \tab auto, weighted, hard \tab - \cr
+   classify \tab character \tab auto \tab auto, weighted, hard, simann \tab - \cr
    initcent \tab untyped \tab "randomcent" \tab  \tab - \cr
    gamma \tab numeric \tab 1 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   simann \tab untyped \tab c(0.3, 0.95, 10) \tab  \tab - \cr
    ntry \tab integer \tab 5 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    min.size \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
 }

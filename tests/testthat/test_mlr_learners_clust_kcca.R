@@ -19,7 +19,8 @@ test_that("Learner properties are respected", {
     list(k = 2L),
     list(k = 3L, family = "kmedians"),
     list(k = 3L, family = "angle"),
-    list(k = 3L, iter.max = 50L, tolerance = 1e-4)
+    list(k = 3L, iter.max = 50L, tolerance = 1e-4),
+    list(k = 3L, classify = "simann", simann = c(0.3, 0.95))
   )
 
   for (parset in parset_list) {

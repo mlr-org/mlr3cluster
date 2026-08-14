@@ -18,6 +18,7 @@
 * `clust.cobweb`, `clust.ff`, and `clust.xmeans` now allow the seed `S = 0`, which Weka accepts, matching the seed bound of `clust.em` and `clust.SimpleKMeans`.
 * `clust.hclust` and `clust.protoclust` now bound the Minkowski power `p` below at 0, which was previously unbounded even though `stats::dist()` rejects non-positive values.
 * `clust.hdbscan` now requires `minPts >= 2` as needed by `dbscan::hdbscan()`, so smaller values error when set instead of during training.
+* `clust.kcca` now offers `classify = "simann"` and the corresponding `simann` parameter, so the simulated annealing variant of `flexclust::kcca()` can be used.
 * `clust.kcca` now validates `initcent` as a single string and documents its default as `"randomcent"`, so invalid values error when set instead of failing during training with an obscure S4 validity error.
 * `clust.kkmeans` now breaks distance ties when predicting with `"first"` instead of `"random"`, so predictions are reproducible without setting a seed.
 * `clust.mclust` now stores `$assignments` as an integer vector like all other learners, instead of the double vector returned by mclust.
