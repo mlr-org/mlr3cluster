@@ -12,6 +12,9 @@ Calls \code{\link[movMF:movMF]{movMF::movMF()}} from package \CRANpkg{movMF}.
 The \code{k} parameter is set to 2 by default since \code{\link[movMF:movMF]{movMF::movMF()}} has no default value for the number of mixture
 components. Rows of \code{x} are standardised to unit length internally by \code{\link[movMF:movMF]{movMF::movMF()}}. Predictions use the
 \code{predict()} method from \pkg{movMF}; \code{prob} returns the soft memberships.
+
+Setting \code{ids} initializes the EM algorithm from fixed component memberships and stops it after a single iteration,
+in which case \code{\link[movMF:movMF]{movMF::movMF()}} ignores \code{start} and \code{nruns}.
 }
 \section{Dictionary}{
 
@@ -38,6 +41,7 @@ lrn("clust.movMF")
    k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    E \tab character \tab softmax \tab softmax, hardmax, stochmax \tab - \cr
    kappa \tab untyped \tab - \tab  \tab - \cr
+   ids \tab untyped \tab - \tab  \tab - \cr
    start \tab untyped \tab "p" \tab  \tab - \cr
    nruns \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    maxiter \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

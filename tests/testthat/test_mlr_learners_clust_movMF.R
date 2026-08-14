@@ -18,7 +18,8 @@ test_that("Learner properties are respected", {
   parset_list = list(
     list(k = 2L),
     list(k = 3L, E = "hardmax", nruns = 5L),
-    list(k = 3L, nruns = 2L, maxiter = 50L)
+    list(k = 3L, nruns = 2L, maxiter = 50L),
+    list(k = 2L, ids = rep(1:2, length.out = task$nrow))
   )
 
   for (type in c("partition", "prob")) {

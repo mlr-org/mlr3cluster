@@ -11,6 +11,9 @@
 #' components. Rows of `x` are standardised to unit length internally by [movMF::movMF()]. Predictions use the
 #' `predict()` method from \pkg{movMF}; `prob` returns the soft memberships.
 #'
+#' Setting `ids` initializes the EM algorithm from fixed component memberships and stops it after a single iteration,
+#' in which case [movMF::movMF()] ignores `start` and `nruns`.
+#'
 #' @templateVar id clust.movMF
 #' @template learner
 #'
@@ -31,6 +34,10 @@ LearnerClustMovMF = R6Class(
         k = p_int(1L, tags = c("train", "required")),
         E = p_fct(c("softmax", "hardmax", "stochmax"), default = "softmax", tags = "train"),
         kappa = p_uty(tags = "train"),
+        ids = p_uty(
+          tags = "train",
+          custom_check = crate(function(x) check_integerish(x, lower = 1L, any.missing = FALSE))
+        ),
         start = p_uty(default = "p", tags = "train"),
         nruns = p_int(1L, default = 1L, tags = c("train", "control")),
         maxiter = p_int(1L, default = 100L, tags = c("train", "control")),
