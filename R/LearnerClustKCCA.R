@@ -46,9 +46,7 @@ LearnerClustKCCA = R6Class(
           tags = c("train", "control"),
           depends = quote(classify == "simann"),
           custom_check = crate(function(x) check_numeric(x, min.len = 2L, any.missing = FALSE))
-        ),
-        ntry = p_int(1L, default = 5L, tags = c("train", "control")),
-        min.size = p_int(1L, default = 2L, tags = c("train", "control"))
+        )
       )
 
       param_set$set_values(k = 2L)

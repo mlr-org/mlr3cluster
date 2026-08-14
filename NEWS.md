@@ -29,6 +29,10 @@
 * `clust.specc` now documents the default of `degree` as 1 instead of 3, matching the kernlab kernel functions.
 * `PredictionClust` now errors during construction when a partition label has no matching `prob` column, instead of silently accepting inconsistent predictions.
 
+## Bug fixes
+
+* `clust.kcca` no longer exposes the `ntry` and `min.size` parameters, which are `flexclust::qtclust()` control options that `flexclust::kcca()` ignores.
+
 # mlr3cluster 0.4.1
 
 ## Bug fixes
