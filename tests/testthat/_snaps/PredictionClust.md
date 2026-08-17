@@ -14,6 +14,14 @@
       Error in `check_prediction_data.PredictionDataClust()`:
       ! Assertion on 'partition' failed: Must be a subset of {'1','2'}, but has additional elements {'3'}.
 
+# as_prediction_clust() rejects a non-integral partition
+
+    Code
+      as_prediction_clust(data.frame(row_ids = 1:3, partition = c(1.5, 2, 3)))
+    Condition
+      Error in `check_prediction_data.PredictionDataClust()`:
+      ! Assertion on 'pdata$partition' failed: Must be of type 'integerish', but element 1 is not close to an integer.
+
 # combining empty prob predictions with conflicting clusters errors
 
     Code

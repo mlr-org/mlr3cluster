@@ -12,6 +12,7 @@
 
 ## Other improvements
 
+* `as_prediction_clust()` now coerces a whole-numbered `partition` column to integer instead of erroring, as `row_ids` already did.
 * `clust.ap` now breaks similarity ties deterministically when predicting, matching the assignment rule of the apcluster package.
 * `clust.bico` and `clust.kcca` now require `k >= 2`, which both already needed but advertised as `k >= 1`, so setting `k = 1` errors when set instead of failing during training.
 * `clust.cobweb` now exposes the `output_debug_info` parameter, which the other RWeka-based learners already had.

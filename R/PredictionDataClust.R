@@ -7,7 +7,13 @@ as_prediction.PredictionDataClust = function(x, check = TRUE, ...) {
 check_prediction_data.PredictionDataClust = function(pdata, ...) {
   pdata$row_ids = assert_row_ids(pdata$row_ids)
   n = length(pdata$row_ids)
-  assert_integer(pdata$partition, len = n, any.missing = FALSE, null.ok = TRUE)
+  pdata$partition = assert_integerish(
+    pdata$partition,
+    len = n,
+    any.missing = FALSE,
+    null.ok = TRUE,
+    coerce = TRUE
+  )
 
   if (!is.null(pdata$weights)) {
     # weights may never be NA, even if no prediction was made

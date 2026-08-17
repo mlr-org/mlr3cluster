@@ -88,6 +88,20 @@ test_that("as_prediction_clust", {
   expect_error(as_prediction_clust(bad), "prob")
 })
 
+test_that("as_prediction_clust() coerces a whole-numbered partition to integer", {
+  df = data.frame(row_ids = c(1, 2, 3), partition = c(1, 2, 1))
+  p = as_prediction_clust(df)
+  expect_integer(p$partition, len = 3L)
+  expect_identical(p$partition, c(1L, 2L, 1L))
+})
+
+test_that("as_prediction_clust() rejects a non-integral partition", {
+  expect_snapshot(
+    error = TRUE,
+    as_prediction_clust(data.frame(row_ids = 1:3, partition = c(1.5, 2, 3)))
+  )
+})
+
 test_that("combining empty and non-empty prob predictions works", {
   task = tsk("usarrests")
   learner = lrn("clust.featureless", num_clusters = 3L, predict_type = "prob")
