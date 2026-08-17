@@ -9,6 +9,11 @@ check_prediction_data.PredictionDataClust = function(pdata, ...) {
   n = length(pdata$row_ids)
   assert_integer(pdata$partition, len = n, any.missing = FALSE, null.ok = TRUE)
 
+  if (!is.null(pdata$weights)) {
+    # weights may never be NA, even if no prediction was made
+    pdata$weights = assert_numeric(unname(pdata$weights), len = n, any.missing = FALSE)
+  }
+
   prob = pdata$prob
   if (!is.null(prob)) {
     # need to check number of columns for matrix
@@ -64,7 +69,12 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
     error_input("Cannot combine predictions: Different predict types.")
   }
 
-  elems = c("row_ids", "partition")
+  if (length(unique(map_lgl(dots, function(x) is.null(x$weights)))) > 1L) {
+    error_input("Cannot combine predictions: Some predictions have weights, others do not.")
+  }
+
+  nn = names(dots[[1L]])
+  elems = c("row_ids", "partition", if ("weights" %chin% nn) "weights")
   tab = map_dtr(dots, function(x) x[elems], .fill = FALSE)
   probs = map(dots, "prob")
   # empty predictions carry a 0-column prob placeholder (k is unknown), so drop 0-row matrices before rbind
@@ -102,6 +112,10 @@ filter_prediction_data.PredictionDataClust = function(pdata, row_ids, ...) {
     pdata$prob = pdata$prob[keep, , drop = FALSE]
   }
 
+  if (!is.null(pdata$weights)) {
+    pdata$weights = pdata$weights[keep]
+  }
+
   pdata
 }
 
@@ -117,6 +131,10 @@ create_empty_prediction_data.TaskClust = function(task, learner) {
   if ("prob" %chin% predict_types) {
     # the number of clusters is unknown here, so use a prob matrix without columns
     pdata$prob = matrix(numeric(), nrow = 0L, ncol = 0L)
+  }
+
+  if ("weights_measure" %chin% task$properties) {
+    pdata$weights = numeric()
   }
 
   set_class(pdata, c("PredictionDataClust", "PredictionData"))

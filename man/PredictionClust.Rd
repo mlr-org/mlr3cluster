@@ -60,6 +60,7 @@ Access to the stored probabilities.}
   row_ids = task$row_ids,
   partition = NULL,
   prob = NULL,
+  weights = NULL,
   check = TRUE
 )}
     \if{html}{\out{</div>}}
@@ -80,6 +81,9 @@ Columns must be named with cluster numbers, row names are automatically removed.
 If \code{prob} is provided, but \code{partition} is not, the cluster memberships are calculated from
 the probabilities: each observation is assigned the cluster label (column name) of its most
 probable cluster, with ties broken by the first maximum.}
+      \item{\code{weights}}{(\code{numeric()})\cr
+Vector of measure weights for each observation. Should be constructed from the \link{TaskClust}'s
+\code{weights_measure} column.}
       \item{\code{check}}{(\code{logical(1)})\cr
 If \code{TRUE}, performs some argument checks and predict type conversions.}
     }

@@ -22,3 +22,13 @@
       Error:
       ! number of columns of matrices must match (see arg 2)
 
+# combining weighted and unweighted predictions errors
+
+    Code
+      c(a, b)
+    Condition
+      Error:
+      ! 
+      x Cannot combine predictions: Some predictions have weights, others do not.
+      > Class: Mlr3ErrorInput
+

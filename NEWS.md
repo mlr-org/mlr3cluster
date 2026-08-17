@@ -29,6 +29,7 @@
 * `clust.SimpleKMeans` now declares `min_density` as a double bounded below at 0 instead of an integer with a minimum of 1, since Weka accepts fractional canopy densities.
 * `clust.skmeans` now exposes `start`, which selects the initialization, and `maxchains` for the `"pclust"` method.
 * `clust.specc` now documents the default of `degree` as 1 instead of 3, matching the kernlab kernel functions.
+* `PredictionClust` now accepts and stores measure `weights`, so predictions on tasks with a `weights_measure` column carry the weights in `$weights` and in `as.data.table()` instead of dropping them.
 * `PredictionClust` now errors during construction when a partition label has no matching `prob` column, instead of silently accepting inconsistent predictions.
 
 ## Bug fixes

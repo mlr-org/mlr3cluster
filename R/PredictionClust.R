@@ -38,10 +38,21 @@ PredictionClust = R6Class(
     #'   the probabilities: each observation is assigned the cluster label (column name) of its most
     #'   probable cluster, with ties broken by the first maximum.
     #'
+    #' @param weights (`numeric()`)\cr
+    #'   Vector of measure weights for each observation. Should be constructed from the [TaskClust]'s
+    #'   `weights_measure` column.
+    #'
     #' @param check (`logical(1)`)\cr
     #'   If `TRUE`, performs some argument checks and predict type conversions.
-    initialize = function(task = NULL, row_ids = task$row_ids, partition = NULL, prob = NULL, check = TRUE) {
-      pdata = list(row_ids = row_ids, partition = partition, prob = prob)
+    initialize = function(
+      task = NULL,
+      row_ids = task$row_ids,
+      partition = NULL,
+      prob = NULL,
+      weights = NULL,
+      check = TRUE
+    ) {
+      pdata = list(row_ids = row_ids, partition = partition, prob = prob, weights = weights)
       pdata = discard(pdata, is.null)
       class(pdata) = c("PredictionDataClust", "PredictionData")
 
@@ -77,6 +88,10 @@ as.data.table.PredictionClust = function(x, ...) {
     prob = as.data.table(x$data$prob)
     setnames(prob, new = paste0("prob.", names(prob)))
     tab = rcbind(tab, prob)
+  }
+
+  if (!is.null(x$data$weights)) {
+    tab$weights = x$data$weights
   }
 
   tab[]

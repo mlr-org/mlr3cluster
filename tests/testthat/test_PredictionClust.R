@@ -171,3 +171,48 @@ test_that("construction of empty PredictionDataClust", {
   expect_data_table(as.data.table(pred), nrows = 0L, ncols = 2L)
   expect_named(as.data.table(pred), c("row_ids", "partition"))
 })
+
+test_that("measure weights are carried through the prediction", {
+  withr::local_seed(1)
+  data = as.data.frame(datasets::USArrests)
+  data$w = runif(nrow(data), 1, 2)
+  task = as_task_clust(data)
+  task$set_col_roles("w", "weights_measure")
+
+  learner = lrn("clust.featureless", predict_type = "prob")
+  p = learner$train(task)$predict(task)
+  expect_numeric(p$weights, len = task$nrow, any.missing = FALSE)
+  expect_equal(p$weights, data$w)
+  expect_named(as.data.table(p), c("row_ids", "partition", "prob.1", "weights"))
+
+  # filtering keeps the weights aligned with the retained rows
+  pf = p$filter(p$row_ids[c(3L, 7L, 11L)])
+  expect_numeric(pf$weights, len = 3L)
+  expect_equal(pf$weights, data$w[c(3L, 7L, 11L)])
+
+  # combining preserves the weights
+  pc = c(learner$predict(task, 1:10), learner$predict(task, 11:20))
+  expect_numeric(pc$weights, len = 20L)
+  expect_equal(pc$weights, data$w[1:20])
+
+  # round trip via data.table
+  expect_identical(as_prediction_clust(as.data.table(p))$data, p$data)
+
+  # empty predict sets carry a zero-length weights vector
+  pe = learner$predict(task, row_ids = integer())
+  expect_numeric(pe$weights, len = 0L)
+})
+
+test_that("combining weighted and unweighted predictions errors", {
+  withr::local_seed(1)
+  data = as.data.frame(datasets::USArrests)
+  data$w = runif(nrow(data), 1, 2)
+  task_weighted = as_task_clust(data)
+  task_weighted$set_col_roles("w", "weights_measure")
+  task = as_task_clust(as.data.frame(datasets::USArrests))
+
+  learner = lrn("clust.featureless")
+  a = learner$train(task_weighted)$predict(task_weighted)
+  b = learner$train(task)$predict(task)
+  expect_snapshot(error = TRUE, c(a, b))
+})
