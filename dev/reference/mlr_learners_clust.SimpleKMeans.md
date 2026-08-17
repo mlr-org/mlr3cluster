@@ -155,11 +155,22 @@ Other Learner:
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustSimpleKMeans`
 
+## Active bindings
+
+- `marshaled`:
+
+  (`logical(1)`)  
+  Whether the learner's model is marshaled.
+
 ## Methods
 
 ### Public methods
 
 - [`LearnerClustSimpleKMeans$new()`](#method-LearnerClustSimpleKMeans-initialize)
+
+- [`LearnerClustSimpleKMeans$marshal()`](#method-LearnerClustSimpleKMeans-marshal)
+
+- [`LearnerClustSimpleKMeans$unmarshal()`](#method-LearnerClustSimpleKMeans-unmarshal)
 
 - [`LearnerClustSimpleKMeans$clone()`](#method-LearnerClustSimpleKMeans-clone)
 
@@ -187,6 +198,42 @@ Creates a new instance of this
 #### Usage
 
     LearnerClustSimpleKMeans$new()
+
+------------------------------------------------------------------------
+
+### `LearnerClustSimpleKMeans$marshal()`
+
+Marshal the learner's model.
+
+#### Usage
+
+    LearnerClustSimpleKMeans$marshal(...)
+
+#### Arguments
+
+- `...`:
+
+  (any)  
+  Additional arguments passed to
+  [`mlr3::marshal_model()`](https://mlr3.mlr-org.com/reference/marshaling.html).
+
+------------------------------------------------------------------------
+
+### `LearnerClustSimpleKMeans$unmarshal()`
+
+Unmarshal the learner's model.
+
+#### Usage
+
+    LearnerClustSimpleKMeans$unmarshal(...)
+
+#### Arguments
+
+- `...`:
+
+  (any)  
+  Additional arguments passed to
+  [`mlr3::unmarshal_model()`](https://mlr3.mlr-org.com/reference/marshaling.html).
 
 ------------------------------------------------------------------------
 
@@ -218,7 +265,7 @@ print(learner)
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, missings, and partitional
+#> • Properties: complete, exclusive, marshal, missings, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task

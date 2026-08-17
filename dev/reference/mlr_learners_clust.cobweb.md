@@ -136,11 +136,22 @@ Other Learner:
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustCobweb`
 
+## Active bindings
+
+- `marshaled`:
+
+  (`logical(1)`)  
+  Whether the learner's model is marshaled.
+
 ## Methods
 
 ### Public methods
 
 - [`LearnerClustCobweb$new()`](#method-LearnerClustCobweb-initialize)
+
+- [`LearnerClustCobweb$marshal()`](#method-LearnerClustCobweb-marshal)
+
+- [`LearnerClustCobweb$unmarshal()`](#method-LearnerClustCobweb-unmarshal)
 
 - [`LearnerClustCobweb$clone()`](#method-LearnerClustCobweb-clone)
 
@@ -168,6 +179,42 @@ Creates a new instance of this
 #### Usage
 
     LearnerClustCobweb$new()
+
+------------------------------------------------------------------------
+
+### `LearnerClustCobweb$marshal()`
+
+Marshal the learner's model.
+
+#### Usage
+
+    LearnerClustCobweb$marshal(...)
+
+#### Arguments
+
+- `...`:
+
+  (any)  
+  Additional arguments passed to
+  [`mlr3::marshal_model()`](https://mlr3.mlr-org.com/reference/marshaling.html).
+
+------------------------------------------------------------------------
+
+### `LearnerClustCobweb$unmarshal()`
+
+Unmarshal the learner's model.
+
+#### Usage
+
+    LearnerClustCobweb$unmarshal(...)
+
+#### Arguments
+
+- `...`:
+
+  (any)  
+  Additional arguments passed to
+  [`mlr3::unmarshal_model()`](https://mlr3.mlr-org.com/reference/marshaling.html).
 
 ------------------------------------------------------------------------
 
@@ -199,7 +246,7 @@ print(learner)
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, hierarchical, and missings
+#> • Properties: complete, exclusive, hierarchical, marshal, and missings
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task

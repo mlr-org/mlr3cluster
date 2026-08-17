@@ -73,6 +73,8 @@
 <li>
 <code>clust.cobweb</code> now exposes the <code>output_debug_info</code> parameter, which the other RWeka-based learners already had.</li>
 <li>
+<code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, and <code>clust.SimpleKMeans</code> now support marshaling.</li>
+<li>
 <code>clust.cobweb</code>, <code>clust.ff</code>, and <code>clust.xmeans</code> now allow the seed <code>S = 0</code>, which Weka accepts, matching the seed bound of <code>clust.em</code> and <code>clust.SimpleKMeans</code>.</li>
 <li>
 <code>clust.hclust</code> and <code>clust.protoclust</code> now bound the Minkowski power <code>p</code> below at 0, which was previously unbounded even though <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code> rejects non-positive values.</li>

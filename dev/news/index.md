@@ -26,6 +26,8 @@
   instead of failing during training.
 - `clust.cobweb` now exposes the `output_debug_info` parameter, which
   the other RWeka-based learners already had.
+- `clust.cobweb`, `clust.em`, `clust.ff`, and `clust.SimpleKMeans` now
+  support marshaling.
 - `clust.cobweb`, `clust.ff`, and `clust.xmeans` now allow the seed
   `S = 0`, which Weka accepts, matching the seed bound of `clust.em` and
   `clust.SimpleKMeans`.

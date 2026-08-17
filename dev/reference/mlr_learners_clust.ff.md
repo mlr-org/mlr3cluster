@@ -133,11 +133,22 @@ Other Learner:
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustFarthestFirst`
 
+## Active bindings
+
+- `marshaled`:
+
+  (`logical(1)`)  
+  Whether the learner's model is marshaled.
+
 ## Methods
 
 ### Public methods
 
 - [`LearnerClustFarthestFirst$new()`](#method-LearnerClustFarthestFirst-initialize)
+
+- [`LearnerClustFarthestFirst$marshal()`](#method-LearnerClustFarthestFirst-marshal)
+
+- [`LearnerClustFarthestFirst$unmarshal()`](#method-LearnerClustFarthestFirst-unmarshal)
 
 - [`LearnerClustFarthestFirst$clone()`](#method-LearnerClustFarthestFirst-clone)
 
@@ -165,6 +176,42 @@ Creates a new instance of this
 #### Usage
 
     LearnerClustFarthestFirst$new()
+
+------------------------------------------------------------------------
+
+### `LearnerClustFarthestFirst$marshal()`
+
+Marshal the learner's model.
+
+#### Usage
+
+    LearnerClustFarthestFirst$marshal(...)
+
+#### Arguments
+
+- `...`:
+
+  (any)  
+  Additional arguments passed to
+  [`mlr3::marshal_model()`](https://mlr3.mlr-org.com/reference/marshaling.html).
+
+------------------------------------------------------------------------
+
+### `LearnerClustFarthestFirst$unmarshal()`
+
+Unmarshal the learner's model.
+
+#### Usage
+
+    LearnerClustFarthestFirst$unmarshal(...)
+
+#### Arguments
+
+- `...`:
+
+  (any)  
+  Additional arguments passed to
+  [`mlr3::unmarshal_model()`](https://mlr3.mlr-org.com/reference/marshaling.html).
 
 ------------------------------------------------------------------------
 
@@ -196,7 +243,7 @@ print(learner)
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, missings, and partitional
+#> • Properties: complete, exclusive, marshal, missings, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task

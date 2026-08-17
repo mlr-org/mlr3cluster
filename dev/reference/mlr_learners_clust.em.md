@@ -142,11 +142,22 @@ Other Learner:
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustEM`
 
+## Active bindings
+
+- `marshaled`:
+
+  (`logical(1)`)  
+  Whether the learner's model is marshaled.
+
 ## Methods
 
 ### Public methods
 
 - [`LearnerClustEM$new()`](#method-LearnerClustEM-initialize)
+
+- [`LearnerClustEM$marshal()`](#method-LearnerClustEM-marshal)
+
+- [`LearnerClustEM$unmarshal()`](#method-LearnerClustEM-unmarshal)
 
 - [`LearnerClustEM$clone()`](#method-LearnerClustEM-clone)
 
@@ -174,6 +185,42 @@ Creates a new instance of this
 #### Usage
 
     LearnerClustEM$new()
+
+------------------------------------------------------------------------
+
+### `LearnerClustEM$marshal()`
+
+Marshal the learner's model.
+
+#### Usage
+
+    LearnerClustEM$marshal(...)
+
+#### Arguments
+
+- `...`:
+
+  (any)  
+  Additional arguments passed to
+  [`mlr3::marshal_model()`](https://mlr3.mlr-org.com/reference/marshaling.html).
+
+------------------------------------------------------------------------
+
+### `LearnerClustEM$unmarshal()`
+
+Unmarshal the learner's model.
+
+#### Usage
+
+    LearnerClustEM$unmarshal(...)
+
+#### Arguments
+
+- `...`:
+
+  (any)  
+  Additional arguments passed to
+  [`mlr3::unmarshal_model()`](https://mlr3.mlr-org.com/reference/marshaling.html).
 
 ------------------------------------------------------------------------
 
@@ -205,7 +252,7 @@ print(learner)
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, fuzzy, missings, and partitional
+#> • Properties: complete, fuzzy, marshal, missings, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
