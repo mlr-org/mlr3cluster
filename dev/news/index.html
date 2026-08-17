@@ -67,6 +67,8 @@
 <div class="section level3">
 <h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
 <ul><li>
+<code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now coerces a whole-numbered <code>partition</code> column to integer instead of erroring, as <code>row_ids</code> already did.</li>
+<li>
 <code>clust.ap</code> now breaks similarity ties deterministically when predicting, matching the assignment rule of the apcluster package.</li>
 <li>
 <code>clust.bico</code> and <code>clust.kcca</code> now require <code>k &gt;= 2</code>, which both already needed but advertised as <code>k &gt;= 1</code>, so setting <code>k = 1</code> errors when set instead of failing during training.</li>

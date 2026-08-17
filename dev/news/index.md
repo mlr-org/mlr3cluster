@@ -19,6 +19,9 @@
 
 ### Other improvements
 
+- [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
+  now coerces a whole-numbered `partition` column to integer instead of
+  erroring, as `row_ids` already did.
 - `clust.ap` now breaks similarity ties deterministically when
   predicting, matching the assignment rule of the apcluster package.
 - `clust.bico` and `clust.kcca` now require `k >= 2`, which both already
