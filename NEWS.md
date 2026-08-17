@@ -15,6 +15,7 @@
 * `clust.ap` now breaks similarity ties deterministically when predicting, matching the assignment rule of the apcluster package.
 * `clust.bico` and `clust.kcca` now require `k >= 2`, which both already needed but advertised as `k >= 1`, so setting `k = 1` errors when set instead of failing during training.
 * `clust.cobweb` now exposes the `output_debug_info` parameter, which the other RWeka-based learners already had.
+* `clust.cobweb`, `clust.em`, `clust.ff`, and `clust.SimpleKMeans` now support marshaling.
 * `clust.cobweb`, `clust.ff`, and `clust.xmeans` now allow the seed `S = 0`, which Weka accepts, matching the seed bound of `clust.em` and `clust.SimpleKMeans`.
 * `clust.hclust` and `clust.protoclust` now bound the Minkowski power `p` below at 0, which was previously unbounded even though `stats::dist()` rejects non-positive values.
 * `clust.hdbscan` now requires `minPts >= 2` as needed by `dbscan::hdbscan()`, so smaller values error when set instead of during training.

@@ -39,6 +39,7 @@ register_mlr3 = function(...) {
   mlr_reflections$task_properties$clust = mlr_reflections$task_properties$regr
   mlr_reflections$learner_properties$clust = c(
     "missings",
+    "marshal",
     "partitional",
     "hierarchical",
     "exclusive",

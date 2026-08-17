@@ -50,6 +50,7 @@ Suggests:
     movMF,
     mvtnorm,
     protoclust,
+    rJava,
     RWeka,
     skmeans,
     stdbscan (>= 0.2.0),

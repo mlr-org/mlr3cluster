@@ -48,6 +48,25 @@ test_that("properties follow the clustering taxonomy", {
   }
 })
 
+test_that("marshaled models survive a serialization boundary", {
+  skip_on_cran()
+  skip_if_not_installed("RWeka")
+  task = tsk("usarrests")
+  ids = keep(mlr_learners$keys("^clust\\."), function(key) "marshal" %chin% lrn(key)$properties)
+  expect_character(ids, min.len = 1L)
+
+  for (id in ids) {
+    learner = lrn(id)
+    learner$train(task)
+    expected = learner$predict(task)$partition
+
+    learner$marshal()
+    restored = unserialize(serialize(learner, NULL))
+    restored$unmarshal()
+    expect_identical(restored$predict(task)$partition, expected, info = id)
+  }
+})
+
 test_that("predict aligns features with the training task's column order", {
   skip_on_cran()
   withr::local_seed(42)

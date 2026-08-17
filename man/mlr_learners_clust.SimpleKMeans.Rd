@@ -153,10 +153,20 @@ Other Learner:
 \section{Super classes}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{\link[mlr3cluster:LearnerClust]{LearnerClust}} -> \code{LearnerClustSimpleKMeans}
 }
+\section{Active bindings}{
+  \if{html}{\out{<div class="r6-active-bindings">}}
+  \describe{
+    \item{\code{marshaled}}{(\code{logical(1)})\cr
+Whether the learner's model is marshaled.}
+  }
+  \if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
   \itemize{
     \item \href{#method-LearnerClustSimpleKMeans-initialize}{\code{LearnerClustSimpleKMeans$new()}}
+    \item \href{#method-LearnerClustSimpleKMeans-marshal}{\code{LearnerClustSimpleKMeans$marshal()}}
+    \item \href{#method-LearnerClustSimpleKMeans-unmarshal}{\code{LearnerClustSimpleKMeans$unmarshal()}}
     \item \href{#method-LearnerClustSimpleKMeans-clone}{\code{LearnerClustSimpleKMeans$clone()}}
   }
 }
@@ -183,6 +193,46 @@ Other Learner:
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
     \preformatted{LearnerClustSimpleKMeans$new()}
+    \if{html}{\out{</div>}}
+  }
+}
+
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-LearnerClustSimpleKMeans-marshal"></a>}}
+\if{latex}{\out{\hypertarget{method-LearnerClustSimpleKMeans-marshal}{}}}
+\subsection{\code{LearnerClustSimpleKMeans$marshal()}}{
+  Marshal the learner's model.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{LearnerClustSimpleKMeans$marshal(...)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{...}}{(any)\cr
+Additional arguments passed to \code{\link[mlr3:marshal_model]{mlr3::marshal_model()}}.}
+    }
+    \if{html}{\out{</div>}}
+  }
+}
+
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-LearnerClustSimpleKMeans-unmarshal"></a>}}
+\if{latex}{\out{\hypertarget{method-LearnerClustSimpleKMeans-unmarshal}{}}}
+\subsection{\code{LearnerClustSimpleKMeans$unmarshal()}}{
+  Unmarshal the learner's model.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{LearnerClustSimpleKMeans$unmarshal(...)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{...}}{(any)\cr
+Additional arguments passed to \code{\link[mlr3:unmarshal_model]{mlr3::unmarshal_model()}}.}
+    }
     \if{html}{\out{</div>}}
   }
 }
