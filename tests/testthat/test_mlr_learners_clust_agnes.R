@@ -27,3 +27,13 @@ test_that("Learner properties are respected", {
     expect_prediction_clust(p, learner)
   }
 })
+
+test_that("predict validates k against the training size", {
+  task = tsk("usarrests")
+  learner = lrn("clust.agnes", k = 3L)
+  suppressWarnings(learner$train(task))
+
+  # k is bounded by the number of training observations, not the predict task's rows
+  learner$param_set$values$k = task$nrow + 1L
+  expect_error(learner$predict(task), sprintf("between 1 and %i", task$nrow))
+})

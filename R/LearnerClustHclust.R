@@ -83,8 +83,10 @@ LearnerClustHclust = R6Class(
 
     .predict = function(task) {
       pv = self$param_set$get_values(tags = "predict")
-      if (pv$k > task$nrow) {
-        error_input("`k` needs to be between 1 and %i.", task$nrow)
+      # `cutree` cuts the training tree, so `k` is bounded by the number of training observations
+      n = length(self$model$order)
+      if (pv$k > n) {
+        error_input("`k` needs to be between 1 and %i.", n)
       }
 
       warn_prediction_useless(self$id)
