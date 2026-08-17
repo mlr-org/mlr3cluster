@@ -9,6 +9,7 @@
 ## New measures
 
 * `clust.sse_ratio`: Ratio of the within-cluster sum of squares to the total sum of squares, the standard quantity for elbow plots.
+* `clust.pred_strength`: Prediction strength (Tibshirani and Walther, 2005), an out-of-sample stability measure that refits the learner on the evaluation data and checks how well the trained model recovers the reference clusters.
 
 ## Other improvements
 

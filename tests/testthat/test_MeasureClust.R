@@ -58,7 +58,63 @@ test_that("empty predictions score as NaN", {
   p = learner$predict(task, row_ids = integer())
 
   for (key in mlr_measures$keys("clust")) {
-    expect_true(is.nan(msr(key)$score(prediction = p, task = task)), info = key)
+    expect_true(is.nan(msr(key)$score(prediction = p, task = task, learner = learner)), info = key)
+  }
+})
+
+test_that("clust.pred_strength refits the learner and scores stability", {
+  set.seed(1)
+  task = tsk("ruspini")
+  learner = lrn("clust.kmeans", centers = 4L, nstart = 20L)
+  resampling = rsmp("holdout")$instantiate(task)
+  learner$train(task, row_ids = resampling$train_set(1L))
+  p = learner$predict(task, row_ids = resampling$test_set(1L))
+
+  m = msr("clust.pred_strength")
+  expect_subset(c("requires_task", "requires_learner"), m$properties)
+  model = learner$model
+  perf = m$score(prediction = p, task = task, learner = learner)
+  expect_number(perf, lower = 0, upper = 1)
+
+  # well-separated data: the clustering must be recoverable
+  expect_gt(perf, 0.8)
+
+  # scoring refits a clone and must not touch the passed learner
+  expect_identical(learner$model, model)
+})
+
+test_that("clust.pred_strength matches fpc", {
+  skip_if_not_installed("fpc")
+  x = as.matrix(datasets::USArrests)
+  n = nrow(x)
+  # clust.pam mirrors fpc's claraCBI with centroid classification: both train with
+  # cluster::pam() and assign new observations to the nearest medoid, so the only
+  # random draw in fpc::prediction.strength() is the half split, replayed below
+  for (k in c(2L, 3L, 5L)) {
+    withr::local_seed(1L)
+    expected = fpc::prediction.strength(
+      x,
+      Gmin = k,
+      Gmax = k,
+      M = 1,
+      clustermethod = fpc::claraCBI,
+      classification = "centroid"
+    )$mean.pred[[k]]
+
+    withr::local_seed(1L)
+    nperm = sample(n, n)
+    halves = list(seq_len(floor(n / 2)), seq(floor(n / 2) + 1L, n))
+    task = as_task_clust(as.data.frame(x[nperm, ]), id = "usarrests_perm")
+
+    m = msr("clust.pred_strength")
+    scores = map_dbl(1:2, function(i) {
+      learner = lrn("clust.pam", k = k)
+      learner$train(task, row_ids = halves[[3L - i]])
+      p = learner$predict(task, row_ids = halves[[i]])
+      m$score(prediction = p, task = task, learner = learner)
+    })
+
+    expect_equal(mean(scores), expected, info = sprintf("k=%d", k))
   }
 })
 

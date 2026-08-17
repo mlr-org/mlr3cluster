@@ -106,6 +106,7 @@ Collate:
     'LearnerClustTclust.R'
     'LearnerClustXMeans.R'
     'MeasureClust.R'
+    'MeasureClustPredStrength.R'
     'measures.R'
     'cluster_stats.R'
     'MeasureClustSimple.R'

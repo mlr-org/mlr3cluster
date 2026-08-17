@@ -500,6 +500,17 @@ bibentries = c(
     year = "1974",
     doi = "10.1080/01969727408546059"
   ),
+  tibshirani2005cluster = bibentry(
+    "article",
+    title = "Cluster validation by prediction strength",
+    author = "Tibshirani, Robert and Walther, Guenther",
+    journal = "Journal of Computational and Graphical Statistics",
+    volume = "14",
+    number = "3",
+    pages = "511--528",
+    year = "2005",
+    doi = "10.1198/106186005X59243"
+  ),
   rousseeuw1987silhouettes = bibentry(
     "article",
     title = "Silhouettes: A graphical aid to the interpretation and validation of cluster analysis",

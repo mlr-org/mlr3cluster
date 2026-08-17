@@ -54,6 +54,7 @@ Other cluster measures:
 \code{\link{mlr_measures_clust.dunn}},
 \code{\link{mlr_measures_clust.entropy}},
 \code{\link{mlr_measures_clust.pearsongamma}},
+\code{\link{mlr_measures_clust.pred_strength}},
 \code{\link{mlr_measures_clust.silhouette}},
 \code{\link{mlr_measures_clust.sse_ratio}},
 \code{\link{mlr_measures_clust.wb_ratio}},

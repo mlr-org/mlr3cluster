@@ -65,6 +65,7 @@ register_mlr3 = function(...) {
   # measures
   mlr_measures = utils::getFromNamespace("mlr_measures", ns = "mlr3")
   mlr_measures$add("clust.silhouette", MeasureClustSil)
+  mlr_measures$add("clust.pred_strength", MeasureClustPredStrength)
   mlr_measures$add("clust.ch", MeasureClustSimple, name = "ch", label = "Calinski Harabasz")
   mlr_measures$add("clust.dunn", MeasureClustSimple, name = "dunn", label = "Dunn")
   mlr_measures$add("clust.wss", MeasureClustSimple, name = "wss", label = "Within Sum of Squares")
