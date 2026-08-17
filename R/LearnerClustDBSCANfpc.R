@@ -75,7 +75,7 @@ LearnerClustDBSCANfpc = R6Class(
         data = self$model$data,
         newdata = ordered_features(task, self)
       ))
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

@@ -75,7 +75,7 @@ LearnerClustSKMeans = R6Class(
     .predict = function(task) {
       d = skmeans::skmeans_xdist(as.matrix(ordered_features(task, self)), self$model$prototypes)
       partition = max.col(-d, ties.method = "first")
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

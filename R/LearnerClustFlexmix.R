@@ -133,7 +133,7 @@ LearnerClustFlexmix = R6Class(
         prob = flexmix::posterior(self$model, newdata = data)
         colnames(prob) = seq_col(prob)
       }
-      PredictionClust$new(task = task, partition = partition, prob = prob)
+      list(partition = partition, prob = prob)
     }
   )
 )

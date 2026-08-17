@@ -81,7 +81,7 @@ LearnerClustCobweb = R6Class(
 
     .predict = function(task) {
       partition = invoke(predict, self$model, newdata = ordered_features(task, self), type = "class_ids") + 1L
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

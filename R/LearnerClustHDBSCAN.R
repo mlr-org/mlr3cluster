@@ -68,7 +68,7 @@ LearnerClustHDBSCAN = R6Class(
         newdata = ordered_features(task, self),
         data = self$model$data
       ))
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

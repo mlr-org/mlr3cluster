@@ -98,7 +98,7 @@ LearnerClustProtoclust = R6Class(
       d = as.matrix(d)[-seq_len(nrow(protos)), seq_len(nrow(protos)), drop = FALSE]
       partition = pc$cl[pc$protos][max.col(-d, ties.method = "first")]
 
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

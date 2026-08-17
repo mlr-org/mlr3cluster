@@ -81,7 +81,7 @@ LearnerClustKMeansRcpp = R6Class(
         prob = invoke(predict, self$model, newdata = data, fuzzy = TRUE, .args = pv)
         colnames(prob) = seq_col(prob)
       }
-      PredictionClust$new(task = task, partition = partition, prob = prob)
+      list(partition = partition, prob = prob)
     }
   )
 )

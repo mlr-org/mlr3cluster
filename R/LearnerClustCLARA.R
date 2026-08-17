@@ -87,7 +87,7 @@ LearnerClustCLARA = R6Class(
         newdata = ordered_features(task, self),
         type = "class_ids"
       ))
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

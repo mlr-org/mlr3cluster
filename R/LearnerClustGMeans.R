@@ -69,7 +69,7 @@ LearnerClustGMeans = R6Class(
       pv = self$param_set$get_values(tags = "predict")
       data = as.matrix(ordered_features(task, self))
       partition = as.integer(invoke(predict, self$model, newdata = data, .args = pv))
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

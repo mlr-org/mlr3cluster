@@ -76,7 +76,7 @@ LearnerClustBICO = R6Class(
 
     .predict = function(task) {
       partition = as.integer(invoke(predict, self$model, newdata = ordered_features(task, self))[[1L]])
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

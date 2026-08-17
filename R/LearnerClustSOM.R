@@ -79,7 +79,7 @@ LearnerClustSOM = R6Class(
 
     .predict = function(task) {
       p = invoke(kohonen::map, self$model, newdata = as.matrix(ordered_features(task, self)))
-      PredictionClust$new(task = task, partition = as.integer(p$unit.classif))
+      list(partition = as.integer(p$unit.classif))
     }
   )
 )

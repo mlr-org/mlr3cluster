@@ -88,7 +88,7 @@ LearnerClustMeanShift = R6Class(
         which_min(rowSums(sweep(m$cluster.center, 2L, final, "-")^2), ties_method = "first")
       })
 
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

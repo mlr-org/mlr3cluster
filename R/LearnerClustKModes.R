@@ -111,7 +111,7 @@ LearnerClustKModes = R6Class(
 
         partition = max.col(-distances, ties.method = pv$ties %??% "first")
       }
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

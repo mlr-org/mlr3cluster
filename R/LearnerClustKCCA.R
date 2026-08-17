@@ -88,7 +88,7 @@ LearnerClustKCCA = R6Class(
         self$model,
         newdata = as.matrix(ordered_features(task, self))
       ))
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )

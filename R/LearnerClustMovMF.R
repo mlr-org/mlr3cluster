@@ -85,7 +85,7 @@ LearnerClustMovMF = R6Class(
         prob = invoke(predict, self$model, newdata = newdata, type = "memberships")
         colnames(prob) = seq_col(prob)
       }
-      PredictionClust$new(task = task, partition = partition, prob = prob)
+      list(partition = partition, prob = prob)
     }
   )
 )

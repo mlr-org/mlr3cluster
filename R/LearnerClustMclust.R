@@ -79,7 +79,7 @@ LearnerClustMclust = R6Class(
       if (self$predict_type == "prob") {
         prob = predictions$z
       }
-      PredictionClust$new(task = task, partition = partition, prob = prob)
+      list(partition = partition, prob = prob)
     }
   )
 )

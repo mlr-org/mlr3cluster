@@ -84,7 +84,7 @@ LearnerClustGenie = R6Class(
         .args = self$param_set$get_values(tags = c("train", "cutree"))
       )
 
-      PredictionClust$new(task = task, partition = partition)
+      list(partition = partition)
     }
   )
 )
