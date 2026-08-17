@@ -18,8 +18,10 @@
 ^\.ccache$
 ^\.claude$
 ^\.cspell$
+^\.cursor$
 ^\.dockerignore$
 ^\.editorconfig$
+^\.git-blame-ignore-revs$
 ^\.gitattributes$
 ^\.github$
 ^\.gitignore$
@@ -43,4 +45,5 @@
 ^man-roxygen$
 ^paper$
 ^pkgdown$
+^references\.bib$
 ^revdep$
