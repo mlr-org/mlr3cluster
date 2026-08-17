@@ -69,13 +69,15 @@ PredictionClust = R6Class(
   active = list(
     #' @field partition (`integer()`)\cr
     #' Access the stored partition.
-    partition = function() {
+    partition = function(rhs) {
+      assert_ro_binding(rhs)
       self$data$partition %??% rep(NA_integer_, length(self$data$row_ids))
     },
 
     #' @field prob (`matrix()` | `NULL`)\cr
     #' Access to the stored probabilities.
-    prob = function() {
+    prob = function(rhs) {
+      assert_ro_binding(rhs)
       self$data$prob
     }
   )
