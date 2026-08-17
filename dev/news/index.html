@@ -101,6 +101,8 @@
 <li>
 <code>clust.specc</code> now documents the default of <code>degree</code> as 1 instead of 3, matching the kernlab kernel functions.</li>
 <li>
+<code>PredictionClust</code> now accepts and stores measure <code>weights</code>, so predictions on tasks with a <code>weights_measure</code> column carry the weights in <code>$weights</code> and in <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> instead of dropping them.</li>
+<li>
 <code>PredictionClust</code> now errors during construction when a partition label has no matching <code>prob</code> column, instead of silently accepting inconsistent predictions.</li>
 </ul></div>
 <div class="section level3">

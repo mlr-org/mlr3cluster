@@ -52,6 +52,7 @@ Creates a new instance of this
       row_ids = task$row_ids,
       partition = NULL,
       prob = NULL,
+      weights = NULL,
       check = TRUE
     )
 
@@ -84,6 +85,14 @@ Creates a new instance of this
   calculated from the probabilities: each observation is assigned the
   cluster label (column name) of its most probable cluster, with ties
   broken by the first maximum.
+
+- `weights`:
+
+  ([`numeric()`](https://rdrr.io/r/base/numeric.html))  
+  Vector of measure weights for each observation. Should be constructed
+  from the
+  [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)'s
+  `weights_measure` column.
 
 - `check`:
 

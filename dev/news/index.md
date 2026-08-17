@@ -67,6 +67,11 @@
   and `maxchains` for the `"pclust"` method.
 - `clust.specc` now documents the default of `degree` as 1 instead of 3,
   matching the kernlab kernel functions.
+- `PredictionClust` now accepts and stores measure `weights`, so
+  predictions on tasks with a `weights_measure` column carry the weights
+  in `$weights` and in
+  [`as.data.table()`](https://rdrr.io/pkg/data.table/man/as.data.table.html)
+  instead of dropping them.
 - `PredictionClust` now errors during construction when a partition
   label has no matching `prob` column, instead of silently accepting
   inconsistent predictions.
