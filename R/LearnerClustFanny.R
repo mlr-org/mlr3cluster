@@ -80,7 +80,7 @@ LearnerClustFanny = R6Class(
 
     .predict = function(task) {
       warn_prediction_useless(self$id)
-      partition = self$assignments %??% self$model$clustering
+      partition = self$model$clustering
       prob = NULL
       if (self$predict_type == "prob") {
         prob = self$model$membership

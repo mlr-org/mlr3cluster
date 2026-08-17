@@ -27,3 +27,11 @@ test_that("Learner properties are respected", {
     expect_prediction_clust(p, learner)
   }
 })
+
+test_that("predict on training data matches assignments", {
+  task = tsk("usarrests")
+  learner = lrn("clust.tclust", k = 3L)
+  learner$train(task)
+  p = suppressWarnings(learner$predict(task))
+  expect_identical(p$partition, learner$assignments)
+})
