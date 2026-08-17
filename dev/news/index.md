@@ -22,6 +22,11 @@
 - [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
   now coerces a whole-numbered `partition` column to integer instead of
   erroring, as `row_ids` already did.
+- `clust.hclust`, `clust.agnes`, `clust.diana`, and `clust.genie` now
+  validate `k` at predict time against the number of training
+  observations instead of the prediction task’s rows, since
+  [`cutree()`](https://rdrr.io/r/stats/cutree.html) cuts the training
+  tree.
 - `clust.ap` now breaks similarity ties deterministically when
   predicting, matching the assignment rule of the apcluster package.
 - `clust.bico` and `clust.kcca` now require `k >= 2`, which both already
