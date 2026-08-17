@@ -84,7 +84,7 @@ register_mlr3 = function(...) {
   register_namespace_callback(pkgname, "mlr3", register_mlr3)
 }
 
-.onUnload = function(libpaths) {
+.onUnload = function(libpath) {
   walk(names(mlr3cluster_tasks), function(id) mlr_tasks$remove(id))
   walk(names(mlr3cluster_learners), function(id) mlr_learners$remove(id))
   mlr_measures$remove("clust.silhouette")
