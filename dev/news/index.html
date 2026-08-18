@@ -69,7 +69,7 @@
 <ul><li>
 <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now coerces a whole-numbered <code>partition</code> column to integer instead of erroring, as <code>row_ids</code> already did.</li>
 <li>
-<code>clust.hclust</code>, <code>clust.agnes</code>, <code>clust.diana</code>, and <code>clust.genie</code> now validate <code>k</code> at predict time against the number of training observations instead of the prediction task’s rows, since <code><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree()</a></code> cuts the training tree.</li>
+<code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.genie</code>, and <code>clust.hclust</code> now validate <code>k</code> at predict time against the number of training observations instead of the prediction task’s rows, since <code><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree()</a></code> cuts the training tree.</li>
 <li>
 <code>clust.ap</code> now breaks similarity ties deterministically when predicting, matching the assignment rule of the apcluster package.</li>
 <li>
@@ -88,6 +88,8 @@
 <code>clust.kcca</code> now offers <code>classify = "simann"</code> and the corresponding <code>simann</code> parameter, so the simulated annealing variant of <code><a href="https://rdrr.io/pkg/flexclust/man/kcca.html" class="external-link">flexclust::kcca()</a></code> can be used.</li>
 <li>
 <code>clust.kcca</code> now validates <code>initcent</code> as a single string and documents its default as <code>"randomcent"</code>, so invalid values error when set instead of failing during training with an obscure S4 validity error.</li>
+<li>
+<code>clust.kcca</code> no longer exposes the <code>ntry</code> and <code>min.size</code> parameters, which are <code><a href="https://rdrr.io/pkg/flexclust/man/qtclust.html" class="external-link">flexclust::qtclust()</a></code> control options that <code><a href="https://rdrr.io/pkg/flexclust/man/kcca.html" class="external-link">flexclust::kcca()</a></code> ignores.</li>
 <li>
 <code>clust.kkmeans</code> now breaks distance ties when predicting with <code>"first"</code> instead of <code>"random"</code>, so predictions are reproducible without setting a seed.</li>
 <li>
@@ -108,11 +110,6 @@
 <code>PredictionClust</code> now accepts and stores measure <code>weights</code>, so predictions on tasks with a <code>weights_measure</code> column carry the weights in <code>$weights</code> and in <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> instead of dropping them.</li>
 <li>
 <code>PredictionClust</code> now errors during construction when a partition label has no matching <code>prob</code> column, instead of silently accepting inconsistent predictions.</li>
-</ul></div>
-<div class="section level3">
-<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
-<ul><li>
-<code>clust.kcca</code> no longer exposes the <code>ntry</code> and <code>min.size</code> parameters, which are <code><a href="https://rdrr.io/pkg/flexclust/man/qtclust.html" class="external-link">flexclust::qtclust()</a></code> control options that <code><a href="https://rdrr.io/pkg/flexclust/man/kcca.html" class="external-link">flexclust::kcca()</a></code> ignores.</li>
 </ul></div>
 </div>
     <div class="section level2">

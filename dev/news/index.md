@@ -22,7 +22,7 @@
 - [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
   now coerces a whole-numbered `partition` column to integer instead of
   erroring, as `row_ids` already did.
-- `clust.hclust`, `clust.agnes`, `clust.diana`, and `clust.genie` now
+- `clust.agnes`, `clust.diana`, `clust.genie`, and `clust.hclust` now
   validate `k` at predict time against the number of training
   observations instead of the prediction task’s rows, since
   [`cutree()`](https://rdrr.io/r/stats/cutree.html) cuts the training
@@ -53,6 +53,12 @@
 - `clust.kcca` now validates `initcent` as a single string and documents
   its default as `"randomcent"`, so invalid values error when set
   instead of failing during training with an obscure S4 validity error.
+- `clust.kcca` no longer exposes the `ntry` and `min.size` parameters,
+  which are
+  [`flexclust::qtclust()`](https://rdrr.io/pkg/flexclust/man/qtclust.html)
+  control options that
+  [`flexclust::kcca()`](https://rdrr.io/pkg/flexclust/man/kcca.html)
+  ignores.
 - `clust.kkmeans` now breaks distance ties when predicting with
   `"first"` instead of `"random"`, so predictions are reproducible
   without setting a seed.
@@ -83,15 +89,6 @@
 - `PredictionClust` now errors during construction when a partition
   label has no matching `prob` column, instead of silently accepting
   inconsistent predictions.
-
-### Bug fixes
-
-- `clust.kcca` no longer exposes the `ntry` and `min.size` parameters,
-  which are
-  [`flexclust::qtclust()`](https://rdrr.io/pkg/flexclust/man/qtclust.html)
-  control options that
-  [`flexclust::kcca()`](https://rdrr.io/pkg/flexclust/man/kcca.html)
-  ignores.
 
 ## mlr3cluster 0.4.1
 
