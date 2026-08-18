@@ -67,6 +67,23 @@
 <div class="section level3">
 <h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
 <ul><li>
+<code>clust.cobweb</code> now exposes the <code>output_debug_info</code> parameter, which the other RWeka-based learners already had.</li>
+<li>
+<code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, and <code>clust.SimpleKMeans</code> now support marshaling.</li>
+<li>
+<code>clust.kcca</code> now offers <code>classify = "simann"</code> and the corresponding <code>simann</code> parameter, so the simulated annealing variant of <code><a href="https://rdrr.io/pkg/flexclust/man/kcca.html" class="external-link">flexclust::kcca()</a></code> can be used.</li>
+<li>
+<code>clust.meanshift</code> now predicts on new data by running the mean-shift iteration from each observation with the trained bandwidth and assigning it to the mode it converges to, instead of warning and returning the training partition.</li>
+<li>
+<code>clust.movMF</code> now exposes the <code>ids</code> parameter, which initializes the EM algorithm from fixed component memberships.</li>
+<li>
+<code>clust.protoclust</code> now predicts on new data by assigning each observation to the cluster of the nearest prototype, instead of warning and returning the training partition. The model is now a list with the fitted object and the training data.</li>
+<li>
+<code>clust.skmeans</code> now exposes <code>start</code>, which selects the initialization, and <code>maxchains</code> for the <code>"pclust"</code> method.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<ul><li>
 <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now coerces a whole-numbered <code>partition</code> column to integer instead of erroring, as <code>row_ids</code> already did.</li>
 <li>
 <code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.genie</code>, and <code>clust.hclust</code> now validate <code>k</code> at predict time against the number of training observations instead of the prediction task’s rows, since <code><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree()</a></code> cuts the training tree.</li>
@@ -75,17 +92,11 @@
 <li>
 <code>clust.bico</code> and <code>clust.kcca</code> now require <code>k &gt;= 2</code>, which both already needed but advertised as <code>k &gt;= 1</code>, so setting <code>k = 1</code> errors when set instead of failing during training.</li>
 <li>
-<code>clust.cobweb</code> now exposes the <code>output_debug_info</code> parameter, which the other RWeka-based learners already had.</li>
-<li>
-<code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, and <code>clust.SimpleKMeans</code> now support marshaling.</li>
-<li>
 <code>clust.cobweb</code>, <code>clust.ff</code>, and <code>clust.xmeans</code> now allow the seed <code>S = 0</code>, which Weka accepts, matching the seed bound of <code>clust.em</code> and <code>clust.SimpleKMeans</code>.</li>
 <li>
 <code>clust.hclust</code> and <code>clust.protoclust</code> now bound the Minkowski power <code>p</code> below at 0, which was previously unbounded even though <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code> rejects non-positive values.</li>
 <li>
 <code>clust.hdbscan</code> now requires <code>minPts &gt;= 2</code> as needed by <code><a href="https://rdrr.io/pkg/dbscan/man/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code>, so smaller values error when set instead of during training.</li>
-<li>
-<code>clust.kcca</code> now offers <code>classify = "simann"</code> and the corresponding <code>simann</code> parameter, so the simulated annealing variant of <code><a href="https://rdrr.io/pkg/flexclust/man/kcca.html" class="external-link">flexclust::kcca()</a></code> can be used.</li>
 <li>
 <code>clust.kcca</code> now validates <code>initcent</code> as a single string and documents its default as <code>"randomcent"</code>, so invalid values error when set instead of failing during training with an obscure S4 validity error.</li>
 <li>
@@ -95,15 +106,7 @@
 <li>
 <code>clust.mclust</code> now stores <code>$assignments</code> as an integer vector like all other learners, instead of the double vector returned by mclust.</li>
 <li>
-<code>clust.meanshift</code> now predicts on new data by running the mean-shift iteration from each observation with the trained bandwidth and assigning it to the mode it converges to, instead of warning and returning the training partition.</li>
-<li>
-<code>clust.movMF</code> now exposes the <code>ids</code> parameter, which initializes the EM algorithm from fixed component memberships.</li>
-<li>
-<code>clust.protoclust</code> now predicts on new data by assigning each observation to the cluster of the nearest prototype, instead of warning and returning the training partition. The model is now a list with the fitted object and the training data.</li>
-<li>
 <code>clust.SimpleKMeans</code> now declares <code>min_density</code> as a double bounded below at 0 instead of an integer with a minimum of 1, since Weka accepts fractional canopy densities.</li>
-<li>
-<code>clust.skmeans</code> now exposes <code>start</code>, which selects the initialization, and <code>maxchains</code> for the <code>"pclust"</code> method.</li>
 <li>
 <code>clust.specc</code> now documents the default of <code>degree</code> as 1 instead of 3, matching the kernlab kernel functions.</li>
 <li>

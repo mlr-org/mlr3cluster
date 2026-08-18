@@ -19,6 +19,29 @@
 
 ### Other improvements
 
+- `clust.cobweb` now exposes the `output_debug_info` parameter, which
+  the other RWeka-based learners already had.
+- `clust.cobweb`, `clust.em`, `clust.ff`, and `clust.SimpleKMeans` now
+  support marshaling.
+- `clust.kcca` now offers `classify = "simann"` and the corresponding
+  `simann` parameter, so the simulated annealing variant of
+  [`flexclust::kcca()`](https://rdrr.io/pkg/flexclust/man/kcca.html) can
+  be used.
+- `clust.meanshift` now predicts on new data by running the mean-shift
+  iteration from each observation with the trained bandwidth and
+  assigning it to the mode it converges to, instead of warning and
+  returning the training partition.
+- `clust.movMF` now exposes the `ids` parameter, which initializes the
+  EM algorithm from fixed component memberships.
+- `clust.protoclust` now predicts on new data by assigning each
+  observation to the cluster of the nearest prototype, instead of
+  warning and returning the training partition. The model is now a list
+  with the fitted object and the training data.
+- `clust.skmeans` now exposes `start`, which selects the initialization,
+  and `maxchains` for the `"pclust"` method.
+
+### Bug fixes
+
 - [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
   now coerces a whole-numbered `partition` column to integer instead of
   erroring, as `row_ids` already did.
@@ -32,10 +55,6 @@
 - `clust.bico` and `clust.kcca` now require `k >= 2`, which both already
   needed but advertised as `k >= 1`, so setting `k = 1` errors when set
   instead of failing during training.
-- `clust.cobweb` now exposes the `output_debug_info` parameter, which
-  the other RWeka-based learners already had.
-- `clust.cobweb`, `clust.em`, `clust.ff`, and `clust.SimpleKMeans` now
-  support marshaling.
 - `clust.cobweb`, `clust.ff`, and `clust.xmeans` now allow the seed
   `S = 0`, which Weka accepts, matching the seed bound of `clust.em` and
   `clust.SimpleKMeans`.
@@ -46,10 +65,6 @@
 - `clust.hdbscan` now requires `minPts >= 2` as needed by
   [`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html), so
   smaller values error when set instead of during training.
-- `clust.kcca` now offers `classify = "simann"` and the corresponding
-  `simann` parameter, so the simulated annealing variant of
-  [`flexclust::kcca()`](https://rdrr.io/pkg/flexclust/man/kcca.html) can
-  be used.
 - `clust.kcca` now validates `initcent` as a single string and documents
   its default as `"randomcent"`, so invalid values error when set
   instead of failing during training with an obscure S4 validity error.
@@ -64,21 +79,9 @@
   without setting a seed.
 - `clust.mclust` now stores `$assignments` as an integer vector like all
   other learners, instead of the double vector returned by mclust.
-- `clust.meanshift` now predicts on new data by running the mean-shift
-  iteration from each observation with the trained bandwidth and
-  assigning it to the mode it converges to, instead of warning and
-  returning the training partition.
-- `clust.movMF` now exposes the `ids` parameter, which initializes the
-  EM algorithm from fixed component memberships.
-- `clust.protoclust` now predicts on new data by assigning each
-  observation to the cluster of the nearest prototype, instead of
-  warning and returning the training partition. The model is now a list
-  with the fitted object and the training data.
 - `clust.SimpleKMeans` now declares `min_density` as a double bounded
   below at 0 instead of an integer with a minimum of 1, since Weka
   accepts fractional canopy densities.
-- `clust.skmeans` now exposes `start`, which selects the initialization,
-  and `maxchains` for the `"pclust"` method.
 - `clust.specc` now documents the default of `degree` as 1 instead of 3,
   matching the kernlab kernel functions.
 - `PredictionClust` now accepts and stores measure `weights`, so
