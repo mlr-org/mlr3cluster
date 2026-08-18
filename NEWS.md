@@ -13,7 +13,7 @@
 ## Other improvements
 
 * `as_prediction_clust()` now coerces a whole-numbered `partition` column to integer instead of erroring, as `row_ids` already did.
-* `clust.hclust`, `clust.agnes`, `clust.diana`, and `clust.genie` now validate `k` at predict time against the number of training observations instead of the prediction task's rows, since `cutree()` cuts the training tree.
+* `clust.agnes`, `clust.diana`, `clust.genie`, and `clust.hclust` now validate `k` at predict time against the number of training observations instead of the prediction task's rows, since `cutree()` cuts the training tree.
 * `clust.ap` now breaks similarity ties deterministically when predicting, matching the assignment rule of the apcluster package.
 * `clust.bico` and `clust.kcca` now require `k >= 2`, which both already needed but advertised as `k >= 1`, so setting `k = 1` errors when set instead of failing during training.
 * `clust.cobweb` now exposes the `output_debug_info` parameter, which the other RWeka-based learners already had.
@@ -23,6 +23,7 @@
 * `clust.hdbscan` now requires `minPts >= 2` as needed by `dbscan::hdbscan()`, so smaller values error when set instead of during training.
 * `clust.kcca` now offers `classify = "simann"` and the corresponding `simann` parameter, so the simulated annealing variant of `flexclust::kcca()` can be used.
 * `clust.kcca` now validates `initcent` as a single string and documents its default as `"randomcent"`, so invalid values error when set instead of failing during training with an obscure S4 validity error.
+* `clust.kcca` no longer exposes the `ntry` and `min.size` parameters, which are `flexclust::qtclust()` control options that `flexclust::kcca()` ignores.
 * `clust.kkmeans` now breaks distance ties when predicting with `"first"` instead of `"random"`, so predictions are reproducible without setting a seed.
 * `clust.mclust` now stores `$assignments` as an integer vector like all other learners, instead of the double vector returned by mclust.
 * `clust.meanshift` now predicts on new data by running the mean-shift iteration from each observation with the trained bandwidth and assigning it to the mode it converges to, instead of warning and returning the training partition.
@@ -33,10 +34,6 @@
 * `clust.specc` now documents the default of `degree` as 1 instead of 3, matching the kernlab kernel functions.
 * `PredictionClust` now accepts and stores measure `weights`, so predictions on tasks with a `weights_measure` column carry the weights in `$weights` and in `as.data.table()` instead of dropping them.
 * `PredictionClust` now errors during construction when a partition label has no matching `prob` column, instead of silently accepting inconsistent predictions.
-
-## Bug fixes
-
-* `clust.kcca` no longer exposes the `ntry` and `min.size` parameters, which are `flexclust::qtclust()` control options that `flexclust::kcca()` ignores.
 
 # mlr3cluster 0.4.1
 
