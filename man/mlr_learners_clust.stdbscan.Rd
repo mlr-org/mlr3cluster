@@ -36,6 +36,7 @@ lrn("clust.stdbscan")
    eps_spatial \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    eps_temporal \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    min_pts \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   weights \tab untyped \tab - \tab  \tab - \cr
    borderPoints \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    search \tab character \tab kdtree \tab kdtree, linear, dist \tab - \cr
    bucketSize \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

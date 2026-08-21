@@ -19,6 +19,7 @@
 * `clust.movMF` now exposes the `ids` parameter, which initializes the EM algorithm from fixed component memberships.
 * `clust.protoclust` now predicts on new data by assigning each observation to the cluster of the nearest prototype, instead of warning and returning the training partition. The model is now a list with the fitted object and the training data.
 * `clust.skmeans` now exposes `start`, which selects the initialization, and `maxchains` for the `"pclust"` method.
+* `clust.stdbscan` now exposes `weights`, which `stdbscan::st_dbscan()` forwards to `dbscan::dbscan()` for weighted clustering, matching `clust.dbscan`.
 
 ## Bug fixes
 
