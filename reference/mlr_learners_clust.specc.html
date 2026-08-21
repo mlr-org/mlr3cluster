@@ -21,7 +21,7 @@ There is no predict method for kernlab::specc(), so the method returns cluster l
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@ There is no predict method for kernlab::specc(), so the method returns cluster l
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Spectral Clustering Learner</h1>
-      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.4.1/R/LearnerClustSpectral.R" class="external-link"><code>R/LearnerClustSpectral.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/R/LearnerClustSpectral.R" class="external-link"><code>R/LearnerClustSpectral.R</code></a></small>
       <div class="d-none name"><code>mlr_learners_clust.specc.Rd</code></div>
     </div>
 
@@ -86,7 +86,7 @@ of clusters. Kernel parameters have to be passed directly and not by using the <
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>centers</td><td>integer</td><td>-</td><td></td><td>\([2, \infty)\)</td></tr><tr><td>kernel</td><td>character</td><td>rbfdot</td><td>rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot</td><td>-</td></tr><tr><td>sigma</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>degree</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>scale</td><td>numeric</td><td>1</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>offset</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>order</td><td>integer</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>nystrom.red</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>nystrom.sample</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>iterations</td><td>integer</td><td>200</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>mod.sample</td><td>numeric</td><td>0.75</td><td></td><td>\([0, 1]\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>centers</td><td>integer</td><td>-</td><td></td><td>\([2, \infty)\)</td></tr><tr><td>kernel</td><td>character</td><td>rbfdot</td><td>rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot</td><td>-</td></tr><tr><td>sigma</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>degree</td><td>integer</td><td>1</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>scale</td><td>numeric</td><td>1</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>offset</td><td>numeric</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>order</td><td>integer</td><td>1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>nystrom.red</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>nystrom.sample</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>iterations</td><td>integer</td><td>200</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>mod.sample</td><td>numeric</td><td>0.75</td><td></td><td>\([0, 1]\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Karatzoglou, Alexandros, Smola, Alexandros, Hornik, Kurt, Zeileis, Achim (2004).
@@ -130,11 +130,14 @@ for established default tuning spaces.</p></li>
 <code><a href="mlr_learners_clust.ff.html">mlr_learners_clust.ff</a></code>,
 <code><a href="mlr_learners_clust.flexmix.html">mlr_learners_clust.flexmix</a></code>,
 <code><a href="mlr_learners_clust.genie.html">mlr_learners_clust.genie</a></code>,
+<code><a href="mlr_learners_clust.gmeans.html">mlr_learners_clust.gmeans</a></code>,
 <code><a href="mlr_learners_clust.hclust.html">mlr_learners_clust.hclust</a></code>,
 <code><a href="mlr_learners_clust.hdbscan.html">mlr_learners_clust.hdbscan</a></code>,
 <code><a href="mlr_learners_clust.kcca.html">mlr_learners_clust.kcca</a></code>,
 <code><a href="mlr_learners_clust.kkmeans.html">mlr_learners_clust.kkmeans</a></code>,
 <code><a href="mlr_learners_clust.kmeans.html">mlr_learners_clust.kmeans</a></code>,
+<code><a href="mlr_learners_clust.kmeans_rcpp.html">mlr_learners_clust.kmeans_rcpp</a></code>,
+<code><a href="mlr_learners_clust.kmodes.html">mlr_learners_clust.kmodes</a></code>,
 <code><a href="mlr_learners_clust.kproto.html">mlr_learners_clust.kproto</a></code>,
 <code><a href="mlr_learners_clust.mclust.html">mlr_learners_clust.mclust</a></code>,
 <code><a href="mlr_learners_clust.meanshift.html">mlr_learners_clust.meanshift</a></code>,
@@ -229,7 +232,7 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 2 2 1 2 2 1 1 2 1 2 2 2 2 1 1 2 2 1 2 2 1 2 2 1 1 2 2 1 1 2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian Radial Basis kernel function. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Hyperparameter : sigma =  0.00850340136054485 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Hyperparameter : sigma =  0.0119047619047598 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Centers:  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]     [,2]     [,3]  [,4]</span>

@@ -14,6 +14,11 @@ standardised to unit length internally by
 Predictions use the [`predict()`](https://rdrr.io/r/stats/predict.html)
 method from movMF; `prob` returns the soft memberships.
 
+Setting `ids` initializes the EM algorithm from fixed component
+memberships and stops it after a single iteration, in which case
+[`movMF::movMF()`](https://rdrr.io/pkg/movMF/man/movMF.html) ignores
+`start` and `nruns`.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -46,6 +51,7 @@ or with the associated sugar function
 | k        | integer   | \-      |                            | \\\[1, \infty)\\ |
 | E        | character | softmax | softmax, hardmax, stochmax | \-               |
 | kappa    | untyped   | \-      |                            | \-               |
+| ids      | untyped   | \-      |                            | \-               |
 | start    | untyped   | "p"     |                            | \-               |
 | nruns    | integer   | 1       |                            | \\\[1, \infty)\\ |
 | maxiter  | integer   | 100     |                            | \\\[1, \infty)\\ |
@@ -121,11 +127,14 @@ Other Learner:
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
+[`mlr_learners_clust.gmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
+[`mlr_learners_clust.kmeans_rcpp`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans_rcpp.md),
+[`mlr_learners_clust.kmodes`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmodes.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
@@ -220,11 +229,11 @@ learner$train(task)
 # Print the model
 print(learner$model)
 #> theta:
-#>     Assault    Murder     Rape UrbanPop
-#> 1  92.85901  4.184029 14.70399  62.0696
-#> 2 418.95980 19.709158 48.58254 122.6235
+#>     Assault   Murder     Rape  UrbanPop
+#> 1  92.85875  4.18401 14.70389  62.06858
+#> 2 418.98569 19.71043 48.58516 122.62901
 #> alpha:
-#> [1] 0.4963137 0.5036863
+#> [1] 0.4963315 0.5036685
 #> L:
 #> [1] 311.7197
 

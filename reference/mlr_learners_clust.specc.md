@@ -46,7 +46,7 @@ or with the associated sugar function
 | centers | integer | \- |  | \\\[2, \infty)\\ |
 | kernel | character | rbfdot | rbfdot, polydot, vanilladot, tanhdot, laplacedot, besseldot, anovadot, splinedot | \- |
 | sigma | numeric | \- |  | \\\[0, \infty)\\ |
-| degree | integer | 3 |  | \\\[1, \infty)\\ |
+| degree | integer | 1 |  | \\\[1, \infty)\\ |
 | scale | numeric | 1 |  | \\\[0, \infty)\\ |
 | offset | numeric | 1 |  | \\(-\infty, \infty)\\ |
 | order | integer | 1 |  | \\(-\infty, \infty)\\ |
@@ -120,11 +120,14 @@ Other Learner:
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
+[`mlr_learners_clust.gmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
+[`mlr_learners_clust.kmeans_rcpp`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans_rcpp.md),
+[`mlr_learners_clust.kmodes`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmodes.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
@@ -225,7 +228,7 @@ print(learner$model)
 #> 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 2 2 1 2 2 1 1 2 1 2 2 2 2 1 1 2 2 1 2 2 1 2 2 1 1 2 2 1 1 2 
 #>  
 #> Gaussian Radial Basis kernel function. 
-#>  Hyperparameter : sigma =  0.00850340136054485 
+#>  Hyperparameter : sigma =  0.0119047619047598 
 #> 
 #> Centers:  
 #>          [,1]     [,2]     [,3]  [,4]

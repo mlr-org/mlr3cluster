@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,11 +45,89 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.4.1/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.4.1" id="mlr3cluster-041">mlr3cluster 0.4.1<a class="anchor" aria-label="anchor" href="#mlr3cluster-041"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.5.0" id="mlr3cluster-050">mlr3cluster 0.5.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-050"></a></h2>
+<div class="section level3">
+<h3 id="new-learners-0-5-0">New learners<a class="anchor" aria-label="anchor" href="#new-learners-0-5-0"></a></h3>
+<ul><li>
+<code>clust.gmeans</code>: G-means clustering from the gmeans package, which extends k-means by automatically determining the number of clusters.</li>
+<li>
+<code>clust.kmeans_rcpp</code>: K-means clustering via <code><a href="https://mlampros.github.io/ClusterR/reference/KMeans_rcpp.html" class="external-link">ClusterR::KMeans_rcpp()</a></code> from the ClusterR package.</li>
+<li>
+<code>clust.kmodes</code>: K-modes clustering for categorical data from the klaR package.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="new-measures-0-5-0">New measures<a class="anchor" aria-label="anchor" href="#new-measures-0-5-0"></a></h3>
+<ul><li>
+<code>clust.sse_ratio</code>: Within-cluster sum of squares divided by total sum of squares, a normalized measure of cluster compactness.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-improvements-0-5-0">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-0-5-0"></a></h3>
+<ul><li>
+<code>clust.cobweb</code> now exposes the <code>output_debug_info</code> parameter, matching the other RWeka-based learners.</li>
+<li>
+<code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, and <code>clust.SimpleKMeans</code> now support marshaling.</li>
+<li>
+<code>clust.kcca</code> now exposes simulated annealing through <code>classify = "simann"</code> and the <code>simann</code> parameter.</li>
+<li>
+<code>clust.meanshift</code> now predicts on new data. It runs mean shift from each observation with the bandwidth and convergence threshold used for training, then assigns the observation to the mode it reaches. Previously, prediction warned and returned the training partition.</li>
+<li>
+<code>clust.movMF</code> now exposes the <code>ids</code> parameter, which initializes the EM algorithm from fixed component memberships.</li>
+<li>
+<code>clust.protoclust</code> now predicts on new data by assigning each observation to the cluster with the nearest prototype. Previously, prediction warned and returned the training partition. Its model now stores the fitted object and training data in a list.</li>
+<li>
+<code>clust.skmeans</code> now exposes <code>start</code> for selecting the initialization and <code>maxchains</code> for the <code>"pclust"</code> and <code>"LIHC"</code> methods.</li>
+<li>
+<code>clust.stdbscan</code> now supports observation weights through <code>weights</code>, matching <code>clust.dbscan</code>.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-0-5-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-5-0"></a></h3>
+<ul><li>Clustering measures now handle character features consistently with factor and ordered features. Distance-based measures use Gower distances instead of treating character values as missing, while measures that require numeric features report an informative error.</li>
+<li>
+<code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now converts whole-numbered <code>partition</code> values to integers instead of rejecting them.</li>
+<li>
+<code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.genie</code>, and <code>clust.hclust</code> now validate <code>k</code> against the number of training observations when predicting. They previously used the number of rows in the new data even though <code><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree()</a></code> cuts the training tree.</li>
+<li>
+<code>clust.ap</code> now breaks similarity ties deterministically when predicting, matching the assignment rule of the apcluster package.</li>
+<li>
+<code>clust.ap</code> no longer fails to train on tasks with a feature named <code>m</code>.</li>
+<li>
+<code>clust.bico</code> and <code>clust.kcca</code> now require <code>k &gt;= 2</code>, matching their existing training requirements. Invalid values now fail when set rather than during training.</li>
+<li>
+<code>clust.clara</code> and <code>clust.pam</code> now reject prediction when trained with <code>stand = TRUE</code>, because <code><a href="https://rdrr.io/pkg/clue/man/cl_predict.html" class="external-link">clue::cl_predict()</a></code> would otherwise assign clusters using unstandardized new data.</li>
+<li>
+<code>clust.cmeans</code> now returns a plain probability matrix without <code>clue</code>’s internal attributes.</li>
+<li>
+<code>clust.cobweb</code>, <code>clust.ff</code>, and <code>clust.xmeans</code> now allow the seed <code>S = 0</code>, which Weka accepts, matching the seed bound of <code>clust.em</code> and <code>clust.SimpleKMeans</code>.</li>
+<li>
+<code>clust.dbscan_fpc</code> now rejects prediction when trained with <code>scale = TRUE</code>. This prevents comparisons between unscaled new data and <code>eps</code>, which applies to the scaled training data.</li>
+<li>
+<code>clust.hclust</code> and <code>clust.protoclust</code> now require the Minkowski power <code>p</code> to be greater than 0, matching <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code>.</li>
+<li>
+<code>clust.hdbscan</code> now requires <code>minPts &gt;= 2</code>, matching <code><a href="https://rdrr.io/pkg/dbscan/man/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code>. Smaller values now fail when set rather than during training.</li>
+<li>
+<code>clust.kcca</code> now validates <code>initcent</code> as a single string and documents its default as <code>"randomcent"</code>. Invalid values now fail when set rather than producing an obscure S4 validity error during training.</li>
+<li>
+<code>clust.kcca</code> no longer exposes the <code>ntry</code> and <code>min.size</code> parameters, which are <code><a href="https://rdrr.io/pkg/flexclust/man/qtclust.html" class="external-link">flexclust::qtclust()</a></code> control options that <code><a href="https://rdrr.io/pkg/flexclust/man/kcca.html" class="external-link">flexclust::kcca()</a></code> ignores.</li>
+<li>
+<code>clust.kkmeans</code> now resolves prediction distance ties with <code>"first"</code> instead of <code>"random"</code>, so predictions are reproducible without setting a seed.</li>
+<li>
+<code>clust.mclust</code> now stores <code>$assignments</code> as an integer vector, consistent with the other learners, instead of the double vector returned by mclust.</li>
+<li>
+<code>clust.optics</code>, <code>clust.som</code>, and <code>clust.tclust</code> now coerce logical features to numeric, so tasks with only logical features train and predict instead of erroring in the upstream packages.</li>
+<li>
+<code>clust.SimpleKMeans</code> now declares <code>min_density</code> as a nonnegative double instead of a positive integer, since Weka accepts fractional canopy densities.</li>
+<li>
+<code>PredictionClust</code> now preserves measure weights from tasks with a <code>weights_measure</code> column in <code>$weights</code> and <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> instead of dropping them.</li>
+<li>
+<code>PredictionClust</code> now errors during construction when a partition label has no matching <code>prob</code> column, instead of silently accepting inconsistent predictions.</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.1" id="mlr3cluster-041">mlr3cluster 0.4.1<a class="anchor" aria-label="anchor" href="#mlr3cluster-041"></a></h2><p class="text-muted">CRAN release: 2026-07-10</p>
 <div class="section level3">
 <h3 id="bug-fixes-0-4-1">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-4-1"></a></h3>
 <ul><li>

@@ -45,8 +45,10 @@ or with the associated sugar function
 | method | character | \- | genetic, pclust, CLUTO, gmeans, kmndirs, LIH, LIHC | \- |
 | m | numeric | 1 |  | \\\[1, \infty)\\ |
 | weights | untyped | 1 |  | \- |
+| start | untyped | "p" |  | \- |
 | maxiter | integer | \- |  | \\\[1, \infty)\\ |
 | nruns | integer | \- |  | \\\[1, \infty)\\ |
+| maxchains | integer | \- |  | \\\[0, \infty)\\ |
 | popsize | integer | \- |  | \\\[1, \infty)\\ |
 | mutations | numeric | \- |  | \\\[0, 1\]\\ |
 | reltol | numeric | \- |  | \\\[0, \infty)\\ |
@@ -120,11 +122,14 @@ Other Learner:
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
+[`mlr_learners_clust.gmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
+[`mlr_learners_clust.kmeans_rcpp`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans_rcpp.md),
+[`mlr_learners_clust.kmodes`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmodes.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),

@@ -4,9 +4,11 @@ Mean shift clustering. Calls
 [`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html) from package
 [LPCM](https://CRAN.R-project.org/package=LPCM).
 
-There is no predict method for
-[`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html), so the method
-returns cluster labels for the training data.
+The predict method runs the mean-shift iteration from each new
+observation with the trained bandwidth via
+[`LPCM::ms.rep()`](https://rdrr.io/pkg/LPCM/man/ms.rep.html) and assigns
+it to the mode it converges to, i.e. the basin of attraction of the
+fitted modes.
 
 ## Initial parameter values
 
@@ -115,11 +117,14 @@ Other Learner:
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
+[`mlr_learners_clust.gmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
+[`mlr_learners_clust.kmeans_rcpp`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans_rcpp.md),
+[`mlr_learners_clust.kmodes`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmodes.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.movMF`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.movMF.md),
@@ -223,10 +228,6 @@ print(learner$model)
 
 # Make predictions for the task
 prediction = learner$predict(task)
-#> Warning: 
-#> ✖ Learner 'clust.meanshift' doesn't predict on new data and predictions may not
-#>   make sense on new data.
-#> → Class: Mlr3WarningInput
 
 # Score the predictions
 prediction$score(task = task)

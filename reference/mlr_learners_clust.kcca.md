@@ -46,7 +46,7 @@ or with the associated sugar function
 |  |  |  |  |  |
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
-| k | integer | \- |  | \\\[1, \infty)\\ |
+| k | integer | \- |  | \\\[2, \infty)\\ |
 | family | character | kmeans | kmeans, kmedians, angle, jaccard, ejaccard | \- |
 | weights | untyped | \- |  | \- |
 | group | untyped | \- |  | \- |
@@ -55,11 +55,10 @@ or with the associated sugar function
 | iter.max | integer | 200 |  | \\\[1, \infty)\\ |
 | tolerance | numeric | 1e-06 |  | \\\[0, \infty)\\ |
 | verbose | integer | 0 |  | \\\[0, \infty)\\ |
-| classify | character | auto | auto, weighted, hard | \- |
-| initcent | untyped | \- |  | \- |
+| classify | character | auto | auto, weighted, hard, simann | \- |
+| initcent | untyped | "randomcent" |  | \- |
 | gamma | numeric | 1 |  | \\\[0, \infty)\\ |
-| ntry | integer | 5 |  | \\\[1, \infty)\\ |
-| min.size | integer | 2 |  | \\\[1, \infty)\\ |
+| simann | untyped | c(0.3, 0.95, 10) |  | \- |
 
 ## References
 
@@ -123,10 +122,13 @@ Other Learner:
 [`mlr_learners_clust.ff`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff.md),
 [`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
+[`mlr_learners_clust.gmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
+[`mlr_learners_clust.kmeans_rcpp`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans_rcpp.md),
+[`mlr_learners_clust.kmodes`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmodes.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
@@ -293,7 +295,7 @@ print(learner$model)
 #> cluster sizes:
 #> 
 #>  1  2 
-#> 29 21 
+#> 21 29 
 #> 
 
 # Make predictions for the task

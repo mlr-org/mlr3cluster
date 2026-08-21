@@ -27,7 +27,7 @@ The task must have at least 2 features."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@ The task must have at least 2 features."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Kernel K-Means Clustering Learner</h1>
-      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.4.1/R/LearnerClustKKMeans.R" class="external-link"><code>R/LearnerClustKKMeans.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/R/LearnerClustKKMeans.R" class="external-link"><code>R/LearnerClustKKMeans.R</code></a></small>
       <div class="d-none name"><code>mlr_learners_clust.kkmeans.Rd</code></div>
     </div>
 
@@ -139,10 +139,13 @@ for established default tuning spaces.</p></li>
 <code><a href="mlr_learners_clust.ff.html">mlr_learners_clust.ff</a></code>,
 <code><a href="mlr_learners_clust.flexmix.html">mlr_learners_clust.flexmix</a></code>,
 <code><a href="mlr_learners_clust.genie.html">mlr_learners_clust.genie</a></code>,
+<code><a href="mlr_learners_clust.gmeans.html">mlr_learners_clust.gmeans</a></code>,
 <code><a href="mlr_learners_clust.hclust.html">mlr_learners_clust.hclust</a></code>,
 <code><a href="mlr_learners_clust.hdbscan.html">mlr_learners_clust.hdbscan</a></code>,
 <code><a href="mlr_learners_clust.kcca.html">mlr_learners_clust.kcca</a></code>,
 <code><a href="mlr_learners_clust.kmeans.html">mlr_learners_clust.kmeans</a></code>,
+<code><a href="mlr_learners_clust.kmeans_rcpp.html">mlr_learners_clust.kmeans_rcpp</a></code>,
+<code><a href="mlr_learners_clust.kmodes.html">mlr_learners_clust.kmodes</a></code>,
 <code><a href="mlr_learners_clust.kproto.html">mlr_learners_clust.kproto</a></code>,
 <code><a href="mlr_learners_clust.mclust.html">mlr_learners_clust.mclust</a></code>,
 <code><a href="mlr_learners_clust.meanshift.html">mlr_learners_clust.meanshift</a></code>,
@@ -246,21 +249,21 @@ The fitted model.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Cluster memberships: </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 1 2 1 2 2 1 1 2 2 2 1 2 2 2 2 1 2 1 2 1 2 1 2 2 2 1 2 2 1 1 1 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 1 1 2 1 2 2 1 1 2 1 2 1 2 1 2 2 1 1 1 2 1 1 1 2 2 2 1 1 2 1 1 1 1 2 2 2 2 2 1 1 2 2 2 1 2 2 1 1 2 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Gaussian Radial Basis kernel function. </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Hyperparameter : sigma =  0.000499499921223448 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Hyperparameter : sigma =  0.00033802292561201 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Centers:  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]      [,2]     [,3]     [,4]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 272.5625 11.812500 28.37500 68.31250</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 122.8529  5.894118 17.87059 64.23529</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]     [,2]     [,3]     [,4]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 191.8462 8.403846 21.88846 62.76923</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2,] 147.9167 7.120833 20.52083 68.54167</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Cluster size:  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 16 34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 26 24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Within-cluster sum of squares:  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1445710.9  733848.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1490714.2  627456.5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
@@ -320,7 +323,7 @@ The fitted model.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $within</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.4682575 0.3366644</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.3252723 0.5438556</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
@@ -329,7 +332,7 @@ The fitted model.</p></dd>
 <span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  0.1532626 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0.08051798 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

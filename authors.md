@@ -15,15 +15,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/mlr-org/mlr3cluster/blob/v0.4.1/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/mlr-org/mlr3cluster/blob/main/DESCRIPTION)
 
 Mücke M, Pulatov D, Lang M (2026). *mlr3cluster: Cluster Extension for
-'mlr3'*. R package version 0.4.1, <https://mlr3cluster.mlr-org.com>.
+'mlr3'*. R package version 0.5.0, <https://mlr3cluster.mlr-org.com>.
 
     @Manual{,
       title = {mlr3cluster: Cluster Extension for 'mlr3'},
       author = {Maximilian Mücke and Damir Pulatov and Michel Lang},
       year = {2026},
-      note = {R package version 0.4.1},
+      note = {R package version 0.5.0},
       url = {https://mlr3cluster.mlr-org.com},
     }

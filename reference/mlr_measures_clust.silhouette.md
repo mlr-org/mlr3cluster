@@ -17,7 +17,8 @@ from package [cluster](https://CRAN.R-project.org/package=cluster).
 
 ## Details
 
-If the task contains factor or ordered features, Gower distances
+If the task contains character, factor, or ordered features, Gower
+distances
 ([`cluster::daisy()`](https://rdrr.io/pkg/cluster/man/daisy.html)) are
 used instead of Euclidean distances.
 
@@ -77,5 +78,6 @@ Other cluster measures:
 [`mlr_measures_clust.dunn2`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.dunn2.md),
 [`mlr_measures_clust.entropy`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.entropy.md),
 [`mlr_measures_clust.pearsongamma`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.pearsongamma.md),
+[`mlr_measures_clust.sse_ratio`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.sse_ratio.md),
 [`mlr_measures_clust.wb_ratio`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wb_ratio.md),
 [`mlr_measures_clust.wss`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss.md)

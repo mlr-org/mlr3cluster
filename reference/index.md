@@ -56,6 +56,9 @@
 - [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md)
   [`LearnerClustGenie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md)
   : Genie Hierarchical Clustering Learner
+- [`mlr_learners_clust.gmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans.md)
+  [`LearnerClustGMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans.md)
+  : G-Means Clustering Learner
 - [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md)
   [`LearnerClustHclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md)
   : Hierarchical Clustering Learner
@@ -71,6 +74,12 @@
 - [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md)
   [`LearnerClustKMeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md)
   : K-Means Clustering Learner
+- [`mlr_learners_clust.kmeans_rcpp`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans_rcpp.md)
+  [`LearnerClustKMeansRcpp`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans_rcpp.md)
+  : K-Means Clustering Learner from ClusterR
+- [`mlr_learners_clust.kmodes`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmodes.md)
+  [`LearnerClustKModes`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmodes.md)
+  : K-Modes Clustering Learner
 - [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md)
   [`LearnerClustKProto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md)
   : K-Prototypes Clustering Learner
@@ -131,6 +140,8 @@
   : Pearson Gamma
 - [`mlr_measures_clust.silhouette`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette.md)
   : Rousseeuw's Silhouette Quality Index
+- [`mlr_measures_clust.sse_ratio`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.sse_ratio.md)
+  : Within/Total Sum of Squares Ratio
 - [`mlr_measures_clust.wb_ratio`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wb_ratio.md)
   : Within/Between Ratio
 - [`mlr_measures_clust.wss`](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss.md)

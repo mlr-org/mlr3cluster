@@ -38,7 +38,7 @@ or with the associated sugar function
 |-------------------|---------|---------|-------------|------------------|
 | Id                | Type    | Default | Levels      | Range            |
 | N                 | integer | 2       |             | \\\[1, \infty)\\ |
-| S                 | integer | 1       |             | \\\[1, \infty)\\ |
+| S                 | integer | 1       |             | \\\[0, \infty)\\ |
 | output_debug_info | logical | FALSE   | TRUE, FALSE | \-               |
 
 ## References
@@ -105,11 +105,14 @@ Other Learner:
 [`mlr_learners_clust.featureless`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless.md),
 [`mlr_learners_clust.flexmix`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix.md),
 [`mlr_learners_clust.genie`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie.md),
+[`mlr_learners_clust.gmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans.md),
 [`mlr_learners_clust.hclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust.md),
 [`mlr_learners_clust.hdbscan`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan.md),
 [`mlr_learners_clust.kcca`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca.md),
 [`mlr_learners_clust.kkmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans.md),
 [`mlr_learners_clust.kmeans`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans.md),
+[`mlr_learners_clust.kmeans_rcpp`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans_rcpp.md),
+[`mlr_learners_clust.kmodes`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmodes.md),
 [`mlr_learners_clust.kproto`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto.md),
 [`mlr_learners_clust.mclust`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust.md),
 [`mlr_learners_clust.meanshift`](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift.md),
@@ -130,11 +133,22 @@ Other Learner:
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustFarthestFirst`
 
+## Active bindings
+
+- `marshaled`:
+
+  (`logical(1)`)  
+  Whether the learner's model is marshaled.
+
 ## Methods
 
 ### Public methods
 
 - [`LearnerClustFarthestFirst$new()`](#method-LearnerClustFarthestFirst-initialize)
+
+- [`LearnerClustFarthestFirst$marshal()`](#method-LearnerClustFarthestFirst-marshal)
+
+- [`LearnerClustFarthestFirst$unmarshal()`](#method-LearnerClustFarthestFirst-unmarshal)
 
 - [`LearnerClustFarthestFirst$clone()`](#method-LearnerClustFarthestFirst-clone)
 
@@ -162,6 +176,42 @@ Creates a new instance of this
 #### Usage
 
     LearnerClustFarthestFirst$new()
+
+------------------------------------------------------------------------
+
+### `LearnerClustFarthestFirst$marshal()`
+
+Marshal the learner's model.
+
+#### Usage
+
+    LearnerClustFarthestFirst$marshal(...)
+
+#### Arguments
+
+- `...`:
+
+  (any)  
+  Additional arguments passed to
+  [`mlr3::marshal_model()`](https://mlr3.mlr-org.com/reference/marshaling.html).
+
+------------------------------------------------------------------------
+
+### `LearnerClustFarthestFirst$unmarshal()`
+
+Unmarshal the learner's model.
+
+#### Usage
+
+    LearnerClustFarthestFirst$unmarshal(...)
+
+#### Arguments
+
+- `...`:
+
+  (any)  
+  Additional arguments passed to
+  [`mlr3::unmarshal_model()`](https://mlr3.mlr-org.com/reference/marshaling.html).
 
 ------------------------------------------------------------------------
 
@@ -193,7 +243,7 @@ print(learner)
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, missings, and partitional
+#> • Properties: complete, exclusive, marshal, missings, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 
 # Define a Task
