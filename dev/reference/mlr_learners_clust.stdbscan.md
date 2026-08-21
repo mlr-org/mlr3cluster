@@ -42,6 +42,7 @@ or with the associated sugar function
 | eps_spatial | numeric | \- |  | \\\[0, \infty)\\ |
 | eps_temporal | numeric | \- |  | \\\[0, \infty)\\ |
 | min_pts | integer | \- |  | \\\[1, \infty)\\ |
+| weights | untyped | \- |  | \- |
 | borderPoints | logical | TRUE | TRUE, FALSE | \- |
 | search | character | kdtree | kdtree, linear, dist | \- |
 | bucketSize | integer | 10 |  | \\\[1, \infty)\\ |

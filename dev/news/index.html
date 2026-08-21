@@ -80,6 +80,8 @@
 <code>clust.protoclust</code> now predicts on new data by assigning each observation to the cluster of the nearest prototype, instead of warning and returning the training partition. The model is now a list with the fitted object and the training data.</li>
 <li>
 <code>clust.skmeans</code> now exposes <code>start</code>, which selects the initialization, and <code>maxchains</code> for the <code>"pclust"</code> method.</li>
+<li>
+<code>clust.stdbscan</code> now exposes <code>weights</code>, which <code><a href="https://miboraminima.github.io/stdbscan/reference/st_dbscan.html" class="external-link">stdbscan::st_dbscan()</a></code> forwards to <code><a href="https://rdrr.io/pkg/dbscan/man/dbscan.html" class="external-link">dbscan::dbscan()</a></code> for weighted clustering, matching <code>clust.dbscan</code>.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>

@@ -39,6 +39,11 @@
   with the fitted object and the training data.
 - `clust.skmeans` now exposes `start`, which selects the initialization,
   and `maxchains` for the `"pclust"` method.
+- `clust.stdbscan` now exposes `weights`, which
+  [`stdbscan::st_dbscan()`](https://miboraminima.github.io/stdbscan/reference/st_dbscan.html)
+  forwards to
+  [`dbscan::dbscan()`](https://rdrr.io/pkg/dbscan/man/dbscan.html) for
+  weighted clustering, matching `clust.dbscan`.
 
 ### Bug fixes
 
