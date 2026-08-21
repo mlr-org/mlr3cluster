@@ -45,7 +45,7 @@ row_any_na = function(x) {
 task_dist = function(task, rows) {
   data = task$data(rows = rows)
   if (any(task$feature_types$type %in% c("character", "factor", "ordered"))) {
-    chr_cols = task$feature_types[type == "character", id]
+    chr_cols = task$feature_types[get("type") == "character", "id", with = FALSE][[1L]]
     if (length(chr_cols) > 0L) {
       # daisy() rejects bare character columns
       data[, (chr_cols) := map(.SD, factor), .SDcols = chr_cols]
