@@ -68,7 +68,8 @@ LearnerClustAP = R6Class(
       data = task$data()
       m = invoke(apcluster::apcluster, x = data, .args = pv)
       # add data points corresponding to exemplars
-      setattr(m, "exemplar_data", data[m@exemplars])
+      exemplars = m@exemplars
+      setattr(m, "exemplar_data", data[exemplars])
 
       if (self$save_assignments) {
         self$assignments = apcluster::labels(m, type = "enum")

@@ -26,6 +26,7 @@
 * `as_prediction_clust()` now coerces a whole-numbered `partition` column to integer instead of erroring, as `row_ids` already did.
 * `clust.agnes`, `clust.diana`, `clust.genie`, and `clust.hclust` now validate `k` at predict time against the number of training observations instead of the prediction task's rows, since `cutree()` cuts the training tree.
 * `clust.ap` now breaks similarity ties deterministically when predicting, matching the assignment rule of the apcluster package.
+* `clust.ap` no longer fails to train on tasks with a feature named `m`.
 * `clust.bico` and `clust.kcca` now require `k >= 2`, which both already needed but advertised as `k >= 1`, so setting `k = 1` errors when set instead of failing during training.
 * `clust.cobweb`, `clust.ff`, and `clust.xmeans` now allow the seed `S = 0`, which Weka accepts, matching the seed bound of `clust.em` and `clust.SimpleKMeans`.
 * `clust.hclust` and `clust.protoclust` now bound the Minkowski power `p` below at 0, which was previously unbounded even though `stats::dist()` rejects non-positive values.
