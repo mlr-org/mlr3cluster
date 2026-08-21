@@ -36,6 +36,7 @@
 * `clust.kcca` no longer exposes the `ntry` and `min.size` parameters, which are `flexclust::qtclust()` control options that `flexclust::kcca()` ignores.
 * `clust.kkmeans` now breaks distance ties when predicting with `"first"` instead of `"random"`, so predictions are reproducible without setting a seed.
 * `clust.mclust` now stores `$assignments` as an integer vector like all other learners, instead of the double vector returned by mclust.
+* `clust.optics`, `clust.som`, and `clust.tclust` now coerce logical features to numeric, so tasks with only logical features train and predict instead of erroring in the upstream packages.
 * `clust.SimpleKMeans` now declares `min_density` as a double bounded below at 0 instead of an integer with a minimum of 1, since Weka accepts fractional canopy densities.
 * `clust.specc` now documents the default of `degree` as 1 instead of 3, matching the kernlab kernel functions.
 * `PredictionClust` now accepts and stores measure `weights`, so predictions on tasks with a `weights_measure` column carry the weights in `$weights` and in `as.data.table()` instead of dropping them.

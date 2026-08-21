@@ -7,6 +7,14 @@ ordered_features = function(task, learner) {
   task$data(cols = intersect(cols, task$feature_names))
 }
 
+as_numeric_matrix = function(x) {
+  x = as.matrix(x)
+  if (is.logical(x)) {
+    storage.mode(x) = "double"
+  }
+  x
+}
+
 allow_partial_matching = list(
   warnPartialMatchArgs = FALSE,
   warnPartialMatchAttr = FALSE,

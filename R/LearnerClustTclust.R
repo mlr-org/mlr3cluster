@@ -73,7 +73,7 @@ LearnerClustTclust = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(tclust::tclust, x = as.matrix(task$data()), .args = pv)
+      m = invoke(tclust::tclust, x = as_numeric_matrix(task$data()), .args = pv)
       if (self$save_assignments) {
         self$assignments = as.integer(m$cluster)
       }
