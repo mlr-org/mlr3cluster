@@ -14,104 +14,93 @@
 
 ### New measures
 
-- `clust.sse_ratio`: Ratio of the within-cluster sum of squares to the
-  total sum of squares, the standard quantity for elbow plots.
+- `clust.sse_ratio`: Within-cluster sum of squares divided by total sum
+  of squares, a normalized measure of cluster compactness.
 
 ### Other improvements
 
-- `clust.cobweb` now exposes the `output_debug_info` parameter, which
-  the other RWeka-based learners already had.
+- `clust.cobweb` now exposes the `output_debug_info` parameter, matching
+  the other RWeka-based learners.
 - `clust.cobweb`, `clust.em`, `clust.ff`, and `clust.SimpleKMeans` now
   support marshaling.
-- `clust.kcca` now offers `classify = "simann"` and the corresponding
-  `simann` parameter, so the simulated annealing variant of
-  [`flexclust::kcca()`](https://rdrr.io/pkg/flexclust/man/kcca.html) can
-  be used.
-- `clust.meanshift` now predicts on new data by running the mean-shift
-  iteration from each observation with the trained bandwidth and
-  assigning it to the mode it converges to, instead of warning and
-  returning the training partition.
+- `clust.kcca` now exposes simulated annealing through
+  `classify = "simann"` and the `simann` parameter.
+- `clust.meanshift` now predicts on new data. It runs mean shift from
+  each observation with the bandwidth and convergence threshold used for
+  training, then assigns the observation to the mode it reaches.
+  Previously, prediction warned and returned the training partition.
 - `clust.movMF` now exposes the `ids` parameter, which initializes the
   EM algorithm from fixed component memberships.
 - `clust.protoclust` now predicts on new data by assigning each
-  observation to the cluster of the nearest prototype, instead of
-  warning and returning the training partition. The model is now a list
-  with the fitted object and the training data.
-- `clust.skmeans` now exposes `start`, which selects the initialization,
+  observation to the cluster with the nearest prototype. Previously,
+  prediction warned and returned the training partition. Its model now
+  stores the fitted object and training data in a list.
+- `clust.skmeans` now exposes `start` for selecting the initialization
   and `maxchains` for the `"pclust"` and `"LIHC"` methods.
-- `clust.stdbscan` now exposes `weights`, which
-  [`stdbscan::st_dbscan()`](https://miboraminima.github.io/stdbscan/reference/st_dbscan.html)
-  forwards to
-  [`dbscan::dbscan()`](https://rdrr.io/pkg/dbscan/man/dbscan.html) for
-  weighted clustering, matching `clust.dbscan`.
+- `clust.stdbscan` now supports observation weights through `weights`,
+  matching `clust.dbscan`.
 
 ### Bug fixes
 
+- Clustering measures now handle character features consistently with
+  factor and ordered features. Distance-based measures use Gower
+  distances instead of treating character values as missing, while
+  measures that require numeric features report an informative error.
 - [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
-  now coerces a whole-numbered `partition` column to integer instead of
-  erroring, as `row_ids` already did.
+  now converts whole-numbered `partition` values to integers instead of
+  rejecting them.
 - `clust.agnes`, `clust.diana`, `clust.genie`, and `clust.hclust` now
-  validate `k` at predict time against the number of training
-  observations instead of the prediction task’s rows, since
-  [`cutree()`](https://rdrr.io/r/stats/cutree.html) cuts the training
-  tree.
+  validate `k` against the number of training observations when
+  predicting. They previously used the number of rows in the new data
+  even though [`cutree()`](https://rdrr.io/r/stats/cutree.html) cuts the
+  training tree.
 - `clust.ap` now breaks similarity ties deterministically when
   predicting, matching the assignment rule of the apcluster package.
 - `clust.ap` no longer fails to train on tasks with a feature named `m`.
-- `clust.bico` and `clust.kcca` now require `k >= 2`, which both already
-  needed but advertised as `k >= 1`, so setting `k = 1` errors when set
-  instead of failing during training.
-- `clust.clara` and `clust.pam` now error at predict time when trained
-  with `stand = TRUE`, since
+- `clust.bico` and `clust.kcca` now require `k >= 2`, matching their
+  existing training requirements. Invalid values now fail when set
+  rather than during training.
+- `clust.clara` and `clust.pam` now reject prediction when trained with
+  `stand = TRUE`, because
   [`clue::cl_predict()`](https://rdrr.io/pkg/clue/man/cl_predict.html)
-  ignores the standardization and silently assigned clusters on the
-  unstandardized scale.
+  would otherwise assign clusters using unstandardized new data.
 - `clust.cmeans` now returns a plain probability matrix without `clue`’s
   internal attributes.
 - `clust.cobweb`, `clust.ff`, and `clust.xmeans` now allow the seed
   `S = 0`, which Weka accepts, matching the seed bound of `clust.em` and
   `clust.SimpleKMeans`.
-- `clust.dbscan_fpc` now errors at predict time when trained with
-  `scale = TRUE`, since prediction compared unscaled distances against
-  the scaled-space `eps` and silently produced wrong assignments.
-- `clust.hclust` and `clust.protoclust` now bound the Minkowski power
-  `p` below at 0, which was previously unbounded even though
-  [`stats::dist()`](https://rdrr.io/r/stats/dist.html) rejects
-  non-positive values.
-- `clust.hdbscan` now requires `minPts >= 2` as needed by
-  [`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html), so
-  smaller values error when set instead of during training.
+- `clust.dbscan_fpc` now rejects prediction when trained with
+  `scale = TRUE`. This prevents comparisons between unscaled new data
+  and `eps`, which applies to the scaled training data.
+- `clust.hclust` and `clust.protoclust` now require the Minkowski power
+  `p` to be greater than 0, matching
+  [`stats::dist()`](https://rdrr.io/r/stats/dist.html).
+- `clust.hdbscan` now requires `minPts >= 2`, matching
+  [`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html).
+  Smaller values now fail when set rather than during training.
 - `clust.kcca` now validates `initcent` as a single string and documents
-  its default as `"randomcent"`, so invalid values error when set
-  instead of failing during training with an obscure S4 validity error.
+  its default as `"randomcent"`. Invalid values now fail when set rather
+  than producing an obscure S4 validity error during training.
 - `clust.kcca` no longer exposes the `ntry` and `min.size` parameters,
   which are
   [`flexclust::qtclust()`](https://rdrr.io/pkg/flexclust/man/qtclust.html)
   control options that
   [`flexclust::kcca()`](https://rdrr.io/pkg/flexclust/man/kcca.html)
   ignores.
-- `clust.kkmeans` now breaks distance ties when predicting with
-  `"first"` instead of `"random"`, so predictions are reproducible
-  without setting a seed.
-- `clust.mclust` now stores `$assignments` as an integer vector like all
-  other learners, instead of the double vector returned by mclust.
+- `clust.kkmeans` now resolves prediction distance ties with `"first"`
+  instead of `"random"`, so predictions are reproducible without setting
+  a seed.
+- `clust.mclust` now stores `$assignments` as an integer vector,
+  consistent with the other learners, instead of the double vector
+  returned by mclust.
 - `clust.optics`, `clust.som`, and `clust.tclust` now coerce logical
   features to numeric, so tasks with only logical features train and
   predict instead of erroring in the upstream packages.
-- `clust.SimpleKMeans` now declares `min_density` as a double bounded
-  below at 0 instead of an integer with a minimum of 1, since Weka
-  accepts fractional canopy densities.
-- `clust.specc` now documents the default of `degree` as 1 instead of 3,
-  matching the kernlab kernel functions.
-- Measures now handle character features like factors: the
-  distance-based measures and `clust.silhouette` compute Gower
-  distances, where previously
-  [`stats::dist()`](https://rdrr.io/r/stats/dist.html) silently dropped
-  character columns from the distances, and the data-based measures
-  error informatively instead of failing with an obscure coercion error.
-- `PredictionClust` now accepts and stores measure `weights`, so
-  predictions on tasks with a `weights_measure` column carry the weights
-  in `$weights` and in
+- `clust.SimpleKMeans` now declares `min_density` as a nonnegative
+  double instead of a positive integer, since Weka accepts fractional
+  canopy densities.
+- `PredictionClust` now preserves measure weights from tasks with a
+  `weights_measure` column in `$weights` and
   [`as.data.table()`](https://rdrr.io/pkg/data.table/man/as.data.table.html)
   instead of dropping them.
 - `PredictionClust` now errors during construction when a partition
