@@ -92,7 +92,11 @@
 <li>
 <code>clust.ap</code> now breaks similarity ties deterministically when predicting, matching the assignment rule of the apcluster package.</li>
 <li>
+<code>clust.ap</code> no longer fails to train on tasks with a feature named <code>m</code>.</li>
+<li>
 <code>clust.bico</code> and <code>clust.kcca</code> now require <code>k &gt;= 2</code>, which both already needed but advertised as <code>k &gt;= 1</code>, so setting <code>k = 1</code> errors when set instead of failing during training.</li>
+<li>
+<code>clust.cmeans</code> now returns a plain probability matrix without <code>clue</code>’s internal attributes.</li>
 <li>
 <code>clust.cobweb</code>, <code>clust.ff</code>, and <code>clust.xmeans</code> now allow the seed <code>S = 0</code>, which Weka accepts, matching the seed bound of <code>clust.em</code> and <code>clust.SimpleKMeans</code>.</li>
 <li>
