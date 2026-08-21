@@ -112,6 +112,8 @@
 <li>
 <code>clust.mclust</code> now stores <code>$assignments</code> as an integer vector like all other learners, instead of the double vector returned by mclust.</li>
 <li>
+<code>clust.optics</code>, <code>clust.som</code>, and <code>clust.tclust</code> now coerce logical features to numeric, so tasks with only logical features train and predict instead of erroring in the upstream packages.</li>
+<li>
 <code>clust.SimpleKMeans</code> now declares <code>min_density</code> as a double bounded below at 0 instead of an integer with a minimum of 1, since Weka accepts fractional canopy densities.</li>
 <li>
 <code>clust.specc</code> now documents the default of <code>degree</code> as 1 instead of 3, matching the kernlab kernel functions.</li>
