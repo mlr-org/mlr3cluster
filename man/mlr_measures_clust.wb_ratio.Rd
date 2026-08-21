@@ -10,7 +10,7 @@ between-cluster distance is the mean of all pairwise distances between observati
 values indicate compact clusters that are well separated from each other.
 }
 \details{
-If the task contains factor or ordered features, Gower distances (\code{\link[cluster:daisy]{cluster::daisy()}}) are used instead of
+If the task contains character, factor, or ordered features, Gower distances (\code{\link[cluster:daisy]{cluster::daisy()}}) are used instead of
 Euclidean distances.
 }
 \section{Dictionary}{

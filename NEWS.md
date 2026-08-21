@@ -41,6 +41,7 @@
 * `clust.optics`, `clust.som`, and `clust.tclust` now coerce logical features to numeric, so tasks with only logical features train and predict instead of erroring in the upstream packages.
 * `clust.SimpleKMeans` now declares `min_density` as a double bounded below at 0 instead of an integer with a minimum of 1, since Weka accepts fractional canopy densities.
 * `clust.specc` now documents the default of `degree` as 1 instead of 3, matching the kernlab kernel functions.
+* Measures now handle character features like factors: the distance-based measures and `clust.silhouette` compute Gower distances, where previously `stats::dist()` silently dropped character columns from the distances, and the data-based measures error informatively instead of failing with an obscure coercion error.
 * `PredictionClust` now accepts and stores measure `weights`, so predictions on tasks with a `weights_measure` column carry the weights in `$weights` and in `as.data.table()` instead of dropping them.
 * `PredictionClust` now errors during construction when a partition label has no matching `prob` column, instead of silently accepting inconsistent predictions.
 

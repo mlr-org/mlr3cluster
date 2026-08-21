@@ -13,10 +13,11 @@ test_that("Cluster measures", {
   }
 })
 
-test_that("Measures work with factor features via Gower distance", {
+test_that("Measures work with factor and character features via Gower distance", {
   data = data.frame(
     x1 = c(1, 2, 10, 11, 1, 2, 10, 11),
-    x2 = factor(c("a", "a", "b", "b", "a", "a", "b", "b"))
+    x2 = factor(c("a", "a", "b", "b", "a", "a", "b", "b")),
+    x3 = c("u", "u", "v", "v", "u", "u", "v", "v")
   )
   task = TaskClust$new("mixed", mlr3::as_data_backend(data))
   partition = rep(1:2, each = 4L)
@@ -38,10 +39,11 @@ test_that("Measures work with factor features via Gower distance", {
   }
 })
 
-test_that("Data measures error on factor features", {
+test_that("Data measures error on non-numeric features", {
   data = data.frame(
     x1 = c(1, 2, 10, 11, 1, 2, 10, 11),
-    x2 = factor(c("a", "a", "b", "b", "a", "a", "b", "b"))
+    x2 = factor(c("a", "a", "b", "b", "a", "a", "b", "b")),
+    x3 = c("u", "u", "v", "v", "u", "u", "v", "v")
   )
   task = TaskClust$new("mixed", mlr3::as_data_backend(data))
   p = PredictionClust$new(task = task, partition = rep(1:2, each = 4L))

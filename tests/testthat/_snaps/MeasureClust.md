@@ -1,12 +1,12 @@
-# Data measures error on factor features
+# Data measures error on non-numeric features
 
     Code
       msr("clust.ch")$score(prediction = p, task = task)
     Condition
       Error:
       ! 
-      x Measure 'clust.ch' requires numeric features, but task 'mixed' has factor or
-        ordered features.
+      x Measure 'clust.ch' requires numeric features, but task 'mixed' has character,
+        factor, or ordered features.
       > Class: Mlr3ErrorInput
 
 ---
@@ -16,8 +16,8 @@
     Condition
       Error:
       ! 
-      x Measure 'clust.wss' requires numeric features, but task 'mixed' has factor or
-        ordered features.
+      x Measure 'clust.wss' requires numeric features, but task 'mixed' has
+        character, factor, or ordered features.
       > Class: Mlr3ErrorInput
 
 ---
@@ -28,7 +28,7 @@
       Error:
       ! 
       x Measure 'clust.sse_ratio' requires numeric features, but task 'mixed' has
-        factor or ordered features.
+        character, factor, or ordered features.
       > Class: Mlr3ErrorInput
 
 ---
@@ -39,6 +39,6 @@
       Error:
       ! 
       x Measure 'clust.davies_bouldin' requires numeric features, but task 'mixed'
-        has factor or ordered features.
+        has character, factor, or ordered features.
       > Class: Mlr3ErrorInput
 

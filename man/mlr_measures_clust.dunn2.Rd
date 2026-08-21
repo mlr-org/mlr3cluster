@@ -10,7 +10,7 @@ ratio of the minimum average between-cluster distance to the maximum average wit
 This variant is more robust to outliers than the standard Dunn index. Higher values indicate better separation.
 }
 \details{
-If the task contains factor or ordered features, Gower distances (\code{\link[cluster:daisy]{cluster::daisy()}}) are used instead of
+If the task contains character, factor, or ordered features, Gower distances (\code{\link[cluster:daisy]{cluster::daisy()}}) are used instead of
 Euclidean distances.
 }
 \section{Dictionary}{

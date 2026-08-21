@@ -38,9 +38,9 @@ MeasureClustSimple = R6Class(
       switch(
         private$.input,
         data = {
-          if (any(task$feature_types$type %in% c("factor", "ordered"))) {
+          if (any(task$feature_types$type %in% c("character", "factor", "ordered"))) {
             error_input(
-              "Measure '%s' requires numeric features, but task '%s' has factor or ordered features.",
+              "Measure '%s' requires numeric features, but task '%s' has character, factor, or ordered features.",
               self$id,
               task$id
             )
@@ -49,12 +49,7 @@ MeasureClustSimple = R6Class(
           private$.fun(x, prediction$partition)
         },
         dist = {
-          data = task$data(rows = prediction$row_ids)
-          if (any(task$feature_types$type %in% c("factor", "ordered"))) {
-            d = as.matrix(cluster::daisy(data, metric = "gower"))
-          } else {
-            d = as.matrix(stats::dist(data))
-          }
+          d = as.matrix(task_dist(task, prediction$row_ids))
           private$.fun(d, prediction$partition)
         },
         none = {
@@ -89,12 +84,7 @@ MeasureClustSil = R6Class(
         return(NaN)
       }
 
-      data = task$data(rows = prediction$row_ids)
-      if (any(task$feature_types$type %in% c("factor", "ordered"))) {
-        d = cluster::daisy(data, metric = "gower")
-      } else {
-        d = stats::dist(data)
-      }
+      d = task_dist(task, prediction$row_ids)
 
       mean(silhouette(prediction$partition, d)[, "sil_width"])
     }
@@ -113,7 +103,7 @@ MeasureClustSil = R6Class(
 #' observations on cluster boundaries, and negative values indicate possible misclassification.
 #'
 #' @details
-#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' If the task contains character, factor, or ordered features, Gower distances ([cluster::daisy()]) are used instead of
 #' Euclidean distances.
 #'
 #' @templateVar id silhouette
@@ -149,7 +139,7 @@ measures$ch = make_measure_info(cluster_ch, lower = 0, upper = Inf, minimize = F
 #' values indicate compact, well-separated clusters.
 #'
 #' @details
-#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' If the task contains character, factor, or ordered features, Gower distances ([cluster::daisy()]) are used instead of
 #' Euclidean distances.
 #'
 #' @templateVar id dunn
@@ -208,7 +198,7 @@ measures$sse_ratio = make_measure_info(
 #' This variant is more robust to outliers than the standard Dunn index. Higher values indicate better separation.
 #'
 #' @details
-#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' If the task contains character, factor, or ordered features, Gower distances ([cluster::daisy()]) are used instead of
 #' Euclidean distances.
 #'
 #' @templateVar id dunn2
@@ -227,7 +217,7 @@ measures$dunn2 = make_measure_info(cluster_dunn2, lower = 0, upper = Inf, minimi
 #' values indicate compact clusters that are well separated from each other.
 #'
 #' @details
-#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' If the task contains character, factor, or ordered features, Gower distances ([cluster::daisy()]) are used instead of
 #' Euclidean distances.
 #'
 #' @templateVar id wb_ratio
@@ -263,7 +253,7 @@ measures$entropy = make_measure_info(
 #' distances, suggesting well-separated clusters.
 #'
 #' @details
-#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' If the task contains character, factor, or ordered features, Gower distances ([cluster::daisy()]) are used instead of
 #' Euclidean distances.
 #'
 #' @templateVar id pearsongamma
@@ -301,7 +291,7 @@ measures$davies_bouldin = make_measure_info(
 #' of the same dataset.
 #'
 #' @details
-#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' If the task contains character, factor, or ordered features, Gower distances ([cluster::daisy()]) are used instead of
 #' Euclidean distances.
 #'
 #' @templateVar id avg_between
@@ -316,7 +306,7 @@ measures$avg_between = make_measure_info(cluster_avg_between, lower = 0, upper =
 #' clusterings of the same dataset.
 #'
 #' @details
-#' If the task contains factor or ordered features, Gower distances ([cluster::daisy()]) are used instead of
+#' If the task contains character, factor, or ordered features, Gower distances ([cluster::daisy()]) are used instead of
 #' Euclidean distances.
 #'
 #' @templateVar id avg_within

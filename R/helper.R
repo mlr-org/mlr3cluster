@@ -41,3 +41,17 @@ row_any_na = function(x) {
   }
   rowSums(is.na(x)) > 0L
 }
+
+task_dist = function(task, rows) {
+  data = task$data(rows = rows)
+  if (any(task$feature_types$type %in% c("character", "factor", "ordered"))) {
+    chr_cols = task$feature_types[type == "character", id]
+    if (length(chr_cols) > 0L) {
+      # daisy() rejects bare character columns
+      data[, (chr_cols) := map(.SD, factor), .SDcols = chr_cols]
+    }
+    cluster::daisy(data, metric = "gower")
+  } else {
+    stats::dist(data)
+  }
+}
