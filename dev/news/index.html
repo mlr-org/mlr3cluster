@@ -121,6 +121,7 @@
 <code>clust.SimpleKMeans</code> now declares <code>min_density</code> as a double bounded below at 0 instead of an integer with a minimum of 1, since Weka accepts fractional canopy densities.</li>
 <li>
 <code>clust.specc</code> now documents the default of <code>degree</code> as 1 instead of 3, matching the kernlab kernel functions.</li>
+<li>Measures now handle character features like factors: the distance-based measures and <code>clust.silhouette</code> compute Gower distances, where previously <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code> silently dropped character columns from the distances, and the data-based measures error informatively instead of failing with an obscure coercion error.</li>
 <li>
 <code>PredictionClust</code> now accepts and stores measure <code>weights</code>, so predictions on tasks with a <code>weights_measure</code> column carry the weights in <code>$weights</code> and in <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> instead of dropping them.</li>
 <li>

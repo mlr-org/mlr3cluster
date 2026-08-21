@@ -103,6 +103,12 @@
   accepts fractional canopy densities.
 - `clust.specc` now documents the default of `degree` as 1 instead of 3,
   matching the kernlab kernel functions.
+- Measures now handle character features like factors: the
+  distance-based measures and `clust.silhouette` compute Gower
+  distances, where previously
+  [`stats::dist()`](https://rdrr.io/r/stats/dist.html) silently dropped
+  character columns from the distances, and the data-based measures
+  error informatively instead of failing with an obscure coercion error.
 - `PredictionClust` now accepts and stores measure `weights`, so
   predictions on tasks with a `weights_measure` column carry the weights
   in `$weights` and in

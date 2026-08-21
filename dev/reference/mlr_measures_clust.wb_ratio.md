@@ -9,7 +9,8 @@ compact clusters that are well separated from each other.
 
 ## Details
 
-If the task contains factor or ordered features, Gower distances
+If the task contains character, factor, or ordered features, Gower
+distances
 ([`cluster::daisy()`](https://rdrr.io/pkg/cluster/man/daisy.html)) are
 used instead of Euclidean distances.
 
