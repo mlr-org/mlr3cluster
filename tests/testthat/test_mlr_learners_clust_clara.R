@@ -16,6 +16,10 @@ test_that("predicting errors informatively for unsupported training options", {
   learner = lrn("clust.clara", medoids.x = FALSE)
   learner$train(task)
   expect_snapshot(error = TRUE, learner$predict(task))
+
+  learner = lrn("clust.clara", stand = TRUE)
+  learner$train(task)
+  expect_snapshot(error = TRUE, learner$predict(task))
 })
 
 test_that("Learner properties are respected", {

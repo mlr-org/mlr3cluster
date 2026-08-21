@@ -28,8 +28,10 @@
 * `clust.ap` now breaks similarity ties deterministically when predicting, matching the assignment rule of the apcluster package.
 * `clust.ap` no longer fails to train on tasks with a feature named `m`.
 * `clust.bico` and `clust.kcca` now require `k >= 2`, which both already needed but advertised as `k >= 1`, so setting `k = 1` errors when set instead of failing during training.
+* `clust.clara` and `clust.pam` now error at predict time when trained with `stand = TRUE`, since `clue::cl_predict()` ignores the standardization and silently assigned clusters on the unstandardized scale.
 * `clust.cmeans` now returns a plain probability matrix without `clue`'s internal attributes.
 * `clust.cobweb`, `clust.ff`, and `clust.xmeans` now allow the seed `S = 0`, which Weka accepts, matching the seed bound of `clust.em` and `clust.SimpleKMeans`.
+* `clust.dbscan_fpc` now errors at predict time when trained with `scale = TRUE`, since prediction compared unscaled distances against the scaled-space `eps` and silently produced wrong assignments.
 * `clust.hclust` and `clust.protoclust` now bound the Minkowski power `p` below at 0, which was previously unbounded even though `stats::dist()` rejects non-positive values.
 * `clust.hdbscan` now requires `minPts >= 2` as needed by `dbscan::hdbscan()`, so smaller values error when set instead of during training.
 * `clust.kcca` now validates `initcent` as a single string and documents its default as `"randomcent"`, so invalid values error when set instead of failing during training with an obscure S4 validity error.

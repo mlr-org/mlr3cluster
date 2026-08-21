@@ -96,6 +96,11 @@ LearnerClustPAM = R6Class(
     },
 
     .predict = function(task) {
+      if (isTRUE(self$param_set$values$stand)) {
+        error_config(
+          "Predicting is not supported for `stand = TRUE` since `clue::cl_predict()` ignores the standardization."
+        )
+      }
       partition = unclass(invoke(
         clue::cl_predict,
         self$model,

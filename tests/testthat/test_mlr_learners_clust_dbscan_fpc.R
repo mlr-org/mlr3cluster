@@ -12,6 +12,10 @@ test_that("predicting errors informatively when trained with seeds = FALSE", {
   learner = lrn("clust.dbscan_fpc", eps = 25, seeds = FALSE)
   learner$train(task)
   expect_snapshot(error = TRUE, learner$predict(task))
+
+  learner = lrn("clust.dbscan_fpc", eps = 25, scale = TRUE)
+  learner$train(task)
+  expect_snapshot(error = TRUE, learner$predict(task))
 })
 
 test_that("Learner properties are respected", {

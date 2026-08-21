@@ -81,6 +81,11 @@ LearnerClustCLARA = R6Class(
       if (isFALSE(pv$medoids.x)) {
         error_config("Predicting requires the medoids, train with `medoids.x = TRUE`.")
       }
+      if (isTRUE(pv$stand)) {
+        error_config(
+          "Predicting is not supported for `stand = TRUE` since `clue::cl_predict()` ignores the standardization."
+        )
+      }
       partition = unclass(invoke(
         clue::cl_predict,
         self$model,
