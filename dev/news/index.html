@@ -96,9 +96,13 @@
 <li>
 <code>clust.bico</code> and <code>clust.kcca</code> now require <code>k &gt;= 2</code>, which both already needed but advertised as <code>k &gt;= 1</code>, so setting <code>k = 1</code> errors when set instead of failing during training.</li>
 <li>
+<code>clust.clara</code> and <code>clust.pam</code> now error at predict time when trained with <code>stand = TRUE</code>, since <code><a href="https://rdrr.io/pkg/clue/man/cl_predict.html" class="external-link">clue::cl_predict()</a></code> ignores the standardization and silently assigned clusters on the unstandardized scale.</li>
+<li>
 <code>clust.cmeans</code> now returns a plain probability matrix without <code>clue</code>’s internal attributes.</li>
 <li>
 <code>clust.cobweb</code>, <code>clust.ff</code>, and <code>clust.xmeans</code> now allow the seed <code>S = 0</code>, which Weka accepts, matching the seed bound of <code>clust.em</code> and <code>clust.SimpleKMeans</code>.</li>
+<li>
+<code>clust.dbscan_fpc</code> now errors at predict time when trained with <code>scale = TRUE</code>, since prediction compared unscaled distances against the scaled-space <code>eps</code> and silently produced wrong assignments.</li>
 <li>
 <code>clust.hclust</code> and <code>clust.protoclust</code> now bound the Minkowski power <code>p</code> below at 0, which was previously unbounded even though <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code> rejects non-positive values.</li>
 <li>
