@@ -48,7 +48,7 @@ or with the associated sugar function
 | start | untyped | "p" |  | \- |
 | maxiter | integer | \- |  | \\\[1, \infty)\\ |
 | nruns | integer | \- |  | \\\[1, \infty)\\ |
-| maxchains | integer | 0 |  | \\\[0, \infty)\\ |
+| maxchains | integer | \- |  | \\\[0, \infty)\\ |
 | popsize | integer | \- |  | \\\[1, \infty)\\ |
 | mutations | numeric | \- |  | \\\[0, 1\]\\ |
 | reltol | numeric | \- |  | \\\[0, \infty)\\ |

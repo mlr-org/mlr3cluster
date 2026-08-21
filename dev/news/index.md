@@ -38,7 +38,7 @@
   warning and returning the training partition. The model is now a list
   with the fitted object and the training data.
 - `clust.skmeans` now exposes `start`, which selects the initialization,
-  and `maxchains` for the `"pclust"` method.
+  and `maxchains` for the `"pclust"` and `"LIHC"` methods.
 - `clust.stdbscan` now exposes `weights`, which
   [`stdbscan::st_dbscan()`](https://miboraminima.github.io/stdbscan/reference/st_dbscan.html)
   forwards to
