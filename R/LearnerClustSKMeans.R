@@ -36,7 +36,7 @@ LearnerClustSKMeans = R6Class(
         start = p_uty(default = "p", tags = c("train", "control")),
         maxiter = p_int(1L, tags = c("train", "control")),
         nruns = p_int(1L, tags = c("train", "control")),
-        maxchains = p_int(0L, default = 0L, tags = c("train", "control"), depends = quote(method == "pclust")),
+        maxchains = p_int(0L, tags = c("train", "control"), depends = quote(method %in% c("pclust", "LIHC"))),
         popsize = p_int(1L, tags = c("train", "control")),
         mutations = p_dbl(0, 1, tags = c("train", "control")),
         reltol = p_dbl(0, tags = c("train", "control")),

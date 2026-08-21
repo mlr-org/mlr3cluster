@@ -43,7 +43,7 @@ lrn("clust.skmeans")
    start \tab untyped \tab "p" \tab  \tab - \cr
    maxiter \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    nruns \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   maxchains \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   maxchains \tab integer \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    popsize \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    mutations \tab numeric \tab - \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
    reltol \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr

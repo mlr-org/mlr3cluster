@@ -20,7 +20,8 @@ test_that("Learner properties are respected", {
     list(k = 3L, method = "pclust"),
     list(k = 3L, method = "genetic", maxiter = 5L, popsize = 4L),
     list(k = 3L, start = "S"),
-    list(k = 3L, method = "pclust", maxchains = 5L)
+    list(k = 3L, method = "pclust", maxchains = 5L),
+    list(k = 3L, method = "LIHC", maxchains = 5L)
   )
 
   for (parset in parset_list) {
