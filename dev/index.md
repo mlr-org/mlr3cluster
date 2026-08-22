@@ -31,9 +31,9 @@ pak::pak("mlr-org/mlr3cluster")
 
 The current version of **mlr3cluster** contains:
 
-- A selection of 36 clustering learners that represent a wide variety of
+- A selection of 39 clustering learners that represent a wide variety of
   clusterers: partitional, hierarchical, fuzzy, etc.
-- A selection of 11 performance measures
+- A selection of 12 performance measures
 - Two built-in tasks to get started with clustering
 
 Also, the package is integrated with
@@ -64,11 +64,14 @@ create great visualizations with just one line of code!
 | [clust.ff](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff) | Farthest First | [RWeka](https://cran.r-project.org/package=RWeka) |
 | [clust.flexmix](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix) | Finite Mixture Model | [flexmix](https://cran.r-project.org/package=flexmix) |
 | [clust.genie](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie) | Genie Hierarchical Clustering | [genieclust](https://cran.r-project.org/package=genieclust) |
+| [clust.gmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans) | G-Means | [gmeans](https://cran.r-project.org/package=gmeans) |
 | [clust.hclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust) | Hierarchical Clustering | stats |
 | [clust.hdbscan](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hdbscan) | HDBSCAN | [dbscan](https://cran.r-project.org/package=dbscan) |
 | [clust.kcca](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kcca) | K-Centroids Cluster Analysis | [flexclust](https://cran.r-project.org/package=flexclust) |
 | [clust.kkmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kkmeans) | Kernel K-Means | [kernlab](https://cran.r-project.org/package=kernlab) |
 | [clust.kmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans) | K-Means | stats, [clue](https://cran.r-project.org/package=clue) |
+| [clust.kmeans_rcpp](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans_rcpp) | K-Means (ClusterR) | [ClusterR](https://cran.r-project.org/package=ClusterR) |
+| [clust.kmodes](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmodes) | K-Modes | [klaR](https://cran.r-project.org/package=klaR) |
 | [clust.kproto](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto) | K-Prototypes | [clustMixType](https://cran.r-project.org/package=clustMixType) |
 | [clust.mclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.mclust) | Gaussian Mixture Model | [mclust](https://cran.r-project.org/package=mclust) |
 | [clust.meanshift](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.meanshift) | Mean Shift | [LPCM](https://cran.r-project.org/package=LPCM) |
@@ -96,6 +99,7 @@ create great visualizations with just one line of code!
 | [clust.entropy](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.entropy) | Entropy |  |
 | [clust.pearsongamma](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.pearsongamma) | Pearson Gamma | [cluster](https://cran.r-project.org/package=cluster) |
 | [clust.silhouette](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette) | Silhouette | [cluster](https://cran.r-project.org/package=cluster) |
+| [clust.sse_ratio](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.sse_ratio) | Within/Total Ratio |  |
 | [clust.wb_ratio](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wb_ratio) | Within/Between Ratio | [cluster](https://cran.r-project.org/package=cluster) |
 | [clust.wss](https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wss) | Within Sum of Squares |  |
 
