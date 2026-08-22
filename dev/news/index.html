@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.4.1.9000</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.5.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,8 +50,11 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.5.0" id="mlr3cluster-050">mlr3cluster 0.5.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-050"></a></h2><p class="text-muted">CRAN release: 2026-08-21</p>
 <div class="section level3">
-<h3 id="new-learners-development-version">New learners<a class="anchor" aria-label="anchor" href="#new-learners-development-version"></a></h3>
+<h3 id="new-learners-0-5-0">New learners<a class="anchor" aria-label="anchor" href="#new-learners-0-5-0"></a></h3>
 <ul><li>
 <code>clust.gmeans</code>: G-means clustering from the gmeans package, which extends k-means by automatically determining the number of clusters.</li>
 <li>
@@ -60,12 +63,12 @@
 <code>clust.kmodes</code>: K-modes clustering for categorical data from the klaR package.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="new-measures-development-version">New measures<a class="anchor" aria-label="anchor" href="#new-measures-development-version"></a></h3>
+<h3 id="new-measures-0-5-0">New measures<a class="anchor" aria-label="anchor" href="#new-measures-0-5-0"></a></h3>
 <ul><li>
 <code>clust.sse_ratio</code>: Within-cluster sum of squares divided by total sum of squares, a normalized measure of cluster compactness.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
+<h3 id="other-improvements-0-5-0">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-0-5-0"></a></h3>
 <ul><li>
 <code>clust.cobweb</code> now exposes the <code>output_debug_info</code> parameter, matching the other RWeka-based learners.</li>
 <li>
@@ -84,7 +87,7 @@
 <code>clust.stdbscan</code> now supports observation weights through <code>weights</code>, matching <code>clust.dbscan</code>.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<h3 id="bug-fixes-0-5-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-5-0"></a></h3>
 <ul><li>Clustering measures now handle character features consistently with factor and ordered features. Distance-based measures use Gower distances instead of treating character values as missing, while measures that require numeric features report an informative error.</li>
 <li>
 <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now converts whole-numbered <code>partition</code> values to integers instead of rejecting them.</li>

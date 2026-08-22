@@ -2,6 +2,10 @@
 
 ## mlr3cluster (development version)
 
+## mlr3cluster 0.5.0
+
+CRAN release: 2026-08-21
+
 ### New learners
 
 - `clust.gmeans`: G-means clustering from the gmeans package, which
