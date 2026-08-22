@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# mlr3cluster
+# mlr3cluster <img src="man/figures/logo.png" align="right" width = "120" />
 
 Package website: [release](https://mlr3cluster.mlr-org.com/) \|
 [dev](https://mlr3cluster.mlr-org.com/dev/)
