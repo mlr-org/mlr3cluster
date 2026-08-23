@@ -6,6 +6,8 @@
 \alias{mlr3cluster-package}
 \title{mlr3cluster: Cluster Extension for 'mlr3'}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 Extends the 'mlr3' package with cluster analysis.
 }
 \seealso{
