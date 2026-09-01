@@ -2,6 +2,9 @@
 
 ## mlr3cluster (development version)
 
+- [`as_task_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
+  now supports matrices.
+
 - `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support
   [`mlr3::set_threads()`](https://mlr3.mlr-org.com/reference/set_threads.html).
   Their thread-count parameters are initialized to 1 instead of using

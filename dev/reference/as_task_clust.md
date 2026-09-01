@@ -7,7 +7,8 @@ This is a S3 generic, specialized for at least the following objects:
 1.  [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md):
     ensure the identity.
 
-2.  [`data.frame()`](https://rdrr.io/r/base/data.frame.html) and
+2.  [`data.frame()`](https://rdrr.io/r/base/data.frame.html),
+    [`matrix()`](https://rdrr.io/r/base/matrix.html) and
     [mlr3::DataBackend](https://mlr3.mlr-org.com/reference/DataBackend.html):
     provides an alternative to calling constructor of
     [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md).
@@ -21,6 +22,9 @@ as_task_clust(x, ...)
 as_task_clust(x, clone = FALSE, ...)
 
 # S3 method for class 'data.frame'
+as_task_clust(x, id = deparse1(substitute(x)), ...)
+
+# S3 method for class 'matrix'
 as_task_clust(x, id = deparse1(substitute(x)), ...)
 
 # S3 method for class 'DataBackend'
