@@ -65,17 +65,9 @@ register_mlr3 = function(...) {
   # measures
   mlr_measures = utils::getFromNamespace("mlr_measures", ns = "mlr3")
   mlr_measures$add("clust.silhouette", MeasureClustSil)
-  mlr_measures$add("clust.ch", MeasureClustSimple, name = "ch", label = "Calinski Harabasz")
-  mlr_measures$add("clust.dunn", MeasureClustSimple, name = "dunn", label = "Dunn")
-  mlr_measures$add("clust.wss", MeasureClustSimple, name = "wss", label = "Within Sum of Squares")
-  mlr_measures$add("clust.sse_ratio", MeasureClustSimple, name = "sse_ratio", label = "Within/Total Ratio")
-  mlr_measures$add("clust.dunn2", MeasureClustSimple, name = "dunn2", label = "Dunn2")
-  mlr_measures$add("clust.wb_ratio", MeasureClustSimple, name = "wb_ratio", label = "Within/Between Ratio")
-  mlr_measures$add("clust.entropy", MeasureClustSimple, name = "entropy", label = "Entropy")
-  mlr_measures$add("clust.pearsongamma", MeasureClustSimple, name = "pearsongamma", label = "Pearson Gamma")
-  mlr_measures$add("clust.davies_bouldin", MeasureClustSimple, name = "davies_bouldin", label = "Davies-Bouldin")
-  mlr_measures$add("clust.avg_between", MeasureClustSimple, name = "avg_between", label = "Average Between")
-  mlr_measures$add("clust.avg_within", MeasureClustSimple, name = "avg_within", label = "Average Within")
+  iwalk(as.list(measures), function(info, name) {
+    mlr_measures$add(paste0("clust.", name), MeasureClustSimple, name = name)
+  })
 }
 
 .onLoad = function(libname, pkgname) {

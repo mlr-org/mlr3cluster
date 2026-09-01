@@ -1,5 +1,6 @@
 make_measure_info = function(
   fun,
+  label,
   lower,
   upper,
   minimize,
@@ -9,6 +10,7 @@ make_measure_info = function(
 ) {
   list(
     fun = fun,
+    label = label,
     lower = lower,
     upper = upper,
     minimize = minimize,
