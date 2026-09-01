@@ -8,6 +8,8 @@
 #' best fit. When `cluster` provides fixed initial assignments, [flexmix::flexmix()] is called instead and `nrep`
 #' must not be larger than 1.
 #'
+#' The `k` parameter is set to 2 by default since [flexmix::stepFlexmix()] doesn't have a default value for the number
+#' of components.
 #' The component model is selected through the `model` parameter, exposing the multivariate normal, univariate normal,
 #' multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 #' The predict method calls `flexmix::clusters()` for cluster assignments and `flexmix::posterior()` for component

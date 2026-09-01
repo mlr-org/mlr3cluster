@@ -11,6 +11,11 @@
 #' obtained via [stats::cutree()] at the requested `k`.
 #' The task must have at least 2 features.
 #'
+#' @section Custom mlr3 parameters:
+#' - `k`:
+#'   - Not an argument of [genieclust::gclust()]. The number of clusters to cut the tree into,
+#'     passed to [stats::cutree()]. Initialized to `2`.
+#'
 #' @templateVar id clust.genie
 #' @template learner
 #'

@@ -9,12 +9,23 @@ Kernel k-means clustering.
 Calls \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} from package \CRANpkg{kernlab}.
 
 The \code{centers} parameter is set to 2 by default since \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} doesn't have a default value for the number
-of clusters. Kernel parameters have to be passed directly and not by using the \code{kpar} list in \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}}.
+of clusters.
 The predict method assigns each new observation to the cluster whose centroid is nearest in the kernel-induced
 feature space, computed from the stored training data. The model is therefore a list containing the fitted
 \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}} object along with the training data and per-cluster kernel statistics.
 The task must have at least 2 features.
 }
+\section{Custom mlr3 parameters}{
+
+\itemize{
+\item \code{sigma}, \code{degree}, \code{scale}, \code{offset}, \code{order}:
+\itemize{
+\item In \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}}, these kernel parameters are passed inside the \code{kpar} list. Here they are exposed
+directly and assembled into \code{kpar} internally.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:

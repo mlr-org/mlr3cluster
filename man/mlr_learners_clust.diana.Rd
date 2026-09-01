@@ -9,8 +9,19 @@ Divisive hierarchical clustering.
 Calls \code{\link[cluster:diana]{cluster::diana()}} from package \CRANpkg{cluster}.
 
 The predict method uses \code{\link[stats:cutree]{stats::cutree()}} which cuts the tree resulting from hierarchical clustering into specified
-number of groups (see parameter \code{k}). The default value for \code{k} is 2.
+number of groups (see parameter \code{k}).
 }
+\section{Custom mlr3 parameters}{
+
+\itemize{
+\item \code{k}:
+\itemize{
+\item Not an argument of \code{\link[cluster:diana]{cluster::diana()}}. The number of clusters to cut the tree into,
+passed to \code{\link[stats:cutree]{stats::cutree()}}. Initialized to \code{2}.
+}
+}
+}
+
 \section{Initial parameter values}{
 
 \itemize{

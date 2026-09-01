@@ -10,6 +10,26 @@ Calls \code{\link[stats:hclust]{stats::hclust()}} from package \pkg{stats}.
 
 Distance calculation is done by \code{\link[stats:dist]{stats::dist()}}.
 }
+\section{Custom mlr3 parameters}{
+
+\itemize{
+\item \code{distmethod}:
+\itemize{
+\item Not an argument of \code{\link[stats:hclust]{stats::hclust()}}. The distance measure, passed as \code{method} to \code{\link[stats:dist]{stats::dist()}} when
+computing the dissimilarity matrix.
+}
+\item \code{diag}, \code{upper}, \code{p}:
+\itemize{
+\item Not arguments of \code{\link[stats:hclust]{stats::hclust()}}. Forwarded to \code{\link[stats:dist]{stats::dist()}} when computing the dissimilarity matrix.
+}
+\item \code{k}:
+\itemize{
+\item Not an argument of \code{\link[stats:hclust]{stats::hclust()}}. The number of clusters to cut the tree into,
+passed to \code{\link[stats:cutree]{stats::cutree()}}. Initialized to \code{2}.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:

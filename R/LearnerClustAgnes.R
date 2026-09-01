@@ -7,7 +7,12 @@
 #' Calls [cluster::agnes()] from package \CRANpkg{cluster}.
 #'
 #' The predict method uses [stats::cutree()] which cuts the tree resulting from hierarchical clustering into specified
-#' number of groups (see parameter `k`). The default number for `k` is 2.
+#' number of groups (see parameter `k`).
+#'
+#' @section Custom mlr3 parameters:
+#' - `k`:
+#'   - Not an argument of [cluster::agnes()]. The number of clusters to cut the tree into,
+#'     passed to [stats::cutree()]. Initialized to `2`.
 #'
 #' @section Initial parameter values:
 #' - `keep.diss`:

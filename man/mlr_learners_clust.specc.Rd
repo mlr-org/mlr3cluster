@@ -9,10 +9,21 @@ Spectral clustering.
 Calls \code{\link[kernlab:specc]{kernlab::specc()}} from package \CRANpkg{kernlab}.
 
 The \code{centers} parameter is set to 2 by default since \code{\link[kernlab:specc]{kernlab::specc()}} doesn't have a default value for the number
-of clusters. Kernel parameters have to be passed directly and not by using the \code{kpar} list in \code{\link[kernlab:specc]{kernlab::specc()}}.
+of clusters.
 
 There is no predict method for \code{\link[kernlab:specc]{kernlab::specc()}}, so the method returns cluster labels for the training data.
 }
+\section{Custom mlr3 parameters}{
+
+\itemize{
+\item \code{sigma}, \code{degree}, \code{scale}, \code{offset}, \code{order}:
+\itemize{
+\item In \code{\link[kernlab:specc]{kernlab::specc()}}, these kernel parameters are passed inside the \code{kpar} list. Here they are exposed
+directly and assembled into \code{kpar} internally.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:

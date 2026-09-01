@@ -8,10 +8,19 @@
 Self-organizing map (Kohonen network) clustering.
 Calls \code{\link[kohonen:som]{kohonen::som()}} from package \CRANpkg{kohonen}.
 
-Each map unit corresponds to a cluster, so the number of clusters is \code{xdim * ydim}. Grid dimensions, topology, and
-neighbourhood function are exposed directly as parameters and forwarded to \code{\link[kohonen:somgrid]{kohonen::somgrid()}}. The predict method
+Each map unit corresponds to a cluster, so the number of clusters is \code{xdim * ydim}. The predict method
 uses \code{\link[kohonen:map]{kohonen::map()}} to assign new data to the closest unit.
 }
+\section{Custom mlr3 parameters}{
+
+\itemize{
+\item \code{xdim}, \code{ydim}, \code{topo}, \code{neighbourhood.fct}, \code{toroidal}:
+\itemize{
+\item Not arguments of \code{\link[kohonen:som]{kohonen::som()}}. These construct the map grid and are forwarded to \code{\link[kohonen:somgrid]{kohonen::somgrid()}}.
+}
+}
+}
+
 \section{Initial parameter values}{
 
 \itemize{

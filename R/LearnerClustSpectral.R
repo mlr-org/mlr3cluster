@@ -7,9 +7,14 @@
 #' Calls [kernlab::specc()] from package \CRANpkg{kernlab}.
 #'
 #' The `centers` parameter is set to 2 by default since [kernlab::specc()] doesn't have a default value for the number
-#' of clusters. Kernel parameters have to be passed directly and not by using the `kpar` list in [kernlab::specc()].
+#' of clusters.
 #'
 #' There is no predict method for [kernlab::specc()], so the method returns cluster labels for the training data.
+#'
+#' @section Custom mlr3 parameters:
+#' - `sigma`, `degree`, `scale`, `offset`, `order`:
+#'   - In [kernlab::specc()], these kernel parameters are passed inside the `kpar` list. Here they are exposed
+#'     directly and assembled into `kpar` internally.
 #'
 #' @templateVar id clust.specc
 #' @template learner

@@ -15,6 +15,11 @@
 #' mode.
 #' Prediction always uses unweighted simple matching distance, including for models trained with `weighted = TRUE`.
 #'
+#' @section Custom mlr3 parameters:
+#' - `ties`:
+#'   - Not an argument of [klaR::kmodes()]. Controls how ties are broken when assigning observations to their
+#'     closest mode during prediction.
+#'
 #' @templateVar id clust.kmodes
 #' @template learner
 #'

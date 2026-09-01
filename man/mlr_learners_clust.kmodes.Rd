@@ -17,6 +17,17 @@ Since \code{\link[klaR:kmodes]{klaR::kmodes()}} does not provide a predict metho
 mode.
 Prediction always uses unweighted simple matching distance, including for models trained with \code{weighted = TRUE}.
 }
+\section{Custom mlr3 parameters}{
+
+\itemize{
+\item \code{ties}:
+\itemize{
+\item Not an argument of \code{\link[klaR:kmodes]{klaR::kmodes()}}. Controls how ties are broken when assigning observations to their
+closest mode during prediction.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:

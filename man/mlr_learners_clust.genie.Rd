@@ -13,6 +13,17 @@ There is no predict method for \code{\link[genieclust:gclust]{genieclust::gclust
 obtained via \code{\link[stats:cutree]{stats::cutree()}} at the requested \code{k}.
 The task must have at least 2 features.
 }
+\section{Custom mlr3 parameters}{
+
+\itemize{
+\item \code{k}:
+\itemize{
+\item Not an argument of \code{\link[genieclust:gclust]{genieclust::gclust()}}. The number of clusters to cut the tree into,
+passed to \code{\link[stats:cutree]{stats::cutree()}}. Initialized to \code{2}.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:

@@ -10,6 +10,11 @@
 #' to the cluster of its nearest prototype, using the same distance method as during training. The model is therefore
 #' a list containing the fitted [protoclust::protoclust()] object along with the training data.
 #'
+#' @section Custom mlr3 parameters:
+#' - `k`:
+#'   - Not an argument of [protoclust::protoclust()]. The number of clusters to cut the tree into,
+#'     passed to [protoclust::protocut()]. Initialized to `2`.
+#'
 #' @templateVar id clust.protoclust
 #' @template learner
 #'

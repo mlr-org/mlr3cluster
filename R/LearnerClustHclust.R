@@ -8,6 +8,16 @@
 #'
 #' Distance calculation is done by [stats::dist()].
 #'
+#' @section Custom mlr3 parameters:
+#' - `distmethod`:
+#'   - Not an argument of [stats::hclust()]. The distance measure, passed as `method` to [stats::dist()] when
+#'     computing the dissimilarity matrix.
+#' - `diag`, `upper`, `p`:
+#'   - Not arguments of [stats::hclust()]. Forwarded to [stats::dist()] when computing the dissimilarity matrix.
+#' - `k`:
+#'   - Not an argument of [stats::hclust()]. The number of clusters to cut the tree into,
+#'     passed to [stats::cutree()]. Initialized to `2`.
+#'
 #' @templateVar id clust.hclust
 #' @template learner
 #'

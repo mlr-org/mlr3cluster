@@ -12,6 +12,17 @@ The predict method cuts the tree at the current \code{k} via \code{\link[protocl
 to the cluster of its nearest prototype, using the same distance method as during training. The model is therefore
 a list containing the fitted \code{\link[protoclust:protoclust]{protoclust::protoclust()}} object along with the training data.
 }
+\section{Custom mlr3 parameters}{
+
+\itemize{
+\item \code{k}:
+\itemize{
+\item Not an argument of \code{\link[protoclust:protoclust]{protoclust::protoclust()}}. The number of clusters to cut the tree into,
+passed to \code{\link[protoclust:protocut]{protoclust::protocut()}}. Initialized to \code{2}.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:
