@@ -7,8 +7,8 @@
 #' Calls [ClusterR::MiniBatchKmeans()] from package \CRANpkg{ClusterR}.
 #'
 #' The `clusters` parameter is set to 2 by default since [ClusterR::MiniBatchKmeans()] doesn't have a default value for
-#' the number of clusters. The predict method uses [ClusterR::predict_MBatchKMeans()] to compute the cluster memberships
-#' for new data. The learner supports both partitional and fuzzy clustering.
+#' the number of clusters. The predict method uses [ClusterR::predict_KMeans()] on the fitted centroids to compute the
+#' cluster memberships for new data. The learner supports both partitional and fuzzy clustering.
 #'
 #' @templateVar id clust.MBatchKMeans
 #' @template learner
@@ -77,17 +77,17 @@ LearnerClustMiniBatchKMeans = R6Class(
       data = task$data()
       m = invoke(ClusterR::MiniBatchKmeans, data = data, .args = pv)
       if (self$save_assignments) {
-        self$assignments = as.integer(invoke(predict, m, newdata = data))
+        self$assignments = as.integer(invoke(ClusterR::predict_KMeans, data = data, CENTROIDS = m$centroids))
       }
       m
     },
 
     .predict = function(task) {
       data = ordered_features(task, self)
-      partition = as.integer(invoke(predict, self$model, newdata = data))
+      partition = as.integer(invoke(ClusterR::predict_KMeans, data = data, CENTROIDS = self$model$centroids))
       prob = NULL
       if (self$predict_type == "prob") {
-        prob = invoke(predict, self$model, newdata = data, fuzzy = TRUE)
+        prob = invoke(ClusterR::predict_KMeans, data = data, CENTROIDS = self$model$centroids, fuzzy = TRUE)
         colnames(prob) = seq_col(prob)
       }
       list(partition = partition, prob = prob)
