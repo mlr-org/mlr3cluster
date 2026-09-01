@@ -69,6 +69,24 @@ test_that("marshaled models survive a serialization boundary", {
 
 test_that("predict aligns features with the training task's column order", {
   skip_on_cran()
+  packages = c(
+    "ClusterR",
+    "clustMixType",
+    "dbscan",
+    "flexclust",
+    "fpc",
+    "kohonen",
+    "mclust",
+    "movMF",
+    "RWeka",
+    "skmeans",
+    "stdbscan",
+    "stream",
+    "withr"
+  )
+  for (pkg in packages) {
+    skip_if_not_installed(pkg)
+  }
   withr::local_seed(42)
   n = 30L
   # clusters at (0, 10) and (10, 0): swapping coordinates maps each cluster onto the other
@@ -131,7 +149,7 @@ test_that("assignment saving works", {
 
   expect_true(learner$save_assignments)
   learner$train(task)
-  expect_vector(learner$assignments)
+  expect_atomic_vector(learner$assignments)
   expect_length(learner$assignments, task$nrow)
 
   learner$reset()
