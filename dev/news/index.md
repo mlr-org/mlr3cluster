@@ -2,6 +2,11 @@
 
 ## mlr3cluster (development version)
 
+- `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support
+  [`mlr3::set_threads()`](https://mlr3.mlr-org.com/reference/set_threads.html).
+  Their thread-count parameters are initialized to 1 instead of using
+  all available cores.
+
 ## mlr3cluster 0.5.0
 
 CRAN release: 2026-08-21

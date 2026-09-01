@@ -12,6 +12,17 @@ The predict method uses
 [`kohonen::map()`](https://rdrr.io/pkg/kohonen/man/map.kohonen.html) to
 assign new data to the closest unit.
 
+## Initial parameter values
+
+- `cores`:
+
+  - Actual default: `-1L`, using all available cores.
+
+  - Adjusted default: `1L`.
+
+  - Reason for change: Conflicting with parallelization via
+    [future](https://CRAN.R-project.org/package=future).
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -209,7 +220,7 @@ print(learner)
 #> 
 #> ── <LearnerClustSOM> (clust.som): Self-Organizing Maps ─────────────────────────
 #> • Model: -
-#> • Parameters: list()
+#> • Parameters: cores=1
 #> • Packages: mlr3, mlr3cluster, and kohonen
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric

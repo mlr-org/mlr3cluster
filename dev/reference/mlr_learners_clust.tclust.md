@@ -24,6 +24,15 @@ method returns cluster labels for the training data.
   - Reason for change: Avoid storing the training data in the model to
     save memory.
 
+- `n.cores`:
+
+  - Actual default: `-1L`, using all available cores.
+
+  - Adjusted default: `1L`.
+
+  - Reason for change: Conflicting with parallelization via
+    [future](https://CRAN.R-project.org/package=future).
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -225,7 +234,7 @@ print(learner)
 #> 
 #> ── <LearnerClustTclust> (clust.tclust): Robust Trimmed Clustering ──────────────
 #> • Model: -
-#> • Parameters: k=2, store_x=FALSE
+#> • Parameters: k=2, store_x=FALSE, n.cores=1
 #> • Packages: mlr3, mlr3cluster, and tclust
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric
