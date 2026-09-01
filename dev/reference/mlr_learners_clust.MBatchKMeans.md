@@ -8,9 +8,9 @@ The `clusters` parameter is set to 2 by default since
 [`ClusterR::MiniBatchKmeans()`](https://mlampros.github.io/ClusterR/reference/MiniBatchKmeans.html)
 doesn't have a default value for the number of clusters. The predict
 method uses
-[`ClusterR::predict_MBatchKMeans()`](https://mlampros.github.io/ClusterR/reference/predict_MBatchKMeans.html)
-to compute the cluster memberships for new data. The learner supports
-both partitional and fuzzy clustering.
+[`ClusterR::predict_KMeans()`](https://mlampros.github.io/ClusterR/reference/predict_KMeans.html)
+on the fitted centroids to compute the cluster memberships for new data.
+The learner supports both partitional and fuzzy clustering.
 
 ## Dictionary
 
@@ -212,12 +212,6 @@ task = tsk("usarrests")
 
 # Train the learner on the task
 learner$train(task)
-#> Warning: `predict_MBatchKMeans()` was deprecated in ClusterR 1.3.0.
-#> ℹ Beginning from version 1.4.0, if the fuzzy parameter is TRUE the function
-#>   'predict_MBatchKMeans' will return only the probabilities, whereas currently
-#>   it also returns the hard clusters
-#> ℹ The deprecated feature was likely used in the ClusterR package.
-#>   Please report the issue at <https://github.com/mlampros/ClusterR/issues>.
 
 # Print the model
 print(learner$model)

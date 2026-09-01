@@ -256,16 +256,16 @@ ids
 #> [37] "clust.stdbscan"     "clust.tclust"       "clust.xmeans"      
 
 # get a specific learner from mlr_learners:
-learner = lrn("clust.kmeans")
+learner = lrn("clust.featureless")
 print(learner)
 #> 
-#> ── <LearnerClustKMeans> (clust.kmeans): K-Means ────────────────────────────────
+#> ── <LearnerClustFeatureless> (clust.featureless): Featureless Clustering Learner
 #> • Model: -
-#> • Parameters: centers=2
-#> • Packages: mlr3, mlr3cluster, stats, and clue
-#> • Predict Types: [partition]
+#> • Parameters: num_clusters=1
+#> • Packages: mlr3 and mlr3cluster
+#> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, and partitional
+#> • Properties: complete, exclusive, missings, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 ```

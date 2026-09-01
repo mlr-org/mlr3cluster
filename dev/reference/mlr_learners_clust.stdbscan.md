@@ -2,7 +2,7 @@
 
 ST-DBSCAN (spatio-temporal density-based spatial clustering of
 applications with noise) clustering. Calls
-[`stdbscan::st_dbscan()`](https://miboraminima.github.io/stdbscan/reference/st_dbscan.html)
+[`stdbscan::st_dbscan()`](https://rdrr.io/pkg/stdbscan/man/st_dbscan.html)
 from package [stdbscan](https://CRAN.R-project.org/package=stdbscan).
 
 The task must have exactly 3 features: the first two features (in the
