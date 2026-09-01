@@ -22,6 +22,12 @@ data.
 \item Adjusted default: \code{FALSE}.
 \item Reason for change: Avoid storing the training data in the model to save memory.
 }
+\item \code{n.cores}:
+\itemize{
+\item Actual default: \code{-1L}, using all available cores.
+\item Adjusted default: \code{1L}.
+\item Reason for change: Conflicting with parallelization via \CRANpkg{future}.
+}
 }
 }
 

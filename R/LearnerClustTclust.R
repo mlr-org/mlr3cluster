@@ -16,6 +16,10 @@
 #'   - Actual default: `TRUE`.
 #'   - Adjusted default: `FALSE`.
 #'   - Reason for change: Avoid storing the training data in the model to save memory.
+#' - `n.cores`:
+#'   - Actual default: `-1L`, using all available cores.
+#'   - Adjusted default: `1L`.
+#'   - Reason for change: Conflicting with parallelization via \CRANpkg{future}.
 #'
 #' @templateVar id clust.tclust
 #' @template learner
@@ -49,13 +53,13 @@ LearnerClustTclust = R6Class(
         scale = p_lgl(default = FALSE, tags = "train"),
         store_x = p_lgl(default = TRUE, tags = "train"),
         parallel = p_lgl(default = FALSE, tags = "train"),
-        n.cores = p_int(default = -1L, tags = "train", depends = quote(parallel == TRUE)),
+        n.cores = p_int(default = -1L, tags = c("train", "threads")),
         zero_tol = p_dbl(0, default = 1e-16, tags = "train"),
         drop.empty.clust = p_lgl(default = TRUE, tags = "train"),
         trace = p_int(0L, default = 0L, tags = "train")
       )
 
-      param_set$set_values(k = 2L, store_x = FALSE)
+      param_set$set_values(k = 2L, store_x = FALSE, n.cores = 1L)
 
       super$initialize(
         id = "clust.tclust",

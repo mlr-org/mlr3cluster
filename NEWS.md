@@ -1,5 +1,7 @@
 # mlr3cluster (development version)
 
+* `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support `mlr3::set_threads()`. Their thread-count parameters are initialized to 1 instead of using all available cores.
+
 # mlr3cluster 0.5.0
 
 ## New learners

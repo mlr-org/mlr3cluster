@@ -12,6 +12,18 @@ Each map unit corresponds to a cluster, so the number of clusters is \code{xdim 
 neighbourhood function are exposed directly as parameters and forwarded to \code{\link[kohonen:somgrid]{kohonen::somgrid()}}. The predict method
 uses \code{\link[kohonen:map]{kohonen::map()}} to assign new data to the closest unit.
 }
+\section{Initial parameter values}{
+
+\itemize{
+\item \code{cores}:
+\itemize{
+\item Actual default: \code{-1L}, using all available cores.
+\item Adjusted default: \code{1L}.
+\item Reason for change: Conflicting with parallelization via \CRANpkg{future}.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:

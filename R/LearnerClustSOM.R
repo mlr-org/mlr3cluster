@@ -10,6 +10,12 @@
 #' neighbourhood function are exposed directly as parameters and forwarded to [kohonen::somgrid()]. The predict method
 #' uses [kohonen::map()] to assign new data to the closest unit.
 #'
+#' @section Initial parameter values:
+#' - `cores`:
+#'   - Actual default: `-1L`, using all available cores.
+#'   - Adjusted default: `1L`.
+#'   - Reason for change: Conflicting with parallelization via \CRANpkg{future}.
+#'
 #' @templateVar id clust.som
 #' @template learner
 #'
@@ -44,10 +50,12 @@ LearnerClustSOM = R6Class(
         keep.data = p_lgl(default = TRUE, tags = "train"),
         dist.fcts = p_uty(default = NULL, tags = "train"),
         mode = p_fct(c("online", "batch", "pbatch"), default = "online", tags = "train"),
-        cores = p_int(default = -1L, tags = "train"),
+        cores = p_int(default = -1L, tags = c("train", "threads")),
         init = p_uty(tags = "train"),
         normalizeDataLayers = p_lgl(default = TRUE, tags = "train")
       )
+
+      param_set$set_values(cores = 1L)
 
       super$initialize(
         id = "clust.som",
