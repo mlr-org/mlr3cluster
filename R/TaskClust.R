@@ -10,6 +10,7 @@
 #' @template param_id
 #' @template param_backend
 #' @template param_label
+#' @template param_extra_args
 #' @family Task
 #' @export
 #' @examples
@@ -26,8 +27,8 @@ TaskClust = R6Class(
   public = list(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
-    initialize = function(id, backend, label = NA_character_) {
-      super$initialize(id = id, task_type = "clust", backend = backend, label = label)
+    initialize = function(id, backend, label = NA_character_, extra_args = list()) {
+      super$initialize(id = id, task_type = "clust", backend = backend, label = label, extra_args = extra_args)
     }
   )
 )

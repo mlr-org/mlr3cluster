@@ -65,7 +65,7 @@ Other Task:
   Creates a new instance of this \link[R6:R6Class]{R6} class.
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{TaskClust$new(id, backend, label = NA_character_)}
+    \preformatted{TaskClust$new(id, backend, label = NA_character_, extra_args = list())}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
@@ -78,6 +78,9 @@ Either a \link[mlr3:DataBackend]{mlr3::DataBackend}, or any object which is conv
 E.g., a \code{data.frame()} will be converted to a \link[mlr3:DataBackendDataTable]{mlr3::DataBackendDataTable}.}
       \item{\code{label}}{(\code{character(1)})\cr
 Label for the new instance.}
+      \item{\code{extra_args}}{(named \code{list()})\cr
+Named list of constructor arguments, required for converting task types
+via \code{\link[mlr3:convert_task]{mlr3::convert_task()}}.}
     }
     \if{html}{\out{</div>}}
   }
