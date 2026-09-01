@@ -7,7 +7,17 @@ package [cluster](https://CRAN.R-project.org/package=cluster).
 The predict method uses
 [`stats::cutree()`](https://rdrr.io/r/stats/cutree.html) which cuts the
 tree resulting from hierarchical clustering into specified number of
-groups (see parameter `k`). The default value for `k` is 2.
+groups (see parameter `k`).
+
+## Custom mlr3 parameters
+
+- `k`:
+
+  - Not an argument of
+    [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html).
+    The number of clusters to cut the tree into, passed to
+    [`stats::cutree()`](https://rdrr.io/r/stats/cutree.html).
+    Initialized to `2`.
 
 ## Initial parameter values
 

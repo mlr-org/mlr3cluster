@@ -13,6 +13,16 @@ so the method returns cluster labels for the training data obtained via
 [`stats::cutree()`](https://rdrr.io/r/stats/cutree.html) at the
 requested `k`. The task must have at least 2 features.
 
+## Custom mlr3 parameters
+
+- `k`:
+
+  - Not an argument of
+    [`genieclust::gclust()`](https://rdrr.io/pkg/genieclust/man/gclust.html).
+    The number of clusters to cut the tree into, passed to
+    [`stats::cutree()`](https://rdrr.io/r/stats/cutree.html).
+    Initialized to `2`.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)

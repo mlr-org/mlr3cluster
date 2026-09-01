@@ -7,12 +7,10 @@
   };
 </script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Self-Organizing Maps Clustering Learner — mlr_learners_clust.som"><meta name="description" content="Self-organizing map (Kohonen network) clustering.
 Calls kohonen::som() from package kohonen.
-Each map unit corresponds to a cluster, so the number of clusters is xdim * ydim. Grid dimensions, topology, and
-neighbourhood function are exposed directly as parameters and forwarded to kohonen::somgrid(). The predict method
+Each map unit corresponds to a cluster, so the number of clusters is xdim * ydim. The predict method
 uses kohonen::map() to assign new data to the closest unit."><meta property="og:description" content="Self-organizing map (Kohonen network) clustering.
 Calls kohonen::som() from package kohonen.
-Each map unit corresponds to a cluster, so the number of clusters is xdim * ydim. Grid dimensions, topology, and
-neighbourhood function are exposed directly as parameters and forwarded to kohonen::somgrid(). The predict method
+Each map unit corresponds to a cluster, so the number of clusters is xdim * ydim. The predict method
 uses kohonen::map() to assign new data to the closest unit."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.png"><meta name="robots" content="noindex"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
@@ -59,12 +57,18 @@ uses kohonen::map() to assign new data to the closest unit."><meta property="og:
     <div class="ref-description section level2">
     <p>Self-organizing map (Kohonen network) clustering.
 Calls <code><a href="https://rdrr.io/pkg/kohonen/man/supersom.html" class="external-link">kohonen::som()</a></code> from package <a href="https://CRAN.R-project.org/package=kohonen" class="external-link"><span class="pkg">kohonen</span></a>.</p>
-<p>Each map unit corresponds to a cluster, so the number of clusters is <code>xdim * ydim</code>. Grid dimensions, topology, and
-neighbourhood function are exposed directly as parameters and forwarded to <code><a href="https://rdrr.io/pkg/kohonen/man/unit.distances.html" class="external-link">kohonen::somgrid()</a></code>. The predict method
+<p>Each map unit corresponds to a cluster, so the number of clusters is <code>xdim * ydim</code>. The predict method
 uses <code><a href="https://rdrr.io/pkg/kohonen/man/map.kohonen.html" class="external-link">kohonen::map()</a></code> to assign new data to the closest unit.</p>
     </div>
 
 
+    <div class="section level2">
+    <h2 id="custom-mlr-parameters">Custom mlr3 parameters<a class="anchor" aria-label="anchor" href="#custom-mlr-parameters"></a></h2>
+
+
+<ul><li><p><code>xdim</code>, <code>ydim</code>, <code>topo</code>, <code>neighbourhood.fct</code>, <code>toroidal</code>:</p><ul><li><p>Not arguments of <code><a href="https://rdrr.io/pkg/kohonen/man/supersom.html" class="external-link">kohonen::som()</a></code>. These construct the map grid and are forwarded to <code><a href="https://rdrr.io/pkg/kohonen/man/unit.distances.html" class="external-link">kohonen::somgrid()</a></code>.</p></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
     <h2 id="initial-parameter-values">Initial parameter values<a class="anchor" aria-label="anchor" href="#initial-parameter-values"></a></h2>
 

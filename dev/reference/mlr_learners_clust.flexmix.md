@@ -8,8 +8,11 @@ provides fixed initial assignments,
 [`flexmix::flexmix()`](https://rdrr.io/pkg/flexmix/man/flexmix.html) is
 called instead and `nrep` must not be larger than 1.
 
-The component model is selected through the `model` parameter, exposing
-the multivariate normal, univariate normal, multivariate binary, and
+The `k` parameter is set to 2 by default since
+[`flexmix::stepFlexmix()`](https://rdrr.io/pkg/flexmix/man/stepFlexmix.html)
+doesn't have a default value for the number of components. The component
+model is selected through the `model` parameter, exposing the
+multivariate normal, univariate normal, multivariate binary, and
 multivariate Poisson drivers shipped with flexmix. The predict method
 calls `flexmix::clusters()` for cluster assignments and
 `flexmix::posterior()` for component probabilities on new data.

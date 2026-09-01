@@ -7,6 +7,31 @@ stats.
 Distance calculation is done by
 [`stats::dist()`](https://rdrr.io/r/stats/dist.html).
 
+## Custom mlr3 parameters
+
+- `distmethod`:
+
+  - Not an argument of
+    [`stats::hclust()`](https://rdrr.io/r/stats/hclust.html). The
+    distance measure, passed as `method` to
+    [`stats::dist()`](https://rdrr.io/r/stats/dist.html) when computing
+    the dissimilarity matrix.
+
+- `diag`, `upper`, `p`:
+
+  - Not arguments of
+    [`stats::hclust()`](https://rdrr.io/r/stats/hclust.html). Forwarded
+    to [`stats::dist()`](https://rdrr.io/r/stats/dist.html) when
+    computing the dissimilarity matrix.
+
+- `k`:
+
+  - Not an argument of
+    [`stats::hclust()`](https://rdrr.io/r/stats/hclust.html). The number
+    of clusters to cut the tree into, passed to
+    [`stats::cutree()`](https://rdrr.io/r/stats/cutree.html).
+    Initialized to `2`.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)

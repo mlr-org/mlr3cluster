@@ -60,6 +60,19 @@ Calls <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">
 
 
     <div class="section level2">
+    <h2 id="custom-mlr-parameters">Custom mlr3 parameters<a class="anchor" aria-label="anchor" href="#custom-mlr-parameters"></a></h2>
+
+
+<ul><li><p><code>distmethod</code>:</p><ul><li><p>Not an argument of <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">stats::hclust()</a></code>. The distance measure, passed as <code>method</code> to <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code> when
+computing the dissimilarity matrix.</p></li>
+</ul></li>
+<li><p><code>diag</code>, <code>upper</code>, <code>p</code>:</p><ul><li><p>Not arguments of <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">stats::hclust()</a></code>. Forwarded to <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code> when computing the dissimilarity matrix.</p></li>
+</ul></li>
+<li><p><code>k</code>:</p><ul><li><p>Not an argument of <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">stats::hclust()</a></code>. The number of clusters to cut the tree into,
+passed to <code><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">stats::cutree()</a></code>. Initialized to <code>2</code>.</p></li>
+</ul></li>
+</ul></div>
+    <div class="section level2">
     <h2 id="dictionary">Dictionary<a class="anchor" aria-label="anchor" href="#dictionary"></a></h2>
 
 

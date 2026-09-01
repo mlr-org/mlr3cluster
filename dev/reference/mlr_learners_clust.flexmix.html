@@ -9,6 +9,8 @@
 Calls flexmix::stepFlexmix() from package flexmix, which runs nrep EM repetitions and keeps the
 best fit. When cluster provides fixed initial assignments, flexmix::flexmix() is called instead and nrep
 must not be larger than 1.
+The k parameter is set to 2 by default since flexmix::stepFlexmix() doesn't have a default value for the number
+of components.
 The component model is selected through the model parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 The predict method calls flexmix::clusters() for cluster assignments and flexmix::posterior() for component
@@ -18,6 +20,8 @@ components may be smaller than k."><meta property="og:description" content="Fini
 Calls flexmix::stepFlexmix() from package flexmix, which runs nrep EM repetitions and keeps the
 best fit. When cluster provides fixed initial assignments, flexmix::flexmix() is called instead and nrep
 must not be larger than 1.
+The k parameter is set to 2 by default since flexmix::stepFlexmix() doesn't have a default value for the number
+of components.
 The component model is selected through the model parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 The predict method calls flexmix::clusters() for cluster assignments and flexmix::posterior() for component
@@ -71,7 +75,9 @@ components may be smaller than k."><meta property="og:image" content="https://ml
 Calls <code><a href="https://rdrr.io/pkg/flexmix/man/stepFlexmix.html" class="external-link">flexmix::stepFlexmix()</a></code> from package <a href="https://CRAN.R-project.org/package=flexmix" class="external-link"><span class="pkg">flexmix</span></a>, which runs <code>nrep</code> EM repetitions and keeps the
 best fit. When <code>cluster</code> provides fixed initial assignments, <code><a href="https://rdrr.io/pkg/flexmix/man/flexmix.html" class="external-link">flexmix::flexmix()</a></code> is called instead and <code>nrep</code>
 must not be larger than 1.</p>
-<p>The component model is selected through the <code>model</code> parameter, exposing the multivariate normal, univariate normal,
+<p>The <code>k</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/flexmix/man/stepFlexmix.html" class="external-link">flexmix::stepFlexmix()</a></code> doesn't have a default value for the number
+of components.
+The component model is selected through the <code>model</code> parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 The predict method calls <code>flexmix::clusters()</code> for cluster assignments and <code>flexmix::posterior()</code> for component
 probabilities on new data.</p>

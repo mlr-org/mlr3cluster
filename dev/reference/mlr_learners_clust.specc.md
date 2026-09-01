@@ -6,13 +6,19 @@ package [kernlab](https://CRAN.R-project.org/package=kernlab).
 
 The `centers` parameter is set to 2 by default since
 [`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html) doesn't
-have a default value for the number of clusters. Kernel parameters have
-to be passed directly and not by using the `kpar` list in
-[`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html).
+have a default value for the number of clusters.
 
 There is no predict method for
 [`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html), so the
 method returns cluster labels for the training data.
+
+## Custom mlr3 parameters
+
+- `sigma`, `degree`, `scale`, `offset`, `order`:
+
+  - In [`kernlab::specc()`](https://rdrr.io/pkg/kernlab/man/specc.html),
+    these kernel parameters are passed inside the `kpar` list. Here they
+    are exposed directly and assembled into `kpar` internally.
 
 ## Dictionary
 

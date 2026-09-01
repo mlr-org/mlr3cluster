@@ -5,12 +5,18 @@ Self-organizing map (Kohonen network) clustering. Calls
 package [kohonen](https://CRAN.R-project.org/package=kohonen).
 
 Each map unit corresponds to a cluster, so the number of clusters is
-`xdim * ydim`. Grid dimensions, topology, and neighbourhood function are
-exposed directly as parameters and forwarded to
-[`kohonen::somgrid()`](https://rdrr.io/pkg/kohonen/man/unit.distances.html).
-The predict method uses
+`xdim * ydim`. The predict method uses
 [`kohonen::map()`](https://rdrr.io/pkg/kohonen/man/map.kohonen.html) to
 assign new data to the closest unit.
+
+## Custom mlr3 parameters
+
+- `xdim`, `ydim`, `topo`, `neighbourhood.fct`, `toroidal`:
+
+  - Not arguments of
+    [`kohonen::som()`](https://rdrr.io/pkg/kohonen/man/supersom.html).
+    These construct the map grid and are forwarded to
+    [`kohonen::somgrid()`](https://rdrr.io/pkg/kohonen/man/unit.distances.html).
 
 ## Initial parameter values
 

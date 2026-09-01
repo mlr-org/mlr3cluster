@@ -8,14 +8,14 @@
 </script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Kernel K-Means Clustering Learner — mlr_learners_clust.kkmeans"><meta name="description" content="Kernel k-means clustering.
 Calls kernlab::kkmeans() from package kernlab.
 The centers parameter is set to 2 by default since kernlab::kkmeans() doesn't have a default value for the number
-of clusters. Kernel parameters have to be passed directly and not by using the kpar list in kernlab::kkmeans().
+of clusters.
 The predict method assigns each new observation to the cluster whose centroid is nearest in the kernel-induced
 feature space, computed from the stored training data. The model is therefore a list containing the fitted
 kernlab::kkmeans() object along with the training data and per-cluster kernel statistics.
 The task must have at least 2 features."><meta property="og:description" content="Kernel k-means clustering.
 Calls kernlab::kkmeans() from package kernlab.
 The centers parameter is set to 2 by default since kernlab::kkmeans() doesn't have a default value for the number
-of clusters. Kernel parameters have to be passed directly and not by using the kpar list in kernlab::kkmeans().
+of clusters.
 The predict method assigns each new observation to the cluster whose centroid is nearest in the kernel-induced
 feature space, computed from the stored training data. The model is therefore a list containing the fitted
 kernlab::kkmeans() object along with the training data and per-cluster kernel statistics.
@@ -66,7 +66,7 @@ The task must have at least 2 features."><meta property="og:image" content="http
     <p>Kernel k-means clustering.
 Calls <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code> from package <a href="https://CRAN.R-project.org/package=kernlab" class="external-link"><span class="pkg">kernlab</span></a>.</p>
 <p>The <code>centers</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code> doesn't have a default value for the number
-of clusters. Kernel parameters have to be passed directly and not by using the <code>kpar</code> list in <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code>.
+of clusters.
 The predict method assigns each new observation to the cluster whose centroid is nearest in the kernel-induced
 feature space, computed from the stored training data. The model is therefore a list containing the fitted
 <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code> object along with the training data and per-cluster kernel statistics.
@@ -74,6 +74,14 @@ The task must have at least 2 features.</p>
     </div>
 
 
+    <div class="section level2">
+    <h2 id="custom-mlr-parameters">Custom mlr3 parameters<a class="anchor" aria-label="anchor" href="#custom-mlr-parameters"></a></h2>
+
+
+<ul><li><p><code>sigma</code>, <code>degree</code>, <code>scale</code>, <code>offset</code>, <code>order</code>:</p><ul><li><p>In <code><a href="https://rdrr.io/pkg/kernlab/man/kkmeans.html" class="external-link">kernlab::kkmeans()</a></code>, these kernel parameters are passed inside the <code>kpar</code> list. Here they are exposed
+directly and assembled into <code>kpar</code> internally.</p></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
     <h2 id="dictionary">Dictionary<a class="anchor" aria-label="anchor" href="#dictionary"></a></h2>
 
