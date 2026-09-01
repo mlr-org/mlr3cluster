@@ -11,7 +11,7 @@ the predicted partition and cluster probability.
 library(mlr3)
 library(mlr3cluster)
 task = tsk("usarrests")
-learner = lrn("clust.kmeans")
+learner = lrn("clust.featureless", num_clusters = 2L)
 p = learner$train(task)$predict(task)
 p$predict_types
 head(as.data.table(p))

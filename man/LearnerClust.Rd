@@ -40,7 +40,7 @@ ids = mlr_learners$keys("^clust")
 ids
 
 # get a specific learner from mlr_learners:
-learner = lrn("clust.kmeans")
+learner = lrn("clust.featureless")
 print(learner)
 }
 \section{Super class}{

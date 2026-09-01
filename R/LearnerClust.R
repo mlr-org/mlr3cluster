@@ -42,7 +42,7 @@
 #' ids
 #'
 #' # get a specific learner from mlr_learners:
-#' learner = lrn("clust.kmeans")
+#' learner = lrn("clust.featureless")
 #' print(learner)
 LearnerClust = R6Class(
   "LearnerClust",
