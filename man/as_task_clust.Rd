@@ -4,6 +4,7 @@
 \alias{as_task_clust}
 \alias{as_task_clust.TaskClust}
 \alias{as_task_clust.data.frame}
+\alias{as_task_clust.matrix}
 \alias{as_task_clust.DataBackend}
 \alias{as_task_clust.formula}
 \title{Convert to a Cluster Task}
@@ -13,6 +14,8 @@ as_task_clust(x, ...)
 \method{as_task_clust}{TaskClust}(x, clone = FALSE, ...)
 
 \method{as_task_clust}{data.frame}(x, id = deparse1(substitute(x)), ...)
+
+\method{as_task_clust}{matrix}(x, id = deparse1(substitute(x)), ...)
 
 \method{as_task_clust}{DataBackend}(x, id = deparse1(substitute(x)), ...)
 
@@ -43,7 +46,8 @@ Convert object to a \link{TaskClust}.
 This is a S3 generic, specialized for at least the following objects:
 \enumerate{
 \item \link{TaskClust}: ensure the identity.
-\item \code{\link[=data.frame]{data.frame()}} and \link[mlr3:DataBackend]{mlr3::DataBackend}: provides an alternative to calling constructor of \link{TaskClust}.
+\item \code{\link[=data.frame]{data.frame()}}, \code{\link[=matrix]{matrix()}} and \link[mlr3:DataBackend]{mlr3::DataBackend}: provides an alternative to calling constructor of
+\link{TaskClust}.
 }
 }
 \examples{

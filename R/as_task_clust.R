@@ -5,7 +5,8 @@
 #' This is a S3 generic, specialized for at least the following objects:
 #'
 #' 1. [TaskClust]: ensure the identity.
-#' 2. [data.frame()] and [mlr3::DataBackend]: provides an alternative to calling constructor of [TaskClust].
+#' 2. [data.frame()], [matrix()] and [mlr3::DataBackend]: provides an alternative to calling constructor of
+#'    [TaskClust].
 #'
 #' @inheritParams mlr3::as_task
 #'
@@ -39,6 +40,16 @@ as_task_clust.data.frame = function(x, id = deparse1(substitute(x)), ...) {
   }
 
   TaskClust$new(id = id, backend = x)
+}
+
+#' @rdname as_task_clust
+#' @export
+as_task_clust.matrix = function(x, id = deparse1(substitute(x)), ...) {
+  force(id)
+
+  assert_matrix(x, col.names = "unique", min.rows = 1L, min.cols = 1L)
+
+  as_task_clust(as.data.table(x), id = id, ...)
 }
 
 #' @rdname as_task_clust
