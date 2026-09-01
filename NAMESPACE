@@ -59,6 +59,7 @@ export(LearnerClustXMeans)
 export(MeasureClust)
 export(PredictionClust)
 export(TaskClust)
+export(TaskGeneratorBlobs)
 export(as_prediction_clust)
 export(as_task_clust)
 import(checkmate)
@@ -71,6 +72,7 @@ importFrom(cluster,silhouette)
 importFrom(stats,
   model.frame,
   predict,
+  rnorm,
   runif,
   terms
 )

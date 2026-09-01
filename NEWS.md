@@ -1,5 +1,6 @@
 # mlr3cluster (development version)
 
+* New task generator `tgen("blobs")` for isotropic Gaussian blobs with configurable number of clusters `k`, dimensions `d`, and within-cluster standard deviation `sd`. It is the first generator in `mlr_task_generators` that produces a `TaskClust`.
 * `as_task_clust()` now supports matrices.
 
 * `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support `mlr3::set_threads()`. Their thread-count parameters are initialized to 1 instead of using all available cores.

@@ -47,7 +47,10 @@ reference:
       - starts_with("mlr_measures_clust")
   - title: Tasks
     contents:
-      - starts_with("mlr_task")
+      - starts_with("mlr_tasks")
+  - title: Task Generators
+    contents:
+      - starts_with("mlr_task_generators")
   - title: General
     contents:
       - MeasureClust

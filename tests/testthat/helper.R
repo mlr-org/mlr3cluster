@@ -5,9 +5,8 @@ walk(
 )
 generate_tasks.LearnerClust = function(learner, N = 20L) {
   set.seed(1L)
-  centers = sample(c(-sqrt(2), sqrt(2)), N, replace = TRUE)
-  x = matrix(stats::rnorm(2L * N, sd = 0.1), ncol = 2L) + centers
-  task = TaskClust$new("sanity", as_data_backend(as.data.frame(x)))
+  task = tgen("blobs", k = 2L, d = 2L, sd = 0.1, center_box = 10)$generate(N)
+  task$id = "sanity"
   list(task)
 }
 

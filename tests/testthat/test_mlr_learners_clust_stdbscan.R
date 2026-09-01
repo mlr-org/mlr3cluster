@@ -1,5 +1,4 @@
 skip_if_not_installed("stdbscan")
-skip_if_not_installed("mlbench")
 
 test_that("autotest", {
   learner = lrn("clust.stdbscan", eps_spatial = 1, eps_temporal = 10, min_pts = 2L)
@@ -7,8 +6,7 @@ test_that("autotest", {
 
   generate_tasks.LearnerClustSTDBSCAN = function(learner, N = 20L) {
     set.seed(1L)
-    data = mlbench::mlbench.2dnormals(N, cl = 2L, r = 2, sd = 0.1)
-    dt = as.data.frame(data$x)
+    dt = tgen("blobs", k = 2L, d = 2L, sd = 0.1, center_box = 10)$generate(N)$data()
     # third column (alphabetically) must be non-negative cumulative time
     dt$z = seq_len(N)
     task = TaskClust$new("sanity", mlr3::as_data_backend(dt))
