@@ -64,7 +64,7 @@ LearnerClustMclust = R6Class(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       with_package("mclust", {
-        m = invoke(mclust::Mclust, data = task$data(), .args = pv)
+        m = invoke(mclust::Mclust, data = task$data(), .args = pv, .opts = allow_partial_matching)
       })
       if (self$save_assignments) {
         self$assignments = as.integer(m$classification)
@@ -73,7 +73,12 @@ LearnerClustMclust = R6Class(
     },
 
     .predict = function(task) {
-      predictions = invoke(predict, self$model, newdata = ordered_features(task, self))
+      predictions = invoke(
+        predict,
+        self$model,
+        newdata = ordered_features(task, self),
+        .opts = allow_partial_matching
+      )
       partition = as.integer(predictions$classification)
       prob = NULL
       if (self$predict_type == "prob") {

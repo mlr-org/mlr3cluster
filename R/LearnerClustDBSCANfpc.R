@@ -57,7 +57,7 @@ LearnerClustDBSCANfpc = R6Class(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       data = task$data()
-      m = invoke(fpc::dbscan, data = data, .args = pv)
+      m = invoke(fpc::dbscan, data = data, .args = pv, .opts = allow_partial_matching)
       m = insert_named(m, list(data = data))
       if (self$save_assignments) {
         self$assignments = m$cluster
@@ -78,7 +78,8 @@ LearnerClustDBSCANfpc = R6Class(
         predict,
         self$model,
         data = self$model$data,
-        newdata = ordered_features(task, self)
+        newdata = ordered_features(task, self),
+        .opts = allow_partial_matching
       ))
       list(partition = partition)
     }

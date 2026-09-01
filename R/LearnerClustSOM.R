@@ -78,15 +78,22 @@ LearnerClustSOM = R6Class(
       pv$grid = invoke(kohonen::somgrid, .args = grid_args)
 
       data = as_numeric_matrix(task$data())
-      m = invoke(kohonen::som, X = data, .args = pv)
+      m = invoke(kohonen::som, X = data, .args = pv, .opts = allow_partial_matching)
       if (self$save_assignments) {
-        self$assignments = as.integer(m$unit.classif %??% invoke(kohonen::map, m, newdata = data)$unit.classif)
+        self$assignments = as.integer(
+          m$unit.classif %??% invoke(kohonen::map, m, newdata = data, .opts = allow_partial_matching)$unit.classif
+        )
       }
       m
     },
 
     .predict = function(task) {
-      p = invoke(kohonen::map, self$model, newdata = as_numeric_matrix(ordered_features(task, self)))
+      p = invoke(
+        kohonen::map,
+        self$model,
+        newdata = as_numeric_matrix(ordered_features(task, self)),
+        .opts = allow_partial_matching
+      )
       list(partition = as.integer(p$unit.classif))
     }
   )
