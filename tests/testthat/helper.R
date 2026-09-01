@@ -5,8 +5,9 @@ walk(
 )
 generate_tasks.LearnerClust = function(learner, N = 20L) {
   set.seed(1L)
-  data = mlbench::mlbench.2dnormals(N, cl = 2L, r = 2, sd = 0.1)
-  task = TaskClust$new("sanity", mlr3::as_data_backend(as.data.frame(data$x)))
+  centers = sample(c(-sqrt(2), sqrt(2)), N, replace = TRUE)
+  x = matrix(stats::rnorm(2L * N, sd = 0.1), ncol = 2L) + centers
+  task = TaskClust$new("sanity", as_data_backend(as.data.frame(x)))
   list(task)
 }
 

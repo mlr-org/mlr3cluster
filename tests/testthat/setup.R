@@ -13,4 +13,6 @@ old_plan = future::plan()
 lg$set_threshold(0)
 future::plan("sequential")
 
-mirai::daemons(1, .compute = "mlr3_encapsulation")
+if (requireNamespace("mirai", quietly = TRUE)) {
+  mirai::daemons(1, .compute = "mlr3_encapsulation")
+}

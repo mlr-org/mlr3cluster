@@ -2,4 +2,6 @@ options(old_opts)
 lg = lgr::get_logger("mlr3")
 lg$set_threshold(old_threshold)
 future::plan(old_plan)
-mirai::daemons(0, .compute = "mlr3_encapsulation")
+if (requireNamespace("mirai", quietly = TRUE)) {
+  mirai::daemons(0, .compute = "mlr3_encapsulation")
+}

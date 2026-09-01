@@ -1,4 +1,5 @@
 skip_if_not_installed("stdbscan")
+skip_if_not_installed("mlbench")
 
 test_that("autotest", {
   learner = lrn("clust.stdbscan", eps_spatial = 1, eps_temporal = 10, min_pts = 2L)
