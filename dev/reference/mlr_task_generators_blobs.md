@@ -135,7 +135,7 @@ str(task$data())
 #> Classes ‘data.table’ and 'data.frame':   200 obs. of  2 variables:
 #>  $ x1: num  -1.9 -11.38 -1.78 -3.96 -10.63 ...
 #>  $ x2: num  2.824 1.495 -8.203 0.767 0.372 ...
-#>  - attr(*, ".internal.selfref")=<pointer: 0x5595ac873a30> 
+#>  - attr(*, ".internal.selfref")=<pointer: 0x555e54601a30> 
 
 # 4 well separated clusters in 3 dimensions
 generator = tgen("blobs", k = 4, d = 3, sd = 0.5)
