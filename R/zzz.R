@@ -5,11 +5,12 @@
 #' @import paradox
 #' @importFrom cluster silhouette
 #' @importFrom R6 R6Class
-#' @importFrom stats model.frame predict runif terms
+#' @importFrom stats model.frame predict rnorm runif terms
 "_PACKAGE"
 
 mlr3cluster_tasks = new.env(parent = emptyenv())
 mlr3cluster_learners = new.env(parent = emptyenv())
+mlr3cluster_task_generators = new.env(parent = emptyenv())
 
 register_task = function(name, constructor) {
   if (name %chin% names(mlr3cluster_tasks)) {
@@ -23,6 +24,13 @@ register_learner = function(name, constructor) {
     stopf("learner %s registered twice.", name)
   }
   mlr3cluster_learners[[name]] = constructor
+}
+
+register_task_generator = function(name, constructor) {
+  if (name %chin% names(mlr3cluster_task_generators)) {
+    stopf("task generator %s registered twice.", name)
+  }
+  mlr3cluster_task_generators[[name]] = constructor
 }
 
 register_mlr3 = function(...) {
@@ -58,6 +66,10 @@ register_mlr3 = function(...) {
   mlr_tasks = utils::getFromNamespace("mlr_tasks", ns = "mlr3")
   iwalk(as.list(mlr3cluster_tasks), function(task, id) mlr_tasks$add(id, task))
 
+  # task generators
+  mlr_task_generators = utils::getFromNamespace("mlr_task_generators", ns = "mlr3")
+  iwalk(as.list(mlr3cluster_task_generators), function(generator, id) mlr_task_generators$add(id, generator))
+
   # learners
   mlr_learners = utils::getFromNamespace("mlr_learners", ns = "mlr3")
   iwalk(as.list(mlr3cluster_learners), function(learner, id) mlr_learners$add(id, learner))
@@ -78,6 +90,7 @@ register_mlr3 = function(...) {
 
 .onUnload = function(libpath) {
   walk(names(mlr3cluster_tasks), function(id) mlr_tasks$remove(id))
+  walk(names(mlr3cluster_task_generators), function(id) mlr_task_generators$remove(id))
   walk(names(mlr3cluster_learners), function(id) mlr_learners$remove(id))
   mlr_measures$remove("clust.silhouette")
   walk(names(measures), function(id) mlr_measures$remove(paste("clust", id, sep = ".")))
