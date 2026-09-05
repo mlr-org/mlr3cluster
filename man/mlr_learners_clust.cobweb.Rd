@@ -34,6 +34,7 @@ lrn("clust.cobweb")
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    A \tab numeric \tab 1 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    C \tab numeric \tab 0.002820948 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   save_data \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    S \tab integer \tab 42 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    do_not_check_capabilities \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr

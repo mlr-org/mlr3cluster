@@ -18,7 +18,8 @@ test_that("Learner properties are respected", {
     list(I = 200L, num_slots = 5L),
     list(output_debug_info = TRUE, K = 5L),
     list(M = 1e-3, ll_iter = 1L, ll_cv = 1L),
-    list(do_not_check_capabilities = TRUE)
+    list(do_not_check_capabilities = TRUE),
+    list(O = TRUE)
   )
 
   for (type in c("partition", "prob")) {

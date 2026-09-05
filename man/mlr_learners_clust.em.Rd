@@ -44,6 +44,7 @@ lrn("clust.em")
    X \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    K \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    V \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   O \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    do_not_check_capabilities \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
 }

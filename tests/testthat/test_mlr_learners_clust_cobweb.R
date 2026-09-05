@@ -20,7 +20,8 @@ test_that("Learner properties are respected", {
     list(S = 100L),
     list(S = 0L),
     list(output_debug_info = TRUE),
-    list(do_not_check_capabilities = TRUE)
+    list(do_not_check_capabilities = TRUE),
+    list(save_data = TRUE)
   )
 
   for (parset in parset_list) {
