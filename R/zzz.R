@@ -12,26 +12,18 @@ mlr3cluster_tasks = new.env(parent = emptyenv())
 mlr3cluster_learners = new.env(parent = emptyenv())
 mlr3cluster_task_generators = new.env(parent = emptyenv())
 
-register_task = function(name, constructor) {
-  if (name %chin% names(mlr3cluster_tasks)) {
-    stopf("task %s registered twice.", name)
+register_item = function(env, type) {
+  function(name, constructor) {
+    if (name %chin% names(env)) {
+      stopf("%s %s registered twice.", type, name)
+    }
+    env[[name]] = constructor
   }
-  mlr3cluster_tasks[[name]] = constructor
 }
 
-register_learner = function(name, constructor) {
-  if (name %chin% names(mlr3cluster_learners)) {
-    stopf("learner %s registered twice.", name)
-  }
-  mlr3cluster_learners[[name]] = constructor
-}
-
-register_task_generator = function(name, constructor) {
-  if (name %chin% names(mlr3cluster_task_generators)) {
-    stopf("task generator %s registered twice.", name)
-  }
-  mlr3cluster_task_generators[[name]] = constructor
-}
+register_task = register_item(mlr3cluster_tasks, "task")
+register_learner = register_item(mlr3cluster_learners, "learner")
+register_task_generator = register_item(mlr3cluster_task_generators, "task generator")
 
 register_mlr3 = function(...) {
   # reflections
