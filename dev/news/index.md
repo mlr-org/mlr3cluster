@@ -2,6 +2,11 @@
 
 ## mlr3cluster (development version)
 
+- New task generator `tgen("blobs")` for isotropic Gaussian blobs with
+  configurable number of clusters `k`, dimensions `d`, and
+  within-cluster standard deviation `sd`. It is the first generator in
+  `mlr_task_generators` that produces a `TaskClust`.
+
 - [`as_task_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
   now supports matrices.
 

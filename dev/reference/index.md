@@ -154,6 +154,12 @@
 - [`mlr_tasks_usarrests`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_usarrests.md)
   : US Arrests Cluster Task
 
+## Task Generators
+
+- [`mlr_task_generators_blobs`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_blobs.md)
+  [`TaskGeneratorBlobs`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_blobs.md)
+  : Gaussian Blobs Cluster Task Generator
+
 ## General
 
 - [`MeasureClust`](https://mlr3cluster.mlr-org.com/dev/reference/MeasureClust.md)
