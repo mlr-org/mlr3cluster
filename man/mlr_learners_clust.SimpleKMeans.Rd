@@ -49,6 +49,7 @@ lrn("clust.SimpleKMeans")
    t1 \tab numeric \tab -1.25 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
    V \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   do_not_check_capabilities \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
 }
 }
 

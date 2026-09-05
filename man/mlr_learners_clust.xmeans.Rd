@@ -48,6 +48,7 @@ lrn("clust.xmeans")
    O \tab untyped \tab - \tab  \tab - \cr
    Y \tab untyped \tab - \tab  \tab - \cr
    output_debug_info \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
+   do_not_check_capabilities \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
 }
 }
 

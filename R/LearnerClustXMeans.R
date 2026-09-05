@@ -40,7 +40,8 @@ LearnerClustXMeans = R6Class(
         N = p_uty(tags = "train"),
         O = p_uty(tags = "train"),
         Y = p_uty(tags = "train"),
-        output_debug_info = p_lgl(default = FALSE, tags = "train")
+        output_debug_info = p_lgl(default = FALSE, tags = "train"),
+        do_not_check_capabilities = p_lgl(default = FALSE, tags = "train")
       )
 
       super$initialize(

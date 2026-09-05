@@ -37,7 +37,8 @@ LearnerClustEM = R6Class(
         X = p_int(1L, default = 10L, tags = "train"),
         K = p_int(1L, default = 10L, tags = "train"),
         V = p_lgl(default = FALSE, tags = "train"),
-        output_debug_info = p_lgl(default = FALSE, tags = "train")
+        output_debug_info = p_lgl(default = FALSE, tags = "train"),
+        do_not_check_capabilities = p_lgl(default = FALSE, tags = "train")
       )
 
       super$initialize(

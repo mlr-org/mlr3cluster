@@ -41,7 +41,8 @@ LearnerClustSimpleKMeans = R6Class(
         t2 = p_dbl(default = -1, tags = "train"),
         t1 = p_dbl(default = -1.25, tags = "train"),
         V = p_lgl(default = FALSE, tags = "train"),
-        output_debug_info = p_lgl(default = FALSE, tags = "train")
+        output_debug_info = p_lgl(default = FALSE, tags = "train"),
+        do_not_check_capabilities = p_lgl(default = FALSE, tags = "train")
       )
 
       super$initialize(

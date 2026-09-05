@@ -17,7 +17,8 @@ test_that("Learner properties are respected", {
   parset_list = list(
     list(use_kdtree = TRUE),
     list(L = 2L),
-    list(I = 5L)
+    list(I = 5L),
+    list(do_not_check_capabilities = TRUE)
   )
 
   for (parset in parset_list) {
