@@ -40,6 +40,7 @@ test_that("blobs generator is reproducible", {
 })
 
 test_that("blobs generator generates separated clusters", {
+  skip_if_not_installed("clue")
   set.seed(1L)
   task = tgen("blobs", k = 2L, d = 2L, sd = 0.1, center_box = 5)$generate(50L)
   learner = lrn("clust.kmeans", centers = 2L)
