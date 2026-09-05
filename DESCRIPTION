@@ -48,7 +48,6 @@ Suggests:
     LPCM,
     mclust,
     mirai (>= 2.4.1),
-    mlbench,
     movMF,
     mvtnorm,
     protoclust,
