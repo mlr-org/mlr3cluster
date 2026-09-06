@@ -13,6 +13,13 @@
   converters in mlr3.
 - [`as_tasks_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
   converts a `TaskClust` or a list of objects to a list of `TaskClust`.
+- [`default_fallback()`](https://mlr3.mlr-org.com/reference/default_fallback.html)
+  now returns a `clust.featureless` learner with the matching predict
+  type for cluster learners, so
+  [`resample()`](https://mlr3.mlr-org.com/reference/resample.html) and
+  [`benchmark()`](https://mlr3.mlr-org.com/reference/benchmark.html)
+  work with the `encapsulate` argument. Previously they failed with
+  “Could not find default fallback learner”.
 - [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
   now stores columns other than `row_ids`, `partition`, `weights`, and
   `prob.*` as extra data instead of rejecting them, so
@@ -33,6 +40,15 @@
   `Mlr3ErrorLearnerPredict` with the number of missing or surplus
   observations when the length of `partition`, `prob`, or `weights` does
   not match `row_ids`, matching mlr3.
+- `clust.featureless` now accepts all feature types supported by mlr3
+  tasks and declares the `"featureless"` property, since it never uses
+  the feature values. Previously it rejected tasks with character,
+  factor, ordered, date, or time features.
+- Cluster learners can now declare the standard mlr3 learner properties
+  such as `"featureless"`, `"weights"`, `"importance"`, and
+  `"selected_features"`. Previously
+  `mlr_reflections$learner_properties$clust` only allowed `"missings"`
+  and `"marshal"` besides the clustering-specific properties.
 - `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and
   `clust.xmeans` now expose Weka’s `do_not_check_capabilities`
   parameter. `clust.cobweb` also exposes `save_data`, and `clust.em`

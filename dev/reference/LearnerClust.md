@@ -264,8 +264,9 @@ print(learner)
 #> • Parameters: num_clusters=1
 #> • Packages: mlr3 and mlr3cluster
 #> • Predict Types: [partition] and prob
-#> • Feature Types: logical, integer, and numeric
+#> • Feature Types: logical, integer, numeric, character, factor, ordered,
+#> POSIXct, and Date
 #> • Encapsulation: none (fallback: -)
-#> • Properties: complete, exclusive, missings, and partitional
+#> • Properties: complete, exclusive, featureless, missings, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'
 ```
