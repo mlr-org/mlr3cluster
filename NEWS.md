@@ -4,6 +4,7 @@
 * `as_task_clust()` now supports matrices.
 * `as_task_clust()` gained a `label` argument for all methods, matching the `as_task_*()` converters in mlr3.
 * `as_tasks_clust()` converts a `TaskClust` or a list of objects to a list of `TaskClust`.
+* `PredictionClust` now signals an error of class `Mlr3ErrorLearnerPredict` with the number of missing or surplus observations when the length of `partition`, `prob`, or `weights` does not match `row_ids`, matching mlr3.
 * `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and `clust.xmeans` now expose Weka's `do_not_check_capabilities` parameter. `clust.cobweb` also exposes `save_data`, and `clust.em` exposes `O`.
 * `clust.em` and `clust.SimpleKMeans` now support `mlr3::set_threads()` through their `num_slots` parameter.
 * `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support `mlr3::set_threads()`. Their thread-count parameters are initialized to 1 instead of using all available cores.

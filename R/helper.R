@@ -35,6 +35,25 @@ check_centers = function(x) {
   }
 }
 
+assert_prediction_count = function(actual, expected, type) {
+  if (actual != expected) {
+    if (actual < expected) {
+      error_learner_predict(
+        "Predicted %s not complete, %s for %i observations is missing",
+        type,
+        type,
+        expected - actual
+      )
+    } else {
+      error_learner_predict(
+        "Predicted %s contains %i additional predictions without matching rows",
+        type,
+        actual - expected
+      )
+    }
+  }
+}
+
 row_any_na = function(x) {
   if (!anyNA(x)) {
     return(logical(nrow(x)))

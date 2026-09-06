@@ -7,23 +7,21 @@ as_prediction.PredictionDataClust = function(x, check = TRUE, ...) {
 check_prediction_data.PredictionDataClust = function(pdata, ...) {
   pdata$row_ids = assert_row_ids(pdata$row_ids)
   n = length(pdata$row_ids)
-  pdata$partition = assert_integerish(
-    pdata$partition,
-    len = n,
-    any.missing = FALSE,
-    null.ok = TRUE,
-    coerce = TRUE
-  )
+  if (!is.null(pdata$partition)) {
+    pdata$partition = assert_integerish(pdata$partition, any.missing = FALSE, coerce = TRUE)
+    assert_prediction_count(length(pdata$partition), n, "partition")
+  }
 
   if (!is.null(pdata$weights)) {
     # weights may never be NA, even if no prediction was made
-    pdata$weights = assert_numeric(unname(pdata$weights), len = n, any.missing = FALSE)
+    pdata$weights = assert_numeric(unname(pdata$weights), any.missing = FALSE)
+    assert_prediction_count(length(pdata$weights), n, "weights")
   }
 
   prob = pdata$prob
   if (!is.null(prob)) {
-    # need to check number of columns for matrix
-    assert_matrix(prob, nrows = n)
+    assert_matrix(prob)
+    assert_prediction_count(nrow(prob), n, "prob")
     assert_numeric(prob, lower = 0, upper = 1)
     if (!is.null(rownames(prob))) {
       rownames(prob) = NULL
