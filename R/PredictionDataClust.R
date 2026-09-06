@@ -93,7 +93,7 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
   tab = map_dtr(dots, function(x) x[elems], .fill = FALSE)
   probs = map(dots, "prob")
   # empty predictions carry a 0-column prob placeholder (k is unknown), so drop 0-row matrices before rbind
-  non_empty = compact(probs)
+  non_empty = discard(probs, function(p) is.null(p) || nrow(p) == 0L)
   prob = if (length(non_empty) > 0L) {
     do.call(rbind, non_empty)
   } else {
