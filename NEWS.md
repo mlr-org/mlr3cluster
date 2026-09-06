@@ -3,6 +3,7 @@
 * New task generator `tgen("blobs")` for isotropic Gaussian blobs with configurable number of clusters `k`, dimensions `d`, and within-cluster standard deviation `sd`. It is the first generator in `mlr_task_generators` that produces a `TaskClust`.
 * `as_task_clust()` now supports matrices.
 * `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and `clust.xmeans` now expose Weka's `do_not_check_capabilities` parameter. `clust.cobweb` also exposes `save_data`, and `clust.em` exposes `O`.
+* `clust.em` and `clust.SimpleKMeans` now support `mlr3::set_threads()` through their `num_slots` parameter.
 * `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support `mlr3::set_threads()`. Their thread-count parameters are initialized to 1 instead of using all available cores.
 
 # mlr3cluster 0.5.0

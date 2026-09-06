@@ -32,7 +32,7 @@ LearnerClustEM = R6Class(
         M = p_dbl(1e-6, default = 1e-6, tags = "train"),
         max = p_int(-1L, default = -1L, tags = "train"),
         N = p_int(-1L, default = -1L, tags = "train"),
-        num_slots = p_int(1L, default = 1L, tags = "train"),
+        num_slots = p_int(1L, default = 1L, tags = c("train", "threads")),
         S = p_int(0L, default = 100L, tags = "train"),
         X = p_int(1L, default = 10L, tags = "train"),
         K = p_int(1L, default = 10L, tags = "train"),
