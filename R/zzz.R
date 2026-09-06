@@ -85,7 +85,7 @@ register_mlr3 = function(...) {
   walk(names(mlr3cluster_task_generators), function(id) mlr_task_generators$remove(id))
   walk(names(mlr3cluster_learners), function(id) mlr_learners$remove(id))
   mlr_measures$remove("clust.silhouette")
-  walk(names(measures), function(id) mlr_measures$remove(paste0("clust.", id)))
+  walk(names(measures), function(id) mlr_measures$remove(paste("clust", id, sep = ".")))
 
   mlr_reflections$task_types = mlr_reflections$task_types[!"clust"]
   reflections = c(
