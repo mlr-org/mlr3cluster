@@ -38,7 +38,7 @@ MeasureClustSimple = R6Class(
       switch(
         private$.input,
         data = {
-          if (any(task$feature_types$type %in% c("character", "factor", "ordered"))) {
+          if (any(task$feature_types$type %chin% c("character", "factor", "ordered"))) {
             error_input(
               "Measure '%s' requires numeric features, but task '%s' has character, factor, or ordered features.",
               self$id,

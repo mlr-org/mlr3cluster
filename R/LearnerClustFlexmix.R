@@ -94,7 +94,7 @@ LearnerClustFlexmix = R6Class(
         driver_args$truncated = pv$truncated
       }
       pv = remove_named(pv, c("model", "diagonal", "truncated"))
-      driver = do.call(getExportedValue("flexmix", model_name), driver_args)
+      driver = invoke(getExportedValue("flexmix", model_name), .args = driver_args)
 
       data = setDF(task$data())
       # multivariate LHS via cbind() so that posterior() can rebuild the design matrix from newdata

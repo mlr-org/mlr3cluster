@@ -84,7 +84,7 @@ LearnerClustMeanShift = R6Class(
       if (!is.null(pv$iter)) {
         args$iter = pv$iter
       }
-      partition = map_int(seq_len(nrow(x)), function(i) {
+      partition = map_int(seq_row(x), function(i) {
         final = invoke(LPCM::ms.rep, x = x[i, ], .args = args)$final
         which_min(rowSums(sweep(m$cluster.center, 2L, final, "-")^2), ties_method = "first")
       })

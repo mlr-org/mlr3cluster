@@ -89,7 +89,7 @@ as_tasks_clust = function(x, ...) {
 #' @rdname as_task_clust
 #' @export
 as_tasks_clust.list = function(x, clone = FALSE, ...) {
-  lapply(x, as_task_clust, clone = clone, ...)
+  map(x, as_task_clust, clone = clone, ...)
 }
 
 #' @rdname as_task_clust

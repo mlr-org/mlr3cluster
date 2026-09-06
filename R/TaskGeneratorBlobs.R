@@ -64,7 +64,7 @@ TaskGeneratorBlobs = R6Class(
     plot = function(n = 200L, pch = 19L, ...) {
       obj = private$.generate_obj(n)
       if (ncol(obj$x) < 2L) {
-        stopf("Plotting requires at least 2 dimensions, but 'd' is %i", ncol(obj$x))
+        error_input("Plotting requires at least 2 dimensions, but 'd' is %i", ncol(obj$x))
       }
       plot(obj$x[, 1L], obj$x[, 2L], col = obj$classes, pch = pch, xlab = "x1", ylab = "x2", ...)
     }

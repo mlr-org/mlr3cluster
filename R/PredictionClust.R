@@ -68,8 +68,7 @@ PredictionClust = R6Class(
         extra = extra,
         raw = raw
       )
-      pdata = discard(pdata, is.null)
-      class(pdata) = c("PredictionDataClust", "PredictionData")
+      pdata = set_class(discard(pdata, is.null), c("PredictionDataClust", "PredictionData"))
 
       if (check) {
         pdata = check_prediction_data(pdata)
@@ -112,7 +111,7 @@ as.data.table.PredictionClust = function(x, ...) {
   }
 
   if (!is.null(x$data$extra)) {
-    tab = cbind(tab, as.data.table(x$data$extra))
+    tab = rcbind(tab, as.data.table(x$data$extra))
   }
 
   tab[]

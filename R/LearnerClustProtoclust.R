@@ -101,7 +101,7 @@ LearnerClustProtoclust = R6Class(
       x = as.matrix(ordered_features(task, self))
       protos = m$data[pc$protos, , drop = FALSE]
       d = invoke(stats::dist, x = rbind(protos, x), .args = self$param_set$get_values(tags = c("train", "dist")))
-      d = as.matrix(d)[-seq_len(nrow(protos)), seq_len(nrow(protos)), drop = FALSE]
+      d = as.matrix(d)[-seq_row(protos), seq_row(protos), drop = FALSE]
       partition = pc$cl[pc$protos][max.col(-d, ties.method = "first")]
 
       list(partition = partition)
