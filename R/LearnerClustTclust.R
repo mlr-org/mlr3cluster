@@ -11,6 +11,8 @@
 #' clusters. There is no predict method for [tclust::tclust()], so the method returns cluster labels for the training
 #' data.
 #'
+#' Setting `n.cores` to a value greater than one enables `parallel` at train time unless it is set explicitly.
+#'
 #' @section Initial parameter values:
 #' - `store_x`:
 #'   - Actual default: `TRUE`.
@@ -77,6 +79,9 @@ LearnerClustTclust = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
+      if (isTRUE(pv$n.cores > 1L) && is.null(pv$parallel)) {
+        pv$parallel = TRUE
+      }
       m = invoke(tclust::tclust, x = as_numeric_matrix(task$data()), .args = pv, .opts = allow_partial_matching)
       if (self$save_assignments) {
         self$assignments = as.integer(m$cluster)

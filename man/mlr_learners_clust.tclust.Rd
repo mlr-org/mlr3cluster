@@ -12,6 +12,8 @@ Calls \code{\link[tclust:tclust]{tclust::tclust()}} from package \CRANpkg{tclust
 The \code{k} parameter is set to 2 by default since \code{\link[tclust:tclust]{tclust::tclust()}} doesn't have a default value for the number of
 clusters. There is no predict method for \code{\link[tclust:tclust]{tclust::tclust()}}, so the method returns cluster labels for the training
 data.
+
+Setting \code{n.cores} to a value greater than one enables \code{parallel} at train time unless it is set explicitly.
 }
 \section{Initial parameter values}{
 

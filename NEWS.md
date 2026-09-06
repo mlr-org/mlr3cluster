@@ -5,6 +5,8 @@
 * `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and `clust.xmeans` now expose Weka's `do_not_check_capabilities` parameter. `clust.cobweb` also exposes `save_data`, and `clust.em` exposes `O`.
 * `clust.em` and `clust.SimpleKMeans` now support `mlr3::set_threads()` through their `num_slots` parameter.
 * `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support `mlr3::set_threads()`. Their thread-count parameters are initialized to 1 instead of using all available cores.
+* `clust.MBatchKMeans` gained the `threads` parameter, which is passed to `ClusterR::predict_KMeans()` and supports `mlr3::set_threads()`.
+* `clust.tclust` now enables `parallel` at train time when `n.cores` is greater than one and `parallel` is not set explicitly, so `mlr3::set_threads()` actually parallelizes training.
 
 # mlr3cluster 0.5.0
 
