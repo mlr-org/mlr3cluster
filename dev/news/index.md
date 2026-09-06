@@ -8,6 +8,15 @@
   `mlr_task_generators` that produces a `TaskClust`.
 - [`as_task_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
   now supports matrices.
+- [`as_task_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
+  gained a `label` argument for all methods, matching the `as_task_*()`
+  converters in mlr3.
+- [`as_tasks_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
+  converts a `TaskClust` or a list of objects to a list of `TaskClust`.
+- `PredictionClust` now signals an error of class
+  `Mlr3ErrorLearnerPredict` with the number of missing or surplus
+  observations when the length of `partition`, `prob`, or `weights` does
+  not match `row_ids`, matching mlr3.
 - `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and
   `clust.xmeans` now expose Weka’s `do_not_check_capabilities`
   parameter. `clust.cobweb` also exposes `save_data`, and `clust.em`

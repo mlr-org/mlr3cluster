@@ -173,6 +173,7 @@
 - [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
   : Convert to a Cluster Prediction
 - [`as_task_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
+  [`as_tasks_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
   : Convert to a Cluster Task
 - [`mlr3cluster`](https://mlr3cluster.mlr-org.com/dev/reference/mlr3cluster-package.md)
   [`mlr3cluster-package`](https://mlr3cluster.mlr-org.com/dev/reference/mlr3cluster-package.md)

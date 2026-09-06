@@ -53,6 +53,12 @@
 <li>
 <code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> now supports matrices.</li>
 <li>
+<code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> gained a <code>label</code> argument for all methods, matching the <code>as_task_*()</code> converters in mlr3.</li>
+<li>
+<code><a href="../reference/as_task_clust.html">as_tasks_clust()</a></code> converts a <code>TaskClust</code> or a list of objects to a list of <code>TaskClust</code>.</li>
+<li>
+<code>PredictionClust</code> now signals an error of class <code>Mlr3ErrorLearnerPredict</code> with the number of missing or surplus observations when the length of <code>partition</code>, <code>prob</code>, or <code>weights</code> does not match <code>row_ids</code>, matching mlr3.</li>
+<li>
 <code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.SimpleKMeans</code>, and <code>clust.xmeans</code> now expose Weka’s <code>do_not_check_capabilities</code> parameter. <code>clust.cobweb</code> also exposes <code>save_data</code>, and <code>clust.em</code> exposes <code>O</code>.</li>
 <li>
 <code>clust.em</code> and <code>clust.SimpleKMeans</code> now support <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code> through their <code>num_slots</code> parameter.</li>

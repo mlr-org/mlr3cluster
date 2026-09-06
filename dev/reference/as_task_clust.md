@@ -1,16 +1,19 @@
 # Convert to a Cluster Task
 
 Convert object to a
+[TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)
+or a list of
 [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md).
 This is a S3 generic, specialized for at least the following objects:
 
 1.  [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md):
-    ensure the identity.
+    returns the object as-is, possibly cloned.
 
-2.  [`data.frame()`](https://rdrr.io/r/base/data.frame.html),
-    [`matrix()`](https://rdrr.io/r/base/matrix.html) and
+2.  [`formula`](https://rdrr.io/r/stats/formula.html),
+    [`data.frame()`](https://rdrr.io/r/base/data.frame.html),
+    [`matrix()`](https://rdrr.io/r/base/matrix.html), and
     [mlr3::DataBackend](https://mlr3.mlr-org.com/reference/DataBackend.html):
-    provides an alternative to calling constructor of
+    provides an alternative to the constructor of
     [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md).
 
 ## Usage
@@ -22,16 +25,30 @@ as_task_clust(x, ...)
 as_task_clust(x, clone = FALSE, ...)
 
 # S3 method for class 'data.frame'
-as_task_clust(x, id = deparse1(substitute(x)), ...)
+as_task_clust(x, id = deparse1(substitute(x)), label = NA_character_, ...)
 
 # S3 method for class 'matrix'
-as_task_clust(x, id = deparse1(substitute(x)), ...)
+as_task_clust(x, id = deparse1(substitute(x)), label = NA_character_, ...)
 
 # S3 method for class 'DataBackend'
-as_task_clust(x, id = deparse1(substitute(x)), ...)
+as_task_clust(x, id = deparse1(substitute(x)), label = NA_character_, ...)
 
 # S3 method for class 'formula'
-as_task_clust(x, data, id = deparse1(substitute(data)), ...)
+as_task_clust(
+  x,
+  data,
+  id = deparse1(substitute(data)),
+  label = NA_character_,
+  ...
+)
+
+as_tasks_clust(x, ...)
+
+# S3 method for class 'list'
+as_tasks_clust(x, clone = FALSE, ...)
+
+# S3 method for class 'TaskClust'
+as_tasks_clust(x, clone = FALSE, ...)
 ```
 
 ## Arguments
@@ -57,6 +74,11 @@ as_task_clust(x, data, id = deparse1(substitute(data)), ...)
   (`character(1)`)  
   Id for the new task. Defaults to the (deparsed and substituted) name
   of the data argument.
+
+- label:
+
+  (`character(1)`)  
+  Label for the new instance.
 
 - data:
 
