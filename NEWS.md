@@ -4,6 +4,7 @@
 * `as_task_clust()` now supports matrices.
 * `as_task_clust()` gained a `label` argument for all methods, matching the `as_task_*()` converters in mlr3.
 * `as_tasks_clust()` converts a `TaskClust` or a list of objects to a list of `TaskClust`.
+* `default_fallback()` now returns a `clust.featureless` learner with the matching predict type for cluster learners, so `resample()` and `benchmark()` work with the `encapsulate` argument. Previously they failed with "Could not find default fallback learner".
 * `as_prediction_clust()` now stores columns other than `row_ids`, `partition`, `weights`, and `prob.*` as extra data instead of rejecting them, so `as.data.table()` and `as_prediction_clust()` round-trip predictions with extra data.
 * `PredictionClust` gained the `extra` and `raw` fields introduced in mlr3 1.3.0 and 1.6.0. Cluster learners can return extra data and the raw upstream prediction from `$.predict()`, and both are carried through filtering and combining predictions.
 * `PredictionClust` objects with a different number of clusters can no longer be combined with `c()` when one of them is empty. The error is now an `Mlr3ErrorInput` with an informative message instead of a base R error from `rbind()`.

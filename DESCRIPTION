@@ -119,5 +119,6 @@ Collate:
     'as_prediction_clust.R'
     'as_task_clust.R'
     'bibentries.R'
+    'default_fallback.R'
     'helper.R'
     'helper_weka.R'
