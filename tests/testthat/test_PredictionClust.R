@@ -150,7 +150,13 @@ test_that("combining empty prob predictions with conflicting clusters errors", {
   learner4 = lrn("clust.featureless", num_clusters = 4L, predict_type = "prob")$train(task)
   p3 = learner3$predict(task, row_ids = 1:5)$filter(integer())
   p4 = learner4$predict(task, row_ids = 1:5)$filter(integer())
-  expect_snapshot(error = TRUE, c(p3, p4))
+  expect_error(c(p3, p4), "Different number of clusters", class = "Mlr3ErrorInput")
+
+  # a filtered-empty prediction still constrains the number of clusters
+  p3_full = learner3$predict(task, row_ids = 1:5)
+  expect_error(c(p3_full, p4), "Different number of clusters", class = "Mlr3ErrorInput")
+  combined = c(p3_full, p3)
+  expect_matrix(combined$prob, nrows = 5L, ncols = 3L)
 })
 
 test_that("as.data.table works for unchecked prob-only predictions", {

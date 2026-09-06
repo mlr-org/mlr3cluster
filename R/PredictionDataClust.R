@@ -92,15 +92,12 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
   elems = c("row_ids", "partition", if ("weights" %chin% nn) "weights")
   tab = map_dtr(dots, function(x) x[elems], .fill = FALSE)
   probs = map(dots, "prob")
-  # empty predictions carry a 0-column prob placeholder (k is unknown), so drop 0-row matrices before rbind
-  non_empty = discard(probs, function(p) is.null(p) || nrow(p) == 0L)
-  prob = if (length(non_empty) > 0L) {
-    do.call(rbind, non_empty)
-  } else {
-    # only the 0-column placeholder means unknown k, real 0-row matrices must still agree on their columns
-    known = discard(probs, function(p) is.null(p) || ncol(p) == 0L)
-    if (length(known) > 0L) do.call(rbind, known) else probs[[1L]]
+  # empty predictions carry a 0-column prob placeholder (k is unknown), so only matrices with columns constrain k
+  known = discard(probs, function(p) is.null(p) || ncol(p) == 0L)
+  if (length(unique(map_int(known, ncol))) > 1L) {
+    error_input("Cannot combine predictions: Different number of clusters.")
   }
+  prob = if (length(known) > 0L) do.call(rbind, known) else probs[[1L]]
 
   extra = NULL
   if ("extra" %chin% nn) {

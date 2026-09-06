@@ -22,14 +22,6 @@
       Error in `check_prediction_data.PredictionDataClust()`:
       ! Assertion on 'pdata$partition' failed: Must be of type 'integerish', but element 1 is not close to an integer.
 
-# combining empty prob predictions with conflicting clusters errors
-
-    Code
-      c(p3, p4)
-    Condition
-      Error:
-      ! number of columns of matrices must match (see arg 2)
-
 # combining weighted and unweighted predictions errors
 
     Code
