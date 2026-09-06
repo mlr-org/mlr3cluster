@@ -45,3 +45,23 @@ test_that("importance and selected_features", {
   expect_true(all(importance == 0))
   expect_identical(learner$selected_features(), character())
 })
+
+test_that("all feature types are supported", {
+  data = data.table::data.table(
+    lgl = c(TRUE, FALSE, NA),
+    int = c(1L, NA, 3L),
+    dbl = c(1.5, 2.5, NA),
+    chr = c("a", NA, "c"),
+    fct = factor(c("x", "y", NA)),
+    ord = factor(c("l", "m", "h"), levels = c("l", "m", "h"), ordered = TRUE),
+    pxc = as.POSIXct(c("2020-01-01", "2020-01-02", "2020-01-03"), tz = "UTC"),
+    dte = as.Date(c("2020-01-01", "2020-01-02", "2020-01-03"))
+  )
+  task = as_task_clust(data)
+  learner = lrn("clust.featureless", num_clusters = 2L)
+  expect_set_equal(learner$feature_types, mlr_reflections$task_feature_types)
+  expect_subset("featureless", learner$properties)
+  p = learner$train(task)$predict(task)
+  expect_prediction_clust(p, learner)
+  expect_integer(p$partition, len = 3L, any.missing = FALSE)
+})

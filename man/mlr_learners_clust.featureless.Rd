@@ -22,7 +22,7 @@ lrn("clust.featureless")
 \itemize{
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}, \dQuote{prob}
-\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
+\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}, \dQuote{character}, \dQuote{factor}, \dQuote{ordered}, \dQuote{POSIXct}, \dQuote{Date}
 \item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}
 }
 }

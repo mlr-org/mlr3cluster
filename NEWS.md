@@ -9,6 +9,7 @@
 * `PredictionClust` objects with a different number of clusters can no longer be combined with `c()` when one of them is empty. The error is now an `Mlr3ErrorInput` with an informative message instead of a base R error from `rbind()`.
 * `PredictionClust` now signals an error of class `Mlr3ErrorLearnerPredict` with the number of missing or surplus observations when the length of `partition`, `prob`, or `weights` does not match `row_ids`, matching mlr3.
 * `clust.featureless` gained the `importance()` and `selected_features()` methods and the corresponding learner properties, matching the featureless learners in mlr3.
+* `clust.featureless` now accepts all feature types supported by mlr3 tasks and declares the `"featureless"` property, since it never uses the feature values. Previously it rejected tasks with character, factor, ordered, date, or time features.
 * Cluster learners can now declare the standard mlr3 learner properties such as `"featureless"`, `"weights"`, `"importance"`, and `"selected_features"`. Previously `mlr_reflections$learner_properties$clust` only allowed `"missings"` and `"marshal"` besides the clustering-specific properties.
 * `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and `clust.xmeans` now expose Weka's `do_not_check_capabilities` parameter. `clust.cobweb` also exposes `save_data`, and `clust.em` exposes `O`.
 * `clust.em` and `clust.SimpleKMeans` now support `mlr3::set_threads()` through their `num_slots` parameter.
