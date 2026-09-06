@@ -37,17 +37,9 @@ register_mlr3 = function(...) {
 
   mlr_reflections$task_col_roles$clust = mlr_reflections$task_col_roles$regr
   mlr_reflections$task_properties$clust = mlr_reflections$task_properties$regr
-  mlr_reflections$learner_properties$clust = c(
-    "missings",
-    "marshal",
-    "partitional",
-    "hierarchical",
-    "exclusive",
-    "overlapping",
-    "fuzzy",
-    "complete",
-    "partial",
-    "density"
+  mlr_reflections$learner_properties$clust = union(
+    mlr_reflections$learner_properties$regr,
+    c("partitional", "hierarchical", "exclusive", "overlapping", "fuzzy", "complete", "partial", "density")
   )
   mlr_reflections$learner_predict_types$clust = list(partition = "partition", prob = c("partition", "prob"))
   mlr_reflections$measure_properties$clust = mlr_reflections$measure_properties$regr
