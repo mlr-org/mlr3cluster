@@ -32,20 +32,6 @@ test_that("prob predictions are consistent with the partition", {
   expect_equal(max.col(p$prob, ties.method = "first"), p$partition)
 })
 
-test_that("importance and selected_features", {
-  task = tsk("usarrests")
-  learner = lrn("clust.featureless")
-  expect_error(learner$importance(), "No model stored", class = "Mlr3ErrorLearner")
-  expect_error(learner$selected_features(), "No model stored", class = "Mlr3ErrorLearner")
-
-  learner$train(task)
-  importance = learner$importance()
-  expect_numeric(importance, len = task$n_features, any.missing = FALSE)
-  expect_names(names(importance), permutation.of = task$feature_names)
-  expect_true(all(importance == 0))
-  expect_identical(learner$selected_features(), character())
-})
-
 test_that("all feature types are supported", {
   data = data.table::data.table(
     lgl = c(TRUE, FALSE, NA),

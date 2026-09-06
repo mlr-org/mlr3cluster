@@ -28,38 +28,10 @@ LearnerClustFeatureless = R6Class(
         feature_types = unname(mlr_reflections$task_feature_types),
         predict_types = c("partition", "prob"),
         param_set = param_set,
-        properties = c(
-          "partitional",
-          "exclusive",
-          "complete",
-          "featureless",
-          "missings",
-          "importance",
-          "selected_features"
-        ),
+        properties = c("partitional", "exclusive", "complete", "featureless", "missings"),
         man = "mlr3cluster::mlr_learners_clust.featureless",
         label = "Featureless Clustering Learner"
       )
-    },
-
-    #' @description
-    #' All features have a score of `0` for this learner.
-    #' @return Named `numeric()`.
-    importance = function() {
-      if (is.null(self$model)) {
-        error_learner("No model stored")
-      }
-      named_vector(self$model$features, 0)
-    },
-
-    #' @description
-    #' Selected features are always the empty set for this learner.
-    #' @return `character(0)`.
-    selected_features = function() {
-      if (is.null(self$model)) {
-        error_learner("No model stored")
-      }
-      character()
     }
   ),
 
