@@ -1,6 +1,7 @@
 #' @title K-Centroids Cluster Analysis Learner
 #'
 #' @name mlr_learners_clust.kcca
+#' @include LearnerClust.R
 #'
 #' @description
 #' K-Centroids Cluster Analysis - a unified framework for partitional clustering with selectable distance / centroid

@@ -1,6 +1,7 @@
 #' @title Kernel K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.kkmeans
+#' @include LearnerClust.R
 #'
 #' @description
 #' Kernel k-means clustering.

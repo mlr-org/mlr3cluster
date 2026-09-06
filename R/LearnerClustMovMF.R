@@ -1,6 +1,7 @@
 #' @title von Mises-Fisher Mixture Clustering Learner
 #'
 #' @name mlr_learners_clust.movMF
+#' @include LearnerClust.R
 #'
 #' @description
 #' Fits a mixture of von Mises-Fisher distributions via EM, the directional-data analogue of a Gaussian mixture for

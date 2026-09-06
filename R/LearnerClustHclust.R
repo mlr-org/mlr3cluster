@@ -1,6 +1,7 @@
 #' @title Hierarchical Clustering Learner
 #'
 #' @name mlr_learners_clust.hclust
+#' @include LearnerClust.R
 #'
 #' @description
 #' Agglomerative hierarchical clustering.

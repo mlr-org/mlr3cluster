@@ -1,6 +1,7 @@
 #' @title Fuzzy Analysis Clustering Learner
 #'
 #' @name mlr_learners_clust.fanny
+#' @include LearnerClust.R
 #'
 #' @description
 #' Fuzzy Analysis (FANNY) clustering.

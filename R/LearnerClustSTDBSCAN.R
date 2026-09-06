@@ -1,6 +1,7 @@
 #' @title ST-DBSCAN Clustering Learner
 #'
 #' @name mlr_learners_clust.stdbscan
+#' @include LearnerClust.R
 #'
 #' @description
 #' ST-DBSCAN (spatio-temporal density-based spatial clustering of applications with noise) clustering.

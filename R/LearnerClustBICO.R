@@ -1,6 +1,7 @@
 #' @title BICO Clustering Learner
 #'
 #' @name mlr_learners_clust.bico
+#' @include LearnerClust.R
 #'
 #' @description
 #' BICO (fast computation of k-means coresets in a data stream) clustering.

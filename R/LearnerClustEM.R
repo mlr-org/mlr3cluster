@@ -1,6 +1,7 @@
 #' @title Expectation-Maximization Clustering Learner
 #'
 #' @name mlr_learners_clust.em
+#' @include LearnerClust.R
 #'
 #' @description
 #' Expectation-Maximization clustering.

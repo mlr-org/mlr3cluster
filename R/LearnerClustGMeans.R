@@ -1,6 +1,7 @@
 #' @title G-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.gmeans
+#' @include LearnerClust.R
 #'
 #' @description
 #' G-means clustering.

@@ -1,6 +1,7 @@
 #' @title Finite Mixture Model Clustering Learner
 #'
 #' @name mlr_learners_clust.flexmix
+#' @include LearnerClust.R
 #'
 #' @description
 #' Finite mixture model clustering via the EM algorithm.

@@ -1,6 +1,7 @@
 #' @title Fuzzy C-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.cmeans
+#' @include LearnerClust.R
 #'
 #' @description
 #' Fuzzy c-means clustering.

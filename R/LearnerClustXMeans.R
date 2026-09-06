@@ -1,6 +1,7 @@
 #' @title X-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.xmeans
+#' @include LearnerClust.R
 #'
 #' @description
 #' X-means clustering.

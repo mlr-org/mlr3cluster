@@ -1,6 +1,7 @@
 #' @title Partitioning Around Medoids Clustering Learner
 #'
 #' @name mlr_learners_clust.pam
+#' @include LearnerClust.R
 #'
 #' @description
 #' Partitioning Around Medoids (PAM) clustering.

@@ -1,6 +1,7 @@
 #' @title Spherical K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.skmeans
+#' @include LearnerClust.R
 #'
 #' @description
 #' Spherical k-means clustering for data on the unit hypersphere.

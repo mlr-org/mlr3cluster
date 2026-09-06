@@ -1,6 +1,7 @@
 #' @title Spectral Clustering Learner
 #'
 #' @name mlr_learners_clust.specc
+#' @include LearnerClust.R
 #'
 #' @description
 #' Spectral clustering.

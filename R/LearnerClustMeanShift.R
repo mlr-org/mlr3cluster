@@ -1,6 +1,7 @@
 #' @title Mean Shift Clustering Learner
 #'
 #' @name mlr_learners_clust.meanshift
+#' @include LearnerClust.R
 #'
 #' @description
 #' Mean shift clustering.

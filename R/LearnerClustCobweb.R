@@ -1,6 +1,7 @@
 #' @title Cobweb Clustering Learner
 #'
 #' @name mlr_learners_clust.cobweb
+#' @include LearnerClust.R
 #'
 #' @description
 #' Cobweb clustering.

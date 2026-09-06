@@ -1,6 +1,7 @@
 #' @title K-Prototypes Clustering Learner
 #'
 #' @name mlr_learners_clust.kproto
+#' @include LearnerClust.R
 #'
 #' @description
 #' K-prototypes clustering for mixed-type data.

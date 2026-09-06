@@ -1,6 +1,7 @@
 #' @title K-Modes Clustering Learner
 #'
 #' @name mlr_learners_clust.kmodes
+#' @include LearnerClust.R
 #'
 #' @description
 #' K-modes clustering for categorical data.

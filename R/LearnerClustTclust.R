@@ -1,6 +1,7 @@
 #' @title Robust Trimmed Clustering Learner
 #'
 #' @name mlr_learners_clust.tclust
+#' @include LearnerClust.R
 #'
 #' @description
 #' Robust trimmed clustering. Each cluster is modeled by a multivariate Gaussian; the most

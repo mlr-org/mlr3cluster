@@ -1,6 +1,7 @@
 #' @title Featureless Clustering Learner
 #'
 #' @name mlr_learners_clust.featureless
+#' @include LearnerClust.R
 #'
 #' @description
 #' Featureless clustering.

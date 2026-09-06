@@ -1,6 +1,7 @@
 #' @title Mini Batch K-Means Clustering Learner
 #'
 #' @name mlr_learners_clust.MBatchKMeans
+#' @include LearnerClust.R
 #'
 #' @description
 #' Mini-batch k-means clustering.

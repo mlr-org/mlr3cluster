@@ -1,6 +1,7 @@
 #' @title Farthest First Clustering Learner
 #'
 #' @name mlr_learners_clust.ff
+#' @include LearnerClust.R
 #'
 #' @description
 #' Farthest First clustering.

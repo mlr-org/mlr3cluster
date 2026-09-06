@@ -1,6 +1,7 @@
 #' @title HDBSCAN Clustering Learner
 #'
 #' @name mlr_learners_clust.hdbscan
+#' @include LearnerClust.R
 #'
 #' @description
 #' HDBSCAN (hierarchical DBSCAN) clustering.

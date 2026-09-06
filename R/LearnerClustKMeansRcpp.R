@@ -1,6 +1,7 @@
 #' @title K-Means Clustering Learner from ClusterR
 #'
 #' @name mlr_learners_clust.kmeans_rcpp
+#' @include LearnerClust.R
 #'
 #' @description
 #' K-means clustering.

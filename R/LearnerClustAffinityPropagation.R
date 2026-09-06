@@ -1,6 +1,7 @@
 #' @title Affinity Propagation Clustering Learner
 #'
 #' @name mlr_learners_clust.ap
+#' @include LearnerClust.R
 #'
 #' @description
 #' Affinity Propagation clustering.

@@ -1,6 +1,7 @@
 #' @title Prototype Hierarchical Clustering Learner
 #'
 #' @name mlr_learners_clust.protoclust
+#' @include LearnerClust.R
 #'
 #' @description
 #' Hierarchical clustering using minimax linkage with prototypes.

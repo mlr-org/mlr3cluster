@@ -1,6 +1,7 @@
 #' @title CLARA Clustering Learner
 #'
 #' @name mlr_learners_clust.clara
+#' @include LearnerClust.R
 #'
 #' @description
 #' Clustering Large Applications (CLARA) clustering.

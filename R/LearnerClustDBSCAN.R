@@ -1,6 +1,7 @@
 #' @title DBSCAN Clustering Learner
 #'
 #' @name mlr_learners_clust.dbscan
+#' @include LearnerClust.R
 #'
 #' @description
 #' DBSCAN (density-based spatial clustering of applications with noise) clustering.

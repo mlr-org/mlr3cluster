@@ -1,6 +1,7 @@
 #' @title Gaussian Mixture Model Clustering Learner
 #'
 #' @name mlr_learners_clust.mclust
+#' @include LearnerClust.R
 #'
 #' @description
 #' Gaussian mixture model-based clustering.

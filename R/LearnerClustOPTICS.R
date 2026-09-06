@@ -1,6 +1,7 @@
 #' @title OPTICS Clustering Learner
 #'
 #' @name mlr_learners_clust.optics
+#' @include LearnerClust.R
 #'
 #' @description
 #' OPTICS (ordering points to identify the clustering structure) clustering.

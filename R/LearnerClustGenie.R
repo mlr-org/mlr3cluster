@@ -1,6 +1,7 @@
 #' @title Genie Hierarchical Clustering Learner
 #'
 #' @name mlr_learners_clust.genie
+#' @include LearnerClust.R
 #'
 #' @description
 #' Genie hierarchical clustering, a fast and robust outlier-resistant algorithm based on the Gini inequality measure

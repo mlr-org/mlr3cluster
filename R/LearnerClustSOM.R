@@ -1,6 +1,7 @@
 #' @title Self-Organizing Maps Clustering Learner
 #'
 #' @name mlr_learners_clust.som
+#' @include LearnerClust.R
 #'
 #' @description
 #' Self-organizing map (Kohonen network) clustering.

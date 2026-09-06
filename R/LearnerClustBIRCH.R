@@ -1,6 +1,7 @@
 #' @title BIRCH Clustering Learner
 #'
 #' @name mlr_learners_clust.birch
+#' @include LearnerClust.R
 #'
 #' @description
 #' BIRCH (balanced iterative reducing clustering using hierarchies) clustering.

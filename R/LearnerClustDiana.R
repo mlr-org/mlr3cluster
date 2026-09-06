@@ -1,6 +1,7 @@
 #' @title Divisive Analysis Clustering Learner
 #'
 #' @name mlr_learners_clust.diana
+#' @include LearnerClust.R
 #'
 #' @description
 #' Divisive hierarchical clustering.

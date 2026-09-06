@@ -1,6 +1,7 @@
 #' @title Agglomerative Nesting Clustering Learner
 #'
 #' @name mlr_learners_clust.agnes
+#' @include LearnerClust.R
 #'
 #' @description
 #' Agglomerative hierarchical clustering.

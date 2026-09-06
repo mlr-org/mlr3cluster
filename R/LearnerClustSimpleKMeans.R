@@ -1,6 +1,7 @@
 #' @title K-Means Clustering Learner (Weka)
 #'
 #' @name mlr_learners_clust.SimpleKMeans
+#' @include LearnerClust.R
 #'
 #' @description
 #' K-means clustering (Weka).
