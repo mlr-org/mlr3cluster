@@ -83,9 +83,9 @@ test_that("as_prediction_clust", {
   expect_class(p3, "PredictionClust")
   expect_matrix(p3$prob, nrows = 3L, ncols = 2L)
 
-  # extra columns not prefixed with 'prob.' are rejected
-  bad = data.frame(row_ids = 1L, partition = 1L, garbage = 0.5)
-  expect_error(as_prediction_clust(bad), "prob")
+  # columns not prefixed with 'prob.' are stored as extra data
+  p4 = as_prediction_clust(data.frame(row_ids = 1L, partition = 1L, dist = 0.5))
+  expect_identical(p4$extra, list(dist = 0.5))
 })
 
 test_that("as_prediction_clust() coerces a whole-numbered partition to integer", {
@@ -229,4 +229,79 @@ test_that("combining weighted and unweighted predictions errors", {
   a = learner$train(task_weighted)$predict(task_weighted)
   b = learner$train(task)$predict(task)
   expect_snapshot(error = TRUE, c(a, b))
+})
+
+test_that("extra and raw are stored", {
+  extra = list(dist = c(0.1, 0.2, 0.3))
+  raw = list(a = 1, b = "hello")
+  p = PredictionClust$new(row_ids = 1:3, partition = c(1L, 2L, 1L), extra = extra, raw = raw)
+  expect_identical(p$extra, extra)
+  expect_identical(p$raw, raw)
+  expect_prediction(p)
+
+  tab = as.data.table(p)
+  expect_names(names(tab), identical.to = c("row_ids", "partition", "dist"))
+  p2 = as_prediction_clust(tab)
+  expect_identical(p2$extra, extra)
+  expect_identical(p2$partition, p$partition)
+
+  expect_error(
+    PredictionClust$new(row_ids = 1:3, partition = c(1L, 2L, 1L), extra = list(dist = 1:2)),
+    "Extra data must have the same length as the number of predictions",
+    class = "Mlr3ErrorLearnerPredict"
+  )
+})
+
+test_that("learners can return extra and raw", {
+  LearnerExtra = R6::R6Class(
+    "LearnerExtra",
+    inherit = LearnerClustFeatureless,
+    private = list(
+      .predict = function(task) {
+        result = super$.predict(task)
+        result$extra = list(dist = seq_len(task$nrow))
+        if (self$predict_raw) {
+          result$raw = "raw"
+        }
+        result
+      }
+    )
+  )
+
+  task = tsk("usarrests")
+  learner = LearnerExtra$new()$train(task)
+  p = learner$predict(task)
+  expect_identical(p$extra, list(dist = seq_len(task$nrow)))
+  expect_null(p$raw)
+
+  learner$predict_raw = TRUE
+  p = learner$predict(task)
+  expect_identical(p$raw, "raw")
+
+  rr = resample(task, learner, rsmp("cv", folds = 2L))
+  p = rr$prediction()
+  expect_numeric(p$extra$dist, len = task$nrow)
+  expect_list(p$raw, len = 2L)
+})
+
+test_that("extra data is filtered and combined", {
+  extra = list(dist = c(0.1, 0.2, 0.3, 0.4))
+  p = PredictionClust$new(row_ids = 1:4, partition = c(1L, 2L, 1L, 2L), extra = extra, raw = "raw")
+  p$filter(c(2L, 4L))
+  expect_identical(p$extra, list(dist = c(0.2, 0.4)))
+  expect_identical(p$raw, "raw")
+
+  p1 = PredictionClust$new(row_ids = 1:2, partition = c(1L, 2L), extra = list(dist = c(0.1, 0.2)), raw = "a")
+  p2 = PredictionClust$new(row_ids = 3:4, partition = c(1L, 2L), extra = list(dist = c(0.3, 0.4)), raw = "b")
+  combined = c(p1, p2)
+  expect_identical(combined$extra, list(dist = c(0.1, 0.2, 0.3, 0.4)))
+  expect_identical(combined$raw, list("a", "b"))
+
+  p_overlap = PredictionClust$new(row_ids = 2:3, partition = c(1L, 2L), extra = list(dist = c(0.5, 0.6)))
+  combined = c(p1, p_overlap, keep_duplicates = FALSE)
+  expect_identical(combined$row_ids, 1:3)
+  expect_identical(combined$extra, list(dist = c(0.1, 0.5, 0.6)))
+
+  p3 = PredictionClust$new(row_ids = 3:4, partition = c(1L, 2L))
+  expect_error(c(p1, p3), "extra data", class = "Mlr3ErrorInput")
 })

@@ -24,6 +24,9 @@ Additional arguments.}
 }
 \description{
 Convert object to a \link{PredictionClust}.
+For a \code{data.frame}, the columns \code{row_ids} and \code{partition} are required.
+Columns prefixed with \code{prob.} are collected into the probability matrix, \code{weights} are stored as measure weights,
+and all remaining columns are stored as extra data in the \code{extra} field of the prediction.
 }
 \examples{
 \dontshow{if (mlr3misc::require_namespaces(c("e1071", "clue"), quietly = TRUE)) withAutoprint(\{ # examplesIf}

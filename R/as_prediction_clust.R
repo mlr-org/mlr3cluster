@@ -2,6 +2,9 @@
 #'
 #' @description
 #' Convert object to a [PredictionClust].
+#' For a `data.frame`, the columns `row_ids` and `partition` are required.
+#' Columns prefixed with `prob.` are collected into the probability matrix, `weights` are stored as measure weights,
+#' and all remaining columns are stored as extra data in the `extra` field of the prediction.
 #'
 #' @inheritParams mlr3::as_prediction
 #'
@@ -43,21 +46,18 @@ as_prediction_clust.PredictionClust = function(x, ...) {
 #' @export
 as_prediction_clust.data.frame = function(x, ...) {
   assert_names(names(x), must.include = c("row_ids", "partition"))
-  prob_cols = setdiff(names(x), c("row_ids", "partition", "weights"))
-  if (!all(startsWith(prob_cols, "prob."))) {
-    error_input(
-      "Table may only contain columns 'row_ids', 'partition', 'weights' as well as columns prefixed with 'prob.' for class probabilities." # nolint
-    )
-  }
-
   x = as.data.table(x)
-  if (length(prob_cols) > 0L) {
+  prob_cols = names(x)[startsWith(names(x), "prob.")]
+  extra_cols = setdiff(names(x), c("row_ids", "partition", "weights", prob_cols))
+
+  prob = if (length(prob_cols) > 0L) {
     prob = as.matrix(x[, prob_cols, with = FALSE])
     cn = colnames(prob)
     colnames(prob) = substr(cn, 6L, nchar(cn))
-  } else {
-    prob = NULL
+    prob
   }
+  extra = if (length(extra_cols) > 0L) as.list(x[, extra_cols, with = FALSE])
 
-  invoke(PredictionClust$new, prob = prob, .args = x[, -prob_cols, with = FALSE])
+  args = x[, setdiff(names(x), c(prob_cols, extra_cols)), with = FALSE]
+  invoke(PredictionClust$new, prob = prob, extra = extra, .args = args)
 }

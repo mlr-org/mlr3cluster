@@ -61,7 +61,9 @@ Access to the stored probabilities.}
   partition = NULL,
   prob = NULL,
   weights = NULL,
-  check = TRUE
+  check = TRUE,
+  extra = NULL,
+  raw = NULL
 )}
     \if{html}{\out{</div>}}
   }
@@ -86,6 +88,10 @@ Vector of measure weights for each observation. Should be constructed from the \
 \code{weights_measure} column.}
       \item{\code{check}}{(\code{logical(1)})\cr
 If \code{TRUE}, performs some argument checks and predict type conversions.}
+      \item{\code{extra}}{(\code{list()})\cr
+List of extra data to be stored in the prediction object.}
+      \item{\code{raw}}{(any)\cr
+Raw prediction object from the upstream model. Stored as-is without validation.}
     }
     \if{html}{\out{</div>}}
   }

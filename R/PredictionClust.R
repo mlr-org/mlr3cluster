@@ -44,15 +44,30 @@ PredictionClust = R6Class(
     #'
     #' @param check (`logical(1)`)\cr
     #'   If `TRUE`, performs some argument checks and predict type conversions.
+    #'
+    #' @param extra (`list()`)\cr
+    #'   List of extra data to be stored in the prediction object.
+    #'
+    #' @param raw (any)\cr
+    #'   Raw prediction object from the upstream model. Stored as-is without validation.
     initialize = function(
       task = NULL,
       row_ids = task$row_ids,
       partition = NULL,
       prob = NULL,
       weights = NULL,
-      check = TRUE
+      check = TRUE,
+      extra = NULL,
+      raw = NULL
     ) {
-      pdata = list(row_ids = row_ids, partition = partition, prob = prob, weights = weights)
+      pdata = list(
+        row_ids = row_ids,
+        partition = partition,
+        prob = prob,
+        weights = weights,
+        extra = extra,
+        raw = raw
+      )
       pdata = discard(pdata, is.null)
       class(pdata) = c("PredictionDataClust", "PredictionData")
 
@@ -94,6 +109,10 @@ as.data.table.PredictionClust = function(x, ...) {
 
   if (!is.null(x$data$weights)) {
     tab$weights = x$data$weights
+  }
+
+  if (!is.null(x$data$extra)) {
+    tab = cbind(tab, as.data.table(x$data$extra))
   }
 
   tab[]
