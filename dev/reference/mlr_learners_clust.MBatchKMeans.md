@@ -53,6 +53,7 @@ or with the associated sugar function
 | tol | numeric | 1e-04 |  | \\\[0, \infty)\\ |
 | tol_optimal_init | numeric | 0.3 |  | \\\[0, \infty)\\ |
 | seed | integer | 1 |  | \\(-\infty, \infty)\\ |
+| threads | integer | 1 |  | \\\[1, \infty)\\ |
 
 ## References
 

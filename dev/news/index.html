@@ -55,7 +55,13 @@
 <li>
 <code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.SimpleKMeans</code>, and <code>clust.xmeans</code> now expose Weka’s <code>do_not_check_capabilities</code> parameter. <code>clust.cobweb</code> also exposes <code>save_data</code>, and <code>clust.em</code> exposes <code>O</code>.</li>
 <li>
+<code>clust.em</code> and <code>clust.SimpleKMeans</code> now support <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code> through their <code>num_slots</code> parameter.</li>
+<li>
 <code>clust.kmeans_rcpp</code>, <code>clust.som</code>, and <code>clust.tclust</code> now support <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code>. Their thread-count parameters are initialized to 1 instead of using all available cores.</li>
+<li>
+<code>clust.MBatchKMeans</code> gained the <code>threads</code> parameter, which is passed to <code><a href="https://mlampros.github.io/ClusterR/reference/predict_KMeans.html" class="external-link">ClusterR::predict_KMeans()</a></code> and supports <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code>.</li>
+<li>
+<code>clust.tclust</code> now enables <code>parallel</code> at train time when <code>n.cores</code> is greater than one and <code>parallel</code> is not set explicitly, so <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code> actually parallelizes training.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.0" id="mlr3cluster-050">mlr3cluster 0.5.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-050"></a></h2><p class="text-muted">CRAN release: 2026-08-21</p>

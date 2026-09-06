@@ -13,6 +13,9 @@ method for
 [`tclust::tclust()`](https://rdrr.io/pkg/tclust/man/tclust.html), so the
 method returns cluster labels for the training data.
 
+Setting `n.cores` to a value greater than one enables `parallel` at
+train time unless it is set explicitly.
+
 ## Initial parameter values
 
 - `store_x`:

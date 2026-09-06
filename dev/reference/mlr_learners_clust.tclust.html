@@ -10,12 +10,14 @@ outlying alpha fraction of observations is trimmed and labeled with cluster 0 in
 Calls tclust::tclust() from package tclust.
 The k parameter is set to 2 by default since tclust::tclust() doesn't have a default value for the number of
 clusters. There is no predict method for tclust::tclust(), so the method returns cluster labels for the training
-data."><meta property="og:description" content="Robust trimmed clustering. Each cluster is modeled by a multivariate Gaussian; the most
+data.
+Setting n.cores to a value greater than one enables parallel at train time unless it is set explicitly."><meta property="og:description" content="Robust trimmed clustering. Each cluster is modeled by a multivariate Gaussian; the most
 outlying alpha fraction of observations is trimmed and labeled with cluster 0 in the returned partition.
 Calls tclust::tclust() from package tclust.
 The k parameter is set to 2 by default since tclust::tclust() doesn't have a default value for the number of
 clusters. There is no predict method for tclust::tclust(), so the method returns cluster labels for the training
-data."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.png"><meta name="robots" content="noindex"></head><body>
+data.
+Setting n.cores to a value greater than one enables parallel at train time unless it is set explicitly."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.png"><meta name="robots" content="noindex"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -65,6 +67,7 @@ Calls <code><a href="https://rdrr.io/pkg/tclust/man/tclust.html" class="external
 <p>The <code>k</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/tclust/man/tclust.html" class="external-link">tclust::tclust()</a></code> doesn't have a default value for the number of
 clusters. There is no predict method for <code><a href="https://rdrr.io/pkg/tclust/man/tclust.html" class="external-link">tclust::tclust()</a></code>, so the method returns cluster labels for the training
 data.</p>
+<p>Setting <code>n.cores</code> to a value greater than one enables <code>parallel</code> at train time unless it is set explicitly.</p>
     </div>
 
 
