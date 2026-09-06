@@ -7,19 +7,34 @@
 \alias{as_task_clust.matrix}
 \alias{as_task_clust.DataBackend}
 \alias{as_task_clust.formula}
+\alias{as_tasks_clust}
+\alias{as_tasks_clust.list}
+\alias{as_tasks_clust.TaskClust}
 \title{Convert to a Cluster Task}
 \usage{
 as_task_clust(x, ...)
 
 \method{as_task_clust}{TaskClust}(x, clone = FALSE, ...)
 
-\method{as_task_clust}{data.frame}(x, id = deparse1(substitute(x)), ...)
+\method{as_task_clust}{data.frame}(x, id = deparse1(substitute(x)), label = NA_character_, ...)
 
-\method{as_task_clust}{matrix}(x, id = deparse1(substitute(x)), ...)
+\method{as_task_clust}{matrix}(x, id = deparse1(substitute(x)), label = NA_character_, ...)
 
-\method{as_task_clust}{DataBackend}(x, id = deparse1(substitute(x)), ...)
+\method{as_task_clust}{DataBackend}(x, id = deparse1(substitute(x)), label = NA_character_, ...)
 
-\method{as_task_clust}{formula}(x, data, id = deparse1(substitute(data)), ...)
+\method{as_task_clust}{formula}(
+  x,
+  data,
+  id = deparse1(substitute(data)),
+  label = NA_character_,
+  ...
+)
+
+as_tasks_clust(x, ...)
+
+\method{as_tasks_clust}{list}(x, clone = FALSE, ...)
+
+\method{as_tasks_clust}{TaskClust}(x, clone = FALSE, ...)
 }
 \arguments{
 \item{x}{(any)\cr
@@ -35,6 +50,9 @@ If \code{TRUE}, ensures that the returned object is not the same as the input \c
 Id for the new task.
 Defaults to the (deparsed and substituted) name of the data argument.}
 
+\item{label}{(\code{character(1)})\cr
+Label for the new instance.}
+
 \item{data}{(\code{data.frame()})\cr
 Data frame containing all columns specified in formula \code{x}.}
 }
@@ -42,12 +60,12 @@ Data frame containing all columns specified in formula \code{x}.}
 \link{TaskClust}.
 }
 \description{
-Convert object to a \link{TaskClust}.
+Convert object to a \link{TaskClust} or a list of \link{TaskClust}.
 This is a S3 generic, specialized for at least the following objects:
 \enumerate{
-\item \link{TaskClust}: ensure the identity.
-\item \code{\link[=data.frame]{data.frame()}}, \code{\link[=matrix]{matrix()}} and \link[mlr3:DataBackend]{mlr3::DataBackend}: provides an alternative to calling constructor of
-\link{TaskClust}.
+\item \link{TaskClust}: returns the object as-is, possibly cloned.
+\item \code{\link{formula}}, \code{\link[=data.frame]{data.frame()}}, \code{\link[=matrix]{matrix()}}, and \link[mlr3:DataBackend]{mlr3::DataBackend}: provides an alternative to the
+constructor of \link{TaskClust}.
 }
 }
 \examples{
