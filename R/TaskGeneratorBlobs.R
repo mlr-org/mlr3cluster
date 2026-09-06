@@ -11,6 +11,7 @@
 #' deviation `sd` in each of the `d` dimensions.
 #' The generated [TaskClust] only contains the numeric features `x1`, ..., `xd`; the cluster membership is not
 #' stored in the task.
+#' The parameters are initialized to `k = 3`, `d = 2`, `sd = 1`, and `center_box = 10`.
 #'
 #' @templateVar id blobs
 #' @template task_generator
@@ -36,11 +37,12 @@ TaskGeneratorBlobs = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(1L, default = 3L),
-        d = p_int(1L, default = 2L),
-        sd = p_dbl(0, default = 1),
-        center_box = p_dbl(0, default = 10)
+        k = p_int(1L, tags = "required"),
+        d = p_int(1L, tags = "required"),
+        sd = p_dbl(0, tags = "required"),
+        center_box = p_dbl(0, tags = "required")
       )
+      param_set$set_values(k = 3L, d = 2L, sd = 1, center_box = 10)
 
       super$initialize(
         id = "blobs",
@@ -70,11 +72,11 @@ TaskGeneratorBlobs = R6Class(
 
   private = list(
     .generate_obj = function(n) {
-      pv = self$param_set$values
-      k = pv$k %??% 3L
-      d = pv$d %??% 2L
-      sd = pv$sd %??% 1
-      center_box = pv$center_box %??% 10
+      pv = self$param_set$get_values()
+      k = pv$k
+      d = pv$d
+      sd = pv$sd
+      center_box = pv$center_box
 
       classes = rep_len(seq_len(k), n)
       centers = matrix(runif(k * d, min = -center_box, max = center_box), nrow = k, ncol = d)

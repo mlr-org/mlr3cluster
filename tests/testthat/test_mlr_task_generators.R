@@ -16,6 +16,7 @@ test_that("clust task generators are registered", {
 
 test_that("blobs generator", {
   generator = tgen("blobs")
+  expect_identical(generator$param_set$values, list(k = 3L, d = 2L, sd = 1, center_box = 10))
   task = generator$generate(30L)
   expect_identical(task$id, "blobs_30")
   expect_set_equal(task$feature_names, c("x1", "x2"))

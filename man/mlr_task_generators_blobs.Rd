@@ -12,6 +12,7 @@ observations are assigned to the centers in a balanced fashion and perturbed wit
 deviation \code{sd} in each of the \code{d} dimensions.
 The generated \link{TaskClust} only contains the numeric features \code{x1}, ..., \code{xd}; the cluster membership is not
 stored in the task.
+The parameters are initialized to \code{k = 3}, \code{d = 2}, \code{sd = 1}, and \code{center_box = 10}.
 }
 \section{Dictionary}{
 
@@ -26,10 +27,10 @@ tgen("blobs")
 \section{Parameters}{
 \tabular{llll}{
    Id \tab Type \tab Default \tab Range \cr
-   k \tab integer \tab 3 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   d \tab integer \tab 2 \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   sd \tab numeric \tab 1 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   center_box \tab numeric \tab 10 \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   k \tab integer \tab - \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   d \tab integer \tab - \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   sd \tab numeric \tab - \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   center_box \tab numeric \tab - \tab \eqn{[0, \infty)}{[0, Inf)} \cr
 }
 }
 
