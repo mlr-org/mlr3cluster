@@ -9,7 +9,8 @@ perturbed with Gaussian noise of standard deviation `sd` in each of the
 `d` dimensions. The generated
 [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)
 only contains the numeric features `x1`, ..., `xd`; the cluster
-membership is not stored in the task.
+membership is not stored in the task. The parameters are initialized to
+`k = 3`, `d = 2`, `sd = 1`, and `center_box = 10`.
 
 ## Dictionary
 
@@ -29,10 +30,10 @@ or with the associated sugar function
 |            |         |         |                  |
 |------------|---------|---------|------------------|
 | Id         | Type    | Default | Range            |
-| k          | integer | 3       | \\\[1, \infty)\\ |
-| d          | integer | 2       | \\\[1, \infty)\\ |
-| sd         | numeric | 1       | \\\[0, \infty)\\ |
-| center_box | numeric | 10      | \\\[0, \infty)\\ |
+| k          | integer | \-      | \\\[1, \infty)\\ |
+| d          | integer | \-      | \\\[1, \infty)\\ |
+| sd         | numeric | \-      | \\\[0, \infty)\\ |
+| center_box | numeric | \-      | \\\[0, \infty)\\ |
 
 ## See also
 
@@ -135,7 +136,7 @@ str(task$data())
 #> Classes ‘data.table’ and 'data.frame':   200 obs. of  2 variables:
 #>  $ x1: num  -1.9 -11.38 -1.78 -3.96 -10.63 ...
 #>  $ x2: num  2.824 1.495 -8.203 0.767 0.372 ...
-#>  - attr(*, ".internal.selfref")=<pointer: 0x56132cdd8a30> 
+#>  - attr(*, ".internal.selfref")=<pointer: 0x560b3b312a30> 
 
 # 4 well separated clusters in 3 dimensions
 generator = tgen("blobs", k = 4, d = 3, sd = 0.5)

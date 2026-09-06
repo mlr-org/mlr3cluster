@@ -2,6 +2,10 @@
 
 Convert object to a
 [PredictionClust](https://mlr3cluster.mlr-org.com/dev/reference/PredictionClust.md).
+For a `data.frame`, the columns `row_ids` and `partition` are required.
+Columns prefixed with `prob.` are collected into the probability matrix,
+`weights` are stored as measure weights, and all remaining columns are
+stored as extra data in the `extra` field of the prediction.
 
 ## Usage
 

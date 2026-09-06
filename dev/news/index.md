@@ -13,6 +13,22 @@
   converters in mlr3.
 - [`as_tasks_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
   converts a `TaskClust` or a list of objects to a list of `TaskClust`.
+- [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
+  now stores columns other than `row_ids`, `partition`, `weights`, and
+  `prob.*` as extra data instead of rejecting them, so
+  [`as.data.table()`](https://rdrr.io/pkg/data.table/man/as.data.table.html)
+  and
+  [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
+  round-trip predictions with extra data.
+- `PredictionClust` gained the `extra` and `raw` fields introduced in
+  mlr3 1.3.0 and 1.6.0. Cluster learners can return extra data and the
+  raw upstream prediction from `$.predict()`, and both are carried
+  through filtering and combining predictions.
+- `PredictionClust` objects with a different number of clusters can no
+  longer be combined with [`c()`](https://rdrr.io/r/base/c.html) when
+  one of them is empty. The error is now an `Mlr3ErrorInput` with an
+  informative message instead of a base R error from
+  [`rbind()`](https://rdrr.io/r/base/cbind.html).
 - `PredictionClust` now signals an error of class
   `Mlr3ErrorLearnerPredict` with the number of missing or surplus
   observations when the length of `partition`, `prob`, or `weights` does

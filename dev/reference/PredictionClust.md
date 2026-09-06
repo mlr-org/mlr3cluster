@@ -53,7 +53,9 @@ Creates a new instance of this
       partition = NULL,
       prob = NULL,
       weights = NULL,
-      check = TRUE
+      check = TRUE,
+      extra = NULL,
+      raw = NULL
     )
 
 #### Arguments
@@ -98,6 +100,17 @@ Creates a new instance of this
 
   (`logical(1)`)  
   If `TRUE`, performs some argument checks and predict type conversions.
+
+- `extra`:
+
+  ([`list()`](https://rdrr.io/r/base/list.html))  
+  List of extra data to be stored in the prediction object.
+
+- `raw`:
+
+  (any)  
+  Raw prediction object from the upstream model. Stored as-is without
+  validation.
 
 ------------------------------------------------------------------------
 
