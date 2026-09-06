@@ -6,10 +6,12 @@
   configurable number of clusters `k`, dimensions `d`, and
   within-cluster standard deviation `sd`. It is the first generator in
   `mlr_task_generators` that produces a `TaskClust`.
-
 - [`as_task_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
   now supports matrices.
-
+- `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and
+  `clust.xmeans` now expose Weka’s `do_not_check_capabilities`
+  parameter. `clust.cobweb` also exposes `save_data`, and `clust.em`
+  exposes `O`.
 - `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support
   [`mlr3::set_threads()`](https://mlr3.mlr-org.com/reference/set_threads.html).
   Their thread-count parameters are initialized to 1 instead of using

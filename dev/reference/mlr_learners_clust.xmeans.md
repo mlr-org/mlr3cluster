@@ -53,6 +53,7 @@ or with the associated sugar function
 | O | untyped | \- |  | \- |
 | Y | untyped | \- |  | \- |
 | output_debug_info | logical | FALSE | TRUE, FALSE | \- |
+| do_not_check_capabilities | logical | FALSE | TRUE, FALSE | \- |
 
 ## References
 
