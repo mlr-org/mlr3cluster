@@ -1,21 +1,21 @@
 # mlr3cluster (development version)
 
-* New task generator `tgen("blobs")` for isotropic Gaussian blobs with configurable number of clusters `k`, dimensions `d`, and within-cluster standard deviation `sd`. It is the first generator in `mlr_task_generators` that produces a `TaskClust`.
-* `as_task_clust()` now supports matrices.
-* `as_task_clust()` gained a `label` argument for all methods, matching the `as_task_*()` converters in mlr3.
-* `as_tasks_clust()` converts a `TaskClust` or a list of objects to a list of `TaskClust`.
-* `default_fallback()` now returns a `clust.featureless` learner with the matching predict type for cluster learners, so `resample()` and `benchmark()` work with the `encapsulate` argument. Previously they failed with "Could not find default fallback learner".
-* `as_prediction_clust()` now stores columns other than `row_ids`, `partition`, `weights`, and `prob.*` as extra data instead of rejecting them, so `as.data.table()` and `as_prediction_clust()` round-trip predictions with extra data.
-* `PredictionClust` gained the `extra` and `raw` fields introduced in mlr3 1.3.0 and 1.6.0. Cluster learners can return extra data and the raw upstream prediction from `$.predict()`, and both are carried through filtering and combining predictions.
-* `PredictionClust` objects with a different number of clusters can no longer be combined with `c()` when one of them is empty. The error is now an `Mlr3ErrorInput` with an informative message instead of a base R error from `rbind()`.
-* `PredictionClust` now signals an error of class `Mlr3ErrorLearnerPredict` with the number of missing or surplus observations when the length of `partition`, `prob`, or `weights` does not match `row_ids`, matching mlr3.
-* `clust.featureless` now accepts all feature types supported by mlr3 tasks and declares the `"featureless"` property, since it never uses the feature values. Previously it rejected tasks with character, factor, ordered, date, or time features.
-* Cluster learners can now declare the standard mlr3 learner properties such as `"featureless"`, `"weights"`, `"importance"`, and `"selected_features"`. Previously `mlr_reflections$learner_properties$clust` only allowed `"missings"` and `"marshal"` besides the clustering-specific properties.
-* `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and `clust.xmeans` now expose Weka's `do_not_check_capabilities` parameter. `clust.cobweb` also exposes `save_data`, and `clust.em` exposes `O`.
-* `clust.em` and `clust.SimpleKMeans` now support `mlr3::set_threads()` through their `num_slots` parameter.
-* `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support `mlr3::set_threads()`. Their thread-count parameters are initialized to 1 instead of using all available cores.
-* `clust.MBatchKMeans` gained the `threads` parameter, which is passed to `ClusterR::predict_KMeans()` and supports `mlr3::set_threads()`.
-* `clust.tclust` now enables `parallel` at train time when `n.cores` is greater than one and `parallel` is not set explicitly, so `mlr3::set_threads()` actually parallelizes training.
+* feat: Cluster learners can now declare the standard mlr3 learner properties such as `"featureless"`, `"weights"`, `"importance"`, and `"selected_features"`. Previously `mlr_reflections$learner_properties$clust` only allowed `"missings"` and `"marshal"` besides the clustering-specific properties.
+* feat: `as_prediction_clust()` now stores columns other than `row_ids`, `partition`, `weights`, and `prob.*` as extra data instead of rejecting them, so `as.data.table()` and `as_prediction_clust()` round-trip predictions with extra data.
+* feat: `as_task_clust()` gained a `label` argument for all methods, matching the `as_task_*()` converters in mlr3.
+* feat: `as_task_clust()` now supports matrices.
+* feat: `as_tasks_clust()` converts a `TaskClust` or a list of objects to a list of `TaskClust`.
+* feat: `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and `clust.xmeans` now expose Weka's `do_not_check_capabilities` parameter. `clust.cobweb` also exposes `save_data`, and `clust.em` exposes `O`.
+* feat: `clust.em` and `clust.SimpleKMeans` now support `mlr3::set_threads()` through their `num_slots` parameter.
+* feat: `clust.featureless` now accepts all feature types supported by mlr3 tasks and declares the `"featureless"` property, since it never uses the feature values. Previously it rejected tasks with character, factor, ordered, date, or time features.
+* feat: `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support `mlr3::set_threads()`. Their thread-count parameters are initialized to 1 instead of using all available cores.
+* feat: `clust.MBatchKMeans` gained the `threads` parameter, which is passed to `ClusterR::predict_KMeans()` and supports `mlr3::set_threads()`.
+* fix: `clust.tclust` now enables `parallel` at train time when `n.cores` is greater than one and `parallel` is not set explicitly, so `mlr3::set_threads()` actually parallelizes training.
+* fix: `default_fallback()` now returns a `clust.featureless` learner with the matching predict type for cluster learners, so `resample()` and `benchmark()` work with the `encapsulate` argument. Previously they failed with "Could not find default fallback learner".
+* feat: `PredictionClust` gained the `extra` and `raw` fields introduced in mlr3 1.3.0 and 1.6.0. Cluster learners can return extra data and the raw upstream prediction from `$.predict()`, and both are carried through filtering and combining predictions.
+* fix: `PredictionClust` now signals an error of class `Mlr3ErrorLearnerPredict` with the number of missing or surplus observations when the length of `partition`, `prob`, or `weights` does not match `row_ids`, matching mlr3.
+* fix: `PredictionClust` objects with a different number of clusters can no longer be combined with `c()` when one of them is empty. The error is now an `Mlr3ErrorInput` with an informative message instead of a base R error from `rbind()`.
+* feat: `tgen("blobs")` is a new task generator for isotropic Gaussian blobs with configurable number of clusters `k`, dimensions `d`, and within-cluster standard deviation `sd`. It is the first generator in `mlr_task_generators` that produces a `TaskClust`.
 
 # mlr3cluster 0.5.0
 
