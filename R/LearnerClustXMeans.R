@@ -62,7 +62,7 @@ LearnerClustXMeans = R6Class(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       ctrl = weka_control(pv)
-      m = invoke(RWeka::XMeans, x = task$data(), control = ctrl)
+      m = invoke(RWeka::XMeans, x = as_numeric_matrix(task$data()), control = ctrl)
       if (self$save_assignments) {
         self$assignments = unname(m$class_ids + 1L)
       }
@@ -70,7 +70,8 @@ LearnerClustXMeans = R6Class(
     },
 
     .predict = function(task) {
-      partition = invoke(predict, self$model, newdata = ordered_features(task, self), type = "class_ids") + 1L
+      newdata = as_numeric_matrix(ordered_features(task, self))
+      partition = invoke(predict, self$model, newdata = newdata, type = "class_ids") + 1L
       list(partition = partition)
     }
   )

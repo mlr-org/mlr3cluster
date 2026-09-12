@@ -72,11 +72,11 @@ LearnerClustAP = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      data = task$data()
+      data = as_numeric_matrix(task$data())
       m = invoke(apcluster::apcluster, x = data, .args = pv)
       # add data points corresponding to exemplars
       exemplars = m@exemplars
-      setattr(m, "exemplar_data", data[exemplars])
+      setattr(m, "exemplar_data", data[exemplars, , drop = FALSE])
 
       if (self$save_assignments) {
         self$assignments = apcluster::labels(m, type = "enum")
@@ -92,7 +92,7 @@ LearnerClustAP = R6Class(
       }
       exemplar_data = attr(self$model, "exemplar_data")
 
-      data = ordered_features(task, self)
+      data = as_numeric_matrix(ordered_features(task, self))
       sim_mat = sim_fun(
         rbind(exemplar_data, data),
         sel = seq_row(data) + nrow(exemplar_data)

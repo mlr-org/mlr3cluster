@@ -55,7 +55,7 @@ LearnerClustDBSCAN = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      data = task$data()
+      data = as_numeric_matrix(task$data())
       m = invoke(dbscan::dbscan, x = data, .args = pv)
       m = insert_named(m, list(data = data))
       if (self$save_assignments) {
@@ -65,7 +65,12 @@ LearnerClustDBSCAN = R6Class(
     },
 
     .predict = function(task) {
-      partition = invoke(predict, self$model, newdata = ordered_features(task, self), data = self$model$data)
+      partition = invoke(
+        predict,
+        self$model,
+        newdata = as_numeric_matrix(ordered_features(task, self)),
+        data = self$model$data
+      )
       list(partition = partition)
     }
   )

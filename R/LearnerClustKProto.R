@@ -101,7 +101,7 @@ LearnerClustKProto = R6Class(
       pv = self$param_set$get_values(tags = "train")
       m = invoke(clustMixType::kproto, x = task$data(), .args = pv)
       if (self$save_assignments) {
-        self$assignments = m$cluster
+        self$assignments = unname(m$cluster)
       }
       m
     },
