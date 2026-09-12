@@ -35,6 +35,7 @@ as_task_clust.TaskClust = function(x, clone = FALSE, ...) {
 as_task_clust.data.frame = function(x, id = deparse1(substitute(x)), label = NA_character_, ...) {
   force(id)
 
+  assert_data_frame(x, min.rows = 1L, min.cols = 1L, col.names = "unique")
   ii = which(map_lgl(keep(x, is.double), anyInfinite))
   if (length(ii) > 0L) {
     warning_input("Detected columns with unsupported Inf values in data: %s", str_collapse(names(ii)))
