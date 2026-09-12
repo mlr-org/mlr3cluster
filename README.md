@@ -72,7 +72,7 @@ create great visualizations with just one line of code!
 | [clust.fanny](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.fanny) | Fuzzy Analysis | [cluster](https://cran.r-project.org/package=cluster) |
 | [clust.featureless](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.featureless) | Featureless Clustering Learner |  |
 | [clust.ff](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.ff) | Farthest First | [RWeka](https://cran.r-project.org/package=RWeka) |
-| [clust.flexmix](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix) | Finite Mixture Model | [flexmix](https://cran.r-project.org/package=flexmix) |
+| [clust.flexmix](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix) | Finite Mixture Model | [flexmix](https://cran.r-project.org/package=flexmix), [mvtnorm](https://cran.r-project.org/package=mvtnorm) |
 | [clust.genie](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie) | Genie Hierarchical Clustering | [genieclust](https://cran.r-project.org/package=genieclust) |
 | [clust.gmeans](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans) | G-Means | [gmeans](https://cran.r-project.org/package=gmeans) |
 | [clust.hclust](https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust) | Hierarchical Clustering | stats |
