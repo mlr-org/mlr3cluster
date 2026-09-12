@@ -2,7 +2,7 @@
 
 ## New task generators
 
-* `tgen("blobs")` is a new task generator for isotropic Gaussian blobs with configurable number of clusters `k`, dimensions `d`, and within-cluster standard deviation `sd`. It is the first generator in `mlr_task_generators` that produces a `TaskClust`.
+* `tgen("blobs")` is a new task generator for isotropic Gaussian blobs with configurable number of clusters `k`, dimensions `d`, and within-cluster standard deviation `sd`.
 * `tgen("moons")` is a new task generator for two interleaving half circles with configurable noise `sd`, a standard non-convex test case for density-based clustering.
 
 ## Other improvements
@@ -15,21 +15,23 @@
 * `clust.cobweb`, `clust.em`, `clust.ff`, `clust.SimpleKMeans`, and `clust.xmeans` now expose Weka's `do_not_check_capabilities` parameter. `clust.cobweb` also exposes `save_data`, and `clust.em` exposes `O`.
 * `clust.em` and `clust.SimpleKMeans` now support `mlr3::set_threads()` through their `num_slots` parameter.
 * `clust.featureless` now accepts all feature types supported by mlr3 tasks and declares the `"featureless"` property, since it never uses the feature values. Previously it rejected tasks with character, factor, ordered, date, or time features.
-* `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support `mlr3::set_threads()`. Their thread-count parameters are initialized to 1 instead of using all available cores.
+* `clust.kmeans_rcpp`, `clust.som`, and `clust.tclust` now support `mlr3::set_threads()`. The thread counts of `clust.som` and `clust.tclust` are initialized to 1 instead of using all available cores, and `clust.tclust` enables `parallel` at train time when `n.cores` is greater than one and `parallel` is not set explicitly.
 * `clust.MBatchKMeans` gained the `threads` parameter, which is passed to `ClusterR::predict_KMeans()` and supports `mlr3::set_threads()`.
-* `MeasureClust` gained the `param_set`, `average`, and `predict_sets` constructor arguments, matching `mlr3::MeasureRegr`.
-* `PredictionClust` gained the `extra` and `raw` fields introduced in mlr3 1.3.0 and 1.6.0. Cluster learners can return extra data and the raw upstream prediction from `$.predict()`, and both are carried through filtering and combining predictions.
+* `MeasureClust` gained the `param_set`, `average`, and `predict_sets` constructor arguments, matching `mlr3::MeasureRegr`, and cluster measures are now cloneable.
+* `PredictionClust` gained the `extra` and `raw` fields introduced in mlr3 1.3.0 and 1.6.0. This allows cluster learners to return extra data and the raw upstream prediction from `$.predict()`, and both are carried through filtering and combining predictions.
+* `TaskClust` gained the `extra_args` constructor argument, matching the task classes in mlr3.
 
 ## Bug fixes
 
-* `k` is now a required parameter of `clust.agnes`, `clust.diana`, `clust.genie`, `clust.hclust`, and `clust.protoclust`.
+* `as_task_clust()` now rejects empty `data.frame`s and duplicated column names with an informative error, matching the `as_task_*()` converters in mlr3.
+* `clust.agnes`, `clust.diana`, `clust.genie`, `clust.hclust`, and `clust.protoclust` now tag `k` as required, so unsetting it fails with an informative error.
 * `clust.ap`, `clust.dbscan`, `clust.hdbscan`, and `clust.xmeans` now use logical features. Previously, logical columns were dropped or caused an error.
-* `clust.ap` no longer fails to predict when `s` is a function name such as `"negDistMat"`.
+* `clust.ap` no longer fails to predict when `s` is a function name such as `"negDistMat"` or the name of a user-defined function.
+* `clust.dbscan_fpc` and `clust.hdbscan` now store integer `assignments`, and `clust.kproto` no longer stores names on its `assignments`, matching the other learners.
 * `clust.flexmix` now declares `mvtnorm` as a required package, since the default model `FLXMCmvnorm` needs it.
-* `clust.tclust` now enables `parallel` at train time when `n.cores` is greater than one and `parallel` is not set explicitly, so `mlr3::set_threads()` actually parallelizes training.
 * `default_fallback()` now returns a `clust.featureless` learner with the matching predict type for cluster learners, so `resample()` and `benchmark()` work with the `encapsulate` argument. Previously they failed with "Could not find default fallback learner".
 * `PredictionClust` now signals an error of class `Mlr3ErrorLearnerPredict` with the number of missing or surplus observations when the length of `partition`, `prob`, or `weights` does not match `row_ids`, matching mlr3.
-* `PredictionClust` objects with a different number of clusters can no longer be combined with `c()` when one of them is empty. The error is now an `Mlr3ErrorInput` with an informative message instead of a base R error from `rbind()`.
+* Combining `PredictionClust` objects with a different number of clusters with `c()` now fails with an informative `Mlr3ErrorInput`. Previously, this either failed with a base R error from `rbind()` or, when one of them was empty, silently succeeded.
 
 # mlr3cluster 0.5.0
 
