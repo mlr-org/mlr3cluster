@@ -148,6 +148,33 @@ If you have any questions, feedback or ideas, feel free to open an issue
 
 # Package index
 
+## Building Blocks
+
+- [`TaskClust`](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)
+  : Cluster Task
+- [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
+  : Cluster Learner
+- [`PredictionClust`](https://mlr3cluster.mlr-org.com/dev/reference/PredictionClust.md)
+  : Prediction Object for Cluster Analysis
+- [`MeasureClust`](https://mlr3cluster.mlr-org.com/dev/reference/MeasureClust.md)
+  : Cluster Measure
+
+## Tasks
+
+- [`mlr_tasks_ruspini`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_ruspini.md)
+  : Ruspini Cluster Task
+- [`mlr_tasks_usarrests`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_usarrests.md)
+  : US Arrests Cluster Task
+
+## Task Generators
+
+- [`mlr_task_generators_blobs`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_blobs.md)
+  [`TaskGeneratorBlobs`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_blobs.md)
+  : Gaussian Blobs Cluster Task Generator
+- [`mlr_task_generators_moons`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_moons.md)
+  [`TaskGeneratorMoons`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_moons.md)
+  : Moons Cluster Task Generator
+
 ## Learners
 
 - [`mlr_learners_clust.MBatchKMeans`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_learners_clust.MBatchKMeans.md)
@@ -295,37 +322,16 @@ If you have any questions, feedback or ideas, feel free to open an issue
 - [`mlr_measures_clust.wss`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_measures_clust.wss.md)
   : Within Sum of Squares
 
-## Tasks
+## Converters
 
-- [`mlr_tasks_ruspini`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_ruspini.md)
-  : Ruspini Cluster Task
-- [`mlr_tasks_usarrests`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_tasks_usarrests.md)
-  : US Arrests Cluster Task
-
-## Task Generators
-
-- [`mlr_task_generators_blobs`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_blobs.md)
-  [`TaskGeneratorBlobs`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_blobs.md)
-  : Gaussian Blobs Cluster Task Generator
-- [`mlr_task_generators_moons`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_moons.md)
-  [`TaskGeneratorMoons`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_moons.md)
-  : Moons Cluster Task Generator
-
-## General
-
-- [`MeasureClust`](https://mlr3cluster.mlr-org.com/dev/reference/MeasureClust.md)
-  : Cluster Measure
-- [`PredictionClust`](https://mlr3cluster.mlr-org.com/dev/reference/PredictionClust.md)
-  : Prediction Object for Cluster Analysis
-- [`TaskClust`](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)
-  : Cluster Task
-- [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
-  : Cluster Learner
-- [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
-  : Convert to a Cluster Prediction
 - [`as_task_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
   [`as_tasks_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
   : Convert to a Cluster Task
+- [`as_prediction_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_prediction_clust.md)
+  : Convert to a Cluster Prediction
+
+## Package
+
 - [`mlr3cluster`](https://mlr3cluster.mlr-org.com/dev/reference/mlr3cluster-package.md)
   [`mlr3cluster-package`](https://mlr3cluster.mlr-org.com/dev/reference/mlr3cluster-package.md)
   : mlr3cluster: Cluster Extension for 'mlr3'
