@@ -70,7 +70,7 @@ lrn("clust.tclust")
    scale \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    store_x \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    parallel \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   n.cores \tab integer \tab -1 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   n.cores \tab integer \tab -1 \tab  \tab \eqn{[-2, \infty)}{[-2, Inf)} \cr
    zero_tol \tab numeric \tab 1e-16 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    drop.empty.clust \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    trace \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
