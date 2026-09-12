@@ -191,3 +191,7 @@ cluster_davies_bouldin = function(x, clustering) {
   }
   mean(db)
 }
+
+cluster_silhouette = function(d, clustering) {
+  mean(cluster::silhouette(clustering, dmatrix = d)[, "sil_width"])
+}

@@ -4,6 +4,8 @@
 \alias{mlr_measures_clust.silhouette}
 \title{Rousseeuw's Silhouette Quality Index}
 \description{
+Calls \code{\link[cluster:silhouette]{cluster::silhouette()}} from package \CRANpkg{cluster}.
+
 The Silhouette Width measures how well each observation fits within its assigned cluster compared to neighboring
 clusters. For each observation, the silhouette value is defined as
 \eqn{s(i) = (b(i) - a(i)) / \max(a(i), b(i))}{s(i) = (b(i) - a(i)) / max(a(i), b(i))}
@@ -11,8 +13,6 @@ where \eqn{a(i)} is the average distance to all other observations in the same c
 minimum average distance to observations in any other cluster. The score returned is the mean silhouette width
 across all observations. Values close to 1 indicate well-clustered observations, values near 0 indicate
 observations on cluster boundaries, and negative values indicate possible misclassification.
-
-The score function calls \code{\link[cluster:silhouette]{cluster::silhouette()}} from package \CRANpkg{cluster}.
 }
 \details{
 If the task contains character, factor, or ordered features, Gower distances (\code{\link[cluster:daisy]{cluster::daisy()}}) are used instead of

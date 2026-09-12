@@ -59,39 +59,11 @@ MeasureClustSimple = R6Class(
   )
 )
 
-MeasureClustSil = R6Class(
-  "MeasureClustSil",
-  inherit = MeasureClust,
-  public = list(
-    initialize = function() {
-      super$initialize(
-        id = "clust.silhouette",
-        range = c(-1, 1),
-        minimize = FALSE,
-        predict_type = "partition",
-        packages = "cluster",
-        properties = "requires_task",
-        label = "Silhouette",
-        man = "mlr3cluster::mlr_measures_clust.silhouette"
-      )
-    }
-  ),
-  private = list(
-    .score = function(prediction, task, ...) {
-      if (length(unique(prediction$partition)) < 2L) {
-        return(NaN)
-      }
-
-      d = task_dist(task, prediction$row_ids)
-
-      mean(silhouette(prediction$partition, d)[, "sil_width"])
-    }
-  )
-)
-
 #' @title Rousseeuw's Silhouette Quality Index
 #'
 #' @description
+#' Calls [cluster::silhouette()] from package \CRANpkg{cluster}.
+#'
 #' The Silhouette Width measures how well each observation fits within its assigned cluster compared to neighboring
 #' clusters. For each observation, the silhouette value is defined as
 #' \eqn{s(i) = (b(i) - a(i)) / \max(a(i), b(i))}{s(i) = (b(i) - a(i)) / max(a(i), b(i))}
@@ -105,11 +77,18 @@ MeasureClustSil = R6Class(
 #' Euclidean distances.
 #'
 #' @templateVar id silhouette
-#' @template measure_sil
+#' @template measure_clust
 #'
 #' @references
 #' `r format_bib("rousseeuw1987silhouettes")`
-NULL
+measures$silhouette = make_measure_info(
+  cluster_silhouette,
+  label = "Silhouette",
+  lower = -1,
+  upper = 1,
+  minimize = FALSE,
+  input = "dist"
+)
 
 #' @title Calinski Harabasz Pseudo F-Statistic
 #'

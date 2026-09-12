@@ -3,7 +3,6 @@
 #' @import mlr3
 #' @import mlr3misc
 #' @import paradox
-#' @importFrom cluster silhouette
 #' @importFrom R6 R6Class
 #' @importFrom stats model.frame predict rnorm runif terms
 "_PACKAGE"
@@ -60,7 +59,6 @@ register_mlr3 = function(...) {
 
   # measures
   mlr_measures = utils::getFromNamespace("mlr_measures", ns = "mlr3")
-  mlr_measures$add("clust.silhouette", MeasureClustSil)
   iwalk(as.list(measures), function(info, name) {
     mlr_measures$add(paste0("clust.", name), MeasureClustSimple, name = name)
   })
@@ -76,7 +74,6 @@ register_mlr3 = function(...) {
   walk(names(mlr3cluster_tasks), function(id) mlr_tasks$remove(id))
   walk(names(mlr3cluster_task_generators), function(id) mlr_task_generators$remove(id))
   walk(names(mlr3cluster_learners), function(id) mlr_learners$remove(id))
-  mlr_measures$remove("clust.silhouette")
   walk(names(measures), function(id) mlr_measures$remove(paste0("clust.", id)))
 
   mlr_reflections$task_types = mlr_reflections$task_types[!"clust"]
