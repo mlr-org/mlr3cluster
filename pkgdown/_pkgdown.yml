@@ -16,7 +16,7 @@ toc:
 
 navbar:
   structure:
-    left:  [reference, news, book]
+    left: [reference, news, book]
     right: [search, github, mattermost, stackoverflow, rss, lightswitch]
   components:
     home: ~
@@ -27,6 +27,9 @@ navbar:
     mattermost:
       icon: fa fa-comments
       href: https://lmmisld-lmu-stats-slds.srv.mwn.de/mlr_invite/
+    github:
+      icon: fa fa-github
+      href: https://github.com/mlr-org/mlr3cluster
     book:
       text: mlr3book
       icon: fa fa-link
@@ -39,24 +42,28 @@ navbar:
       href: https://mlr-org.com/
 
 reference:
-  - title: Learners
+  - title: Building Blocks
     contents:
-      - starts_with("mlr_learners_clust")
-  - title: Measures
-    contents:
-      - starts_with("mlr_measures_clust")
+      - TaskClust
+      - LearnerClust
+      - PredictionClust
+      - MeasureClust
   - title: Tasks
     contents:
       - starts_with("mlr_tasks")
   - title: Task Generators
     contents:
       - starts_with("mlr_task_generators")
-  - title: General
+  - title: Learners
     contents:
-      - MeasureClust
-      - PredictionClust
-      - TaskClust
-      - LearnerClust
-      - as_prediction_clust
+      - starts_with("mlr_learners_clust")
+  - title: Measures
+    contents:
+      - starts_with("mlr_measures_clust")
+  - title: Converters
+    contents:
       - as_task_clust
+      - as_prediction_clust
+  - title: Package
+    contents:
       - mlr3cluster-package
