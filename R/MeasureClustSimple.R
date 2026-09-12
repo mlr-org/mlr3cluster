@@ -4,7 +4,6 @@
 MeasureClustSimple = R6Class(
   "MeasureClustSimple",
   inherit = MeasureClust,
-  cloneable = FALSE,
   public = list(
     initialize = function(name) {
       info = measures[[name]]
@@ -63,7 +62,6 @@ MeasureClustSimple = R6Class(
 MeasureClustSil = R6Class(
   "MeasureClustSil",
   inherit = MeasureClust,
-  cloneable = FALSE,
   public = list(
     initialize = function() {
       super$initialize(

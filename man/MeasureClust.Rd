@@ -22,6 +22,7 @@ Example cluster measures: \code{\link[=mlr_measures_clust.dunn]{clust.dunn}}
 \subsection{Public methods}{
   \itemize{
     \item \href{#method-MeasureClust-initialize}{\code{MeasureClust$new()}}
+    \item \href{#method-MeasureClust-clone}{\code{MeasureClust$clone()}}
   }
 }
 \if{html}{\out{<details><summary>Inherited methods</summary>
@@ -43,11 +44,14 @@ Example cluster measures: \code{\link[=mlr_measures_clust.dunn]{clust.dunn}}
     \if{html}{\out{<div class="r">}}
     \preformatted{MeasureClust$new(
   id,
+  param_set = ps(),
   range,
   minimize = NA,
+  average = "macro",
   aggregator = NULL,
   properties = character(),
   predict_type = "partition",
+  predict_sets = "test",
   task_properties = character(),
   packages = character(),
   label = NA_character_,
@@ -60,6 +64,8 @@ Example cluster measures: \code{\link[=mlr_measures_clust.dunn]{clust.dunn}}
     \describe{
       \item{\code{id}}{(\code{character(1)})\cr
 Identifier for the new instance.}
+      \item{\code{param_set}}{(\link[paradox:ParamSet]{paradox::ParamSet})\cr
+Set of hyperparameters.}
       \item{\code{range}}{(\code{numeric(2)})\cr
 Feasible range for this measure as \code{c(lower_bound, upper_bound)}.
 Both bounds may be infinite.}
@@ -67,6 +73,20 @@ Both bounds may be infinite.}
 Set to \code{TRUE} if good predictions correspond to small values,
 and to \code{FALSE} if good predictions correspond to large values.
 If set to \code{NA} (default), tuning this measure is not possible.}
+      \item{\code{average}}{(\code{character(1)})\cr
+How to average multiple \link[mlr3:Prediction]{mlr3::Prediction}s from a \link[mlr3:ResampleResult]{ResampleResult}.
+
+The default, \code{"macro"}, calculates the individual performances scores for each \link[mlr3:Prediction]{mlr3::Prediction} and then uses the
+function defined in \verb{$aggregator} to average them to a single number.
+
+\code{"macro_weighted"} is similar to \code{"macro"}, but uses weighted averages.
+Weights are taken from the \code{weights_measure} column of the resampled \link[mlr3:Task]{mlr3::Task} if present.
+Note that \code{"macro_weighted"} can differ from \code{"macro"} even if no weights are present or if \verb{$use_weights} is set to \code{"ignore"},
+since then aggregation is done using \emph{uniform sample weights}, which result in non-uniform weights for \link[mlr3:Prediction]{mlr3::Prediction}s if they contain different
+numbers of samples.
+
+If set to \code{"micro"}, the individual \link[mlr3:Prediction]{mlr3::Prediction} objects are first combined into a single new \link[mlr3:Prediction]{mlr3::Prediction} object which is then used to assess the performance.
+The function in \verb{$aggregator} is not used in this case.}
       \item{\code{aggregator}}{(\verb{function()} | \code{NULL})\cr
 Function to aggregate over multiple iterations. The role of this function depends on
 the value of field \code{"average"}:
@@ -97,6 +117,12 @@ This usually means that the measure extracts some information from the learner s
       \item{\code{predict_type}}{(\code{character(1)})\cr
 Required predict type of the \link[mlr3:Learner]{mlr3::Learner}.
 Possible values are stored in \link[mlr3:mlr_reflections]{mlr_reflections$learner_predict_types}.}
+      \item{\code{predict_sets}}{(\code{character()})\cr
+Prediction sets to operate on, used in \code{aggregate()} to extract the matching \code{predict_sets} from the \link[mlr3:ResampleResult]{ResampleResult}.
+Multiple predict sets are calculated by the respective \link[mlr3:Learner]{mlr3::Learner} during \code{\link[mlr3:resample]{resample()}}/\code{\link[mlr3:benchmark]{benchmark()}}.
+Must be a non-empty subset of \verb{\{"train", "test", "internal_valid"\}}.
+If multiple sets are provided, these are first combined to a single prediction object.
+Default is \code{"test"}.}
       \item{\code{task_properties}}{(\code{character()})\cr
 Required task properties, see \link[mlr3:Task]{mlr3::Task}.}
       \item{\code{packages}}{(\code{character()})\cr
@@ -108,6 +134,25 @@ Label for the new instance.}
       \item{\code{man}}{(\code{character(1)})\cr
 String in the format \verb{[pkg]::[topic]} pointing to a manual page for this object.
 The referenced help package can be opened via method \verb{$help()}.}
+    }
+    \if{html}{\out{</div>}}
+  }
+}
+
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-MeasureClust-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MeasureClust-clone}{}}}
+\subsection{\code{MeasureClust$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{MeasureClust$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
     }
     \if{html}{\out{</div>}}
   }

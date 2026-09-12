@@ -1,5 +1,6 @@
 # mlr3cluster (development version)
 
+* feat: `MeasureClust` gained the `param_set`, `average`, and `predict_sets` constructor arguments, matching `mlr3::MeasureRegr`.
 * fix: `k` is now a required parameter of `clust.agnes`, `clust.diana`, `clust.genie`, `clust.hclust`, and `clust.protoclust`.
 * fix: `clust.ap`, `clust.dbscan`, `clust.hdbscan`, and `clust.xmeans` now use logical features. Previously, logical columns were dropped or caused an error.
 * fix: `clust.ap` no longer fails to predict when `s` is a function name such as `"negDistMat"`.
