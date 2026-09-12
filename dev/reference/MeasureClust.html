@@ -79,6 +79,7 @@ Predefined measures can be found in the mlr3misc::Dictionary mlr3::mlr_measures.
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>
 <p></p><ul><li><p><a href="#method-MeasureClust-initialize"><code>MeasureClust$new()</code></a></p></li>
+<li><p><a href="#method-MeasureClust-clone"><code>MeasureClust$clone()</code></a></p></li>
 </ul></div><p><details><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="aggregate"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-aggregate"><code>mlr3::Measure$aggregate()</code></a></span></li>
   <li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="format"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-format"><code>mlr3::Measure$format()</code></a></span></li>
   <li><span class="pkg-link" data-pkg="mlr3" data-topic="Measure" data-id="help"><a href="https://mlr3.mlr-org.com/reference/Measure.html#method-help"><code>mlr3::Measure$help()</code></a></span></li>
@@ -91,11 +92,14 @@ Predefined measures can be found in the mlr3misc::Dictionary mlr3::mlr_measures.
 <h4 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va"><a href="../reference/MeasureClust.html">MeasureClust</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
 <span>  <span class="va">id</span>,</span>
+<span>  param_set <span class="op">=</span> <span class="fu">ps</span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="va">range</span>,</span>
 <span>  minimize <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  average <span class="op">=</span> <span class="st">"macro"</span>,</span>
 <span>  aggregator <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  properties <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  predict_type <span class="op">=</span> <span class="st">"partition"</span>,</span>
+<span>  predict_sets <span class="op">=</span> <span class="st">"test"</span>,</span>
 <span>  task_properties <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  packages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  label <span class="op">=</span> <span class="cn">NA_character_</span>,</span>
@@ -107,6 +111,10 @@ Predefined measures can be found in the mlr3misc::Dictionary mlr3::mlr_measures.
 <dd><p>(<code>character(1)</code>)<br>
 Identifier for the new instance.</p></dd>
 
+      <dt><code>param_set</code></dt>
+<dd><p>(<a href="https://paradox.mlr-org.com/reference/ParamSet.html" class="external-link">paradox::ParamSet</a>)<br>
+Set of hyperparameters.</p></dd>
+
       <dt><code>range</code></dt>
 <dd><p>(<code>numeric(2)</code>)<br>
 Feasible range for this measure as <code>c(lower_bound, upper_bound)</code>.
@@ -117,6 +125,19 @@ Both bounds may be infinite.</p></dd>
 Set to <code>TRUE</code> if good predictions correspond to small values,
 and to <code>FALSE</code> if good predictions correspond to large values.
 If set to <code>NA</code> (default), tuning this measure is not possible.</p></dd>
+
+      <dt><code>average</code></dt>
+<dd><p>(<code>character(1)</code>)<br>
+How to average multiple <a href="https://mlr3.mlr-org.com/reference/Prediction.html" class="external-link">mlr3::Prediction</a>s from a <a href="https://mlr3.mlr-org.com/reference/ResampleResult.html" class="external-link">ResampleResult</a>.</p>
+<p>The default, <code>"macro"</code>, calculates the individual performances scores for each <a href="https://mlr3.mlr-org.com/reference/Prediction.html" class="external-link">mlr3::Prediction</a> and then uses the
+function defined in <code>$aggregator</code> to average them to a single number.</p>
+<p><code>"macro_weighted"</code> is similar to <code>"macro"</code>, but uses weighted averages.
+Weights are taken from the <code>weights_measure</code> column of the resampled <a href="https://mlr3.mlr-org.com/reference/Task.html" class="external-link">mlr3::Task</a> if present.
+Note that <code>"macro_weighted"</code> can differ from <code>"macro"</code> even if no weights are present or if <code>$use_weights</code> is set to <code>"ignore"</code>,
+since then aggregation is done using <em>uniform sample weights</em>, which result in non-uniform weights for <a href="https://mlr3.mlr-org.com/reference/Prediction.html" class="external-link">mlr3::Prediction</a>s if they contain different
+numbers of samples.</p>
+<p>If set to <code>"micro"</code>, the individual <a href="https://mlr3.mlr-org.com/reference/Prediction.html" class="external-link">mlr3::Prediction</a> objects are first combined into a single new <a href="https://mlr3.mlr-org.com/reference/Prediction.html" class="external-link">mlr3::Prediction</a> object which is then used to assess the performance.
+The function in <code>$aggregator</code> is not used in this case.</p></dd>
 
       <dt><code>aggregator</code></dt>
 <dd><p>(<code>function()</code> | <code>NULL</code>)<br>
@@ -150,6 +171,14 @@ This usually means that the measure extracts some information from the learner s
 Required predict type of the <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a>.
 Possible values are stored in <a href="https://mlr3.mlr-org.com/reference/mlr_reflections.html" class="external-link">mlr_reflections$learner_predict_types</a>.</p></dd>
 
+      <dt><code>predict_sets</code></dt>
+<dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
+Prediction sets to operate on, used in <code><a href="https://rdrr.io/r/stats/aggregate.html" class="external-link">aggregate()</a></code> to extract the matching <code>predict_sets</code> from the <a href="https://mlr3.mlr-org.com/reference/ResampleResult.html" class="external-link">ResampleResult</a>.
+Multiple predict sets are calculated by the respective <a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a> during <code><a href="https://mlr3.mlr-org.com/reference/resample.html" class="external-link">resample()</a></code>/<code><a href="https://mlr3.mlr-org.com/reference/benchmark.html" class="external-link">benchmark()</a></code>.
+Must be a non-empty subset of <code>{"train", "test", "internal_valid"}</code>.
+If multiple sets are provided, these are first combined to a single prediction object.
+Default is <code>"test"</code>.</p></dd>
+
       <dt><code>task_properties</code></dt>
 <dd><p>(<code><a href="https://rdrr.io/r/base/character.html" class="external-link">character()</a></code>)<br>
 Required task properties, see <a href="https://mlr3.mlr-org.com/reference/Task.html" class="external-link">mlr3::Task</a>.</p></dd>
@@ -168,6 +197,22 @@ Label for the new instance.</p></dd>
 <dd><p>(<code>character(1)</code>)<br>
 String in the format <code>[pkg]::[topic]</code> pointing to a manual page for this object.
 The referenced help package can be opened via method <code>$help()</code>.</p></dd>
+
+
+</dl><p></p></div>
+</div>
+
+</div>
+
+<p></p><hr><a id="method-MeasureClust-clone"></a><div class="section">
+<h3 id="measureclust-clone-"><code>MeasureClust$clone()</code><a class="anchor" aria-label="anchor" href="#measureclust-clone-"></a></h3>
+<p>The objects of this class are cloneable with this method.</p><div class="section">
+<h4 id="usage-1">Usage<a class="anchor" aria-label="anchor" href="#usage-1"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">MeasureClust</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div><p></p><div class="section">
+<h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>deep</code></dt>
+<dd><p>Whether to make a deep clone.</p></dd>
 
 
 </dl><p></p></div>
