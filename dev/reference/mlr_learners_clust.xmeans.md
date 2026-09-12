@@ -8,6 +8,14 @@ The predict method uses
 [`RWeka::predict.Weka_clusterer()`](https://rdrr.io/pkg/RWeka/man/predict_Weka_clusterer.html)
 to compute the cluster memberships for new data.
 
+## Installation
+
+XMeans is not part of the Weka core and must be installed once through
+the Weka package manager:
+
+    RWeka::WPM("refresh-cache")
+    RWeka::WPM("install-package", "XMeans")
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
