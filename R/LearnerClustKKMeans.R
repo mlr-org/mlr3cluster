@@ -38,7 +38,7 @@ LearnerClustKKMeans = R6Class(
       param_set = ps(
         centers = p_uty(tags = c("train", "required"), custom_check = check_centers),
         kernel = p_fct(
-          levels = c("rbfdot", "polydot", "vanilladot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
+          c("rbfdot", "polydot", "vanilladot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
           default = "rbfdot",
           tags = "train"
         ),

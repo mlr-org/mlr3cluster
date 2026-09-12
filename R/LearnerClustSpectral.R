@@ -36,7 +36,7 @@ LearnerClustSpectral = R6Class(
       param_set = ps(
         centers = p_int(2L, tags = c("train", "required")),
         kernel = p_fct(
-          levels = c("rbfdot", "polydot", "vanilladot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
+          c("rbfdot", "polydot", "vanilladot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
           default = "rbfdot",
           tags = "train"
         ),

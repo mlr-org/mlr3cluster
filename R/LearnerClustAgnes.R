@@ -45,7 +45,7 @@ LearnerClustAgnes = R6Class(
         metric = p_fct(c("euclidean", "manhattan"), default = "euclidean", tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
         method = p_fct(
-          levels = c("average", "single", "complete", "ward", "weighted", "flexible", "gaverage"),
+          c("average", "single", "complete", "ward", "weighted", "flexible", "gaverage"),
           default = "average",
           tags = "train"
         ),

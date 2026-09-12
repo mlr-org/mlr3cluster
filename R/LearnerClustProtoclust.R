@@ -34,7 +34,7 @@ LearnerClustProtoclust = R6Class(
     initialize = function() {
       param_set = ps(
         method = p_fct(
-          levels = c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"),
+          c("euclidean", "maximum", "manhattan", "canberra", "binary", "minkowski"),
           default = "euclidean",
           tags = c("train", "dist")
         ),
