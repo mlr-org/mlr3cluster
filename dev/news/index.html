@@ -49,8 +49,7 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
-<ul><li>fix: <code>clust.flexmix</code> now declares <code>mvtnorm</code> as a required package, since the default model <code>FLXMCmvnorm</code> needs it.</li>
-<li>feat: <code>tgen("moons")</code> is a new task generator for two interleaving half circles with configurable noise <code>sd</code>, a standard non-convex test case for density-based clustering.</li>
+<ul><li>feat: <code>tgen("moons")</code> is a new task generator for two interleaving half circles with configurable noise <code>sd</code>, a standard non-convex test case for density-based clustering.</li>
 <li>feat: Cluster learners can now declare the standard mlr3 learner properties such as <code>"featureless"</code>, <code>"weights"</code>, <code>"importance"</code>, and <code>"selected_features"</code>. Previously <code>mlr_reflections$learner_properties$clust</code> only allowed <code>"missings"</code> and <code>"marshal"</code> besides the clustering-specific properties.</li>
 <li>feat: <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now stores columns other than <code>row_ids</code>, <code>partition</code>, <code>weights</code>, and <code>prob.*</code> as extra data instead of rejecting them, so <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> and <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> round-trip predictions with extra data.</li>
 <li>feat: <code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> gained a <code>label</code> argument for all methods, matching the <code>as_task_*()</code> converters in mlr3.</li>
@@ -64,6 +63,7 @@
 <li>feat: <code>MeasureClust</code> gained the <code>param_set</code>, <code>average</code>, and <code>predict_sets</code> constructor arguments, matching <code><a href="https://mlr3.mlr-org.com/reference/MeasureRegr.html" class="external-link">mlr3::MeasureRegr</a></code>.</li>
 <li>feat: <code>PredictionClust</code> gained the <code>extra</code> and <code>raw</code> fields introduced in mlr3 1.3.0 and 1.6.0. Cluster learners can return extra data and the raw upstream prediction from <code>$.predict()</code>, and both are carried through filtering and combining predictions.</li>
 <li>feat: <code>tgen("blobs")</code> is a new task generator for isotropic Gaussian blobs with configurable number of clusters <code>k</code>, dimensions <code>d</code>, and within-cluster standard deviation <code>sd</code>. It is the first generator in <code>mlr_task_generators</code> that produces a <code>TaskClust</code>.</li>
+<li>fix: <code>clust.flexmix</code> now declares <code>mvtnorm</code> as a required package, since the default model <code>FLXMCmvnorm</code> needs it.</li>
 <li>fix: <code>k</code> is now a required parameter of <code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.genie</code>, <code>clust.hclust</code>, and <code>clust.protoclust</code>.</li>
 <li>fix: <code>clust.ap</code>, <code>clust.dbscan</code>, <code>clust.hdbscan</code>, and <code>clust.xmeans</code> now use logical features. Previously, logical columns were dropped or caused an error.</li>
 <li>fix: <code>clust.ap</code> no longer fails to predict when <code>s</code> is a function name such as <code>"negDistMat"</code>.</li>
