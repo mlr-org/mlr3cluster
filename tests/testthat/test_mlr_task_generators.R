@@ -33,16 +33,14 @@ test_that("blobs generator", {
 
 test_that("blobs generator is reproducible", {
   generator = tgen("blobs", sd = 0.5)
-  set.seed(1L)
-  task1 = generator$generate(40L)
-  set.seed(1L)
-  task2 = generator$generate(40L)
+  task1 = withr::with_seed(1L, generator$generate(40L))
+  task2 = withr::with_seed(1L, generator$generate(40L))
   expect_identical(task1$data(), task2$data())
 })
 
 test_that("blobs generator generates separated clusters", {
   skip_if_not_installed("clue")
-  set.seed(1L)
+  withr::local_seed(1L)
   task = tgen("blobs", k = 2L, d = 2L, sd = 0.1, center_box = 5)$generate(50L)
   learner = lrn("clust.kmeans", centers = 2L)
   prediction = learner$train(task)$predict(task)
@@ -50,8 +48,7 @@ test_that("blobs generator generates separated clusters", {
 })
 
 test_that("blobs generator plot", {
-  grDevices::pdf(NULL)
-  on.exit(grDevices::dev.off(), add = TRUE)
+  withr::local_pdf(NULL)
   expect_no_error(plot(tgen("blobs"), n = 50L))
   expect_no_error(tgen("blobs", d = 3L)$plot(n = 50L))
   expect_error(tgen("blobs", d = 1L)$plot(n = 50L), "at least 2 dimensions")
@@ -69,16 +66,14 @@ test_that("moons generator", {
 
 test_that("moons generator is reproducible", {
   generator = tgen("moons", sd = 0.05)
-  set.seed(1L)
-  task1 = generator$generate(40L)
-  set.seed(1L)
-  task2 = generator$generate(40L)
+  task1 = withr::with_seed(1L, generator$generate(40L))
+  task2 = withr::with_seed(1L, generator$generate(40L))
   expect_identical(task1$data(), task2$data())
 })
 
 test_that("moons generator generates two non-convex clusters", {
   skip_if_not_installed("dbscan")
-  set.seed(1L)
+  withr::local_seed(1L)
   generator = tgen("moons", sd = 0.05)
   obj = get_private(generator)$.generate_obj(200L)
   task = as_task_clust(as.data.table(obj$x))
@@ -89,7 +84,6 @@ test_that("moons generator generates two non-convex clusters", {
 })
 
 test_that("moons generator plot", {
-  grDevices::pdf(NULL)
-  on.exit(grDevices::dev.off(), add = TRUE)
+  withr::local_pdf(NULL)
   expect_no_error(plot(tgen("moons"), n = 50L))
 })

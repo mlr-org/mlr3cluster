@@ -5,7 +5,7 @@ test_that("autotest", {
   expect_learner(learner)
 
   generate_tasks.LearnerClustSTDBSCAN = function(learner, N = 20L) {
-    set.seed(1L)
+    withr::local_seed(1L)
     dt = tgen("blobs", k = 2L, d = 2L, sd = 0.1, center_box = 10)$generate(N)$data()
     # third column (alphabetically) must be non-negative cumulative time
     dt$z = seq_len(N)
