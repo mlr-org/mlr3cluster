@@ -56,7 +56,7 @@ TaskGeneratorBlobs = R6Class(
     #' @description
     #' Creates a simple plot of the first two features of generated data, colored by cluster membership.
     #' @param n (`integer(1)`)\cr
-    #'   Number of samples to draw for the plot. Default is 200.
+    #'   Number of samples to draw for the plot. Default is `200`.
     #' @param pch (`integer(1)`)\cr
     #'   Point char. Passed to [graphics::plot()].
     #' @param ... (any)\cr

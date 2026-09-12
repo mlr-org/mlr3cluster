@@ -1,6 +1,6 @@
 test_that("clust task generators are registered", {
   keys = as.data.table(mlr_task_generators)[task_type == "clust", key]
-  expect_subset("blobs", keys)
+  expect_subset(c("blobs", "moons"), keys)
 
   for (key in keys) {
     generator = tgen(key)
@@ -55,4 +55,41 @@ test_that("blobs generator plot", {
   expect_no_error(plot(tgen("blobs"), n = 50L))
   expect_no_error(tgen("blobs", d = 3L)$plot(n = 50L))
   expect_error(tgen("blobs", d = 1L)$plot(n = 50L), "at least 2 dimensions")
+})
+
+test_that("moons generator", {
+  generator = tgen("moons")
+  expect_identical(generator$param_set$values, list(sd = 0.1))
+  task = generator$generate(30L)
+  expect_identical(task$id, "moons_30")
+  expect_identical(task$feature_names, c("x1", "x2"))
+  expect_true(all(task$feature_types$type == "numeric"))
+  expect_identical(tgen("moons", sd = 0)$generate(7L)$nrow, 7L)
+})
+
+test_that("moons generator is reproducible", {
+  generator = tgen("moons", sd = 0.05)
+  set.seed(1L)
+  task1 = generator$generate(40L)
+  set.seed(1L)
+  task2 = generator$generate(40L)
+  expect_identical(task1$data(), task2$data())
+})
+
+test_that("moons generator generates two non-convex clusters", {
+  skip_if_not_installed("dbscan")
+  set.seed(1L)
+  generator = tgen("moons", sd = 0.05)
+  obj = get_private(generator)$.generate_obj(200L)
+  task = as_task_clust(as.data.table(obj$x))
+  # a density-based learner recovers the two moons exactly
+  prediction = lrn("clust.dbscan", eps = 0.2, minPts = 5L)$train(task)$predict(task)
+  expect_identical(length(unique(prediction$partition)), 2L)
+  expect_true(all(table(prediction$partition, obj$classes) %in% c(0L, 100L)))
+})
+
+test_that("moons generator plot", {
+  grDevices::pdf(NULL)
+  on.exit(grDevices::dev.off(), add = TRUE)
+  expect_no_error(plot(tgen("moons"), n = 50L))
 })
