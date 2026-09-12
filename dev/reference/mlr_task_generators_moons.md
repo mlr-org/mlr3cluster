@@ -139,5 +139,5 @@ str(task$data())
 #> Classes ‘data.table’ and 'data.frame':   200 obs. of  2 variables:
 #>  $ x1: num  0.587 1.677 -0.422 1.701 -0.422 ...
 #>  $ x2: num  0.748 -0.445 0.84 -0.156 0.936 ...
-#>  - attr(*, ".internal.selfref")=<pointer: 0x56334e6d3a30> 
+#>  - attr(*, ".internal.selfref")=<pointer: 0x557141b75a30> 
 ```

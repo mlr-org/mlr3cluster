@@ -49,29 +49,59 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
-<ul><li>feat: <code>tgen("moons")</code> is a new task generator for two interleaving half circles with configurable noise <code>sd</code>, a standard non-convex test case for density-based clustering.</li>
-<li>feat: Cluster learners can now declare the standard mlr3 learner properties such as <code>"featureless"</code>, <code>"weights"</code>, <code>"importance"</code>, and <code>"selected_features"</code>. Previously <code>mlr_reflections$learner_properties$clust</code> only allowed <code>"missings"</code> and <code>"marshal"</code> besides the clustering-specific properties.</li>
-<li>feat: <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now stores columns other than <code>row_ids</code>, <code>partition</code>, <code>weights</code>, and <code>prob.*</code> as extra data instead of rejecting them, so <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> and <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> round-trip predictions with extra data.</li>
-<li>feat: <code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> gained a <code>label</code> argument for all methods, matching the <code>as_task_*()</code> converters in mlr3.</li>
-<li>feat: <code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> now supports matrices.</li>
-<li>feat: <code><a href="../reference/as_task_clust.html">as_tasks_clust()</a></code> converts a <code>TaskClust</code> or a list of objects to a list of <code>TaskClust</code>.</li>
-<li>feat: <code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.SimpleKMeans</code>, and <code>clust.xmeans</code> now expose Weka’s <code>do_not_check_capabilities</code> parameter. <code>clust.cobweb</code> also exposes <code>save_data</code>, and <code>clust.em</code> exposes <code>O</code>.</li>
-<li>feat: <code>clust.em</code> and <code>clust.SimpleKMeans</code> now support <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code> through their <code>num_slots</code> parameter.</li>
-<li>feat: <code>clust.featureless</code> now accepts all feature types supported by mlr3 tasks and declares the <code>"featureless"</code> property, since it never uses the feature values. Previously it rejected tasks with character, factor, ordered, date, or time features.</li>
-<li>feat: <code>clust.kmeans_rcpp</code>, <code>clust.som</code>, and <code>clust.tclust</code> now support <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code>. Their thread-count parameters are initialized to 1 instead of using all available cores.</li>
-<li>feat: <code>clust.MBatchKMeans</code> gained the <code>threads</code> parameter, which is passed to <code><a href="https://mlampros.github.io/ClusterR/reference/predict_KMeans.html" class="external-link">ClusterR::predict_KMeans()</a></code> and supports <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code>.</li>
-<li>feat: <code>MeasureClust</code> gained the <code>param_set</code>, <code>average</code>, and <code>predict_sets</code> constructor arguments, matching <code><a href="https://mlr3.mlr-org.com/reference/MeasureRegr.html" class="external-link">mlr3::MeasureRegr</a></code>.</li>
-<li>feat: <code>PredictionClust</code> gained the <code>extra</code> and <code>raw</code> fields introduced in mlr3 1.3.0 and 1.6.0. Cluster learners can return extra data and the raw upstream prediction from <code>$.predict()</code>, and both are carried through filtering and combining predictions.</li>
-<li>feat: <code>tgen("blobs")</code> is a new task generator for isotropic Gaussian blobs with configurable number of clusters <code>k</code>, dimensions <code>d</code>, and within-cluster standard deviation <code>sd</code>. It is the first generator in <code>mlr_task_generators</code> that produces a <code>TaskClust</code>.</li>
-<li>fix: <code>clust.flexmix</code> now declares <code>mvtnorm</code> as a required package, since the default model <code>FLXMCmvnorm</code> needs it.</li>
-<li>fix: <code>k</code> is now a required parameter of <code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.genie</code>, <code>clust.hclust</code>, and <code>clust.protoclust</code>.</li>
-<li>fix: <code>clust.ap</code>, <code>clust.dbscan</code>, <code>clust.hdbscan</code>, and <code>clust.xmeans</code> now use logical features. Previously, logical columns were dropped or caused an error.</li>
-<li>fix: <code>clust.ap</code> no longer fails to predict when <code>s</code> is a function name such as <code>"negDistMat"</code>.</li>
-<li>fix: <code>clust.tclust</code> now enables <code>parallel</code> at train time when <code>n.cores</code> is greater than one and <code>parallel</code> is not set explicitly, so <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code> actually parallelizes training.</li>
-<li>fix: <code><a href="https://mlr3.mlr-org.com/reference/default_fallback.html" class="external-link">default_fallback()</a></code> now returns a <code>clust.featureless</code> learner with the matching predict type for cluster learners, so <code><a href="https://mlr3.mlr-org.com/reference/resample.html" class="external-link">resample()</a></code> and <code><a href="https://mlr3.mlr-org.com/reference/benchmark.html" class="external-link">benchmark()</a></code> work with the <code>encapsulate</code> argument. Previously they failed with “Could not find default fallback learner”.</li>
-<li>fix: <code>PredictionClust</code> now signals an error of class <code>Mlr3ErrorLearnerPredict</code> with the number of missing or surplus observations when the length of <code>partition</code>, <code>prob</code>, or <code>weights</code> does not match <code>row_ids</code>, matching mlr3.</li>
-<li>fix: <code>PredictionClust</code> objects with a different number of clusters can no longer be combined with <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> when one of them is empty. The error is now an <code>Mlr3ErrorInput</code> with an informative message instead of a base R error from <code><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind()</a></code>.</li>
+<div class="section level3">
+<h3 id="new-task-generators-development-version">New task generators<a class="anchor" aria-label="anchor" href="#new-task-generators-development-version"></a></h3>
+<ul><li>
+<code>tgen("blobs")</code> is a new task generator for isotropic Gaussian blobs with configurable number of clusters <code>k</code>, dimensions <code>d</code>, and within-cluster standard deviation <code>sd</code>. It is the first generator in <code>mlr_task_generators</code> that produces a <code>TaskClust</code>.</li>
+<li>
+<code>tgen("moons")</code> is a new task generator for two interleaving half circles with configurable noise <code>sd</code>, a standard non-convex test case for density-based clustering.</li>
 </ul></div>
+<div class="section level3">
+<h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
+<ul><li>Cluster learners can now declare the standard mlr3 learner properties such as <code>"featureless"</code>, <code>"weights"</code>, <code>"importance"</code>, and <code>"selected_features"</code>. Previously <code>mlr_reflections$learner_properties$clust</code> only allowed <code>"missings"</code> and <code>"marshal"</code> besides the clustering-specific properties.</li>
+<li>
+<code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now stores columns other than <code>row_ids</code>, <code>partition</code>, <code>weights</code>, and <code>prob.*</code> as extra data instead of rejecting them, so <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> and <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> round-trip predictions with extra data.</li>
+<li>
+<code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> gained a <code>label</code> argument for all methods, matching the <code>as_task_*()</code> converters in mlr3.</li>
+<li>
+<code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> now supports matrices.</li>
+<li>
+<code><a href="../reference/as_task_clust.html">as_tasks_clust()</a></code> converts a <code>TaskClust</code> or a list of objects to a list of <code>TaskClust</code>.</li>
+<li>
+<code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.SimpleKMeans</code>, and <code>clust.xmeans</code> now expose Weka’s <code>do_not_check_capabilities</code> parameter. <code>clust.cobweb</code> also exposes <code>save_data</code>, and <code>clust.em</code> exposes <code>O</code>.</li>
+<li>
+<code>clust.em</code> and <code>clust.SimpleKMeans</code> now support <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code> through their <code>num_slots</code> parameter.</li>
+<li>
+<code>clust.featureless</code> now accepts all feature types supported by mlr3 tasks and declares the <code>"featureless"</code> property, since it never uses the feature values. Previously it rejected tasks with character, factor, ordered, date, or time features.</li>
+<li>
+<code>clust.kmeans_rcpp</code>, <code>clust.som</code>, and <code>clust.tclust</code> now support <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code>. Their thread-count parameters are initialized to 1 instead of using all available cores.</li>
+<li>
+<code>clust.MBatchKMeans</code> gained the <code>threads</code> parameter, which is passed to <code><a href="https://mlampros.github.io/ClusterR/reference/predict_KMeans.html" class="external-link">ClusterR::predict_KMeans()</a></code> and supports <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code>.</li>
+<li>
+<code>MeasureClust</code> gained the <code>param_set</code>, <code>average</code>, and <code>predict_sets</code> constructor arguments, matching <code><a href="https://mlr3.mlr-org.com/reference/MeasureRegr.html" class="external-link">mlr3::MeasureRegr</a></code>.</li>
+<li>
+<code>PredictionClust</code> gained the <code>extra</code> and <code>raw</code> fields introduced in mlr3 1.3.0 and 1.6.0. Cluster learners can return extra data and the raw upstream prediction from <code>$.predict()</code>, and both are carried through filtering and combining predictions.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<ul><li>
+<code>k</code> is now a required parameter of <code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.genie</code>, <code>clust.hclust</code>, and <code>clust.protoclust</code>.</li>
+<li>
+<code>clust.ap</code>, <code>clust.dbscan</code>, <code>clust.hdbscan</code>, and <code>clust.xmeans</code> now use logical features. Previously, logical columns were dropped or caused an error.</li>
+<li>
+<code>clust.ap</code> no longer fails to predict when <code>s</code> is a function name such as <code>"negDistMat"</code>.</li>
+<li>
+<code>clust.flexmix</code> now declares <code>mvtnorm</code> as a required package, since the default model <code>FLXMCmvnorm</code> needs it.</li>
+<li>
+<code>clust.tclust</code> now enables <code>parallel</code> at train time when <code>n.cores</code> is greater than one and <code>parallel</code> is not set explicitly, so <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code> actually parallelizes training.</li>
+<li>
+<code><a href="https://mlr3.mlr-org.com/reference/default_fallback.html" class="external-link">default_fallback()</a></code> now returns a <code>clust.featureless</code> learner with the matching predict type for cluster learners, so <code><a href="https://mlr3.mlr-org.com/reference/resample.html" class="external-link">resample()</a></code> and <code><a href="https://mlr3.mlr-org.com/reference/benchmark.html" class="external-link">benchmark()</a></code> work with the <code>encapsulate</code> argument. Previously they failed with “Could not find default fallback learner”.</li>
+<li>
+<code>PredictionClust</code> now signals an error of class <code>Mlr3ErrorLearnerPredict</code> with the number of missing or surplus observations when the length of <code>partition</code>, <code>prob</code>, or <code>weights</code> does not match <code>row_ids</code>, matching mlr3.</li>
+<li>
+<code>PredictionClust</code> objects with a different number of clusters can no longer be combined with <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> when one of them is empty. The error is now an <code>Mlr3ErrorInput</code> with an informative message instead of a base R error from <code><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind()</a></code>.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.0" id="mlr3cluster-050">mlr3cluster 0.5.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-050"></a></h2><p class="text-muted">CRAN release: 2026-08-21</p>
 <div class="section level3">
