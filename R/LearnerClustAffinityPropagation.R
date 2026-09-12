@@ -13,8 +13,8 @@
 #' [StackOverflow](https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi)
 #' answer by the `apcluster` package maintainer.
 #'
-#' The similarity `s` can be a function, e.g. `apcluster::negDistMat(r = 2)`, or the name of a similarity function
-#' from \CRANpkg{apcluster} such as `"negDistMat"`.
+#' The similarity `s` can be a function, e.g. `apcluster::negDistMat(r = 2)`, or the name of a function such as
+#' `"negDistMat"`.
 #'
 #' @section Initial parameter values:
 #' - `includeSim`:
@@ -88,7 +88,12 @@ LearnerClustAP = R6Class(
       pv = self$param_set$get_values(tags = "train")
       sim_fun = pv$s
       if (is.character(sim_fun)) {
-        sim_fun = utils::getFromNamespace(sim_fun, ns = "apcluster")
+        ns = asNamespace("apcluster")
+        sim_fun = if (exists(sim_fun, envir = ns, mode = "function", inherits = FALSE)) {
+          get(sim_fun, envir = ns, mode = "function")
+        } else {
+          match.fun(sim_fun)
+        }
       }
       exemplar_data = attr(self$model, "exemplar_data")
 
