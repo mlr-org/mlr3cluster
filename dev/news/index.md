@@ -2,6 +2,8 @@
 
 ## mlr3cluster (development version)
 
+- fix: `clust.ap` no longer fails to predict when `s` is a function name
+  such as `"negDistMat"`.
 - feat: Cluster learners can now declare the standard mlr3 learner
   properties such as `"featureless"`, `"weights"`, `"importance"`, and
   `"selected_features"`. Previously

@@ -12,6 +12,11 @@ for new data. The code is taken from
 [StackOverflow](https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi)
 answer by the `apcluster` package maintainer.
 
+The similarity `s` can be a function, e.g.
+`apcluster::negDistMat(r = 2)`, or the name of a similarity function
+from [apcluster](https://CRAN.R-project.org/package=apcluster) such as
+`"negDistMat"`.
+
 ## Initial parameter values
 
 - `includeSim`:
