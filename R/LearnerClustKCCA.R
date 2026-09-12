@@ -32,8 +32,12 @@ LearnerClustKCCA = R6Class(
       param_set = ps(
         k = p_int(2L, tags = c("train", "required")),
         family = p_fct(c("kmeans", "kmedians", "angle", "jaccard", "ejaccard"), default = "kmeans", tags = "train"),
-        weights = p_uty(tags = "train", custom_check = check_numeric),
-        group = p_uty(tags = "train"),
+        weights = p_uty(
+          default = NULL,
+          tags = "train",
+          custom_check = crate(function(x) check_numeric(x, null.ok = TRUE))
+        ),
+        group = p_uty(default = NULL, tags = "train"),
         simple = p_lgl(default = FALSE, tags = "train"),
         save.data = p_lgl(default = FALSE, tags = "train"),
         iter.max = p_int(1L, default = 200L, tags = c("train", "control")),

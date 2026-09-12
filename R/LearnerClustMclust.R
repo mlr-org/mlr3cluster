@@ -37,12 +37,24 @@ LearnerClustMclust = R6Class(
     initialize = function() {
       param_set = ps(
         G = p_uty(default = 1:9, tags = "train", custom_check = check_numeric),
-        modelNames = p_uty(tags = "train", custom_check = check_character),
-        prior = p_uty(tags = "train", custom_check = check_list),
+        modelNames = p_uty(
+          default = NULL,
+          tags = "train",
+          custom_check = crate(function(x) check_character(x, null.ok = TRUE))
+        ),
+        prior = p_uty(default = NULL, tags = "train", custom_check = crate(function(x) check_list(x, null.ok = TRUE))),
         control = p_uty(tags = "train", custom_check = check_list),
-        initialization = p_uty(tags = "train", custom_check = check_list),
+        initialization = p_uty(
+          default = NULL,
+          tags = "train",
+          custom_check = crate(function(x) check_list(x, null.ok = TRUE))
+        ),
         warn = p_lgl(default = FALSE, tags = "train"),
-        x = p_uty(tags = "train", custom_check = crate(function(x) check_class(x, "mclustBIC"))),
+        x = p_uty(
+          default = NULL,
+          tags = "train",
+          custom_check = crate(function(x) check_class(x, "mclustBIC", null.ok = TRUE))
+        ),
         verbose = p_lgl(default = FALSE, tags = "train")
       )
 

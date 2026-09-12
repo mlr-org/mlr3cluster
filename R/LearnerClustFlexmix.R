@@ -44,7 +44,11 @@ LearnerClustFlexmix = R6Class(
         ),
         diagonal = p_lgl(default = TRUE, tags = "train", depends = quote(model == "FLXMCmvnorm")),
         truncated = p_lgl(default = FALSE, tags = "train", depends = quote(model == "FLXMCmvbinary")),
-        cluster = p_uty(tags = "train", custom_check = check_numeric),
+        cluster = p_uty(
+          default = NULL,
+          tags = "train",
+          custom_check = crate(function(x) check_numeric(x, null.ok = TRUE))
+        ),
         iter.max = p_int(1L, default = 200L, tags = c("train", "control")),
         minprior = p_dbl(0, 1, default = 0.05, tags = c("train", "control")),
         tolerance = p_dbl(0, default = 1e-6, tags = c("train", "control")),

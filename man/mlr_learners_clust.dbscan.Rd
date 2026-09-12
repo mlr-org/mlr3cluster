@@ -32,7 +32,7 @@ lrn("clust.dbscan")
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    eps \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    minPts \tab integer \tab 5 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   weights \tab untyped \tab - \tab  \tab - \cr
+   weights \tab untyped \tab NULL \tab  \tab - \cr
    borderPoints \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    search \tab character \tab kdtree \tab kdtree, linear, dist \tab - \cr
    bucketSize \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

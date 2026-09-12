@@ -26,7 +26,11 @@ LearnerClustDBSCAN = R6Class(
       param_set = ps(
         eps = p_dbl(0, tags = c("train", "required")),
         minPts = p_int(0L, default = 5L, tags = "train"),
-        weights = p_uty(tags = "train", custom_check = check_numeric),
+        weights = p_uty(
+          default = NULL,
+          tags = "train",
+          custom_check = crate(function(x) check_numeric(x, null.ok = TRUE))
+        ),
         borderPoints = p_lgl(default = TRUE, tags = "train"),
         search = p_fct(c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
         bucketSize = p_int(1L, default = 10L, tags = "train", depends = quote(search == "kdtree")),

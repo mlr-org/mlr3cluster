@@ -38,8 +38,8 @@ lrn("clust.kcca")
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    k \tab integer \tab - \tab  \tab \eqn{[2, \infty)}{[2, Inf)} \cr
    family \tab character \tab kmeans \tab kmeans, kmedians, angle, jaccard, ejaccard \tab - \cr
-   weights \tab untyped \tab - \tab  \tab - \cr
-   group \tab untyped \tab - \tab  \tab - \cr
+   weights \tab untyped \tab NULL \tab  \tab - \cr
+   group \tab untyped \tab NULL \tab  \tab - \cr
    simple \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    save.data \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    iter.max \tab integer \tab 200 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

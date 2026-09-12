@@ -46,7 +46,7 @@ lrn("clust.flexmix")
    model \tab character \tab FLXMCmvnorm \tab FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois \tab - \cr
    diagonal \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    truncated \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   cluster \tab untyped \tab - \tab  \tab - \cr
+   cluster \tab untyped \tab NULL \tab  \tab - \cr
    iter.max \tab integer \tab 200 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    minprior \tab numeric \tab 0.05 \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
    tolerance \tab numeric \tab 1e-06 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
