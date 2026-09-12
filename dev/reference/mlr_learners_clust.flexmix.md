@@ -43,7 +43,8 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [flexmix](https://CRAN.R-project.org/package=flexmix)
+  [flexmix](https://CRAN.R-project.org/package=flexmix),
+  [mvtnorm](https://CRAN.R-project.org/package=mvtnorm)
 
 ## Parameters
 
@@ -215,7 +216,7 @@ print(learner)
 #> ── <LearnerClustFlexmix> (clust.flexmix): Finite Mixture Model ─────────────────
 #> • Model: -
 #> • Parameters: k=2, model=FLXMCmvnorm
-#> • Packages: mlr3, mlr3cluster, and flexmix
+#> • Packages: mlr3, mlr3cluster, flexmix, and mvtnorm
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)

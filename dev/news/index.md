@@ -2,6 +2,8 @@
 
 ## mlr3cluster (development version)
 
+- fix: `clust.flexmix` now declares `mvtnorm` as a required package,
+  since the default model `FLXMCmvnorm` needs it.
 - feat: `tgen("moons")` is a new task generator for two interleaving
   half circles with configurable noise `sd`, a standard non-convex test
   case for density-based clustering.
