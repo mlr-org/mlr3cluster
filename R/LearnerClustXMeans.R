@@ -9,6 +9,13 @@
 #'
 #' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the cluster memberships for new data.
 #'
+#' @section Installation:
+#' XMeans is not part of the Weka core and must be installed once through the Weka package manager:
+#' ```r
+#' RWeka::WPM("refresh-cache")
+#' RWeka::WPM("install-package", "XMeans")
+#' ```
+#'
 #' @templateVar id clust.xmeans
 #' @template learner
 #'

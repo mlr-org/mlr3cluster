@@ -10,6 +10,15 @@ Calls \code{\link[RWeka:XMeans]{RWeka::XMeans()}} from package \CRANpkg{RWeka}.
 
 The predict method uses \code{\link[RWeka:predict.Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the cluster memberships for new data.
 }
+\section{Installation}{
+
+XMeans is not part of the Weka core and must be installed once through the Weka package manager:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{RWeka::WPM("refresh-cache")
+RWeka::WPM("install-package", "XMeans")
+}\if{html}{\out{</div>}}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:
