@@ -2,16 +2,6 @@
 
 ## mlr3cluster (development version)
 
-- feat: `MeasureClust` gained the `param_set`, `average`, and
-  `predict_sets` constructor arguments, matching
-  [`mlr3::MeasureRegr`](https://mlr3.mlr-org.com/reference/MeasureRegr.html).
-- fix: `k` is now a required parameter of `clust.agnes`, `clust.diana`,
-  `clust.genie`, `clust.hclust`, and `clust.protoclust`.
-- fix: `clust.ap`, `clust.dbscan`, `clust.hdbscan`, and `clust.xmeans`
-  now use logical features. Previously, logical columns were dropped or
-  caused an error.
-- fix: `clust.ap` no longer fails to predict when `s` is a function name
-  such as `"negDistMat"`.
 - feat: Cluster learners can now declare the standard mlr3 learner
   properties such as `"featureless"`, `"weights"`, `"importance"`, and
   `"selected_features"`. Previously
@@ -55,6 +45,24 @@
   [`ClusterR::predict_KMeans()`](https://mlampros.github.io/ClusterR/reference/predict_KMeans.html)
   and supports
   [`mlr3::set_threads()`](https://mlr3.mlr-org.com/reference/set_threads.html).
+- feat: `MeasureClust` gained the `param_set`, `average`, and
+  `predict_sets` constructor arguments, matching
+  [`mlr3::MeasureRegr`](https://mlr3.mlr-org.com/reference/MeasureRegr.html).
+- feat: `PredictionClust` gained the `extra` and `raw` fields introduced
+  in mlr3 1.3.0 and 1.6.0. Cluster learners can return extra data and
+  the raw upstream prediction from `$.predict()`, and both are carried
+  through filtering and combining predictions.
+- feat: `tgen("blobs")` is a new task generator for isotropic Gaussian
+  blobs with configurable number of clusters `k`, dimensions `d`, and
+  within-cluster standard deviation `sd`. It is the first generator in
+  `mlr_task_generators` that produces a `TaskClust`.
+- fix: `k` is now a required parameter of `clust.agnes`, `clust.diana`,
+  `clust.genie`, `clust.hclust`, and `clust.protoclust`.
+- fix: `clust.ap`, `clust.dbscan`, `clust.hdbscan`, and `clust.xmeans`
+  now use logical features. Previously, logical columns were dropped or
+  caused an error.
+- fix: `clust.ap` no longer fails to predict when `s` is a function name
+  such as `"negDistMat"`.
 - fix: `clust.tclust` now enables `parallel` at train time when
   `n.cores` is greater than one and `parallel` is not set explicitly, so
   [`mlr3::set_threads()`](https://mlr3.mlr-org.com/reference/set_threads.html)
@@ -67,10 +75,6 @@
   [`benchmark()`](https://mlr3.mlr-org.com/reference/benchmark.html)
   work with the `encapsulate` argument. Previously they failed with
   “Could not find default fallback learner”.
-- feat: `PredictionClust` gained the `extra` and `raw` fields introduced
-  in mlr3 1.3.0 and 1.6.0. Cluster learners can return extra data and
-  the raw upstream prediction from `$.predict()`, and both are carried
-  through filtering and combining predictions.
 - fix: `PredictionClust` now signals an error of class
   `Mlr3ErrorLearnerPredict` with the number of missing or surplus
   observations when the length of `partition`, `prob`, or `weights` does
@@ -80,10 +84,6 @@
   one of them is empty. The error is now an `Mlr3ErrorInput` with an
   informative message instead of a base R error from
   [`rbind()`](https://rdrr.io/r/base/cbind.html).
-- feat: `tgen("blobs")` is a new task generator for isotropic Gaussian
-  blobs with configurable number of clusters `k`, dimensions `d`, and
-  within-cluster standard deviation `sd`. It is the first generator in
-  `mlr_task_generators` that produces a `TaskClust`.
 
 ## mlr3cluster 0.5.0
 
