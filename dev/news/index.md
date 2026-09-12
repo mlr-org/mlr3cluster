@@ -2,6 +2,9 @@
 
 ## mlr3cluster (development version)
 
+- fix: `clust.ap`, `clust.dbscan`, `clust.hdbscan`, and `clust.xmeans`
+  now use logical features. Previously, logical columns were dropped or
+  caused an error.
 - fix: `clust.ap` no longer fails to predict when `s` is a function name
   such as `"negDistMat"`.
 - feat: Cluster learners can now declare the standard mlr3 learner

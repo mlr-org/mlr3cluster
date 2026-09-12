@@ -49,7 +49,8 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
-<ul><li>fix: <code>clust.ap</code> no longer fails to predict when <code>s</code> is a function name such as <code>"negDistMat"</code>.</li>
+<ul><li>fix: <code>clust.ap</code>, <code>clust.dbscan</code>, <code>clust.hdbscan</code>, and <code>clust.xmeans</code> now use logical features. Previously, logical columns were dropped or caused an error.</li>
+<li>fix: <code>clust.ap</code> no longer fails to predict when <code>s</code> is a function name such as <code>"negDistMat"</code>.</li>
 <li>feat: Cluster learners can now declare the standard mlr3 learner properties such as <code>"featureless"</code>, <code>"weights"</code>, <code>"importance"</code>, and <code>"selected_features"</code>. Previously <code>mlr_reflections$learner_properties$clust</code> only allowed <code>"missings"</code> and <code>"marshal"</code> besides the clustering-specific properties.</li>
 <li>feat: <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now stores columns other than <code>row_ids</code>, <code>partition</code>, <code>weights</code>, and <code>prob.*</code> as extra data instead of rejecting them, so <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> and <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> round-trip predictions with extra data.</li>
 <li>feat: <code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> gained a <code>label</code> argument for all methods, matching the <code>as_task_*()</code> converters in mlr3.</li>
