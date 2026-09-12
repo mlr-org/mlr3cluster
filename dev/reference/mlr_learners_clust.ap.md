@@ -13,9 +13,10 @@ for new data. The code is taken from
 answer by the `apcluster` package maintainer.
 
 The similarity `s` can be a function, e.g.
-`apcluster::negDistMat(r = 2)`, or the name of a similarity function
-from [apcluster](https://CRAN.R-project.org/package=apcluster) such as
-`"negDistMat"`.
+`apcluster::negDistMat(r = 2)`, or the name of a function such as
+`"negDistMat"`. Names are looked up in
+[apcluster](https://CRAN.R-project.org/package=apcluster) first and
+otherwise with [`match.fun()`](https://rdrr.io/r/base/match.fun.html).
 
 ## Initial parameter values
 
