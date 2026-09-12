@@ -57,7 +57,7 @@ LearnerClustHDBSCAN = R6Class(
       m = insert_named(m, list(data = data))
 
       if (self$save_assignments) {
-        self$assignments = m$cluster
+        self$assignments = as.integer(m$cluster)
       }
       m
     },
