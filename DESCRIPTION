@@ -23,6 +23,7 @@ Imports:
     checkmate (>= 2.0.0),
     cluster,
     data.table (>= 1.15.0),
+    methods,
     mlr3misc (>= 0.21.0),
     paradox (>= 1.0.1),
     R6 (>= 2.4.1),
