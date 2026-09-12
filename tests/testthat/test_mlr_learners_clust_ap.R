@@ -27,3 +27,15 @@ test_that("Learner properties are respected", {
     expect_prediction_clust(p, learner)
   }
 })
+
+test_that("similarity function can be given by name", {
+  task = tsk("usarrests")
+  learner = lrn("clust.ap", s = "negDistMat")
+  expect_false("package:apcluster" %in% search())
+  p = learner$train(task)$predict(task)
+  expect_prediction_clust(p, learner)
+  expect_equal(p$partition, learner$assignments)
+
+  # the parameter only accepts a function or a single string
+  expect_error(lrn("clust.ap", s = 1), "s")
+})

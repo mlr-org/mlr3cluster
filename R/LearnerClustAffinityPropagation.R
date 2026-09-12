@@ -13,6 +13,9 @@
 #' [StackOverflow](https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi)
 #' answer by the `apcluster` package maintainer.
 #'
+#' The similarity `s` can be a function, e.g. `apcluster::negDistMat(r = 2)`, or the name of a similarity function
+#' from \CRANpkg{apcluster} such as `"negDistMat"`.
+#'
 #' @section Initial parameter values:
 #' - `includeSim`:
 #'   - Actual default: `TRUE`.
@@ -36,7 +39,10 @@ LearnerClustAP = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        s = p_uty(tags = c("train", "required")),
+        s = p_uty(
+          tags = c("train", "required"),
+          custom_check = crate(function(x) check_function(x) %check||% check_string(x))
+        ),
         p = p_uty(default = NA_real_, special_vals = list(NA_real_), tags = "train", custom_check = check_numeric),
         q = p_dbl(0, 1, default = NA_real_, special_vals = list(NA_real_), tags = "train"),
         maxits = p_int(1L, default = 1000L, tags = "train"),
@@ -80,11 +86,14 @@ LearnerClustAP = R6Class(
 
     .predict = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      sim_func = pv$s
+      sim_fun = pv$s
+      if (is.character(sim_fun)) {
+        sim_fun = utils::getFromNamespace(sim_fun, ns = "apcluster")
+      }
       exemplar_data = attr(self$model, "exemplar_data")
 
       data = ordered_features(task, self)
-      sim_mat = sim_func(
+      sim_mat = sim_fun(
         rbind(exemplar_data, data),
         sel = seq_row(data) + nrow(exemplar_data)
       )[seq_row(exemplar_data), , drop = FALSE]

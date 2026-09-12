@@ -13,6 +13,9 @@ the closest cluster exemplar to find the cluster memberships for new data.
 The code is taken from
 \href{https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi}{StackOverflow}
 answer by the \code{apcluster} package maintainer.
+
+The similarity \code{s} can be a function, e.g. \code{apcluster::negDistMat(r = 2)}, or the name of a similarity function
+from \CRANpkg{apcluster} such as \code{"negDistMat"}.
 }
 \section{Initial parameter values}{
 

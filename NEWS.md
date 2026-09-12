@@ -1,5 +1,6 @@
 # mlr3cluster (development version)
 
+* fix: `clust.ap` no longer fails to predict when `s` is a function name such as `"negDistMat"`.
 * feat: Cluster learners can now declare the standard mlr3 learner properties such as `"featureless"`, `"weights"`, `"importance"`, and `"selected_features"`. Previously `mlr_reflections$learner_properties$clust` only allowed `"missings"` and `"marshal"` besides the clustering-specific properties.
 * feat: `as_prediction_clust()` now stores columns other than `row_ids`, `partition`, `weights`, and `prob.*` as extra data instead of rejecting them, so `as.data.table()` and `as_prediction_clust()` round-trip predictions with extra data.
 * feat: `as_task_clust()` gained a `label` argument for all methods, matching the `as_task_*()` converters in mlr3.
