@@ -3,6 +3,7 @@
 #' @import mlr3
 #' @import mlr3misc
 #' @import paradox
+#' @importFrom graphics plot
 #' @importFrom R6 R6Class
 #' @importFrom stats model.frame predict rnorm runif terms
 "_PACKAGE"
