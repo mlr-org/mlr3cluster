@@ -4,7 +4,7 @@ walk(
   local = environment()
 )
 generate_tasks.LearnerClust = function(learner, N = 20L) {
-  set.seed(1L)
+  withr::local_seed(1L)
   task = tgen("blobs", k = 2L, d = 2L, sd = 0.1, center_box = 10)$generate(N)
   task$id = "sanity"
   list(task)
