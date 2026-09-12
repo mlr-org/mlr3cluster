@@ -1,16 +1,20 @@
-# Gaussian Blobs Cluster Task Generator
+# Moons Cluster Task Generator
 
 A [TaskGenerator](https://mlr3.mlr-org.com/reference/TaskGenerator.html)
-for isotropic Gaussian blobs, in the spirit of
-`sklearn.datasets.make_blobs()`. `k` cluster centers are drawn uniformly
-from the hypercube `[-center_box, center_box]^d`, and the `n`
-observations are assigned to the centers in a balanced fashion and
-perturbed with Gaussian noise of standard deviation `sd` in each of the
-`d` dimensions. The generated
+for two interleaving half circles ("moons"), in the spirit of
+`sklearn.datasets.make_moons()`. The `n` observations are split evenly
+between an upper half circle centered at the origin and a lower half
+circle shifted to the right and down so that the two arcs interleave.
+Each observation is perturbed with Gaussian noise of standard deviation
+`sd`. The generated
 [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)
-only contains the numeric features `x1`, ..., `xd`; the cluster
-membership is not stored in the task. The parameters are initialized to
-`k = 3`, `d = 2`, `sd = 1`, and `center_box = 10`.
+only contains the numeric features `x1` and `x2`; the cluster membership
+is not stored in the task. The parameter `sd` is initialized to `0.1`.
+
+The clusters are not convex, which makes this generator a standard test
+case for density-based and connectivity-based methods such as DBSCAN,
+single linkage or spectral clustering, where centroid-based methods such
+as k-means fail.
 
 ## Dictionary
 
@@ -22,18 +26,15 @@ can be instantiated via the
 or with the associated sugar function
 [tgen()](https://mlr3.mlr-org.com/reference/mlr_sugar.html):
 
-    mlr_task_generators$get("blobs")
-    tgen("blobs")
+    mlr_task_generators$get("moons")
+    tgen("moons")
 
 ## Parameters
 
-|            |         |         |                  |
-|------------|---------|---------|------------------|
-| Id         | Type    | Default | Range            |
-| k          | integer | \-      | \\\[1, \infty)\\ |
-| d          | integer | \-      | \\\[1, \infty)\\ |
-| sd         | numeric | \-      | \\\[0, \infty)\\ |
-| center_box | numeric | \-      | \\\[0, \infty)\\ |
+|     |         |         |                  |
+|-----|---------|---------|------------------|
+| Id  | Type    | Default | Range            |
+| sd  | numeric | \-      | \\\[0, \infty)\\ |
 
 ## See also
 
@@ -47,22 +48,22 @@ or with the associated sugar function
   in the running session (depending on the loaded packages).
 
 Other TaskGenerator:
-[`mlr_task_generators_moons`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_moons.md)
+[`mlr_task_generators_blobs`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_blobs.md)
 
 ## Super class
 
 [`mlr3::TaskGenerator`](https://mlr3.mlr-org.com/reference/TaskGenerator.html)
--\> `TaskGeneratorBlobs`
+-\> `TaskGeneratorMoons`
 
 ## Methods
 
 ### Public methods
 
-- [`TaskGeneratorBlobs$new()`](#method-TaskGeneratorBlobs-initialize)
+- [`TaskGeneratorMoons$new()`](#method-TaskGeneratorMoons-initialize)
 
-- [`TaskGeneratorBlobs$plot()`](#method-TaskGeneratorBlobs-plot)
+- [`TaskGeneratorMoons$plot()`](#method-TaskGeneratorMoons-plot)
 
-- [`TaskGeneratorBlobs$clone()`](#method-TaskGeneratorBlobs-clone)
+- [`TaskGeneratorMoons$clone()`](#method-TaskGeneratorMoons-clone)
 
 Inherited methods
 
@@ -72,25 +73,24 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### `TaskGeneratorBlobs$new()`
+### `TaskGeneratorMoons$new()`
 
 Creates a new instance of this
 [R6](https://r6.r-lib.org/reference/R6Class.html) class.
 
 #### Usage
 
-    TaskGeneratorBlobs$new()
+    TaskGeneratorMoons$new()
 
 ------------------------------------------------------------------------
 
-### `TaskGeneratorBlobs$plot()`
+### `TaskGeneratorMoons$plot()`
 
-Creates a simple plot of the first two features of generated data,
-colored by cluster membership.
+Creates a simple plot of generated data, colored by cluster membership.
 
 #### Usage
 
-    TaskGeneratorBlobs$plot(n = 200L, pch = 19L, ...)
+    TaskGeneratorMoons$plot(n = 200L, pch = 19L, ...)
 
 #### Arguments
 
@@ -113,13 +113,13 @@ colored by cluster membership.
 
 ------------------------------------------------------------------------
 
-### `TaskGeneratorBlobs$clone()`
+### `TaskGeneratorMoons$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    TaskGeneratorBlobs$clone(deep = FALSE)
+    TaskGeneratorMoons$clone(deep = FALSE)
 
 #### Arguments
 
@@ -130,25 +130,14 @@ The objects of this class are cloneable with this method.
 ## Examples
 
 ``` r
-generator = tgen("blobs")
+generator = tgen("moons")
 plot(generator, n = 200)
 
 
 task = generator$generate(200)
 str(task$data())
 #> Classes ‘data.table’ and 'data.frame':   200 obs. of  2 variables:
-#>  $ x1: num  -1.9 -11.38 -1.78 -3.96 -10.63 ...
-#>  $ x2: num  2.824 1.495 -8.203 0.767 0.372 ...
+#>  $ x1: num  0.587 1.677 -0.422 1.701 -0.422 ...
+#>  $ x2: num  0.748 -0.445 0.84 -0.156 0.936 ...
 #>  - attr(*, ".internal.selfref")=<pointer: 0x55e6b47bba30> 
-
-# 4 well separated clusters in 3 dimensions
-generator = tgen("blobs", k = 4, d = 3, sd = 0.5)
-task = generator$generate(500)
-task
-#> 
-#> ── <TaskClust> (500x3) ─────────────────────────────────────────────────────────
-#> • Target:
-#> • Properties: -
-#> • Features (3):
-#>   • dbl (3): x1, x2, x3
 ```

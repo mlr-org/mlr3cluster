@@ -2,6 +2,9 @@
 
 ## mlr3cluster (development version)
 
+- feat: `tgen("moons")` is a new task generator for two interleaving
+  half circles with configurable noise `sd`, a standard non-convex test
+  case for density-based clustering.
 - feat: Cluster learners can now declare the standard mlr3 learner
   properties such as `"featureless"`, `"weights"`, `"importance"`, and
   `"selected_features"`. Previously
