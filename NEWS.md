@@ -1,5 +1,6 @@
 # mlr3cluster (development version)
 
+* fix: `k` is now a required parameter of `clust.agnes`, `clust.diana`, `clust.genie`, `clust.hclust`, and `clust.protoclust`.
 * fix: `clust.ap`, `clust.dbscan`, `clust.hdbscan`, and `clust.xmeans` now use logical features. Previously, logical columns were dropped or caused an error.
 * fix: `clust.ap` no longer fails to predict when `s` is a function name such as `"negDistMat"`.
 * feat: Cluster learners can now declare the standard mlr3 learner properties such as `"featureless"`, `"weights"`, `"importance"`, and `"selected_features"`. Previously `mlr_reflections$learner_properties$clust` only allowed `"missings"` and `"marshal"` besides the clustering-specific properties.

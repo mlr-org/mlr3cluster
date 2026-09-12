@@ -50,7 +50,7 @@ LearnerClustHclust = R6Class(
         diag = p_lgl(default = FALSE, tags = c("train", "dist")),
         upper = p_lgl(default = FALSE, tags = c("train", "dist")),
         p = p_dbl(0, default = 2, tags = c("train", "dist"), depends = quote(distmethod == "minkowski")),
-        k = p_int(1L, tags = c("train", "cutree", "predict"))
+        k = p_int(1L, tags = c("train", "cutree", "predict", "required"))
       )
 
       param_set$set_values(k = 2L)
