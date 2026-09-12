@@ -65,7 +65,7 @@ LearnerClustFlexmix = R6Class(
         predict_types = c("partition", "prob"),
         param_set = param_set,
         properties = c("partitional", "fuzzy", "complete"),
-        packages = "flexmix",
+        packages = c("flexmix", "mvtnorm"),
         man = "mlr3cluster::mlr_learners_clust.flexmix",
         label = "Finite Mixture Model"
       )

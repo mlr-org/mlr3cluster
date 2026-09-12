@@ -35,7 +35,7 @@ lrn("clust.flexmix")
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}, \dQuote{prob}
 \item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
-\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{flexmix}
+\item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{flexmix}, \CRANpkg{mvtnorm}
 }
 }
 

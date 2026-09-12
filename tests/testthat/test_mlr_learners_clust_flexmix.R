@@ -1,4 +1,5 @@
 skip_if_not_installed("flexmix")
+skip_if_not_installed("mvtnorm")
 
 test_that("autotest", {
   learner = lrn("clust.flexmix")

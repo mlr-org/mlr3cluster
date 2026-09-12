@@ -1,5 +1,6 @@
 # mlr3cluster (development version)
 
+* fix: `clust.flexmix` now declares `mvtnorm` as a required package, since the default model `FLXMCmvnorm` needs it.
 * feat: `tgen("moons")` is a new task generator for two interleaving half circles with configurable noise `sd`, a standard non-convex test case for density-based clustering.
 * feat: Cluster learners can now declare the standard mlr3 learner properties such as `"featureless"`, `"weights"`, `"importance"`, and `"selected_features"`. Previously `mlr_reflections$learner_properties$clust` only allowed `"missings"` and `"marshal"` besides the clustering-specific properties.
 * feat: `as_prediction_clust()` now stores columns other than `row_ids`, `partition`, `weights`, and `prob.*` as extra data instead of rejecting them, so `as.data.table()` and `as_prediction_clust()` round-trip predictions with extra data.
