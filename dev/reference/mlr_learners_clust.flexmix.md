@@ -55,7 +55,7 @@ or with the associated sugar function
 | model | character | FLXMCmvnorm | FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois | \- |
 | diagonal | logical | TRUE | TRUE, FALSE | \- |
 | truncated | logical | FALSE | TRUE, FALSE | \- |
-| cluster | untyped | \- |  | \- |
+| cluster | untyped | NULL |  | \- |
 | iter.max | integer | 200 |  | \\\[1, \infty)\\ |
 | minprior | numeric | 0.05 |  | \\\[0, 1\]\\ |
 | tolerance | numeric | 1e-06 |  | \\\[0, \infty)\\ |

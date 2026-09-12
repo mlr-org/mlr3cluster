@@ -48,8 +48,8 @@ or with the associated sugar function
 | Id | Type | Default | Levels | Range |
 | k | integer | \- |  | \\\[2, \infty)\\ |
 | family | character | kmeans | kmeans, kmedians, angle, jaccard, ejaccard | \- |
-| weights | untyped | \- |  | \- |
-| group | untyped | \- |  | \- |
+| weights | untyped | NULL |  | \- |
+| group | untyped | NULL |  | \- |
 | simple | logical | FALSE | TRUE, FALSE | \- |
 | save.data | logical | FALSE | TRUE, FALSE | \- |
 | iter.max | integer | 200 |  | \\\[1, \infty)\\ |
