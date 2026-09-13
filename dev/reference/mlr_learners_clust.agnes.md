@@ -238,7 +238,7 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> Call:     cluster::agnes(x = task$data(), diss = FALSE, keep.diss = FALSE, keep.data = FALSE) 
+#> Call:     cluster::agnes(x = task$data(), keep.diss = FALSE, keep.data = FALSE) 
 #> Agglomerative coefficient:  0.9073773 
 #> Order of objects:
 #>  [1]  1 18  8 13 32 22 28  2 24 40  3 31 20  5  9 33  4 42 25  6 43 10 21 30 39

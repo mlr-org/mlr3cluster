@@ -285,7 +285,7 @@ print(learner$model)
 #>         }
 #>         z
 #>     }, genDist = function () 
-#>     NULL))
+#>     NULL), control = structure(list(), names = character(0)))
 #> 
 #> cluster sizes:
 #> 
