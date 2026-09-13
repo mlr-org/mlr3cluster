@@ -5,19 +5,15 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="K-Centroids Cluster Analysis Learner — mlr_learners_clust.kcca"><meta name="description" content="K-Centroids Cluster Analysis - a unified framework for partitional clustering with selectable distance / centroid
-families: standard k-means, k-medians, spherical k-means (&quot;angle&quot;), Jaccard, and extended Jaccard.
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="K-Centroids Cluster Analysis Learner — mlr_learners_clust.kcca"><meta name="description" content='K-Centroids Cluster Analysis - a unified framework for partitional clustering with selectable distance / centroid
+families: standard k-means, k-medians, spherical k-means ("angle"), Jaccard, and extended Jaccard.
 Calls flexclust::kcca() from package flexclust.
 The k parameter is set to 2 by default since flexclust::kcca() has no default value for the number of clusters.
-Predictions dispatch to flexclust's S4 predict method via methods::getMethod(&quot;predict&quot;, &quot;kccasimple&quot;)
-rather than calling predict() directly, since both flexclust and kernlab define an S4 class
-named &quot;kcca&quot; and the resulting class-cache collision can break S4 dispatch when both packages are loaded."><meta property="og:description" content="K-Centroids Cluster Analysis - a unified framework for partitional clustering with selectable distance / centroid
-families: standard k-means, k-medians, spherical k-means (&quot;angle&quot;), Jaccard, and extended Jaccard.
+The predict method uses flexclust::clusters() to compute the cluster memberships for new data.'><meta property="og:description" content='K-Centroids Cluster Analysis - a unified framework for partitional clustering with selectable distance / centroid
+families: standard k-means, k-medians, spherical k-means ("angle"), Jaccard, and extended Jaccard.
 Calls flexclust::kcca() from package flexclust.
 The k parameter is set to 2 by default since flexclust::kcca() has no default value for the number of clusters.
-Predictions dispatch to flexclust's S4 predict method via methods::getMethod(&quot;predict&quot;, &quot;kccasimple&quot;)
-rather than calling predict() directly, since both flexclust and kernlab define an S4 class
-named &quot;kcca&quot; and the resulting class-cache collision can break S4 dispatch when both packages are loaded."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"><meta name="robots" content="noindex"></head><body>
+The predict method uses flexclust::clusters() to compute the cluster memberships for new data.'><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"><meta name="robots" content="noindex"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -65,9 +61,7 @@ named &quot;kcca&quot; and the resulting class-cache collision can break S4 disp
 families: standard k-means, k-medians, spherical k-means (<code>"angle"</code>), Jaccard, and extended Jaccard.
 Calls <code><a href="https://rdrr.io/pkg/flexclust/man/kcca.html" class="external-link">flexclust::kcca()</a></code> from package <a href="https://CRAN.R-project.org/package=flexclust" class="external-link"><span class="pkg">flexclust</span></a>.</p>
 <p>The <code>k</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/flexclust/man/kcca.html" class="external-link">flexclust::kcca()</a></code> has no default value for the number of clusters.
-Predictions dispatch to flexclust's S4 <code>predict</code> method via <code>methods::getMethod("predict", "kccasimple")</code>
-rather than calling <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> directly, since both <span class="pkg">flexclust</span> and <span class="pkg">kernlab</span> define an S4 class
-named <code>"kcca"</code> and the resulting class-cache collision can break S4 dispatch when both packages are loaded.</p>
+The predict method uses <code>flexclust::clusters()</code> to compute the cluster memberships for new data.</p>
     </div>
 
 

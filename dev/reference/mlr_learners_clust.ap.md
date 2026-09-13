@@ -14,9 +14,7 @@ answer by the `apcluster` package maintainer.
 
 The similarity `s` can be a function, e.g.
 `apcluster::negDistMat(r = 2)`, or the name of a function such as
-`"negDistMat"`. Names are looked up in
-[apcluster](https://CRAN.R-project.org/package=apcluster) first and
-otherwise with [`match.fun()`](https://rdrr.io/r/base/match.fun.html).
+`"negDistMat"`.
 
 ## Initial parameter values
 

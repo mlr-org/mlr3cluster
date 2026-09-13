@@ -9,13 +9,8 @@ package [flexclust](https://CRAN.R-project.org/package=flexclust).
 
 The `k` parameter is set to 2 by default since
 [`flexclust::kcca()`](https://rdrr.io/pkg/flexclust/man/kcca.html) has
-no default value for the number of clusters. Predictions dispatch to
-flexclust's S4 `predict` method via
-`methods::getMethod("predict", "kccasimple")` rather than calling
-[`predict()`](https://rdrr.io/r/stats/predict.html) directly, since both
-flexclust and kernlab define an S4 class named `"kcca"` and the
-resulting class-cache collision can break S4 dispatch when both packages
-are loaded.
+no default value for the number of clusters. The predict method uses
+`flexclust::clusters()` to compute the cluster memberships for new data.
 
 ## Dictionary
 
