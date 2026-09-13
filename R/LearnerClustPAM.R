@@ -89,7 +89,7 @@ LearnerClustPAM = R6Class(
         }
       }
 
-      m = invoke(cluster::pam, x = task$data(), diss = FALSE, .args = pv)
+      m = invoke(cluster::pam, x = task$data(), .args = pv)
       if (self$save_assignments) {
         self$assignments = m$clustering
       }

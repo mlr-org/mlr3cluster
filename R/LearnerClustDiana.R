@@ -76,7 +76,6 @@ LearnerClustDiana = R6Class(
       m = invoke(
         cluster::diana,
         x = task$data(),
-        diss = FALSE,
         .args = remove_named(ps$get_values(tags = "train"), "k")
       )
       if (self$save_assignments) {
