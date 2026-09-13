@@ -56,7 +56,7 @@ LearnerClustOPTICS = R6Class(
       pv = self$param_set$get_values(tags = "train")
       data = as_numeric_matrix(task$data())
       m = invoke(dbscan::optics, x = data, .args = remove_named(pv, "eps_cl"))
-      m = insert_named(m, list(data = data))
+      m$data = data
       m = invoke(dbscan::extractDBSCAN, object = m, eps_cl = pv$eps_cl)
 
       if (self$save_assignments) {

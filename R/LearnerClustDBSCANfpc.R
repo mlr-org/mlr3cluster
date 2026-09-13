@@ -59,7 +59,7 @@ LearnerClustDBSCANfpc = R6Class(
       pv = self$param_set$get_values(tags = "train")
       data = task$data()
       m = invoke(fpc::dbscan, data = data, .args = pv, .opts = allow_partial_matching)
-      m = insert_named(m, list(data = data))
+      m$data = data
       if (self$save_assignments) {
         self$assignments = as.integer(m$cluster)
       }

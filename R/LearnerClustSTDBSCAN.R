@@ -71,7 +71,7 @@ LearnerClustSTDBSCAN = R6Class(
       pv = self$param_set$get_values(tags = "train")
       data = task$data()
       m = invoke(stdbscan::st_dbscan, data = as.matrix(data), .args = pv)
-      m = insert_named(m, list(data = data))
+      m$data = data
       if (self$save_assignments) {
         self$assignments = m$cluster
       }
