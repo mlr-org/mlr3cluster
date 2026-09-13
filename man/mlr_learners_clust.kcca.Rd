@@ -10,9 +10,7 @@ families: standard k-means, k-medians, spherical k-means (\code{"angle"}), Jacca
 Calls \code{\link[flexclust:kcca]{flexclust::kcca()}} from package \CRANpkg{flexclust}.
 
 The \code{k} parameter is set to 2 by default since \code{\link[flexclust:kcca]{flexclust::kcca()}} has no default value for the number of clusters.
-Predictions dispatch to flexclust's S4 \code{predict} method via \code{methods::getMethod("predict", "kccasimple")}
-rather than calling \code{predict()} directly, since both \pkg{flexclust} and \pkg{kernlab} define an S4 class
-named \code{"kcca"} and the resulting class-cache collision can break S4 dispatch when both packages are loaded.
+The predict method uses \code{flexclust::clusters()} to compute the cluster memberships for new data.
 }
 \section{Dictionary}{
 

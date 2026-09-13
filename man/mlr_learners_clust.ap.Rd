@@ -15,7 +15,7 @@ The code is taken from
 answer by the \code{apcluster} package maintainer.
 
 The similarity \code{s} can be a function, e.g. \code{apcluster::negDistMat(r = 2)}, or the name of a function such as
-\code{"negDistMat"}. Names are looked up in \CRANpkg{apcluster} first and otherwise with \code{\link[=match.fun]{match.fun()}}.
+\code{"negDistMat"}.
 }
 \section{Initial parameter values}{
 
