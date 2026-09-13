@@ -73,9 +73,7 @@ LearnerClustKCCA = R6Class(
       pv = ps$get_values(tags = "train")
       control_args = ps$get_values(tags = "control")
       pv = remove_named(pv, names(control_args))
-      if (length(control_args) > 0L) {
-        pv$control = control_args
-      }
+      pv$control = control_args
       pv$family = flexclust::kccaFamily(pv$family %??% "kmeans")
 
       m = invoke(flexclust::kcca, x = as.matrix(task$data()), .args = pv)
