@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.5.0.9000</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.6.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,15 +49,18 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.6.0" id="mlr3cluster-060">mlr3cluster 0.6.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-060"></a></h2>
 <div class="section level3">
-<h3 id="new-task-generators-development-version">New task generators<a class="anchor" aria-label="anchor" href="#new-task-generators-development-version"></a></h3>
+<h3 id="new-task-generators-0-6-0">New task generators<a class="anchor" aria-label="anchor" href="#new-task-generators-0-6-0"></a></h3>
 <ul><li>
 <code>tgen("blobs")</code> is a new task generator for isotropic Gaussian blobs with configurable number of clusters <code>k</code>, dimensions <code>d</code>, and within-cluster standard deviation <code>sd</code>.</li>
 <li>
 <code>tgen("moons")</code> is a new task generator for two interleaving half circles with configurable noise <code>sd</code>, a standard non-convex test case for density-based clustering.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
+<h3 id="other-improvements-0-6-0">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-0-6-0"></a></h3>
 <ul><li>Cluster learners can now declare the standard mlr3 learner properties such as <code>"featureless"</code>, <code>"weights"</code>, <code>"importance"</code>, and <code>"selected_features"</code>. Previously <code>mlr_reflections$learner_properties$clust</code> only allowed <code>"missings"</code> and <code>"marshal"</code> besides the clustering-specific properties.</li>
 <li>
 <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now stores columns other than <code>row_ids</code>, <code>partition</code>, <code>weights</code>, and <code>prob.*</code> as extra data instead of rejecting them, so <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> and <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> round-trip predictions with extra data.</li>
@@ -85,7 +88,7 @@
 <code>TaskClust</code> gained the <code>extra_args</code> constructor argument, matching the task classes in mlr3.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<h3 id="bug-fixes-0-6-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-6-0"></a></h3>
 <ul><li>
 <code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> now rejects empty <code>data.frame</code>s and duplicated column names with an informative error, matching the <code>as_task_*()</code> converters in mlr3.</li>
 <li>

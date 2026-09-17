@@ -2,6 +2,8 @@
 
 ## mlr3cluster (development version)
 
+## mlr3cluster 0.6.0
+
 ### New task generators
 
 - `tgen("blobs")` is a new task generator for isotropic Gaussian blobs
