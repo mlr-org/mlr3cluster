@@ -27,6 +27,7 @@
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Cluster Extension for mlr3">
 <meta name="description" content="Extends the mlr3 package with cluster analysis.">
 <meta property="og:description" content="Extends the mlr3 package with cluster analysis.">
+<meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -36,7 +37,7 @@
 
     <a class="navbar-brand me-2" href="index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +54,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/mlr-org/mlr3cluster/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/mlr-org/mlr3cluster"><span class="fa fa-github"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://lmmisld-lmu-stats-slds.srv.mwn.de/mlr_invite/"><span class="fa fa-comments"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://stackoverflow.com/questions/tagged/mlr3"><span class="fa fab fa-stack-overflow"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://mlr-org.com/"><span class="fa fa-rss"></span></a></li>
@@ -73,8 +74,10 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="mlr3cluster">mlr3cluster<a class="anchor" aria-label="anchor" href="#mlr3cluster"></a>
-</h1></div>
+<div class="page-header">
+<img src="logo.svg" class="logo" alt=""><h1 id="mlr3cluster-">mlr3cluster <a class="anchor" aria-label="anchor" href="#mlr3cluster-"></a>
+</h1>
+</div>
 <p>Package website: <a href="https://mlr3cluster.mlr-org.com/">release</a> | <a href="https://mlr3cluster.mlr-org.com/dev/">dev</a></p>
 <p>Cluster analysis for <strong><a href="https://github.com/mlr-org/mlr3/" class="external-link">mlr3</a></strong>.</p>
 <!-- badges: start -->
@@ -96,8 +99,8 @@
 </h2>
 <p>The current version of <strong>mlr3cluster</strong> contains:</p>
 <ul>
-<li>A selection of 36 clustering learners that represent a wide variety of clusterers: partitional, hierarchical, fuzzy, etc.</li>
-<li>A selection of 11 performance measures</li>
+<li>A selection of 39 clustering learners that represent a wide variety of clusterers: partitional, hierarchical, fuzzy, etc.</li>
+<li>A selection of 12 performance measures</li>
 <li>Two built-in tasks to get started with clustering</li>
 </ul>
 <p>Also, the package is integrated with <strong><a href="https://github.com/mlr-org/mlr3viz" class="external-link">mlr3viz</a></strong> which enables you to create great visualizations with just one line of code!</p>
@@ -207,12 +210,19 @@
 <tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.flexmix">clust.flexmix</a></td>
 <td align="left">Finite Mixture Model</td>
-<td align="left"><a href="https://cran.r-project.org/package=flexmix" class="external-link">flexmix</a></td>
+<td align="left">
+<a href="https://cran.r-project.org/package=flexmix" class="external-link">flexmix</a>, <a href="https://cran.r-project.org/package=mvtnorm" class="external-link">mvtnorm</a>
+</td>
 </tr>
 <tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.genie">clust.genie</a></td>
 <td align="left">Genie Hierarchical Clustering</td>
 <td align="left"><a href="https://cran.r-project.org/package=genieclust" class="external-link">genieclust</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.gmeans">clust.gmeans</a></td>
+<td align="left">G-Means</td>
+<td align="left"><a href="https://cran.r-project.org/package=gmeans" class="external-link">gmeans</a></td>
 </tr>
 <tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.hclust">clust.hclust</a></td>
@@ -239,6 +249,16 @@
 <td align="left">K-Means</td>
 <td align="left">stats, <a href="https://cran.r-project.org/package=clue" class="external-link">clue</a>
 </td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmeans_rcpp">clust.kmeans_rcpp</a></td>
+<td align="left">K-Means (ClusterR)</td>
+<td align="left"><a href="https://cran.r-project.org/package=ClusterR" class="external-link">ClusterR</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kmodes">clust.kmodes</a></td>
+<td align="left">K-Modes</td>
+<td align="left"><a href="https://cran.r-project.org/package=klaR" class="external-link">klaR</a></td>
 </tr>
 <tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_learners_clust.kproto">clust.kproto</a></td>
@@ -369,6 +389,11 @@
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.silhouette">clust.silhouette</a></td>
 <td align="left">Silhouette</td>
 <td align="left"><a href="https://cran.r-project.org/package=cluster" class="external-link">cluster</a></td>
+</tr>
+<tr>
+<td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.sse_ratio">clust.sse_ratio</a></td>
+<td align="left">Within/Total Ratio</td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="left"><a href="https://mlr3cluster.mlr-org.com/reference/mlr_measures_clust.wb_ratio">clust.wb_ratio</a></td>

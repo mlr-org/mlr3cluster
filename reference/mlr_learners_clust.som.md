@@ -5,12 +5,29 @@ Self-organizing map (Kohonen network) clustering. Calls
 package [kohonen](https://CRAN.R-project.org/package=kohonen).
 
 Each map unit corresponds to a cluster, so the number of clusters is
-`xdim * ydim`. Grid dimensions, topology, and neighbourhood function are
-exposed directly as parameters and forwarded to
-[`kohonen::somgrid()`](https://rdrr.io/pkg/kohonen/man/unit.distances.html).
-The predict method uses
+`xdim * ydim`. The predict method uses
 [`kohonen::map()`](https://rdrr.io/pkg/kohonen/man/map.kohonen.html) to
 assign new data to the closest unit.
+
+## Custom mlr3 parameters
+
+- `xdim`, `ydim`, `topo`, `neighbourhood.fct`, `toroidal`:
+
+  - Not arguments of
+    [`kohonen::som()`](https://rdrr.io/pkg/kohonen/man/supersom.html).
+    These construct the map grid and are forwarded to
+    [`kohonen::somgrid()`](https://rdrr.io/pkg/kohonen/man/unit.distances.html).
+
+## Initial parameter values
+
+- `cores`:
+
+  - Actual default: `-1L`, using all available cores.
+
+  - Adjusted default: `1L`.
+
+  - Reason for change: Conflicting with parallelization via
+    [future](https://CRAN.R-project.org/package=future).
 
 ## Dictionary
 
@@ -209,7 +226,7 @@ print(learner)
 #> 
 #> ── <LearnerClustSOM> (clust.som): Self-Organizing Maps ─────────────────────────
 #> • Model: -
-#> • Parameters: list()
+#> • Parameters: cores=1
 #> • Packages: mlr3, mlr3cluster, and kohonen
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric

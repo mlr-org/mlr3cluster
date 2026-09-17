@@ -9,7 +9,7 @@
 Calls stats::hclust() from package stats.
 Distance calculation is done by stats::dist()."><meta property="og:description" content="Agglomerative hierarchical clustering.
 Calls stats::hclust() from package stats.
-Distance calculation is done by stats::dist()."></head><body>
+Distance calculation is done by stats::dist()."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -17,7 +17,7 @@ Distance calculation is done by stats::dist()."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@ Distance calculation is done by stats::dist()."></head><body>
 <li class="nav-item"><a class="external-link nav-link" href="https://mlr3book.mlr-org.com"><span class="fa fa-link"></span> mlr3book</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/mlr-org/mlr3cluster/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/mlr-org/mlr3cluster"><span class="fa fa-github"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://lmmisld-lmu-stats-slds.srv.mwn.de/mlr_invite/"><span class="fa fa-comments"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://stackoverflow.com/questions/tagged/mlr3"><span class="fa fab fa-stack-overflow"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://mlr-org.com/"><span class="fa fa-rss"></span></a></li>
@@ -47,9 +47,8 @@ Distance calculation is done by stats::dist()."></head><body>
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Hierarchical Clustering Learner</h1>
-      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.5.0/R/LearnerClustHclust.R" class="external-link"><code>R/LearnerClustHclust.R</code></a></small>
+      <img src="../logo.svg" class="logo" alt=""><h1>Hierarchical Clustering Learner</h1>
+      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/R/LearnerClustHclust.R" class="external-link"><code>R/LearnerClustHclust.R</code></a></small>
       <div class="d-none name"><code>mlr_learners_clust.hclust.Rd</code></div>
     </div>
 
@@ -60,6 +59,19 @@ Calls <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">
     </div>
 
 
+    <div class="section level2">
+    <h2 id="custom-mlr-parameters">Custom mlr3 parameters<a class="anchor" aria-label="anchor" href="#custom-mlr-parameters"></a></h2>
+
+
+<ul><li><p><code>distmethod</code>:</p><ul><li><p>Not an argument of <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">stats::hclust()</a></code>. The distance measure, passed as <code>method</code> to <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code> when
+computing the dissimilarity matrix.</p></li>
+</ul></li>
+<li><p><code>diag</code>, <code>upper</code>, <code>p</code>:</p><ul><li><p>Not arguments of <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">stats::hclust()</a></code>. Forwarded to <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code> when computing the dissimilarity matrix.</p></li>
+</ul></li>
+<li><p><code>k</code>:</p><ul><li><p>Not an argument of <code><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">stats::hclust()</a></code>. The number of clusters to cut the tree into,
+passed to <code><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">stats::cutree()</a></code>. Initialized to <code>2</code>.</p></li>
+</ul></li>
+</ul></div>
     <div class="section level2">
     <h2 id="dictionary">Dictionary<a class="anchor" aria-label="anchor" href="#dictionary"></a></h2>
 

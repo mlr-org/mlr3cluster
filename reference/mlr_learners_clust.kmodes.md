@@ -17,6 +17,15 @@ provide a predict method, new observations are assigned to their closest
 learned mode. Prediction always uses unweighted simple matching
 distance, including for models trained with `weighted = TRUE`.
 
+## Custom mlr3 parameters
+
+- `ties`:
+
+  - Not an argument of
+    [`klaR::kmodes()`](https://rdrr.io/pkg/klaR/man/kmodes.html).
+    Controls how ties are broken when assigning observations to their
+    closest mode during prediction.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)

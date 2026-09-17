@@ -6,16 +6,22 @@ from package [kernlab](https://CRAN.R-project.org/package=kernlab).
 
 The `centers` parameter is set to 2 by default since
 [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html)
-doesn't have a default value for the number of clusters. Kernel
-parameters have to be passed directly and not by using the `kpar` list
-in [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html).
-The predict method assigns each new observation to the cluster whose
-centroid is nearest in the kernel-induced feature space, computed from
-the stored training data. The model is therefore a list containing the
-fitted
+doesn't have a default value for the number of clusters. The predict
+method assigns each new observation to the cluster whose centroid is
+nearest in the kernel-induced feature space, computed from the stored
+training data. The model is therefore a list containing the fitted
 [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html)
 object along with the training data and per-cluster kernel statistics.
 The task must have at least 2 features.
+
+## Custom mlr3 parameters
+
+- `sigma`, `degree`, `scale`, `offset`, `order`:
+
+  - In
+    [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html),
+    these kernel parameters are passed inside the `kpar` list. Here they
+    are exposed directly and assembled into `kpar` internally.
 
 ## Dictionary
 

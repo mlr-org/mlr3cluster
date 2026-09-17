@@ -28,6 +28,8 @@ Example cluster measures:
 
 - [`MeasureClust$new()`](#method-MeasureClust-initialize)
 
+- [`MeasureClust$clone()`](#method-MeasureClust-clone)
+
 Inherited methods
 
 - [`mlr3::Measure$aggregate()`](https://mlr3.mlr-org.com/reference/Measure.html#method-aggregate)
@@ -48,11 +50,14 @@ Creates a new instance of this
 
     MeasureClust$new(
       id,
+      param_set = ps(),
       range,
       minimize = NA,
+      average = "macro",
       aggregator = NULL,
       properties = character(),
       predict_type = "partition",
+      predict_sets = "test",
       task_properties = character(),
       packages = character(),
       label = NA_character_,
@@ -66,6 +71,11 @@ Creates a new instance of this
   (`character(1)`)  
   Identifier for the new instance.
 
+- `param_set`:
+
+  ([paradox::ParamSet](https://paradox.mlr-org.com/reference/ParamSet.html))  
+  Set of hyperparameters.
+
 - `range`:
 
   (`numeric(2)`)  
@@ -78,6 +88,37 @@ Creates a new instance of this
   Set to `TRUE` if good predictions correspond to small values, and to
   `FALSE` if good predictions correspond to large values. If set to `NA`
   (default), tuning this measure is not possible.
+
+- `average`:
+
+  (`character(1)`)  
+  How to average multiple
+  [mlr3::Prediction](https://mlr3.mlr-org.com/reference/Prediction.html)s
+  from a
+  [ResampleResult](https://mlr3.mlr-org.com/reference/ResampleResult.html).
+
+  The default, `"macro"`, calculates the individual performances scores
+  for each
+  [mlr3::Prediction](https://mlr3.mlr-org.com/reference/Prediction.html)
+  and then uses the function defined in `$aggregator` to average them to
+  a single number.
+
+  `"macro_weighted"` is similar to `"macro"`, but uses weighted
+  averages. Weights are taken from the `weights_measure` column of the
+  resampled [mlr3::Task](https://mlr3.mlr-org.com/reference/Task.html)
+  if present. Note that `"macro_weighted"` can differ from `"macro"`
+  even if no weights are present or if `$use_weights` is set to
+  `"ignore"`, since then aggregation is done using *uniform sample
+  weights*, which result in non-uniform weights for
+  [mlr3::Prediction](https://mlr3.mlr-org.com/reference/Prediction.html)s
+  if they contain different numbers of samples.
+
+  If set to `"micro"`, the individual
+  [mlr3::Prediction](https://mlr3.mlr-org.com/reference/Prediction.html)
+  objects are first combined into a single new
+  [mlr3::Prediction](https://mlr3.mlr-org.com/reference/Prediction.html)
+  object which is then used to assess the performance. The function in
+  `$aggregator` is not used in this case.
 
 - `aggregator`:
 
@@ -138,6 +179,21 @@ Creates a new instance of this
   Possible values are stored in
   [mlr_reflections\$learner_predict_types](https://mlr3.mlr-org.com/reference/mlr_reflections.html).
 
+- `predict_sets`:
+
+  ([`character()`](https://rdrr.io/r/base/character.html))  
+  Prediction sets to operate on, used in
+  [`aggregate()`](https://rdrr.io/r/stats/aggregate.html) to extract the
+  matching `predict_sets` from the
+  [ResampleResult](https://mlr3.mlr-org.com/reference/ResampleResult.html).
+  Multiple predict sets are calculated by the respective
+  [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
+  during
+  [`resample()`](https://mlr3.mlr-org.com/reference/resample.html)/[`benchmark()`](https://mlr3.mlr-org.com/reference/benchmark.html).
+  Must be a non-empty subset of `{"train", "test", "internal_valid"}`.
+  If multiple sets are provided, these are first combined to a single
+  prediction object. Default is `"test"`.
+
 - `task_properties`:
 
   ([`character()`](https://rdrr.io/r/base/character.html))  
@@ -163,3 +219,19 @@ Creates a new instance of this
   String in the format `[pkg]::[topic]` pointing to a manual page for
   this object. The referenced help package can be opened via method
   `$help()`.
+
+------------------------------------------------------------------------
+
+### `MeasureClust$clone()`
+
+The objects of this class are cloneable with this method.
+
+#### Usage
+
+    MeasureClust$clone(deep = FALSE)
+
+#### Arguments
+
+- `deep`:
+
+  Whether to make a deep clone.

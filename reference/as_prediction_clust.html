@@ -5,7 +5,13 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Convert to a Cluster Prediction — as_prediction_clust"><meta name="description" content="Convert object to a PredictionClust."><meta property="og:description" content="Convert object to a PredictionClust."></head><body>
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Convert to a Cluster Prediction — as_prediction_clust"><meta name="description" content="Convert object to a PredictionClust.
+For a data.frame, the columns row_ids and partition are required.
+Columns prefixed with prob. are collected into the probability matrix, weights are stored as measure weights,
+and all remaining columns are stored as extra data in the extra field of the prediction."><meta property="og:description" content="Convert object to a PredictionClust.
+For a data.frame, the columns row_ids and partition are required.
+Columns prefixed with prob. are collected into the probability matrix, weights are stored as measure weights,
+and all remaining columns are stored as extra data in the extra field of the prediction."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -13,7 +19,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +32,7 @@
 <li class="nav-item"><a class="external-link nav-link" href="https://mlr3book.mlr-org.com"><span class="fa fa-link"></span> mlr3book</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/mlr-org/mlr3cluster/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/mlr-org/mlr3cluster"><span class="fa fa-github"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://lmmisld-lmu-stats-slds.srv.mwn.de/mlr_invite/"><span class="fa fa-comments"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://stackoverflow.com/questions/tagged/mlr3"><span class="fa fab fa-stack-overflow"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://mlr-org.com/"><span class="fa fa-rss"></span></a></li>
@@ -43,14 +49,16 @@
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Convert to a Cluster Prediction</h1>
-      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.5.0/R/as_prediction_clust.R" class="external-link"><code>R/as_prediction_clust.R</code></a></small>
+      <img src="../logo.svg" class="logo" alt=""><h1>Convert to a Cluster Prediction</h1>
+      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/R/as_prediction_clust.R" class="external-link"><code>R/as_prediction_clust.R</code></a></small>
       <div class="d-none name"><code>as_prediction_clust.Rd</code></div>
     </div>
 
     <div class="ref-description section level2">
-    <p>Convert object to a <a href="PredictionClust.html">PredictionClust</a>.</p>
+    <p>Convert object to a <a href="PredictionClust.html">PredictionClust</a>.
+For a <code>data.frame</code>, the columns <code>row_ids</code> and <code>partition</code> are required.
+Columns prefixed with <code>prob.</code> are collected into the probability matrix, <code>weights</code> are stored as measure weights,
+and all remaining columns are stored as extra data in the <code>extra</code> field of the prediction.</p>
     </div>
 
     <div class="section level2">
@@ -99,13 +107,13 @@ Additional arguments.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;PredictionClust&gt;</span><span style="font-weight: bold;"> for </span><span style="color: #0000BB; font-weight: bold;">50</span><span style="font-weight: bold;"> observations:</span> <span style="color: #00BBBB;">──────────────────────────────────────</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  row_ids partition     prob.1     prob.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        1         2 0.03326149 0.96673851</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        2         2 0.02757418 0.97242582</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        3         2 0.04097675 0.95902325</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        1         2 0.03328108 0.96671892</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        2         2 0.02757224 0.97242776</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        3         2 0.04096546 0.95903454</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      ---       ---        ---        ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       48         1 0.96381528 0.03618472</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       49         1 0.93745122 0.06254878</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       50         1 0.75257347 0.24742653</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       48         1 0.96380808 0.03619192</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       49         1 0.93744210 0.06255790</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       50         1 0.75264129 0.24735871</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># split data.table into a 3 data.tables based on UrbanPop</span></span></span>
 <span class="r-in"><span><span class="va">f</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">task</span><span class="op">$</span><span class="fu">data</span><span class="op">(</span>rows <span class="op">=</span> <span class="va">tab</span><span class="op">$</span><span class="va">row_ids</span><span class="op">)</span><span class="op">$</span><span class="va">UrbanPop</span>, <span class="fl">3</span><span class="op">)</span></span></span>

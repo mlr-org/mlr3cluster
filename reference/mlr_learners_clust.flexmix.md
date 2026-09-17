@@ -8,8 +8,11 @@ provides fixed initial assignments,
 [`flexmix::flexmix()`](https://rdrr.io/pkg/flexmix/man/flexmix.html) is
 called instead and `nrep` must not be larger than 1.
 
-The component model is selected through the `model` parameter, exposing
-the multivariate normal, univariate normal, multivariate binary, and
+The `k` parameter is set to 2 by default since
+[`flexmix::stepFlexmix()`](https://rdrr.io/pkg/flexmix/man/stepFlexmix.html)
+doesn't have a default value for the number of components. The component
+model is selected through the `model` parameter, exposing the
+multivariate normal, univariate normal, multivariate binary, and
 multivariate Poisson drivers shipped with flexmix. The predict method
 calls `flexmix::clusters()` for cluster assignments and
 `flexmix::posterior()` for component probabilities on new data.
@@ -40,7 +43,8 @@ or with the associated sugar function
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
-  [flexmix](https://CRAN.R-project.org/package=flexmix)
+  [flexmix](https://CRAN.R-project.org/package=flexmix),
+  [mvtnorm](https://CRAN.R-project.org/package=mvtnorm)
 
 ## Parameters
 
@@ -51,7 +55,7 @@ or with the associated sugar function
 | model | character | FLXMCmvnorm | FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois | \- |
 | diagonal | logical | TRUE | TRUE, FALSE | \- |
 | truncated | logical | FALSE | TRUE, FALSE | \- |
-| cluster | untyped | \- |  | \- |
+| cluster | untyped | NULL |  | \- |
 | iter.max | integer | 200 |  | \\\[1, \infty)\\ |
 | minprior | numeric | 0.05 |  | \\\[0, 1\]\\ |
 | tolerance | numeric | 1e-06 |  | \\\[0, \infty)\\ |
@@ -212,7 +216,7 @@ print(learner)
 #> ── <LearnerClustFlexmix> (clust.flexmix): Finite Mixture Model ─────────────────
 #> • Model: -
 #> • Parameters: k=2, model=FLXMCmvnorm
-#> • Packages: mlr3, mlr3cluster, and flexmix
+#> • Packages: mlr3, mlr3cluster, flexmix, and mvtnorm
 #> • Predict Types: [partition] and prob
 #> • Feature Types: logical, integer, and numeric
 #> • Encapsulation: none (fallback: -)

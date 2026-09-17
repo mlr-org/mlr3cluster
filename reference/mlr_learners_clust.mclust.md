@@ -59,12 +59,12 @@ or with the associated sugar function
 |----------------|---------|---------|-------------|
 | Id             | Type    | Default | Levels      |
 | G              | untyped | 1:9     |             |
-| modelNames     | untyped | \-      |             |
-| prior          | untyped | \-      |             |
+| modelNames     | untyped | NULL    |             |
+| prior          | untyped | NULL    |             |
 | control        | untyped | \-      |             |
-| initialization | untyped | \-      |             |
+| initialization | untyped | NULL    |             |
 | warn           | logical | FALSE   | TRUE, FALSE |
-| x              | untyped | \-      |             |
+| x              | untyped | NULL    |             |
 | verbose        | logical | FALSE   | TRUE, FALSE |
 
 ## References

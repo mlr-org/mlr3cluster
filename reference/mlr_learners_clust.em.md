@@ -34,21 +34,23 @@ or with the associated sugar function
 
 ## Parameters
 
-|                   |         |         |             |                      |
-|-------------------|---------|---------|-------------|----------------------|
-| Id                | Type    | Default | Levels      | Range                |
-| I                 | integer | 100     |             | \\\[1, \infty)\\     |
-| ll_cv             | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
-| ll_iter           | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
-| M                 | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
-| max               | integer | -1      |             | \\\[-1, \infty)\\    |
-| N                 | integer | -1      |             | \\\[-1, \infty)\\    |
-| num_slots         | integer | 1       |             | \\\[1, \infty)\\     |
-| S                 | integer | 100     |             | \\\[0, \infty)\\     |
-| X                 | integer | 10      |             | \\\[1, \infty)\\     |
-| K                 | integer | 10      |             | \\\[1, \infty)\\     |
-| V                 | logical | FALSE   | TRUE, FALSE | \-                   |
-| output_debug_info | logical | FALSE   | TRUE, FALSE | \-                   |
+|                           |         |         |             |                      |
+|---------------------------|---------|---------|-------------|----------------------|
+| Id                        | Type    | Default | Levels      | Range                |
+| I                         | integer | 100     |             | \\\[1, \infty)\\     |
+| ll_cv                     | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
+| ll_iter                   | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
+| M                         | numeric | 1e-06   |             | \\\[1e-06, \infty)\\ |
+| max                       | integer | -1      |             | \\\[-1, \infty)\\    |
+| N                         | integer | -1      |             | \\\[-1, \infty)\\    |
+| num_slots                 | integer | 1       |             | \\\[1, \infty)\\     |
+| S                         | integer | 100     |             | \\\[0, \infty)\\     |
+| X                         | integer | 10      |             | \\\[1, \infty)\\     |
+| K                         | integer | 10      |             | \\\[1, \infty)\\     |
+| V                         | logical | FALSE   | TRUE, FALSE | \-                   |
+| O                         | logical | FALSE   | TRUE, FALSE | \-                   |
+| output_debug_info         | logical | FALSE   | TRUE, FALSE | \-                   |
+| do_not_check_capabilities | logical | FALSE   | TRUE, FALSE | \-                   |
 
 ## References
 

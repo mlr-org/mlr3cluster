@@ -54,6 +54,7 @@ or with the associated sugar function
 | t1 | numeric | -1.25 |  | \\(-\infty, \infty)\\ |
 | V | logical | FALSE | TRUE, FALSE | \- |
 | output_debug_info | logical | FALSE | TRUE, FALSE | \- |
+| do_not_check_capabilities | logical | FALSE | TRUE, FALSE | \- |
 
 ## References
 

@@ -13,6 +13,16 @@ is therefore a list containing the fitted
 [`protoclust::protoclust()`](https://rdrr.io/pkg/protoclust/man/protoclust.html)
 object along with the training data.
 
+## Custom mlr3 parameters
+
+- `k`:
+
+  - Not an argument of
+    [`protoclust::protoclust()`](https://rdrr.io/pkg/protoclust/man/protoclust.html).
+    The number of clusters to cut the tree into, passed to
+    [`protoclust::protocut()`](https://rdrr.io/pkg/protoclust/man/protocut.html).
+    Initialized to `2`.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)

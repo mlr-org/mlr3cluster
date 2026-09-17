@@ -34,12 +34,13 @@ or with the associated sugar function
 
 ## Parameters
 
-|                   |         |         |             |                  |
-|-------------------|---------|---------|-------------|------------------|
-| Id                | Type    | Default | Levels      | Range            |
-| N                 | integer | 2       |             | \\\[1, \infty)\\ |
-| S                 | integer | 1       |             | \\\[0, \infty)\\ |
-| output_debug_info | logical | FALSE   | TRUE, FALSE | \-               |
+|                           |         |         |             |                  |
+|---------------------------|---------|---------|-------------|------------------|
+| Id                        | Type    | Default | Levels      | Range            |
+| N                         | integer | 2       |             | \\\[1, \infty)\\ |
+| S                         | integer | 1       |             | \\\[0, \infty)\\ |
+| output_debug_info         | logical | FALSE   | TRUE, FALSE | \-               |
+| do_not_check_capabilities | logical | FALSE   | TRUE, FALSE | \-               |
 
 ## References
 

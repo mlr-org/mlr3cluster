@@ -10,12 +10,14 @@ outlying alpha fraction of observations is trimmed and labeled with cluster 0 in
 Calls tclust::tclust() from package tclust.
 The k parameter is set to 2 by default since tclust::tclust() doesn't have a default value for the number of
 clusters. There is no predict method for tclust::tclust(), so the method returns cluster labels for the training
-data."><meta property="og:description" content="Robust trimmed clustering. Each cluster is modeled by a multivariate Gaussian; the most
+data.
+Setting n.cores to a value greater than one enables parallel at train time unless it is set explicitly."><meta property="og:description" content="Robust trimmed clustering. Each cluster is modeled by a multivariate Gaussian; the most
 outlying alpha fraction of observations is trimmed and labeled with cluster 0 in the returned partition.
 Calls tclust::tclust() from package tclust.
 The k parameter is set to 2 by default since tclust::tclust() doesn't have a default value for the number of
 clusters. There is no predict method for tclust::tclust(), so the method returns cluster labels for the training
-data."></head><body>
+data.
+Setting n.cores to a value greater than one enables parallel at train time unless it is set explicitly."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -23,7 +25,7 @@ data."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +38,7 @@ data."></head><body>
 <li class="nav-item"><a class="external-link nav-link" href="https://mlr3book.mlr-org.com"><span class="fa fa-link"></span> mlr3book</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/mlr-org/mlr3cluster/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/mlr-org/mlr3cluster"><span class="fa fa-github"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://lmmisld-lmu-stats-slds.srv.mwn.de/mlr_invite/"><span class="fa fa-comments"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://stackoverflow.com/questions/tagged/mlr3"><span class="fa fab fa-stack-overflow"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://mlr-org.com/"><span class="fa fa-rss"></span></a></li>
@@ -53,9 +55,8 @@ data."></head><body>
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Robust Trimmed Clustering Learner</h1>
-      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.5.0/R/LearnerClustTclust.R" class="external-link"><code>R/LearnerClustTclust.R</code></a></small>
+      <img src="../logo.svg" class="logo" alt=""><h1>Robust Trimmed Clustering Learner</h1>
+      <small class="dont-index">Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/R/LearnerClustTclust.R" class="external-link"><code>R/LearnerClustTclust.R</code></a></small>
       <div class="d-none name"><code>mlr_learners_clust.tclust.Rd</code></div>
     </div>
 
@@ -66,6 +67,7 @@ Calls <code><a href="https://rdrr.io/pkg/tclust/man/tclust.html" class="external
 <p>The <code>k</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/tclust/man/tclust.html" class="external-link">tclust::tclust()</a></code> doesn't have a default value for the number of
 clusters. There is no predict method for <code><a href="https://rdrr.io/pkg/tclust/man/tclust.html" class="external-link">tclust::tclust()</a></code>, so the method returns cluster labels for the training
 data.</p>
+<p>Setting <code>n.cores</code> to a value greater than one enables <code>parallel</code> at train time unless it is set explicitly.</p>
     </div>
 
 
@@ -76,6 +78,10 @@ data.</p>
 <ul><li><p><code>store_x</code>:</p><ul><li><p>Actual default: <code>TRUE</code>.</p></li>
 <li><p>Adjusted default: <code>FALSE</code>.</p></li>
 <li><p>Reason for change: Avoid storing the training data in the model to save memory.</p></li>
+</ul></li>
+<li><p><code>n.cores</code>:</p><ul><li><p>Actual default: <code>-1L</code>, using all available cores.</p></li>
+<li><p>Adjusted default: <code>1L</code>.</p></li>
+<li><p>Reason for change: Conflicting with parallelization via <a href="https://CRAN.R-project.org/package=future" class="external-link"><span class="pkg">future</span></a>.</p></li>
 </ul></li>
 </ul></div>
     <div class="section level2">
@@ -98,7 +104,7 @@ data.</p>
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>alpha</td><td>numeric</td><td>0.05</td><td></td><td>\([0, 0.5]\)</td></tr><tr><td>nstart</td><td>integer</td><td>500</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>niter1</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>niter2</td><td>integer</td><td>20</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>nkeep</td><td>integer</td><td>5</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>equal.weights</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>restr</td><td>character</td><td>eigen</td><td>eigen, deter</td><td>-</td></tr><tr><td>restr.fact</td><td>numeric</td><td>12</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>cshape</td><td>numeric</td><td>1e+10</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>opt</td><td>character</td><td>HARD</td><td>HARD, MIXT</td><td>-</td></tr><tr><td>center</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>scale</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>store_x</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>parallel</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>n.cores</td><td>integer</td><td>-1</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>zero_tol</td><td>numeric</td><td>1e-16</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>drop.empty.clust</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>trace</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>alpha</td><td>numeric</td><td>0.05</td><td></td><td>\([0, 0.5]\)</td></tr><tr><td>nstart</td><td>integer</td><td>500</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>niter1</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>niter2</td><td>integer</td><td>20</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>nkeep</td><td>integer</td><td>5</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>equal.weights</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>restr</td><td>character</td><td>eigen</td><td>eigen, deter</td><td>-</td></tr><tr><td>restr.fact</td><td>numeric</td><td>12</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>cshape</td><td>numeric</td><td>1e+10</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>opt</td><td>character</td><td>HARD</td><td>HARD, MIXT</td><td>-</td></tr><tr><td>center</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>scale</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>store_x</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>parallel</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>n.cores</td><td>integer</td><td>-1</td><td></td><td>\([-2, \infty)\)</td></tr><tr><td>zero_tol</td><td>numeric</td><td>1e-16</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>drop.empty.clust</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>trace</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>García-Escudero, A L, Gordaliza, Alfonso, Matrán, Carlos, Mayo-Iscar, Agustín (2008).
@@ -225,7 +231,7 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;LearnerClustTclust&gt;</span><span style="font-weight: bold;"> (clust.tclust): Robust Trimmed Clustering</span> <span style="color: #00BBBB;">──────────────</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Model: -</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> • Parameters: k=2, store_x=FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Parameters: k=2, store_x=FALSE, n.cores=1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Packages: <span style="color: #0000BB;">mlr3</span>, <span style="color: #0000BB;">mlr3cluster</span>, and <span style="color: #0000BB;">tclust</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Predict Types: [partition]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Feature Types: logical, integer, and numeric</span>

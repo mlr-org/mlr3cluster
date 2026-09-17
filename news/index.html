@@ -5,7 +5,7 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Changelog"></head><body>
+</script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="../deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="../deps/Roboto_Slab-0.4.10/font.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Changelog"><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
 <li class="nav-item"><a class="external-link nav-link" href="https://mlr3book.mlr-org.com"><span class="fa fa-link"></span> mlr3book</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/mlr-org/mlr3cluster/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/mlr-org/mlr3cluster"><span class="fa fa-github"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://lmmisld-lmu-stats-slds.srv.mwn.de/mlr_invite/"><span class="fa fa-comments"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://stackoverflow.com/questions/tagged/mlr3"><span class="fa fab fa-stack-overflow"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://mlr-org.com/"><span class="fa fa-rss"></span></a></li>
@@ -43,11 +43,68 @@
 </nav><div class="container template-news">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-
-      <h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/v0.5.0/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <img src="../logo.svg" class="logo" alt=""><h1>Changelog</h1>
+      <small>Source: <a href="https://github.com/mlr-org/mlr3cluster/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.6.0" id="mlr3cluster-060">mlr3cluster 0.6.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-060"></a></h2>
+<div class="section level3">
+<h3 id="new-task-generators-0-6-0">New task generators<a class="anchor" aria-label="anchor" href="#new-task-generators-0-6-0"></a></h3>
+<ul><li>
+<code>tgen("blobs")</code> is a new task generator for isotropic Gaussian blobs with configurable number of clusters <code>k</code>, dimensions <code>d</code>, and within-cluster standard deviation <code>sd</code>.</li>
+<li>
+<code>tgen("moons")</code> is a new task generator for two interleaving half circles with configurable noise <code>sd</code>, a standard non-convex test case for density-based clustering.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-improvements-0-6-0">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-0-6-0"></a></h3>
+<ul><li>Cluster learners can now declare the standard mlr3 learner properties such as <code>"featureless"</code>, <code>"weights"</code>, <code>"importance"</code>, and <code>"selected_features"</code>. Previously <code>mlr_reflections$learner_properties$clust</code> only allowed <code>"missings"</code> and <code>"marshal"</code> besides the clustering-specific properties.</li>
+<li>
+<code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> now stores columns other than <code>row_ids</code>, <code>partition</code>, <code>weights</code>, and <code>prob.*</code> as extra data instead of rejecting them, so <code><a href="https://rdrr.io/pkg/data.table/man/as.data.table.html" class="external-link">as.data.table()</a></code> and <code><a href="../reference/as_prediction_clust.html">as_prediction_clust()</a></code> round-trip predictions with extra data.</li>
+<li>
+<code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> gained a <code>label</code> argument for all methods, matching the <code>as_task_*()</code> converters in mlr3.</li>
+<li>
+<code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> now supports matrices.</li>
+<li>
+<code><a href="../reference/as_task_clust.html">as_tasks_clust()</a></code> converts a <code>TaskClust</code> or a list of objects to a list of <code>TaskClust</code>.</li>
+<li>
+<code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.SimpleKMeans</code>, and <code>clust.xmeans</code> now expose Weka’s <code>do_not_check_capabilities</code> parameter. <code>clust.cobweb</code> also exposes <code>save_data</code>, and <code>clust.em</code> exposes <code>O</code>.</li>
+<li>
+<code>clust.em</code> and <code>clust.SimpleKMeans</code> now support <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code> through their <code>num_slots</code> parameter.</li>
+<li>
+<code>clust.featureless</code> now accepts all feature types supported by mlr3 tasks and declares the <code>"featureless"</code> property, since it never uses the feature values. Previously it rejected tasks with character, factor, ordered, date, or time features.</li>
+<li>
+<code>clust.kmeans_rcpp</code>, <code>clust.som</code>, and <code>clust.tclust</code> now support <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code>. The thread counts of <code>clust.som</code> and <code>clust.tclust</code> are initialized to 1 instead of using all available cores, and <code>clust.tclust</code> enables <code>parallel</code> at train time when <code>n.cores</code> is greater than one and <code>parallel</code> is not set explicitly.</li>
+<li>
+<code>clust.MBatchKMeans</code> gained the <code>threads</code> parameter, which is passed to <code><a href="https://mlampros.github.io/ClusterR/reference/predict_KMeans.html" class="external-link">ClusterR::predict_KMeans()</a></code> and supports <code><a href="https://mlr3.mlr-org.com/reference/set_threads.html" class="external-link">mlr3::set_threads()</a></code>.</li>
+<li>
+<code>MeasureClust</code> gained the <code>param_set</code>, <code>average</code>, and <code>predict_sets</code> constructor arguments, matching <code><a href="https://mlr3.mlr-org.com/reference/MeasureRegr.html" class="external-link">mlr3::MeasureRegr</a></code>, and cluster measures are now cloneable.</li>
+<li>
+<code>PredictionClust</code> gained the <code>extra</code> and <code>raw</code> fields introduced in mlr3 1.3.0 and 1.6.0. This allows cluster learners to return extra data and the raw upstream prediction from <code>$.predict()</code>, and both are carried through filtering and combining predictions.</li>
+<li>
+<code>TaskClust</code> gained the <code>extra_args</code> constructor argument, matching the task classes in mlr3.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-0-6-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-6-0"></a></h3>
+<ul><li>
+<code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> now rejects empty <code>data.frame</code>s and duplicated column names with an informative error, matching the <code>as_task_*()</code> converters in mlr3.</li>
+<li>
+<code>clust.agnes</code>, <code>clust.diana</code>, <code>clust.genie</code>, <code>clust.hclust</code>, and <code>clust.protoclust</code> now tag <code>k</code> as required, so unsetting it fails with an informative error.</li>
+<li>
+<code>clust.ap</code>, <code>clust.dbscan</code>, <code>clust.hdbscan</code>, and <code>clust.xmeans</code> now use logical features. Previously, logical columns were dropped or caused an error.</li>
+<li>
+<code>clust.ap</code> no longer fails to predict when <code>s</code> is a function name such as <code>"negDistMat"</code> or the name of a user-defined function.</li>
+<li>
+<code>clust.dbscan_fpc</code> and <code>clust.hdbscan</code> now store integer <code>assignments</code>, and <code>clust.kproto</code> no longer stores names on its <code>assignments</code>, matching the other learners.</li>
+<li>
+<code>clust.flexmix</code> now declares <code>mvtnorm</code> as a required package, since the default model <code>FLXMCmvnorm</code> needs it.</li>
+<li>
+<code><a href="https://mlr3.mlr-org.com/reference/default_fallback.html" class="external-link">default_fallback()</a></code> now returns a <code>clust.featureless</code> learner with the matching predict type for cluster learners, so <code><a href="https://mlr3.mlr-org.com/reference/resample.html" class="external-link">resample()</a></code> and <code><a href="https://mlr3.mlr-org.com/reference/benchmark.html" class="external-link">benchmark()</a></code> work with the <code>encapsulate</code> argument. Previously they failed with “Could not find default fallback learner”.</li>
+<li>
+<code>PredictionClust</code> now signals an error of class <code>Mlr3ErrorLearnerPredict</code> with the number of missing or surplus observations when the length of <code>partition</code>, <code>prob</code>, or <code>weights</code> does not match <code>row_ids</code>, matching mlr3.</li>
+<li>Combining <code>PredictionClust</code> objects with a different number of clusters with <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> now fails with an informative <code>Mlr3ErrorInput</code>. Previously, this either failed with a base R error from <code><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind()</a></code> or, when one of them was empty, silently succeeded.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.0" id="mlr3cluster-050">mlr3cluster 0.5.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-050"></a></h2><p class="text-muted">CRAN release: 2026-08-21</p>
 <div class="section level3">

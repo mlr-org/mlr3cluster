@@ -13,6 +13,9 @@ method for
 [`tclust::tclust()`](https://rdrr.io/pkg/tclust/man/tclust.html), so the
 method returns cluster labels for the training data.
 
+Setting `n.cores` to a value greater than one enables `parallel` at
+train time unless it is set explicitly.
+
 ## Initial parameter values
 
 - `store_x`:
@@ -23,6 +26,15 @@ method returns cluster labels for the training data.
 
   - Reason for change: Avoid storing the training data in the model to
     save memory.
+
+- `n.cores`:
+
+  - Actual default: `-1L`, using all available cores.
+
+  - Adjusted default: `1L`.
+
+  - Reason for change: Conflicting with parallelization via
+    [future](https://CRAN.R-project.org/package=future).
 
 ## Dictionary
 
@@ -50,28 +62,28 @@ or with the associated sugar function
 
 ## Parameters
 
-|                  |           |         |              |                       |
-|------------------|-----------|---------|--------------|-----------------------|
-| Id               | Type      | Default | Levels       | Range                 |
-| k                | integer   | \-      |              | \\\[1, \infty)\\      |
-| alpha            | numeric   | 0.05    |              | \\\[0, 0.5\]\\        |
-| nstart           | integer   | 500     |              | \\\[1, \infty)\\      |
-| niter1           | integer   | 3       |              | \\\[1, \infty)\\      |
-| niter2           | integer   | 20      |              | \\\[1, \infty)\\      |
-| nkeep            | integer   | 5       |              | \\\[1, \infty)\\      |
-| equal.weights    | logical   | FALSE   | TRUE, FALSE  | \-                    |
-| restr            | character | eigen   | eigen, deter | \-                    |
-| restr.fact       | numeric   | 12      |              | \\\[1, \infty)\\      |
-| cshape           | numeric   | 1e+10   |              | \\\[1, \infty)\\      |
-| opt              | character | HARD    | HARD, MIXT   | \-                    |
-| center           | logical   | FALSE   | TRUE, FALSE  | \-                    |
-| scale            | logical   | FALSE   | TRUE, FALSE  | \-                    |
-| store_x          | logical   | TRUE    | TRUE, FALSE  | \-                    |
-| parallel         | logical   | FALSE   | TRUE, FALSE  | \-                    |
-| n.cores          | integer   | -1      |              | \\(-\infty, \infty)\\ |
-| zero_tol         | numeric   | 1e-16   |              | \\\[0, \infty)\\      |
-| drop.empty.clust | logical   | TRUE    | TRUE, FALSE  | \-                    |
-| trace            | integer   | 0       |              | \\\[0, \infty)\\      |
+|                  |           |         |              |                   |
+|------------------|-----------|---------|--------------|-------------------|
+| Id               | Type      | Default | Levels       | Range             |
+| k                | integer   | \-      |              | \\\[1, \infty)\\  |
+| alpha            | numeric   | 0.05    |              | \\\[0, 0.5\]\\    |
+| nstart           | integer   | 500     |              | \\\[1, \infty)\\  |
+| niter1           | integer   | 3       |              | \\\[1, \infty)\\  |
+| niter2           | integer   | 20      |              | \\\[1, \infty)\\  |
+| nkeep            | integer   | 5       |              | \\\[1, \infty)\\  |
+| equal.weights    | logical   | FALSE   | TRUE, FALSE  | \-                |
+| restr            | character | eigen   | eigen, deter | \-                |
+| restr.fact       | numeric   | 12      |              | \\\[1, \infty)\\  |
+| cshape           | numeric   | 1e+10   |              | \\\[1, \infty)\\  |
+| opt              | character | HARD    | HARD, MIXT   | \-                |
+| center           | logical   | FALSE   | TRUE, FALSE  | \-                |
+| scale            | logical   | FALSE   | TRUE, FALSE  | \-                |
+| store_x          | logical   | TRUE    | TRUE, FALSE  | \-                |
+| parallel         | logical   | FALSE   | TRUE, FALSE  | \-                |
+| n.cores          | integer   | -1      |              | \\\[-2, \infty)\\ |
+| zero_tol         | numeric   | 1e-16   |              | \\\[0, \infty)\\  |
+| drop.empty.clust | logical   | TRUE    | TRUE, FALSE  | \-                |
+| trace            | integer   | 0       |              | \\\[0, \infty)\\  |
 
 ## References
 
@@ -225,7 +237,7 @@ print(learner)
 #> 
 #> ── <LearnerClustTclust> (clust.tclust): Robust Trimmed Clustering ──────────────
 #> • Model: -
-#> • Parameters: k=2, store_x=FALSE
+#> • Parameters: k=2, store_x=FALSE, n.cores=1
 #> • Packages: mlr3, mlr3cluster, and tclust
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric

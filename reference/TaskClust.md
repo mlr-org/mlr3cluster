@@ -60,7 +60,7 @@ Creates a new instance of this
 
 #### Usage
 
-    TaskClust$new(id, backend, label = NA_character_)
+    TaskClust$new(id, backend, label = NA_character_, extra_args = list())
 
 #### Arguments
 
@@ -86,6 +86,13 @@ Creates a new instance of this
 
   (`character(1)`)  
   Label for the new instance.
+
+- `extra_args`:
+
+  (named [`list()`](https://rdrr.io/r/base/list.html))  
+  Named list of constructor arguments, required for converting task
+  types via
+  [`mlr3::convert_task()`](https://mlr3.mlr-org.com/reference/convert_task.html).
 
 ------------------------------------------------------------------------
 

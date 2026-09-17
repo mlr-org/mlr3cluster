@@ -1,5 +1,9 @@
 # Rousseeuw's Silhouette Quality Index
 
+Calls
+[`cluster::silhouette()`](https://rdrr.io/pkg/cluster/man/silhouette.html)
+from package [cluster](https://CRAN.R-project.org/package=cluster).
+
 The Silhouette Width measures how well each observation fits within its
 assigned cluster compared to neighboring clusters. For each observation,
 the silhouette value is defined as \\s(i) = (b(i) - a(i)) / \max(a(i),
@@ -10,10 +14,6 @@ silhouette width across all observations. Values close to 1 indicate
 well-clustered observations, values near 0 indicate observations on
 cluster boundaries, and negative values indicate possible
 misclassification.
-
-The score function calls
-[`cluster::silhouette()`](https://rdrr.io/pkg/cluster/man/silhouette.html)
-from package [cluster](https://CRAN.R-project.org/package=cluster).
 
 ## Details
 

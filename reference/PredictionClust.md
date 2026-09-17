@@ -53,7 +53,9 @@ Creates a new instance of this
       partition = NULL,
       prob = NULL,
       weights = NULL,
-      check = TRUE
+      check = TRUE,
+      extra = NULL,
+      raw = NULL
     )
 
 #### Arguments
@@ -99,6 +101,17 @@ Creates a new instance of this
   (`logical(1)`)  
   If `TRUE`, performs some argument checks and predict type conversions.
 
+- `extra`:
+
+  ([`list()`](https://rdrr.io/r/base/list.html))  
+  List of extra data to be stored in the prediction object.
+
+- `raw`:
+
+  (any)  
+  Raw prediction object from the upstream model. Stored as-is without
+  validation.
+
 ------------------------------------------------------------------------
 
 ### `PredictionClust$clone()`
@@ -121,17 +134,17 @@ The objects of this class are cloneable with this method.
 library(mlr3)
 library(mlr3cluster)
 task = tsk("usarrests")
-learner = lrn("clust.kmeans")
+learner = lrn("clust.featureless", num_clusters = 2L)
 p = learner$train(task)$predict(task)
 p$predict_types
 #> [1] "partition"
 head(as.data.table(p))
 #>    row_ids partition
 #>      <int>     <int>
-#> 1:       1         2
+#> 1:       1         1
 #> 2:       2         2
-#> 3:       3         2
-#> 4:       4         2
+#> 3:       3         1
+#> 4:       4         1
 #> 5:       5         2
-#> 6:       6         2
+#> 6:       6         1
 ```
