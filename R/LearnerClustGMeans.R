@@ -59,7 +59,7 @@ LearnerClustGMeans = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(gmeans::gmeans, x = task$data(), .args = pv)
+      m = invoke(gmeans::gmeans, x = as_numeric_matrix(task$data()), .args = pv)
       if (self$save_assignments) {
         self$assignments = as.integer(m$cluster)
       }
@@ -68,7 +68,7 @@ LearnerClustGMeans = R6Class(
 
     .predict = function(task) {
       pv = self$param_set$get_values(tags = "predict")
-      data = as.matrix(ordered_features(task, self))
+      data = as_numeric_matrix(ordered_features(task, self))
       partition = as.integer(invoke(predict, self$model, newdata = data, .args = pv))
       list(partition = partition)
     }
