@@ -49,9 +49,13 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
+<div class="section level3">
+<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<ul><li>The clustering moons task generator introduced in 0.6.0 is now registered under the key <code>moons_clust</code> instead of <code>moons</code>, and its class is renamed from <code>TaskGeneratorMoons</code> to <code>TaskGeneratorMoonsClust</code>. Both collided with the classification generator <code>tgen("moons")</code> in mlr3, so loading mlr3cluster silently replaced it and <code>tgen("moons")</code> returned a <code>TaskClust</code>.</li>
+</ul></div>
 </div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.0" id="mlr3cluster-060">mlr3cluster 0.6.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-060"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.6.0" id="mlr3cluster-060">mlr3cluster 0.6.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-060"></a></h2><p class="text-muted">CRAN release: 2026-09-17</p>
 <div class="section level3">
 <h3 id="new-task-generators-0-6-0">New task generators<a class="anchor" aria-label="anchor" href="#new-task-generators-0-6-0"></a></h3>
 <ul><li>
