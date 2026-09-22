@@ -1,8 +1,12 @@
 # mlr3cluster (development version)
 
+## New features
+
+* `as_task_clust()` now converts a `TaskClassif` or `TaskRegr` to a `TaskClust` by dropping the target from the features. This turns every task generator in mlr3, e.g. `tgen("moons")` or `tgen("spirals")`, into a cluster task generator.
+
 ## Bug fixes
 
-* The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated `tgen("moons")` in mlr3. To create a clustering task, generate the classification task, select its features, and pass them to `as_task_clust()` (#128).
+* The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated `tgen("moons")` in mlr3. To create a clustering task from a classification task generator, use `as_task_clust(tgen("moons")$generate(n))` (#128).
 
 # mlr3cluster 0.6.0
 

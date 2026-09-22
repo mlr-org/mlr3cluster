@@ -5,7 +5,11 @@
 #' This is a S3 generic, specialized for at least the following objects:
 #'
 #' 1. [TaskClust]: returns the object as-is, possibly cloned.
-#' 2. [`formula`], [data.frame()], [matrix()], and [mlr3::DataBackend]: provides an alternative to the
+#' 2. [mlr3::TaskSupervised] (e.g., [mlr3::TaskClassif] or [mlr3::TaskRegr]): converts the task to a [TaskClust]
+#'    by removing the target column from the features.
+#'    The target column is not removed from the [mlr3::DataBackend], only its role is dropped, and the row roles
+#'    and remaining column roles are preserved.
+#' 3. [`formula`], [data.frame()], [matrix()], and [mlr3::DataBackend]: provides an alternative to the
 #'    constructor of [TaskClust].
 #'
 #' @inheritParams mlr3::as_task
@@ -14,6 +18,12 @@
 #' @export
 #' @examples
 #' as_task_clust(datasets::USArrests)
+#'
+#' # convert a classification task to a cluster task
+#' as_task_clust(tsk("iris"))
+#'
+#' # turn any task generator into a cluster task generator
+#' as_task_clust(tgen("moons")$generate(100))
 as_task_clust = function(x, ...) {
   UseMethod("as_task_clust")
 }
@@ -24,6 +34,17 @@ as_task_clust = function(x, ...) {
 #' @export
 as_task_clust.TaskClust = function(x, clone = FALSE, ...) {
   if (clone) x$clone() else x
+}
+
+#' @rdname as_task_clust
+#' @export
+as_task_clust.TaskSupervised = function(x, id = x$id, label = x$label, ...) {
+  task = TaskClust$new(id = id, backend = x$backend, label = label)
+  task$row_roles = x$row_roles
+  roles = setdiff(intersect(names(x$col_roles), names(task$col_roles)), "target")
+  task$col_roles[roles] = x$col_roles[roles]
+  task$col_roles$feature = setdiff(x$col_roles$feature, x$col_roles$target)
+  task
 }
 
 #' @rdname as_task_clust

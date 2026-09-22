@@ -36,3 +36,27 @@ test_that("as_task_clust.matrix works", {
 test_that("as_task_clust.matrix requires column names", {
   expect_error(as_task_clust(matrix(1:4, ncol = 2L)), "colnames")
 })
+
+test_that("as_task_clust.TaskSupervised drops the target and keeps the roles", {
+  task = tsk("iris")
+  task$row_roles$use = 1:100
+  task$col_roles$feature = c("Sepal.Length", "Sepal.Width")
+  clust = as_task_clust(task)
+  expect_task_clust(clust)
+  expect_identical(clust$id, "iris")
+  expect_identical(clust$label, task$label)
+  expect_identical(clust$feature_names, c("Sepal.Length", "Sepal.Width"))
+  expect_identical(clust$row_ids, 1:100)
+  expect_identical(clust$backend, task$backend)
+  expect_true("Species" %in% clust$backend$colnames)
+  expect_false("Species" %in% clust$feature_names)
+
+  regr = as_task_clust(tsk("mtcars"), id = "cars")
+  expect_task_clust(regr)
+  expect_identical(regr$id, "cars")
+  expect_false("mpg" %in% regr$feature_names)
+
+  generated = as_task_clust(tgen("moons")$generate(20L))
+  expect_task_clust(generated)
+  expect_identical(generated$feature_names, c("x1", "x2"))
+})

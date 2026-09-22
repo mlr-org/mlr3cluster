@@ -3,6 +3,7 @@
 \name{as_task_clust}
 \alias{as_task_clust}
 \alias{as_task_clust.TaskClust}
+\alias{as_task_clust.TaskSupervised}
 \alias{as_task_clust.data.frame}
 \alias{as_task_clust.matrix}
 \alias{as_task_clust.DataBackend}
@@ -15,6 +16,8 @@
 as_task_clust(x, ...)
 
 \method{as_task_clust}{TaskClust}(x, clone = FALSE, ...)
+
+\method{as_task_clust}{TaskSupervised}(x, id = x$id, label = x$label, ...)
 
 \method{as_task_clust}{data.frame}(x, id = deparse1(substitute(x)), label = NA_character_, ...)
 
@@ -64,10 +67,20 @@ Convert object to a \link{TaskClust} or a list of \link{TaskClust}.
 This is a S3 generic, specialized for at least the following objects:
 \enumerate{
 \item \link{TaskClust}: returns the object as-is, possibly cloned.
+\item \link[mlr3:TaskSupervised]{mlr3::TaskSupervised} (e.g., \link[mlr3:TaskClassif]{mlr3::TaskClassif} or \link[mlr3:TaskRegr]{mlr3::TaskRegr}): converts the task to a \link{TaskClust}
+by removing the target column from the features.
+The target column is not removed from the \link[mlr3:DataBackend]{mlr3::DataBackend}, only its role is dropped, and the row roles
+and remaining column roles are preserved.
 \item \code{\link{formula}}, \code{\link[=data.frame]{data.frame()}}, \code{\link[=matrix]{matrix()}}, and \link[mlr3:DataBackend]{mlr3::DataBackend}: provides an alternative to the
 constructor of \link{TaskClust}.
 }
 }
 \examples{
 as_task_clust(datasets::USArrests)
+
+# convert a classification task to a cluster task
+as_task_clust(tsk("iris"))
+
+# turn any task generator into a cluster task generator
+as_task_clust(tgen("moons")$generate(100))
 }
