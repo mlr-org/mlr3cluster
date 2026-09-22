@@ -1,6 +1,6 @@
 #' @title Moons Cluster Task Generator
 #'
-#' @name mlr_task_generators_moons
+#' @name mlr_task_generators_moons_clust
 #' @include zzz.R
 #'
 #' @description
@@ -17,19 +17,22 @@
 #' connectivity-based methods such as DBSCAN, single linkage or spectral clustering, where centroid-based methods
 #' such as k-means fail.
 #'
-#' @templateVar id moons
+#' The key is `moons_clust` and not `moons`, because [mlr3::mlr_task_generators] already provides a classification
+#' generator under the key `moons`.
+#'
+#' @templateVar id moons_clust
 #' @template task_generator
 #'
 #' @template seealso_task_generator
 #' @export
 #' @examples
-#' generator = tgen("moons")
+#' generator = tgen("moons_clust")
 #' plot(generator, n = 200)
 #'
 #' task = generator$generate(200)
 #' str(task$data())
-TaskGeneratorMoons = R6Class(
-  "TaskGeneratorMoons",
+TaskGeneratorMoonsClust = R6Class(
+  "TaskGeneratorMoonsClust",
   inherit = TaskGenerator,
   public = list(
     #' @description
@@ -39,11 +42,11 @@ TaskGeneratorMoons = R6Class(
       param_set$set_values(sd = 0.1)
 
       super$initialize(
-        id = "moons",
+        id = "moons_clust",
         task_type = "clust",
         param_set = param_set,
         label = "Moons Clustering",
-        man = "mlr3cluster::mlr_task_generators_moons"
+        man = "mlr3cluster::mlr_task_generators_moons_clust"
       )
     },
 
@@ -82,4 +85,4 @@ TaskGeneratorMoons = R6Class(
   )
 )
 
-register_task_generator("moons", TaskGeneratorMoons)
+register_task_generator("moons_clust", TaskGeneratorMoonsClust)

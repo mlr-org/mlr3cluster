@@ -1,5 +1,9 @@
 # mlr3cluster (development version)
 
+## Bug fixes
+
+* The clustering moons task generator introduced in 0.6.0 is now registered under the key `moons_clust` instead of `moons`, and its class is renamed from `TaskGeneratorMoons` to `TaskGeneratorMoonsClust`. Both collided with the classification generator `tgen("moons")` in mlr3, so loading mlr3cluster silently replaced it and `tgen("moons")` returned a `TaskClust`.
+
 # mlr3cluster 0.6.0
 
 ## New task generators

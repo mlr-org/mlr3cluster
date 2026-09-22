@@ -54,7 +54,7 @@ running session (depending on the loaded packages).
 }
 
 Other TaskGenerator:
-\code{\link{mlr_task_generators_moons}}
+\code{\link{mlr_task_generators_moons_clust}}
 }
 \concept{TaskGenerator}
 \section{Super class}{
