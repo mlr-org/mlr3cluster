@@ -2,7 +2,7 @@
 
 ## Bug fixes
 
-* The clustering moons task generator introduced in 0.6.0 is now registered under the key `moons_clust` instead of `moons`, and its class is renamed from `TaskGeneratorMoons` to `TaskGeneratorMoonsClust`. Both collided with the classification generator `tgen("moons")` in mlr3, so loading mlr3cluster silently replaced it and `tgen("moons")` returned a `TaskClust`.
+* The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated `tgen("moons")` in mlr3. To create a clustering task, generate the classification task, select its features, and pass them to `as_task_clust()` (#128).
 
 # mlr3cluster 0.6.0
 

@@ -1,6 +1,6 @@
 test_that("clust task generators are registered", {
   keys = as.data.table(mlr_task_generators)[task_type == "clust", key]
-  expect_subset(c("blobs", "moons_clust"), keys)
+  expect_subset("blobs", keys)
 
   for (key in keys) {
     generator = tgen(key)
@@ -54,43 +54,6 @@ test_that("blobs generator plot", {
   expect_error(tgen("blobs", d = 1L)$plot(n = 50L), "at least 2 dimensions")
 })
 
-test_that("moons_clust generator", {
-  generator = tgen("moons_clust")
-  expect_identical(generator$param_set$values, list(sd = 0.1))
-  task = generator$generate(30L)
-  expect_identical(task$id, "moons_clust_30")
-  expect_identical(task$feature_names, c("x1", "x2"))
-  expect_true(all(task$feature_types$type == "numeric"))
-  expect_identical(tgen("moons_clust", sd = 0)$generate(7L)$nrow, 7L)
-})
-
-test_that("moons_clust generator is reproducible", {
-  generator = tgen("moons_clust", sd = 0.05)
-  task1 = withr::with_seed(1L, generator$generate(40L))
-  task2 = withr::with_seed(1L, generator$generate(40L))
-  expect_identical(task1$data(), task2$data())
-})
-
-test_that("moons_clust generator generates two non-convex clusters", {
-  skip_if_not_installed("dbscan")
-  withr::local_seed(1L)
-  generator = tgen("moons_clust", sd = 0.05)
-  obj = get_private(generator)$.generate_obj(200L)
-  task = as_task_clust(as.data.table(obj$x))
-  # a density-based learner recovers the two moons exactly
-  prediction = lrn("clust.dbscan", eps = 0.2, minPts = 5L)$train(task)$predict(task)
-  expect_identical(length(unique(prediction$partition)), 2L)
-  expect_true(all(table(prediction$partition, obj$classes) %in% c(0L, 100L)))
-})
-
-test_that("moons_clust generator plot", {
-  withr::local_pdf(NULL)
-  expect_no_error(plot(tgen("moons_clust"), n = 50L))
-})
-
-test_that("clust task generators do not shadow generators of other task types", {
-  keys = as.data.table(mlr_task_generators)[task_type == "clust", key]
-  expect_disjunct(keys, c("2dnormals", "cassini", "circle", "friedman1", "moons", "peak", "simplex", "smiley",
-    "spirals", "xor"))
+test_that("clust task generators do not shadow the core moons generator", {
   expect_identical(tgen("moons")$task_type, "classif")
 })

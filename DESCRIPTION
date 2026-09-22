@@ -118,7 +118,6 @@ Collate:
     'TaskClust_ruspini.R'
     'TaskClust_usarrest.R'
     'TaskGeneratorBlobs.R'
-    'TaskGeneratorMoonsClust.R'
     'as_prediction_clust.R'
     'as_task_clust.R'
     'bibentries.R'
