@@ -51,9 +51,9 @@ test_that("as_task_clust.TaskSupervised drops the target and keeps the roles", {
   expect_true("Species" %in% clust$backend$colnames)
   expect_false("Species" %in% clust$feature_names)
 
-  regr = as_task_clust(tsk("mtcars"), id = "cars")
+  regr = as_task_clust(tsk("mtcars"))
   expect_task_clust(regr)
-  expect_identical(regr$id, "cars")
+  expect_identical(regr$id, "mtcars")
   expect_false("mpg" %in% regr$feature_names)
 
   task = tsk("penguins")

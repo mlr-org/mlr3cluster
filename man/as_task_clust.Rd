@@ -17,7 +17,7 @@ as_task_clust(x, ...)
 
 \method{as_task_clust}{TaskClust}(x, clone = FALSE, ...)
 
-\method{as_task_clust}{TaskSupervised}(x, id = x$id, label = x$label, drop_levels = TRUE, ...)
+\method{as_task_clust}{TaskSupervised}(x, drop_levels = TRUE, ...)
 
 \method{as_task_clust}{data.frame}(x, id = deparse1(substitute(x)), label = NA_character_, ...)
 
@@ -49,15 +49,15 @@ Additional arguments.}
 \item{clone}{(\code{logical(1)})\cr
 If \code{TRUE}, ensures that the returned object is not the same as the input \code{x}.}
 
+\item{drop_levels}{(\code{logical(1)})\cr
+If \code{TRUE}, drops unused levels of factor columns, as in \code{\link[mlr3:convert_task]{mlr3::convert_task()}}.}
+
 \item{id}{(\code{character(1)})\cr
 Id for the new task.
 Defaults to the (deparsed and substituted) name of the data argument.}
 
 \item{label}{(\code{character(1)})\cr
 Label for the new instance.}
-
-\item{drop_levels}{(\code{logical(1)})\cr
-If \code{TRUE}, drops unused levels of factor columns, as in \code{\link[mlr3:convert_task]{mlr3::convert_task()}}.}
 
 \item{data}{(\code{data.frame()})\cr
 Data frame containing all columns specified in formula \code{x}.}

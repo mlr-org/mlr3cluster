@@ -40,9 +40,9 @@ as_task_clust.TaskClust = function(x, clone = FALSE, ...) {
 #' @param drop_levels (`logical(1)`)\cr
 #'   If `TRUE`, drops unused levels of factor columns, as in [mlr3::convert_task()].
 #' @export
-as_task_clust.TaskSupervised = function(x, id = x$id, label = x$label, drop_levels = TRUE, ...) {
+as_task_clust.TaskSupervised = function(x, drop_levels = TRUE, ...) {
   assert_flag(drop_levels)
-  task = TaskClust$new(id = id, backend = x$backend, label = label)
+  task = TaskClust$new(id = x$id, backend = x$backend, label = x$label)
   task$row_roles = x$row_roles
   roles = setdiff(intersect(names(x$col_roles), names(task$col_roles)), "target")
   task$col_roles[roles] = x$col_roles[roles]
