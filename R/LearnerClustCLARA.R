@@ -34,20 +34,19 @@ LearnerClustCLARA = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(1L, tags = c("train", "required")),
+        k = p_int(1L, init = 2L, tags = c("train", "required")),
         metric = p_fct(c("euclidean", "manhattan", "jaccard"), default = "euclidean", tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
         samples = p_int(1L, default = 5L, tags = "train"),
         sampsize = p_int(1L, tags = "train"),
         trace = p_int(0L, default = 0L, tags = "train"),
         medoids.x = p_lgl(default = TRUE, tags = "train"),
-        keep.data = p_lgl(default = TRUE, tags = "train"),
+        keep.data = p_lgl(default = TRUE, init = FALSE, tags = "train"),
         rngR = p_lgl(default = FALSE, tags = "train"),
         pamLike = p_lgl(default = FALSE, tags = "train"),
         correct.d = p_lgl(default = TRUE, tags = "train")
       )
 
-      param_set$set_values(k = 2L, keep.data = FALSE)
 
       super$initialize(
         id = "clust.clara",

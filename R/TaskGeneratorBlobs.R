@@ -37,12 +37,11 @@ TaskGeneratorBlobs = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(1L, tags = "required"),
-        d = p_int(1L, tags = "required"),
-        sd = p_dbl(0, tags = "required"),
-        center_box = p_dbl(0, tags = "required")
+        k = p_int(1L, init = 3L, tags = "required"),
+        d = p_int(1L, init = 2L, tags = "required"),
+        sd = p_dbl(0, init = 1, tags = "required"),
+        center_box = p_dbl(0, init = 10, tags = "required")
       )
-      param_set$set_values(k = 3L, d = 2L, sd = 1, center_box = 10)
 
       super$initialize(
         id = "blobs",

@@ -49,10 +49,10 @@ LearnerClustAgnes = R6Class(
           default = "average",
           tags = "train"
         ),
-        keep.diss = p_lgl(tags = "train"),
-        keep.data = p_lgl(default = TRUE, tags = "train"),
+        keep.diss = p_lgl(init = FALSE, tags = "train"),
+        keep.data = p_lgl(default = TRUE, init = FALSE, tags = "train"),
         trace.lev = p_int(0L, default = 0L, tags = "train"),
-        k = p_int(1L, tags = c("train", "cutree", "predict", "required")),
+        k = p_int(1L, init = 2L, tags = c("train", "cutree", "predict", "required")),
         par.method = p_uty(
           tags = "train",
           depends = quote(method %in% c("flexible", "gaverage")),
@@ -65,7 +65,6 @@ LearnerClustAgnes = R6Class(
         )
       )
 
-      param_set$set_values(k = 2L, keep.diss = FALSE, keep.data = FALSE)
 
       super$initialize(
         id = "clust.agnes",

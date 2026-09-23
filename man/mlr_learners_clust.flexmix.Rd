@@ -43,7 +43,7 @@ lrn("clust.flexmix")
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    k \tab integer \tab - \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   model \tab character \tab FLXMCmvnorm \tab FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois \tab - \cr
+   model \tab character \tab - \tab FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois \tab - \cr
    diagonal \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    truncated \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    cluster \tab untyped \tab NULL \tab  \tab - \cr

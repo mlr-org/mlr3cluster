@@ -49,16 +49,15 @@ LearnerClustMclust = R6Class(
           tags = "train",
           custom_check = crate(function(x) check_list(x, null.ok = TRUE))
         ),
-        warn = p_lgl(default = FALSE, tags = "train"),
+        warn = p_lgl(init = FALSE, tags = "train"),
         x = p_uty(
           default = NULL,
           tags = "train",
           custom_check = crate(function(x) check_class(x, "mclustBIC", null.ok = TRUE))
         ),
-        verbose = p_lgl(default = FALSE, tags = "train")
+        verbose = p_lgl(init = FALSE, tags = "train")
       )
 
-      param_set$set_values(warn = FALSE, verbose = FALSE)
 
       super$initialize(
         id = "clust.mclust",

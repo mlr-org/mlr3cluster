@@ -34,7 +34,7 @@ LearnerClustSpectral = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        centers = p_int(2L, tags = c("train", "required")),
+        centers = p_int(2L, init = 2L, tags = c("train", "required")),
         kernel = p_fct(
           c("rbfdot", "polydot", "vanilladot", "tanhdot", "laplacedot", "besseldot", "anovadot", "splinedot"),
           default = "rbfdot",
@@ -60,7 +60,6 @@ LearnerClustSpectral = R6Class(
         mod.sample = p_dbl(0, 1, default = 0.75, tags = "train")
       )
 
-      param_set$set_values(centers = 2L)
 
       super$initialize(
         id = "clust.specc",

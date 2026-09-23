@@ -55,9 +55,9 @@ lrn("clust.mclust")
    prior \tab untyped \tab NULL \tab  \cr
    control \tab untyped \tab - \tab  \cr
    initialization \tab untyped \tab NULL \tab  \cr
-   warn \tab logical \tab FALSE \tab TRUE, FALSE \cr
+   warn \tab logical \tab - \tab TRUE, FALSE \cr
    x \tab untyped \tab NULL \tab  \cr
-   verbose \tab logical \tab FALSE \tab TRUE, FALSE \cr
+   verbose \tab logical \tab - \tab TRUE, FALSE \cr
 }
 }
 

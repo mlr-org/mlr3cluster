@@ -20,8 +20,7 @@ LearnerClustFeatureless = R6Class(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      param_set = ps(num_clusters = p_int(1L, tags = c("train", "predict", "required")))
-      param_set$set_values(num_clusters = 1L)
+      param_set = ps(num_clusters = p_int(1L, init = 1L, tags = c("train", "predict", "required")))
 
       super$initialize(
         id = "clust.featureless",

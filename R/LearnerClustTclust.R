@@ -41,7 +41,7 @@ LearnerClustTclust = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(1L, tags = c("train", "required")),
+        k = p_int(1L, init = 2L, tags = c("train", "required")),
         alpha = p_dbl(0, 0.5, default = 0.05, tags = "train"),
         nstart = p_int(1L, default = 500L, tags = "train"),
         niter1 = p_int(1L, default = 3L, tags = "train"),
@@ -54,15 +54,14 @@ LearnerClustTclust = R6Class(
         opt = p_fct(c("HARD", "MIXT"), default = "HARD", tags = "train"),
         center = p_lgl(default = FALSE, tags = "train"),
         scale = p_lgl(default = FALSE, tags = "train"),
-        store_x = p_lgl(default = TRUE, tags = "train"),
+        store_x = p_lgl(default = TRUE, init = FALSE, tags = "train"),
         parallel = p_lgl(default = FALSE, tags = "train"),
-        n.cores = p_int(-2L, default = -1L, tags = c("train", "threads")),
+        n.cores = p_int(-2L, default = -1L, init = 1L, tags = c("train", "threads")),
         zero_tol = p_dbl(0, default = 1e-16, tags = "train"),
         drop.empty.clust = p_lgl(default = TRUE, tags = "train"),
         trace = p_int(0L, default = 0L, tags = "train")
       )
 
-      param_set$set_values(k = 2L, store_x = FALSE, n.cores = 1L)
 
       super$initialize(
         id = "clust.tclust",

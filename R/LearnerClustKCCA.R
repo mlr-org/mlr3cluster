@@ -28,7 +28,7 @@ LearnerClustKCCA = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(2L, tags = c("train", "required")),
+        k = p_int(2L, init = 2L, tags = c("train", "required")),
         family = p_fct(c("kmeans", "kmedians", "angle", "jaccard", "ejaccard"), default = "kmeans", tags = "train"),
         weights = p_uty(
           default = NULL,
@@ -52,7 +52,6 @@ LearnerClustKCCA = R6Class(
         )
       )
 
-      param_set$set_values(k = 2L)
 
       super$initialize(
         id = "clust.kcca",

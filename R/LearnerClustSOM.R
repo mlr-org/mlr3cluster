@@ -54,12 +54,11 @@ LearnerClustSOM = R6Class(
         keep.data = p_lgl(default = TRUE, tags = "train"),
         dist.fcts = p_uty(default = NULL, tags = "train"),
         mode = p_fct(c("online", "batch", "pbatch"), default = "online", tags = "train"),
-        cores = p_int(default = -1L, tags = c("train", "threads")),
+        cores = p_int(default = -1L, init = 1L, tags = c("train", "threads")),
         init = p_uty(tags = "train"),
         normalizeDataLayers = p_lgl(default = TRUE, tags = "train")
       )
 
-      param_set$set_values(cores = 1L)
 
       super$initialize(
         id = "clust.som",

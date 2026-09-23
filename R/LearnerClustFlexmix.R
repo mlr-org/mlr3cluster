@@ -36,10 +36,10 @@ LearnerClustFlexmix = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(1L, tags = c("train", "required")),
+        k = p_int(1L, init = 2L, tags = c("train", "required")),
         model = p_fct(
           c("FLXMCmvnorm", "FLXMCnorm1", "FLXMCmvbinary", "FLXMCmvpois"),
-          default = "FLXMCmvnorm",
+          init = "FLXMCmvnorm",
           tags = "train"
         ),
         diagonal = p_lgl(default = TRUE, tags = "train", depends = quote(model == "FLXMCmvnorm")),
@@ -61,7 +61,6 @@ LearnerClustFlexmix = R6Class(
         nrep = p_int(1L, default = 1L, tags = "train")
       )
 
-      param_set$set_values(k = 2L, model = "FLXMCmvnorm")
 
       super$initialize(
         id = "clust.flexmix",

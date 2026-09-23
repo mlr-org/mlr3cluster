@@ -60,7 +60,7 @@ LearnerClustKProto = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_uty(tags = c("train", "required")),
+        k = p_uty(init = 2L, tags = c("train", "required")),
         lambda = p_uty(
           default = NULL,
           tags = "train",
@@ -72,13 +72,12 @@ LearnerClustKProto = R6Class(
         iter.max = p_int(1L, default = 100L, tags = "train"),
         nstart = p_int(1L, default = 1L, tags = "train"),
         na.rm = p_fct(c("yes", "no", "imp.internal", "imp.onestep"), default = "yes", tags = "train"),
-        keep.data = p_lgl(default = TRUE, tags = "train"),
-        verbose = p_lgl(default = TRUE, tags = "train"),
+        keep.data = p_lgl(default = TRUE, init = FALSE, tags = "train"),
+        verbose = p_lgl(default = TRUE, init = FALSE, tags = "train"),
         init = p_fct(c("nbh.dens", "sel.cen", "nstart.m"), default = NULL, special_vals = list(NULL), tags = "train"),
         p_nstart.m = p_dbl(0, 1, default = 0.9, tags = "train", depends = quote(init == "nstart.m"))
       )
 
-      param_set$set_values(k = 2L, keep.data = FALSE, verbose = FALSE)
 
       super$initialize(
         id = "clust.kproto",

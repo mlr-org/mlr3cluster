@@ -38,10 +38,9 @@ LearnerClustMeanShift = R6Class(
         thr = p_dbl(default = 0.01, tags = "train"),
         scaled = p_int(0L, default = 1L, tags = "train"),
         iter = p_int(1L, default = 200L, tags = "train"),
-        plot = p_lgl(default = TRUE, tags = "train")
+        plot = p_lgl(default = TRUE, init = FALSE, tags = "train")
       )
 
-      param_set$set_values(plot = FALSE)
 
       super$initialize(
         id = "clust.meanshift",

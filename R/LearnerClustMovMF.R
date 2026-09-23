@@ -32,7 +32,7 @@ LearnerClustMovMF = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(1L, tags = c("train", "required")),
+        k = p_int(1L, init = 2L, tags = c("train", "required")),
         E = p_fct(c("softmax", "hardmax", "stochmax"), default = "softmax", tags = "train"),
         kappa = p_uty(tags = "train"),
         ids = p_uty(
@@ -48,7 +48,6 @@ LearnerClustMovMF = R6Class(
         verbose = p_lgl(default = FALSE, tags = c("train", "control"))
       )
 
-      param_set$set_values(k = 2L)
 
       super$initialize(
         id = "clust.movMF",

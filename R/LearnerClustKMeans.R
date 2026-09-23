@@ -27,7 +27,7 @@ LearnerClustKMeans = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        centers = p_uty(tags = c("train", "required"), custom_check = check_centers),
+        centers = p_uty(init = 2L, tags = c("train", "required"), custom_check = check_centers),
         iter.max = p_int(1L, default = 10L, tags = "train"),
         algorithm = p_fct(
           c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"),
@@ -38,7 +38,6 @@ LearnerClustKMeans = R6Class(
         trace = p_lgl(default = FALSE, tags = "train")
       )
 
-      param_set$set_values(centers = 2L)
 
       super$initialize(
         id = "clust.kmeans",

@@ -27,7 +27,7 @@ LearnerClustKMeansRcpp = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        clusters = p_int(1L, tags = c("train", "required")),
+        clusters = p_int(1L, init = 2L, tags = c("train", "required")),
         num_init = p_int(1L, default = 1L, tags = "train"),
         max_iters = p_int(1L, default = 100L, tags = "train"),
         initializer = p_fct(
@@ -43,7 +43,6 @@ LearnerClustKMeansRcpp = R6Class(
         threads = p_int(1L, default = 1L, tags = c("predict", "threads"))
       )
 
-      param_set$set_values(clusters = 2L)
 
       super$initialize(
         id = "clust.kmeans_rcpp",

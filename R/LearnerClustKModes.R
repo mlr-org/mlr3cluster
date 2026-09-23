@@ -52,6 +52,7 @@ LearnerClustKModes = R6Class(
     initialize = function() {
       param_set = ps(
         modes = p_uty(
+          init = 2L,
           tags = c("train", "required"),
           custom_check = crate(function(x) check_data_frame(x) %check||% check_int(x, lower = 1L))
         ),
@@ -61,7 +62,6 @@ LearnerClustKModes = R6Class(
         ties = p_fct(c("first", "last", "random"), default = "first", tags = "predict")
       )
 
-      param_set$set_values(modes = 2L)
 
       super$initialize(
         id = "clust.kmodes",
