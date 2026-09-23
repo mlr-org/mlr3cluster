@@ -63,9 +63,9 @@ or with the associated sugar function
 | prior          | untyped | NULL    |             |
 | control        | untyped | \-      |             |
 | initialization | untyped | NULL    |             |
-| warn           | logical | FALSE   | TRUE, FALSE |
+| warn           | logical | \-      | TRUE, FALSE |
 | x              | untyped | NULL    |             |
-| verbose        | logical | FALSE   | TRUE, FALSE |
+| verbose        | logical | \-      | TRUE, FALSE |
 
 ## References
 

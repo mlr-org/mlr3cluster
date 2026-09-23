@@ -52,7 +52,7 @@ or with the associated sugar function
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
 | k | integer | \- |  | \\\[1, \infty)\\ |
-| model | character | FLXMCmvnorm | FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois | \- |
+| model | character | \- | FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois | \- |
 | diagonal | logical | TRUE | TRUE, FALSE | \- |
 | truncated | logical | FALSE | TRUE, FALSE | \- |
 | cluster | untyped | NULL |  | \- |
