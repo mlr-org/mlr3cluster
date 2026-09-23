@@ -23,9 +23,6 @@
 - [`mlr_task_generators_blobs`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_blobs.md)
   [`TaskGeneratorBlobs`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_blobs.md)
   : Gaussian Blobs Cluster Task Generator
-- [`mlr_task_generators_moons_clust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_moons_clust.md)
-  [`TaskGeneratorMoonsClust`](https://mlr3cluster.mlr-org.com/dev/reference/mlr_task_generators_moons_clust.md)
-  : Moons Cluster Task Generator
 
 ## Learners
 

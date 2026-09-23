@@ -50,8 +50,13 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
 <div class="section level3">
+<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> now converts a <code>TaskClassif</code> or <code>TaskRegr</code> to a <code>TaskClust</code> by dropping the target from the features. This turns every task generator in mlr3, e.g. <code>tgen("moons")</code> or <code>tgen("spirals")</code>, into a cluster task generator.</li>
+</ul></div>
+<div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
-<ul><li>The clustering moons task generator introduced in 0.6.0 is now registered under the key <code>moons_clust</code> instead of <code>moons</code>, and its class is renamed from <code>TaskGeneratorMoons</code> to <code>TaskGeneratorMoonsClust</code>. Both collided with the classification generator <code>tgen("moons")</code> in mlr3, so loading mlr3cluster silently replaced it and <code>tgen("moons")</code> returned a <code>TaskClust</code>.</li>
+<ul><li>The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated <code>tgen("moons")</code> in mlr3. To create a clustering task from a classification task generator, use <code>as_task_clust(tgen("moons")$generate(n))</code> (<a href="https://github.com/mlr-org/mlr3cluster/issues/128" class="external-link">#128</a>).</li>
 </ul></div>
 </div>
     <div class="section level2">

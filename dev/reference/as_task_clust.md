@@ -9,7 +9,20 @@ This is a S3 generic, specialized for at least the following objects:
 1.  [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md):
     returns the object as-is, possibly cloned.
 
-2.  [`formula`](https://rdrr.io/r/stats/formula.html),
+2.  [mlr3::TaskSupervised](https://mlr3.mlr-org.com/reference/TaskSupervised.html)
+    (e.g.,
+    [mlr3::TaskClassif](https://mlr3.mlr-org.com/reference/TaskClassif.html)
+    or
+    [mlr3::TaskRegr](https://mlr3.mlr-org.com/reference/TaskRegr.html)):
+    converts the task to a
+    [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)
+    by removing the target column from the features. The target column
+    is not removed from the
+    [mlr3::DataBackend](https://mlr3.mlr-org.com/reference/DataBackend.html),
+    only its role is dropped. The row roles and the remaining column
+    roles are preserved.
+
+3.  [`formula`](https://rdrr.io/r/stats/formula.html),
     [`data.frame()`](https://rdrr.io/r/base/data.frame.html),
     [`matrix()`](https://rdrr.io/r/base/matrix.html), and
     [mlr3::DataBackend](https://mlr3.mlr-org.com/reference/DataBackend.html):
@@ -23,6 +36,9 @@ as_task_clust(x, ...)
 
 # S3 method for class 'TaskClust'
 as_task_clust(x, clone = FALSE, ...)
+
+# S3 method for class 'TaskSupervised'
+as_task_clust(x, drop_levels = TRUE, ...)
 
 # S3 method for class 'data.frame'
 as_task_clust(x, id = deparse1(substitute(x)), label = NA_character_, ...)
@@ -69,6 +85,12 @@ as_tasks_clust(x, clone = FALSE, ...)
   If `TRUE`, ensures that the returned object is not the same as the
   input `x`.
 
+- drop_levels:
+
+  (`logical(1)`)  
+  If `TRUE`, drops unused levels of factor columns, as in
+  [`mlr3::convert_task()`](https://mlr3.mlr-org.com/reference/convert_task.html).
+
 - id:
 
   (`character(1)`)  
@@ -100,4 +122,22 @@ as_task_clust(datasets::USArrests)
 #> • Features (4):
 #>   • int (2): Assault, UrbanPop
 #>   • dbl (2): Murder, Rape
+
+# convert a classification task to a cluster task
+as_task_clust(tsk("iris"))
+#> 
+#> ── <TaskClust> (150x4): Iris Flowers ───────────────────────────────────────────
+#> • Target:
+#> • Properties: -
+#> • Features (4):
+#>   • dbl (4): Petal.Length, Petal.Width, Sepal.Length, Sepal.Width
+
+# turn any task generator into a cluster task generator
+as_task_clust(tgen("moons")$generate(100))
+#> 
+#> ── <TaskClust> (100x2) ─────────────────────────────────────────────────────────
+#> • Target:
+#> • Properties: -
+#> • Features (2):
+#>   • dbl (2): x1, x2
 ```
