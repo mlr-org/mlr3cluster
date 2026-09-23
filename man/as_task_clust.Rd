@@ -17,7 +17,7 @@ as_task_clust(x, ...)
 
 \method{as_task_clust}{TaskClust}(x, clone = FALSE, ...)
 
-\method{as_task_clust}{TaskSupervised}(x, id = x$id, label = x$label, ...)
+\method{as_task_clust}{TaskSupervised}(x, id = x$id, label = x$label, drop_levels = TRUE, ...)
 
 \method{as_task_clust}{data.frame}(x, id = deparse1(substitute(x)), label = NA_character_, ...)
 
@@ -56,6 +56,9 @@ Defaults to the (deparsed and substituted) name of the data argument.}
 \item{label}{(\code{character(1)})\cr
 Label for the new instance.}
 
+\item{drop_levels}{(\code{logical(1)})\cr
+If \code{TRUE}, drops unused levels of factor columns, as in \code{\link[mlr3:convert_task]{mlr3::convert_task()}}.}
+
 \item{data}{(\code{data.frame()})\cr
 Data frame containing all columns specified in formula \code{x}.}
 }
@@ -69,8 +72,8 @@ This is a S3 generic, specialized for at least the following objects:
 \item \link{TaskClust}: returns the object as-is, possibly cloned.
 \item \link[mlr3:TaskSupervised]{mlr3::TaskSupervised} (e.g., \link[mlr3:TaskClassif]{mlr3::TaskClassif} or \link[mlr3:TaskRegr]{mlr3::TaskRegr}): converts the task to a \link{TaskClust}
 by removing the target column from the features.
-The target column is not removed from the \link[mlr3:DataBackend]{mlr3::DataBackend}, only its role is dropped, and the row roles
-and remaining column roles are preserved.
+The target column is not removed from the \link[mlr3:DataBackend]{mlr3::DataBackend}, only its role is dropped.
+The row roles and the remaining column roles are preserved.
 \item \code{\link{formula}}, \code{\link[=data.frame]{data.frame()}}, \code{\link[=matrix]{matrix()}}, and \link[mlr3:DataBackend]{mlr3::DataBackend}: provides an alternative to the
 constructor of \link{TaskClust}.
 }

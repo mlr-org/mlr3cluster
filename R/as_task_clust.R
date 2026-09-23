@@ -7,8 +7,8 @@
 #' 1. [TaskClust]: returns the object as-is, possibly cloned.
 #' 2. [mlr3::TaskSupervised] (e.g., [mlr3::TaskClassif] or [mlr3::TaskRegr]): converts the task to a [TaskClust]
 #'    by removing the target column from the features.
-#'    The target column is not removed from the [mlr3::DataBackend], only its role is dropped, and the row roles
-#'    and remaining column roles are preserved.
+#'    The target column is not removed from the [mlr3::DataBackend], only its role is dropped.
+#'    The row roles and the remaining column roles are preserved.
 #' 3. [`formula`], [data.frame()], [matrix()], and [mlr3::DataBackend]: provides an alternative to the
 #'    constructor of [TaskClust].
 #'
@@ -37,13 +37,18 @@ as_task_clust.TaskClust = function(x, clone = FALSE, ...) {
 }
 
 #' @rdname as_task_clust
+#' @param drop_levels (`logical(1)`)\cr
+#'   If `TRUE`, drops unused levels of factor columns, as in [mlr3::convert_task()].
 #' @export
-as_task_clust.TaskSupervised = function(x, id = x$id, label = x$label, ...) {
+as_task_clust.TaskSupervised = function(x, id = x$id, label = x$label, drop_levels = TRUE, ...) {
+  assert_flag(drop_levels)
   task = TaskClust$new(id = id, backend = x$backend, label = label)
   task$row_roles = x$row_roles
   roles = setdiff(intersect(names(x$col_roles), names(task$col_roles)), "target")
   task$col_roles[roles] = x$col_roles[roles]
-  task$col_roles$feature = setdiff(x$col_roles$feature, x$col_roles$target)
+  if (drop_levels) {
+    task$droplevels()
+  }
   task
 }
 
