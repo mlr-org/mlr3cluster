@@ -54,6 +54,10 @@ test_that("blobs generator plot", {
   expect_error(tgen("blobs", d = 1L)$plot(n = 50L), "at least 2 dimensions")
 })
 
-test_that("clust task generators do not shadow the core moons generator", {
+test_that("clust task generators do not shadow generators of mlr3", {
+  classes = setdiff(grep("^TaskGenerator", getNamespaceExports("mlr3"), value = TRUE), "TaskGenerator")
+  mlr3_keys = map_chr(classes, function(cl) getExportedValue("mlr3", cl)$new()$id)
+  keys = as.data.table(mlr_task_generators)[task_type == "clust", key]
+  expect_disjunct(keys, mlr3_keys)
   expect_identical(tgen("moons")$task_type, "classif")
 })
