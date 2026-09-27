@@ -59,7 +59,8 @@ LearnerClustDBSCANfpc = R6Class(
       pv = self$param_set$get_values(tags = "train")
       data = task$data()
       m = invoke(fpc::dbscan, data = data, .args = pv, .opts = allow_partial_matching)
-      m$data = data
+      # predict needs the training data, and `scale` to reject scaled models since fpc does not store it
+      m = insert_named(m, list(data = data, scale = isTRUE(pv$scale)))
       if (self$save_assignments) {
         self$assignments = as.integer(m$cluster)
       }
@@ -67,10 +68,10 @@ LearnerClustDBSCANfpc = R6Class(
     },
 
     .predict = function(task) {
-      if (isFALSE(self$param_set$values$seeds)) {
+      if (is.null(self$model$isseed)) {
         error_config("Predicting requires seed points, train with `seeds = TRUE`.")
       }
-      if (isTRUE(self$param_set$values$scale)) {
+      if (isTRUE(self$model$scale)) {
         error_config(
           "Predicting is not supported for `scale = TRUE` since `fpc:::predict.dbscan()` ignores the scaling."
         )

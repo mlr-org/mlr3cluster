@@ -18,6 +18,24 @@ test_that("predicting errors informatively when trained with seeds = FALSE", {
   expect_snapshot(error = TRUE, learner$predict(task))
 })
 
+test_that("predict checks the training values, not the current ones", {
+  task = tsk("usarrests")
+  learner = lrn("clust.dbscan_fpc", eps = 25, seeds = FALSE)
+  learner$train(task)
+  learner$param_set$values$seeds = NULL
+  expect_error(learner$predict(task), "seeds = TRUE")
+
+  learner = lrn("clust.dbscan_fpc", eps = 0.8, scale = TRUE)
+  learner$train(task)
+  learner$param_set$values$scale = NULL
+  expect_error(learner$predict(task), "scale = TRUE")
+
+  learner = lrn("clust.dbscan_fpc", eps = 25)
+  learner$train(task)
+  learner$param_set$values = list(eps = 25, seeds = FALSE, scale = TRUE)
+  expect_prediction_clust(learner$predict(task), learner)
+})
+
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
   learner = lrn("clust.dbscan_fpc", eps = 25)
