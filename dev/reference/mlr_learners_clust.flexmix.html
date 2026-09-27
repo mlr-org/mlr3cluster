@@ -106,7 +106,7 @@ components may be smaller than <code>k</code>.</p>
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>model</td><td>character</td><td>-</td><td>FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois</td><td>-</td></tr><tr><td>diagonal</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>truncated</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>cluster</td><td>untyped</td><td>NULL</td><td></td><td>-</td></tr><tr><td>iter.max</td><td>integer</td><td>200</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>minprior</td><td>numeric</td><td>0.05</td><td></td><td>\([0, 1]\)</td></tr><tr><td>tolerance</td><td>numeric</td><td>1e-06</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>verbose</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>classify</td><td>character</td><td>auto</td><td>auto, weighted, CEM, SEM, hard, random</td><td>-</td></tr><tr><td>nrep</td><td>integer</td><td>1</td><td></td><td>\([1, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>model</td><td>character</td><td>-</td><td>FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois</td><td>-</td></tr><tr><td>diagonal</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>truncated</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>cluster</td><td>untyped</td><td>NULL</td><td></td><td>-</td></tr><tr><td>iter.max</td><td>integer</td><td>200</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>minprior</td><td>numeric</td><td>0.05</td><td></td><td>\([0, 1]\)</td></tr><tr><td>tolerance</td><td>numeric</td><td>1e-06</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>verbose</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>classify</td><td>character</td><td>auto</td><td>auto, weighted, CEM, SEM, hard, random</td><td>-</td></tr><tr><td>nrep</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Leisch, Friedrich (2004).
@@ -252,13 +252,13 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> flexmix::stepFlexmix(formula = formula, data = data, model = driver, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     control = control_args, k = 2, nrep = nrep, verbose = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     control = control_args, k = 2, verbose = FALSE)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Cluster sizes:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1  2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 22 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 29 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> convergence after 14 iterations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> convergence after 9 iterations</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
@@ -266,7 +266,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  0.1220028 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0.07812771 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

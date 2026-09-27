@@ -61,7 +61,7 @@ or with the associated sugar function
 | tolerance | numeric | 1e-06 |  | \\\[0, \infty)\\ |
 | verbose | integer | 0 |  | \\\[0, \infty)\\ |
 | classify | character | auto | auto, weighted, CEM, SEM, hard, random | \- |
-| nrep | integer | 1 |  | \\\[1, \infty)\\ |
+| nrep | integer | 3 |  | \\\[1, \infty)\\ |
 
 ## References
 
@@ -234,13 +234,13 @@ print(learner$model)
 #> 
 #> Call:
 #> flexmix::stepFlexmix(formula = formula, data = data, model = driver, 
-#>     control = control_args, k = 2, nrep = nrep, verbose = FALSE)
+#>     control = control_args, k = 2, verbose = FALSE)
 #> 
 #> Cluster sizes:
 #>  1  2 
-#> 28 22 
+#> 21 29 
 #> 
-#> convergence after 14 iterations
+#> convergence after 9 iterations
 
 # Make predictions for the task
 prediction = learner$predict(task)
@@ -248,5 +248,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1220028 
+#> 0.07812771 
 ```

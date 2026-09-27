@@ -25,6 +25,10 @@
   clustering task from a classification task generator, use
   `as_task_clust(tgen("moons")$generate(n))`
   ([\#128](https://github.com/mlr-org/mlr3cluster/issues/128)).
+- `clust.flexmix` now uses the upstream default `nrep = 3`. Set
+  `nrep = 1` to restore the previous behavior.
+- `clust.xmeans` now always uses `C = 0.5`. Previously, Weka reset `C`
+  to 0 whenever any other parameter was set.
 
 ## mlr3cluster 0.6.0
 

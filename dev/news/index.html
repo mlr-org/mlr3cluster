@@ -64,6 +64,10 @@
 <div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
 <ul><li>The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated <code>tgen("moons")</code> in mlr3. To create a clustering task from a classification task generator, use <code>as_task_clust(tgen("moons")$generate(n))</code> (<a href="https://github.com/mlr-org/mlr3cluster/issues/128" class="external-link">#128</a>).</li>
+<li>
+<code>clust.flexmix</code> now uses the upstream default <code>nrep = 3</code>. Set <code>nrep = 1</code> to restore the previous behavior.</li>
+<li>
+<code>clust.xmeans</code> now always uses <code>C = 0.5</code>. Previously, Weka reset <code>C</code> to 0 whenever any other parameter was set.</li>
 </ul></div>
 </div>
     <div class="section level2">

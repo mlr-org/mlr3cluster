@@ -240,21 +240,21 @@ print(learner$model)
 #> 
 #>  Cluster memberships: 
 #>  
-#> 1 1 1 2 1 2 2 1 1 2 1 2 1 2 1 2 2 1 1 1 2 1 1 1 2 2 2 1 1 2 1 1 1 1 2 2 2 2 2 1 1 2 2 2 1 2 2 1 1 2 
+#> 1 1 1 2 1 1 2 1 1 1 2 2 1 2 2 2 2 1 2 1 2 1 2 1 2 2 2 1 2 2 1 1 1 2 2 2 2 2 2 1 2 2 1 2 2 2 2 2 2 2 
 #>  
 #> Gaussian Radial Basis kernel function. 
-#>  Hyperparameter : sigma =  0.00033802292561201 
+#>  Hyperparameter : sigma =  0.000339562510420606 
 #> 
 #> Centers:  
 #>          [,1]     [,2]     [,3]     [,4]
-#> [1,] 191.8462 8.403846 21.88846 62.76923
-#> [2,] 147.9167 7.120833 20.52083 68.54167
+#> [1,] 261.9474 11.94737 28.63158 69.00000
+#> [2,] 114.8710  5.23871 16.69677 63.41935
 #> 
 #> Cluster size:  
-#> [1] 26 24
+#> [1] 19 31
 #> 
 #> Within-cluster sum of squares:  
-#> [1] 1490714.2  627456.5
+#> [1] 1542536.0  530662.2
 #> 
 #> 
 #> $data
@@ -314,7 +314,7 @@ print(learner$model)
 #> [1] 1 2
 #> 
 #> $within
-#> [1] 0.3252723 0.5438556
+#> [1] 0.4940417 0.4505189
 #> 
 
 # Make predictions for the task
@@ -323,5 +323,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#> 0.08051798 
+#>  0.1585342 
 ```
