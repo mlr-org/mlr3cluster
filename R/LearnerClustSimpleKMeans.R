@@ -48,7 +48,7 @@ LearnerClustSimpleKMeans = R6Class(
 
       super$initialize(
         id = "clust.SimpleKMeans",
-        feature_types = c("logical", "integer", "numeric"),
+        feature_types = c("logical", "integer", "numeric", "factor", "ordered"),
         predict_types = "partition",
         param_set = param_set,
         properties = c("partitional", "exclusive", "complete", "missings", "marshal"),
