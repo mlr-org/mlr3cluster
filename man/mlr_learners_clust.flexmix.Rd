@@ -52,7 +52,7 @@ lrn("clust.flexmix")
    tolerance \tab numeric \tab 1e-06 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    verbose \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    classify \tab character \tab auto \tab auto, weighted, CEM, SEM, hard, random \tab - \cr
-   nrep \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   nrep \tab integer \tab 3 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
 }
 }
 

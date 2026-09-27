@@ -12,6 +12,7 @@
 ## Bug fixes
 
 * The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated `tgen("moons")` in mlr3. To create a clustering task from a classification task generator, use `as_task_clust(tgen("moons")$generate(n))` (#128).
+* `clust.flexmix` now uses the upstream default `nrep = 3`. Set `nrep = 1` to restore the previous behavior.
 
 # mlr3cluster 0.6.0
 

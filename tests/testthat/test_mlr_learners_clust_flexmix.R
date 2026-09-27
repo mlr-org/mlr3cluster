@@ -11,21 +11,21 @@ test_that("autotest", {
 test_that("nrep runs repeated EM initializations", {
   task = tsk("usarrests")
 
-  # unset and nrep = 1 are equivalent
+  # unset nrep uses the upstream default of 3
   learner0 = lrn("clust.flexmix", k = 2L)
   withr::local_seed(42)
   learner0$train(task)
+  seed_unset = .Random.seed
+  learner3 = lrn("clust.flexmix", k = 2L, nrep = 3L)
+  withr::local_seed(42)
+  learner3$train(task)
+  expect_identical(.Random.seed, seed_unset)
+
+  # nrep = 1 consumes fewer RNG draws, proving the repetitions happen
   learner1 = lrn("clust.flexmix", k = 2L, nrep = 1L)
   withr::local_seed(42)
   learner1$train(task)
-  expect_identical(learner1$assignments, learner0$assignments)
-  seed_nrep1 = .Random.seed
-
-  # nrep = 5 consumes more RNG draws than a single run, proving the repetitions happen
-  learner5 = lrn("clust.flexmix", k = 2L, nrep = 5L)
-  withr::local_seed(42)
-  learner5$train(task)
-  expect_false(identical(.Random.seed, seed_nrep1))
+  expect_false(identical(.Random.seed, seed_unset))
 })
 
 test_that("nrep combined with cluster errors", {

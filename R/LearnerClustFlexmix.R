@@ -58,7 +58,7 @@ LearnerClustFlexmix = R6Class(
           default = "auto",
           tags = c("train", "control")
         ),
-        nrep = p_int(1L, default = 1L, tags = "train")
+        nrep = p_int(1L, default = 3L, tags = "train")
       )
 
 
@@ -82,9 +82,7 @@ LearnerClustFlexmix = R6Class(
       control_args = ps$get_values(tags = "control")
       pv = remove_named(pv, names(control_args))
 
-      nrep = pv$nrep %??% 1L
-      pv = remove_named(pv, "nrep")
-      if (!is.null(pv$cluster) && nrep > 1L) {
+      if (!is.null(pv$cluster) && isTRUE(pv$nrep > 1L)) {
         error_config("`nrep` requires random initialization and cannot be combined with `cluster`.")
       }
 
@@ -111,9 +109,8 @@ LearnerClustFlexmix = R6Class(
           data = data,
           model = driver,
           control = control_args,
-          k = pv$k,
-          nrep = nrep,
-          verbose = FALSE
+          verbose = FALSE,
+          .args = pv
         )
       } else {
         invoke(
@@ -122,7 +119,7 @@ LearnerClustFlexmix = R6Class(
           data = data,
           model = driver,
           control = control_args,
-          .args = pv
+          .args = remove_named(pv, "nrep")
         )
       }
       if (self$save_assignments) {
