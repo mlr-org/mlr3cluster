@@ -19,6 +19,18 @@ RWeka::WPM("install-package", "XMeans")
 }\if{html}{\out{</div>}}
 }
 
+\section{Initial parameter values}{
+
+\itemize{
+\item \code{C}:
+\itemize{
+\item Actual default: \code{0.5} if no option is set, \code{0} otherwise.
+\item Adjusted default: \code{0.5}.
+\item Reason for change: Always pass \code{C} so the cutoff factor does not depend on other parameters.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link[mlr3:Learner]{mlr3::Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link[mlr3:mlr_learners]{mlr3::mlr_learners} or with the associated sugar function \code{\link[mlr3:lrn]{mlr3::lrn()}}:
@@ -42,7 +54,7 @@ lrn("clust.xmeans")
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    B \tab numeric \tab 1 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   C \tab numeric \tab 0.5 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   C \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    D \tab untyped \tab "weka.core.EuclideanDistance" \tab  \tab - \cr
    H \tab integer \tab 4 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    I \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr

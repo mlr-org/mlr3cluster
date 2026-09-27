@@ -8,6 +8,12 @@ test_that("autotest", {
   expect_true(result, info = result$error)
 })
 
+test_that("C is not reset when other parameters are set", {
+  learner = lrn("clust.xmeans", S = 11L)
+  learner$train(tsk("usarrests"))
+  expect_identical(rJava::.jcall(learner$model$clusterer, "D", "getCutOffFactor"), 0.5)
+})
+
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
   learner = lrn("clust.xmeans")

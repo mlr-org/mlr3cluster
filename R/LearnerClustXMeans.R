@@ -16,6 +16,12 @@
 #' RWeka::WPM("install-package", "XMeans")
 #' ```
 #'
+#' @section Initial parameter values:
+#' - `C`:
+#'   - Actual default: `0.5` if no option is set, `0` otherwise.
+#'   - Adjusted default: `0.5`.
+#'   - Reason for change: Always pass `C` so the cutoff factor does not depend on other parameters.
+#'
 #' @templateVar id clust.xmeans
 #' @template learner
 #'
@@ -34,7 +40,7 @@ LearnerClustXMeans = R6Class(
     initialize = function() {
       param_set = ps(
         B = p_dbl(0, default = 1, tags = "train"),
-        C = p_dbl(0, default = 0.5, tags = "train"),
+        C = p_dbl(0, init = 0.5, tags = "train"),
         D = p_uty(default = "weka.core.EuclideanDistance", tags = "train"),
         H = p_int(1L, default = 4L, tags = "train"),
         I = p_int(1L, default = 1L, tags = "train"),
