@@ -42,6 +42,10 @@ test_that("predict uses the trained convergence threshold", {
   learner = lrn("clust.meanshift", h = 0.2, thr = 0.2)
   learner$train(task)
   expect_identical(learner$predict(task)$partition, learner$assignments)
+
+  learner$param_set$values$thr = NULL
+  learner$param_set$values$iter = 1L
+  expect_identical(learner$predict(task)$partition, learner$assignments)
 })
 
 test_that("predict assigns new data to fitted modes", {

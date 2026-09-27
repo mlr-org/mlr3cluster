@@ -63,6 +63,8 @@ LearnerClustMeanShift = R6Class(
       }
 
       m = invoke(LPCM::ms, X = task$data(), .args = pv)
+      # predict mirrors the convergence criterion, which LPCM::ms() does not store
+      m = insert_named(m, list(thr = pv$thr, iter = pv$iter))
       if (self$save_assignments) {
         self$assignments = as.integer(m$cluster.label)
       }
@@ -75,13 +77,12 @@ LearnerClustMeanShift = R6Class(
       x = sweep(x, 2L, m$scaled.by, "/")
 
       # mirror the convergence criterion LPCM::ms() applies during training
-      pv = self$param_set$get_values(tags = "train")
       args = list(X = as.matrix(m$data), h = m$h)
-      if (!is.null(pv$thr)) {
-        args$thresh = pv$thr^2
+      if (!is.null(m$thr)) {
+        args$thresh = m$thr^2
       }
-      if (!is.null(pv$iter)) {
-        args$iter = pv$iter
+      if (!is.null(m$iter)) {
+        args$iter = m$iter
       }
       partition = map_int(seq_row(x), function(i) {
         final = invoke(LPCM::ms.rep, x = x[i, ], .args = args)$final
