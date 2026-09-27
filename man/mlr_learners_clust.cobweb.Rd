@@ -24,7 +24,7 @@ lrn("clust.cobweb")
 \itemize{
 \item Task type: \dQuote{clust}
 \item Predict Types: \dQuote{partition}
-\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}
+\item Feature Types: \dQuote{logical}, \dQuote{integer}, \dQuote{numeric}, \dQuote{factor}, \dQuote{ordered}
 \item Required Packages: \CRANpkg{mlr3}, \CRANpkg{mlr3cluster}, \CRANpkg{RWeka}
 }
 }

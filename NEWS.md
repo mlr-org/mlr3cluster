@@ -4,6 +4,10 @@
 
 * `as_task_clust()` now converts a `TaskClassif` or `TaskRegr` to a `TaskClust` by dropping the target from the features. This turns every task generator in mlr3, e.g. `tgen("moons")` or `tgen("spirals")`, into a cluster task generator.
 
+## Other improvements
+
+* `clust.cobweb`, `clust.em`, and `clust.ff` now support factor and ordered features, which Weka handles as nominal attributes.
+
 ## Bug fixes
 
 * The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated `tgen("moons")` in mlr3. To create a clustering task from a classification task generator, use `as_task_clust(tgen("moons")$generate(n))` (#128).

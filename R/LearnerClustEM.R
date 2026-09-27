@@ -45,7 +45,7 @@ LearnerClustEM = R6Class(
 
       super$initialize(
         id = "clust.em",
-        feature_types = c("logical", "integer", "numeric"),
+        feature_types = c("logical", "integer", "numeric", "factor", "ordered"),
         predict_types = c("partition", "prob"),
         param_set = param_set,
         properties = c("partitional", "fuzzy", "complete", "missings", "marshal"),

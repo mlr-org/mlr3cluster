@@ -36,7 +36,7 @@ LearnerClustCobweb = R6Class(
 
       super$initialize(
         id = "clust.cobweb",
-        feature_types = c("logical", "integer", "numeric"),
+        feature_types = c("logical", "integer", "numeric", "factor", "ordered"),
         predict_types = "partition",
         param_set = param_set,
         properties = c("hierarchical", "exclusive", "complete", "missings", "marshal"),
