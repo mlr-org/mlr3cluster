@@ -72,8 +72,9 @@ LearnerClustCLARA = R6Class(
     },
 
     .predict = function(task) {
-      pv = self$param_set$values
-      if (!is.null(pv$metric) && pv$metric == "jaccard") {
+      # check the values used for training, clue also reads them from the call
+      pv = as.list(self$model$call)
+      if (identical(pv$metric, "jaccard")) {
         error_config(
           "Predicting is not supported for `metric = \"jaccard\"` since `clue::cl_predict()` cannot handle it."
         )

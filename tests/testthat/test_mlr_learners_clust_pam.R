@@ -14,6 +14,19 @@ test_that("predicting errors informatively for unsupported training options", {
   expect_snapshot(error = TRUE, learner$predict(task))
 })
 
+test_that("predict checks the training values, not the current ones", {
+  task = tsk("usarrests")
+  learner = lrn("clust.pam", stand = TRUE)
+  learner$train(task)
+  learner$param_set$values$stand = NULL
+  expect_error(learner$predict(task), "stand = TRUE")
+
+  learner = lrn("clust.pam")
+  learner$train(task)
+  learner$param_set$values$stand = TRUE
+  expect_prediction_clust(learner$predict(task), learner)
+})
+
 test_that("Learner properties are respected", {
   task = tsk("usarrests")
   learner = lrn("clust.pam")

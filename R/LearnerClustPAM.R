@@ -96,7 +96,8 @@ LearnerClustPAM = R6Class(
     },
 
     .predict = function(task) {
-      if (isTRUE(self$param_set$values$stand)) {
+      # check the values used for training, clue also reads them from the call
+      if (isTRUE(self$model$call$stand)) {
         error_config(
           "Predicting is not supported for `stand = TRUE` since `clue::cl_predict()` ignores the standardization."
         )
