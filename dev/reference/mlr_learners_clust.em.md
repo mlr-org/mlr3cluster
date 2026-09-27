@@ -26,7 +26,7 @@ or with the associated sugar function
 
 - Predict Types: “partition”, “prob”
 
-- Feature Types: “logical”, “integer”, “numeric”
+- Feature Types: “logical”, “integer”, “numeric”, “factor”, “ordered”
 
 - Required Packages: [mlr3](https://CRAN.R-project.org/package=mlr3),
   [mlr3cluster](https://CRAN.R-project.org/package=mlr3cluster),
@@ -252,7 +252,7 @@ print(learner)
 #> • Parameters: list()
 #> • Packages: mlr3, mlr3cluster, and RWeka
 #> • Predict Types: [partition] and prob
-#> • Feature Types: logical, integer, and numeric
+#> • Feature Types: logical, integer, numeric, factor, and ordered
 #> • Encapsulation: none (fallback: -)
 #> • Properties: complete, fuzzy, marshal, missings, and partitional
 #> • Other settings: use_weights = 'error', predict_raw = 'FALSE'

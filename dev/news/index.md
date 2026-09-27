@@ -10,6 +10,11 @@
   in mlr3, e.g. `tgen("moons")` or `tgen("spirals")`, into a cluster
   task generator.
 
+### Other improvements
+
+- `clust.cobweb`, `clust.em`, and `clust.ff` now support factor and
+  ordered features, which Weka handles as nominal attributes.
+
 ### Bug fixes
 
 - The clustering moons task generator introduced in 0.6.0 has been
