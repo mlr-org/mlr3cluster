@@ -17,7 +17,9 @@ test_that("Learner properties are respected", {
   parset_list = list(
     list(k = 2L),
     list(k = 3L, alpha = 0.1),
-    list(k = 3L, restr = "deter", opt = "MIXT")
+    list(k = 3L, restr = "deter", opt = "MIXT"),
+    list(k = 3L, restr = "GPCM", pars = "EEE"),
+    list(k = 3L, restr = "GPCM", pars = list(pars = "VVI", cdet = 50))
   )
 
   for (parset in parset_list) {

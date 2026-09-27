@@ -48,9 +48,14 @@ LearnerClustTclust = R6Class(
         niter2 = p_int(1L, default = 20L, tags = "train"),
         nkeep = p_int(1L, default = 5L, tags = "train"),
         equal.weights = p_lgl(default = FALSE, tags = "train"),
-        restr = p_fct(c("eigen", "deter"), default = "eigen", tags = "train"),
+        restr = p_fct(c("eigen", "deter", "GPCM"), default = "eigen", tags = "train"),
         restr.fact = p_dbl(1, default = 12, tags = "train"),
         cshape = p_dbl(1, default = 1e10, tags = "train"),
+        pars = p_uty(
+          tags = "train",
+          depends = quote(restr == "GPCM"),
+          custom_check = crate(function(x) check_multi_class(x, c("character", "list")))
+        ),
         opt = p_fct(c("HARD", "MIXT"), default = "HARD", tags = "train"),
         center = p_lgl(default = FALSE, tags = "train"),
         scale = p_lgl(default = FALSE, tags = "train"),

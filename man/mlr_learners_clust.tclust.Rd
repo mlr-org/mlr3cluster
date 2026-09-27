@@ -62,9 +62,10 @@ lrn("clust.tclust")
    niter2 \tab integer \tab 20 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    nkeep \tab integer \tab 5 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    equal.weights \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   restr \tab character \tab eigen \tab eigen, deter \tab - \cr
+   restr \tab character \tab eigen \tab eigen, deter, GPCM \tab - \cr
    restr.fact \tab numeric \tab 12 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    cshape \tab numeric \tab 1e+10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   pars \tab untyped \tab - \tab  \tab - \cr
    opt \tab character \tab HARD \tab HARD, MIXT \tab - \cr
    center \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    scale \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr

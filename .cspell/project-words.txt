@@ -1,4 +1,5 @@
 clust
+GPCM
 kmodes
 seealso
 tgen

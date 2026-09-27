@@ -7,6 +7,7 @@
 ## Other improvements
 
 * `clust.cobweb`, `clust.em`, and `clust.ff` now support factor and ordered features, which Weka handles as nominal attributes.
+* `clust.tclust` now supports the Gaussian parsimonious clustering models via `restr = "GPCM"` and the new `pars` parameter.
 
 ## Bug fixes
 
