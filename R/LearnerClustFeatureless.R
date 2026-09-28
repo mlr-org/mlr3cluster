@@ -20,7 +20,7 @@ LearnerClustFeatureless = R6Class(
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
-      param_set = ps(num_clusters = p_int(1L, init = 1L, tags = c("train", "predict", "required")))
+      param_set = ps(num_clusters = p_int(1L, init = 1L, tags = c("train", "required")))
 
       super$initialize(
         id = "clust.featureless",
@@ -50,13 +50,12 @@ LearnerClustFeatureless = R6Class(
         self$assignments = partition
       }
 
-      set_class(list(clustering = partition, features = task$feature_names), "clust.featureless_model")
+      set_class(list(k = k, features = task$feature_names), "clust.featureless_model")
     },
 
     .predict = function(task) {
-      pv = self$param_set$get_values(tags = "predict")
       n = task$nrow
-      k = pv$num_clusters
+      k = self$model$k
 
       partition = chunk(n, n_chunks = k)
       prob = NULL
