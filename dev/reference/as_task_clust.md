@@ -9,25 +9,22 @@ This is a S3 generic, specialized for at least the following objects:
 1.  [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md):
     returns the object as-is, possibly cloned.
 
-2.  [mlr3::TaskSupervised](https://mlr3.mlr-org.com/reference/TaskSupervised.html)
+2.  [`formula`](https://rdrr.io/r/stats/formula.html),
+    [`data.frame()`](https://rdrr.io/r/base/data.frame.html),
+    [`matrix()`](https://rdrr.io/r/base/matrix.html), and
+    [mlr3::DataBackend](https://mlr3.mlr-org.com/reference/DataBackend.html):
+    provides an alternative to the constructor of
+    [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md).
+
+3.  [mlr3::TaskSupervised](https://mlr3.mlr-org.com/reference/TaskSupervised.html)
     (e.g.,
     [mlr3::TaskClassif](https://mlr3.mlr-org.com/reference/TaskClassif.html)
     or
     [mlr3::TaskRegr](https://mlr3.mlr-org.com/reference/TaskRegr.html)):
     converts the task to a
     [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md)
-    by removing the target column from the features. The target column
-    is not removed from the
-    [mlr3::DataBackend](https://mlr3.mlr-org.com/reference/DataBackend.html),
-    only its role is dropped. The row roles and the remaining column
-    roles are preserved.
-
-3.  [`formula`](https://rdrr.io/r/stats/formula.html),
-    [`data.frame()`](https://rdrr.io/r/base/data.frame.html),
-    [`matrix()`](https://rdrr.io/r/base/matrix.html), and
-    [mlr3::DataBackend](https://mlr3.mlr-org.com/reference/DataBackend.html):
-    provides an alternative to the constructor of
-    [TaskClust](https://mlr3cluster.mlr-org.com/dev/reference/TaskClust.md).
+    by dropping the target, analogous to
+    [`mlr3::convert_task()`](https://mlr3.mlr-org.com/reference/convert_task.html).
 
 ## Usage
 
