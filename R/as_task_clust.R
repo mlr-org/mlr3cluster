@@ -5,12 +5,10 @@
 #' This is a S3 generic, specialized for at least the following objects:
 #'
 #' 1. [TaskClust]: returns the object as-is, possibly cloned.
-#' 2. [mlr3::TaskSupervised] (e.g., [mlr3::TaskClassif] or [mlr3::TaskRegr]): converts the task to a [TaskClust]
-#'    by removing the target column from the features.
-#'    The target column is not removed from the [mlr3::DataBackend], only its role is dropped.
-#'    The row roles and the remaining column roles are preserved.
-#' 3. [`formula`], [data.frame()], [matrix()], and [mlr3::DataBackend]: provides an alternative to the
+#' 2. [`formula`], [data.frame()], [matrix()], and [mlr3::DataBackend]: provides an alternative to the
 #'    constructor of [TaskClust].
+#' 3. [mlr3::TaskSupervised] (e.g., [mlr3::TaskClassif] or [mlr3::TaskRegr]): converts the task to a [TaskClust]
+#'    by dropping the target, analogous to [mlr3::convert_task()].
 #'
 #' @inheritParams mlr3::as_task
 #'
@@ -42,7 +40,7 @@ as_task_clust.TaskClust = function(x, clone = FALSE, ...) {
 #' @export
 as_task_clust.TaskSupervised = function(x, drop_levels = TRUE, ...) {
   assert_flag(drop_levels)
-  task = TaskClust$new(id = x$id, backend = x$backend, label = x$label)
+  task = TaskClust$new(id = x$id, backend = x$backend, label = x$label, extra_args = x$extra_args)
   task$row_roles = x$row_roles
   roles = setdiff(intersect(names(x$col_roles), names(task$col_roles)), "target")
   task$col_roles[roles] = x$col_roles[roles]

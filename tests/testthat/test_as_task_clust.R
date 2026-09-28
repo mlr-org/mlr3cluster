@@ -61,6 +61,10 @@ test_that("as_task_clust.TaskSupervised drops the target and keeps the roles", {
   expect_identical(as_task_clust(task)$levels("island")$island, c("Dream", "Torgersen"))
   expect_identical(as_task_clust(task, drop_levels = FALSE)$levels("island")$island, c("Biscoe", "Dream", "Torgersen"))
 
+  task = tsk("iris")
+  task$extra_args = list(foo = 1L)
+  expect_identical(as_task_clust(task)$extra_args, list(foo = 1L))
+
   generated = as_task_clust(tgen("moons")$generate(20L))
   expect_task_clust(generated)
   expect_identical(generated$feature_names, c("x1", "x2"))

@@ -70,12 +70,10 @@ Convert object to a \link{TaskClust} or a list of \link{TaskClust}.
 This is a S3 generic, specialized for at least the following objects:
 \enumerate{
 \item \link{TaskClust}: returns the object as-is, possibly cloned.
-\item \link[mlr3:TaskSupervised]{mlr3::TaskSupervised} (e.g., \link[mlr3:TaskClassif]{mlr3::TaskClassif} or \link[mlr3:TaskRegr]{mlr3::TaskRegr}): converts the task to a \link{TaskClust}
-by removing the target column from the features.
-The target column is not removed from the \link[mlr3:DataBackend]{mlr3::DataBackend}, only its role is dropped.
-The row roles and the remaining column roles are preserved.
 \item \code{\link{formula}}, \code{\link[=data.frame]{data.frame()}}, \code{\link[=matrix]{matrix()}}, and \link[mlr3:DataBackend]{mlr3::DataBackend}: provides an alternative to the
 constructor of \link{TaskClust}.
+\item \link[mlr3:TaskSupervised]{mlr3::TaskSupervised} (e.g., \link[mlr3:TaskClassif]{mlr3::TaskClassif} or \link[mlr3:TaskRegr]{mlr3::TaskRegr}): converts the task to a \link{TaskClust}
+by dropping the target, analogous to \code{\link[mlr3:convert_task]{mlr3::convert_task()}}.
 }
 }
 \examples{
