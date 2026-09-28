@@ -48,7 +48,7 @@ LearnerClustMiniBatchKMeans = R6Class(
         verbose = p_lgl(default = FALSE, tags = "train"),
         CENTROIDS = p_uty(default = NULL, tags = "train"),
         tol = p_dbl(0, default = 1e-04, tags = "train"),
-        tol_optimal_init = p_dbl(0, default = 0.3, tags = "train"),
+        tol_optimal_init = p_dbl(0, default = 0.3, tags = "train", depends = quote(initializer == "optimal_init")),
         seed = p_int(default = 1L, tags = "train"),
         threads = p_int(1L, default = 1L, tags = c("predict", "threads"))
       )

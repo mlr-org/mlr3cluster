@@ -57,7 +57,7 @@ LearnerClustKKMeans = R6Class(
         offset = p_dbl(default = 1, tags = c("train", "kpar"), depends = quote(kernel %in% c("polydot", "tanhdot"))),
         order = p_int(default = 1L, tags = c("train", "kpar"), depends = quote(kernel == "besseldot")),
         alg = p_fct(c("kkmeans", "kerninghan"), default = "kkmeans", tags = "train"),
-        p = p_dbl(default = 1, tags = "train")
+        p = p_dbl(default = 1, tags = "train", depends = quote(alg == "kerninghan"))
       )
 
 

@@ -17,6 +17,7 @@
 * `clust.clara`, `clust.dbscan_fpc`, `clust.meanshift`, and `clust.pam` now check the training hyperparameters, not the current ones, when predicting.
 * `clust.dbscan_fpc` now accepts whole-number doubles such as `c(10, 20)` for `countmode`. Previously, only integer vectors were accepted.
 * `clust.flexmix` now uses the upstream default `nrep = 3`. Set `nrep = 1` to restore the previous behavior.
+* `clust.kkmeans` now only accepts `p` with `alg = "kerninghan"`, and `clust.kmeans_rcpp` and `clust.MBatchKMeans` now only accept `tol_optimal_init` with `initializer = "optimal_init"`, since the upstream functions ignore them otherwise.
 * `clust.xmeans` now always uses `C = 0.5`. Previously, Weka reset `C` to 0 whenever any other parameter was set.
 
 # mlr3cluster 0.6.0
