@@ -9,8 +9,9 @@ Hierarchical clustering using minimax linkage with prototypes.
 Calls \code{\link[protoclust:protoclust]{protoclust::protoclust()}} from package \CRANpkg{protoclust}.
 
 The predict method cuts the tree at the current \code{k} via \code{\link[protoclust:protocut]{protoclust::protocut()}} and assigns each new observation
-to the cluster of its nearest prototype, using the same distance method as during training. The model is therefore
-a list containing the fitted \code{\link[protoclust:protoclust]{protoclust::protoclust()}} object along with the training data.
+to the cluster of its nearest prototype, using the same distance method as during training.
+The model is therefore the fitted \code{\link[protoclust:protoclust]{protoclust::protoclust()}} object,
+extended by the training data and the arguments passed to \code{\link[stats:dist]{stats::dist()}}.
 }
 \section{Custom mlr3 parameters}{
 

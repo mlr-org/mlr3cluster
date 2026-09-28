@@ -8,8 +8,9 @@
 #' Calls [protoclust::protoclust()] from package \CRANpkg{protoclust}.
 #'
 #' The predict method cuts the tree at the current `k` via [protoclust::protocut()] and assigns each new observation
-#' to the cluster of its nearest prototype, using the same distance method as during training. The model is therefore
-#' a list containing the fitted [protoclust::protoclust()] object along with the training data.
+#' to the cluster of its nearest prototype, using the same distance method as during training.
+#' The model is therefore the fitted [protoclust::protoclust()] object,
+#' extended by the training data and the arguments passed to [stats::dist()].
 #'
 #' @section Custom mlr3 parameters:
 #' - `k`:
@@ -63,7 +64,8 @@ LearnerClustProtoclust = R6Class(
     .train = function(task) {
       ps = self$param_set
       data = as.matrix(task$data())
-      d = invoke(stats::dist, x = data, .args = ps$get_values(tags = c("train", "dist")))
+      dist_args = ps$get_values(tags = c("train", "dist"))
+      d = invoke(stats::dist, x = data, .args = dist_args)
       m = invoke(protoclust::protoclust, d = d, .args = ps$get_values(tags = c("train", "protoclust")))
       if (self$save_assignments) {
         self$assignments = invoke(
@@ -72,8 +74,8 @@ LearnerClustProtoclust = R6Class(
           .args = ps$get_values(tags = c("train", "protocut"))
         )$cl
       }
-      # predict needs the training data to compute distances to the prototype observations
-      insert_named(m, list(data = data))
+      # predict needs the training data and dist() arguments to compute distances to the prototype observations
+      insert_named(m, list(data = data, dist_args = dist_args))
     },
 
     .predict = function(task) {
@@ -90,7 +92,7 @@ LearnerClustProtoclust = R6Class(
       )
       x = as.matrix(ordered_features(task, self))
       protos = m$data[pc$protos, , drop = FALSE]
-      d = invoke(stats::dist, x = rbind(protos, x), .args = self$param_set$get_values(tags = c("train", "dist")))
+      d = invoke(stats::dist, x = rbind(protos, x), .args = m$dist_args)
       d = as.matrix(d)[-seq_row(protos), seq_row(protos), drop = FALSE]
       partition = pc$cl[pc$protos][max.col(-d, ties.method = "first")]
 
