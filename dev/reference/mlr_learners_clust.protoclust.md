@@ -9,9 +9,10 @@ The predict method cuts the tree at the current `k` via
 [`protoclust::protocut()`](https://rdrr.io/pkg/protoclust/man/protocut.html)
 and assigns each new observation to the cluster of its nearest
 prototype, using the same distance method as during training. The model
-is therefore a list containing the fitted
+is therefore the fitted
 [`protoclust::protoclust()`](https://rdrr.io/pkg/protoclust/man/protoclust.html)
-object along with the training data.
+object, extended by the training data and the arguments passed to
+[`stats::dist()`](https://rdrr.io/r/stats/dist.html).
 
 ## Custom mlr3 parameters
 

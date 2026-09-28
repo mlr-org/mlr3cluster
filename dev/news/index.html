@@ -69,9 +69,19 @@
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
 <ul><li>The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated <code>tgen("moons")</code> in mlr3. To create a clustering task from a classification task generator, use <code>as_task_clust(tgen("moons")$generate(n))</code> (<a href="https://github.com/mlr-org/mlr3cluster/issues/128" class="external-link">#128</a>).</li>
 <li>
+<code>clust.ap</code> now predicts with the similarity function <code>s</code> used for training, which it stores in the model.</li>
+<li>
 <code>clust.clara</code>, <code>clust.dbscan_fpc</code>, <code>clust.meanshift</code>, and <code>clust.pam</code> now check the training hyperparameters, not the current ones, when predicting.</li>
 <li>
+<code>clust.dbscan_fpc</code> now accepts whole-number doubles such as <code>c(10, 20)</code> for <code>countmode</code>. Previously, only integer vectors were accepted.</li>
+<li>
+<code>clust.featureless</code> now predicts with the <code>num_clusters</code> used for training, which it stores as <code>k</code> in its model instead of the unused training partition.</li>
+<li>
 <code>clust.flexmix</code> now uses the upstream default <code>nrep = 3</code>. Set <code>nrep = 1</code> to restore the previous behavior.</li>
+<li>
+<code>clust.kkmeans</code> now only accepts <code>p</code> with <code>alg = "kerninghan"</code>, and <code>clust.kmeans_rcpp</code> and <code>clust.MBatchKMeans</code> now only accept <code>tol_optimal_init</code> with <code>initializer = "optimal_init"</code>, since the upstream functions ignore them otherwise.</li>
+<li>
+<code>clust.protoclust</code> now predicts with the distance parameters <code>method</code>, <code>diag</code>, <code>upper</code>, and <code>p</code> used for training, which it stores in the model.</li>
 <li>
 <code>clust.xmeans</code> now always uses <code>C = 0.5</code>. Previously, Weka reset <code>C</code> to 0 whenever any other parameter was set.</li>
 </ul></div>

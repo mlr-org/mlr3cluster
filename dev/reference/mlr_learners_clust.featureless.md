@@ -191,9 +191,8 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
-#> $clustering
-#>  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#> [39] 1 1 1 1 1 1 1 1 1 1 1 1
+#> $k
+#> [1] 1
 #> 
 #> $features
 #> [1] "Assault"  "Murder"   "Rape"     "UrbanPop"

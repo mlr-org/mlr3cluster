@@ -29,11 +29,26 @@
   clustering task from a classification task generator, use
   `as_task_clust(tgen("moons")$generate(n))`
   ([\#128](https://github.com/mlr-org/mlr3cluster/issues/128)).
+- `clust.ap` now predicts with the similarity function `s` used for
+  training, which it stores in the model.
 - `clust.clara`, `clust.dbscan_fpc`, `clust.meanshift`, and `clust.pam`
   now check the training hyperparameters, not the current ones, when
   predicting.
+- `clust.dbscan_fpc` now accepts whole-number doubles such as
+  `c(10, 20)` for `countmode`. Previously, only integer vectors were
+  accepted.
+- `clust.featureless` now predicts with the `num_clusters` used for
+  training, which it stores as `k` in its model instead of the unused
+  training partition.
 - `clust.flexmix` now uses the upstream default `nrep = 3`. Set
   `nrep = 1` to restore the previous behavior.
+- `clust.kkmeans` now only accepts `p` with `alg = "kerninghan"`, and
+  `clust.kmeans_rcpp` and `clust.MBatchKMeans` now only accept
+  `tol_optimal_init` with `initializer = "optimal_init"`, since the
+  upstream functions ignore them otherwise.
+- `clust.protoclust` now predicts with the distance parameters `method`,
+  `diag`, `upper`, and `p` used for training, which it stores in the
+  model.
 - `clust.xmeans` now always uses `C = 0.5`. Previously, Weka reset `C`
   to 0 whenever any other parameter was set.
 
