@@ -31,7 +31,7 @@ test_that("predict on training data matches assignments", {
   task = tsk("usarrests")
   learner = lrn("clust.protoclust", k = 3L)
   learner$train(task)
-  expect_class(learner$native_model, "protoclust")
+  expect_class(learner$model, "protoclust")
   p = learner$predict(task)
   expect_identical(p$partition, learner$assignments)
 })

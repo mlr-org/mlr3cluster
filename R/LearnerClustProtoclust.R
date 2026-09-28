@@ -59,15 +59,6 @@ LearnerClustProtoclust = R6Class(
     }
   ),
 
-  active = list(
-    #' @field native_model (any)\cr
-    #' The fitted model.
-    native_model = function(rhs) {
-      assert_ro_binding(rhs)
-      self$model$model
-    }
-  ),
-
   private = list(
     .train = function(task) {
       ps = self$param_set
@@ -82,7 +73,7 @@ LearnerClustProtoclust = R6Class(
         )$cl
       }
       # predict needs the training data to compute distances to the prototype observations
-      list(model = m, data = data)
+      insert_named(m, list(data = data))
     },
 
     .predict = function(task) {
@@ -94,7 +85,7 @@ LearnerClustProtoclust = R6Class(
 
       pc = invoke(
         protoclust::protocut,
-        hc = m$model,
+        hc = m,
         .args = self$param_set$get_values(tags = c("train", "protocut"))
       )
       x = as.matrix(ordered_features(task, self))
