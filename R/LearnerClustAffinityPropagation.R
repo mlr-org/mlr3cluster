@@ -76,15 +76,7 @@ LearnerClustAP = R6Class(
       # add data points corresponding to exemplars
       exemplars = m@exemplars
       setattr(m, "exemplar_data", data[exemplars, , drop = FALSE])
-
-      if (self$save_assignments) {
-        self$assignments = apcluster::labels(m, type = "enum")
-      }
-      m
-    },
-
-    .predict = function(task) {
-      pv = self$param_set$get_values(tags = "train")
+      # predict needs the similarity function used for training
       sim_fun = pv$s
       if (is.character(sim_fun)) {
         ns = asNamespace("apcluster")
@@ -94,6 +86,16 @@ LearnerClustAP = R6Class(
           match.fun(sim_fun)
         }
       }
+      setattr(m, "similarity", sim_fun)
+
+      if (self$save_assignments) {
+        self$assignments = apcluster::labels(m, type = "enum")
+      }
+      m
+    },
+
+    .predict = function(task) {
+      sim_fun = attr(self$model, "similarity")
       exemplar_data = attr(self$model, "exemplar_data")
 
       data = as_numeric_matrix(ordered_features(task, self))
