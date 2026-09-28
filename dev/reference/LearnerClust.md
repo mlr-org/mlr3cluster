@@ -64,6 +64,8 @@ Predefined learners can be found in the
   (`NULL` \| [`vector()`](https://rdrr.io/r/base/vector.html))  
   Cluster assignments from learned model.
 
+## Active bindings
+
 - `save_assignments`:
 
   (`logical(1)`)  

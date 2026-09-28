@@ -59,11 +59,17 @@
 <ul><li>
 <code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, and <code>clust.SimpleKMeans</code> now support factor and ordered features, which Weka handles as nominal attributes.</li>
 <li>
+<code>clust.protoclust</code> now stores the fitted <code>protoclust</code> object directly as <code>$model</code> instead of wrapping it in a list.</li>
+<li>
 <code>clust.tclust</code> now supports the Gaussian parsimonious clustering models via <code>restr = "GPCM"</code> and the new <code>pars</code> parameter.</li>
+<li>
+<code>LearnerClust$save_assignments</code> now checks that it is set to a single <code>TRUE</code> or <code>FALSE</code>.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
 <ul><li>The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated <code>tgen("moons")</code> in mlr3. To create a clustering task from a classification task generator, use <code>as_task_clust(tgen("moons")$generate(n))</code> (<a href="https://github.com/mlr-org/mlr3cluster/issues/128" class="external-link">#128</a>).</li>
+<li>
+<code>clust.clara</code>, <code>clust.dbscan_fpc</code>, <code>clust.meanshift</code>, and <code>clust.pam</code> now check the training hyperparameters, not the current ones, when predicting.</li>
 <li>
 <code>clust.flexmix</code> now uses the upstream default <code>nrep = 3</code>. Set <code>nrep = 1</code> to restore the previous behavior.</li>
 <li>
