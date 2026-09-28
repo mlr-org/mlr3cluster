@@ -15,6 +15,7 @@
 
 * The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated `tgen("moons")` in mlr3. To create a clustering task from a classification task generator, use `as_task_clust(tgen("moons")$generate(n))` (#128).
 * `clust.clara`, `clust.dbscan_fpc`, `clust.meanshift`, and `clust.pam` now check the training hyperparameters, not the current ones, when predicting.
+* `clust.dbscan_fpc` now accepts whole-number doubles such as `c(10, 20)` for `countmode`. Previously, only integer vectors were accepted.
 * `clust.flexmix` now uses the upstream default `nrep = 3`. Set `nrep = 1` to restore the previous behavior.
 * `clust.xmeans` now always uses `C = 0.5`. Previously, Weka reset `C` to 0 whenever any other parameter was set.
 
