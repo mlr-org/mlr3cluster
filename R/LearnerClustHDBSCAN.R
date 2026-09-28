@@ -34,7 +34,6 @@ LearnerClustHDBSCAN = R6Class(
         verbose = p_lgl(default = FALSE, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.hdbscan",
         feature_types = c("logical", "integer", "numeric"),

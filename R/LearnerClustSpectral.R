@@ -60,7 +60,6 @@ LearnerClustSpectral = R6Class(
         mod.sample = p_dbl(0, 1, default = 0.75, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.specc",
         feature_types = c("logical", "integer", "numeric"),

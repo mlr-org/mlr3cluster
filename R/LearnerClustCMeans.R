@@ -48,7 +48,6 @@ LearnerClustCMeans = R6Class(
         control = p_uty(tags = "train")
       )
 
-
       super$initialize(
         id = "clust.cmeans",
         feature_types = c("logical", "integer", "numeric"),

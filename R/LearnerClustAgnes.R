@@ -65,7 +65,6 @@ LearnerClustAgnes = R6Class(
         )
       )
 
-
       super$initialize(
         id = "clust.agnes",
         feature_types = c("logical", "integer", "numeric"),

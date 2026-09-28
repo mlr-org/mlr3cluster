@@ -47,7 +47,6 @@ LearnerClustCLARA = R6Class(
         correct.d = p_lgl(default = TRUE, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.clara",
         feature_types = c("logical", "integer", "numeric"),

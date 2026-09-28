@@ -55,7 +55,6 @@ LearnerClustDiana = R6Class(
         k = p_int(1L, init = 2L, tags = c("train", "cutree", "predict", "required"))
       )
 
-
       super$initialize(
         id = "clust.diana",
         feature_types = c("logical", "integer", "numeric"),

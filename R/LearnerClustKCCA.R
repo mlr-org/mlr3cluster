@@ -52,7 +52,6 @@ LearnerClustKCCA = R6Class(
         )
       )
 
-
       super$initialize(
         id = "clust.kcca",
         feature_types = c("logical", "integer", "numeric"),

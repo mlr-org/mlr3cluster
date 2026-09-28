@@ -58,7 +58,6 @@ LearnerClustMclust = R6Class(
         verbose = p_lgl(init = FALSE, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.mclust",
         feature_types = c("logical", "integer", "numeric"),

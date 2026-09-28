@@ -46,7 +46,6 @@ LearnerClustProtoclust = R6Class(
         k = p_int(1L, init = 2L, tags = c("train", "protocut", "predict", "required"))
       )
 
-
       super$initialize(
         id = "clust.protoclust",
         feature_types = c("logical", "integer", "numeric"),

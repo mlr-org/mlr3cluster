@@ -54,7 +54,6 @@ LearnerClustFanny = R6Class(
         trace.lev = p_int(0L, default = 0L, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.fanny",
         feature_types = c("logical", "integer", "numeric"),

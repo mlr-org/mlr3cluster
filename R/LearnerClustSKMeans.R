@@ -44,7 +44,6 @@ LearnerClustSKMeans = R6Class(
         verbose = p_lgl(tags = c("train", "control"))
       )
 
-
       super$initialize(
         id = "clust.skmeans",
         feature_types = c("logical", "integer", "numeric"),

@@ -60,7 +60,6 @@ LearnerClustKKMeans = R6Class(
         p = p_dbl(default = 1, tags = "train", depends = quote(alg == "kerninghan"))
       )
 
-
       super$initialize(
         id = "clust.kkmeans",
         feature_types = c("logical", "integer", "numeric"),

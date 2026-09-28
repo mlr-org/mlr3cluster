@@ -53,7 +53,6 @@ LearnerClustMiniBatchKMeans = R6Class(
         threads = p_int(1L, default = 1L, tags = c("predict", "threads"))
       )
 
-
       super$initialize(
         id = "clust.MBatchKMeans",
         feature_types = c("logical", "integer", "numeric"),

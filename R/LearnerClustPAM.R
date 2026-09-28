@@ -62,7 +62,6 @@ LearnerClustPAM = R6Class(
         trace.lev = p_int(0L, default = 0L, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.pam",
         feature_types = c("logical", "integer", "numeric"),

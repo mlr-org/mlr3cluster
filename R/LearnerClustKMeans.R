@@ -38,7 +38,6 @@ LearnerClustKMeans = R6Class(
         trace = p_lgl(default = FALSE, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.kmeans",
         feature_types = c("logical", "integer", "numeric"),

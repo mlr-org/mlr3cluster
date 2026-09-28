@@ -54,7 +54,6 @@ LearnerClustAP = R6Class(
         seed = p_int(default = NA_integer_, special_vals = list(NA_integer_), tags = "train")
       )
 
-
       super$initialize(
         id = "clust.ap",
         feature_types = c("logical", "integer", "numeric"),

@@ -48,7 +48,6 @@ LearnerClustMovMF = R6Class(
         verbose = p_lgl(default = FALSE, tags = c("train", "control"))
       )
 
-
       super$initialize(
         id = "clust.movMF",
         feature_types = c("logical", "integer", "numeric"),

@@ -78,7 +78,6 @@ LearnerClustKProto = R6Class(
         p_nstart.m = p_dbl(0, 1, default = 0.9, tags = "train", depends = quote(init == "nstart.m"))
       )
 
-
       super$initialize(
         id = "clust.kproto",
         feature_types = c("logical", "integer", "numeric", "factor", "ordered"),

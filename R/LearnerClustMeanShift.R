@@ -41,7 +41,6 @@ LearnerClustMeanShift = R6Class(
         plot = p_lgl(default = TRUE, init = FALSE, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.meanshift",
         feature_types = c("logical", "integer", "numeric"),

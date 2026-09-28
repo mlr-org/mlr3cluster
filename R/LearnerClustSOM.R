@@ -59,7 +59,6 @@ LearnerClustSOM = R6Class(
         normalizeDataLayers = p_lgl(default = TRUE, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.som",
         feature_types = c("logical", "integer", "numeric"),

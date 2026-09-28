@@ -61,7 +61,6 @@ LearnerClustFlexmix = R6Class(
         nrep = p_int(1L, default = 3L, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.flexmix",
         feature_types = c("logical", "integer", "numeric"),

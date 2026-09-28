@@ -67,7 +67,6 @@ LearnerClustTclust = R6Class(
         trace = p_int(0L, default = 0L, tags = "train")
       )
 
-
       super$initialize(
         id = "clust.tclust",
         feature_types = c("logical", "integer", "numeric"),
