@@ -29,6 +29,20 @@ test_that("reset()", {
   expect_null(learner$state)
 })
 
+test_that("save_assignments is validated", {
+  learner = lrn("clust.featureless", num_clusters = 2L)
+  expect_true(learner$save_assignments)
+  learner$save_assignments = FALSE
+  learner$train(tsk("usarrests"))
+  expect_null(learner$assignments)
+  expect_error({
+    learner$save_assignments = "yes"
+  }, "flag")
+  expect_error({
+    learner$save_assignments = NA
+  }, "NA")
+})
+
 test_that("empty predict set (#421)", {
   task = tsk("usarrests")
   learner = lrn("clust.featureless", num_clusters = 1L)

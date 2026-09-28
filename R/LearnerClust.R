@@ -52,11 +52,6 @@ LearnerClust = R6Class(
     #' Cluster assignments from learned model.
     assignments = NULL,
 
-    #' @field save_assignments (`logical(1)`)\cr
-    #' Should assignments for 'train' data be saved in the learner?
-    #' Default is `TRUE`.
-    save_assignments = TRUE,
-
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function(
@@ -88,5 +83,21 @@ LearnerClust = R6Class(
       self$assignments = NULL
       super$reset()
     }
+  ),
+
+  active = list(
+    #' @field save_assignments (`logical(1)`)\cr
+    #' Should assignments for 'train' data be saved in the learner?
+    #' Default is `TRUE`.
+    save_assignments = function(rhs) {
+      if (missing(rhs)) {
+        return(private$.save_assignments)
+      }
+      private$.save_assignments = assert_flag(rhs)
+    }
+  ),
+
+  private = list(
+    .save_assignments = TRUE
   )
 )

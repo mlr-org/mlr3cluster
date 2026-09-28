@@ -51,7 +51,12 @@ print(learner)
   \describe{
     \item{\code{assignments}}{(\code{NULL} | \code{vector()})\cr
 Cluster assignments from learned model.}
-
+  }
+  \if{html}{\out{</div>}}
+}
+\section{Active bindings}{
+  \if{html}{\out{<div class="r6-active-bindings">}}
+  \describe{
     \item{\code{save_assignments}}{(\code{logical(1)})\cr
 Should assignments for 'train' data be saved in the learner?
 Default is \code{TRUE}.}

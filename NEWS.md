@@ -9,6 +9,7 @@
 * `clust.cobweb`, `clust.em`, `clust.ff`, and `clust.SimpleKMeans` now support factor and ordered features, which Weka handles as nominal attributes.
 * `clust.protoclust` now stores the fitted `protoclust` object directly as `$model` instead of wrapping it in a list.
 * `clust.tclust` now supports the Gaussian parsimonious clustering models via `restr = "GPCM"` and the new `pars` parameter.
+* `LearnerClust$save_assignments` now checks that it is set to a single `TRUE` or `FALSE`.
 
 ## Bug fixes
 
