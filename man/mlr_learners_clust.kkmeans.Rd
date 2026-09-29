@@ -73,7 +73,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 
 # Make predictions for the task
 prediction = learner$predict(task)
