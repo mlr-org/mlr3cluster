@@ -24,6 +24,7 @@ test_that("Learner properties are respected", {
     learner$param_set$values = parset
 
     p = suppressWarnings(learner$train(task)$predict(task))
+    expect_class(learner$native_model, "APResult")
     expect_prediction_clust(p, learner)
   }
 })

@@ -1,5 +1,9 @@
 # mlr3cluster (development version)
 
+## Breaking changes
+
+* `clust.ap` now stores `$model` as a list. Use `$native_model` for the fitted `apcluster` object (#129).
+
 ## New features
 
 * `as_task_clust()` now converts a `TaskClassif` or `TaskRegr` to a `TaskClust` by dropping the target from the features. This turns every task generator in mlr3, e.g. `tgen("moons")` or `tgen("spirals")`, into a cluster task generator.

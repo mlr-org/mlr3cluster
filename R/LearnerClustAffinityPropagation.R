@@ -67,14 +67,20 @@ LearnerClustAP = R6Class(
     }
   ),
 
+  active = list(
+    #' @field native_model (any)\cr
+    #' The fitted model.
+    native_model = function(rhs) {
+      assert_ro_binding(rhs)
+      self$model$model
+    }
+  ),
+
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       data = as_numeric_matrix(task$data())
       m = invoke(apcluster::apcluster, x = data, .args = pv)
-      # add data points corresponding to exemplars
-      exemplars = m@exemplars
-      setattr(m, "exemplar_data", data[exemplars, , drop = FALSE])
       # predict needs the similarity function used for training
       sim_fun = pv$s
       if (is.character(sim_fun)) {
@@ -85,17 +91,16 @@ LearnerClustAP = R6Class(
           match.fun(sim_fun)
         }
       }
-      setattr(m, "similarity", sim_fun)
 
       if (self$save_assignments) {
         self$assignments = apcluster::labels(m, type = "enum")
       }
-      m
+      list(model = m, exemplar_data = data[m@exemplars, , drop = FALSE], similarity = sim_fun)
     },
 
     .predict = function(task) {
-      sim_fun = attr(self$model, "similarity")
-      exemplar_data = attr(self$model, "exemplar_data")
+      sim_fun = self$model$similarity
+      exemplar_data = self$model$exemplar_data
 
       data = as_numeric_matrix(ordered_features(task, self))
       sim_mat = sim_fun(
