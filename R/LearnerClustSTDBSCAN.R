@@ -60,6 +60,15 @@ LearnerClustSTDBSCAN = R6Class(
     }
   ),
 
+  active = list(
+    #' @field native_model (any)\cr
+    #' The fitted model.
+    native_model = function(rhs) {
+      assert_ro_binding(rhs)
+      self$model$model
+    }
+  ),
+
   private = list(
     .train = function(task) {
       if (task$n_features != 3L) {
@@ -71,17 +80,16 @@ LearnerClustSTDBSCAN = R6Class(
       pv = self$param_set$get_values(tags = "train")
       data = task$data()
       m = invoke(stdbscan::st_dbscan, data = as.matrix(data), .args = pv)
-      m$data = data
       if (self$save_assignments) {
         self$assignments = m$cluster
       }
-      m
+      list(model = m, data = data)
     },
 
     .predict = function(task) {
       partition = invoke(
         predict,
-        self$model,
+        self$model$model,
         data = as.matrix(self$model$data),
         newdata = as.matrix(ordered_features(task, self))
       )

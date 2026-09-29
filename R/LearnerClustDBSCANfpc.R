@@ -54,21 +54,29 @@ LearnerClustDBSCANfpc = R6Class(
     }
   ),
 
+  active = list(
+    #' @field native_model (any)\cr
+    #' The fitted model.
+    native_model = function(rhs) {
+      assert_ro_binding(rhs)
+      self$model$model
+    }
+  ),
+
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       data = task$data()
       m = invoke(fpc::dbscan, data = data, .args = pv, .opts = allow_partial_matching)
-      # predict needs the training data, and `scale` to reject scaled models since fpc does not store it
-      m = insert_named(m, list(data = data, scale = isTRUE(pv$scale)))
       if (self$save_assignments) {
         self$assignments = as.integer(m$cluster)
       }
-      m
+      # predict needs the training data, and `scale` to reject scaled models since fpc does not store it
+      list(model = m, data = data, scale = isTRUE(pv$scale))
     },
 
     .predict = function(task) {
-      if (is.null(self$model$isseed)) {
+      if (is.null(self$model$model$isseed)) {
         error_config("Predicting requires seed points, train with `seeds = TRUE`.")
       }
       if (isTRUE(self$model$scale)) {
@@ -78,7 +86,7 @@ LearnerClustDBSCANfpc = R6Class(
       }
       partition = as.integer(invoke(
         predict,
-        self$model,
+        self$model$model,
         data = self$model$data,
         newdata = ordered_features(task, self),
         .opts = allow_partial_matching

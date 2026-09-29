@@ -52,6 +52,7 @@ test_that("Learner properties are respected", {
     learner$param_set$values = parset
 
     p = learner$train(task)$predict(task)
+    expect_class(learner$native_model, "dbscan")
     expect_prediction_clust(p, learner)
   }
 })

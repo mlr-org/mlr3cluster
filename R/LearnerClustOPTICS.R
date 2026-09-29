@@ -51,24 +51,32 @@ LearnerClustOPTICS = R6Class(
     }
   ),
 
+  active = list(
+    #' @field native_model (any)\cr
+    #' The fitted model.
+    native_model = function(rhs) {
+      assert_ro_binding(rhs)
+      self$model$model
+    }
+  ),
+
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       data = as_numeric_matrix(task$data())
       m = invoke(dbscan::optics, x = data, .args = remove_named(pv, "eps_cl"))
-      m$data = data
       m = invoke(dbscan::extractDBSCAN, object = m, eps_cl = pv$eps_cl)
 
       if (self$save_assignments) {
         self$assignments = m$cluster
       }
-      m
+      list(model = m, data = data)
     },
 
     .predict = function(task) {
       partition = invoke(
         predict,
-        self$model,
+        self$model$model,
         newdata = as_numeric_matrix(ordered_features(task, self)),
         data = self$model$data
       )
