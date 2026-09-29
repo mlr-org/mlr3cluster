@@ -144,6 +144,13 @@ Other Learner:
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustMeanShift`
 
+## Active bindings
+
+- `native_model`:
+
+  (any)  
+  The fitted model.
+
 ## Methods
 
 ### Public methods
@@ -218,13 +225,21 @@ learner$train(task)
 
 # Print the model
 print(learner$model)
+#> $model
 #> 
-#> Type plot( $ learner model ) to see a graphical display of the fitted object. 
+#> Type plot( x ) to see a graphical display of the fitted object. 
 #> 
-#> Type names( $ learner model ) to see an overview of items available. 
+#> Type names( x ) to see an overview of items available. 
 #> 
 #> The data have been scaled by dividing through 
 #> 292 16.6 38.7 59
+#> 
+#> $thr
+#> NULL
+#> 
+#> $iter
+#> NULL
+#> 
 
 # Make predictions for the task
 prediction = learner$predict(task)

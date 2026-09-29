@@ -7,6 +7,9 @@
 - `clust.ap` now stores `$model` as a list. Use `$native_model` for the
   fitted `apcluster` object
   ([\#129](https://github.com/mlr-org/mlr3cluster/issues/129)).
+- `clust.meanshift` now stores `$model` as a list. Use `$native_model`
+  for the fitted `ms` object
+  ([\#129](https://github.com/mlr-org/mlr3cluster/issues/129)).
 
 ### New features
 
