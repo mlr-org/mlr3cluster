@@ -9,8 +9,8 @@
 #'
 #' The predict method cuts the tree at the current `k` via [protoclust::protocut()] and assigns each new observation
 #' to the cluster of its nearest prototype, using the same distance method as during training.
-#' The model is therefore the fitted [protoclust::protoclust()] object,
-#' extended by the training data and the arguments passed to [stats::dist()].
+#' The model is therefore a list containing the fitted [protoclust::protoclust()] object,
+#' along with the training data and the arguments passed to [stats::dist()].
 #'
 #' @section Custom mlr3 parameters:
 #' - `k`:
@@ -59,6 +59,15 @@ LearnerClustProtoclust = R6Class(
     }
   ),
 
+  active = list(
+    #' @field native_model (any)\cr
+    #' The fitted model.
+    native_model = function(rhs) {
+      assert_ro_binding(rhs)
+      self$model$model
+    }
+  ),
+
   private = list(
     .train = function(task) {
       ps = self$param_set
@@ -74,7 +83,7 @@ LearnerClustProtoclust = R6Class(
         )$cl
       }
       # predict needs the training data and dist() arguments to compute distances to the prototype observations
-      insert_named(m, list(data = data, dist_args = dist_args))
+      list(model = m, data = data, dist_args = dist_args)
     },
 
     .predict = function(task) {
@@ -86,7 +95,7 @@ LearnerClustProtoclust = R6Class(
 
       pc = invoke(
         protoclust::protocut,
-        hc = m,
+        hc = m$model,
         .args = self$param_set$get_values(tags = c("train", "protocut"))
       )
       x = as.matrix(ordered_features(task, self))

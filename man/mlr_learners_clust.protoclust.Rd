@@ -10,8 +10,8 @@ Calls \code{\link[protoclust:protoclust]{protoclust::protoclust()}} from package
 
 The predict method cuts the tree at the current \code{k} via \code{\link[protoclust:protocut]{protoclust::protocut()}} and assigns each new observation
 to the cluster of its nearest prototype, using the same distance method as during training.
-The model is therefore the fitted \code{\link[protoclust:protoclust]{protoclust::protoclust()}} object,
-extended by the training data and the arguments passed to \code{\link[stats:dist]{stats::dist()}}.
+The model is therefore a list containing the fitted \code{\link[protoclust:protoclust]{protoclust::protoclust()}} object,
+along with the training data and the arguments passed to \code{\link[stats:dist]{stats::dist()}}.
 }
 \section{Custom mlr3 parameters}{
 
@@ -143,6 +143,14 @@ Other Learner:
 \concept{Learner}
 \section{Super classes}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{\link[mlr3cluster:LearnerClust]{LearnerClust}} -> \code{LearnerClustProtoclust}
+}
+\section{Active bindings}{
+  \if{html}{\out{<div class="r6-active-bindings">}}
+  \describe{
+    \item{\code{native_model}}{(any)\cr
+The fitted model.}
+  }
+  \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
