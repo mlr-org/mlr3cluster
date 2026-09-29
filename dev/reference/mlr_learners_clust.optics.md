@@ -134,6 +134,13 @@ Other Learner:
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/dev/reference/LearnerClust.md)
 -\> `LearnerClustOPTICS`
 
+## Active bindings
+
+- `native_model`:
+
+  (any)  
+  The fitted model.
+
 ## Methods
 
 ### Public methods
