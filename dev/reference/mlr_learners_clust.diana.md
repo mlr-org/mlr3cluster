@@ -236,7 +236,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> Merge:
 #>       [,1] [,2]
 #>  [1,]  -15  -29

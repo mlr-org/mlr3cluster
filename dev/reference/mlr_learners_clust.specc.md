@@ -226,7 +226,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> Spectral Clustering object of class "specc" 
 #> 
 #>  Cluster memberships: 

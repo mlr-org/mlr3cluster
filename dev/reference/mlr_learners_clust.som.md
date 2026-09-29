@@ -241,7 +241,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> SOM of size 8x6 with a rectangular topology.
 #> Training data included.
 

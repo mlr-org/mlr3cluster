@@ -214,7 +214,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> Fuzzy c-means clustering with 2 clusters
 #> 
 #> Cluster centers:

@@ -227,7 +227,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> theta:
 #>     Assault   Murder     Rape  UrbanPop
 #> 1  92.85875  4.18401 14.70389  62.06858

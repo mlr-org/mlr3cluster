@@ -253,7 +253,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> * Results for TCLUST algorithm: *
 #> opt=HARD, trim = 0.05, k = 2
 #> Restriction on: eigenvalues

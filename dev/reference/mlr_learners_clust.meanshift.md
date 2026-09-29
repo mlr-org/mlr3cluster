@@ -224,22 +224,14 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
-#> $model
+print(learner$native_model)
 #> 
-#> Type plot( x ) to see a graphical display of the fitted object. 
+#> Type plot( $ learner native_model ) to see a graphical display of the fitted object. 
 #> 
-#> Type names( x ) to see an overview of items available. 
+#> Type names( $ learner native_model ) to see an overview of items available. 
 #> 
 #> The data have been scaled by dividing through 
 #> 292 16.6 38.7 59
-#> 
-#> $thr
-#> NULL
-#> 
-#> $iter
-#> NULL
-#> 
 
 # Make predictions for the task
 prediction = learner$predict(task)

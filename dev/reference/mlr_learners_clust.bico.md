@@ -215,7 +215,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> BICO - Fast computation of k-means coresets + k-Means (weighted) 
 #> Class: DSC_TwoStage, DSC_Macro, DSC 
 #> Number of micro-clusters: 7 

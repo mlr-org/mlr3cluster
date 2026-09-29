@@ -209,7 +209,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> K-means clustering with 2 clusters of sizes 29, 21
 #> 
 #> Cluster means:

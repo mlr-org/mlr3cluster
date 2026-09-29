@@ -221,7 +221,7 @@ learner$train(task)
 #> Also defined by ‘flexclust’
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> kcca object of family ‘kmeans’ 
 #> 
 #> call:

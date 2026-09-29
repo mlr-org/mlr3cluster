@@ -215,7 +215,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> $centroids
 #>        [,1]     [,2]     [,3]     [,4]
 #> [1,] 235.50 12.08333 26.23333 71.16667

@@ -258,7 +258,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> Number of merges: 14
 #> Number of splits: 10
 #> Number of clusters: 65
