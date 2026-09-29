@@ -50,6 +50,11 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
 <div class="section level3">
+<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<ul><li>
+<code>clust.ap</code> now stores <code>$model</code> as a list. Use <code>$native_model</code> for the fitted <code>apcluster</code> object (<a href="https://github.com/mlr-org/mlr3cluster/issues/129" class="external-link">#129</a>).</li>
+</ul></div>
+<div class="section level3">
 <h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
 <ul><li>
 <code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> now converts a <code>TaskClassif</code> or <code>TaskRegr</code> to a <code>TaskClust</code> by dropping the target from the features. This turns every task generator in mlr3, e.g. <code>tgen("moons")</code> or <code>tgen("spirals")</code>, into a cluster task generator.</li>

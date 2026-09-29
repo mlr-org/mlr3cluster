@@ -2,6 +2,12 @@
 
 ## mlr3cluster (development version)
 
+### Breaking changes
+
+- `clust.ap` now stores `$model` as a list. Use `$native_model` for the
+  fitted `apcluster` object
+  ([\#129](https://github.com/mlr-org/mlr3cluster/issues/129)).
+
 ### New features
 
 - [`as_task_clust()`](https://mlr3cluster.mlr-org.com/dev/reference/as_task_clust.md)
