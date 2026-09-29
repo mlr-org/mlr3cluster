@@ -45,7 +45,7 @@ Suggests:
     gmeans,
     kernlab,
     klaR,
-    kohonen (>= 3.0.0),
+    kohonen (>= 3.0.10),
     lgr,
     LPCM,
     mclust,
@@ -58,7 +58,7 @@ Suggests:
     skmeans,
     stdbscan (>= 0.2.0),
     stream (>= 2.0.0),
-    tclust (>= 2.0-3),
+    tclust (>= 2.2-3),
     testthat (>= 3.3.0),
     withr
 Config/roxygen2/markdown: TRUE
