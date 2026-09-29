@@ -54,6 +54,15 @@ LearnerClustMeanShift = R6Class(
     }
   ),
 
+  active = list(
+    #' @field native_model (any)\cr
+    #' The fitted model.
+    native_model = function(rhs) {
+      assert_ro_binding(rhs)
+      self$model$model
+    }
+  ),
+
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
@@ -62,21 +71,20 @@ LearnerClustMeanShift = R6Class(
       }
 
       m = invoke(LPCM::ms, X = task$data(), .args = pv)
-      # predict mirrors the convergence criterion, which LPCM::ms() does not store
-      m = insert_named(m, list(thr = pv$thr, iter = pv$iter))
       if (self$save_assignments) {
         self$assignments = as.integer(m$cluster.label)
       }
-      m
+      # predict mirrors the convergence criterion, which LPCM::ms() does not store
+      list(model = m, thr = pv$thr, iter = pv$iter)
     },
 
     .predict = function(task) {
       m = self$model
       x = as.matrix(ordered_features(task, self))
-      x = sweep(x, 2L, m$scaled.by, "/")
+      x = sweep(x, 2L, m$model$scaled.by, "/")
 
       # mirror the convergence criterion LPCM::ms() applies during training
-      args = list(X = as.matrix(m$data), h = m$h)
+      args = list(X = as.matrix(m$model$data), h = m$model$h)
       if (!is.null(m$thr)) {
         args$thresh = m$thr^2
       }
@@ -85,7 +93,7 @@ LearnerClustMeanShift = R6Class(
       }
       partition = map_int(seq_row(x), function(i) {
         final = invoke(LPCM::ms.rep, x = x[i, ], .args = args)$final
-        which_min(rowSums(sweep(m$cluster.center, 2L, final, "-")^2), ties_method = "first")
+        which_min(rowSums(sweep(m$model$cluster.center, 2L, final, "-")^2), ties_method = "first")
       })
 
       list(partition = partition)
