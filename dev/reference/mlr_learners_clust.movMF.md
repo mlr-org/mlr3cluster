@@ -9,7 +9,7 @@ package [movMF](https://CRAN.R-project.org/package=movMF).
 The `k` parameter is set to 2 by default since
 [`movMF::movMF()`](https://rdrr.io/pkg/movMF/man/movMF.html) has no
 default value for the number of mixture components. Rows of `x` are
-standardised to unit length internally by
+standardized to unit length internally by
 [`movMF::movMF()`](https://rdrr.io/pkg/movMF/man/movMF.html).
 Predictions use the [`predict()`](https://rdrr.io/r/stats/predict.html)
 method from movMF; `prob` returns the soft memberships.
