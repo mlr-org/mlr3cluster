@@ -9,7 +9,7 @@
 #' Calls [movMF::movMF()] from package \CRANpkg{movMF}.
 #'
 #' The `k` parameter is set to 2 by default since [movMF::movMF()] has no default value for the number of mixture
-#' components. Rows of `x` are standardised to unit length internally by [movMF::movMF()]. Predictions use the
+#' components. Rows of `x` are standardized to unit length internally by [movMF::movMF()]. Predictions use the
 #' `predict()` method from \pkg{movMF}; `prob` returns the soft memberships.
 #'
 #' Setting `ids` initializes the EM algorithm from fixed component memberships and stops it after a single iteration,

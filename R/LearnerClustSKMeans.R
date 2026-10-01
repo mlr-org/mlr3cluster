@@ -9,7 +9,7 @@
 #'
 #' The `k` parameter is set to 2 by default since [skmeans::skmeans()] doesn't have a default value for the number of
 #' clusters.
-#' Observations are partitioned by maximising cosine similarity to cluster prototypes. Predictions on new data assign
+#' Observations are partitioned by maximizing cosine similarity to cluster prototypes. Predictions on new data assign
 #' each observation to the prototype with the highest cosine similarity. Rows with zero norm are not allowed by
 #' [skmeans::skmeans()].
 #'
