@@ -69,3 +69,13 @@ test_that("as_task_clust.TaskSupervised drops the target and keeps the roles", {
   expect_task_clust(generated)
   expect_identical(generated$feature_names, c("x1", "x2"))
 })
+
+test_that("as_task_clust.TaskSupervised converts the internal validation task", {
+  task = tsk("iris")
+  task$internal_valid_task = 1:10
+  clust = as_task_clust(task)
+  expect_identical(clust$nrow, 140L)
+  expect_task_clust(clust$internal_valid_task)
+  expect_identical(clust$internal_valid_task$row_ids, 1:10)
+  expect_false("Species" %in% clust$internal_valid_task$feature_names)
+})

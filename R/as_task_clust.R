@@ -47,6 +47,9 @@ as_task_clust.TaskSupervised = function(x, drop_levels = TRUE, ...) {
   if (drop_levels) {
     task$droplevels()
   }
+  if (!is.null(x$internal_valid_task)) {
+    task$internal_valid_task = as_task_clust(x$internal_valid_task, drop_levels = drop_levels)
+  }
   task
 }
 
