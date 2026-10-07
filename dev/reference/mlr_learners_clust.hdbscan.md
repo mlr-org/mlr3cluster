@@ -1,11 +1,11 @@
 # HDBSCAN Clustering Learner
 
 HDBSCAN (hierarchical DBSCAN) clustering. Calls
-[`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html) from
-package [dbscan](https://CRAN.R-project.org/package=dbscan).
+[`dbscan::hdbscan()`](http://michael.hahsler.net/dbscan/reference/hdbscan.md)
+from package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 The `minPts` parameter is set to 5 by default since
-[`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html)
+[`dbscan::hdbscan()`](http://michael.hahsler.net/dbscan/reference/hdbscan.md)
 doesn't have a default value for the minimum size of clusters.
 
 ## Dictionary

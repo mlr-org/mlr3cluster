@@ -2,8 +2,8 @@
 
 OPTICS (ordering points to identify the clustering structure)
 clustering. Calls
-[`dbscan::optics()`](https://rdrr.io/pkg/dbscan/man/optics.html) from
-package [dbscan](https://CRAN.R-project.org/package=dbscan).
+[`dbscan::optics()`](http://michael.hahsler.net/dbscan/reference/optics.md)
+from package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
 

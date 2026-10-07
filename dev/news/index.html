@@ -51,7 +51,8 @@
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
 <div class="section level3">
 <h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
-<ul><li>
+<ul><li>The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated <code>tgen("moons")</code> in mlr3. To create a clustering task from a classification task generator, use <code>as_task_clust(tgen("moons")$generate(n))</code> (<a href="https://github.com/mlr-org/mlr3cluster/issues/128" class="external-link">#128</a>).</li>
+<li>
 <code>clust.ap</code> now stores <code>$model</code> as a list. Use <code>$native_model</code> for the fitted <code>apcluster</code> object (<a href="https://github.com/mlr-org/mlr3cluster/issues/129" class="external-link">#129</a>).</li>
 <li>
 <code>clust.dbscan</code>, <code>clust.dbscan_fpc</code>, <code>clust.hdbscan</code>, <code>clust.optics</code>, and <code>clust.stdbscan</code> now store <code>$model</code> as a list. Use <code>$native_model</code> for the fitted upstream object (<a href="https://github.com/mlr-org/mlr3cluster/issues/129" class="external-link">#129</a>).</li>
@@ -74,8 +75,7 @@
 </ul></div>
 <div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
-<ul><li>The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated <code>tgen("moons")</code> in mlr3. To create a clustering task from a classification task generator, use <code>as_task_clust(tgen("moons")$generate(n))</code> (<a href="https://github.com/mlr-org/mlr3cluster/issues/128" class="external-link">#128</a>).</li>
-<li>
+<ul><li>
 <code>clust.ap</code> now predicts with the similarity function <code>s</code> used for training, which it stores in the model.</li>
 <li>
 <code>clust.clara</code>, <code>clust.dbscan_fpc</code>, <code>clust.meanshift</code>, and <code>clust.pam</code> now check the training hyperparameters, not the current ones, when predicting.</li>
@@ -210,7 +210,7 @@
 <li>
 <code>clust.hclust</code> and <code>clust.protoclust</code> now require the Minkowski power <code>p</code> to be greater than 0, matching <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code>.</li>
 <li>
-<code>clust.hdbscan</code> now requires <code>minPts &gt;= 2</code>, matching <code><a href="https://rdrr.io/pkg/dbscan/man/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code>. Smaller values now fail when set rather than during training.</li>
+<code>clust.hdbscan</code> now requires <code>minPts &gt;= 2</code>, matching <code><a href="http://michael.hahsler.net/dbscan/reference/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code>. Smaller values now fail when set rather than during training.</li>
 <li>
 <code>clust.kcca</code> now validates <code>initcent</code> as a single string and documents its default as <code>"randomcent"</code>. Invalid values now fail when set rather than producing an obscure S4 validity error during training.</li>
 <li>

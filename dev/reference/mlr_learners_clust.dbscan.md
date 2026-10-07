@@ -2,8 +2,8 @@
 
 DBSCAN (density-based spatial clustering of applications with noise)
 clustering. Calls
-[`dbscan::dbscan()`](https://rdrr.io/pkg/dbscan/man/dbscan.html) from
-package [dbscan](https://CRAN.R-project.org/package=dbscan).
+[`dbscan::dbscan()`](http://michael.hahsler.net/dbscan/reference/dbscan.md)
+from package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
 

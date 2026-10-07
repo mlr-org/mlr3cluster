@@ -4,6 +4,11 @@
 
 ### Breaking changes
 
+- The clustering moons task generator introduced in 0.6.0 has been
+  removed because it duplicated `tgen("moons")` in mlr3. To create a
+  clustering task from a classification task generator, use
+  `as_task_clust(tgen("moons")$generate(n))`
+  ([\#128](https://github.com/mlr-org/mlr3cluster/issues/128)).
 - `clust.ap` now stores `$model` as a list. Use `$native_model` for the
   fitted `apcluster` object
   ([\#129](https://github.com/mlr-org/mlr3cluster/issues/129)).
@@ -35,11 +40,6 @@
 
 ### Bug fixes
 
-- The clustering moons task generator introduced in 0.6.0 has been
-  removed because it duplicated `tgen("moons")` in mlr3. To create a
-  clustering task from a classification task generator, use
-  `as_task_clust(tgen("moons")$generate(n))`
-  ([\#128](https://github.com/mlr-org/mlr3cluster/issues/128)).
 - `clust.ap` now predicts with the similarity function `s` used for
   training, which it stores in the model.
 - `clust.clara`, `clust.dbscan_fpc`, `clust.meanshift`, and `clust.pam`
@@ -243,7 +243,7 @@ CRAN release: 2026-08-21
   `p` to be greater than 0, matching
   [`stats::dist()`](https://rdrr.io/r/stats/dist.html).
 - `clust.hdbscan` now requires `minPts >= 2`, matching
-  [`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html).
+  [`dbscan::hdbscan()`](http://michael.hahsler.net/dbscan/reference/hdbscan.md).
   Smaller values now fail when set rather than during training.
 - `clust.kcca` now validates `initcent` as a single string and documents
   its default as `"randomcent"`. Invalid values now fail when set rather
