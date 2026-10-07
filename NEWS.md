@@ -2,6 +2,7 @@
 
 ## Breaking changes
 
+* The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated `tgen("moons")` in mlr3. To create a clustering task from a classification task generator, use `as_task_clust(tgen("moons")$generate(n))` (#128).
 * `clust.ap` now stores `$model` as a list. Use `$native_model` for the fitted `apcluster` object (#129).
 * `clust.dbscan`, `clust.dbscan_fpc`, `clust.hdbscan`, `clust.optics`, and `clust.stdbscan` now store `$model` as a list. Use `$native_model` for the fitted upstream object (#129).
 * `clust.meanshift` now stores `$model` as a list. Use `$native_model` for the fitted `ms` object (#129).
@@ -18,7 +19,6 @@
 
 ## Bug fixes
 
-* The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated `tgen("moons")` in mlr3. To create a clustering task from a classification task generator, use `as_task_clust(tgen("moons")$generate(n))` (#128).
 * `clust.ap` now predicts with the similarity function `s` used for training, which it stores in the model.
 * `clust.clara`, `clust.dbscan_fpc`, `clust.meanshift`, and `clust.pam` now check the training hyperparameters, not the current ones, when predicting.
 * `clust.dbscan_fpc` now accepts whole-number doubles such as `c(10, 20)` for `countmode`. Previously, only integer vectors were accepted.
