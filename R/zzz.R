@@ -72,10 +72,10 @@ register_mlr3 = function(...) {
 }
 
 .onUnload = function(libpath) {
-  walk(names(mlr3cluster_tasks), function(id) mlr_tasks$remove(id))
-  walk(names(mlr3cluster_task_generators), function(id) mlr_task_generators$remove(id))
-  walk(names(mlr3cluster_learners), function(id) mlr_learners$remove(id))
-  walk(names(measures), function(id) mlr_measures$remove(paste0("clust.", id)))
+  mlr_tasks$remove(names(mlr3cluster_tasks))
+  mlr_task_generators$remove(names(mlr3cluster_task_generators))
+  mlr_learners$remove(names(mlr3cluster_learners))
+  mlr_measures$remove(paste0("clust.", names(measures)))
 
   mlr_reflections$task_types = mlr_reflections$task_types[!"clust"]
   reflections = c(
