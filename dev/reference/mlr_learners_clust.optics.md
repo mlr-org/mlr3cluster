@@ -138,8 +138,11 @@ Other Learner:
 
 - `native_model`:
 
-  (any)  
-  The fitted model.
+  (`optics`)  
+  The fitted model returned by
+  [`dbscan::optics()`](http://michael.hahsler.net/dbscan/reference/optics.md),
+  with the clustering extracted by
+  [`dbscan::extractDBSCAN()`](http://michael.hahsler.net/dbscan/reference/optics.md).
 
 ## Methods
 

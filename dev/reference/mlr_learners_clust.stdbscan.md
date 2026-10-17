@@ -143,8 +143,9 @@ Other Learner:
 
 - `native_model`:
 
-  (any)  
-  The fitted model.
+  (`stdbscan`)  
+  The fitted model returned by
+  [`stdbscan::st_dbscan()`](https://miboraminima.github.io/stdbscan/reference/st_dbscan.html).
 
 ## Methods
 

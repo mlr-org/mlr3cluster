@@ -152,8 +152,9 @@ Other Learner:
 
 - `native_model`:
 
-  (any)  
-  The fitted model.
+  (`protoclust`)  
+  The fitted model returned by
+  [`protoclust::protoclust()`](https://rdrr.io/pkg/protoclust/man/protoclust.html).
 
 ## Methods
 

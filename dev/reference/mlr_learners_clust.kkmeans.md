@@ -157,8 +157,9 @@ Other Learner:
 
 - `native_model`:
 
-  (any)  
-  The fitted model.
+  (`specc`)  
+  The fitted model returned by
+  [`kernlab::kkmeans()`](https://rdrr.io/pkg/kernlab/man/kkmeans.html).
 
 ## Methods
 

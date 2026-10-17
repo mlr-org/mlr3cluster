@@ -139,8 +139,9 @@ Other Learner:
 
 - `native_model`:
 
-  (any)  
-  The fitted model.
+  (`hdbscan`)  
+  The fitted model returned by
+  [`dbscan::hdbscan()`](http://michael.hahsler.net/dbscan/reference/hdbscan.md).
 
 ## Methods
 

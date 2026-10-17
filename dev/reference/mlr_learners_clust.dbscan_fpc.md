@@ -134,8 +134,9 @@ Other Learner:
 
 - `native_model`:
 
-  (any)  
-  The fitted model.
+  (`dbscan`)  
+  The fitted model returned by
+  [`fpc::dbscan()`](https://rdrr.io/pkg/fpc/man/dbscan.html).
 
 ## Methods
 

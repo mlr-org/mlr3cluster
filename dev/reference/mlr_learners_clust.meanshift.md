@@ -148,8 +148,9 @@ Other Learner:
 
 - `native_model`:
 
-  (any)  
-  The fitted model.
+  (`ms`)  
+  The fitted model returned by
+  [`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html).
 
 ## Methods
 

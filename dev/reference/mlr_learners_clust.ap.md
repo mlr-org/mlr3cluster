@@ -163,8 +163,9 @@ Other Learner:
 
 - `native_model`:
 
-  (any)  
-  The fitted model.
+  (`APResult`)  
+  The fitted model returned by
+  [`apcluster::apcluster()`](https://rdrr.io/pkg/apcluster/man/apcluster-methods.html).
 
 ## Methods
 

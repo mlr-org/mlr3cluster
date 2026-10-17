@@ -139,8 +139,9 @@ Other Learner:
 
 - `native_model`:
 
-  (any)  
-  The fitted model.
+  (`dbscan_fast`)  
+  The fitted model returned by
+  [`dbscan::dbscan()`](http://michael.hahsler.net/dbscan/reference/dbscan.md).
 
 ## Methods
 

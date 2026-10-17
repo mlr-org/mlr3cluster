@@ -9,19 +9,13 @@
   clustering task from a classification task generator, use
   `as_task_clust(tgen("moons")$generate(n))`
   ([\#128](https://github.com/mlr-org/mlr3cluster/issues/128)).
-- `clust.ap` now stores `$model` as a list. Use `$native_model` for the
-  fitted `apcluster` object
-  ([\#129](https://github.com/mlr-org/mlr3cluster/issues/129)).
-- `clust.dbscan`, `clust.dbscan_fpc`, `clust.hdbscan`, `clust.optics`,
-  and `clust.stdbscan` now store `$model` as a list. Use `$native_model`
-  for the fitted upstream object
+- `clust.ap`, `clust.dbscan`, `clust.dbscan_fpc`, `clust.hdbscan`,
+  `clust.meanshift`, `clust.optics`, and `clust.stdbscan` now store
+  `$model` as a list. Use `$native_model` for the fitted upstream object
   ([\#129](https://github.com/mlr-org/mlr3cluster/issues/129)).
 - `clust.diana` no longer exposes `stop.at.k`, which
   [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html)
   ignores since only the default `FALSE` is implemented.
-- `clust.meanshift` now stores `$model` as a list. Use `$native_model`
-  for the fitted `ms` object
-  ([\#129](https://github.com/mlr-org/mlr3cluster/issues/129)).
 
 ### New features
 
