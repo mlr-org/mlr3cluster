@@ -120,6 +120,11 @@ test_that("cluster_pearsongamma returns NaN for all-singleton clusters", {
   expect_true(is.nan(cluster_pearsongamma(d, c(1L, 2L, 3L))))
 })
 
+test_that("cluster_silhouette returns NaN for all-singleton clusters", {
+  d = as.matrix(stats::dist(matrix(c(0, 1, 2), ncol = 1)))
+  expect_true(is.nan(cluster_silhouette(d, c(1L, 2L, 3L))))
+})
+
 test_that("cluster_davies_bouldin matches clusterCrit", {
   skip_if_not_installed("clusterCrit")
   withr::local_seed(1L)

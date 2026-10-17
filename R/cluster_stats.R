@@ -193,5 +193,8 @@ cluster_davies_bouldin = function(x, clustering) {
 }
 
 cluster_silhouette = function(d, clustering) {
+  if (length(unique(clustering)) >= length(clustering)) {
+    return(NaN)
+  }
   mean(cluster::silhouette(clustering, dmatrix = d)[, "sil_width"])
 }
