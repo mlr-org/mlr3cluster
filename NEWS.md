@@ -26,6 +26,7 @@
 * `clust.ap` can now predict with a similarity function `s` that has no `sel` argument, e.g. `function(x) -as.matrix(dist(x))^2`. Previously, training worked but predicting failed.
 * `clust.clara` (`metric`, `medoids.x`, and `stand`), `clust.dbscan_fpc` (`scale` and `seeds`), and `clust.pam` (`stand`) now use the training values for prediction checks. Changing these parameters after training no longer bypasses the checks or incorrectly prevents prediction.
 * `clust.cmeans` now accepts zero `weights`, as long as at least one weight is positive, matching `e1071::cmeans()`.
+* `clust.cmeans`, `clust.kkmeans`, `clust.kmeans`, `clust.kmeans_rcpp`, `clust.kproto`, and `clust.MBatchKMeans` now match initial cluster centers to the task features by column name instead of by position.
 * `clust.cobweb`, `clust.em`, `clust.ff`, `clust.kmodes`, `clust.kproto`, and `clust.SimpleKMeans` now treat logical features as categorical. Previously, they could be ignored or encoded differently in training and prediction.
 * `clust.dbscan_fpc` now accepts whole-number doubles such as `c(10, 20)` for `countmode`. Previously, only integer vectors were accepted.
 * `clust.featureless` now predicts with the `num_clusters` used for training.

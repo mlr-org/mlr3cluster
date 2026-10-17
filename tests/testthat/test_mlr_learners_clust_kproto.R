@@ -52,3 +52,9 @@ test_that("logical features enter the categorical part of the distance", {
   expect_identical(learner$predict_newdata(data[1:10, ])$partition, rep(1L, 10L))
   expect_true(is.logical(learner$param_set$values$k$lgl))
 })
+
+test_that("prototypes are matched to features by name", {
+  data = data.frame(z = c(10, 11, 100, 101), a = factor(c("x", "x", "y", "y")))
+  learner = lrn("clust.kproto", k = data[c(1L, 4L), ])$train(as_task_clust(data))
+  expect_identical(learner$assignments, c(1L, 1L, 2L, 2L))
+})

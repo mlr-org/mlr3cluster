@@ -100,6 +100,7 @@ LearnerClustKProto = R6Class(
         error_input("Task must have at least 2 features, but has %i.", task$n_features)
       }
       pv = self$param_set$get_values(tags = "train")
+      pv$k = assert_centers_param(pv$k, task, "k")
       if (test_data_frame(pv$k)) {
         pv$k = logical_to_factor(pv$k)
       }

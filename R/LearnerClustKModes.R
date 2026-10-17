@@ -79,14 +79,11 @@ LearnerClustKModes = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      assert_centers_param(pv$modes, task, "modes")
+      pv$modes = assert_centers_param(pv$modes, task, "modes")
 
       data = logical_to_factor(task$data())
       if (test_data_frame(pv$modes)) {
-        if (!test_names(names(pv$modes), permutation.of = names(data))) {
-          error_input("`modes` column names must match the task features.")
-        }
-        pv$modes = logical_to_factor(as.data.frame(pv$modes)[names(data)])
+        pv$modes = logical_to_factor(pv$modes)
       }
 
       m = invoke(klaR::kmodes, data = data, .args = pv)

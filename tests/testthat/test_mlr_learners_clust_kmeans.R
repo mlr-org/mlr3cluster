@@ -34,3 +34,9 @@ test_that("Learner properties are respected", {
     expect_prediction_clust(p, learner)
   }
 })
+
+test_that("centers are matched to features by name", {
+  data = data.frame(z = c(10, 11, 100, 101), a = 1:4)
+  learner = lrn("clust.kmeans", centers = data[c(1L, 4L), ])$train(as_task_clust(data))
+  expect_identical(learner$assignments, c(1L, 1L, 2L, 2L))
+})

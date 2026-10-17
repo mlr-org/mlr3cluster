@@ -5,7 +5,7 @@
     Condition
       Error:
       ! 
-      x `modes` must have same number of columns as data.
+      x `modes` must have one column per task feature.
       > Class: Mlr3ErrorInput
 
 ---

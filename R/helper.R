@@ -13,9 +13,23 @@ check_centers = function(x) {
 }
 
 assert_centers_param = function(centers, task, name) {
-  if ((test_data_frame(centers) || test_matrix(centers)) && ncol(centers) != task$ncol) {
-    error_input("`%s` must have same number of columns as data.", name)
+  if (!test_data_frame(centers) && !test_matrix(centers)) {
+    return(centers)
   }
+  if (ncol(centers) != task$n_features) {
+    error_input("`%s` must have one column per task feature.", name)
+  }
+  if (is.null(colnames(centers))) {
+    return(centers)
+  }
+  features = task$feature_names
+  if (!test_names(colnames(centers), permutation.of = features)) {
+    error_input("`%s` column names must match the task features.", name)
+  }
+  if (test_matrix(centers)) {
+    return(centers[, features, drop = FALSE])
+  }
+  as.data.frame(centers)[features]
 }
 
 ordered_features = function(task, learner) {
@@ -60,9 +74,10 @@ assert_prediction_count = function(actual, expected, type) {
 
 row_any_na = function(x) {
   if (!anyNA(x)) {
-    return(logical(nrow(x)))
+    logical(nrow(x))
+  } else {
+    rowSums(is.na(x)) > 0L
   }
-  rowSums(is.na(x)) > 0L
 }
 
 task_dist = function(task, rows) {

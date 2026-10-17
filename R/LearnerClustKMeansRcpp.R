@@ -59,7 +59,7 @@ LearnerClustKMeansRcpp = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      assert_centers_param(pv$CENTROIDS, task, "CENTROIDS")
+      pv$CENTROIDS = assert_centers_param(pv$CENTROIDS, task, "CENTROIDS")
       if (test_matrix(pv$CENTROIDS) && nrow(pv$CENTROIDS) != pv$clusters) {
         error_config("`CENTROIDS` must have same number of rows as `clusters`.")
       }

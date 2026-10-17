@@ -36,3 +36,16 @@ test_that("Learner properties are respected", {
     }
   }
 })
+
+test_that("centroids are matched to features by name", {
+  data = data.frame(z = c(10, 11, 100, 101), a = 1:4)
+  learner = lrn(
+    "clust.MBatchKMeans",
+    clusters = 2L,
+    CENTROIDS = as.matrix(data[c(1L, 4L), ]),
+    batch_size = 4L,
+    max_iters = 1L
+  )
+  learner$train(as_task_clust(data))
+  expect_identical(learner$assignments, c(1L, 1L, 2L, 2L))
+})

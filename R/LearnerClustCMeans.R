@@ -64,7 +64,7 @@ LearnerClustCMeans = R6Class(
   private = list(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
-      assert_centers_param(pv$centers, task, "centers")
+      pv$centers = assert_centers_param(pv$centers, task, "centers")
 
       m = invoke(e1071::cmeans, x = task$data(), .args = pv, .opts = allow_partial_matching)
       if (self$save_assignments) {

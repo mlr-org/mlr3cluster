@@ -88,7 +88,7 @@ LearnerClustKKMeans = R6Class(
         error_input("Task must have at least 2 features, but has %i.", task$n_features)
       }
       pv = self$param_set$get_values(tags = "train")
-      assert_centers_param(pv$centers, task, "centers")
+      pv$centers = assert_centers_param(pv$centers, task, "centers")
 
       kpar = self$param_set$get_values(tags = c("train", "kpar"))
       if (length(kpar) > 0L) {
