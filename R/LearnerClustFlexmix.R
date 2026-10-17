@@ -98,7 +98,7 @@ LearnerClustFlexmix = R6Class(
 
       data = setDF(task$data())
       # multivariate LHS via cbind() so that posterior() can rebuild the design matrix from newdata
-      lhs = sprintf("cbind(%s)", paste0("`", colnames(data), "`", collapse = ", "))
+      lhs = sprintf("cbind(%s)", str_collapse(colnames(data), quote = "`"))
       formula = formulate(lhs = lhs, rhs = "1")
       # only stepFlexmix() runs repeated EM initializations, but it cannot take fixed initial assignments
       m = if (is.null(pv$cluster)) {
