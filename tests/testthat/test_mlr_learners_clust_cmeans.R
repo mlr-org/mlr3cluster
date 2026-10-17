@@ -1,4 +1,5 @@
 skip_if_not_installed("e1071")
+skip_if_not_installed("clue")
 
 test_that("autotest", {
   learner = lrn("clust.cmeans")
