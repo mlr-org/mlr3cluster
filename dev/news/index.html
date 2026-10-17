@@ -82,6 +82,8 @@
 <li>
 <code>clust.clara</code>, <code>clust.dbscan_fpc</code>, <code>clust.meanshift</code>, and <code>clust.pam</code> now check the training hyperparameters, not the current ones, when predicting.</li>
 <li>
+<code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.kmodes</code>, <code>clust.kproto</code>, and <code>clust.SimpleKMeans</code> now treat logical features as categorical. Previously, they could be ignored or encoded differently in training and prediction. A vector-valued <code>lambda</code> in <code>clust.kproto</code> now needs an entry for each logical feature.</li>
+<li>
 <code>clust.dbscan_fpc</code> now accepts whole-number doubles such as <code>c(10, 20)</code> for <code>countmode</code>. Previously, only integer vectors were accepted.</li>
 <li>
 <code>clust.dbscan_fpc</code> no longer offers <code>method = "dist"</code>, which treated the features as a distance matrix and either failed or returned wrong clusters.</li>

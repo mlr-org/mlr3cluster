@@ -8,7 +8,10 @@ from package
 The `k` parameter is set to 2 by default since
 [`clustMixType::kproto()`](https://rdrr.io/pkg/clustMixType/man/kproto.html)
 doesn't have a default value for the number of clusters. The task must
-have at least 2 features.
+have at least 2 features. Logical features are converted to factors with
+levels `FALSE` and `TRUE`, so they enter the categorical part of the
+distance. Thus, a vector-valued `lambda` needs one entry per numeric,
+logical, and factor feature.
 
 ## Initial parameter values
 

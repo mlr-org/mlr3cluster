@@ -9,6 +9,7 @@
 Calls klaR::kmodes() from package klaR.
 All feature values are treated as categories.
 Numeric features are accepted, but klaR::kmodes() warns when they contain more than 30 distinct values.
+Logical features are converted to factors with levels FALSE and TRUE.
 The modes parameter is set to 2 by default since klaR::kmodes() does not have a default value for the number of
 clusters.
 Since klaR::kmodes() does not provide a predict method, new observations are assigned to their closest learned
@@ -17,6 +18,7 @@ Prediction always uses unweighted simple matching distance, including for models
 Calls klaR::kmodes() from package klaR.
 All feature values are treated as categories.
 Numeric features are accepted, but klaR::kmodes() warns when they contain more than 30 distinct values.
+Logical features are converted to factors with levels FALSE and TRUE.
 The modes parameter is set to 2 by default since klaR::kmodes() does not have a default value for the number of
 clusters.
 Since klaR::kmodes() does not provide a predict method, new observations are assigned to their closest learned
@@ -68,7 +70,8 @@ Prediction always uses unweighted simple matching distance, including for models
     <p>K-modes clustering for categorical data.
 Calls <code><a href="https://rdrr.io/pkg/klaR/man/kmodes.html" class="external-link">klaR::kmodes()</a></code> from package <a href="https://CRAN.R-project.org/package=klaR" class="external-link"><span class="pkg">klaR</span></a>.</p>
 <p>All feature values are treated as categories.
-Numeric features are accepted, but <code><a href="https://rdrr.io/pkg/klaR/man/kmodes.html" class="external-link">klaR::kmodes()</a></code> warns when they contain more than 30 distinct values.</p>
+Numeric features are accepted, but <code><a href="https://rdrr.io/pkg/klaR/man/kmodes.html" class="external-link">klaR::kmodes()</a></code> warns when they contain more than 30 distinct values.
+Logical features are converted to factors with levels <code>FALSE</code> and <code>TRUE</code>.</p>
 <p>The <code>modes</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/klaR/man/kmodes.html" class="external-link">klaR::kmodes()</a></code> does not have a default value for the number of
 clusters.
 Since <code><a href="https://rdrr.io/pkg/klaR/man/kmodes.html" class="external-link">klaR::kmodes()</a></code> does not provide a predict method, new observations are assigned to their closest learned
