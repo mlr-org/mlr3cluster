@@ -129,7 +129,7 @@ as_task_clust(tsk("iris"))
 #> • Features (4):
 #>   • dbl (4): Petal.Length, Petal.Width, Sepal.Length, Sepal.Width
 
-# turn any task generator into a cluster task generator
+# convert a generated classification task to a cluster task
 as_task_clust(tgen("moons")$generate(100))
 #> 
 #> ── <TaskClust> (100x2) ─────────────────────────────────────────────────────────
