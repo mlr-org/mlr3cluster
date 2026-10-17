@@ -37,3 +37,12 @@ test_that("Learner properties are respected", {
     }
   }
 })
+
+test_that("weights accept zeros but need a positive element", {
+  task = tsk("usarrests")
+  learner = lrn("clust.cmeans", weights = c(0, 0, rep(1, 48)))
+  expect_prediction_clust(learner$train(task)$predict(task), learner)
+
+  expect_error(lrn("clust.cmeans", weights = c(-1, 1)), "non-negative")
+  expect_error(lrn("clust.cmeans", weights = 0), "positive element")
+})
