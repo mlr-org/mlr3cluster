@@ -42,7 +42,7 @@ or with the associated sugar function
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
 | k | integer | \- |  | \\\[2, \infty)\\ |
-| method | character | \- | genetic, pclust, CLUTO, gmeans, kmndirs, LIH, LIHC | \- |
+| method | character | \- | genetic, pclust, CLUTO, gmeans, LIH, LIHC | \- |
 | m | numeric | 1 |  | \\\[1, \infty)\\ |
 | weights | untyped | 1 |  | \- |
 | start | untyped | "p" |  | \- |

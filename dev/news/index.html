@@ -88,6 +88,8 @@
 <li>
 <code>clust.kkmeans</code> now only accepts <code>p</code> with <code>alg = "kerninghan"</code>, and <code>clust.kmeans_rcpp</code> and <code>clust.MBatchKMeans</code> now only accept <code>tol_optimal_init</code> with <code>initializer = "optimal_init"</code>, since the upstream functions ignore them otherwise.</li>
 <li>
+<code>clust.optics</code>, <code>clust.skmeans</code>, <code>clust.stdbscan</code>, and <code>clust.tclust</code> now reject hyperparameter values that always fail upstream: <code>minPts = 0</code> for <code>clust.optics</code>, negative <code>approx</code> for <code>clust.optics</code> and <code>clust.stdbscan</code>, <code>method = "kmndirs"</code> for <code>clust.skmeans</code>, and <code>trace</code> values above 1 for <code>clust.tclust</code>.</li>
+<li>
 <code>clust.protoclust</code> now predicts with the distance parameters <code>method</code>, <code>diag</code>, <code>upper</code>, and <code>p</code> used for training, which it stores in the model.</li>
 <li>
 <code>clust.xmeans</code> now always uses <code>C = 0.5</code>. Previously, Weka reset <code>C</code> to 0 whenever any other parameter was set.</li>

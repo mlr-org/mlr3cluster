@@ -84,7 +84,7 @@ or with the associated sugar function
 | n.cores          | integer   | -1      |                    | \\\[-2, \infty)\\ |
 | zero_tol         | numeric   | 1e-16   |                    | \\\[0, \infty)\\  |
 | drop.empty.clust | logical   | TRUE    | TRUE, FALSE        | \-                |
-| trace            | integer   | 0       |                    | \\\[0, \infty)\\  |
+| trace            | integer   | 0       |                    | \\\[0, 1\]\\      |
 
 ## References
 

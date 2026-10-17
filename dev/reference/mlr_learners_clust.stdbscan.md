@@ -47,7 +47,7 @@ or with the associated sugar function
 | search | character | kdtree | kdtree, linear, dist | \- |
 | bucketSize | integer | 10 |  | \\\[1, \infty)\\ |
 | splitRule | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \- |
-| approx | numeric | 0 |  | \\(-\infty, \infty)\\ |
+| approx | numeric | 0 |  | \\\[0, \infty)\\ |
 
 ## References
 

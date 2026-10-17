@@ -35,11 +35,11 @@ or with the associated sugar function
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
 | eps | numeric | Inf |  | \\\[0, \infty)\\ |
-| minPts | integer | 5 |  | \\\[0, \infty)\\ |
+| minPts | integer | 5 |  | \\\[1, \infty)\\ |
 | search | character | kdtree | kdtree, linear, dist | \- |
 | bucketSize | integer | 10 |  | \\\[1, \infty)\\ |
 | splitRule | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \- |
-| approx | numeric | 0 |  | \\(-\infty, \infty)\\ |
+| approx | numeric | 0 |  | \\\[0, \infty)\\ |
 | eps_cl | numeric | \- |  | \\\[0, \infty)\\ |
 
 ## References
