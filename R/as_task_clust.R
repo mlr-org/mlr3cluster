@@ -20,7 +20,7 @@
 #' # convert a classification task to a cluster task
 #' as_task_clust(tsk("iris"))
 #'
-#' # turn any task generator into a cluster task generator
+#' # convert a generated classification task to a cluster task
 #' as_task_clust(tgen("moons")$generate(100))
 as_task_clust = function(x, ...) {
   UseMethod("as_task_clust")

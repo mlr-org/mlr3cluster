@@ -82,6 +82,6 @@ as_task_clust(datasets::USArrests)
 # convert a classification task to a cluster task
 as_task_clust(tsk("iris"))
 
-# turn any task generator into a cluster task generator
+# convert a generated classification task to a cluster task
 as_task_clust(tgen("moons")$generate(100))
 }
