@@ -8,7 +8,6 @@
 #' Calls the EM Weka clusterer from package \CRANpkg{RWeka}.
 #'
 #' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the cluster memberships for new data.
-#' Logical features are converted to factors with levels `FALSE` and `TRUE`, which Weka handles as nominal attributes.
 #' The learner supports both partitional and fuzzy clustering.
 #'
 #' @templateVar id clust.em
