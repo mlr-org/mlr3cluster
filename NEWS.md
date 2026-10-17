@@ -17,6 +17,7 @@
 ## Other improvements
 
 * `clust.cobweb`, `clust.em`, `clust.ff`, and `clust.SimpleKMeans` now support factor and ordered features, which Weka handles as nominal attributes.
+* `clust.kmeans_rcpp` and `clust.MBatchKMeans` now check that `CENTROIDS` is a matrix when it is set, instead of failing in `ClusterR` during training.
 * `clust.tclust` now supports the Gaussian parsimonious clustering models via `restr = "GPCM"` and the new `pars` parameter.
 * `LearnerClust$save_assignments` now checks that it is set to a single `TRUE` or `FALSE`.
 
