@@ -11,6 +11,8 @@
 #'
 #' The `k` parameter is set to 2 by default since [flexmix::stepFlexmix()] doesn't have a default value for the number
 #' of components.
+#' Unset `k`, e.g. via `learner$param_set$set_values(k = NULL)`,
+#' to infer the number of components from `cluster` instead.
 #' The component model is selected through the `model` parameter, exposing the multivariate normal, univariate normal,
 #' multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 #' The predict method calls `flexmix::clusters()` for cluster assignments and `flexmix::posterior()` for component
@@ -36,7 +38,7 @@ LearnerClustFlexmix = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k = p_int(1L, init = 2L, tags = c("train", "required")),
+        k = p_int(1L, init = 2L, tags = "train"),
         model = p_fct(
           c("FLXMCmvnorm", "FLXMCnorm1", "FLXMCmvbinary", "FLXMCmvpois"),
           init = "FLXMCmvnorm",
@@ -81,6 +83,9 @@ LearnerClustFlexmix = R6Class(
       control_args = ps$get_values(tags = "control")
       pv = remove_named(pv, names(control_args))
 
+      if (is.null(pv$k) && is.null(pv$cluster)) {
+        error_config("Either `k` or `cluster` must be set.")
+      }
       if (!is.null(pv$cluster) && isTRUE(pv$nrep > 1L)) {
         error_config("`nrep` requires random initialization and cannot be combined with `cluster`.")
       }

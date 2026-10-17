@@ -12,6 +12,8 @@ must not be larger than 1.
 
 The \code{k} parameter is set to 2 by default since \code{\link[flexmix:stepFlexmix]{flexmix::stepFlexmix()}} doesn't have a default value for the number
 of components.
+Unset \code{k}, e.g. via \code{learner$param_set$set_values(k = NULL)},
+to infer the number of components from \code{cluster} instead.
 The component model is selected through the \code{model} parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 The predict method calls \code{flexmix::clusters()} for cluster assignments and \code{flexmix::posterior()} for component
