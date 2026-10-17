@@ -76,6 +76,8 @@
 <ul><li>
 <code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, and <code>clust.SimpleKMeans</code> now support factor and ordered features, which Weka handles as nominal attributes.</li>
 <li>
+<code>clust.flexmix</code> no longer requires <code>k</code>, so unsetting it infers the number of components from <code>cluster</code>.</li>
+<li>
 <code>clust.kmeans_rcpp</code> and <code>clust.MBatchKMeans</code> now check that <code>CENTROIDS</code> is a matrix when it is set, instead of failing in <code>ClusterR</code> during training.</li>
 <li>
 <code>clust.tclust</code> now supports the Gaussian parsimonious clustering models via <code>restr = "GPCM"</code> and the new <code>pars</code> parameter.</li>

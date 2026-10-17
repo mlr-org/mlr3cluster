@@ -10,12 +10,14 @@ called instead and `nrep` must not be larger than 1.
 
 The `k` parameter is set to 2 by default since
 [`flexmix::stepFlexmix()`](https://rdrr.io/pkg/flexmix/man/stepFlexmix.html)
-doesn't have a default value for the number of components. The component
-model is selected through the `model` parameter, exposing the
-multivariate normal, univariate normal, multivariate binary, and
-multivariate Poisson drivers shipped with flexmix. The predict method
-calls `flexmix::clusters()` for cluster assignments and
-`flexmix::posterior()` for component probabilities on new data.
+doesn't have a default value for the number of components. Unset `k`,
+e.g. via `learner$param_set$set_values(k = NULL)`, to infer the number
+of components from `cluster` instead. The component model is selected
+through the `model` parameter, exposing the multivariate normal,
+univariate normal, multivariate binary, and multivariate Poisson drivers
+shipped with flexmix. The predict method calls `flexmix::clusters()` for
+cluster assignments and `flexmix::posterior()` for component
+probabilities on new data.
 
 Note that EM can prune components whose prior falls below `minprior`
 during fitting, so the final number of components may be smaller than

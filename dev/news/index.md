@@ -42,6 +42,8 @@
 - `clust.cobweb`, `clust.em`, `clust.ff`, and `clust.SimpleKMeans` now
   support factor and ordered features, which Weka handles as nominal
   attributes.
+- `clust.flexmix` no longer requires `k`, so unsetting it infers the
+  number of components from `cluster`.
 - `clust.kmeans_rcpp` and `clust.MBatchKMeans` now check that
   `CENTROIDS` is a matrix when it is set, instead of failing in
   `ClusterR` during training.
