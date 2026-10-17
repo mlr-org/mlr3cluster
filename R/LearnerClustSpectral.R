@@ -16,6 +16,7 @@
 #' - `sigma`, `degree`, `scale`, `offset`, `order`:
 #'   - In [kernlab::specc()], these kernel parameters are passed inside the `kpar` list. Here they are exposed
 #'     directly and assembled into `kpar` internally.
+#'   - If `kernel` is `"rbfdot"` and `sigma` is not set, `sigma` is estimated from the data (`kpar = "automatic"`).
 #'
 #' @templateVar id clust.specc
 #' @template learner
@@ -78,7 +79,7 @@ LearnerClustSpectral = R6Class(
       pv = self$param_set$get_values(tags = "train")
 
       kpar = self$param_set$get_values(tags = c("train", "kpar"))
-      if (length(kpar) > 0L) {
+      if (length(kpar) > 0L || (pv$kernel %??% "rbfdot") != "rbfdot") {
         pv = remove_named(pv, names(kpar))
         pv$kpar = kpar
       }

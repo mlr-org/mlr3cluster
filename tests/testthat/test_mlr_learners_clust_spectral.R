@@ -26,6 +26,13 @@ test_that("Learner properties are respected", {
   }
 })
 
+test_that("kernel is used without kernel parameters", {
+  task = tsk("usarrests")
+  learner = lrn("clust.specc", kernel = "vanilladot")
+  learner$train(task)
+  expect_class(kernlab::kernelf(learner$model), "vanillakernel")
+})
+
 test_that("predict on training data matches assignments", {
   task = tsk("usarrests")
   learner = lrn("clust.specc", centers = 3L)

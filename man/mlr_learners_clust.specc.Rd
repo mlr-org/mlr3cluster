@@ -20,6 +20,7 @@ There is no predict method for \code{\link[kernlab:specc]{kernlab::specc()}}, so
 \itemize{
 \item In \code{\link[kernlab:specc]{kernlab::specc()}}, these kernel parameters are passed inside the \code{kpar} list. Here they are exposed
 directly and assembled into \code{kpar} internally.
+\item If \code{kernel} is \code{"rbfdot"} and \code{sigma} is not set, \code{sigma} is estimated from the data (\code{kpar = "automatic"}).
 }
 }
 }

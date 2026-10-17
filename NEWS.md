@@ -28,6 +28,7 @@
 * `clust.optics`, `clust.skmeans`, `clust.stdbscan`, and `clust.tclust` now reject hyperparameter values that always fail upstream: `minPts = 0` for `clust.optics`, negative `approx` for `clust.optics` and `clust.stdbscan`, `method = "kmndirs"` for `clust.skmeans`, and `trace` values above 1 for `clust.tclust`.
 * `clust.protoclust` now predicts with the distance parameters `method`, `diag`, `upper`, and `p` used for training, which it stores in the model.
 * `clust.silhouette` now returns `NaN` instead of an error when every observation is in its own cluster, e.g. for small test sets in resampling.
+* `clust.specc` now uses the selected `kernel` when no kernel parameters are set. Previously, it always used an RBF kernel with an estimated `sigma` in this case.
 * `clust.xmeans` now always uses `C = 0.5`. Previously, Weka reset `C` to 0 whenever any other parameter was set.
 
 # mlr3cluster 0.6.0
