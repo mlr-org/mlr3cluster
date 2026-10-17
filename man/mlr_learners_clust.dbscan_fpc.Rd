@@ -33,7 +33,7 @@ lrn("clust.dbscan_fpc")
    eps \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    MinPts \tab integer \tab 5 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    scale \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   method \tab character \tab hybrid \tab hybrid, raw, dist \tab - \cr
+   method \tab character \tab hybrid \tab hybrid, raw \tab - \cr
    seeds \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    showplot \tab untyped \tab FALSE \tab  \tab - \cr
    countmode \tab untyped \tab NULL \tab  \tab - \cr

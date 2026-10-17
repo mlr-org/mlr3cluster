@@ -27,7 +27,7 @@ LearnerClustDBSCANfpc = R6Class(
         eps = p_dbl(0, tags = c("train", "required")),
         MinPts = p_int(0L, default = 5L, tags = "train"),
         scale = p_lgl(default = FALSE, tags = "train"),
-        method = p_fct(c("hybrid", "raw", "dist"), default = "hybrid", tags = "train"),
+        method = p_fct(c("hybrid", "raw"), default = "hybrid", tags = "train"),
         seeds = p_lgl(default = TRUE, tags = "train"),
         showplot = p_uty(
           default = FALSE,
