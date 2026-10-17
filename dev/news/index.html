@@ -78,9 +78,13 @@
 <ul><li>
 <code>clust.ap</code> now predicts with the similarity function <code>s</code> used for training, which it stores in the model.</li>
 <li>
+<code>clust.ap</code> can now predict with a similarity function <code>s</code> that has no <code>sel</code> argument, e.g. <code>function(x) -as.matrix(dist(x))^2</code>. Previously, training worked but predicting failed.</li>
+<li>
 <code>clust.clara</code>, <code>clust.dbscan_fpc</code>, <code>clust.meanshift</code>, and <code>clust.pam</code> now check the training hyperparameters, not the current ones, when predicting.</li>
 <li>
 <code>clust.dbscan_fpc</code> now accepts whole-number doubles such as <code>c(10, 20)</code> for <code>countmode</code>. Previously, only integer vectors were accepted.</li>
+<li>
+<code>clust.dbscan_fpc</code> no longer offers <code>method = "dist"</code>, which treated the features as a distance matrix and either failed or returned wrong clusters.</li>
 <li>
 <code>clust.featureless</code> now predicts with the <code>num_clusters</code> used for training, which it stores as <code>k</code> in its model instead of the unused training partition.</li>
 <li>
@@ -91,6 +95,10 @@
 <code>clust.optics</code>, <code>clust.skmeans</code>, <code>clust.stdbscan</code>, and <code>clust.tclust</code> now reject hyperparameter values that always fail upstream: <code>minPts = 0</code> for <code>clust.optics</code>, negative <code>approx</code> for <code>clust.optics</code> and <code>clust.stdbscan</code>, <code>method = "kmndirs"</code> for <code>clust.skmeans</code>, and <code>trace</code> values above 1 for <code>clust.tclust</code>.</li>
 <li>
 <code>clust.protoclust</code> now predicts with the distance parameters <code>method</code>, <code>diag</code>, <code>upper</code>, and <code>p</code> used for training, which it stores in the model.</li>
+<li>
+<code>clust.silhouette</code> now returns <code>NaN</code> instead of an error when every observation is in its own cluster, e.g. for small test sets in resampling.</li>
+<li>
+<code>clust.specc</code> now uses the selected <code>kernel</code> when no kernel parameters are set. Previously, it always used an RBF kernel with an estimated <code>sigma</code> in this case.</li>
 <li>
 <code>clust.xmeans</code> now always uses <code>C = 0.5</code>. Previously, Weka reset <code>C</code> to 0 whenever any other parameter was set.</li>
 </ul></div>

@@ -71,6 +71,7 @@ of clusters.</p>
 
 <ul><li><p><code>sigma</code>, <code>degree</code>, <code>scale</code>, <code>offset</code>, <code>order</code>:</p><ul><li><p>In <code><a href="https://rdrr.io/pkg/kernlab/man/specc.html" class="external-link">kernlab::specc()</a></code>, these kernel parameters are passed inside the <code>kpar</code> list. Here they are exposed
 directly and assembled into <code>kpar</code> internally.</p></li>
+<li><p>If <code>kernel</code> is <code>"rbfdot"</code> and <code>sigma</code> is not set, <code>sigma</code> is estimated from the data (<code>kpar = "automatic"</code>).</p></li>
 </ul></li>
 </ul></div>
     <div class="section level2">

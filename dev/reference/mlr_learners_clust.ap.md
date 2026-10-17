@@ -14,7 +14,8 @@ answer by the `apcluster` package maintainer.
 
 The similarity `s` can be a function, e.g.
 `apcluster::negDistMat(r = 2)`, or the name of a function such as
-`"negDistMat"`.
+`"negDistMat"`. For a function without a `sel` argument, predicting
+computes the full similarity matrix of the exemplars and the new data.
 
 ## Initial parameter values
 

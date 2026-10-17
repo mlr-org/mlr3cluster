@@ -31,16 +31,16 @@ or with the associated sugar function
 
 ## Parameters
 
-|           |           |         |                   |                  |
-|-----------|-----------|---------|-------------------|------------------|
-| Id        | Type      | Default | Levels            | Range            |
-| eps       | numeric   | \-      |                   | \\\[0, \infty)\\ |
-| MinPts    | integer   | 5       |                   | \\\[0, \infty)\\ |
-| scale     | logical   | FALSE   | TRUE, FALSE       | \-               |
-| method    | character | hybrid  | hybrid, raw, dist | \-               |
-| seeds     | logical   | TRUE    | TRUE, FALSE       | \-               |
-| showplot  | untyped   | FALSE   |                   | \-               |
-| countmode | untyped   | NULL    |                   | \-               |
+|           |           |         |             |                  |
+|-----------|-----------|---------|-------------|------------------|
+| Id        | Type      | Default | Levels      | Range            |
+| eps       | numeric   | \-      |             | \\\[0, \infty)\\ |
+| MinPts    | integer   | 5       |             | \\\[0, \infty)\\ |
+| scale     | logical   | FALSE   | TRUE, FALSE | \-               |
+| method    | character | hybrid  | hybrid, raw | \-               |
+| seeds     | logical   | TRUE    | TRUE, FALSE | \-               |
+| showplot  | untyped   | FALSE   |             | \-               |
+| countmode | untyped   | NULL    |             | \-               |
 
 ## References
 
