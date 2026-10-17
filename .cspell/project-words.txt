@@ -67,6 +67,7 @@ kcca
 kerninghan
 kernlab
 kkmeans
+kmndirs
 kmodes
 knitr
 kohonen

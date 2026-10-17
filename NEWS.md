@@ -2,13 +2,17 @@
 
 ## Breaking changes
 
-* The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated `tgen("moons")` in mlr3. To create a clustering task from a classification task generator, use `as_task_clust(tgen("moons")$generate(n))` (#128).
 * `clust.ap`, `clust.dbscan`, `clust.dbscan_fpc`, `clust.hdbscan`, `clust.meanshift`, `clust.optics`, and `clust.stdbscan` now store `$model` as a list. Use `$native_model` for the fitted upstream object (#129).
+* `clust.dbscan_fpc` no longer offers `method = "dist"`, which treated the features as a distance matrix and either failed or returned wrong clusters.
 * `clust.diana` no longer exposes `stop.at.k`, which `cluster::diana()` ignores since only the default `FALSE` is implemented.
+* `clust.flexmix` now uses the upstream default `nrep = 3`, which runs the EM algorithm three times and keeps the best fit. Set `nrep = 1` to restore the previous behavior.
+* `clust.kkmeans` now only accepts `p` with `alg = "kerninghan"`, and `clust.kmeans_rcpp` and `clust.MBatchKMeans` now only accept `tol_optimal_init` with `initializer = "optimal_init"`, since the upstream functions ignore them otherwise.
+* `clust.kproto` now requires a vector-valued `lambda` to include an entry for each logical feature, since logical features are now treated as categorical.
+* `tgen("moons")` returns the classification task generator from mlr3 again. mlr3cluster 0.6.0 had replaced it with a clustering version, which has been removed. Use `as_task_clust(tgen("moons")$generate(n))` to create a clustering task (#128).
 
 ## New features
 
-* `as_task_clust()` now converts a `TaskClassif` or `TaskRegr` to a `TaskClust` by dropping the target from the features. This turns every task generator in mlr3, e.g. `tgen("moons")` or `tgen("spirals")`, into a cluster task generator.
+* `as_task_clust()` now converts a `TaskClassif` or `TaskRegr` to a `TaskClust` by dropping the target from the features. This creates cluster tasks from any task generator in mlr3, e.g. `as_task_clust(tgen("spirals")$generate(n))`.
 
 ## Other improvements
 
@@ -20,19 +24,17 @@
 
 * `clust.ap` now predicts with the similarity function `s` used for training, which it stores in the model.
 * `clust.ap` can now predict with a similarity function `s` that has no `sel` argument, e.g. `function(x) -as.matrix(dist(x))^2`. Previously, training worked but predicting failed.
-* `clust.clara`, `clust.dbscan_fpc`, `clust.meanshift`, and `clust.pam` now check the training hyperparameters, not the current ones, when predicting.
+* `clust.clara`, `clust.dbscan_fpc`, and `clust.pam` now check the training hyperparameters, not the current ones, when predicting.
 * `clust.cmeans` now accepts zero `weights`, as long as at least one weight is positive, matching `e1071::cmeans()`.
-* `clust.cobweb`, `clust.em`, `clust.ff`, `clust.kmodes`, `clust.kproto`, and `clust.SimpleKMeans` now treat logical features as categorical. Previously, they could be ignored or encoded differently in training and prediction. A vector-valued `lambda` in `clust.kproto` now needs an entry for each logical feature.
+* `clust.cobweb`, `clust.em`, `clust.ff`, `clust.kmodes`, `clust.kproto`, and `clust.SimpleKMeans` now treat logical features as categorical. Previously, they could be ignored or encoded differently in training and prediction.
 * `clust.dbscan_fpc` now accepts whole-number doubles such as `c(10, 20)` for `countmode`. Previously, only integer vectors were accepted.
-* `clust.dbscan_fpc` no longer offers `method = "dist"`, which treated the features as a distance matrix and either failed or returned wrong clusters.
 * `clust.featureless` now predicts with the `num_clusters` used for training, which it stores as `k` in its model instead of the unused training partition.
-* `clust.flexmix` now uses the upstream default `nrep = 3`. Set `nrep = 1` to restore the previous behavior.
-* `clust.kkmeans` now only accepts `p` with `alg = "kerninghan"`, and `clust.kmeans_rcpp` and `clust.MBatchKMeans` now only accept `tol_optimal_init` with `initializer = "optimal_init"`, since the upstream functions ignore them otherwise.
+* `clust.meanshift` now predicts with the convergence parameters `thr` and `iter` used for training, which it stores in the model.
 * `clust.optics`, `clust.skmeans`, `clust.stdbscan`, and `clust.tclust` now reject hyperparameter values that always fail upstream: `minPts = 0` for `clust.optics`, negative `approx` for `clust.optics` and `clust.stdbscan`, `method = "kmndirs"` for `clust.skmeans`, and `trace` values above 1 for `clust.tclust`.
 * `clust.protoclust` now predicts with the distance parameters `method`, `diag`, `upper`, and `p` used for training, which it stores in the model.
 * `clust.silhouette` now returns `NaN` instead of an error when every observation is in its own cluster, e.g. for small test sets in resampling.
 * `clust.specc` now uses the selected `kernel` when no kernel parameters are set. Previously, it always used an RBF kernel with an estimated `sigma` in this case.
-* `clust.xmeans` now always uses `C = 0.5`. Previously, Weka reset `C` to 0 whenever any other parameter was set.
+* `clust.xmeans` now initializes `C` to 0.5 so that it is always passed to Weka. Previously, Weka reset `C` to 0 whenever any other parameter was set.
 
 # mlr3cluster 0.6.0
 
