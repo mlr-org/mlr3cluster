@@ -21,9 +21,8 @@
   `clust.kmeans_rcpp` and `clust.MBatchKMeans` now only accept
   `tol_optimal_init` with `initializer = "optimal_init"`, since the
   upstream functions ignore them otherwise.
-- `clust.kproto` now requires a vector-valued `lambda` to include an
-  entry for each logical feature, since logical features are now treated
-  as categorical.
+- `clust.kproto` now treats logical features as categorical, so a
+  vector-valued `lambda` must include an entry for each logical feature.
 - `tgen("moons")` returns the classification task generator from mlr3
   again. mlr3cluster 0.6.0 had replaced it with a clustering version,
   which has been removed. Use `as_task_clust(tgen("moons")$generate(n))`
@@ -55,11 +54,16 @@
 - `clust.ap` can now predict with a similarity function `s` that has no
   `sel` argument, e.g. `function(x) -as.matrix(dist(x))^2`. Previously,
   training worked but predicting failed.
-- `clust.clara`, `clust.dbscan_fpc`, and `clust.pam` now check the
-  training hyperparameters, not the current ones, when predicting.
+- `clust.clara` (`metric`, `medoids.x`, and `stand`), `clust.dbscan_fpc`
+  (`scale` and `seeds`), and `clust.pam` (`stand`) now use the training
+  values for prediction checks. Changing these parameters after training
+  no longer bypasses the checks or incorrectly prevents prediction.
 - `clust.cmeans` now accepts zero `weights`, as long as at least one
   weight is positive, matching
   [`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html).
+- `clust.cmeans`, `clust.kkmeans`, `clust.kmeans`, `clust.kmeans_rcpp`,
+  `clust.kproto`, and `clust.MBatchKMeans` now match initial cluster
+  centers to the task features by column name instead of by position.
 - `clust.cobweb`, `clust.em`, `clust.ff`, `clust.kmodes`,
   `clust.kproto`, and `clust.SimpleKMeans` now treat logical features as
   categorical. Previously, they could be ignored or encoded differently
@@ -68,8 +72,7 @@
   `c(10, 20)` for `countmode`. Previously, only integer vectors were
   accepted.
 - `clust.featureless` now predicts with the `num_clusters` used for
-  training, which it stores as `k` in its model instead of the unused
-  training partition.
+  training.
 - `clust.meanshift` now predicts with the convergence parameters `thr`
   and `iter` used for training, which it stores in the model.
 - `clust.optics`, `clust.skmeans`, `clust.stdbscan`, and `clust.tclust`

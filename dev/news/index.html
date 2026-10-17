@@ -62,7 +62,7 @@
 <li>
 <code>clust.kkmeans</code> now only accepts <code>p</code> with <code>alg = "kerninghan"</code>, and <code>clust.kmeans_rcpp</code> and <code>clust.MBatchKMeans</code> now only accept <code>tol_optimal_init</code> with <code>initializer = "optimal_init"</code>, since the upstream functions ignore them otherwise.</li>
 <li>
-<code>clust.kproto</code> now requires a vector-valued <code>lambda</code> to include an entry for each logical feature, since logical features are now treated as categorical.</li>
+<code>clust.kproto</code> now treats logical features as categorical, so a vector-valued <code>lambda</code> must include an entry for each logical feature.</li>
 <li>
 <code>tgen("moons")</code> returns the classification task generator from mlr3 again. mlr3cluster 0.6.0 had replaced it with a clustering version, which has been removed. Use <code>as_task_clust(tgen("moons")$generate(n))</code> to create a clustering task (<a href="https://github.com/mlr-org/mlr3cluster/issues/128" class="external-link">#128</a>).</li>
 </ul></div>
@@ -87,15 +87,17 @@
 <li>
 <code>clust.ap</code> can now predict with a similarity function <code>s</code> that has no <code>sel</code> argument, e.g. <code>function(x) -as.matrix(dist(x))^2</code>. Previously, training worked but predicting failed.</li>
 <li>
-<code>clust.clara</code>, <code>clust.dbscan_fpc</code>, and <code>clust.pam</code> now check the training hyperparameters, not the current ones, when predicting.</li>
+<code>clust.clara</code> (<code>metric</code>, <code>medoids.x</code>, and <code>stand</code>), <code>clust.dbscan_fpc</code> (<code>scale</code> and <code>seeds</code>), and <code>clust.pam</code> (<code>stand</code>) now use the training values for prediction checks. Changing these parameters after training no longer bypasses the checks or incorrectly prevents prediction.</li>
 <li>
 <code>clust.cmeans</code> now accepts zero <code>weights</code>, as long as at least one weight is positive, matching <code><a href="https://rdrr.io/pkg/e1071/man/cmeans.html" class="external-link">e1071::cmeans()</a></code>.</li>
+<li>
+<code>clust.cmeans</code>, <code>clust.kkmeans</code>, <code>clust.kmeans</code>, <code>clust.kmeans_rcpp</code>, <code>clust.kproto</code>, and <code>clust.MBatchKMeans</code> now match initial cluster centers to the task features by column name instead of by position.</li>
 <li>
 <code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.kmodes</code>, <code>clust.kproto</code>, and <code>clust.SimpleKMeans</code> now treat logical features as categorical. Previously, they could be ignored or encoded differently in training and prediction.</li>
 <li>
 <code>clust.dbscan_fpc</code> now accepts whole-number doubles such as <code>c(10, 20)</code> for <code>countmode</code>. Previously, only integer vectors were accepted.</li>
 <li>
-<code>clust.featureless</code> now predicts with the <code>num_clusters</code> used for training, which it stores as <code>k</code> in its model instead of the unused training partition.</li>
+<code>clust.featureless</code> now predicts with the <code>num_clusters</code> used for training.</li>
 <li>
 <code>clust.meanshift</code> now predicts with the convergence parameters <code>thr</code> and <code>iter</code> used for training, which it stores in the model.</li>
 <li>
