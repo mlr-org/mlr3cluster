@@ -64,7 +64,6 @@ lrn("clust.diana")
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    metric \tab character \tab euclidean \tab euclidean, manhattan \tab - \cr
    stand \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
-   stop.at.k \tab untyped \tab FALSE \tab  \tab - \cr
    keep.diss \tab logical \tab - \tab TRUE, FALSE \tab - \cr
    keep.data \tab logical \tab TRUE \tab TRUE, FALSE \tab - \cr
    trace.lev \tab integer \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr

@@ -5,6 +5,7 @@
 * The clustering moons task generator introduced in 0.6.0 has been removed because it duplicated `tgen("moons")` in mlr3. To create a clustering task from a classification task generator, use `as_task_clust(tgen("moons")$generate(n))` (#128).
 * `clust.ap` now stores `$model` as a list. Use `$native_model` for the fitted `apcluster` object (#129).
 * `clust.dbscan`, `clust.dbscan_fpc`, `clust.hdbscan`, `clust.optics`, and `clust.stdbscan` now store `$model` as a list. Use `$native_model` for the fitted upstream object (#129).
+* `clust.diana` no longer exposes `stop.at.k`, which `cluster::diana()` ignores since only the default `FALSE` is implemented.
 * `clust.meanshift` now stores `$model` as a list. Use `$native_model` for the fitted `ms` object (#129).
 
 ## New features

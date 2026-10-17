@@ -44,11 +44,6 @@ LearnerClustDiana = R6Class(
       param_set = ps(
         metric = p_fct(c("euclidean", "manhattan"), default = "euclidean", tags = "train"),
         stand = p_lgl(default = FALSE, tags = "train"),
-        stop.at.k = p_uty(
-          default = FALSE,
-          tags = "train",
-          custom_check = crate(function(x) check_false(x) %check||% check_int(x, lower = 1L))
-        ),
         keep.diss = p_lgl(init = FALSE, tags = "train"),
         keep.data = p_lgl(default = TRUE, init = FALSE, tags = "train"),
         trace.lev = p_int(0L, default = 0L, tags = "train"),
