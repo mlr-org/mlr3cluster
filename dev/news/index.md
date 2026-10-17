@@ -16,6 +16,9 @@
   and `clust.stdbscan` now store `$model` as a list. Use `$native_model`
   for the fitted upstream object
   ([\#129](https://github.com/mlr-org/mlr3cluster/issues/129)).
+- `clust.diana` no longer exposes `stop.at.k`, which
+  [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html)
+  ignores since only the default `FALSE` is implemented.
 - `clust.meanshift` now stores `$model` as a list. Use `$native_model`
   for the fitted `ms` object
   ([\#129](https://github.com/mlr-org/mlr3cluster/issues/129)).
@@ -48,6 +51,9 @@
 - `clust.clara`, `clust.dbscan_fpc`, `clust.meanshift`, and `clust.pam`
   now check the training hyperparameters, not the current ones, when
   predicting.
+- `clust.cmeans` now accepts zero `weights`, as long as at least one
+  weight is positive, matching
+  [`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html).
 - `clust.cobweb`, `clust.em`, `clust.ff`, `clust.kmodes`,
   `clust.kproto`, and `clust.SimpleKMeans` now treat logical features as
   categorical. Previously, they could be ignored or encoded differently

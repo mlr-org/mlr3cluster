@@ -70,7 +70,6 @@ or with the associated sugar function
 | Id        | Type      | Default   | Levels               | Range            |
 | metric    | character | euclidean | euclidean, manhattan | \-               |
 | stand     | logical   | FALSE     | TRUE, FALSE          | \-               |
-| stop.at.k | untyped   | FALSE     |                      | \-               |
 | keep.diss | logical   | \-        | TRUE, FALSE          | \-               |
 | keep.data | logical   | TRUE      | TRUE, FALSE          | \-               |
 | trace.lev | integer   | 0         |                      | \\\[0, \infty)\\ |

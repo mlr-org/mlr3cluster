@@ -57,6 +57,8 @@
 <li>
 <code>clust.dbscan</code>, <code>clust.dbscan_fpc</code>, <code>clust.hdbscan</code>, <code>clust.optics</code>, and <code>clust.stdbscan</code> now store <code>$model</code> as a list. Use <code>$native_model</code> for the fitted upstream object (<a href="https://github.com/mlr-org/mlr3cluster/issues/129" class="external-link">#129</a>).</li>
 <li>
+<code>clust.diana</code> no longer exposes <code>stop.at.k</code>, which <code><a href="https://rdrr.io/pkg/cluster/man/diana.html" class="external-link">cluster::diana()</a></code> ignores since only the default <code>FALSE</code> is implemented.</li>
+<li>
 <code>clust.meanshift</code> now stores <code>$model</code> as a list. Use <code>$native_model</code> for the fitted <code>ms</code> object (<a href="https://github.com/mlr-org/mlr3cluster/issues/129" class="external-link">#129</a>).</li>
 </ul></div>
 <div class="section level3">
@@ -81,6 +83,8 @@
 <code>clust.ap</code> can now predict with a similarity function <code>s</code> that has no <code>sel</code> argument, e.g. <code>function(x) -as.matrix(dist(x))^2</code>. Previously, training worked but predicting failed.</li>
 <li>
 <code>clust.clara</code>, <code>clust.dbscan_fpc</code>, <code>clust.meanshift</code>, and <code>clust.pam</code> now check the training hyperparameters, not the current ones, when predicting.</li>
+<li>
+<code>clust.cmeans</code> now accepts zero <code>weights</code>, as long as at least one weight is positive, matching <code><a href="https://rdrr.io/pkg/e1071/man/cmeans.html" class="external-link">e1071::cmeans()</a></code>.</li>
 <li>
 <code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.kmodes</code>, <code>clust.kproto</code>, and <code>clust.SimpleKMeans</code> now treat logical features as categorical. Previously, they could be ignored or encoded differently in training and prediction. A vector-valued <code>lambda</code> in <code>clust.kproto</code> now needs an entry for each logical feature.</li>
 <li>
