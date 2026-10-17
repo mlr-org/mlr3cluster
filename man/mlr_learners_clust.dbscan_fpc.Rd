@@ -117,8 +117,8 @@ Other Learner:
 \section{Active bindings}{
   \if{html}{\out{<div class="r6-active-bindings">}}
   \describe{
-    \item{\code{native_model}}{(any)\cr
-The fitted model.}
+    \item{\code{native_model}}{(\code{dbscan})\cr
+The fitted model returned by \code{\link[fpc:dbscan]{fpc::dbscan()}}.}
   }
   \if{html}{\out{</div>}}
 }

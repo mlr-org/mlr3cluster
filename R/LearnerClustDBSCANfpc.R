@@ -55,8 +55,8 @@ LearnerClustDBSCANfpc = R6Class(
   ),
 
   active = list(
-    #' @field native_model (any)\cr
-    #' The fitted model.
+    #' @field native_model (`dbscan`)\cr
+    #' The fitted model returned by [fpc::dbscan()].
     native_model = function(rhs) {
       assert_ro_binding(rhs)
       self$model$model

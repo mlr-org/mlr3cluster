@@ -74,8 +74,8 @@ LearnerClustKKMeans = R6Class(
   ),
 
   active = list(
-    #' @field native_model (any)\cr
-    #' The fitted model.
+    #' @field native_model (`specc`)\cr
+    #' The fitted model returned by [kernlab::kkmeans()].
     native_model = function(rhs) {
       assert_ro_binding(rhs)
       self$model$model

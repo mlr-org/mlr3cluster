@@ -70,8 +70,8 @@ LearnerClustAP = R6Class(
   ),
 
   active = list(
-    #' @field native_model (any)\cr
-    #' The fitted model.
+    #' @field native_model (`APResult`)\cr
+    #' The fitted model returned by [apcluster::apcluster()].
     native_model = function(rhs) {
       assert_ro_binding(rhs)
       self$model$model

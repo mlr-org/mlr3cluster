@@ -52,8 +52,8 @@ LearnerClustOPTICS = R6Class(
   ),
 
   active = list(
-    #' @field native_model (any)\cr
-    #' The fitted model.
+    #' @field native_model (`optics`)\cr
+    #' The fitted model returned by [dbscan::optics()], with the clustering extracted by [dbscan::extractDBSCAN()].
     native_model = function(rhs) {
       assert_ro_binding(rhs)
       self$model$model

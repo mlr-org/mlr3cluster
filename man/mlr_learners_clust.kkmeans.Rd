@@ -156,8 +156,8 @@ Other Learner:
 \section{Active bindings}{
   \if{html}{\out{<div class="r6-active-bindings">}}
   \describe{
-    \item{\code{native_model}}{(any)\cr
-The fitted model.}
+    \item{\code{native_model}}{(\code{specc})\cr
+The fitted model returned by \code{\link[kernlab:kkmeans]{kernlab::kkmeans()}}.}
   }
   \if{html}{\out{</div>}}
 }
