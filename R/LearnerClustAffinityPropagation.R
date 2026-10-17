@@ -15,6 +15,8 @@
 #'
 #' The similarity `s` can be a function, e.g. `apcluster::negDistMat(r = 2)`, or the name of a function such as
 #' `"negDistMat"`.
+#' For a function without a `sel` argument, predicting computes the full similarity matrix of the exemplars and the
+#' new data.
 #'
 #' @section Initial parameter values:
 #' - `includeSim`:
@@ -103,10 +105,12 @@ LearnerClustAP = R6Class(
       exemplar_data = self$model$exemplar_data
 
       data = as_numeric_matrix(ordered_features(task, self))
-      sim_mat = sim_fun(
-        rbind(exemplar_data, data),
-        sel = seq_row(data) + nrow(exemplar_data)
-      )[seq_row(exemplar_data), , drop = FALSE]
+      ex = seq_row(exemplar_data)
+      sim_mat = if ("sel" %chin% formalArgs(sim_fun)) {
+        sim_fun(rbind(exemplar_data, data), sel = seq_row(data) + nrow(exemplar_data))[ex, , drop = FALSE]
+      } else {
+        sim_fun(rbind(exemplar_data, data))[ex, -ex, drop = FALSE]
+      }
       partition = max.col(t(sim_mat), ties.method = "first")
       list(partition = partition)
     }

@@ -16,6 +16,8 @@ answer by the \code{apcluster} package maintainer.
 
 The similarity \code{s} can be a function, e.g. \code{apcluster::negDistMat(r = 2)}, or the name of a function such as
 \code{"negDistMat"}.
+For a function without a \code{sel} argument, predicting computes the full similarity matrix of the exemplars and the
+new data.
 }
 \section{Initial parameter values}{
 

@@ -49,3 +49,11 @@ test_that("similarity function can be given by name", {
   # the parameter only accepts a function or a single string
   expect_error(lrn("clust.ap", s = 1), "s")
 })
+
+test_that("similarity function without sel argument can predict", {
+  task = tsk("usarrests")
+  learner = lrn("clust.ap", s = function(x) -as.matrix(stats::dist(x))^2)
+  p = learner$train(task)$predict(task)
+  expect_prediction_clust(p, learner)
+  expect_equal(p$partition, learner$assignments)
+})

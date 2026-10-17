@@ -74,6 +74,7 @@ import(mlr3misc)
 import(paradox)
 importFrom(R6,R6Class)
 importFrom(graphics,plot)
+importFrom(methods,formalArgs)
 importFrom(stats,
   model.frame,
   predict,
