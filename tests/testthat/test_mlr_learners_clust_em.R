@@ -32,3 +32,10 @@ test_that("Learner properties are respected", {
     }
   }
 })
+
+test_that("logical features are encoded the same way in train and predict", {
+  task = as_task_clust(data.table(x = seq_len(20L) / 100, lgl = rep(c(TRUE, FALSE), 10L)))
+  learner = lrn("clust.em")$train(task)
+  rows = which(task$data()$lgl)
+  expect_identical(learner$predict(task, row_ids = rows)$partition, learner$assignments[rows])
+})

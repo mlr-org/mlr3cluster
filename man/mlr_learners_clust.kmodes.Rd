@@ -10,6 +10,7 @@ Calls \code{\link[klaR:kmodes]{klaR::kmodes()}} from package \CRANpkg{klaR}.
 
 All feature values are treated as categories.
 Numeric features are accepted, but \code{\link[klaR:kmodes]{klaR::kmodes()}} warns when they contain more than 30 distinct values.
+Logical features are converted to factors with levels \code{FALSE} and \code{TRUE}.
 
 The \code{modes} parameter is set to 2 by default since \code{\link[klaR:kmodes]{klaR::kmodes()}} does not have a default value for the number of
 clusters.

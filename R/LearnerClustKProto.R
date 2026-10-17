@@ -10,6 +10,9 @@
 #' The `k` parameter is set to 2 by default since [clustMixType::kproto()] doesn't have a default value for the number
 #' of clusters.
 #' The task must have at least 2 features.
+#' Logical features are converted to factors with levels `FALSE` and `TRUE`,
+#' so they enter the categorical part of the distance.
+#' Thus, a vector-valued `lambda` needs one entry per numeric, logical, and factor feature.
 #'
 #' @section Initial parameter values:
 #' - `keep.data`:
@@ -97,7 +100,10 @@ LearnerClustKProto = R6Class(
         error_input("Task must have at least 2 features, but has %i.", task$n_features)
       }
       pv = self$param_set$get_values(tags = "train")
-      m = invoke(clustMixType::kproto, x = task$data(), .args = pv)
+      if (test_data_frame(pv$k)) {
+        pv$k = logical_to_factor(pv$k)
+      }
+      m = invoke(clustMixType::kproto, x = logical_to_factor(task$data()), .args = pv)
       if (self$save_assignments) {
         self$assignments = unname(m$cluster)
       }
@@ -105,7 +111,8 @@ LearnerClustKProto = R6Class(
     },
 
     .predict = function(task) {
-      partition = invoke(predict, self$model, newdata = ordered_features(task, self))$cluster
+      newdata = logical_to_factor(ordered_features(task, self))
+      partition = invoke(predict, self$model, newdata = newdata)$cluster
       list(partition = partition)
     }
   )

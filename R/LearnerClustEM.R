@@ -8,6 +8,7 @@
 #' Calls the EM Weka clusterer from package \CRANpkg{RWeka}.
 #'
 #' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the cluster memberships for new data.
+#' Logical features are converted to factors with levels `FALSE` and `TRUE`, which Weka handles as nominal attributes.
 #' The learner supports both partitional and fuzzy clustering.
 #'
 #' @templateVar id clust.em
@@ -84,7 +85,7 @@ LearnerClustEM = R6Class(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       ctrl = weka_control(pv)
-      m = invoke(RWeka::make_Weka_clusterer("weka/clusterers/EM"), x = task$data(), control = ctrl)
+      m = invoke(RWeka::make_Weka_clusterer("weka/clusterers/EM"), x = logical_to_factor(task$data()), control = ctrl)
       if (self$save_assignments) {
         self$assignments = unname(m$class_ids + 1L)
       }
@@ -92,7 +93,7 @@ LearnerClustEM = R6Class(
     },
 
     .predict = function(task) {
-      data = ordered_features(task, self)
+      data = logical_to_factor(ordered_features(task, self))
       partition = invoke(predict, self$model, newdata = data, type = "class_ids") + 1L
       prob = NULL
       if (self$predict_type == "prob") {

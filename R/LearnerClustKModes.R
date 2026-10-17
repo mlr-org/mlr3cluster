@@ -9,6 +9,7 @@
 #'
 #' All feature values are treated as categories.
 #' Numeric features are accepted, but [klaR::kmodes()] warns when they contain more than 30 distinct values.
+#' Logical features are converted to factors with levels `FALSE` and `TRUE`.
 #'
 #' The `modes` parameter is set to 2 by default since [klaR::kmodes()] does not have a default value for the number of
 #' clusters.
@@ -80,12 +81,12 @@ LearnerClustKModes = R6Class(
       pv = self$param_set$get_values(tags = "train")
       assert_centers_param(pv$modes, task, "modes")
 
-      data = task$data()
+      data = logical_to_factor(task$data())
       if (test_data_frame(pv$modes)) {
         if (!test_names(names(pv$modes), permutation.of = names(data))) {
           error_input("`modes` column names must match the task features.")
         }
-        pv$modes = as.data.frame(pv$modes)[names(data)]
+        pv$modes = logical_to_factor(as.data.frame(pv$modes)[names(data)])
       }
 
       m = invoke(klaR::kmodes, data = data, .args = pv)
@@ -100,7 +101,7 @@ LearnerClustKModes = R6Class(
         partition = as.integer(self$model$cluster)
       } else {
         pv = self$param_set$get_values(tags = "predict")
-        newdata = ordered_features(task, self)
+        newdata = logical_to_factor(ordered_features(task, self))
         modes = self$model$modes
         distances = matrix(0, nrow = nrow(newdata), ncol = nrow(modes))
 

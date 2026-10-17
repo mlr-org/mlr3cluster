@@ -8,6 +8,7 @@
 #' Calls [RWeka::FarthestFirst()] from package \CRANpkg{RWeka}.
 #'
 #' The predict method uses [RWeka::predict.Weka_clusterer()] to compute the cluster memberships for new data.
+#' Logical features are converted to factors with levels `FALSE` and `TRUE`, which Weka handles as nominal attributes.
 #'
 #' @templateVar id clust.ff
 #' @template learner
@@ -73,7 +74,7 @@ LearnerClustFarthestFirst = R6Class(
     .train = function(task) {
       pv = self$param_set$get_values(tags = "train")
       ctrl = weka_control(pv)
-      m = invoke(RWeka::FarthestFirst, x = task$data(), control = ctrl)
+      m = invoke(RWeka::FarthestFirst, x = logical_to_factor(task$data()), control = ctrl)
       if (self$save_assignments) {
         self$assignments = unname(m$class_ids + 1L)
       }
@@ -81,7 +82,8 @@ LearnerClustFarthestFirst = R6Class(
     },
 
     .predict = function(task) {
-      partition = invoke(predict, self$model, newdata = ordered_features(task, self), type = "class_ids") + 1L
+      newdata = logical_to_factor(ordered_features(task, self))
+      partition = invoke(predict, self$model, newdata = newdata, type = "class_ids") + 1L
       list(partition = partition)
     }
   )

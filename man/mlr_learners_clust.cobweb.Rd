@@ -9,6 +9,7 @@ Cobweb clustering.
 Calls \code{\link[RWeka:Cobweb]{RWeka::Cobweb()}} from package \CRANpkg{RWeka}.
 
 The predict method uses \code{\link[RWeka:predict.Weka_clusterer]{RWeka::predict.Weka_clusterer()}} to compute the cluster memberships for new data.
+Logical features are converted to factors with levels \code{FALSE} and \code{TRUE}, which Weka handles as nominal attributes.
 }
 \section{Dictionary}{
 

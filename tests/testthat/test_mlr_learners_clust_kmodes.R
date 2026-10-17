@@ -134,6 +134,14 @@ test_that("prediction handles unseen numeric categories", {
   expect_identical(learner$predict_newdata(data.frame(x = 3L, y = 1L))$partition, 1L)
 })
 
+test_that("logical features are categories alongside numeric features", {
+  data = data.frame(i = rep(1:2, each = 10L), lgl = rep(c(TRUE, FALSE), each = 10L))
+  learner = lrn("clust.kmodes", modes = data[c(1L, 11L), ])$train(as_task_clust(data))
+
+  expect_equal(learner$model$withindiff, c(0, 0))
+  expect_identical(learner$predict_newdata(data[1:10, ])$partition, rep(1L, 10L))
+})
+
 test_that("invalid modes error informatively", {
   task = as_task_clust(data.frame(x = factor(c("a", "b")), y = factor(c("a", "b"))))
 

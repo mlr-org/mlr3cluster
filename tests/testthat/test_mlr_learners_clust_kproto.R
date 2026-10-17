@@ -42,3 +42,13 @@ test_that("train and predict on mixed-type data", {
   expect_prediction_clust(p, learner)
   expect_integer(p$partition, len = 8L)
 })
+
+test_that("logical features enter the categorical part of the distance", {
+  data = data.frame(lgl = rep(c(TRUE, FALSE), each = 10L), x = rep(c(0, 0.1), 10L))
+  learner = lrn("clust.kproto", k = data[c(1L, 11L), ])
+  learner$train(as_task_clust(data))
+
+  expect_identical(learner$predict_newdata(data)$partition, rep(1:2, each = 10L))
+  expect_identical(learner$predict_newdata(data[1:10, ])$partition, rep(1L, 10L))
+  expect_true(is.logical(learner$param_set$values$k$lgl))
+})

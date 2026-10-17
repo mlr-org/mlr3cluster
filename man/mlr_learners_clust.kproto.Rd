@@ -11,6 +11,9 @@ Calls \code{\link[clustMixType:kproto]{clustMixType::kproto()}} from package \CR
 The \code{k} parameter is set to 2 by default since \code{\link[clustMixType:kproto]{clustMixType::kproto()}} doesn't have a default value for the number
 of clusters.
 The task must have at least 2 features.
+Logical features are converted to factors with levels \code{FALSE} and \code{TRUE},
+so they enter the categorical part of the distance.
+Thus, a vector-valued \code{lambda} needs one entry per numeric, logical, and factor feature.
 }
 \section{Initial parameter values}{
 

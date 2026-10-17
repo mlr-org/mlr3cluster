@@ -15,6 +15,10 @@ as_numeric_matrix = function(x) {
   x
 }
 
+logical_to_factor = function(data) {
+  map_if(data, is.logical, function(x) factor(x, levels = c(FALSE, TRUE)))
+}
+
 allow_partial_matching = list(
   warnPartialMatchArgs = FALSE,
   warnPartialMatchAttr = FALSE,
