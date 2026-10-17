@@ -31,7 +31,7 @@ MeasureClustSimple = R6Class(
       if (length(prediction$row_ids) == 0L) {
         return(NaN)
       }
-      if (private$.requires_k2 && length(unique(prediction$partition)) < 2L) {
+      if (private$.requires_k2 && uniqueN(prediction$partition) < 2L) {
         return(NaN)
       }
       switch(

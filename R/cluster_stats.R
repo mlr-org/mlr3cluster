@@ -15,7 +15,7 @@ cluster_sse_ratio = function(x, clustering) {
 
 cluster_ch = function(x, clustering) {
   n = nrow(x)
-  k = length(unique(clustering))
+  k = uniqueN(clustering)
   wss = cluster_wss(x, clustering)
   tss = sum(sweep(x, 2L, colMeans(x))^2)
   bss = tss - wss

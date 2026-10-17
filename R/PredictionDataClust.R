@@ -80,11 +80,11 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
     error_input("Cannot combine predictions: Different predict types.")
   }
 
-  if (length(unique(map_lgl(dots, function(x) is.null(x$weights)))) > 1L) {
+  if (uniqueN(map_lgl(dots, function(x) is.null(x$weights))) > 1L) {
     error_input("Cannot combine predictions: Some predictions have weights, others do not.")
   }
 
-  if (length(unique(map_lgl(dots, function(x) is.null(x$extra)))) > 1L) {
+  if (uniqueN(map_lgl(dots, function(x) is.null(x$extra))) > 1L) {
     error_input("Cannot combine predictions: Some predictions have extra data, others do not.")
   }
 
@@ -94,7 +94,7 @@ c.PredictionDataClust = function(..., keep_duplicates = TRUE) {
   probs = map(dots, "prob")
   # empty predictions carry a 0-column prob placeholder (k is unknown), so only matrices with columns constrain k
   known = discard(probs, function(p) is.null(p) || ncol(p) == 0L)
-  if (length(unique(map_int(known, ncol))) > 1L) {
+  if (uniqueN(map_int(known, ncol)) > 1L) {
     error_input("Cannot combine predictions: Different number of clusters.")
   }
   prob = if (length(known) > 0L) do.call(rbind, known) else probs[[1L]]
