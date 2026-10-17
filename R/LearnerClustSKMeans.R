@@ -31,7 +31,7 @@ LearnerClustSKMeans = R6Class(
     initialize = function() {
       param_set = ps(
         k = p_int(2L, init = 2L, tags = c("train", "required")),
-        method = p_fct(c("genetic", "pclust", "CLUTO", "gmeans", "kmndirs", "LIH", "LIHC"), tags = "train"),
+        method = p_fct(c("genetic", "pclust", "CLUTO", "gmeans", "LIH", "LIHC"), tags = "train"),
         m = p_dbl(1, default = 1, tags = "train"),
         weights = p_uty(default = 1, tags = "train"),
         start = p_uty(default = "p", tags = c("train", "control")),

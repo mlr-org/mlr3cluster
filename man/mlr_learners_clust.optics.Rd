@@ -31,11 +31,11 @@ lrn("clust.optics")
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    eps \tab numeric \tab Inf \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
-   minPts \tab integer \tab 5 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
+   minPts \tab integer \tab 5 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    search \tab character \tab kdtree \tab kdtree, linear, dist \tab - \cr
    bucketSize \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    splitRule \tab character \tab SUGGEST \tab STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST \tab - \cr
-   approx \tab numeric \tab 0 \tab  \tab \eqn{(-\infty, \infty)}{(-Inf, Inf)} \cr
+   approx \tab numeric \tab 0 \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
    eps_cl \tab numeric \tab - \tab  \tab \eqn{[0, \infty)}{[0, Inf)} \cr
 }
 }

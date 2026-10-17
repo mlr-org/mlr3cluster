@@ -37,7 +37,7 @@ lrn("clust.skmeans")
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
    k \tab integer \tab - \tab  \tab \eqn{[2, \infty)}{[2, Inf)} \cr
-   method \tab character \tab - \tab genetic, pclust, CLUTO, gmeans, kmndirs, LIH, LIHC \tab - \cr
+   method \tab character \tab - \tab genetic, pclust, CLUTO, gmeans, LIH, LIHC \tab - \cr
    m \tab numeric \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    weights \tab untyped \tab 1 \tab  \tab - \cr
    start \tab untyped \tab "p" \tab  \tab - \cr

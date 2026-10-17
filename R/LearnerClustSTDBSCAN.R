@@ -44,7 +44,7 @@ LearnerClustSTDBSCAN = R6Class(
           tags = "train",
           depends = quote(search == "kdtree")
         ),
-        approx = p_dbl(default = 0, tags = "train")
+        approx = p_dbl(0, default = 0, tags = "train")
       )
 
       super$initialize(

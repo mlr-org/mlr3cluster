@@ -25,6 +25,7 @@
 * `clust.featureless` now predicts with the `num_clusters` used for training, which it stores as `k` in its model instead of the unused training partition.
 * `clust.flexmix` now uses the upstream default `nrep = 3`. Set `nrep = 1` to restore the previous behavior.
 * `clust.kkmeans` now only accepts `p` with `alg = "kerninghan"`, and `clust.kmeans_rcpp` and `clust.MBatchKMeans` now only accept `tol_optimal_init` with `initializer = "optimal_init"`, since the upstream functions ignore them otherwise.
+* `clust.optics`, `clust.skmeans`, `clust.stdbscan`, and `clust.tclust` now reject hyperparameter values that always fail upstream: `minPts = 0` for `clust.optics`, negative `approx` for `clust.optics` and `clust.stdbscan`, `method = "kmndirs"` for `clust.skmeans`, and `trace` values above 1 for `clust.tclust`.
 * `clust.protoclust` now predicts with the distance parameters `method`, `diag`, `upper`, and `p` used for training, which it stores in the model.
 * `clust.xmeans` now always uses `C = 0.5`. Previously, Weka reset `C` to 0 whenever any other parameter was set.
 

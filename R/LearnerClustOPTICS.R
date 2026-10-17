@@ -25,7 +25,7 @@ LearnerClustOPTICS = R6Class(
     initialize = function() {
       param_set = ps(
         eps = p_dbl(0, default = Inf, special_vals = list(NULL), tags = "train"),
-        minPts = p_int(0L, default = 5L, tags = "train"),
+        minPts = p_int(1L, default = 5L, tags = "train"),
         search = p_fct(c("kdtree", "linear", "dist"), default = "kdtree", tags = "train"),
         bucketSize = p_int(1L, default = 10L, tags = "train", depends = quote(search == "kdtree")),
         splitRule = p_fct(
@@ -34,7 +34,7 @@ LearnerClustOPTICS = R6Class(
           tags = "train",
           depends = quote(search == "kdtree")
         ),
-        approx = p_dbl(default = 0, tags = "train"),
+        approx = p_dbl(0, default = 0, tags = "train"),
         eps_cl = p_dbl(0, tags = c("train", "required"))
       )
 
