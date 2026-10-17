@@ -68,12 +68,8 @@ row_any_na = function(x) {
 task_dist = function(task, rows) {
   data = task$data(rows = rows)
   if (any(task$feature_types$type %chin% c("character", "factor", "ordered"))) {
-    chr_cols = task$feature_types[get("type") == "character", "id", with = FALSE][[1L]]
-    if (length(chr_cols) > 0L) {
-      # daisy() rejects bare character columns
-      data[, (chr_cols) := map(.SD, factor), .SDcols = chr_cols]
-    }
-    cluster::daisy(data, metric = "gower")
+    # daisy() rejects bare character columns
+    cluster::daisy(map_if(data, is.character, factor), metric = "gower")
   } else {
     stats::dist(data)
   }
