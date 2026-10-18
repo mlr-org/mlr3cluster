@@ -2,6 +2,10 @@
 
 ## mlr3cluster (development version)
 
+## mlr3cluster 0.7.0
+
+CRAN release: 2026-10-17
+
 ### Breaking changes
 
 - `clust.ap`, `clust.dbscan`, `clust.dbscan_fpc`, `clust.hdbscan`,

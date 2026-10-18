@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.6.0.9000</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,8 +49,11 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="mlr3cluster-development-version">mlr3cluster (development version)<a class="anchor" aria-label="anchor" href="#mlr3cluster-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.7.0" id="mlr3cluster-070">mlr3cluster 0.7.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-070"></a></h2><p class="text-muted">CRAN release: 2026-10-17</p>
 <div class="section level3">
-<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<h3 id="breaking-changes-0-7-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-7-0"></a></h3>
 <ul><li>
 <code>clust.ap</code>, <code>clust.dbscan</code>, <code>clust.dbscan_fpc</code>, <code>clust.hdbscan</code>, <code>clust.meanshift</code>, <code>clust.optics</code>, and <code>clust.stdbscan</code> now store <code>$model</code> as a list. Use <code>$native_model</code> for the fitted upstream object (<a href="https://github.com/mlr-org/mlr3cluster/issues/129" class="external-link">#129</a>).</li>
 <li>
@@ -67,12 +70,12 @@
 <code>tgen("moons")</code> returns the classification task generator from mlr3 again. mlr3cluster 0.6.0 had replaced it with a clustering version, which has been removed. Use <code>as_task_clust(tgen("moons")$generate(n))</code> to create a clustering task (<a href="https://github.com/mlr-org/mlr3cluster/issues/128" class="external-link">#128</a>).</li>
 </ul></div>
 <div class="section level3">
-<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<h3 id="new-features-0-7-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-7-0"></a></h3>
 <ul><li>
 <code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> now converts a <code>TaskClassif</code> or <code>TaskRegr</code> to a <code>TaskClust</code> by dropping the target from the features. This creates cluster tasks from any task generator in mlr3, e.g. <code>as_task_clust(tgen("spirals")$generate(n))</code>.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
+<h3 id="other-improvements-0-7-0">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-0-7-0"></a></h3>
 <ul><li>
 <code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, and <code>clust.SimpleKMeans</code> now support factor and ordered features, which Weka handles as nominal attributes.</li>
 <li>
@@ -85,7 +88,7 @@
 <code>LearnerClust$save_assignments</code> now checks that it is set to a single <code>TRUE</code> or <code>FALSE</code>.</li>
 </ul></div>
 <div class="section level3">
-<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<h3 id="bug-fixes-0-7-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-7-0"></a></h3>
 <ul><li>
 <code>clust.ap</code> now predicts with the similarity function <code>s</code> used for training, which it stores in the model.</li>
 <li>
