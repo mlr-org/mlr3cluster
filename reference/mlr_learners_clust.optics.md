@@ -2,8 +2,8 @@
 
 OPTICS (ordering points to identify the clustering structure)
 clustering. Calls
-[`dbscan::optics()`](https://rdrr.io/pkg/dbscan/man/optics.html) from
-package [dbscan](https://CRAN.R-project.org/package=dbscan).
+[`dbscan::optics()`](http://michael.hahsler.net/dbscan/reference/optics.md)
+from package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
 
@@ -35,11 +35,11 @@ or with the associated sugar function
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
 | eps | numeric | Inf |  | \\\[0, \infty)\\ |
-| minPts | integer | 5 |  | \\\[0, \infty)\\ |
+| minPts | integer | 5 |  | \\\[1, \infty)\\ |
 | search | character | kdtree | kdtree, linear, dist | \- |
 | bucketSize | integer | 10 |  | \\\[1, \infty)\\ |
 | splitRule | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \- |
-| approx | numeric | 0 |  | \\(-\infty, \infty)\\ |
+| approx | numeric | 0 |  | \\\[0, \infty)\\ |
 | eps_cl | numeric | \- |  | \\\[0, \infty)\\ |
 
 ## References
@@ -133,6 +133,16 @@ Other Learner:
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustOPTICS`
+
+## Active bindings
+
+- `native_model`:
+
+  (`optics`)  
+  The fitted model returned by
+  [`dbscan::optics()`](http://michael.hahsler.net/dbscan/reference/optics.md),
+  with the clustering extracted by
+  [`dbscan::extractDBSCAN()`](http://michael.hahsler.net/dbscan/reference/optics.md).
 
 ## Methods
 

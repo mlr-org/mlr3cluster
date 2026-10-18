@@ -21,7 +21,7 @@ There is no predict method for kernlab::specc(), so the method returns cluster l
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,6 +71,7 @@ of clusters.</p>
 
 <ul><li><p><code>sigma</code>, <code>degree</code>, <code>scale</code>, <code>offset</code>, <code>order</code>:</p><ul><li><p>In <code><a href="https://rdrr.io/pkg/kernlab/man/specc.html" class="external-link">kernlab::specc()</a></code>, these kernel parameters are passed inside the <code>kpar</code> list. Here they are exposed
 directly and assembled into <code>kpar</code> internally.</p></li>
+<li><p>If <code>kernel</code> is <code>"rbfdot"</code> and <code>sigma</code> is not set, <code>sigma</code> is estimated from the data (<code>kpar = "automatic"</code>).</p></li>
 </ul></li>
 </ul></div>
     <div class="section level2">
@@ -231,7 +232,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print the model</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">native_model</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Spectral Clustering object of class "specc" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Cluster memberships: </span>

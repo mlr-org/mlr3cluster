@@ -14,7 +14,8 @@ answer by the `apcluster` package maintainer.
 
 The similarity `s` can be a function, e.g.
 `apcluster::negDistMat(r = 2)`, or the name of a function such as
-`"negDistMat"`.
+`"negDistMat"`. For a function without a `sel` argument, predicting
+computes the full similarity matrix of the exemplars and the new data.
 
 ## Initial parameter values
 
@@ -157,6 +158,14 @@ Other Learner:
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustAP`
+
+## Active bindings
+
+- `native_model`:
+
+  (`APResult`)  
+  The fitted model returned by
+  [`apcluster::apcluster()`](https://rdrr.io/pkg/apcluster/man/apcluster-methods.html).
 
 ## Methods
 

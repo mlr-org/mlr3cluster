@@ -237,7 +237,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> Call:     cluster::agnes(x = task$data(), keep.diss = FALSE, keep.data = FALSE) 
 #> Agglomerative coefficient:  0.9073773 
 #> Order of objects:

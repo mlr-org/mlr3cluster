@@ -230,7 +230,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> Call:     cluster::clara(x = task$data(), k = 2L, keep.data = FALSE) 
 #> Medoids:
 #>      Assault Murder Rape UrbanPop

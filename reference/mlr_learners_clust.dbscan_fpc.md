@@ -31,16 +31,16 @@ or with the associated sugar function
 
 ## Parameters
 
-|           |           |         |                   |                  |
-|-----------|-----------|---------|-------------------|------------------|
-| Id        | Type      | Default | Levels            | Range            |
-| eps       | numeric   | \-      |                   | \\\[0, \infty)\\ |
-| MinPts    | integer   | 5       |                   | \\\[0, \infty)\\ |
-| scale     | logical   | FALSE   | TRUE, FALSE       | \-               |
-| method    | character | hybrid  | hybrid, raw, dist | \-               |
-| seeds     | logical   | TRUE    | TRUE, FALSE       | \-               |
-| showplot  | untyped   | FALSE   |                   | \-               |
-| countmode | untyped   | NULL    |                   | \-               |
+|           |           |         |             |                  |
+|-----------|-----------|---------|-------------|------------------|
+| Id        | Type      | Default | Levels      | Range            |
+| eps       | numeric   | \-      |             | \\\[0, \infty)\\ |
+| MinPts    | integer   | 5       |             | \\\[0, \infty)\\ |
+| scale     | logical   | FALSE   | TRUE, FALSE | \-               |
+| method    | character | hybrid  | hybrid, raw | \-               |
+| seeds     | logical   | TRUE    | TRUE, FALSE | \-               |
+| showplot  | untyped   | FALSE   |             | \-               |
+| countmode | untyped   | NULL    |             | \-               |
 
 ## References
 
@@ -129,6 +129,14 @@ Other Learner:
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustDBSCANfpc`
+
+## Active bindings
+
+- `native_model`:
+
+  (`dbscan`)  
+  The fitted model returned by
+  [`fpc::dbscan()`](https://rdrr.io/pkg/fpc/man/dbscan.html).
 
 ## Methods
 

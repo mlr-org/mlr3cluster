@@ -2,8 +2,8 @@
 
 DBSCAN (density-based spatial clustering of applications with noise)
 clustering. Calls
-[`dbscan::dbscan()`](https://rdrr.io/pkg/dbscan/man/dbscan.html) from
-package [dbscan](https://CRAN.R-project.org/package=dbscan).
+[`dbscan::dbscan()`](http://michael.hahsler.net/dbscan/reference/dbscan.md)
+from package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
 
@@ -134,6 +134,14 @@ Other Learner:
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustDBSCAN`
+
+## Active bindings
+
+- `native_model`:
+
+  (`dbscan_fast`)  
+  The fitted model returned by
+  [`dbscan::dbscan()`](http://michael.hahsler.net/dbscan/reference/dbscan.md).
 
 ## Methods
 

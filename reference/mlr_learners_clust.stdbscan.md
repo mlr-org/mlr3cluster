@@ -47,7 +47,7 @@ or with the associated sugar function
 | search | character | kdtree | kdtree, linear, dist | \- |
 | bucketSize | integer | 10 |  | \\\[1, \infty)\\ |
 | splitRule | character | SUGGEST | STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST | \- |
-| approx | numeric | 0 |  | \\(-\infty, \infty)\\ |
+| approx | numeric | 0 |  | \\\[0, \infty)\\ |
 
 ## References
 
@@ -138,6 +138,14 @@ Other Learner:
 [`mlr3::Learner`](https://mlr3.mlr-org.com/reference/Learner.html) -\>
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustSTDBSCAN`
+
+## Active bindings
+
+- `native_model`:
+
+  (`stdbscan`)  
+  The fitted model returned by
+  [`stdbscan::st_dbscan()`](https://miboraminima.github.io/stdbscan/reference/st_dbscan.html).
 
 ## Methods
 

@@ -7,7 +7,8 @@ package [klaR](https://CRAN.R-project.org/package=klaR).
 All feature values are treated as categories. Numeric features are
 accepted, but
 [`klaR::kmodes()`](https://rdrr.io/pkg/klaR/man/kmodes.html) warns when
-they contain more than 30 distinct values.
+they contain more than 30 distinct values. Logical features are
+converted to factors with levels `FALSE` and `TRUE`.
 
 The `modes` parameter is set to 2 by default since
 [`klaR::kmodes()`](https://rdrr.io/pkg/klaR/man/kmodes.html) does not

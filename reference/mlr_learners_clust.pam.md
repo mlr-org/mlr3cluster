@@ -239,7 +239,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> Medoids:
 #>      ID Assault Murder Rape UrbanPop
 #> [1,] 22     255   12.1 35.1       74

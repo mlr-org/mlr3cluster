@@ -15,7 +15,7 @@ Calls dbscan::optics() from package dbscan."><meta property="og:image" content="
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,7 @@ Calls dbscan::optics() from package dbscan."><meta property="og:image" content="
 
     <div class="ref-description section level2">
     <p>OPTICS (ordering points to identify the clustering structure) clustering.
-Calls <code><a href="https://rdrr.io/pkg/dbscan/man/optics.html" class="external-link">dbscan::optics()</a></code> from package <a href="https://CRAN.R-project.org/package=dbscan" class="external-link"><span class="pkg">dbscan</span></a>.</p>
+Calls <code><a href="http://michael.hahsler.net/dbscan/reference/optics.html" class="external-link">dbscan::optics()</a></code> from package <a href="https://CRAN.R-project.org/package=dbscan" class="external-link"><span class="pkg">dbscan</span></a>.</p>
     </div>
 
 
@@ -76,7 +76,7 @@ Calls <code><a href="https://rdrr.io/pkg/dbscan/man/optics.html" class="external
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>eps</td><td>numeric</td><td>Inf</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>minPts</td><td>integer</td><td>5</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>search</td><td>character</td><td>kdtree</td><td>kdtree, linear, dist</td><td>-</td></tr><tr><td>bucketSize</td><td>integer</td><td>10</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>splitRule</td><td>character</td><td>SUGGEST</td><td>STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST</td><td>-</td></tr><tr><td>approx</td><td>numeric</td><td>0</td><td></td><td>\((-\infty, \infty)\)</td></tr><tr><td>eps_cl</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>eps</td><td>numeric</td><td>Inf</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>minPts</td><td>integer</td><td>5</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>search</td><td>character</td><td>kdtree</td><td>kdtree, linear, dist</td><td>-</td></tr><tr><td>bucketSize</td><td>integer</td><td>10</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>splitRule</td><td>character</td><td>SUGGEST</td><td>STD, MIDPT, FAIR, SL_MIDPT, SL_FAIR, SUGGEST</td><td>-</td></tr><tr><td>approx</td><td>numeric</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>eps_cl</td><td>numeric</td><td>-</td><td></td><td>\([0, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Hahsler M, Piekenbrock M, Doran D (2019).
@@ -146,6 +146,15 @@ for established default tuning spaces.</p></li>
     <div class="section level2">
     <h2 id="super-classes">Super classes<a class="anchor" aria-label="anchor" href="#super-classes"></a></h2>
     <p><code><a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a></code> -&gt; <code><a href="LearnerClust.html">LearnerClust</a></code> -&gt; <code>LearnerClustOPTICS</code></p>
+    </div>
+    <div class="section level2">
+    <h2 id="active-bindings">Active bindings<a class="anchor" aria-label="anchor" href="#active-bindings"></a></h2>
+    <p></p><div class="r6-active-bindings"><dl><dt><code>native_model</code></dt>
+<dd><p>(<code>optics</code>)<br>
+The fitted model returned by <code><a href="http://michael.hahsler.net/dbscan/reference/optics.html" class="external-link">dbscan::optics()</a></code>, with the clustering extracted by <code><a href="http://michael.hahsler.net/dbscan/reference/optics.html" class="external-link">dbscan::extractDBSCAN()</a></code>.</p></dd>
+
+
+</dl><p></p></div>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>

@@ -20,6 +20,9 @@ method returns cluster labels for the training data.
     these kernel parameters are passed inside the `kpar` list. Here they
     are exposed directly and assembled into `kpar` internally.
 
+  - If `kernel` is `"rbfdot"` and `sigma` is not set, `sigma` is
+    estimated from the data (`kpar = "automatic"`).
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -226,7 +229,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> Spectral Clustering object of class "specc" 
 #> 
 #>  Cluster memberships: 

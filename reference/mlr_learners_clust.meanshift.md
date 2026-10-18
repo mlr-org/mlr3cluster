@@ -144,6 +144,14 @@ Other Learner:
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustMeanShift`
 
+## Active bindings
+
+- `native_model`:
+
+  (`ms`)  
+  The fitted model returned by
+  [`LPCM::ms()`](https://rdrr.io/pkg/LPCM/man/ms.html).
+
 ## Methods
 
 ### Public methods
@@ -217,11 +225,11 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> 
-#> Type plot( $ learner model ) to see a graphical display of the fitted object. 
+#> Type plot( $ learner native_model ) to see a graphical display of the fitted object. 
 #> 
-#> Type names( $ learner model ) to see an overview of items available. 
+#> Type names( $ learner native_model ) to see an overview of items available. 
 #> 
 #> The data have been scaled by dividing through 
 #> 292 16.6 38.7 59

@@ -13,7 +13,9 @@ The code is taken from
 StackOverflow
 answer by the apcluster package maintainer.
 The similarity s can be a function, e.g. apcluster::negDistMat(r = 2), or the name of a function such as
-&quot;negDistMat&quot;."><meta property="og:description" content="Affinity Propagation clustering.
+&quot;negDistMat&quot;.
+For a function without a sel argument, predicting computes the full similarity matrix of the exemplars and the
+new data."><meta property="og:description" content="Affinity Propagation clustering.
 Calls apcluster::apcluster() from package apcluster.
 Note that apcluster::apcluster() doesn't have a default for the similarity function. The predict method computes
 the closest cluster exemplar to find the cluster memberships for new data.
@@ -21,7 +23,9 @@ The code is taken from
 StackOverflow
 answer by the apcluster package maintainer.
 The similarity s can be a function, e.g. apcluster::negDistMat(r = 2), or the name of a function such as
-&quot;negDistMat&quot;."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"></head><body>
+&quot;negDistMat&quot;.
+For a function without a sel argument, predicting computes the full similarity matrix of the exemplars and the
+new data."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -29,7 +33,7 @@ The similarity s can be a function, e.g. apcluster::negDistMat(r = 2), or the na
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,7 +77,9 @@ The code is taken from
 <a href="https://stackoverflow.com/questions/34932692/using-the-apcluster-package-in-r-it-is-possible-to-score-unclustered-data-poi" class="external-link">StackOverflow</a>
 answer by the <code>apcluster</code> package maintainer.</p>
 <p>The similarity <code>s</code> can be a function, e.g. <code>apcluster::negDistMat(r = 2)</code>, or the name of a function such as
-<code>"negDistMat"</code>.</p>
+<code>"negDistMat"</code>.
+For a function without a <code>sel</code> argument, predicting computes the full similarity matrix of the exemplars and the
+new data.</p>
     </div>
 
 
@@ -174,6 +180,15 @@ for established default tuning spaces.</p></li>
     <div class="section level2">
     <h2 id="super-classes">Super classes<a class="anchor" aria-label="anchor" href="#super-classes"></a></h2>
     <p><code><a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a></code> -&gt; <code><a href="LearnerClust.html">LearnerClust</a></code> -&gt; <code>LearnerClustAP</code></p>
+    </div>
+    <div class="section level2">
+    <h2 id="active-bindings">Active bindings<a class="anchor" aria-label="anchor" href="#active-bindings"></a></h2>
+    <p></p><div class="r6-active-bindings"><dl><dt><code>native_model</code></dt>
+<dd><p>(<code>APResult</code>)<br>
+The fitted model returned by <code><a href="https://rdrr.io/pkg/apcluster/man/apcluster-methods.html" class="external-link">apcluster::apcluster()</a></code>.</p></dd>
+
+
+</dl><p></p></div>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>

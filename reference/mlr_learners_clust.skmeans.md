@@ -7,7 +7,7 @@ from package [skmeans](https://CRAN.R-project.org/package=skmeans).
 The `k` parameter is set to 2 by default since
 [`skmeans::skmeans()`](https://rdrr.io/pkg/skmeans/man/skmeans.html)
 doesn't have a default value for the number of clusters. Observations
-are partitioned by maximising cosine similarity to cluster prototypes.
+are partitioned by maximizing cosine similarity to cluster prototypes.
 Predictions on new data assign each observation to the prototype with
 the highest cosine similarity. Rows with zero norm are not allowed by
 [`skmeans::skmeans()`](https://rdrr.io/pkg/skmeans/man/skmeans.html).
@@ -42,7 +42,7 @@ or with the associated sugar function
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
 | k | integer | \- |  | \\\[2, \infty)\\ |
-| method | character | \- | genetic, pclust, CLUTO, gmeans, kmndirs, LIH, LIHC | \- |
+| method | character | \- | genetic, pclust, CLUTO, gmeans, LIH, LIHC | \- |
 | m | numeric | 1 |  | \\\[1, \infty)\\ |
 | weights | untyped | 1 |  | \- |
 | start | untyped | "p" |  | \- |
@@ -222,7 +222,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> A hard spherical k-means partition of 50 objects into 2 classes.
 #> Class sizes: 17, 33
 #> Call: skmeans::skmeans(x = as.matrix(task$data()), k = 2L, control = structure(list(), names = character(0)))

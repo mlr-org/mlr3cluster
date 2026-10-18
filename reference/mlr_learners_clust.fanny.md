@@ -230,7 +230,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> Fuzzy Clustering object of class 'fanny' :                      
 #> m.ship.expon.        2
 #> objective     1022.444

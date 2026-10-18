@@ -190,10 +190,9 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
-#> $clustering
-#>  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#> [39] 1 1 1 1 1 1 1 1 1 1 1 1
+print(learner$native_model)
+#> $k
+#> [1] 1
 #> 
 #> $features
 #> [1] "Assault"  "Murder"   "Rape"     "UrbanPop"

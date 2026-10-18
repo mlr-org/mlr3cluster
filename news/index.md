@@ -1,6 +1,108 @@
 # Changelog
 
+## mlr3cluster 0.7.0
+
+CRAN release: 2026-10-17
+
+### Breaking changes
+
+- `clust.ap`, `clust.dbscan`, `clust.dbscan_fpc`, `clust.hdbscan`,
+  `clust.meanshift`, `clust.optics`, and `clust.stdbscan` now store
+  `$model` as a list. Use `$native_model` for the fitted upstream object
+  ([\#129](https://github.com/mlr-org/mlr3cluster/issues/129)).
+- `clust.dbscan_fpc` no longer offers `method = "dist"`, which treated
+  the features as a distance matrix and either failed or returned wrong
+  clusters.
+- `clust.diana` no longer exposes `stop.at.k`, which
+  [`cluster::diana()`](https://rdrr.io/pkg/cluster/man/diana.html)
+  ignores since only the default `FALSE` is implemented.
+- `clust.flexmix` now uses the upstream default `nrep = 3`, which runs
+  the EM algorithm three times and keeps the best fit. Set `nrep = 1` to
+  restore the previous behavior.
+- `clust.kkmeans` now only accepts `p` with `alg = "kerninghan"`, and
+  `clust.kmeans_rcpp` and `clust.MBatchKMeans` now only accept
+  `tol_optimal_init` with `initializer = "optimal_init"`, since the
+  upstream functions ignore them otherwise.
+- `clust.kproto` now treats logical features as categorical, so a
+  vector-valued `lambda` must include an entry for each logical feature.
+- `tgen("moons")` returns the classification task generator from mlr3
+  again. mlr3cluster 0.6.0 had replaced it with a clustering version,
+  which has been removed. Use `as_task_clust(tgen("moons")$generate(n))`
+  to create a clustering task
+  ([\#128](https://github.com/mlr-org/mlr3cluster/issues/128)).
+
+### New features
+
+- [`as_task_clust()`](https://mlr3cluster.mlr-org.com/reference/as_task_clust.md)
+  now converts a `TaskClassif` or `TaskRegr` to a `TaskClust` by
+  dropping the target from the features. This creates cluster tasks from
+  any task generator in mlr3,
+  e.g. `as_task_clust(tgen("spirals")$generate(n))`.
+
+### Other improvements
+
+- `clust.cobweb`, `clust.em`, `clust.ff`, and `clust.SimpleKMeans` now
+  support factor and ordered features, which Weka handles as nominal
+  attributes.
+- `clust.flexmix` no longer requires `k`, so unsetting it infers the
+  number of components from `cluster`.
+- `clust.kmeans_rcpp` and `clust.MBatchKMeans` now check that
+  `CENTROIDS` is a matrix when it is set, instead of failing in
+  `ClusterR` during training.
+- `clust.tclust` now supports the Gaussian parsimonious clustering
+  models via `restr = "GPCM"` and the new `pars` parameter.
+- `LearnerClust$save_assignments` now checks that it is set to a single
+  `TRUE` or `FALSE`.
+
+### Bug fixes
+
+- `clust.ap` now predicts with the similarity function `s` used for
+  training, which it stores in the model.
+- `clust.ap` can now predict with a similarity function `s` that has no
+  `sel` argument, e.g. `function(x) -as.matrix(dist(x))^2`. Previously,
+  training worked but predicting failed.
+- `clust.clara` (`metric`, `medoids.x`, and `stand`), `clust.dbscan_fpc`
+  (`scale` and `seeds`), and `clust.pam` (`stand`) now use the training
+  values for prediction checks. Changing these parameters after training
+  no longer bypasses the checks or incorrectly prevents prediction.
+- `clust.cmeans` now accepts zero `weights`, as long as at least one
+  weight is positive, matching
+  [`e1071::cmeans()`](https://rdrr.io/pkg/e1071/man/cmeans.html).
+- `clust.cmeans`, `clust.kkmeans`, `clust.kmeans`, `clust.kmeans_rcpp`,
+  `clust.kproto`, and `clust.MBatchKMeans` now match initial cluster
+  centers to the task features by column name instead of by position.
+- `clust.cobweb`, `clust.em`, `clust.ff`, `clust.kmodes`,
+  `clust.kproto`, and `clust.SimpleKMeans` now treat logical features as
+  categorical. Previously, they could be ignored or encoded differently
+  in training and prediction.
+- `clust.dbscan_fpc` now accepts whole-number doubles such as
+  `c(10, 20)` for `countmode`. Previously, only integer vectors were
+  accepted.
+- `clust.featureless` now predicts with the `num_clusters` used for
+  training.
+- `clust.meanshift` now predicts with the convergence parameters `thr`
+  and `iter` used for training, which it stores in the model.
+- `clust.optics`, `clust.skmeans`, `clust.stdbscan`, and `clust.tclust`
+  now reject hyperparameter values that always fail upstream:
+  `minPts = 0` for `clust.optics`, negative `approx` for `clust.optics`
+  and `clust.stdbscan`, `method = "kmndirs"` for `clust.skmeans`, and
+  `trace` values above 1 for `clust.tclust`.
+- `clust.protoclust` now predicts with the distance parameters `method`,
+  `diag`, `upper`, and `p` used for training, which it stores in the
+  model.
+- `clust.silhouette` now returns `NaN` instead of an error when every
+  observation is in its own cluster, e.g. for small test sets in
+  resampling.
+- `clust.specc` now uses the selected `kernel` when no kernel parameters
+  are set. Previously, it always used an RBF kernel with an estimated
+  `sigma` in this case.
+- `clust.xmeans` now initializes `C` to 0.5 so that it is always passed
+  to Weka. Previously, Weka reset `C` to 0 whenever any other parameter
+  was set.
+
 ## mlr3cluster 0.6.0
+
+CRAN release: 2026-09-17
 
 ### New task generators
 
@@ -178,7 +280,7 @@ CRAN release: 2026-08-21
   `p` to be greater than 0, matching
   [`stats::dist()`](https://rdrr.io/r/stats/dist.html).
 - `clust.hdbscan` now requires `minPts >= 2`, matching
-  [`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html).
+  [`dbscan::hdbscan()`](http://michael.hahsler.net/dbscan/reference/hdbscan.md).
   Smaller values now fail when set rather than during training.
 - `clust.kcca` now validates `initcent` as a single string and documents
   its default as `"randomcent"`. Invalid values now fail when set rather

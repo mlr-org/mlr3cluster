@@ -16,6 +16,17 @@ the Weka package manager:
     RWeka::WPM("refresh-cache")
     RWeka::WPM("install-package", "XMeans")
 
+## Initial parameter values
+
+- `C`:
+
+  - Actual default: `0.5` if no option is set, `0` otherwise.
+
+  - Adjusted default: `0.5`.
+
+  - Reason for change: Always pass `C` so the cutoff factor does not
+    depend on other parameters.
+
 ## Dictionary
 
 This [mlr3::Learner](https://mlr3.mlr-org.com/reference/Learner.html)
@@ -46,7 +57,7 @@ or with the associated sugar function
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
 | B | numeric | 1 |  | \\\[0, \infty)\\ |
-| C | numeric | 0.5 |  | \\\[0, \infty)\\ |
+| C | numeric | \- |  | \\\[0, \infty)\\ |
 | D | untyped | "weka.core.EuclideanDistance" |  | \- |
 | H | integer | 4 |  | \\\[1, \infty)\\ |
 | I | integer | 1 |  | \\\[1, \infty)\\ |
@@ -213,7 +224,7 @@ print(learner)
 #> 
 #> ── <LearnerClustXMeans> (clust.xmeans): X-Means ────────────────────────────────
 #> • Model: -
-#> • Parameters: list()
+#> • Parameters: C=0.5
 #> • Packages: mlr3, mlr3cluster, and RWeka
 #> • Predict Types: [partition]
 #> • Feature Types: logical, integer, and numeric

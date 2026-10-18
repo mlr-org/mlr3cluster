@@ -19,7 +19,7 @@ number of groups (see parameter k)."><meta property="og:image" content="https://
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +103,7 @@ passed to <code><a href="https://rdrr.io/r/stats/cutree.html" class="external-li
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>metric</td><td>character</td><td>euclidean</td><td>euclidean, manhattan</td><td>-</td></tr><tr><td>stand</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>stop.at.k</td><td>untyped</td><td>FALSE</td><td></td><td>-</td></tr><tr><td>keep.diss</td><td>logical</td><td>-</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>keep.data</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>trace.lev</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>metric</td><td>character</td><td>euclidean</td><td>euclidean, manhattan</td><td>-</td></tr><tr><td>stand</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>keep.diss</td><td>logical</td><td>-</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>keep.data</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>trace.lev</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Kaufman, Leonard, Rousseeuw, J P (2009).
@@ -238,7 +238,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print the model</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">native_model</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Merge:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       [,1] [,2]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  -15  -29</span>

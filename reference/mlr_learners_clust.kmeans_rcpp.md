@@ -219,7 +219,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> KMeans Cluster
 #>  Call: ClusterR::KMeans_rcpp(data = task$data(), clusters = 2L) 
 #>  Data cols: 4 

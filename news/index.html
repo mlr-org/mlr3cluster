@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,76 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.0" id="mlr3cluster-060">mlr3cluster 0.6.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-060"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.7.0" id="mlr3cluster-070">mlr3cluster 0.7.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-070"></a></h2><p class="text-muted">CRAN release: 2026-10-17</p>
+<div class="section level3">
+<h3 id="breaking-changes-0-7-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-7-0"></a></h3>
+<ul><li>
+<code>clust.ap</code>, <code>clust.dbscan</code>, <code>clust.dbscan_fpc</code>, <code>clust.hdbscan</code>, <code>clust.meanshift</code>, <code>clust.optics</code>, and <code>clust.stdbscan</code> now store <code>$model</code> as a list. Use <code>$native_model</code> for the fitted upstream object (<a href="https://github.com/mlr-org/mlr3cluster/issues/129" class="external-link">#129</a>).</li>
+<li>
+<code>clust.dbscan_fpc</code> no longer offers <code>method = "dist"</code>, which treated the features as a distance matrix and either failed or returned wrong clusters.</li>
+<li>
+<code>clust.diana</code> no longer exposes <code>stop.at.k</code>, which <code><a href="https://rdrr.io/pkg/cluster/man/diana.html" class="external-link">cluster::diana()</a></code> ignores since only the default <code>FALSE</code> is implemented.</li>
+<li>
+<code>clust.flexmix</code> now uses the upstream default <code>nrep = 3</code>, which runs the EM algorithm three times and keeps the best fit. Set <code>nrep = 1</code> to restore the previous behavior.</li>
+<li>
+<code>clust.kkmeans</code> now only accepts <code>p</code> with <code>alg = "kerninghan"</code>, and <code>clust.kmeans_rcpp</code> and <code>clust.MBatchKMeans</code> now only accept <code>tol_optimal_init</code> with <code>initializer = "optimal_init"</code>, since the upstream functions ignore them otherwise.</li>
+<li>
+<code>clust.kproto</code> now treats logical features as categorical, so a vector-valued <code>lambda</code> must include an entry for each logical feature.</li>
+<li>
+<code>tgen("moons")</code> returns the classification task generator from mlr3 again. mlr3cluster 0.6.0 had replaced it with a clustering version, which has been removed. Use <code>as_task_clust(tgen("moons")$generate(n))</code> to create a clustering task (<a href="https://github.com/mlr-org/mlr3cluster/issues/128" class="external-link">#128</a>).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="new-features-0-7-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-7-0"></a></h3>
+<ul><li>
+<code><a href="../reference/as_task_clust.html">as_task_clust()</a></code> now converts a <code>TaskClassif</code> or <code>TaskRegr</code> to a <code>TaskClust</code> by dropping the target from the features. This creates cluster tasks from any task generator in mlr3, e.g. <code>as_task_clust(tgen("spirals")$generate(n))</code>.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-improvements-0-7-0">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-0-7-0"></a></h3>
+<ul><li>
+<code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, and <code>clust.SimpleKMeans</code> now support factor and ordered features, which Weka handles as nominal attributes.</li>
+<li>
+<code>clust.flexmix</code> no longer requires <code>k</code>, so unsetting it infers the number of components from <code>cluster</code>.</li>
+<li>
+<code>clust.kmeans_rcpp</code> and <code>clust.MBatchKMeans</code> now check that <code>CENTROIDS</code> is a matrix when it is set, instead of failing in <code>ClusterR</code> during training.</li>
+<li>
+<code>clust.tclust</code> now supports the Gaussian parsimonious clustering models via <code>restr = "GPCM"</code> and the new <code>pars</code> parameter.</li>
+<li>
+<code>LearnerClust$save_assignments</code> now checks that it is set to a single <code>TRUE</code> or <code>FALSE</code>.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-0-7-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-7-0"></a></h3>
+<ul><li>
+<code>clust.ap</code> now predicts with the similarity function <code>s</code> used for training, which it stores in the model.</li>
+<li>
+<code>clust.ap</code> can now predict with a similarity function <code>s</code> that has no <code>sel</code> argument, e.g. <code>function(x) -as.matrix(dist(x))^2</code>. Previously, training worked but predicting failed.</li>
+<li>
+<code>clust.clara</code> (<code>metric</code>, <code>medoids.x</code>, and <code>stand</code>), <code>clust.dbscan_fpc</code> (<code>scale</code> and <code>seeds</code>), and <code>clust.pam</code> (<code>stand</code>) now use the training values for prediction checks. Changing these parameters after training no longer bypasses the checks or incorrectly prevents prediction.</li>
+<li>
+<code>clust.cmeans</code> now accepts zero <code>weights</code>, as long as at least one weight is positive, matching <code><a href="https://rdrr.io/pkg/e1071/man/cmeans.html" class="external-link">e1071::cmeans()</a></code>.</li>
+<li>
+<code>clust.cmeans</code>, <code>clust.kkmeans</code>, <code>clust.kmeans</code>, <code>clust.kmeans_rcpp</code>, <code>clust.kproto</code>, and <code>clust.MBatchKMeans</code> now match initial cluster centers to the task features by column name instead of by position.</li>
+<li>
+<code>clust.cobweb</code>, <code>clust.em</code>, <code>clust.ff</code>, <code>clust.kmodes</code>, <code>clust.kproto</code>, and <code>clust.SimpleKMeans</code> now treat logical features as categorical. Previously, they could be ignored or encoded differently in training and prediction.</li>
+<li>
+<code>clust.dbscan_fpc</code> now accepts whole-number doubles such as <code>c(10, 20)</code> for <code>countmode</code>. Previously, only integer vectors were accepted.</li>
+<li>
+<code>clust.featureless</code> now predicts with the <code>num_clusters</code> used for training.</li>
+<li>
+<code>clust.meanshift</code> now predicts with the convergence parameters <code>thr</code> and <code>iter</code> used for training, which it stores in the model.</li>
+<li>
+<code>clust.optics</code>, <code>clust.skmeans</code>, <code>clust.stdbscan</code>, and <code>clust.tclust</code> now reject hyperparameter values that always fail upstream: <code>minPts = 0</code> for <code>clust.optics</code>, negative <code>approx</code> for <code>clust.optics</code> and <code>clust.stdbscan</code>, <code>method = "kmndirs"</code> for <code>clust.skmeans</code>, and <code>trace</code> values above 1 for <code>clust.tclust</code>.</li>
+<li>
+<code>clust.protoclust</code> now predicts with the distance parameters <code>method</code>, <code>diag</code>, <code>upper</code>, and <code>p</code> used for training, which it stores in the model.</li>
+<li>
+<code>clust.silhouette</code> now returns <code>NaN</code> instead of an error when every observation is in its own cluster, e.g. for small test sets in resampling.</li>
+<li>
+<code>clust.specc</code> now uses the selected <code>kernel</code> when no kernel parameters are set. Previously, it always used an RBF kernel with an estimated <code>sigma</code> in this case.</li>
+<li>
+<code>clust.xmeans</code> now initializes <code>C</code> to 0.5 so that it is always passed to Weka. Previously, Weka reset <code>C</code> to 0 whenever any other parameter was set.</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.6.0" id="mlr3cluster-060">mlr3cluster 0.6.0<a class="anchor" aria-label="anchor" href="#mlr3cluster-060"></a></h2><p class="text-muted">CRAN release: 2026-09-17</p>
 <div class="section level3">
 <h3 id="new-task-generators-0-6-0">New task generators<a class="anchor" aria-label="anchor" href="#new-task-generators-0-6-0"></a></h3>
 <ul><li>
@@ -164,7 +233,7 @@
 <li>
 <code>clust.hclust</code> and <code>clust.protoclust</code> now require the Minkowski power <code>p</code> to be greater than 0, matching <code><a href="https://rdrr.io/r/stats/dist.html" class="external-link">stats::dist()</a></code>.</li>
 <li>
-<code>clust.hdbscan</code> now requires <code>minPts &gt;= 2</code>, matching <code><a href="https://rdrr.io/pkg/dbscan/man/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code>. Smaller values now fail when set rather than during training.</li>
+<code>clust.hdbscan</code> now requires <code>minPts &gt;= 2</code>, matching <code><a href="http://michael.hahsler.net/dbscan/reference/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code>. Smaller values now fail when set rather than during training.</li>
 <li>
 <code>clust.kcca</code> now validates <code>initcent</code> as a single string and documents its default as <code>"randomcent"</code>. Invalid values now fail when set rather than producing an obscure S4 validity error during training.</li>
 <li>

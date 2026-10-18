@@ -10,12 +10,14 @@ called instead and `nrep` must not be larger than 1.
 
 The `k` parameter is set to 2 by default since
 [`flexmix::stepFlexmix()`](https://rdrr.io/pkg/flexmix/man/stepFlexmix.html)
-doesn't have a default value for the number of components. The component
-model is selected through the `model` parameter, exposing the
-multivariate normal, univariate normal, multivariate binary, and
-multivariate Poisson drivers shipped with flexmix. The predict method
-calls `flexmix::clusters()` for cluster assignments and
-`flexmix::posterior()` for component probabilities on new data.
+doesn't have a default value for the number of components. Unset `k`,
+e.g. via `learner$param_set$set_values(k = NULL)`, to infer the number
+of components from `cluster` instead. The component model is selected
+through the `model` parameter, exposing the multivariate normal,
+univariate normal, multivariate binary, and multivariate Poisson drivers
+shipped with flexmix. The predict method calls `flexmix::clusters()` for
+cluster assignments and `flexmix::posterior()` for component
+probabilities on new data.
 
 Note that EM can prune components whose prior falls below `minprior`
 during fitting, so the final number of components may be smaller than
@@ -52,7 +54,7 @@ or with the associated sugar function
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
 | k | integer | \- |  | \\\[1, \infty)\\ |
-| model | character | FLXMCmvnorm | FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois | \- |
+| model | character | \- | FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois | \- |
 | diagonal | logical | TRUE | TRUE, FALSE | \- |
 | truncated | logical | FALSE | TRUE, FALSE | \- |
 | cluster | untyped | NULL |  | \- |
@@ -61,7 +63,7 @@ or with the associated sugar function
 | tolerance | numeric | 1e-06 |  | \\\[0, \infty)\\ |
 | verbose | integer | 0 |  | \\\[0, \infty)\\ |
 | classify | character | auto | auto, weighted, CEM, SEM, hard, random | \- |
-| nrep | integer | 1 |  | \\\[1, \infty)\\ |
+| nrep | integer | 3 |  | \\\[1, \infty)\\ |
 
 ## References
 
@@ -230,17 +232,17 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> 
 #> Call:
 #> flexmix::stepFlexmix(formula = formula, data = data, model = driver, 
-#>     control = control_args, k = 2, nrep = nrep, verbose = FALSE)
+#>     control = control_args, k = 2, verbose = FALSE)
 #> 
 #> Cluster sizes:
 #>  1  2 
-#> 28 22 
+#> 21 29 
 #> 
-#> convergence after 14 iterations
+#> convergence after 9 iterations
 
 # Make predictions for the task
 prediction = learner$predict(task)
@@ -248,5 +250,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1220028 
+#> 0.07812771 
 ```

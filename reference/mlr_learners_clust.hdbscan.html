@@ -19,7 +19,7 @@ size of clusters."><meta property="og:image" content="https://mlr3cluster.mlr-or
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,8 +56,8 @@ size of clusters."><meta property="og:image" content="https://mlr3cluster.mlr-or
 
     <div class="ref-description section level2">
     <p>HDBSCAN (hierarchical DBSCAN) clustering.
-Calls <code><a href="https://rdrr.io/pkg/dbscan/man/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code> from package <a href="https://CRAN.R-project.org/package=dbscan" class="external-link"><span class="pkg">dbscan</span></a>.</p>
-<p>The <code>minPts</code> parameter is set to 5 by default since <code><a href="https://rdrr.io/pkg/dbscan/man/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code> doesn't have a default value for the minimum
+Calls <code><a href="http://michael.hahsler.net/dbscan/reference/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code> from package <a href="https://CRAN.R-project.org/package=dbscan" class="external-link"><span class="pkg">dbscan</span></a>.</p>
+<p>The <code>minPts</code> parameter is set to 5 by default since <code><a href="http://michael.hahsler.net/dbscan/reference/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code> doesn't have a default value for the minimum
 size of clusters.</p>
     </div>
 
@@ -155,6 +155,15 @@ for established default tuning spaces.</p></li>
     <p><code><a href="https://mlr3.mlr-org.com/reference/Learner.html" class="external-link">mlr3::Learner</a></code> -&gt; <code><a href="LearnerClust.html">LearnerClust</a></code> -&gt; <code>LearnerClustHDBSCAN</code></p>
     </div>
     <div class="section level2">
+    <h2 id="active-bindings">Active bindings<a class="anchor" aria-label="anchor" href="#active-bindings"></a></h2>
+    <p></p><div class="r6-active-bindings"><dl><dt><code>native_model</code></dt>
+<dd><p>(<code>hdbscan</code>)<br>
+The fitted model returned by <code><a href="http://michael.hahsler.net/dbscan/reference/hdbscan.html" class="external-link">dbscan::hdbscan()</a></code>.</p></dd>
+
+
+</dl><p></p></div>
+    </div>
+    <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
 
 <div class="section">
@@ -223,7 +232,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print the model</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">native_model</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> HDBSCAN clustering for 50 objects.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Parameters: minPts = 5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> The clustering contains 3 cluster(s) and 13 noise points.</span>
@@ -232,7 +241,7 @@ for established default tuning spaces.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 13 17 11  9 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Available fields: cluster, minPts, coredist, cluster_scores,</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   membership_prob, outlier_scores, hc, data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   membership_prob, outlier_scores, hc</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>

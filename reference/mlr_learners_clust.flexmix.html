@@ -11,6 +11,8 @@ best fit. When cluster provides fixed initial assignments, flexmix::flexmix() is
 must not be larger than 1.
 The k parameter is set to 2 by default since flexmix::stepFlexmix() doesn't have a default value for the number
 of components.
+Unset k, e.g. via learner$param_set$set_values(k = NULL),
+to infer the number of components from cluster instead.
 The component model is selected through the model parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 The predict method calls flexmix::clusters() for cluster assignments and flexmix::posterior() for component
@@ -22,6 +24,8 @@ best fit. When cluster provides fixed initial assignments, flexmix::flexmix() is
 must not be larger than 1.
 The k parameter is set to 2 by default since flexmix::stepFlexmix() doesn't have a default value for the number
 of components.
+Unset k, e.g. via learner$param_set$set_values(k = NULL),
+to infer the number of components from cluster instead.
 The component model is selected through the model parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 The predict method calls flexmix::clusters() for cluster assignments and flexmix::posterior() for component
@@ -35,7 +39,7 @@ components may be smaller than k."><meta property="og:image" content="https://ml
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,6 +81,8 @@ best fit. When <code>cluster</code> provides fixed initial assignments, <code><a
 must not be larger than 1.</p>
 <p>The <code>k</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/flexmix/man/stepFlexmix.html" class="external-link">flexmix::stepFlexmix()</a></code> doesn't have a default value for the number
 of components.
+Unset <code>k</code>, e.g. via <code>learner$param_set$set_values(k = NULL)</code>,
+to infer the number of components from <code>cluster</code> instead.
 The component model is selected through the <code>model</code> parameter, exposing the multivariate normal, univariate normal,
 multivariate binary, and multivariate Poisson drivers shipped with flexmix.
 The predict method calls <code>flexmix::clusters()</code> for cluster assignments and <code>flexmix::posterior()</code> for component
@@ -106,7 +112,7 @@ components may be smaller than <code>k</code>.</p>
     <div class="section level2">
     <h2 id="parameters">Parameters<a class="anchor" aria-label="anchor" href="#parameters"></a></h2>
 
-<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>model</td><td>character</td><td>FLXMCmvnorm</td><td>FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois</td><td>-</td></tr><tr><td>diagonal</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>truncated</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>cluster</td><td>untyped</td><td>NULL</td><td></td><td>-</td></tr><tr><td>iter.max</td><td>integer</td><td>200</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>minprior</td><td>numeric</td><td>0.05</td><td></td><td>\([0, 1]\)</td></tr><tr><td>tolerance</td><td>numeric</td><td>1e-06</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>verbose</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>classify</td><td>character</td><td>auto</td><td>auto, weighted, CEM, SEM, hard, random</td><td>-</td></tr><tr><td>nrep</td><td>integer</td><td>1</td><td></td><td>\([1, \infty)\)</td></tr></table></div>
+<table class="table table"><tr><td>Id</td><td>Type</td><td>Default</td><td>Levels</td><td>Range</td></tr><tr><td>k</td><td>integer</td><td>-</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>model</td><td>character</td><td>-</td><td>FLXMCmvnorm, FLXMCnorm1, FLXMCmvbinary, FLXMCmvpois</td><td>-</td></tr><tr><td>diagonal</td><td>logical</td><td>TRUE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>truncated</td><td>logical</td><td>FALSE</td><td>TRUE, FALSE</td><td>-</td></tr><tr><td>cluster</td><td>untyped</td><td>NULL</td><td></td><td>-</td></tr><tr><td>iter.max</td><td>integer</td><td>200</td><td></td><td>\([1, \infty)\)</td></tr><tr><td>minprior</td><td>numeric</td><td>0.05</td><td></td><td>\([0, 1]\)</td></tr><tr><td>tolerance</td><td>numeric</td><td>1e-06</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>verbose</td><td>integer</td><td>0</td><td></td><td>\([0, \infty)\)</td></tr><tr><td>classify</td><td>character</td><td>auto</td><td>auto, weighted, CEM, SEM, hard, random</td><td>-</td></tr><tr><td>nrep</td><td>integer</td><td>3</td><td></td><td>\([1, \infty)\)</td></tr></table></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Leisch, Friedrich (2004).
@@ -248,17 +254,17 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print the model</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">native_model</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> flexmix::stepFlexmix(formula = formula, data = data, model = driver, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     control = control_args, k = 2, nrep = nrep, verbose = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     control = control_args, k = 2, verbose = FALSE)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Cluster sizes:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1  2 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 22 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 29 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> convergence after 14 iterations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> convergence after 9 iterations</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make predictions for the task</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span> <span class="op">=</span> <span class="va">learner</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
@@ -266,7 +272,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="co"># Score the predictions</span></span></span>
 <span class="r-in"><span><span class="va">prediction</span><span class="op">$</span><span class="fu">score</span><span class="op">(</span>task <span class="op">=</span> <span class="va">task</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> clust.dunn </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  0.1220028 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0.07812771 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

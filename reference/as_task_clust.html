@@ -10,12 +10,16 @@ This is a S3 generic, specialized for at least the following objects:
 TaskClust: returns the object as-is, possibly cloned.
 formula, data.frame(), matrix(), and mlr3::DataBackend: provides an alternative to the
 constructor of TaskClust.
+mlr3::TaskSupervised (e.g., mlr3::TaskClassif or mlr3::TaskRegr): converts the task to a TaskClust
+by dropping the target, analogous to mlr3::convert_task().
 
 "><meta property="og:description" content="Convert object to a TaskClust or a list of TaskClust.
 This is a S3 generic, specialized for at least the following objects:
 TaskClust: returns the object as-is, possibly cloned.
 formula, data.frame(), matrix(), and mlr3::DataBackend: provides an alternative to the
 constructor of TaskClust.
+mlr3::TaskSupervised (e.g., mlr3::TaskClassif or mlr3::TaskRegr): converts the task to a TaskClust
+by dropping the target, analogous to mlr3::convert_task().
 
 "><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -25,7 +29,7 @@ constructor of TaskClust.
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,6 +69,8 @@ constructor of TaskClust.
 This is a S3 generic, specialized for at least the following objects:</p><ol><li><p><a href="TaskClust.html">TaskClust</a>: returns the object as-is, possibly cloned.</p></li>
 <li><p><code><a href="https://rdrr.io/r/stats/formula.html" class="external-link">formula</a></code>, <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code>, <code><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix()</a></code>, and <a href="https://mlr3.mlr-org.com/reference/DataBackend.html" class="external-link">mlr3::DataBackend</a>: provides an alternative to the
 constructor of <a href="TaskClust.html">TaskClust</a>.</p></li>
+<li><p><a href="https://mlr3.mlr-org.com/reference/TaskSupervised.html" class="external-link">mlr3::TaskSupervised</a> (e.g., <a href="https://mlr3.mlr-org.com/reference/TaskClassif.html" class="external-link">mlr3::TaskClassif</a> or <a href="https://mlr3.mlr-org.com/reference/TaskRegr.html" class="external-link">mlr3::TaskRegr</a>): converts the task to a <a href="TaskClust.html">TaskClust</a>
+by dropping the target, analogous to <code><a href="https://mlr3.mlr-org.com/reference/convert_task.html" class="external-link">mlr3::convert_task()</a></code>.</p></li>
 </ol></div>
 
     <div class="section level2">
@@ -73,6 +79,9 @@ constructor of <a href="TaskClust.html">TaskClust</a>.</p></li>
 <span></span>
 <span><span class="co"># S3 method for class 'TaskClust'</span></span>
 <span><span class="fu">as_task_clust</span><span class="op">(</span><span class="va">x</span>, clone <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'TaskSupervised'</span></span>
+<span><span class="fu">as_task_clust</span><span class="op">(</span><span class="va">x</span>, drop_levels <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'data.frame'</span></span>
 <span><span class="fu">as_task_clust</span><span class="op">(</span><span class="va">x</span>, id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/deparse.html" class="external-link">deparse1</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substitute.html" class="external-link">substitute</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>, label <span class="op">=</span> <span class="cn">NA_character_</span>, <span class="va">...</span><span class="op">)</span></span>
@@ -120,6 +129,11 @@ Additional arguments.</p></dd>
 If <code>TRUE</code>, ensures that the returned object is not the same as the input <code>x</code>.</p></dd>
 
 
+<dt id="arg-drop-levels">drop_levels<a class="anchor" aria-label="anchor" href="#arg-drop-levels"></a></dt>
+<dd><p>(<code>logical(1)</code>)<br>
+If <code>TRUE</code>, drops unused levels of factor columns, as in <code><a href="https://mlr3.mlr-org.com/reference/convert_task.html" class="external-link">mlr3::convert_task()</a></code>.</p></dd>
+
+
 <dt id="arg-id">id<a class="anchor" aria-label="anchor" href="#arg-id"></a></dt>
 <dd><p>(<code>character(1)</code>)<br>
 Id for the new task.
@@ -151,6 +165,24 @@ Data frame containing all columns specified in formula <code>x</code>.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> • Features (4):</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   • int (2): Assault, UrbanPop</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   • dbl (2): Murder, Rape</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># convert a classification task to a cluster task</span></span></span>
+<span class="r-in"><span><span class="fu">as_task_clust</span><span class="op">(</span><span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">tsk</a></span><span class="op">(</span><span class="st">"iris"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;TaskClust&gt;</span><span style="font-weight: bold;"> (150x4): Iris Flowers</span> <span style="color: #00BBBB;">───────────────────────────────────────────</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Target:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Properties: -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Features (4):</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   • dbl (4): Petal.Length, Petal.Width, Sepal.Length, Sepal.Width</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># convert a generated classification task to a cluster task</span></span></span>
+<span class="r-in"><span><span class="fu">as_task_clust</span><span class="op">(</span><span class="fu"><a href="https://mlr3.mlr-org.com/reference/mlr_sugar.html" class="external-link">tgen</a></span><span class="op">(</span><span class="st">"moons"</span><span class="op">)</span><span class="op">$</span><span class="fu">generate</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="color: #0000BB; font-weight: bold;">&lt;TaskClust&gt;</span><span style="font-weight: bold;"> (100x2)</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Target:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Properties: -</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> • Features (2):</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   • dbl (2): x1, x2</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

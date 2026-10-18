@@ -1,11 +1,11 @@
 # HDBSCAN Clustering Learner
 
 HDBSCAN (hierarchical DBSCAN) clustering. Calls
-[`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html) from
-package [dbscan](https://CRAN.R-project.org/package=dbscan).
+[`dbscan::hdbscan()`](http://michael.hahsler.net/dbscan/reference/hdbscan.md)
+from package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 The `minPts` parameter is set to 5 by default since
-[`dbscan::hdbscan()`](https://rdrr.io/pkg/dbscan/man/hdbscan.html)
+[`dbscan::hdbscan()`](http://michael.hahsler.net/dbscan/reference/hdbscan.md)
 doesn't have a default value for the minimum size of clusters.
 
 ## Dictionary
@@ -135,6 +135,14 @@ Other Learner:
 [`LearnerClust`](https://mlr3cluster.mlr-org.com/reference/LearnerClust.md)
 -\> `LearnerClustHDBSCAN`
 
+## Active bindings
+
+- `native_model`:
+
+  (`hdbscan`)  
+  The fitted model returned by
+  [`dbscan::hdbscan()`](http://michael.hahsler.net/dbscan/reference/hdbscan.md).
+
 ## Methods
 
 ### Public methods
@@ -208,7 +216,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> HDBSCAN clustering for 50 objects.
 #> Parameters: minPts = 5
 #> The clustering contains 3 cluster(s) and 13 noise points.
@@ -217,7 +225,7 @@ print(learner$model)
 #> 13 17 11  9 
 #> 
 #> Available fields: cluster, minPts, coredist, cluster_scores,
-#>                   membership_prob, outlier_scores, hc, data
+#>                   membership_prob, outlier_scores, hc
 
 # Make predictions for the task
 prediction = learner$predict(task)

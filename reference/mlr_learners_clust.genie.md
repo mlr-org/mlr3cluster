@@ -226,7 +226,7 @@ task = tsk("usarrests")
 learner$train(task)
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> 
 #> Call:
 #> gclust.mst(d = tree, gini_threshold = gini_threshold, verbose = verbose)

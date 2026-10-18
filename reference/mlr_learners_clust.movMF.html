@@ -9,14 +9,14 @@
 points on the unit hypersphere.
 Calls movMF::movMF() from package movMF.
 The k parameter is set to 2 by default since movMF::movMF() has no default value for the number of mixture
-components. Rows of x are standardised to unit length internally by movMF::movMF(). Predictions use the
+components. Rows of x are standardized to unit length internally by movMF::movMF(). Predictions use the
 predict() method from movMF; prob returns the soft memberships.
 Setting ids initializes the EM algorithm from fixed component memberships and stops it after a single iteration,
 in which case movMF::movMF() ignores start and nruns."><meta property="og:description" content="Fits a mixture of von Mises-Fisher distributions via EM, the directional-data analogue of a Gaussian mixture for
 points on the unit hypersphere.
 Calls movMF::movMF() from package movMF.
 The k parameter is set to 2 by default since movMF::movMF() has no default value for the number of mixture
-components. Rows of x are standardised to unit length internally by movMF::movMF(). Predictions use the
+components. Rows of x are standardized to unit length internally by movMF::movMF(). Predictions use the
 predict() method from movMF; prob returns the soft memberships.
 Setting ids initializes the EM algorithm from fixed component memberships and stops it after a single iteration,
 in which case movMF::movMF() ignores start and nruns."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"></head><body>
@@ -27,7 +27,7 @@ in which case movMF::movMF() ignores start and nruns."><meta property="og:image"
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,7 @@ in which case movMF::movMF() ignores start and nruns."><meta property="og:image"
 points on the unit hypersphere.
 Calls <code><a href="https://rdrr.io/pkg/movMF/man/movMF.html" class="external-link">movMF::movMF()</a></code> from package <a href="https://CRAN.R-project.org/package=movMF" class="external-link"><span class="pkg">movMF</span></a>.</p>
 <p>The <code>k</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/movMF/man/movMF.html" class="external-link">movMF::movMF()</a></code> has no default value for the number of mixture
-components. Rows of <code>x</code> are standardised to unit length internally by <code><a href="https://rdrr.io/pkg/movMF/man/movMF.html" class="external-link">movMF::movMF()</a></code>. Predictions use the
+components. Rows of <code>x</code> are standardized to unit length internally by <code><a href="https://rdrr.io/pkg/movMF/man/movMF.html" class="external-link">movMF::movMF()</a></code>. Predictions use the
 <code><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict()</a></code> method from <span class="pkg">movMF</span>; <code>prob</code> returns the soft memberships.</p>
 <p>Setting <code>ids</code> initializes the EM algorithm from fixed component memberships and stops it after a single iteration,
 in which case <code><a href="https://rdrr.io/pkg/movMF/man/movMF.html" class="external-link">movMF::movMF()</a></code> ignores <code>start</code> and <code>nruns</code>.</p>
@@ -234,7 +234,7 @@ for established default tuning spaces.</p></li>
 <span class="r-in"><span><span class="va">learner</span><span class="op">$</span><span class="fu">train</span><span class="op">(</span><span class="va">task</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print the model</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">model</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">learner</span><span class="op">$</span><span class="va">native_model</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> theta:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     Assault   Murder     Rape  UrbanPop</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  92.85875  4.18401 14.70389  62.06858</span>

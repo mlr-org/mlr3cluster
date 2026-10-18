@@ -9,11 +9,17 @@
 Calls clustMixType::kproto() from package clustMixType.
 The k parameter is set to 2 by default since clustMixType::kproto() doesn't have a default value for the number
 of clusters.
-The task must have at least 2 features."><meta property="og:description" content="K-prototypes clustering for mixed-type data.
+The task must have at least 2 features.
+Logical features are converted to factors with levels FALSE and TRUE,
+so they enter the categorical part of the distance.
+Thus, a vector-valued lambda needs one entry per numeric, logical, and factor feature."><meta property="og:description" content="K-prototypes clustering for mixed-type data.
 Calls clustMixType::kproto() from package clustMixType.
 The k parameter is set to 2 by default since clustMixType::kproto() doesn't have a default value for the number
 of clusters.
-The task must have at least 2 features."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"></head><body>
+The task must have at least 2 features.
+Logical features are converted to factors with levels FALSE and TRUE,
+so they enter the categorical part of the distance.
+Thus, a vector-valued lambda needs one entry per numeric, logical, and factor feature."><meta property="og:image" content="https://mlr3cluster.mlr-org.com/logo.svg"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -21,7 +27,7 @@ The task must have at least 2 features."><meta property="og:image" content="http
 
     <a class="navbar-brand me-2" href="../index.html">mlr3cluster</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +67,10 @@ The task must have at least 2 features."><meta property="og:image" content="http
 Calls <code><a href="https://rdrr.io/pkg/clustMixType/man/kproto.html" class="external-link">clustMixType::kproto()</a></code> from package <a href="https://CRAN.R-project.org/package=clustMixType" class="external-link"><span class="pkg">clustMixType</span></a>.</p>
 <p>The <code>k</code> parameter is set to 2 by default since <code><a href="https://rdrr.io/pkg/clustMixType/man/kproto.html" class="external-link">clustMixType::kproto()</a></code> doesn't have a default value for the number
 of clusters.
-The task must have at least 2 features.</p>
+The task must have at least 2 features.
+Logical features are converted to factors with levels <code>FALSE</code> and <code>TRUE</code>,
+so they enter the categorical part of the distance.
+Thus, a vector-valued <code>lambda</code> needs one entry per numeric, logical, and factor feature.</p>
     </div>
 
 

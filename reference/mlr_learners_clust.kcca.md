@@ -221,7 +221,7 @@ learner$train(task)
 #> Also defined by ‘flexclust’
 
 # Print the model
-print(learner$model)
+print(learner$native_model)
 #> kcca object of family ‘kmeans’ 
 #> 
 #> call:
@@ -290,7 +290,7 @@ print(learner$model)
 #> cluster sizes:
 #> 
 #>  1  2 
-#> 21 29 
+#> 29 21 
 #> 
 
 # Make predictions for the task
