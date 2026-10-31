@@ -43,7 +43,7 @@ Suggests:
     fpc,
     future,
     genieclust,
-    gmeans,
+    gmeans (>= 0.3.0),
     kernlab,
     klaR (>= 0.6-13),
     kohonen (>= 3.0.10),

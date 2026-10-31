@@ -16,6 +16,7 @@ test_that("Learner properties are respected", {
   parset_list = list(
     list(),
     list(k_init = 3L, k_max = 8L),
+    list(k_init = 2L, k_max = Inf),
     list(k_max = 4L, level = 0.01, iter.max = 20L, algorithm = "Lloyd")
   )
 

@@ -35,10 +35,10 @@ lrn("clust.gmeans")
 \section{Parameters}{
 \tabular{lllll}{
    Id \tab Type \tab Default \tab Levels \tab Range \cr
-   k_init \tab integer \tab 2 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   k_max \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
-   level \tab numeric \tab 0.05 \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
-   iter.max \tab integer \tab 10 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   k_init \tab integer \tab 1 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   k_max \tab integer \tab Inf \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
+   level \tab numeric \tab 1e-04 \tab  \tab \eqn{[0, 1]}{[0, 1]} \cr
+   iter.max \tab integer \tab 100 \tab  \tab \eqn{[1, \infty)}{[1, Inf)} \cr
    algorithm \tab character \tab Hartigan-Wong \tab Hartigan-Wong, Lloyd, Forgy, MacQueen \tab - \cr
    trace \tab logical \tab FALSE \tab TRUE, FALSE \tab - \cr
    method \tab character \tab euclidean \tab euclidean, manhattan, minkowski \tab - \cr

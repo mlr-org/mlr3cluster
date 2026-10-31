@@ -29,10 +29,10 @@ LearnerClustGMeans = R6Class(
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       param_set = ps(
-        k_init = p_int(1L, default = 2L, tags = "train"),
-        k_max = p_int(1L, default = 10L, tags = "train"),
-        level = p_dbl(0, 1, default = 0.05, tags = "train"),
-        iter.max = p_int(1L, default = 10L, tags = "train"),
+        k_init = p_int(1L, default = 1L, tags = "train"),
+        k_max = p_int(1L, default = Inf, special_vals = list(Inf), tags = "train"),
+        level = p_dbl(0, 1, default = 1e-4, tags = "train"),
+        iter.max = p_int(1L, default = 100L, tags = "train"),
         algorithm = p_fct(
           c("Hartigan-Wong", "Lloyd", "Forgy", "MacQueen"),
           default = "Hartigan-Wong",
