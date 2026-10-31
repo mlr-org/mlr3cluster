@@ -258,6 +258,23 @@ test_that("extra and raw are stored", {
   )
 })
 
+test_that("extra data may not use reserved column names", {
+  for (nm in c("row_ids", "partition", "weights", "prob.1")) {
+    extra = set_names(list(1:3), nm)
+    expect_error(
+      PredictionClust$new(row_ids = 1:3, partition = c(1L, 2L, 1L), extra = extra),
+      "reserved prediction column names",
+      class = "Mlr3ErrorInput"
+    )
+  }
+})
+
+test_that("as_prediction() does not check prediction data by default", {
+  pdata = set_class(list(row_ids = 1:3, partition = c(1, 2, 1)), c("PredictionDataClust", "PredictionData"))
+  expect_double(as_prediction(pdata)$data$partition)
+  expect_integer(as_prediction(pdata, check = TRUE)$data$partition)
+})
+
 test_that("learners can return extra and raw", {
   LearnerExtra = R6::R6Class(
     "LearnerExtra",

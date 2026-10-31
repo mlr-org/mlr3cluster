@@ -1,6 +1,7 @@
 # mlr3cluster (development version)
 
 * `clust.gmeans` now requires gmeans 0.3.0, which changed several defaults, and `k_max` accepts `Inf`.
+* `PredictionClust` now rejects extra data whose names collide with reserved prediction columns, which previously broke `as.data.table()`.
 
 # mlr3cluster 0.7.0
 

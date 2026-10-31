@@ -1,5 +1,5 @@
 #' @export
-as_prediction.PredictionDataClust = function(x, check = TRUE, ...) {
+as_prediction.PredictionDataClust = function(x, check = FALSE, ...) {
   invoke(PredictionClust$new, check = check, .args = x)
 }
 
@@ -42,6 +42,11 @@ check_prediction_data.PredictionDataClust = function(pdata, ...) {
 
   if (!is.null(pdata$extra)) {
     assert_list(pdata$extra, names = "unique")
+    nn = names(pdata$extra)
+    reserved = nn[nn %chin% c("row_ids", "partition", "weights") | startsWith(nn, "prob.")]
+    if (length(reserved) > 0L) {
+      error_input("Extra data may not use reserved prediction column names: %s", str_collapse(reserved))
+    }
     if (any(lengths(pdata$extra) != n)) {
       error_learner_predict("Extra data must have the same length as the number of predictions")
     }
