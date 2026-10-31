@@ -117,7 +117,7 @@ Collate:
     'PredictionDataClust.R'
     'TaskClust.R'
     'TaskClust_ruspini.R'
-    'TaskClust_usarrest.R'
+    'TaskClust_usarrests.R'
     'TaskGeneratorBlobs.R'
     'as_prediction_clust.R'
     'as_task_clust.R'
