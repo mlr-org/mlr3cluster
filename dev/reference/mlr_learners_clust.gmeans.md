@@ -40,10 +40,10 @@ or with the associated sugar function
 |  |  |  |  |  |
 |----|----|----|----|----|
 | Id | Type | Default | Levels | Range |
-| k_init | integer | 2 |  | \\\[1, \infty)\\ |
-| k_max | integer | 10 |  | \\\[1, \infty)\\ |
-| level | numeric | 0.05 |  | \\\[0, 1\]\\ |
-| iter.max | integer | 10 |  | \\\[1, \infty)\\ |
+| k_init | integer | 1 |  | \\\[1, \infty)\\ |
+| k_max | integer | Inf |  | \\\[1, \infty)\\ |
+| level | numeric | 1e-04 |  | \\\[0, 1\]\\ |
+| iter.max | integer | 100 |  | \\\[1, \infty)\\ |
 | algorithm | character | Hartigan-Wong | Hartigan-Wong, Lloyd, Forgy, MacQueen | \- |
 | trace | logical | FALSE | TRUE, FALSE | \- |
 | method | character | euclidean | euclidean, manhattan, minkowski | \- |
@@ -210,25 +210,25 @@ learner$train(task)
 
 # Print the model
 print(learner$native_model)
-#> K-means clustering with 2 clusters of sizes 29, 21
+#> K-means clustering with 1 clusters of sizes 50
 #> 
 #> Cluster means:
-#>    Assault    Murder     Rape UrbanPop
-#> 1 109.7586  4.841379 16.24828 64.03448
-#> 2 255.0000 11.857143 28.11429 67.61905
+#>   Assault Murder   Rape UrbanPop
+#> 1  170.76  7.788 21.232    65.54
 #> 
 #> Clustering vector:
-#>  [1] 2 2 2 2 2 2 1 2 2 2 1 1 2 1 1 1 1 2 1 2 1 2 1 2 1 1 1 2 1 1 2 2 2 1 1 1 1 1
-#> [39] 1 2 1 2 2 1 1 1 1 1 1 1
+#>  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+#> [39] 1 1 1 1 1 1 1 1 1 1 1 1
 #> 
 #> Within cluster sum of squares by cluster:
-#> [1] 54762.30 41636.73
-#>  (between_SS / total_SS =  72.9 %)
+#> [1] 355807.8
+#>  (between_SS / total_SS =  -0.0 %)
 #> 
 #> Available components:
 #> 
-#> [1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
-#> [6] "betweenss"    "size"         "iter"         "ifault"      
+#>  [1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
+#>  [6] "betweenss"    "size"         "iter"         "ifault"       "k_init"      
+#> [11] "k_max"        "level"       
 
 # Make predictions for the task
 prediction = learner$predict(task)
@@ -236,5 +236,5 @@ prediction = learner$predict(task)
 # Score the predictions
 prediction$score(task = task)
 #> clust.dunn 
-#>  0.1033191 
+#>        NaN 
 ```

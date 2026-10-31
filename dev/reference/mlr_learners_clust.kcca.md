@@ -290,7 +290,7 @@ print(learner$native_model)
 #> cluster sizes:
 #> 
 #>  1  2 
-#> 29 21 
+#> 21 29 
 #> 
 
 # Make predictions for the task

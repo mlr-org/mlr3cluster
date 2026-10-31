@@ -2,7 +2,7 @@
 
 OPTICS (ordering points to identify the clustering structure)
 clustering. Calls
-[`dbscan::optics()`](http://michael.hahsler.net/dbscan/reference/optics.md)
+[`dbscan::optics()`](https://michael.hahsler.net/dbscan/reference/optics.html)
 from package [dbscan](https://CRAN.R-project.org/package=dbscan).
 
 ## Dictionary
@@ -140,9 +140,9 @@ Other Learner:
 
   (`optics`)  
   The fitted model returned by
-  [`dbscan::optics()`](http://michael.hahsler.net/dbscan/reference/optics.md),
+  [`dbscan::optics()`](https://michael.hahsler.net/dbscan/reference/optics.html),
   with the clustering extracted by
-  [`dbscan::extractDBSCAN()`](http://michael.hahsler.net/dbscan/reference/optics.md).
+  [`dbscan::extractDBSCAN()`](https://michael.hahsler.net/dbscan/reference/optics.html).
 
 ## Methods
 

@@ -2,6 +2,12 @@
 
 ## mlr3cluster (development version)
 
+- `clust.gmeans` now requires gmeans 0.3.0, which changed several
+  defaults, and `k_max` accepts `Inf`.
+- `PredictionClust` now rejects extra data whose names collide with
+  reserved prediction columns, which previously broke
+  [`as.data.table()`](https://rdrr.io/pkg/data.table/man/as.data.table.html).
+
 ## mlr3cluster 0.7.0
 
 CRAN release: 2026-10-17
@@ -282,7 +288,7 @@ CRAN release: 2026-08-21
   `p` to be greater than 0, matching
   [`stats::dist()`](https://rdrr.io/r/stats/dist.html).
 - `clust.hdbscan` now requires `minPts >= 2`, matching
-  [`dbscan::hdbscan()`](http://michael.hahsler.net/dbscan/reference/hdbscan.md).
+  [`dbscan::hdbscan()`](https://michael.hahsler.net/dbscan/reference/hdbscan.html).
   Smaller values now fail when set rather than during training.
 - `clust.kcca` now validates `initcent` as a single string and documents
   its default as `"randomcent"`. Invalid values now fail when set rather
